@@ -1,0 +1,12 @@
+{
+  "type": "reagenica:cooking",
+  "inputs": [
+    { "item": "reagenica:tomato" },
+    { "item": "reagenica:tomato" },
+    { "item": "reagenica:onion" },
+    { "item": "minecraft:carrot" },
+    { "item": "minecraft:potato" },
+    { "item": "reagenica:salt" }
+  ],
+  "result": { "item": "reagenica:minestrone" }
+}

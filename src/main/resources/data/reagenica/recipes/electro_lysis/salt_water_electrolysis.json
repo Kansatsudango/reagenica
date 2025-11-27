@@ -1,0 +1,23 @@
+{
+  "type": "reagenica:electrolysis",
+  "influid": {
+    "fluid": "reagenica:salt_water",
+    "amount": 100
+  },
+  "outfluid": {
+    "fluid": "reagenica:sodium_hydroxide",
+    "amount": 100
+  },
+  "cathode": {
+    "tag": "reagenica:electrodes"
+  },
+  "anode": {
+    "tag": "reagenica:electrodes"
+  },
+  "result_gas_n": {
+    "item": "reagenica:hydrogen"
+  },
+  "result_gas_p": {
+    "item": "reagenica:chlorine"
+  }
+}

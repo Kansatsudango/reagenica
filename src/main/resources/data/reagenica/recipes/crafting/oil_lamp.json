@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "# #",
+    "#-#",
+    "GOG"
+  ],
+  "key": {
+    "#": { "item": "minecraft:glass_pane" },
+    "-": { "item": "minecraft:string" },
+    "G": { "item": "minecraft:gold_ingot" },
+    "O": { "item": "reagenica:diesel_fuel" }
+  },
+  "result": {
+    "item": "reagenica:oil_lamp",
+    "count": 2
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "parent": "reagenica:nitrobenzene",
+  "display": {
+    "icon": { "item": "reagenica:benzenediazonium_chloride" },
+  "title": {
+    "translate": "advancements.reagenica.benzenediazonium_chloride.title"
+  },
+  "description": {
+    "translate": "advancements.reagenica.benzenediazonium_chloride.desc"
+  },
+  "frame": "task",
+  "show_toast": true,
+  "announce_to_chat": true
+  },
+  "criteria": {
+    "obtain_item": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          { "items": ["reagenica:benzenediazonium_chloride"] }
+        ]
+      }
+    }
+  }
+}

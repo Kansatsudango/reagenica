@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/template_glass_pane_noside",
+  "textures": {
+    "pane": "reagenica:block/purple_plastic_tile"
+  },
+  "render_type": "translucent"
+}

@@ -1,0 +1,9 @@
+{
+  "type": "reagenica:reagent_mixing",
+  "inputs":[
+    { "item": "reagenica:adipic_acid" },
+    { "item": "reagenica:hexamethylene_diamine" }
+  ],
+  "requires_heat": false,
+  "result_a": { "item": "reagenica:nylon_pellet", "count":1}
+}

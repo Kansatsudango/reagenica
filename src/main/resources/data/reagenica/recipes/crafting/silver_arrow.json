@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    { "item": "reagenica:silver_ingot" },
+    { "item": "minecraft:arrow" }
+  ],
+  "result": {
+    "item": "reagenica:silver_arrow",
+    "count": 1
+  }
+}

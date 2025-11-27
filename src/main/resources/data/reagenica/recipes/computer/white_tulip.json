@@ -1,0 +1,13 @@
+{
+  "type": "reagenica:reagenimart",
+  "merchandise": {
+    "item": "minecraft:white_tulip",
+    "count": 4
+  },
+  "price": {
+    "item": "reagenica:sapphire",
+    "count": 1
+  },
+  "category": "naturals",
+  "order": 1
+}

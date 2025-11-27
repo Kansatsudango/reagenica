@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " # ",
+    "#S#",
+    " # "
+  ],
+  "key": {
+    "#": { "item": "minecraft:stick" },
+    "S": { "item": "minecraft:string" }
+  },
+  "result": {
+    "item": "reagenica:pargola",
+    "count": 8
+  }
+}

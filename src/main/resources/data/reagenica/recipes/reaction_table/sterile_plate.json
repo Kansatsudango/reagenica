@@ -1,0 +1,12 @@
+{
+  "type": "reagenica:reagent_mixing",
+  "inputs":[
+    { "item": "reagenica:medium_plate" }
+  ],
+  "catalyst": {"item": "reagenica:cobalt_capsule"},
+  "requires_heat": false,
+  "result_a": {
+    "item" : "reagenica:medium_plate", 
+    "nbt" : "{\"Sterile\":1b}"
+  }
+}

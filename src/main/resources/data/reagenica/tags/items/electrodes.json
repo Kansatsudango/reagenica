@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "reagenica:carbon_electrode",
+    "reagenica:copper_electrode",
+    "reagenica:gold_electrode",
+    "reagenica:refined_copper_electrode",
+    "reagenica:platinum_electrode"
+  ]
+}

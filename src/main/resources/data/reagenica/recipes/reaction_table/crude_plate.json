@@ -1,0 +1,12 @@
+{
+  "type": "reagenica:reagent_mixing",
+  "inputs":[
+    { "tag": "reagenica:crude_naturals" },
+    { "item": "reagenica:medium_plate" }
+  ],
+  "requires_heat": false,
+  "result_a": {
+    "item" : "reagenica:growing_plate", 
+    "nbt" : "{\"ParentType\":\"Crude\"}"
+  }
+}

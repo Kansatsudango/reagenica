@@ -1,0 +1,7 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "reagenica:item/reagent_paper",
+    "layer1": "reagenica:item/powder_on_paper"
+  }
+}

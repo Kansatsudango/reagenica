@@ -1,0 +1,25 @@
+{
+  "parent": "reagenica:aluminium",
+  "display": {
+    "icon": { "item": "reagenica:reactor" },
+  "title": {
+    "translate": "advancements.reagenica.reactor.title"
+  },
+  "description": {
+    "translate": "advancements.reagenica.reactor.desc"
+  },
+  "frame": "task",
+  "show_toast": true,
+  "announce_to_chat": true
+  },
+  "criteria": {
+    "obtain_item": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          { "items": ["reagenica:reactor"] }
+        ]
+      }
+    }
+  }
+}

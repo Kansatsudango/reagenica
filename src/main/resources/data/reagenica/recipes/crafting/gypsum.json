@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "##",
+    "##"
+  ],
+  "key": {
+    "#": { "item": "reagenica:calcium_sulfate" }
+  },
+  "result": {
+    "item": "reagenica:gypsum",
+    "count": 4
+  }
+}

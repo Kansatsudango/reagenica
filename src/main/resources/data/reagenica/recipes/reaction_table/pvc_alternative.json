@@ -1,0 +1,10 @@
+{
+  "type": "reagenica:reagent_mixing",
+  "inputs":[
+    { "item": "reagenica:chloroethylene" }
+  ],
+  "catalyst":{ "item": "reagenica:copper_catalyst"},
+  "requires_heat": false,
+  "result_a": { "item": "reagenica:pvc","count":4},
+  "result_b": { "item": "reagenica:testtube"}
+}

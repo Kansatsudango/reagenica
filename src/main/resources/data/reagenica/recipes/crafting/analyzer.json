@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "TTT",
+    "PPP"
+  ],
+  "key": {
+    "T": { "item": "reagenica:testtube" },
+    "P": { "item": "reagenica:pvc" }
+  },
+  "result": {
+    "item": "reagenica:analyzer",
+    "count": 1
+  }
+}

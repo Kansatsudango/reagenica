@@ -1,0 +1,88 @@
+# LICENSE
+
+English follows Japanese./日本語版の後に英語版があります
+
+このMod（以下「本Mod」）の著作権は kansatsudango に帰属します。
+
+【利用範囲】
+本Modの利用は無料とし、商用目的での利用を禁止します。
+ただし、動画配信・生放送などのプラットフォームにおける収益化は自由に行って構いません。
+
+【再配布の禁止】
+本Modの再配布（改変の有無を問わず）を禁止します。
+jarファイルが直接含まれる形でのModpackへの同梱を希望する場合は、kansatsudango の許可を得てください。
+（CurseForge などのリンクを使用した Modpack での利用は許可不要です。）
+
+【アドオン・プラグイン】
+本Modの動作を拡張するアドオンやプラグインの制作・配布は自由に行って構いません。
+ただし、本Modの内容（ソースコード、アセット）を大部分含むものであってはなりません。
+
+【禁止事項】
+・本Modの商用販売
+・本Modの無断再配布
+・本Modのアセット（テクスチャ、モデル、サウンド等）の過度な再利用
+・本Modを使用して、個人または団体の名誉を毀損する、または極度に暴力的なコンテンツを制作するなど、人を不快にさせる行為
+
+【参考例】
+良いこと：
+・本Modを使ってゲームをプレイした動画を投稿・配信する
+・本Modを含む Modpack を CurseForge で公開する（リンク方式）
+・本Modのプラグイン（アドオン、データパックなど）を制作し、公開する
+・本Modのソースコードを参考にする
+
+駄目なこと：
+・本Modの jar ファイルを再配布したり、自作と偽って使用・公開する
+・本Modのソースコードやアセットを丸ごと含むプラグインなどを制作・公開する
+・本Modのテクスチャを自作Modにそのまま流用する（似たデザインのアセットを作ること自体は良識の範囲で可）
+・本Modを使い、特定の個人や団体を中傷する目的で動画等を制作する
+
+【免責事項】
+本Modの利用によって生じた損害について、製作者は一切の責任を負いません。
+また、ソースコードの後方互換性を必ずしも保証できないため、プラグイン開発時にはご注意ください。
+
+Copyright (c) kansatsudango
+
+This mod (hereinafter “the Mod”) is the copyrighted work of kansatsudango.
+
+[Usage]
+The Mod is provided free of charge. Commercial use of the Mod is prohibited.
+However, monetization through video platforms or livestreaming services
+(e.g., ad revenue or streaming income) is explicitly permitted.
+
+[Redistribution]
+Redistribution of the Mod, with or without modification, is prohibited.
+If you wish to include the Mod's jar file directly in a Modpack, you must
+obtain permission from kansatsudango.
+(Modpacks that use external links, such as those on CurseForge, do not require permission.)
+
+[Add-ons and Plugins]
+Creation and distribution of add-ons, plugins, or data packs that extend
+the Mod's functionality are allowed.
+However, such works must not include substantial portions of the Mod's
+source code or assets.
+
+[Prohibited Activities]
+• Selling the Mod or using it for commercial purposes  
+• Redistributing the Mod without permission  
+• Excessive reuse of the Mod's assets (textures, models, sounds, etc.)  
+• Using the Mod to create content that harasses or defames individuals or groups,  
+  or content that is extremely violent or otherwise intended to cause discomfort
+
+[Examples]
+
+Allowed:
+• Posting or streaming gameplay videos featuring the Mod  
+• Publishing Modpacks on CurseForge using external download links  
+• Creating and releasing add-ons or plugins intended for use alongside the Mod  
+• Using the Mod's source code for personal study or reference  
+
+Not allowed:
+• Redistributing the Mod's jar file, or claiming the Mod as your own  
+• Publishing plugins or add-ons that include the Mod’s source code or assets in bulk  
+• Reusing the Mod’s textures directly in your own Mod (creating similar original assets is fine)  
+• Using the Mod to produce defamatory or targeted harassment content against any individual or group  
+
+[Disclaimer]
+The creator assumes no responsibility for any damages resulting from the use
+of the Mod. Backward compatibility of the source code is not guaranteed, so
+please exercise caution when developing plugins or add-ons.

@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/template_glass_pane_side",
+  "textures": {
+    "edge": "reagenica:block/polyethylene_pane_top",
+    "pane": "reagenica:block/polyethylene"
+  },
+  "render_type": "cutout"
+}

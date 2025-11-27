@@ -1,0 +1,8 @@
+{
+  "type": "reagenica:cooking",
+  "inputs": [
+    { "item": "reagenica:tomato" },
+    { "item": "reagenica:salt" }
+  ],
+  "result": { "item": "reagenica:tomato_soup" }
+}

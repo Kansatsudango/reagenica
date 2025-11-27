@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    { "item": "minecraft:copper_ingot" },
+    { "item": "reagenica:salt" }
+  ],
+  "result": {
+    "item": "reagenica:copper_catalyst",
+    "count": 1
+  }
+}

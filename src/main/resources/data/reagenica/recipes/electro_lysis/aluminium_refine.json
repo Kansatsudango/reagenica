@@ -1,0 +1,19 @@
+{
+  "type": "reagenica:electrolysis",
+  "influid": {
+    "fluid": "reagenica:alumina_melt",
+    "amount": 100
+  },
+  "result_n": {
+    "item": "reagenica:aluminium_ingot"
+  },
+  "result_p": {
+    "item": "reagenica:powder_cryolite"
+  },
+  "cathode": {
+    "item": "reagenica:carbon_electrode"
+  },
+  "anode": {
+    "item": "reagenica:carbon_electrode"
+  }
+}

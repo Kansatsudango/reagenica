@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    { "item": "reagenica:alumina" },
+    { "item": "reagenica:powder_cryolite" }
+  ],
+  "result": {
+    "item": "reagenica:alumina_with_cryolite",
+    "count": 2
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "type": "reagenica:crushing",
+  "input": {
+    "item": "minecraft:raw_gold"
+  },
+  "result": {
+    "item": "reagenica:powder_gold_ore"
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "type": "reagenica:electrolysis",
+  "influid": {
+    "fluid": "reagenica:silver_solution",
+    "amount": 25
+  },
+  "outfluid": {
+    "fluid": "reagenica:platinum_solution",
+    "amount": 25
+  },
+  "result_n": {
+    "item": "reagenica:trace_silver",
+    "count":5
+  },
+  "cathode": {
+    "item": "reagenica:platinum_electrode"
+  },
+  "anode": {
+    "item": "reagenica:carbon_electrode"
+  },
+  "result_gas_p": {
+    "item": "reagenica:chlorine"
+  }
+}

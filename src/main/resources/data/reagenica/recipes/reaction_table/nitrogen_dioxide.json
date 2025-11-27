@@ -1,0 +1,11 @@
+{
+  "type": "reagenica:reagent_mixing",
+  "inputs":[
+    { "item": "reagenica:ammonia"},
+    { "item": "reagenica:oxygen"}
+  ],
+  "requires_heat": true,
+  "catalyst":{ "item": "reagenica:platinum_catalyst"},
+  "result_a": { "item": "reagenica:nitrogen_dioxide", "count": 1},
+  "result_b": { "item": "reagenica:testtube", "count": 1}
+}

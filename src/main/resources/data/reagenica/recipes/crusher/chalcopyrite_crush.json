@@ -1,0 +1,9 @@
+{
+  "type": "reagenica:crushing",
+  "input": {
+    "item": "reagenica:raw_chalcopyrite"
+  },
+  "result": {
+    "item": "reagenica:powder_chalcopyrite"
+  }
+}

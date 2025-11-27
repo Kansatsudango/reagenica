@@ -1,0 +1,13 @@
+{
+  "type": "reagenica:reagenimart",
+  "merchandise": {
+    "item": "minecraft:bell",
+    "count": 1
+  },
+  "price": {
+    "item": "reagenica:sapphire",
+    "count": 32
+  },
+  "category": "building",
+  "order": 2
+}

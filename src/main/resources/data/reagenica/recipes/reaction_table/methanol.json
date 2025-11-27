@@ -1,0 +1,9 @@
+{
+  "type": "reagenica:reagent_mixing",
+  "inputs":[
+    { "item": "reagenica:testtube" },
+    { "item": "minecraft:charcoal" }
+  ],
+  "requires_heat": true,
+  "result_a": { "item": "reagenica:methanol", "count":1}
+}

@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#G#"
+  ],
+  "key": {
+    "#": { "item": "reagenica:pvc" },
+    "G": { "item": "minecraft:glass_pane" }
+  },
+  "result": {
+    "item": "reagenica:pvc_pipe",
+    "count": 4
+  }
+}

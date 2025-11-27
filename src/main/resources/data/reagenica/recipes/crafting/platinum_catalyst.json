@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    { "item": "reagenica:platinum_ingot" },
+    { "item": "reagenica:salt" }
+  ],
+  "result": {
+    "item": "reagenica:platinum_catalyst",
+    "count": 1
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "type": "forge:add_features",
+  "biomes": "#minecraft:is_overworld",
+  "features": [
+    "reagenica:ore_oilsand_placed"
+  ],
+  "step": "underground_ores"
+}

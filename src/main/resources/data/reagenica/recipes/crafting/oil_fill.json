@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###",
+    "#X#",
+    "###"
+  ],
+  "key": {
+    "#": { "item": "reagenica:testtube" },
+    "X": { "item": "reagenica:crude_oil_bucket" }
+  },
+  "result": {
+    "item": "reagenica:crude_oil",
+    "count": 8
+  }
+}

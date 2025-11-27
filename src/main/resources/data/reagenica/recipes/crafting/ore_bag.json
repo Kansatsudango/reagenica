@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " S ",
+    "CLC"
+  ],
+  "key": {
+    "S": { "item": "minecraft:string" },
+    "L": { "item": "minecraft:leather" },
+    "C": { "item": "reagenica:polyethylene" }
+  },
+  "result": {
+    "item": "reagenica:ore_bag",
+    "count": 1
+  }
+}

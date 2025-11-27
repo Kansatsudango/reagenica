@@ -1,0 +1,10 @@
+{
+  "type": "reagenica:reagent_mixing",
+  "inputs":[
+    { "item": "reagenica:benzene" },
+    { "item": "reagenica:hydrogen" }
+  ],
+  "catalyst": {"item": "reagenica:aluminium_catalyst"},
+  "requires_heat": false,
+  "result_a": { "item": "reagenica:cyclohexane", "count":2}
+}

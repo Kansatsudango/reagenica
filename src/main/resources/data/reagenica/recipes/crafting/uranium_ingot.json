@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    { "item": "reagenica:uranium_nugget" },
+    { "item": "reagenica:uranium_nugget" },
+    { "item": "reagenica:uranium_nugget" },
+    { "item": "reagenica:uranium_nugget" },
+    { "item": "reagenica:uranium_nugget" },
+    { "item": "reagenica:uranium_nugget" },
+    { "item": "reagenica:uranium_nugget" },
+    { "item": "reagenica:uranium_nugget" },
+    { "item": "reagenica:uranium_nugget" }
+  ],
+  "result": {
+    "item": "reagenica:uranium_ingot",
+    "count": 1
+  }
+}

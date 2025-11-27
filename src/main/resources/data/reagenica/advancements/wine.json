@@ -1,0 +1,25 @@
+{
+  "parent": "reagenica:yeast",
+  "display": {
+    "icon": { "item": "reagenica:wine" },
+  "title": {
+    "translate": "advancements.reagenica.wine.title"
+  },
+  "description": {
+    "translate": "advancements.reagenica.wine.desc"
+  },
+  "frame": "task",
+  "show_toast": true,
+  "announce_to_chat": true
+  },
+  "criteria": {
+    "obtain_item": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          { "items": ["reagenica:wine"] }
+        ]
+      }
+    }
+  }
+}

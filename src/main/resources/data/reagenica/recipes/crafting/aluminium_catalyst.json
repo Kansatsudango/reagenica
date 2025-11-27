@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    { "item": "reagenica:aluminium_ingot" },
+    { "item": "minecraft:coal" }
+  ],
+  "result": {
+    "item": "reagenica:aluminium_catalyst",
+    "count": 1
+  }
+}

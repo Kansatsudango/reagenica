@@ -1,0 +1,5 @@
+{
+  "type": "reagenica:reactor",
+  "input": { "item": "minecraft:quartz" },
+  "result": { "item": "reagenica:smoky_quartz"}
+}

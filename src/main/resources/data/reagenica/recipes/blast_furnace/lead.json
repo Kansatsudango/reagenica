@@ -1,0 +1,8 @@
+{
+  "type": "reagenica:blast_furnace",
+  "input": { "item": "reagenica:lead_oxide" },
+  "result": { "item": "reagenica:lead_ingot", "count": 1 },
+  "byproduct": { "item": "reagenica:slag", "count": 1 },
+  "temp_min": 3000,
+  "temp_max": 6000
+}

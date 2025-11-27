@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###",
+    "#D#",
+    "###"
+  ],
+  "key": {
+    "#": { "item": "reagenica:gypsum" },
+    "D": { "item": "reagenica:green_azo_dye" }
+  },
+  "result": {
+    "item": "reagenica:green_gypsum",
+    "count": 8
+  }
+}

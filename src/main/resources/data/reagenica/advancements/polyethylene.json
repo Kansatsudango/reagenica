@@ -1,0 +1,25 @@
+{
+  "parent": "reagenica:ethylene",
+  "display": {
+    "icon": { "item": "reagenica:polyethylene" },
+  "title": {
+    "translate": "advancements.reagenica.polyethylene.title"
+  },
+  "description": {
+    "translate": "advancements.reagenica.polyethylene.desc"
+  },
+  "frame": "task",
+  "show_toast": true,
+  "announce_to_chat": true
+  },
+  "criteria": {
+    "obtain_item": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          { "items": ["reagenica:polyethylene"] }
+        ]
+      }
+    }
+  }
+}

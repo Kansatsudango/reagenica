@@ -1,0 +1,10 @@
+{
+  "type": "reagenica:crushing",
+  "input": {
+    "item": "minecraft:raw_iron"
+  },
+  "result": {
+    "item": "reagenica:powder_iron_ore",
+    "count": 2
+  }
+}

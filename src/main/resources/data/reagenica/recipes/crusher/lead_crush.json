@@ -1,0 +1,10 @@
+{
+  "type": "reagenica:crushing",
+  "input": {
+    "item": "reagenica:raw_lead"
+  },
+  "result": {
+    "item": "reagenica:powder_lead",
+    "count": 2
+  }
+}

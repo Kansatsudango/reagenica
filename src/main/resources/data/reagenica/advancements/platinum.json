@@ -1,0 +1,25 @@
+{
+  "parent": "reagenica:aqua_regia",
+  "display": {
+    "icon": { "item": "reagenica:platinum_ingot" },
+  "title": {
+    "translate": "advancements.reagenica.platinum_ingot.title"
+  },
+  "description": {
+    "translate": "advancements.reagenica.platinum_ingot.desc"
+  },
+  "frame": "task",
+  "show_toast": true,
+  "announce_to_chat": true
+  },
+  "criteria": {
+    "obtain_item": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          { "items": ["reagenica:platinum_ingot"] }
+        ]
+      }
+    }
+  }
+}

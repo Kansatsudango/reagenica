@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "facing=north": { "model": "reagenica:block/trading_stall", "y": 180 },
+    "facing=south": { "model": "reagenica:block/trading_stall", "y": 0 },
+    "facing=west":  { "model": "reagenica:block/trading_stall", "y": 90 },
+    "facing=east":  { "model": "reagenica:block/trading_stall", "y": 270 }
+  }
+}

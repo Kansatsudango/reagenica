@@ -1,0 +1,10 @@
+{
+  "type": "reagenica:reagent_mixing",
+  "inputs":[
+    { "item": "reagenica:ethylene" }
+  ],
+  "catalyst":{ "item": "reagenica:copper_catalyst"},
+  "requires_heat": false,
+  "result_a": { "item": "reagenica:polyethylene","count":4},
+  "result_b": { "item": "reagenica:testtube"}
+}

@@ -1,0 +1,13 @@
+{
+  "type": "reagenica:dissolving",
+  "input": {
+    "item": "reagenica:powder_bauxite"
+  },
+  "influid": {
+    "fluid": "reagenica:sodium_hydroxide",
+    "amount": 100
+  },
+  "itemresult": {
+    "item": "reagenica:aluminium_hydroxide"
+  }
+}

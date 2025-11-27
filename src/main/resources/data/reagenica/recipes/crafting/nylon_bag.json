@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " I ",
+    "N N",
+    "NNN"
+  ],
+  "key": {
+    "I": { "item": "minecraft:iron_nugget" },
+    "N": { "item": "reagenica:nylon_string" }
+  },
+  "result": {
+    "item": "reagenica:nylon_bag",
+    "count": 1
+  }
+}

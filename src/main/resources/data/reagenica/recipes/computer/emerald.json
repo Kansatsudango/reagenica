@@ -1,0 +1,13 @@
+{
+  "type": "reagenica:reagenimart",
+  "merchandise": {
+    "item": "minecraft:emerald",
+    "count": 2
+  },
+  "price": {
+    "item": "reagenica:sapphire",
+    "count": 1
+  },
+  "category": "commodity",
+  "order": 0
+}

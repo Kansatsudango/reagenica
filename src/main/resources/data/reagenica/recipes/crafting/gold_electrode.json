@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " C ",
+    "###",
+    "###"
+  ],
+  "key": {
+    "#": { "item": "minecraft:gold_ingot" },
+    "C": { "item": "reagenica:copper_cable" }
+  },
+  "result": {
+    "item": "reagenica:gold_electrode",
+    "count": 1
+  }
+}

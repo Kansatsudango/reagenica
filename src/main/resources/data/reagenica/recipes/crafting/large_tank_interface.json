@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "AAA",
+    "#G#",
+    "# #"
+  ],
+  "key": {
+    "#": { "item": "reagenica:reinforced_ingot" },
+    "A": { "item": "reagenica:aluminium_ingot" },
+    "G": { "item": "reagenica:gypsum" }
+  },
+  "result": {
+    "item": "reagenica:large_tank_interface",
+    "count": 1
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "type": "reagenica:reagent_mixing",
+  "inputs":[
+    { "item": "reagenica:nitrous_oxide" }
+  ],
+  "requires_heat": true,
+  "result_a": { "item": "reagenica:testtube", "count":1}
+}

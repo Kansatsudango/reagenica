@@ -1,0 +1,8 @@
+{
+  "type": "forge:add_features",
+  "biomes": "#forge:is_plains",
+  "features": [
+    "reagenica:wild_onion_placed"
+  ],
+  "step": "vegetal_decoration"
+}

@@ -1,0 +1,13 @@
+{
+  "type": "reagenica:reagenimart",
+  "merchandise": {
+    "item": "reagenica:crude_oil_bucket",
+    "count": 1
+  },
+  "price": {
+    "item": "reagenica:sapphire",
+    "count": 8
+  },
+  "category": "minerals",
+  "order": 1
+}

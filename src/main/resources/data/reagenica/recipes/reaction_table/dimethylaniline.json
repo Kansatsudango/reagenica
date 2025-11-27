@@ -1,0 +1,11 @@
+{
+  "type": "reagenica:reagent_mixing",
+  "inputs":[
+    { "item": "reagenica:aniline" },
+    { "item": "reagenica:methanol" }
+  ],
+  "requires_heat": false,
+  "catalyst": {"item": "reagenica:aluminium_catalyst"},
+  "result_a": { "item": "reagenica:dimethylaniline", "count":1},
+  "result_b": { "item": "reagenica:testtube", "count":1}
+}

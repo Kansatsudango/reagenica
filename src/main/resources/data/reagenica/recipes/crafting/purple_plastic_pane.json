@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###",
+    "###"
+  ],
+  "key": {
+    "#": { "item": "reagenica:purple_plastic" }
+  },
+  "result": {
+    "item": "reagenica:purple_plastic_pane",
+    "count": 16
+  }
+}

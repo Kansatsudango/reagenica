@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    { "item": "reagenica:soy_sauce" },
+    { "item": "minecraft:bowl" }
+  ],
+  "result": {
+    "item": "reagenica:soysauce_bowl",
+    "count": 1
+  }
+}

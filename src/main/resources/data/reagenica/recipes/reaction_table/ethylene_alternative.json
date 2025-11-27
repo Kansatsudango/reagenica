@@ -1,0 +1,9 @@
+{
+  "type": "reagenica:reagent_mixing",
+  "inputs":[
+    { "item": "reagenica:crude_oil" , "count":4}
+  ],
+  "requires_heat": true,
+  "result_a": { "item": "reagenica:ethylene"},
+  "result_b": { "item": "reagenica:testtube","count":3}
+}

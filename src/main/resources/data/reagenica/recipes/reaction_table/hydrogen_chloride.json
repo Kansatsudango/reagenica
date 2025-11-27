@@ -1,0 +1,10 @@
+{
+  "type": "reagenica:reagent_mixing",
+  "inputs":[
+    { "item": "reagenica:chlorine" },
+    { "item": "reagenica:hydrogen" }
+  ],
+  "catalyst":{ "item": "reagenica:uv_lamp"},
+  "requires_heat": false,
+  "result_a": { "item": "reagenica:hydrogen_chloride", "count":2}
+}

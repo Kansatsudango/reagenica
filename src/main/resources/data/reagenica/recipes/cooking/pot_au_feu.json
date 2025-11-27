@@ -1,0 +1,11 @@
+{
+  "type": "reagenica:cooking",
+  "inputs": [
+    { "item": "minecraft:carrot" },
+    { "item": "minecraft:potato" },
+    { "item": "reagenica:onion" },
+    { "tag": "reagenica:meats" },
+    { "item": "reagenica:salt" }
+  ],
+  "result": { "item": "reagenica:pot_au_feu" }
+}

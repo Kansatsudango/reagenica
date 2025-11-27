@@ -1,0 +1,12 @@
+{
+  "type": "reagenica:fermentation",
+  "inputs": [
+    {"item": "reagenica:rice"}
+  ],
+  "result_item": {
+    "item": "reagenica:koji"
+  },
+  "catalyst": {
+    "item": "reagenica:aspergillus_oryzae"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "facing=north": { "model": "reagenica:block/cooking_pot", "y": 0 },
+    "facing=south": { "model": "reagenica:block/cooking_pot", "y": 180 },
+    "facing=west":  { "model": "reagenica:block/cooking_pot", "y": 270 },
+    "facing=east":  { "model": "reagenica:block/cooking_pot", "y": 90 }
+  }
+}

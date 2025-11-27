@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###",
+    "#X#",
+    "###"
+  ],
+  "key": {
+    "#": { "item": "reagenica:polyethylene_block" },
+    "X": { "item": "reagenica:blue_azo_dye" }
+  },
+  "result": {
+    "item": "reagenica:blue_plastic",
+    "count": 8
+  }
+}

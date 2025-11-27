@@ -1,0 +1,25 @@
+{
+  "parent": "reagenica:wine",
+  "display": {
+    "icon": { "item": "reagenica:beef_stew" },
+  "title": {
+    "translate": "advancements.reagenica.beef_stew.title"
+  },
+  "description": {
+    "translate": "advancements.reagenica.beef_stew.desc"
+  },
+  "frame": "goal",
+  "show_toast": true,
+  "announce_to_chat": true
+  },
+  "criteria": {
+    "obtain_item": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          { "items": ["reagenica:beef_stew"] }
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "type": "reagenica:electrolysis",
+  "influid": {
+    "fluid": "reagenica:platinum_solution",
+    "amount": 25
+  },
+  "outfluid": {
+    "amount": 0
+  },
+  "result_n": {
+    "item": "reagenica:trace_platinum",
+    "count": 4
+  },
+  "cathode": {
+    "item": "reagenica:platinum_electrode"
+  },
+  "anode": {
+    "item": "reagenica:carbon_electrode"
+  },
+  "result_gas_p": {
+    "item": "reagenica:chlorine"
+  }
+}

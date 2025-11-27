@@ -1,0 +1,9 @@
+{
+  "type": "reagenica:reagent_mixing",
+  "inputs":[
+    { "item": "reagenica:dilute_sulfuric_acid" , "count":10},
+    { "item": "minecraft:bucket" }
+  ],
+  "requires_heat": false,
+  "result_a": { "item": "reagenica:dilute_sulfuric_acid_bucket", "count":1}
+}

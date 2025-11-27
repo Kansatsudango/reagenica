@@ -1,0 +1,10 @@
+{
+  "type": "reagenica:reagent_mixing",
+  "inputs":[
+    { "item": "reagenica:nitrobenzene" },
+    { "item": "reagenica:hydrochloric_acid" }
+  ],
+  "requires_heat": false,
+  "result_a": { "item": "reagenica:anilinium_chloride", "count":1},
+  "result_b": { "item": "reagenica:testtube", "count":1}
+}

@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###",
+    "# #",
+    "#R#"
+  ],
+  "key": {
+    "#": { "item": "reagenica:reinforced_ingot" },
+    "R": { "item": "minecraft:comparator" }
+  },
+  "result": {
+    "item": "reagenica:air_separator",
+    "count": 1
+  }
+}

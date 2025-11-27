@@ -1,0 +1,8 @@
+{
+  "type": "forge:add_features",
+  "biomes": "#reagenica:is_meadowlike",
+  "features": [
+    "reagenica:wild_tomato_placed"
+  ],
+  "step": "vegetal_decoration"
+}

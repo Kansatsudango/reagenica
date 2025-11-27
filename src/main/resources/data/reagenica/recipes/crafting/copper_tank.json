@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###",
+    "#G#",
+    "###"
+  ],
+  "key": {
+    "#": { "item": "minecraft:copper_ingot" },
+    "G": { "item": "minecraft:glass_pane" }
+  },
+  "result": {
+    "item": "reagenica:copper_tank",
+    "count": 1
+  }
+}

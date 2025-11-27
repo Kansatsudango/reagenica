@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " C ",
+    " # ",
+    "# #"
+  ],
+  "key": {
+    "#": { "item": "minecraft:stick" },
+    "C": { "tag": "minecraft:coals" }
+  },
+  "result": {
+    "item": "reagenica:easy_torch",
+    "count": 1
+  }
+}

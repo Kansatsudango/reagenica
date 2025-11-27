@@ -1,0 +1,11 @@
+{
+  "type": "reagenica:stall_trading",
+  "merchandise": {
+    "item": "reagenica:miso_soup",
+    "count": 4
+  },
+  "price": {
+    "item": "reagenica:sapphire",
+    "count": 1
+  }
+}

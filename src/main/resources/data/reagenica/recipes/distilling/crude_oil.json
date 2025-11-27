@@ -1,0 +1,15 @@
+{
+  "type": "reagenica:distilling",
+  "influid": {
+    "fluid": "reagenica:crude_oil",
+    "amount": 100
+  },
+  "topfluid": {
+    "fluid": "reagenica:naphtha",
+    "amount": 50
+  },
+  "bottomfluid": {
+    "fluid": "reagenica:diesel_fuel",
+    "amount": 50
+  }
+}

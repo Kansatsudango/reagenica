@@ -1,0 +1,10 @@
+{
+  "type": "reagenica:cooking",
+  "inputs": [
+    { "item": "minecraft:carrot" },
+    { "item": "minecraft:potato" },
+    { "item": "minecraft:chicken" },
+    { "item": "reagenica:milk" }
+  ],
+  "result": { "item": "reagenica:cream_stew", "count": 2 }
+}

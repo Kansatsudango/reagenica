@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    { "item": "reagenica:silver_filter" },
+    { "item": "reagenica:platinum_ingot" }
+  ],
+  "result": {
+    "item": "reagenica:platinum_filter",
+    "count": 1
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " C ",
+    "###",
+    "###"
+  ],
+  "key": {
+    "#": { "item": "minecraft:coal_block" },
+    "C": { "item": "reagenica:copper_cable" }
+  },
+  "result": {
+    "item": "reagenica:carbon_electrode",
+    "count": 1
+  }
+}

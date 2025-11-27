@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " S#",
+    "S #",
+    " S#"
+  ],
+  "key": {
+    "#": { "item": "minecraft:string" },
+    "S": { "item": "reagenica:silver_ingot" }
+  },
+  "result": {
+    "item": "reagenica:silver_bow",
+    "count": 1
+  }
+}

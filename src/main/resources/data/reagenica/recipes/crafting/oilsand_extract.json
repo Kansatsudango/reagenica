@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    { "item": "reagenica:oilsand" },
+    { "item": "reagenica:testtube" }
+  ],
+  "result": {
+    "item": "reagenica:crude_oil",
+    "count": 1
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    { "item": "reagenica:alchohol_lamp" },
+    { "item": "reagenica:ethanol" }
+  ],
+  "result": {
+    "item": "reagenica:alchohol_lamp",
+    "count": 1
+  }
+}

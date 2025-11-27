@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    { "item": "reagenica:plutonium_nugget" },
+    { "item": "reagenica:plutonium_nugget" },
+    { "item": "reagenica:plutonium_nugget" },
+    { "item": "reagenica:plutonium_nugget" },
+    { "item": "reagenica:plutonium_nugget" },
+    { "item": "reagenica:plutonium_nugget" },
+    { "item": "reagenica:plutonium_nugget" },
+    { "item": "reagenica:plutonium_nugget" },
+    { "item": "reagenica:plutonium_nugget" }
+  ],
+  "result": {
+    "item": "reagenica:plutonium_ingot",
+    "count": 1
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#E#",
+    "GFG"
+  ],
+  "key": {
+    "#": { "item": "minecraft:smooth_stone" },
+    "G": { "item": "minecraft:glass_pane" },
+    "F": { "item": "minecraft:furnace" },
+    "E": { "item": "reagenica:polyethylene" }
+  },
+  "result": {
+    "item": "reagenica:heat_furnace",
+    "count": 1
+  }
+}

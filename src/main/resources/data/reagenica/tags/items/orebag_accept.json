@@ -1,0 +1,19 @@
+{
+  "replace": false,
+  "values": [
+    "#forge:ores",
+    "#forge:stone",
+    "#forge:cobblestone",
+    "#forge:gems",
+    "#forge:ingots",
+    "#forge:raw_materials",
+    "minecraft:coal",
+    "minecraft:redstone",
+    "minecraft:netherrack",
+    "minecraft:gold_nugget",
+    "minecraft:flint",
+    "minecraft:gravel",
+    "minecraft:dirt",
+    "reagenica:cryolite"
+  ]
+}

@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/crop",
+  "textures": {
+    "crop": "reagenica:block/crops/oreplant_stage_1"
+  },
+  "render_type": "cutout"
+}

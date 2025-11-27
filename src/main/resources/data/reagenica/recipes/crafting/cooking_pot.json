@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "P P",
+    "PPP",
+    "#F#"
+  ],
+  "key": {
+    "#": { "item": "minecraft:smooth_stone" },
+    "F": { "item": "minecraft:furnace" },
+    "P": { "item": "minecraft:brick" }
+  },
+  "result": {
+    "item": "reagenica:cooking_pot",
+    "count": 1
+  }
+}

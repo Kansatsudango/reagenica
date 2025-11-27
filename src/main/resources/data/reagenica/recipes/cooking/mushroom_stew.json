@@ -1,0 +1,8 @@
+{
+  "type": "reagenica:cooking",
+  "inputs": [
+    { "item": "minecraft:red_mushroom" },
+    { "item": "minecraft:brown_mushroom" }
+  ],
+  "result": { "item": "minecraft:mushroom_stew", "count": 1 }
+}

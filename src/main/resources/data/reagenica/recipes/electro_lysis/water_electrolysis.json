@@ -1,0 +1,22 @@
+{
+  "type": "reagenica:electrolysis",
+  "influid": {
+    "fluid": "minecraft:water",
+    "amount": 20
+  },
+  "outfluid": {
+    "amount": 0
+  },
+  "cathode": {
+    "tag": "reagenica:electrodes"
+  },
+  "anode": {
+    "tag": "reagenica:electrodes"
+  },
+  "result_gas_n": {
+    "item": "reagenica:hydrogen"
+  },
+  "result_gas_p": {
+    "item": "reagenica:oxygen"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "facing=north": { "model": "reagenica:block/electrolysis_device", "y": 0 },
+    "facing=south": { "model": "reagenica:block/electrolysis_device", "y": 180 },
+    "facing=west":  { "model": "reagenica:block/electrolysis_device", "y": 270 },
+    "facing=east":  { "model": "reagenica:block/electrolysis_device", "y": 90 }
+  }
+}

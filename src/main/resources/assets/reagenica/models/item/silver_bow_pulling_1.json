@@ -1,0 +1,6 @@
+{
+    "parent": "item/bow",
+    "textures": {
+        "layer0": "reagenica:item/silver_bow_pulling_1"
+    }
+}

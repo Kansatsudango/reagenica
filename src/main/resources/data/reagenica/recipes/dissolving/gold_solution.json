@@ -1,0 +1,14 @@
+{
+  "type": "reagenica:dissolving",
+  "input": {
+    "item": "reagenica:powder_gold_ore"
+  },
+  "influid": {
+    "fluid": "reagenica:aqua_regia",
+    "amount": 25
+  },
+  "outfluid": {
+    "fluid": "reagenica:gold_solution",
+    "amount": 25
+  }
+}

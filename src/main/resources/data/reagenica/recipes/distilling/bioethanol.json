@@ -1,0 +1,18 @@
+{
+  "type": "reagenica:distilling",
+  "influid": {
+    "fluid": "reagenica:bioethanol",
+    "amount": 100
+  },
+  "topfluid": {
+    "fluid": "reagenica:ethanol",
+    "amount": 25
+  },
+  "bottomfluid": {
+    "fluid": "reagenica:distilled_water",
+    "amount": 75
+  },
+  "residual": {
+    "item": "reagenica:fertilizer"
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "parent": "reagenica:nitrobenzene",
+  "display": {
+    "icon": { "item": "reagenica:nylon_pellet" },
+  "title": {
+    "translate": "advancements.reagenica.nylon_pellet.title"
+  },
+  "description": {
+    "translate": "advancements.reagenica.nylon_pellet.desc"
+  },
+  "frame": "task",
+  "show_toast": true,
+  "announce_to_chat": true
+  },
+  "criteria": {
+    "obtain_item": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          { "items": ["reagenica:nylon_pellet"] }
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "type": "reagenica:reagent_mixing",
+  "inputs":[
+    { "item": "reagenica:phosphoric_acid" },
+    { "item": "reagenica:ammonia" , "count":2}
+  ],
+  "requires_heat": false,
+  "result_a": { "item": "reagenica:diammonium_phosphate","count":3}
+}

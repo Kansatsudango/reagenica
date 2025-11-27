@@ -1,0 +1,13 @@
+{
+  "type": "reagenica:fermentation",
+  "inputs": [
+    {"item": "minecraft:sugar_cane"}
+  ],
+  "result_fluid": {
+    "fluid": "reagenica:bioethanol",
+    "amount": 100
+  },
+  "catalyst": {
+    "item": "reagenica:yeast"
+  }
+}

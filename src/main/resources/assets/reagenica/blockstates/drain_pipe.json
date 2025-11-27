@@ -1,0 +1,27 @@
+{
+  "variants": {
+    "facing=up": {
+      "model": "reagenica:block/drain_pipe",
+      "x": 90
+    },
+    "facing=west": {
+      "model": "reagenica:block/drain_pipe",
+      "y": 90
+    },
+    "facing=south": {
+      "model": "reagenica:block/drain_pipe"
+    },
+    "facing=north": {
+      "model": "reagenica:block/drain_pipe",
+      "y": 180
+    },
+    "facing=down": {
+      "model": "reagenica:block/drain_pipe",
+      "x": 270
+    },
+    "facing=east": {
+      "model": "reagenica:block/drain_pipe",
+      "y": 270
+    }
+  }
+}

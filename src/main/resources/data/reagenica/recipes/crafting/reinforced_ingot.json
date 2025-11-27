@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    { "item": "reagenica:lead_ingot" },
+    { "item": "reagenica:aluminium_ingot" },
+    { "item": "reagenica:refined_copper_ingot" }
+  ],
+  "result": {
+    "item": "reagenica:reinforced_ingot",
+    "count": 1
+  }
+}

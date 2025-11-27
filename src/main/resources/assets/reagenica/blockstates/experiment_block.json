@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "facing=north": { "model": "reagenica:block/draft_chamber_small", "y": 180 },
+    "facing=south": { "model": "reagenica:block/draft_chamber_small", "y": 0 },
+    "facing=west":  { "model": "reagenica:block/draft_chamber_small", "y": 90 },
+    "facing=east":  { "model": "reagenica:block/draft_chamber_small", "y": 270 }
+  }
+}

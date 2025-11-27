@@ -1,0 +1,25 @@
+{
+  "parent": "reagenica:koji",
+  "display": {
+    "icon": { "item": "reagenica:nikujaga" },
+  "title": {
+    "translate": "advancements.reagenica.nikujaga.title"
+  },
+  "description": {
+    "translate": "advancements.reagenica.nikujaga.desc"
+  },
+  "frame": "goal",
+  "show_toast": true,
+  "announce_to_chat": true
+  },
+  "criteria": {
+    "obtain_item": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          { "items": ["reagenica:nikujaga"] }
+        ]
+      }
+    }
+  }
+}

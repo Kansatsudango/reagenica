@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    { "item": "reagenica:lead_ingot" },
+    { "item": "reagenica:lead_ingot" },
+    { "item": "reagenica:lead_ingot" },
+    { "item": "reagenica:lead_ingot" },
+    { "item": "reagenica:lead_ingot" },
+    { "item": "reagenica:lead_ingot" },
+    { "item": "reagenica:lead_ingot" },
+    { "item": "reagenica:lead_ingot" },
+    { "item": "reagenica:lead_ingot" }
+  ],
+  "result": {
+    "item": "reagenica:lead_block",
+    "count": 1
+  }
+}

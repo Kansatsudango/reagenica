@@ -1,0 +1,10 @@
+{
+  "type": "reagenica:reagent_mixing",
+  "inputs":[
+    { "item": "reagenica:benzenediazonium_chloride" },
+    { "item": "reagenica:distilled_water" }
+  ],
+  "requires_heat": false,
+  "result_a": { "item": "reagenica:phenol", "count":1},
+  "result_b": { "item": "reagenica:nitrogen", "count":1}
+}

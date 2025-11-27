@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    { "item": "reagenica:trace_silver" },
+    { "item": "reagenica:trace_silver" },
+    { "item": "reagenica:trace_silver" },
+    { "item": "reagenica:trace_silver" },
+    { "item": "reagenica:trace_silver" },
+    { "item": "reagenica:trace_silver" },
+    { "item": "reagenica:trace_silver" },
+    { "item": "reagenica:trace_silver" },
+    { "item": "reagenica:trace_silver" }
+  ],
+  "result": {
+    "item": "reagenica:silver_nugget",
+    "count": 1
+  }
+}

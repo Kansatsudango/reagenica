@@ -1,0 +1,25 @@
+{
+  "parent": "reagenica:electrolysis",
+  "display": {
+    "icon": { "item": "reagenica:aluminium_ingot" },
+  "title": {
+    "translate": "advancements.reagenica.aluminium_ingot.title"
+  },
+  "description": {
+    "translate": "advancements.reagenica.aluminium_ingot.desc"
+  },
+  "frame": "task",
+  "show_toast": true,
+  "announce_to_chat": true
+  },
+  "criteria": {
+    "obtain_item": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          { "items": ["reagenica:aluminium_ingot"] }
+        ]
+      }
+    }
+  }
+}

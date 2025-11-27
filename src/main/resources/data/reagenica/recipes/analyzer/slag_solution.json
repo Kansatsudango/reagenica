@@ -1,0 +1,32 @@
+{
+  "type": "reagenica:analyze",
+  "input": {
+    "item": "reagenica:slag_solution"
+  },
+  "results": [
+    {
+      "item": "minecraft:coal",
+      "count": 1,
+      "chance": 0.8
+    },{
+      "item": "minecraft:gold_nugget",
+      "count": 1,
+      "chance": 0.4
+    },{
+      "item": "reagenica:trace_silver",
+      "count": 1,
+      "chance": 0.08
+    },{
+      "item": "reagenica:uranium_nugget",
+      "count": 1,
+      "chance": 0.05
+    },{
+      "item": "reagenica:trace_platinum",
+      "count": 1,
+      "chance": 0.03
+    }
+  ],
+  "return_item":{
+    "item": "reagenica:testtube"
+  }
+}

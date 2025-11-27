@@ -1,0 +1,33 @@
+{
+  "type": "reagenica:analyze",
+  "input": {
+    "item": "reagenica:depleted_fuel_rod"
+  },
+  "results": [
+    {
+      "item": "reagenica:cobalt_nugget",
+      "count": 2,
+      "chance": 1.0
+    },{
+      "item": "minecraft:obsidian",
+      "count": 1,
+      "chance": 0.7
+    },{
+      "item": "minecraft:iron_ingot",
+      "count": 1,
+      "chance": 0.6
+    },{
+      "item": "reagenica:lead_ingot",
+      "count": 1,
+      "chance": 0.6
+    },{
+      "item": "reagenica:plutonium_nugget",
+      "count": 1,
+      "chance": 0.4
+    },{
+      "item": "reagenica:platinum_nugget",
+      "count": 1,
+      "chance": 0.01
+    }
+  ]
+}

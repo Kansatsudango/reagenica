@@ -1,0 +1,25 @@
+{
+  "parent": "reagenica:polyethylene",
+  "display": {
+    "icon": { "item": "reagenica:ore_bag" },
+  "title": {
+    "translate": "advancements.reagenica.ore_bag.title"
+  },
+  "description": {
+    "translate": "advancements.reagenica.ore_bag.desc"
+  },
+  "frame": "task",
+  "show_toast": true,
+  "announce_to_chat": true
+  },
+  "criteria": {
+    "obtain_item": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          { "items": ["reagenica:ore_bag"] }
+        ]
+      }
+    }
+  }
+}

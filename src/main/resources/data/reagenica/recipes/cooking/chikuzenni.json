@@ -1,0 +1,12 @@
+{
+  "type": "reagenica:cooking",
+  "inputs": [
+    { "item": "minecraft:carrot" },
+    { "item": "minecraft:chicken" },
+    { "item": "minecraft:brown_mushroom" },
+    { "item": "reagenica:soy_sauce" },
+    { "item": "reagenica:mirin" },
+    { "item": "reagenica:cooking_sake" }
+  ],
+  "result": { "item": "reagenica:chikuzenni", "count": 2 }
+}

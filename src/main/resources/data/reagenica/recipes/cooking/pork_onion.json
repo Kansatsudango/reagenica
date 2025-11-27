@@ -1,0 +1,10 @@
+{
+  "type": "reagenica:cooking",
+  "inputs": [
+    { "item": "minecraft:porkchop" },
+    { "tag": "reagenica:onions" },
+    { "item": "reagenica:soy_sauce" },
+    { "item": "reagenica:mirin" }
+  ],
+  "result": { "item": "reagenica:pork_onion", "count": 2 }
+}

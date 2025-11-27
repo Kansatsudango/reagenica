@@ -1,0 +1,25 @@
+{
+  "parent": "reagenica:koji",
+  "display": {
+    "icon": { "item": "reagenica:rice_vinegar" },
+  "title": {
+    "translate": "advancements.reagenica.rice_vinegar.title"
+  },
+  "description": {
+    "translate": "advancements.reagenica.rice_vinegar.desc"
+  },
+  "frame": "task",
+  "show_toast": true,
+  "announce_to_chat": true
+  },
+  "criteria": {
+    "obtain_item": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          { "items": ["reagenica:rice_vinegar"] }
+        ]
+      }
+    }
+  }
+}

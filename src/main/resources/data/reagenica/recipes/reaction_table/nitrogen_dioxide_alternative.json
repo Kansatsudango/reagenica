@@ -1,0 +1,11 @@
+{
+  "type": "reagenica:reagent_mixing",
+  "inputs":[
+    { "item": "reagenica:ammonia" , "count":4},
+    { "item": "reagenica:oxygen" , "count":4}
+  ],
+  "requires_heat": true,
+  "catalyst":{ "item": "reagenica:copper_catalyst"},
+  "result_a": { "item": "reagenica:nitrogen_dioxide", "count": 1},
+  "result_b": { "item": "reagenica:testtube", "count": 7}
+}

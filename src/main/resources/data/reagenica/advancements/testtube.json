@@ -1,0 +1,25 @@
+{
+  "parent": "reagenica:root",
+  "display": {
+    "icon": { "item": "reagenica:testtube" },
+  "title": {
+    "translate": "advancements.reagenica.testtube.title"
+  },
+  "description": {
+    "translate": "advancements.reagenica.testtube.desc"
+  },
+  "frame": "task",
+  "show_toast": true,
+  "announce_to_chat": true
+  },
+  "criteria": {
+    "obtain_item": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          { "items": ["reagenica:testtube"] }
+        ]
+      }
+    }
+  }
+}

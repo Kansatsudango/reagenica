@@ -1,0 +1,7 @@
+{
+  "type": "reagenica:cooking",
+  "inputs": [
+    { "item": "reagenica:rice" }
+  ],
+  "result": { "item": "reagenica:gohan", "count": 1 }
+}

@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#B#",
+    "BFB",
+    "#Q#"
+  ],
+  "key": {
+    "#": { "item": "minecraft:smooth_stone" },
+    "B": { "item": "reagenica:lead_block" },
+    "Q": { "item": "reagenica:smoky_quartz" },
+    "F": { "item": "reagenica:fuel_generator" }
+  },
+  "result": {
+    "item": "reagenica:radioisotope_generator",
+    "count": 1
+  }
+}

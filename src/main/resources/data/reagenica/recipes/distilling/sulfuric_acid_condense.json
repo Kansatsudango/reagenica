@@ -1,0 +1,15 @@
+{
+  "type": "reagenica:distilling",
+  "influid": {
+    "fluid": "reagenica:dilute_sulfuric_acid",
+    "amount": 100
+  },
+  "topfluid": {
+    "fluid": "reagenica:distilled_water",
+    "amount": 75
+  },
+  "bottomfluid": {
+    "fluid": "reagenica:sulfuric_acid",
+    "amount": 25
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "type": "reagenica:reagent_mixing",
+  "inputs":[
+    { "item": "reagenica:chlorine" },
+    { "item": "reagenica:ethylene" }
+  ],
+  "requires_heat": false,
+  "result_a": { "item": "reagenica:chloroethylene"},
+  "result_b": { "item": "reagenica:hydrogen_chloride"}
+}

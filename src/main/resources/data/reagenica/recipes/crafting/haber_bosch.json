@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###",
+    "#C#",
+    "#R#"
+  ],
+  "key": {
+    "#": { "item": "reagenica:reinforced_ingot" },
+    "R": { "item": "minecraft:redstone" },
+    "C": { "item": "minecraft:compass" }
+  },
+  "result": {
+    "item": "reagenica:haber_bosch",
+    "count": 1
+  }
+}

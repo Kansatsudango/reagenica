@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    { "item": "reagenica:trace_platinum" },
+    { "item": "reagenica:trace_platinum" },
+    { "item": "reagenica:trace_platinum" },
+    { "item": "reagenica:trace_platinum" },
+    { "item": "reagenica:trace_platinum" },
+    { "item": "reagenica:trace_platinum" },
+    { "item": "reagenica:trace_platinum" },
+    { "item": "reagenica:trace_platinum" },
+    { "item": "reagenica:trace_platinum" }
+  ],
+  "result": {
+    "item": "reagenica:platinum_nugget",
+    "count": 1
+  }
+}

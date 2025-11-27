@@ -1,0 +1,8 @@
+{
+  "type": "forge:add_features",
+  "biomes": "#reagenica:is_nearwater",
+  "features": [
+    "reagenica:wild_rice_placed"
+  ],
+  "step": "vegetal_decoration"
+}

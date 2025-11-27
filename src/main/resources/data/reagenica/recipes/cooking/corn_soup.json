@@ -1,0 +1,8 @@
+{
+  "type": "reagenica:cooking",
+  "inputs": [
+    { "item": "reagenica:corn" },
+    { "item": "reagenica:milk" }
+  ],
+  "result": { "item": "reagenica:corn_soup" }
+}

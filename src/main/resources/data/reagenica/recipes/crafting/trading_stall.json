@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#G#",
+    "###"
+  ],
+  "key": {
+    "#": { "tag": "minecraft:wooden_slabs" },
+    "G": { "item": "minecraft:glass_pane" }
+  },
+  "result": {
+    "item": "reagenica:trading_stall",
+    "count": 1
+  }
+}

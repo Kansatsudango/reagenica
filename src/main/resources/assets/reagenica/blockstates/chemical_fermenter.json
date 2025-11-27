@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "facing=north": { "model": "reagenica:block/chemical_fermenter", "y": 180 },
+    "facing=south": { "model": "reagenica:block/chemical_fermenter", "y": 0 },
+    "facing=west":  { "model": "reagenica:block/chemical_fermenter", "y": 90 },
+    "facing=east":  { "model": "reagenica:block/chemical_fermenter", "y": 270 }
+  }
+}

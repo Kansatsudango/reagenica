@@ -1,0 +1,10 @@
+{
+  "type": "reagenica:reagent_mixing",
+  "inputs":[
+    { "item": "reagenica:distilled_water" },
+    { "item": "reagenica:nitrogen_dioxide" , "count":2}
+  ],
+  "requires_heat": false,
+  "result_a": { "item": "reagenica:nitric_acid","count":2},
+  "result_b": { "item": "reagenica:nitrogen_monoxide","count":1}
+}

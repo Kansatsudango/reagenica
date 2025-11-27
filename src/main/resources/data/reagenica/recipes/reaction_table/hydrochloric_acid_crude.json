@@ -1,0 +1,10 @@
+{
+  "type": "reagenica:reagent_mixing",
+  "inputs":[
+    { "item": "reagenica:water" },
+    { "item": "reagenica:hydrogen_chloride" }
+  ],
+  "requires_heat": false,
+  "result_a": { "item": "reagenica:hydrochloric_acid"},
+  "result_b": { "item": "reagenica:testtube"}
+}

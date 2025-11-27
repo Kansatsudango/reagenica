@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "AAA",
+    "APA",
+    "RQR"
+  ],
+  "key": {
+    "A": { "item": "reagenica:aluminium_ingot" },
+    "P": { "item": "reagenica:polyethylene" },
+    "Q": { "item": "reagenica:smoky_quartz" },
+    "R": { "item": "minecraft:redstone" }
+  },
+  "result": {
+    "item": "reagenica:computer",
+    "count": 1
+  }
+}

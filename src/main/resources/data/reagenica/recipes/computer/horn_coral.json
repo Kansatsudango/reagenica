@@ -1,0 +1,13 @@
+{
+  "type": "reagenica:reagenimart",
+  "merchandise": {
+    "item": "minecraft:horn_coral",
+    "count": 1
+  },
+  "price": {
+    "item": "reagenica:sapphire",
+    "count": 1
+  },
+  "category": "naturals",
+  "order": 2
+}

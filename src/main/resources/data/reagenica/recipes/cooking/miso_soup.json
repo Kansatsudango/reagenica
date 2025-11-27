@@ -1,0 +1,8 @@
+{
+  "type": "reagenica:cooking",
+  "inputs": [
+    { "tag": "reagenica:seaweeds" },
+    { "item": "reagenica:miso" }
+  ],
+  "result": { "item": "reagenica:miso_soup", "count": 1 }
+}

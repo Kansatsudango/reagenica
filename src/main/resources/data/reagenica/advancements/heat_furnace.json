@@ -1,0 +1,25 @@
+{
+  "parent": "reagenica:crusher",
+  "display": {
+    "icon": { "item": "reagenica:heat_furnace" },
+  "title": {
+    "translate": "advancements.reagenica.heat_furnace.title"
+  },
+  "description": {
+    "translate": "advancements.reagenica.heat_furnace.desc"
+  },
+  "frame": "task",
+  "show_toast": true,
+  "announce_to_chat": true
+  },
+  "criteria": {
+    "obtain_item": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          { "items": ["reagenica:heat_furnace"] }
+        ]
+      }
+    }
+  }
+}

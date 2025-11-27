@@ -1,0 +1,10 @@
+{
+  "type": "reagenica:reagent_mixing",
+  "inputs":[
+    { "item": "reagenica:benzenediazonium_chloride" },
+    { "item": "reagenica:aniline" }
+  ],
+  "requires_heat": false,
+  "result_a": { "item": "reagenica:yellow_azo_dye", "count":1},
+  "result_b": { "item": "reagenica:testtube", "count":1}
+}

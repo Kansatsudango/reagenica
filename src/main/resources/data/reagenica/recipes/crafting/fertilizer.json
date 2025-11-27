@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    { "item": "reagenica:diammonium_phosphate" }
+  ],
+  "result": {
+    "item": "reagenica:fertilizer",
+    "count": 8
+  }
+}

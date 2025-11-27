@@ -1,0 +1,11 @@
+{
+  "type": "reagenica:reagent_mixing",
+  "inputs":[
+    { "item": "reagenica:ethylene" , "count" : 1 },
+    { "item": "reagenica:distilled_water" }
+  ],
+  "requires_heat": true,
+  "catalyst": { "item": "reagenica:phosphoric_acid_catalyst"},
+  "result_a": { "item": "reagenica:ethanol"},
+  "result_b": { "item": "reagenica:testtube", "count": 1}
+}

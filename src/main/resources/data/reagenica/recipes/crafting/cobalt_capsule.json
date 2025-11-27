@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " P ",
+    "PCP",
+    " P "
+  ],
+  "key": {
+    "P": { "item": "reagenica:polyethylene" },
+    "C": { "item": "reagenica:cobalt_ingot" }
+  },
+  "result": {
+    "item": "reagenica:cobalt_capsule",
+    "count": 1
+  }
+}

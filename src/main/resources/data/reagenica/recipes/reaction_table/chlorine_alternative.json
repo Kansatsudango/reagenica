@@ -1,0 +1,10 @@
+{
+  "type": "reagenica:reagent_mixing",
+  "inputs":[
+    { "item": "reagenica:hydrogen_chloride" , "count":2}
+  ],
+  "catalyst": {"item": "reagenica:copper_catalyst"},
+  "requires_heat": false,
+  "result_a": { "item": "reagenica:chlorine","count":1},
+  "result_b": { "item": "reagenica:water","count":1}
+}

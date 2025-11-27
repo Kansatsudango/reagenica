@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###",
+    "#X#",
+    "###"
+  ],
+  "key": {
+    "#": { "item": "reagenica:polyethylene_block" },
+    "X": { "item": "reagenica:p_phenylazophenol" }
+  },
+  "result": {
+    "item": "reagenica:orange_plastic",
+    "count": 8
+  }
+}

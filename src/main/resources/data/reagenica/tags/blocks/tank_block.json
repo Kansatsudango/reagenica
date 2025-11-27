@@ -1,0 +1,21 @@
+{
+  "replace": false,
+  "values": [
+    "minecraft:glass",
+    "reagenica:gypsum",
+    "reagenica:red_gypsum",
+    "reagenica:orange_gypsum",
+    "reagenica:yellow_gypsum",
+    "reagenica:green_gypsum",
+    "reagenica:blue_gypsum",
+    "reagenica:purple_gypsum",
+    "reagenica:polyethylene_block",
+    "reagenica:red_plastic",
+    "reagenica:orange_plastic",
+    "reagenica:yellow_plastic",
+    "reagenica:green_plastic",
+    "reagenica:blue_plastic",
+    "reagenica:purple_plastic",
+    "reagenica:large_tank_interface"
+  ]
+}

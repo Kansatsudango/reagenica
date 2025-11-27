@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###",
+    "#U#",
+    "###"
+  ],
+  "key": {
+    "#": { "item": "minecraft:glass" },
+    "U": { "item": "reagenica:lead_ingot" }
+  },
+  "result": {
+    "item": "reagenica:lead_glass",
+    "count": 8
+  }
+}

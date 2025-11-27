@@ -1,0 +1,13 @@
+{
+  "type": "reagenica:reagenimart",
+  "merchandise": {
+    "item": "minecraft:tube_coral_block",
+    "count": 1
+  },
+  "price": {
+    "item": "reagenica:sapphire",
+    "count": 4
+  },
+  "category": "naturals",
+  "order": 4
+}

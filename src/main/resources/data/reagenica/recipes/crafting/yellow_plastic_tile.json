@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "##",
+    "##"
+  ],
+  "key": {
+    "#": { "item": "reagenica:yellow_plastic" }
+  },
+  "result": {
+    "item": "reagenica:yellow_plastic_tile",
+    "count": 4
+  }
+}

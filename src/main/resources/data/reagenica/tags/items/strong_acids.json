@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "reagenica:hydrochloric_acid",
+    "reagenica:sulfuric_acid",
+    "reagenica:aqua_regia",
+    "reagenica:nitric_acid"
+  ]
+}

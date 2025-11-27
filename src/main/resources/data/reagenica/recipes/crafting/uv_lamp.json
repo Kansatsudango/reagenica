@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " G ",
+    "GWG",
+    " # "
+  ],
+  "key": {
+    "#": { "item": "minecraft:iron_ingot" },
+    "G": { "item": "minecraft:blue_stained_glass_pane" },
+    "W": { "item": "reagenica:lead_ingot" }
+  },
+  "result": {
+    "item": "reagenica:uv_lamp",
+    "count": 1
+  }
+}

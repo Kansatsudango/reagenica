@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    { "item": "reagenica:fruit_vinegar" },
+    { "item": "minecraft:salmon" },
+    { "tag": "reagenica:onions" },
+    { "item": "minecraft:bowl" },
+    { "item": "minecraft:bowl" }
+  ],
+  "result": {
+    "item": "reagenica:salmon_marinade",
+    "count": 2
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "type": "reagenica:reagent_mixing",
+  "inputs":[
+    { "item": "reagenica:adipamide" },
+    { "item": "reagenica:hydrogen" }
+  ],
+  "requires_heat": true,
+  "result_a": { "item": "reagenica:hexamethylene_diamine", "count":1},
+  "result_b": { "item": "reagenica:testtube", "count":1}
+}

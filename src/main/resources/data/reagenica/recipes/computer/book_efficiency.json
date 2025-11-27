@@ -1,0 +1,14 @@
+{
+  "type": "reagenica:reagenimart",
+  "merchandise": {
+    "item": "minecraft:enchanted_book",
+    "count": 1,
+    "nbt": "{StoredEnchantments:[{id:\"minecraft:efficiency\",lvl:3}]}"
+  },
+  "price": {
+    "item": "reagenica:sapphire",
+    "count": 8
+  },
+  "category": "commodity",
+  "order": 1
+}

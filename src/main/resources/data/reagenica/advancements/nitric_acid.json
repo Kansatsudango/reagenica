@@ -1,0 +1,25 @@
+{
+  "parent": "reagenica:haber",
+  "display": {
+    "icon": { "item": "reagenica:nitric_acid" },
+  "title": {
+    "translate": "advancements.reagenica.nitric_acid.title"
+  },
+  "description": {
+    "translate": "advancements.reagenica.nitric_acid.desc"
+  },
+  "frame": "task",
+  "show_toast": true,
+  "announce_to_chat": true
+  },
+  "criteria": {
+    "obtain_item": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          { "items": ["reagenica:nitric_acid"] }
+        ]
+      }
+    }
+  }
+}

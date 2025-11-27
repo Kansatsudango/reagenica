@@ -1,0 +1,25 @@
+{
+  "parent": "reagenica:nitric_acid",
+  "display": {
+    "icon": { "item": "reagenica:aqua_regia" },
+  "title": {
+    "translate": "advancements.reagenica.aqua_regia.title"
+  },
+  "description": {
+    "translate": "advancements.reagenica.aqua_regia.desc"
+  },
+  "frame": "task",
+  "show_toast": true,
+  "announce_to_chat": true
+  },
+  "criteria": {
+    "obtain_item": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          { "items": ["reagenica:aqua_regia"] }
+        ]
+      }
+    }
+  }
+}

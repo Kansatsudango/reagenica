@@ -1,0 +1,9 @@
+{
+  "type": "reagenica:reagent_mixing",
+  "inputs":[
+    { "item": "reagenica:distilled_water" },
+    { "item": "reagenica:hydrogen_chloride" }
+  ],
+  "requires_heat": false,
+  "result_a": { "item": "reagenica:hydrochloric_acid","count":2}
+}

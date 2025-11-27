@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " # ",
+    "#W#",
+    "RQR"
+  ],
+  "key": {
+    "#": { "item": "reagenica:pvc" },
+    "W": { "item": "reagenica:polyethylene" },
+    "R": { "item": "minecraft:redstone" },
+    "Q": { "item": "reagenica:smoky_quartz" }
+  },
+  "result": {
+    "item": "reagenica:lamp_linker",
+    "count": 1
+  }
+}

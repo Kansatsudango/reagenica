@@ -1,0 +1,10 @@
+{
+  "type": "reagenica:heat_furnace",
+  "input": {
+    "item": "reagenica:powder_iron_ore"
+  },
+  "result": {
+    "item": "reagenica:iron_oxide",
+    "count": 1
+  }
+}

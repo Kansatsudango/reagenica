@@ -1,0 +1,25 @@
+{
+  "parent": "reagenica:draft_chamber",
+  "display": {
+    "icon": { "item": "reagenica:ethylene" },
+  "title": {
+    "translate": "advancements.reagenica.ethylene.title"
+  },
+  "description": {
+    "translate": "advancements.reagenica.ethylene.desc"
+  },
+  "frame": "task",
+  "show_toast": true,
+  "announce_to_chat": true
+  },
+  "criteria": {
+    "obtain_item": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          { "items": ["reagenica:ethylene"] }
+        ]
+      }
+    }
+  }
+}

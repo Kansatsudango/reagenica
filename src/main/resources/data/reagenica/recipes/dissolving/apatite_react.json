@@ -1,0 +1,17 @@
+{
+  "type": "reagenica:dissolving",
+  "input": {
+    "item": "reagenica:powder_apatite"
+  },
+  "influid": {
+    "fluid": "reagenica:sulfuric_acid",
+    "amount": 100
+  },
+  "outfluid": {
+    "fluid": "reagenica:phosphoric_acid",
+    "amount": 100
+  },
+  "itemresult": {
+    "item": "reagenica:calcium_sulfate"
+  }
+}

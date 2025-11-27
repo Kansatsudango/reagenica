@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " I ",
+    "RPR"
+  ],
+  "key": {
+    "I": { "item": "minecraft:iron_nugget" },
+    "R": { "item": "minecraft:redstone" },
+    "P": { "item": "reagenica:copper_pipe" }
+  },
+  "result": {
+    "item": "reagenica:drain_pipe",
+    "count": 1
+  }
+}

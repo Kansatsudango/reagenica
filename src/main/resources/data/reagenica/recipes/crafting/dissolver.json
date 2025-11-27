@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " C ",
+    "#G#",
+    "###"
+  ],
+  "key": {
+    "#": { "item": "minecraft:smooth_stone" },
+    "G": { "item": "minecraft:glass_pane" },
+    "C": { "item": "reagenica:copper_cable" }
+  },
+  "result": {
+    "item": "reagenica:dissolver",
+    "count": 1
+  }
+}

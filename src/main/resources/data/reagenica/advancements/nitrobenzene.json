@@ -1,0 +1,25 @@
+{
+  "parent": "reagenica:nitric_acid",
+  "display": {
+    "icon": { "item": "reagenica:nitrobenzene" },
+  "title": {
+    "translate": "advancements.reagenica.nitrobenzene.title"
+  },
+  "description": {
+    "translate": "advancements.reagenica.nitrobenzene.desc"
+  },
+  "frame": "task",
+  "show_toast": true,
+  "announce_to_chat": true
+  },
+  "criteria": {
+    "obtain_item": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          { "items": ["reagenica:nitrobenzene"] }
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    { "item": "reagenica:sumeshi" },
+    { "item": "minecraft:salmon"}
+  ],
+  "result": {
+    "item": "reagenica:sushi_salmon",
+    "count": 4
+  }
+}

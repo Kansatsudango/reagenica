@@ -1,0 +1,9 @@
+{
+  "type": "reagenica:reagent_mixing",
+  "inputs":[
+    { "item": "reagenica:water" },
+    { "item": "minecraft:coal" }
+  ],
+  "requires_heat": true,
+  "result_a": { "item": "reagenica:sulfuric_acid", "count":1}
+}

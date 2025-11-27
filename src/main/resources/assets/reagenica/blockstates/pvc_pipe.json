@@ -1,0 +1,32 @@
+{
+  "multipart": [
+    { "apply": { "model": "reagenica:block/pipe_pvc_core" } },
+
+    { "when": { "north": true }, "apply": { "model": "reagenica:block/pipe_pvc_arm" } },
+
+    { "when": { "south": true }, "apply": { 
+      "model": "reagenica:block/pipe_pvc_arm", 
+      "x": 180 
+    } },
+
+    { "when": { "east": true }, "apply": { 
+      "model": "reagenica:block/pipe_pvc_arm", 
+      "y": 90 
+    } },
+
+    { "when": { "west": true }, "apply": { 
+      "model": "reagenica:block/pipe_pvc_arm", 
+      "y": 270 
+    } },
+
+    { "when": { "up": true }, "apply": { 
+      "model": "reagenica:block/pipe_pvc_arm", 
+      "x": 270 
+    } },
+
+    { "when": { "down": true }, "apply": { 
+      "model": "reagenica:block/pipe_pvc_arm", 
+      "x": 90 
+    } }
+  ]
+}

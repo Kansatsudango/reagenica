@@ -1,0 +1,9 @@
+{
+  "type": "reagenica:cooking",
+  "inputs": [
+    { "item": "minecraft:wheat" },
+    { "item": "reagenica:tomato" },
+    { "tag": "reagenica:meats" }
+  ],
+  "result": { "item": "reagenica:meatsauce_spaghetti" , "count": 2}
+}

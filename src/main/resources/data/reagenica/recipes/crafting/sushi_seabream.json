@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    { "item": "reagenica:sumeshi" },
+    { "item": "minecraft:tropical_fish"}
+  ],
+  "result": {
+    "item": "reagenica:sushi_seabream",
+    "count": 4
+  }
+}

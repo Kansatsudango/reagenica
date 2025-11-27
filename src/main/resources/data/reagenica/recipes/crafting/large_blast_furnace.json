@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "# #",
+    "#I#",
+    "#B#"
+  ],
+  "key": {
+    "#": { "item": "minecraft:smooth_stone" },
+    "I": { "item": "minecraft:iron_bars" },
+    "B": { "item": "minecraft:blast_furnace" }
+  },
+  "result": {
+    "item": "reagenica:large_blast_furnace",
+    "count": 1
+  }
+}

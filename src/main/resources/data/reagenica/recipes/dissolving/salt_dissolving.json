@@ -1,0 +1,14 @@
+{
+  "type": "reagenica:dissolving",
+  "input": {
+    "item": "reagenica:salt"
+  },
+  "influid": {
+    "fluid": "minecraft:water",
+    "amount": 100
+  },
+  "outfluid": {
+    "fluid": "reagenica:salt_water",
+    "amount": 100
+  }
+}

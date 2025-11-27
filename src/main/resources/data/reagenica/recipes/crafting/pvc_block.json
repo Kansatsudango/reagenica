@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "##",
+    "##"
+  ],
+  "key": {
+    "#": { "item": "reagenica:pvc" }
+  },
+  "result": {
+    "item": "reagenica:pvc_block",
+    "count": 1
+  }
+}

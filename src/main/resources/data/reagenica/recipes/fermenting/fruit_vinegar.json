@@ -1,0 +1,16 @@
+{
+  "type": "reagenica:fermentation",
+  "inputs": [
+  ],
+  "input_fluid": {
+    "fluid": "reagenica:wine",
+    "amount": 50
+  },
+  "result_fluid": {
+    "fluid": "reagenica:fruit_vinegar",
+    "amount": 50
+  },
+  "catalyst": {
+    "item": "reagenica:acetobacter"
+  }
+}

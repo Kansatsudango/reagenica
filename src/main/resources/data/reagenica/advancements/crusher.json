@@ -1,0 +1,25 @@
+{
+  "parent": "reagenica:polyethylene",
+  "display": {
+    "icon": { "item": "reagenica:crusher" },
+  "title": {
+    "translate": "advancements.reagenica.crusher.title"
+  },
+  "description": {
+    "translate": "advancements.reagenica.crusher.desc"
+  },
+  "frame": "task",
+  "show_toast": true,
+  "announce_to_chat": true
+  },
+  "criteria": {
+    "obtain_item": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          { "items": ["reagenica:crusher"] }
+        ]
+      }
+    }
+  }
+}

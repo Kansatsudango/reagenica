@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "L L",
+    "#B#",
+    "###"
+  ],
+  "key": {
+    "#": { "item": "reagenica:pvc" },
+    "L": { "item": "reagenica:lead_ingot" },
+    "B": { "item": "reagenica:dilute_sulfuric_acid" }
+  },
+  "result": {
+    "item": "reagenica:lead_battery",
+    "count": 1
+  }
+}

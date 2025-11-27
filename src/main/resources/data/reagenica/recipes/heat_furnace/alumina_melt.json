@@ -1,0 +1,10 @@
+{
+  "type": "reagenica:heat_furnace",
+  "input": {
+    "item": "reagenica:alumina_with_cryolite"
+  },
+  "outfluid": {
+    "fluid": "reagenica:alumina_melt",
+    "amount": 100
+  }
+}

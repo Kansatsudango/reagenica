@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "AAA",
+    "#G#",
+    "#Q#"
+  ],
+  "key": {
+    "#": { "item": "reagenica:reinforced_ingot" },
+    "A": { "item": "reagenica:aluminium_ingot" },
+    "Q": { "item": "reagenica:smoky_quartz" },
+    "G": { "item": "reagenica:gypsum" }
+  },
+  "result": {
+    "item": "reagenica:large_tank_core",
+    "count": 1
+  }
+}

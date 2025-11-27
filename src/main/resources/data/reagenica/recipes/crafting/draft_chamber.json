@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###",
+    "GGG",
+    "# #"
+  ],
+  "key": {
+    "#": { "item": "minecraft:iron_ingot" },
+    "G": { "item": "minecraft:glass_pane" }
+  },
+  "result": {
+    "item": "reagenica:experiment_block",
+    "count": 1
+  }
+}

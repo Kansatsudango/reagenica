@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "reagenica:polyethylene",
+    "reagenica:pvc",
+    "minecraft:slime_ball",
+    "minecraft:dried_kelp"
+  ]
+}

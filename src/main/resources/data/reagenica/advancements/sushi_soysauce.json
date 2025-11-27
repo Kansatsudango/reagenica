@@ -1,0 +1,20 @@
+{
+  "parent": "reagenica:rice_vinegar",
+  "display": {
+    "icon": { "item": "reagenica:sushi" },
+  "title": {
+    "translate": "advancements.reagenica.sushi.title"
+  },
+  "description": {
+    "translate": "advancements.reagenica.sushi.desc"
+  },
+  "frame": "task",
+  "show_toast": true,
+  "announce_to_chat": true
+  },
+  "criteria": {
+    "in_code": {
+      "trigger": "minecraft:impossible"
+    }
+  }
+}

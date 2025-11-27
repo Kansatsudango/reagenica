@@ -1,0 +1,14 @@
+{
+  "type": "reagenica:fermentation",
+  "inputs": [
+    {"item": "reagenica:corn"},
+    {"item": "reagenica:corn"}
+  ],
+  "result_fluid": {
+    "fluid": "reagenica:bioethanol",
+    "amount": 200
+  },
+  "catalyst": {
+    "item": "reagenica:yeast"
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###",
+    "#W#",
+    "#F#"
+  ],
+  "key": {
+    "#": { "item": "reagenica:pvc" },
+    "W": { "item": "minecraft:glass_pane" },
+    "F": { "item": "minecraft:furnace" }
+  },
+  "result": {
+    "item": "reagenica:fractional_distiller",
+    "count": 1
+  }
+}

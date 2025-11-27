@@ -1,0 +1,6 @@
+{
+  "variants": {
+    "leaves=true": { "model": "reagenica:block/grape_stem_leaves", "y": 0 },
+    "leaves=false": { "model": "reagenica:block/grape_stem", "y": 0 }
+  }
+}

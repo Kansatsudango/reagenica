@@ -1,0 +1,25 @@
+{
+  "parent": "reagenica:heat_furnace",
+  "display": {
+    "icon": { "item": "reagenica:large_blast_furnace" },
+  "title": {
+    "translate": "advancements.reagenica.large_blast_furnace.title"
+  },
+  "description": {
+    "translate": "advancements.reagenica.large_blast_furnace.desc"
+  },
+  "frame": "task",
+  "show_toast": true,
+  "announce_to_chat": true
+  },
+  "criteria": {
+    "obtain_item": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          { "items": ["reagenica:large_blast_furnace"] }
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,73 @@
+{
+  "parent": "reagenica:benzenediazonium",
+  "display": {
+    "icon": { "item": "reagenica:blue_azo_dye" },
+    "title": {
+      "translate": "advancements.reagenica.azo_dyes.title"
+    },
+    "description": {
+      "translate": "advancements.reagenica.azo_dyes.desc"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true
+  },
+  "criteria": {
+    "reagenica:red": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          { "items": ["reagenica:red_azo_dye"] }
+        ]
+      }
+    },
+    "reagenica:orange": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          { "items": ["reagenica:p_phenylazophenol"] }
+        ]
+      }
+    },
+    "reagenica:yellow": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          { "items": ["reagenica:yellow_azo_dye"] }
+        ]
+      }
+    },
+    "reagenica:green": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          { "items": ["reagenica:green_azo_dye"] }
+        ]
+      }
+    },
+    "reagenica:blue": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          { "items": ["reagenica:blue_azo_dye"] }
+        ]
+      }
+    },
+    "reagenica:purple": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          { "items": ["reagenica:purple_azo_dye"] }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    ["reagenica:red"],
+    ["reagenica:orange"],
+    ["reagenica:yellow"],
+    ["reagenica:green"],
+    ["reagenica:blue"],
+    ["reagenica:purple"]
+  ]
+}

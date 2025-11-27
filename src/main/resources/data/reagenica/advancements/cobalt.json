@@ -1,0 +1,25 @@
+{
+  "parent": "reagenica:reactor",
+  "display": {
+    "icon": { "item": "reagenica:cobalt_capsule" },
+  "title": {
+    "translate": "advancements.reagenica.cobalt_capsule.title"
+  },
+  "description": {
+    "translate": "advancements.reagenica.cobalt_capsule.desc"
+  },
+  "frame": "task",
+  "show_toast": true,
+  "announce_to_chat": true
+  },
+  "criteria": {
+    "obtain_item": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          { "items": ["reagenica:cobalt_capsule"] }
+        ]
+      }
+    }
+  }
+}

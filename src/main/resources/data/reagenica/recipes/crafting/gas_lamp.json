@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " I ",
+    "#O#",
+    "III"
+  ],
+  "key": {
+    "#": { "item": "minecraft:glass_pane" },
+    "I": { "item": "minecraft:iron_nugget" },
+    "O": { "item": "reagenica:diesel_fuel" }
+  },
+  "result": {
+    "item": "reagenica:gas_lamp",
+    "count": 1
+  }
+}

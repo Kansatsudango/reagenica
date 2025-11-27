@@ -1,0 +1,10 @@
+{
+  "type": "reagenica:cooking",
+  "inputs": [
+    { "item": "minecraft:egg" },
+    { "item": "minecraft:chicken" },
+    { "item": "reagenica:soy_sauce" },
+    { "item": "reagenica:mirin" }
+  ],
+  "result": { "item": "reagenica:oyakodon", "count": 1 }
+}

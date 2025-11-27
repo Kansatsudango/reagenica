@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "facing=north": { "model": "reagenica:block/analyzer", "y": 0 },
+    "facing=south": { "model": "reagenica:block/analyzer", "y": 180 },
+    "facing=west":  { "model": "reagenica:block/analyzer", "y": 270 },
+    "facing=east":  { "model": "reagenica:block/analyzer", "y": 90 }
+  }
+}

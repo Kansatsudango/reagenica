@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    { "item": "reagenica:powder_apatite" }
+  ],
+  "result": {
+    "item": "reagenica:phospho_fertilizer",
+    "count": 8
+  }
+}

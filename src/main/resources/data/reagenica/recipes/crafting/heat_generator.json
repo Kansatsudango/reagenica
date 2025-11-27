@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###",
+    "#F#",
+    "#R#"
+  ],
+  "key": {
+    "#": { "item": "minecraft:smooth_stone" },
+    "R": { "item": "minecraft:redstone" },
+    "F": { "item": "reagenica:refined_copper_ingot" }
+  },
+  "result": {
+    "item": "reagenica:heat_generator",
+    "count": 1
+  }
+}

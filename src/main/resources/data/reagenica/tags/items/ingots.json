@@ -1,0 +1,12 @@
+{
+  "replace": false,
+  "values": [
+    "reagenica:lead_ingot",
+    "reagenica:aluminium_ingot",
+    "reagenica:refined_copper_ingot",
+    "reagenica:silver_ingot",
+    "reagenica:platinum_ingot",
+    "reagenica:uranium_ingot",
+    "reagenica:plutonium_ingot"
+  ]
+}

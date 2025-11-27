@@ -1,0 +1,10 @@
+{
+  "type": "reagenica:reagent_mixing",
+  "inputs":[
+    { "item": "reagenica:protein_extract_acid" },
+    { "item": "reagenica:sodium_hydroxide" }
+  ],
+  "requires_heat": false,
+  "result_a": { "item": "reagenica:protein_extract_neu"},
+  "result_b": { "item": "reagenica:testtube"}
+}

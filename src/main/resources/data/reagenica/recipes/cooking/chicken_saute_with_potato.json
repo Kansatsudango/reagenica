@@ -1,0 +1,11 @@
+{
+  "type": "reagenica:cooking",
+  "inputs": [
+    { "item": "minecraft:chicken" },
+    { "item": "minecraft:potato" },
+    { "item": "reagenica:soy_sauce" },
+    { "item": "reagenica:mirin" },
+    { "item": "reagenica:cooking_sake" }
+  ],
+  "result": { "item": "reagenica:chicken_saute_with_potato", "count": 2 }
+}

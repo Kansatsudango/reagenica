@@ -1,0 +1,9 @@
+{
+  "type": "reagenica:reagent_mixing",
+  "inputs":[
+    { "item": "reagenica:water" },
+    { "item": "reagenica:salt" }
+  ],
+  "requires_heat": false,
+  "result_a": { "item": "reagenica:salt_water", "count":1}
+}

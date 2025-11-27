@@ -1,0 +1,25 @@
+{
+  "parent": "reagenica:nylon",
+  "display": {
+    "icon": { "item": "reagenica:nylon_bag" },
+  "title": {
+    "translate": "advancements.reagenica.nylon_bag.title"
+  },
+  "description": {
+    "translate": "advancements.reagenica.nylon_bag.desc"
+  },
+  "frame": "goal",
+  "show_toast": true,
+  "announce_to_chat": true
+  },
+  "criteria": {
+    "obtain_item": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          { "items": ["reagenica:nylon_bag"] }
+        ]
+      }
+    }
+  }
+}

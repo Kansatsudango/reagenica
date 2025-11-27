@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/template_glass_pane_side_alt",
+  "textures": {
+    "edge": "reagenica:block/plastic_tiles_top",
+    "pane": "reagenica:block/purple_plastic_tile"
+  },
+  "render_type": "translucent"
+}

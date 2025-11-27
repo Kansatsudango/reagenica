@@ -1,0 +1,18 @@
+{
+  "type": "reagenica:fermentation",
+  "inputs": [
+    {"item": "reagenica:rice"},
+    {"item": "reagenica:koji"}
+  ],
+  "input_fluid": {
+    "fluid": "reagenica:distilled_water",
+    "amount": 50
+  },
+  "result_fluid": {
+    "fluid": "reagenica:cooking_sake",
+    "amount": 50
+  },
+  "catalyst": {
+    "item": "reagenica:yeast"
+  }
+}

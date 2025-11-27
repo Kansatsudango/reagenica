@@ -1,0 +1,13 @@
+{
+  "type": "reagenica:reagenimart",
+  "merchandise": {
+    "item": "minecraft:quartz_block",
+    "count": 1
+  },
+  "price": {
+    "item": "reagenica:sapphire",
+    "count": 2
+  },
+  "category": "building",
+  "order": 0
+}

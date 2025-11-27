@@ -1,0 +1,14 @@
+{
+  "type": "reagenica:reagenimart",
+  "merchandise": {
+    "item": "minecraft:enchanted_book",
+    "count": 1,
+    "nbt": "{StoredEnchantments:[{id:\"minecraft:mending\",lvl:1}]}"
+  },
+  "price": {
+    "item": "reagenica:sapphire",
+    "count": 48
+  },
+  "category": "commodity",
+  "order": 1
+}

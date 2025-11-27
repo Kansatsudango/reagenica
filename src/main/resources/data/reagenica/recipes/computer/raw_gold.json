@@ -1,0 +1,13 @@
+{
+  "type": "reagenica:reagenimart",
+  "merchandise": {
+    "item": "minecraft:raw_gold",
+    "count": 1
+  },
+  "price": {
+    "item": "reagenica:sapphire",
+    "count": 8
+  },
+  "category": "minerals",
+  "order": 0
+}

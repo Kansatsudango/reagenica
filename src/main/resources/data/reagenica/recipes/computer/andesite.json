@@ -1,0 +1,13 @@
+{
+  "type": "reagenica:reagenimart",
+  "merchandise": {
+    "item": "minecraft:andesite",
+    "count": 16
+  },
+  "price": {
+    "item": "reagenica:sapphire",
+    "count": 1
+  },
+  "category": "building",
+  "order": 1
+}

@@ -1,0 +1,15 @@
+{
+  "type": "reagenica:fermentation",
+  "inputs": [
+    {"item": "reagenica:soybeans"},
+    {"item": "reagenica:salt"},
+    {"item": "reagenica:koji"}
+  ],
+  "result_fluid": {
+    "fluid": "reagenica:soy_sauce",
+    "amount": 50
+  },
+  "result_item": {
+    "item": "reagenica:miso"
+  }
+}

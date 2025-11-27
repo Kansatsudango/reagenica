@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " P ",
+    "PPP",
+    " P "
+  ],
+  "key": {
+    "P": { "item": "minecraft:paper" }
+  },
+  "result": {
+    "item": "reagenica:minewipe",
+    "count": 3
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    { "item": "reagenica:aluminium_ingot" },
+    { "item": "reagenica:aluminium_ingot" },
+    { "item": "reagenica:aluminium_ingot" },
+    { "item": "reagenica:aluminium_ingot" },
+    { "item": "reagenica:aluminium_ingot" },
+    { "item": "reagenica:aluminium_ingot" },
+    { "item": "reagenica:aluminium_ingot" },
+    { "item": "reagenica:aluminium_ingot" },
+    { "item": "reagenica:aluminium_ingot" }
+  ],
+  "result": {
+    "item": "reagenica:aluminium_block",
+    "count": 1
+  }
+}

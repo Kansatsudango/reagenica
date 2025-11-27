@@ -1,0 +1,9 @@
+{
+  "parent": "block/liquid",
+  "textures": {
+    "particle": "minecraft:block/water_still",
+    "still": "minecraft:block/water_still",
+    "flow": "minecraft:block/water_flow"
+  },
+  "render_type": "translucent"
+}

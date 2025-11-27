@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    { "item": "reagenica:phosphoric_acid" },
+    { "item": "minecraft:sand" }
+  ],
+  "result": {
+    "item": "reagenica:phosphoric_acid_catalyst",
+    "count": 1
+  }
+}

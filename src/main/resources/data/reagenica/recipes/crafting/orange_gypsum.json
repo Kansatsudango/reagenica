@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###",
+    "#D#",
+    "###"
+  ],
+  "key": {
+    "#": { "item": "reagenica:gypsum" },
+    "D": { "item": "reagenica:p_phenylazophenol" }
+  },
+  "result": {
+    "item": "reagenica:orange_gypsum",
+    "count": 8
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "type": "reagenica:reagenimart",
+  "merchandise": {
+    "item": "minecraft:terracotta",
+    "count": 4
+  },
+  "price": {
+    "item": "reagenica:sapphire",
+    "count": 1
+  },
+  "category": "building",
+  "order": 0
+}

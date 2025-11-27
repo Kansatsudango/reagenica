@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    { "item": "reagenica:platinum_nugget" },
+    { "item": "reagenica:platinum_nugget" },
+    { "item": "reagenica:platinum_nugget" },
+    { "item": "reagenica:platinum_nugget" },
+    { "item": "reagenica:platinum_nugget" },
+    { "item": "reagenica:platinum_nugget" },
+    { "item": "reagenica:platinum_nugget" },
+    { "item": "reagenica:platinum_nugget" },
+    { "item": "reagenica:platinum_nugget" }
+  ],
+  "result": {
+    "item": "reagenica:platinum_ingot",
+    "count": 1
+  }
+}

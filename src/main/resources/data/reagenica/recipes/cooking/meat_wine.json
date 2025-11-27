@@ -1,0 +1,8 @@
+{
+  "type": "reagenica:cooking",
+  "inputs": [
+    { "tag": "reagenica:meats" },
+    { "item": "reagenica:wine" }
+  ],
+  "result": { "item": "reagenica:meat_wine", "count": 2 }
+}

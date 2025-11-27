@@ -1,0 +1,25 @@
+{
+  "parent": "reagenica:pvc",
+  "display": {
+    "icon": { "item": "reagenica:electrolysis_device" },
+  "title": {
+    "translate": "advancements.reagenica.electrolysis_device.title"
+  },
+  "description": {
+    "translate": "advancements.reagenica.electrolysis_device.desc"
+  },
+  "frame": "task",
+  "show_toast": true,
+  "announce_to_chat": true
+  },
+  "criteria": {
+    "obtain_item": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          { "items": ["reagenica:electrolysis_device"] }
+        ]
+      }
+    }
+  }
+}

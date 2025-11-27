@@ -1,0 +1,18 @@
+{
+  "display": {
+    "icon": { "item": "reagenica:hydrochloric_acid" },
+  "title": {
+    "translate": "advancements.reagenica.root.title"
+  },
+  "description": {
+    "translate": "advancements.reagenica.root.desc"
+  },
+  "frame": "task",
+  "background": "reagenica:textures/block/incubator_top.png",
+  "show_toast": false,
+  "announce_to_chat": false
+  },
+  "criteria": {
+    "start": { "trigger": "minecraft:tick" }
+  }
+}

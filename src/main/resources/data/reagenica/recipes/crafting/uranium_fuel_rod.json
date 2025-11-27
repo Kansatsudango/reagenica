@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#U#"
+  ],
+  "key": {
+    "#": { "item": "minecraft:iron_ingot" },
+    "U": { "item": "reagenica:uranium_ingot" }
+  },
+  "result": {
+    "item": "reagenica:uranium_fuel_rod"
+  }
+}

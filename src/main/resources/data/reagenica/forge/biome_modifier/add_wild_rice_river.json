@@ -1,0 +1,8 @@
+{
+  "type": "forge:add_features",
+  "biomes": "#minecraft:is_river",
+  "features": [
+    "reagenica:wild_rice_placed_river"
+  ],
+  "step": "vegetal_decoration"
+}

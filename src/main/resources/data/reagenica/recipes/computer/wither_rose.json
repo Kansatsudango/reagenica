@@ -1,0 +1,13 @@
+{
+  "type": "reagenica:reagenimart",
+  "merchandise": {
+    "item": "minecraft:wither_rose",
+    "count": 1
+  },
+  "price": {
+    "item": "reagenica:sapphire",
+    "count": 16
+  },
+  "category": "naturals",
+  "order": 0
+}

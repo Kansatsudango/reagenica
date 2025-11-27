@@ -1,0 +1,31 @@
+{
+  "type": "reagenica:analyze",
+  "input": {
+    "item": "reagenica:anode_solution"
+  },
+  "results": [
+    {
+      "item": "minecraft:coal",
+      "count": 1,
+      "chance": 0.7
+    },
+    {
+      "item": "minecraft:gold_nugget",
+      "count": 1,
+      "chance": 0.3
+    },
+    {
+      "item": "reagenica:trace_silver",
+      "count": 1,
+      "chance": 0.08
+    },
+    {
+      "item": "reagenica:trace_platinum",
+      "count": 1,
+      "chance": 0.02
+    }
+  ],
+  "return_item":{
+    "item": "reagenica:testtube"
+  }
+}

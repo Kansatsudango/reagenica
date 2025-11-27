@@ -1,0 +1,9 @@
+{
+  "type": "reagenica:reagent_mixing",
+  "inputs":[
+    { "item": "reagenica:nitric_acid" },
+    { "item": "reagenica:nitrogen_monoxide" }
+  ],
+  "requires_heat": false,
+  "result_a": { "item": "reagenica:nitrous_acid","count":2}
+}

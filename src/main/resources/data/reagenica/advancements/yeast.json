@@ -1,0 +1,25 @@
+{
+  "parent": "reagenica:incubator",
+  "display": {
+    "icon": { "item": "reagenica:yeast" },
+  "title": {
+    "translate": "advancements.reagenica.yeast.title"
+  },
+  "description": {
+    "translate": "advancements.reagenica.yeast.desc"
+  },
+  "frame": "task",
+  "show_toast": true,
+  "announce_to_chat": true
+  },
+  "criteria": {
+    "obtain_item": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          { "items": ["reagenica:yeast"] }
+        ]
+      }
+    }
+  }
+}

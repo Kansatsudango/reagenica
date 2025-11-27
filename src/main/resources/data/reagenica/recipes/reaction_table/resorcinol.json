@@ -1,0 +1,10 @@
+{
+  "type": "reagenica:reagent_mixing",
+  "inputs":[
+    { "item": "reagenica:benzene_disulfonic" },
+    { "item": "reagenica:sodium_hydroxide" }
+  ],
+  "requires_heat": false,
+  "result_a": { "item": "reagenica:resorcinol", "count":1},
+  "result_b": { "item": "reagenica:sodium_sulfate", "count":1}
+}

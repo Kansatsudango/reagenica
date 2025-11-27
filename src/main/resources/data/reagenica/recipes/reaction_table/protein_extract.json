@@ -1,0 +1,9 @@
+{
+  "type": "reagenica:reagent_mixing",
+  "inputs":[
+    { "tag": "reagenica:proteins" },
+    { "item": "reagenica:hydrochloric_acid" }
+  ],
+  "requires_heat": true,
+  "result_a": { "item": "reagenica:protein_extract_acid"}
+}

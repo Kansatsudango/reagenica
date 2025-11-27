@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "reagenica:raw_lead",
+    "reagenica:raw_bauxite",
+    "reagenica:raw_chalcopyrite",
+    "reagenica:raw_apatite",
+    "reagenica:oilsand"
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "type": "reagenica:electrolysis",
+  "influid": {
+    "fluid": "reagenica:gold_solution",
+    "amount": 25
+  },
+  "outfluid": {
+    "fluid": "reagenica:silver_solution",
+    "amount": 25
+  },
+  "result_n": {
+    "item": "minecraft:gold_ingot"
+  },
+  "cathode": {
+    "item": "reagenica:gold_electrode"
+  },
+  "anode": {
+    "item": "reagenica:carbon_electrode"
+  },
+  "result_gas_p": {
+    "item": "reagenica:chlorine"
+  }
+}

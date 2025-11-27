@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "reagenica:block/haber_bosch",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "reagenica:block/haber_bosch"
+    },
+    "facing=south": {
+      "model": "reagenica:block/haber_bosch",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "reagenica:block/haber_bosch",
+      "y": 270
+    }
+  }
+}

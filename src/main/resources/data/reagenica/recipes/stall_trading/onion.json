@@ -1,0 +1,11 @@
+{
+  "type": "reagenica:stall_trading",
+  "merchandise": {
+    "item": "reagenica:onion",
+    "count": 24
+  },
+  "price": {
+    "item": "reagenica:sapphire",
+    "count": 1
+  }
+}

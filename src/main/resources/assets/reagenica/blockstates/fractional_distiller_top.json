@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "facing=north": { "model": "reagenica:block/fractional_distiller_top", "y": 0 },
+    "facing=south": { "model": "reagenica:block/fractional_distiller_top", "y": 180 },
+    "facing=west":  { "model": "reagenica:block/fractional_distiller_top", "y": 270 },
+    "facing=east":  { "model": "reagenica:block/fractional_distiller_top", "y": 90 }
+  }
+}

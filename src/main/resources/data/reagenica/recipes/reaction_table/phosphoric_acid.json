@@ -1,0 +1,10 @@
+{
+  "type": "reagenica:reagent_mixing",
+  "inputs":[
+    { "item": "reagenica:powder_apatite" , "count" : 4},
+    { "item": "reagenica:sulfuric_acid" }
+  ],
+  "requires_heat": true,
+  "result_a": { "item": "reagenica:phosphoric_acid"},
+  "result_b": { "item": "reagenica:calcium_sulfate", "count":4}
+}

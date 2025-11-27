@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###",
+    "#X#",
+    "###"
+  ],
+  "key": {
+    "#": { "item": "reagenica:testtube" },
+    "X": { "item": "minecraft:milk_bucket" }
+  },
+  "result": {
+    "item": "reagenica:milk",
+    "count": 8
+  }
+}

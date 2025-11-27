@@ -1,0 +1,8 @@
+{
+  "type": "forge:add_features",
+  "biomes": "#minecraft:is_overworld",
+  "features": [
+    "reagenica:lake_oil_surface"
+  ],
+  "step": "local_modifications"
+}

@@ -1,0 +1,8 @@
+{
+  "type": "forge:add_features",
+  "biomes": "#forge:is_desert",
+  "features": [
+    "reagenica:lake_oil_surface_desert"
+  ],
+  "step": "local_modifications"
+}

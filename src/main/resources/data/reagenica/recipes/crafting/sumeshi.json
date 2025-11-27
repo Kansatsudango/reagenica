@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    { "item": "reagenica:rice_vinegar" },
+    { "item": "minecraft:sugar" },
+    { "item": "reagenica:gohan" }
+  ],
+  "result": {
+    "item": "reagenica:sumeshi",
+    "count": 1
+  }
+}

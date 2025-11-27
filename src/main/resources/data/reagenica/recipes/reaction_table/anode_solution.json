@@ -1,0 +1,9 @@
+{
+  "type": "reagenica:reagent_mixing",
+  "inputs":[
+    { "tag": "reagenica:strong_acids" },
+    { "item": "reagenica:anode_slime" }
+  ],
+  "requires_heat": true,
+  "result_a": { "item": "reagenica:anode_solution"}
+}

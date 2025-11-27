@@ -1,0 +1,9 @@
+{
+  "type": "reagenica:reagent_mixing",
+  "inputs":[
+    { "item": "reagenica:protein_extract_neu" },
+    { "item": "reagenica:agar" }
+  ],
+  "requires_heat": true,
+  "result_a": { "item": "reagenica:medium_agar"}
+}

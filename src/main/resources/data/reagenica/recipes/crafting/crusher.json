@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "EGE",
+    "#G#",
+    "#F#"
+  ],
+  "key": {
+    "#": { "item": "minecraft:iron_ingot" },
+    "G": { "item": "minecraft:flint" },
+    "F": { "item": "minecraft:furnace" },
+    "E": { "item": "reagenica:polyethylene" }
+  },
+  "result": {
+    "item": "reagenica:crusher",
+    "count": 1
+  }
+}

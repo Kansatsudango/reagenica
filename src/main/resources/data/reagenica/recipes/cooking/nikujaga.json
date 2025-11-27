@@ -1,0 +1,12 @@
+{
+  "type": "reagenica:cooking",
+  "inputs": [
+    { "item": "minecraft:carrot" },
+    { "item": "minecraft:potato" },
+    { "tag": "reagenica:beef_or_pork" },
+    { "tag": "reagenica:onions" },
+    { "item": "reagenica:soy_sauce" },
+    { "item": "reagenica:mirin" }
+  ],
+  "result": { "item": "reagenica:nikujaga", "count": 2 }
+}

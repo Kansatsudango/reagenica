@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " - ",
+    "#E#",
+    " # "
+  ],
+  "key": {
+    "#": { "item": "minecraft:glass_pane" },
+    "-": { "item": "minecraft:string" },
+    "E": { "item": "reagenica:ethanol" }
+  },
+  "result": {
+    "item": "reagenica:alchohol_lamp",
+    "count": 1
+  }
+}

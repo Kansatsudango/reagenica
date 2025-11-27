@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#B#"
+  ],
+  "key": {
+    "#": { "item": "minecraft:wheat" },
+    "B": { "item": "minecraft:barrel" }
+  },
+  "result": {
+    "item": "reagenica:chemical_fermenter",
+    "count": 1
+  }
+}

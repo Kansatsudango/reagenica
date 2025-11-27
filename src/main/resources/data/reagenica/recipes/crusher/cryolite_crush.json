@@ -1,0 +1,9 @@
+{
+  "type": "reagenica:crushing",
+  "input": {
+    "item": "reagenica:cryolite"
+  },
+  "result": {
+    "item": "reagenica:powder_cryolite"
+  }
+}

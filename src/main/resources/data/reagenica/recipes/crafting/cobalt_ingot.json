@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    { "item": "reagenica:cobalt_nugget" },
+    { "item": "reagenica:cobalt_nugget" },
+    { "item": "reagenica:cobalt_nugget" },
+    { "item": "reagenica:cobalt_nugget" },
+    { "item": "reagenica:cobalt_nugget" },
+    { "item": "reagenica:cobalt_nugget" },
+    { "item": "reagenica:cobalt_nugget" },
+    { "item": "reagenica:cobalt_nugget" },
+    { "item": "reagenica:cobalt_nugget" }
+  ],
+  "result": {
+    "item": "reagenica:cobalt_ingot",
+    "count": 1
+  }
+}

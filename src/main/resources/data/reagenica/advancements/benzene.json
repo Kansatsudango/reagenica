@@ -1,0 +1,25 @@
+{
+  "parent": "reagenica:distiller",
+  "display": {
+    "icon": { "item": "reagenica:benzene" },
+  "title": {
+    "translate": "advancements.reagenica.benzene.title"
+  },
+  "description": {
+    "translate": "advancements.reagenica.benzene.desc"
+  },
+  "frame": "task",
+  "show_toast": true,
+  "announce_to_chat": true
+  },
+  "criteria": {
+    "obtain_item": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          { "items": ["reagenica:benzene"] }
+        ]
+      }
+    }
+  }
+}

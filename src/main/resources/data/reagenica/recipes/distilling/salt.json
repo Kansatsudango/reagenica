@@ -1,0 +1,14 @@
+{
+  "type": "reagenica:distilling",
+  "influid": {
+    "fluid": "minecraft:water",
+    "amount": 250
+  },
+  "residual": {
+    "item": "reagenica:salt"
+  },
+  "bottomfluid": {
+    "fluid": "reagenica:distilled_water",
+    "amount": 250
+  }
+}

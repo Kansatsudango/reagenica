@@ -1,0 +1,10 @@
+{
+  "type": "reagenica:reagent_mixing",
+  "inputs":[
+    { "item": "reagenica:water" },
+    { "item": "reagenica:raw_chalcopyrite" }
+  ],
+  "requires_heat": true,
+  "result_a": { "item": "reagenica:sulfuric_acid", "count":1},
+  "result_b": { "item": "minecraft:iron_nugget", "count":1}
+}

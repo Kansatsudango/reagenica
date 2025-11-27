@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###",
+    "#U#",
+    "###"
+  ],
+  "key": {
+    "#": { "item": "minecraft:glass" },
+    "U": { "item": "reagenica:uranium_ingot" }
+  },
+  "result": {
+    "item": "reagenica:uranium_glass",
+    "count": 8
+  }
+}

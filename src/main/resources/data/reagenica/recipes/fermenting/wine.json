@@ -1,0 +1,13 @@
+{
+  "type": "reagenica:fermentation",
+  "inputs": [
+    {"item": "reagenica:grape"}
+  ],
+  "result_fluid": {
+    "fluid": "reagenica:wine",
+    "amount": 50
+  },
+  "catalyst": {
+    "item": "reagenica:yeast"
+  }
+}

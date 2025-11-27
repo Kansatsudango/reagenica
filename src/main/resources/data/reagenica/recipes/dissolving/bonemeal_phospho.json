@@ -1,0 +1,17 @@
+{
+  "type": "reagenica:dissolving",
+  "input": {
+    "item": "minecraft:bone_meal"
+  },
+  "influid": {
+    "fluid": "reagenica:sulfuric_acid",
+    "amount": 25
+  },
+  "outfluid": {
+    "fluid": "reagenica:phosphoric_acid",
+    "amount": 25
+  },
+  "itemresult": {
+    "item": "reagenica:calcium_sulfate"
+  }
+}

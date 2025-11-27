@@ -1,0 +1,23 @@
+{
+  "type": "reagenica:electrolysis",
+  "influid": {
+    "fluid": "reagenica:copper_sulfate",
+    "amount": 100
+  },
+  "outfluid": {
+    "amount": 0
+  },
+  "result_n": {
+    "item": "reagenica:refined_copper_ingot"
+  },
+  "result_p": {
+    "item": "reagenica:anode_slime"
+  },
+  "cathode": {
+    "tag": "reagenica:electrodes"
+  },
+  "anode": {
+    "item": "reagenica:copper_electrode"
+  },
+  "anode_oxidize": true
+}

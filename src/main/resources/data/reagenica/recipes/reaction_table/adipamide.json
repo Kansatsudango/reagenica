@@ -1,0 +1,10 @@
+{
+  "type": "reagenica:reagent_mixing",
+  "inputs":[
+    { "item": "reagenica:adipic_acid" },
+    { "item": "reagenica:ammonia" }
+  ],
+  "requires_heat": true,
+  "result_a": { "item": "reagenica:adipamide", "count":1},
+  "result_b": { "item": "reagenica:testtube", "count":1}
+}

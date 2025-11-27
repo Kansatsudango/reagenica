@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#"
+  ],
+  "key": {
+    "#": { "item": "reagenica:grape_pargola" }
+  },
+  "result": {
+    "item": "reagenica:pargola",
+    "count": 1
+  }
+}

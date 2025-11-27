@@ -1,0 +1,12 @@
+{
+  "type": "reagenica:cooking",
+  "inputs": [
+    { "item": "reagenica:rice" },
+    { "item": "reagenica:rice" },
+    { "item": "reagenica:soy_sauce" },
+    { "item": "reagenica:mirin" },
+    { "item": "minecraft:carrot" },
+    { "item": "minecraft:chicken" }
+  ],
+  "result": { "item": "reagenica:seasoned_gohan", "count": 2 }
+}

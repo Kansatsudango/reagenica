@@ -1,0 +1,20 @@
+{
+  "type": "reagenica:heat_furnace",
+  "input": {
+    "item": "reagenica:powder_chalcopyrite"
+  },
+  "result": {
+    "item": "reagenica:iron_oxide"
+  },
+  "byproduct": {
+    "item": "reagenica:copper_oxide"
+  },
+  "influid": {
+    "fluid": "minecraft:water",
+    "amount": 100
+  },
+  "outfluid": {
+    "fluid": "reagenica:sulfuric_acid",
+    "amount": 100
+  }
+}

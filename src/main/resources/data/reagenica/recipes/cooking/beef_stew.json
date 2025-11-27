@@ -1,0 +1,12 @@
+{
+  "type": "reagenica:cooking",
+  "inputs": [
+    { "item": "minecraft:carrot" },
+    { "item": "minecraft:potato" },
+    { "tag": "forge:mushrooms" },
+    { "item": "minecraft:beef" },
+    { "tag": "reagenica:onions" },
+    { "item": "reagenica:wine" }
+  ],
+  "result": { "item": "reagenica:beef_stew", "count": 2 }
+}

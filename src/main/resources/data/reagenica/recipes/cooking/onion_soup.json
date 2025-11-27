@@ -1,0 +1,9 @@
+{
+  "type": "reagenica:cooking",
+  "inputs": [
+    { "item": "minecraft:carrot" },
+    { "item": "reagenica:onion" },
+    { "item": "reagenica:salt" }
+  ],
+  "result": { "item": "reagenica:onion_soup" }
+}

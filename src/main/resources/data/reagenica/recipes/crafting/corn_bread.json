@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "CCC",
+    "###"
+  ],
+  "key": {
+    "#": { "item": "minecraft:wheat" },
+    "C": { "item": "reagenica:corn" }
+  },
+  "result": {
+    "item": "reagenica:corn_bread",
+    "count": 2
+  }
+}

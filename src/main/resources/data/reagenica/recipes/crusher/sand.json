@@ -1,0 +1,9 @@
+{
+  "type": "reagenica:crushing",
+  "input": {
+    "item": "minecraft:gravel"
+  },
+  "result": {
+    "item": "minecraft:sand"
+  }
+}

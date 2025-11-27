@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#B#",
+    "#F#",
+    "#R#"
+  ],
+  "key": {
+    "#": { "item": "minecraft:smooth_stone" },
+    "R": { "item": "minecraft:redstone" },
+    "F": { "item": "minecraft:furnace" },
+    "B": { "item": "minecraft:bucket" }
+  },
+  "result": {
+    "item": "reagenica:fluid_fuel_generator",
+    "count": 1
+  }
+}

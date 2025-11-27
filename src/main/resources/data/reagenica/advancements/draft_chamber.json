@@ -1,0 +1,25 @@
+{
+  "parent": "reagenica:testtube",
+  "display": {
+    "icon": { "item": "reagenica:experiment_block" },
+  "title": {
+    "translate": "advancements.reagenica.draft_chamber.title"
+  },
+  "description": {
+    "translate": "advancements.reagenica.draft_chamber.desc"
+  },
+  "frame": "task",
+  "show_toast": true,
+  "announce_to_chat": true
+  },
+  "criteria": {
+    "obtain_item": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          { "items": ["reagenica:experiment_block"] }
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "type": "reagenica:reagent_mixing",
+  "inputs":[
+    { "item": "reagenica:ethanol" , "count" : 4 },
+    { "item": "reagenica:sulfuric_acid" }
+  ],
+  "requires_heat": true,
+  "result_a": { "item": "reagenica:ethylene"},
+  "result_b": { "item": "reagenica:dilute_sulfuric_acid", "count": 4}
+}

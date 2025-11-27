@@ -1,0 +1,10 @@
+{
+  "type": "reagenica:reagent_mixing",
+  "inputs":[
+    { "item": "reagenica:anilinium_chloride" },
+    { "item": "reagenica:sodium_hydroxide" }
+  ],
+  "requires_heat": false,
+  "result_a": { "item": "reagenica:aniline", "count":1},
+  "result_b": { "item": "reagenica:testtube", "count":1}
+}
