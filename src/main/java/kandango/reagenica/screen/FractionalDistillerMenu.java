@@ -46,10 +46,10 @@ public class FractionalDistillerMenu extends ChemistryMenu<FractionalDistillerBl
   public List<SlotPriorityRule> quickMoveRules() {
     List<SlotPriorityRule> rules = List.of(
       SlotPriorityRule.single(SlotPriorityPredicates.IsFuel, 0),
-      SlotPriorityRule.single(stack -> FluidItemConverter.getFluidstackFromItem(stack).getFluid() == Fluids.WATER, 8),
       SlotPriorityRule.single(SlotPriorityPredicates.IsFluidContainer, 2),
       SlotPriorityRule.single(SlotPriorityPredicates.IsFluidcase, 6),
-      SlotPriorityRule.single(SlotPriorityPredicates.IsFluidcase, 4)
+      SlotPriorityRule.single(SlotPriorityPredicates.IsFluidcase, 4),
+      SlotPriorityRule.single(stack -> FluidItemConverter.getFluidstackFromItem(stack).getFluid() == Fluids.WATER, 8)
     );
     return rules;
   }

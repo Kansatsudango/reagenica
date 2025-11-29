@@ -4,6 +4,7 @@ import java.util.List;
 
 import kandango.reagenica.ChemiUtils;
 import kandango.reagenica.block.entity.ReactorBlockEntity;
+import kandango.reagenica.screen.slots.SlotPriorityPredicates;
 import kandango.reagenica.screen.slots.SlotPriorityRule;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.world.entity.player.Inventory;
@@ -30,6 +31,7 @@ public class ReactorMenu extends ChemistryMenu<ReactorBlockEntity> {
   @Override
   public List<SlotPriorityRule> quickMoveRules() {
     List<SlotPriorityRule> rules = List.of(
+      SlotPriorityRule.single(SlotPriorityPredicates.IsFluidContainer,9)
     );
     return rules;
   }
@@ -60,11 +62,13 @@ public class ReactorMenu extends ChemistryMenu<ReactorBlockEntity> {
     this.addSlot(new SlotItemHandler(handler, 6, 62, 91));
     this.addSlot(new SlotItemHandler(handler, 7, 80, 91));
     this.addSlot(new SlotItemHandler(handler, 8, 98, 91));
+    this.addSlot(new SlotItemHandler(handler, 9, 22, 34));
+    this.addSlot(new SlotItemHandler(handler, 10, 22, 66));
   }
 
   @Override
   protected int slotCount() {
-    return 9;
+    return 11;
   }
 
   @Override

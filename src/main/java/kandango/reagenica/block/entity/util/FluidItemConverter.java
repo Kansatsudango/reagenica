@@ -73,6 +73,9 @@ public class FluidItemConverter {
     }
     return false;
   }
+  public static boolean draintoItem(ItemStackHandler handler, int inputindex, FluidTank tank){
+    return draintoItem(handler, inputindex, inputindex+1, tank);
+  }
   public static boolean drainfromItem(ItemStackHandler handler, int inputindex, int outputindex, FluidTank tank){
     ItemStack inslot = handler.getStackInSlot(inputindex);
     ItemStack outslot = handler.getStackInSlot(outputindex);
@@ -103,5 +106,8 @@ public class FluidItemConverter {
       }
     }
     return false;
+  }
+  public static boolean drainfromItem(ItemStackHandler handler, int inputindex, FluidTank tank){
+    return drainfromItem(handler, inputindex, inputindex+1, tank);
   }
 }

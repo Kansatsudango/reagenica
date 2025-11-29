@@ -95,7 +95,7 @@ public class HeatFurnaceBlockEntity extends ElectricConsumerAbstract implements 
   public void setUsingEnergy(boolean p){this.isUsingEnergy=p;}
   private final LampControllerHelper<HeatFurnaceBlockEntity> lamphelper = new LampControllerHelper<HeatFurnaceBlockEntity>(this);
 
-  private final LazyOptional<IItemHandler> itemHandlerLazyOptional = LazyOptional.of(() -> CommonChemiItemHandler.Builder.of(itemHandler).fuelslot(1).outputslot(2,3).build());
+  private final LazyOptional<IItemHandler> itemHandlerLazyOptional = LazyOptional.of(() -> CommonChemiItemHandler.Builder.of(itemHandler).fuelslot(1).outputslot(2,3).anyfluidInputslot(4).anyfluidOutputslot(6).build());
   private final LazyOptional<IFluidHandler> fluidTanksLazyOptional = LazyOptional.of(() -> new SimpleIOFluidHandler(inputFluid,outputFluid));
 
   public HeatFurnaceBlockEntity(BlockPos pos, BlockState state){

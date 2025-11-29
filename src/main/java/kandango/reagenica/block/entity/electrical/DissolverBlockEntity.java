@@ -79,7 +79,7 @@ public class DissolverBlockEntity extends ElectricConsumerAbstract implements Me
   private boolean dirty=true;//Always dirty when loaded newly
   private Optional<DissolverRecipe> cachedRecipe = Optional.empty();
 
-  private final LazyOptional<IItemHandler> itemHandlerLazyOptional = LazyOptional.of(() -> CommonChemiItemHandler.Builder.of(itemHandler).outputslot(1).build());
+  private final LazyOptional<IItemHandler> itemHandlerLazyOptional = LazyOptional.of(() -> CommonChemiItemHandler.Builder.of(itemHandler).outputslot(1).anyfluidInputslot(2).anyfluidOutputslot(4).build());
   private final LazyOptional<IFluidHandler> fluidHandlerLazyOptional = LazyOptional.of(() -> new SimpleIOFluidHandler(inputFluid, outputFluid));
 
   public DissolverBlockEntity(BlockPos pos, BlockState state){

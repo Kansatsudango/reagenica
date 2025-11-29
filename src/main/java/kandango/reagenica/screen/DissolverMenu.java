@@ -37,9 +37,8 @@ public class DissolverMenu extends ChemistryMenu<DissolverBlockEntity> {
   @Override
   public List<SlotPriorityRule> quickMoveRules() {
     List<SlotPriorityRule> rules = List.of(
-      SlotPriorityRule.single(SlotPriorityPredicates.IsFuel, 1),
-      SlotPriorityRule.single(SlotPriorityPredicates.IsFluidcase, 6),
-      SlotPriorityRule.single(SlotPriorityPredicates.IsFluidContainer, 4)
+      SlotPriorityRule.single(SlotPriorityPredicates.IsFluidContainer, 2),
+      SlotPriorityRule.single(SlotPriorityPredicates.IsFluidcase, 4)
     );
     return rules;
   }

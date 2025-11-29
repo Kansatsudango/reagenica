@@ -57,6 +57,14 @@ public class ElectroLysisBlockEntity extends ElectricConsumerAbstract implements
         else return slot%2!=0;
       }
     };
+  private static final int ANODE_ELECTRODE_SLOT = 0;
+  private static final int CATHODE_ELECTRODE_SLOT = 1;
+  private static final int ANODE_OUTPUT_SLOT = 2;
+  private static final int CATHODE_OUTPUT_SLOT = 11;
+  private static final int ANODE_GAS_TESTTUBE_SLOT = 3;
+  private static final int CATHODE_GAS_TESTTUBE_SLOT = 5;
+  private static final int INPUT_FLUID_SLOT = 7;
+  private static final int OUTPUT_FLUID_SLOT = 9;
 
   private final FluidTank inputFluid = new FluidTank(8000){
     @Override
@@ -84,11 +92,13 @@ public class ElectroLysisBlockEntity extends ElectricConsumerAbstract implements
   public void setUsingEnergy(boolean p){this.isUsingEnergy=p;}
 
   private final LazyOptional<IItemHandler> itemHandlerLazyOptional = LazyOptional.of(() -> CommonChemiItemHandler.Builder.of(itemHandler)
-                .customInputRule(SlotPriorityRule.single(item -> item.is(ChemiItems.TESTTUBE.get()), 3))
-                .customInputRule(SlotPriorityRule.single(item -> item.is(ChemiItems.TESTTUBE.get()), 5))
-                .customInputRule(SlotPriorityRule.single(item -> item.is(ChemiTags.Items.ELECTRODES), 0))
-                .customInputRule(SlotPriorityRule.single(item -> item.is(ChemiTags.Items.ELECTRODES), 1))
-                .outputslot(2,11).build());
+                .customInputRule(SlotPriorityRule.single(item -> item.is(ChemiItems.TESTTUBE.get()), ANODE_GAS_TESTTUBE_SLOT))
+                .customInputRule(SlotPriorityRule.single(item -> item.is(ChemiItems.TESTTUBE.get()), CATHODE_GAS_TESTTUBE_SLOT))
+                .customInputRule(SlotPriorityRule.single(item -> item.is(ChemiTags.Items.ELECTRODES), ANODE_ELECTRODE_SLOT))
+                .customInputRule(SlotPriorityRule.single(item -> item.is(ChemiTags.Items.ELECTRODES), CATHODE_ELECTRODE_SLOT))
+                .anyfluidInputslot(INPUT_FLUID_SLOT)
+                .anyfluidOutputslot(OUTPUT_FLUID_SLOT)
+                .outputslot(CATHODE_OUTPUT_SLOT,ANODE_OUTPUT_SLOT).build());
   private final LazyOptional<IFluidHandler> fluidHandlerLazyOptional = LazyOptional.of(() -> new SimpleIOFluidHandler(inputFluid,outputFluid));
 
   public ElectroLysisBlockEntity(BlockPos pos, BlockState state){
@@ -192,14 +202,14 @@ public class ElectroLysisBlockEntity extends ElectricConsumerAbstract implements
       return;
     }
     if(dirty){
-      if(!this.itemHandler.getStackInSlot(7).isEmpty()){
-        boolean out = FluidItemConverter.draintoItem(itemHandler, 7, 8, outputFluid);
-        boolean in  = FluidItemConverter.drainfromItem(itemHandler, 7, 8, outputFluid);
+      if(!this.itemHandler.getStackInSlot(INPUT_FLUID_SLOT).isEmpty()){
+        boolean out = FluidItemConverter.draintoItem(itemHandler, INPUT_FLUID_SLOT, outputFluid);
+        boolean in  = FluidItemConverter.drainfromItem(itemHandler, INPUT_FLUID_SLOT, outputFluid);
         dirtyflag = in || out;
       }
-      if(!this.itemHandler.getStackInSlot(9).isEmpty()){
-        boolean out = FluidItemConverter.draintoItem(itemHandler, 9, 10, inputFluid);
-        boolean in  = FluidItemConverter.drainfromItem(itemHandler, 9, 10, inputFluid);
+      if(!this.itemHandler.getStackInSlot(OUTPUT_FLUID_SLOT).isEmpty()){
+        boolean out = FluidItemConverter.draintoItem(itemHandler, OUTPUT_FLUID_SLOT, inputFluid);
+        boolean in  = FluidItemConverter.drainfromItem(itemHandler, OUTPUT_FLUID_SLOT, inputFluid);
         dirtyflag = in || out;
       }
       this.cachedRecipe = ElectroLysisRecipe.getRecipe(this.inputFluid.getFluid(), this.itemHandler.getStackInSlot(1), this.itemHandler.getStackInSlot(0), lv)
@@ -219,23 +229,23 @@ public class ElectroLysisBlockEntity extends ElectricConsumerAbstract implements
         if(this.progress >= 400){
           this.progress=0;
           this.inputFluid.drain(influid.getAmount(), FluidAction.EXECUTE);
-          ItemStackUtil.addStackToSlot(itemHandler, 2, anoderes);
-          ItemStackUtil.addStackToSlot(itemHandler, 11, cathoderes);
+          ItemStackUtil.addStackToSlot(itemHandler, ANODE_OUTPUT_SLOT, anoderes);
+          ItemStackUtil.addStackToSlot(itemHandler, CATHODE_OUTPUT_SLOT, cathoderes);
           this.outputFluid.fill(outfluid, FluidAction.EXECUTE);
-          if(!anodegas.isEmpty() && this.itemHandler.getStackInSlot(3).getItem() == ChemiItems.TESTTUBE.get()){
-            boolean res = ItemStackUtil.addStackToSlotifPossible(itemHandler, 4, anodegas);
-            if(res) this.itemHandler.getStackInSlot(3).shrink(1);
+          if(!anodegas.isEmpty() && this.itemHandler.getStackInSlot(ANODE_GAS_TESTTUBE_SLOT).getItem() == ChemiItems.TESTTUBE.get()){
+            boolean res = ItemStackUtil.addStackToSlotifPossible(itemHandler, ANODE_GAS_TESTTUBE_SLOT+1, anodegas);
+            if(res) this.itemHandler.getStackInSlot(ANODE_GAS_TESTTUBE_SLOT).shrink(1);
           }
-          if(!cathodegas.isEmpty() && this.itemHandler.getStackInSlot(5).getItem() == ChemiItems.TESTTUBE.get()){
-            boolean res = ItemStackUtil.addStackToSlotifPossible(itemHandler, 6, cathodegas);
-            if(res) this.itemHandler.getStackInSlot(5).shrink(1);
+          if(!cathodegas.isEmpty() && this.itemHandler.getStackInSlot(CATHODE_GAS_TESTTUBE_SLOT).getItem() == ChemiItems.TESTTUBE.get()){
+            boolean res = ItemStackUtil.addStackToSlotifPossible(itemHandler, CATHODE_GAS_TESTTUBE_SLOT+1, cathodegas);
+            if(res) this.itemHandler.getStackInSlot(CATHODE_GAS_TESTTUBE_SLOT).shrink(1);
           }
           if(cachedRecipe.anodeMelts()){
-            ItemStackUtil.damageItemInSlot(itemHandler, 0, 10, () -> ItemStack.EMPTY);
+            ItemStackUtil.damageItemInSlot(itemHandler, ANODE_ELECTRODE_SLOT, 10, () -> ItemStack.EMPTY);
           }else{
-            ItemStackUtil.damageItemInSlot(itemHandler, 0, 1, () -> ItemStack.EMPTY);
+            ItemStackUtil.damageItemInSlot(itemHandler, ANODE_ELECTRODE_SLOT, 1, () -> ItemStack.EMPTY);
           }
-          ItemStackUtil.damageItemInSlot(itemHandler, 1, 1, () -> ItemStack.EMPTY);
+          ItemStackUtil.damageItemInSlot(itemHandler, CATHODE_ELECTRODE_SLOT, 1, () -> ItemStack.EMPTY);
           dirtyflag=true;
         }
       }
@@ -246,8 +256,8 @@ public class ElectroLysisBlockEntity extends ElectricConsumerAbstract implements
     ItemStack anode = recipe.getOutputP();
     ItemStack cathode = recipe.getOutputN();
     FluidStack fluid = recipe.getFluidOut();
-    ItemStack anodeslot = itemHandler.getStackInSlot(2);
-    ItemStack cathodeslot = itemHandler.getStackInSlot(11);
+    ItemStack anodeslot = itemHandler.getStackInSlot(ANODE_OUTPUT_SLOT);
+    ItemStack cathodeslot = itemHandler.getStackInSlot(CATHODE_OUTPUT_SLOT);
     return (anodeslot.isEmpty() || ItemStackUtil.canAddStack(anodeslot, anode))
             && (cathodeslot.isEmpty() || ItemStackUtil.canAddStack(cathodeslot, cathode))
             && FluidStackUtil.canFullyInsertToTank(fluid, outputFluid);

@@ -7,6 +7,7 @@ import kandango.reagenica.ChemiFluids;
 import kandango.reagenica.ChemiItems;
 import kandango.reagenica.block.entity.ModBlockEntities;
 import kandango.reagenica.block.entity.fluidhandlers.DrainOnlyFluidHandler;
+import kandango.reagenica.block.entity.itemhandler.CommonChemiItemHandler;
 import kandango.reagenica.block.entity.util.FluidItemConverter;
 import kandango.reagenica.block.entity.util.FluidStackUtil;
 import kandango.reagenica.block.entity.util.ItemStackUtil;
@@ -34,6 +35,7 @@ import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.fluids.capability.IFluidHandler;
 import net.minecraftforge.fluids.capability.IFluidHandler.FluidAction;
 import net.minecraftforge.fluids.capability.templates.FluidTank;
+import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.ItemStackHandler;
 import net.minecraftforge.network.PacketDistributor;
 
@@ -77,7 +79,7 @@ public class AirSeparatorBlockEntity extends ElectricConsumerAbstract implements
   public int getProgress(){return progress;}
   public void setProgress(int p){this.progress=p;}
 
-  private final LazyOptional<ItemStackHandler> itemHandlerLazyOptional = LazyOptional.of(() -> itemHandler);
+  private final LazyOptional<IItemHandler> itemHandlerLazyOptional = LazyOptional.of(() -> CommonChemiItemHandler.Builder.of(itemHandler).anyfluidOutputslot(1).anyfluidOutputslot(3).build());
   private final LazyOptional<IFluidHandler> oxygenHandlerLazyOptional = LazyOptional.of(() -> new DrainOnlyFluidHandler(oxygenTank));
   private final LazyOptional<IFluidHandler> nitrogenHandlerLazyOptional = LazyOptional.of(() -> new DrainOnlyFluidHandler(nitrogenTank));
 

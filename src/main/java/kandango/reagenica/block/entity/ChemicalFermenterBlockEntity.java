@@ -88,6 +88,8 @@ public class ChemicalFermenterBlockEntity extends BlockEntity implements MenuPro
 
   private final LazyOptional<IItemHandler> itemHandlerLazyOptional = LazyOptional.of(() -> CommonChemiItemHandler.Builder.of(itemHandler)
                                                                     .customInputRule(SlotPriorityRule.single(stack -> stack.getItem() instanceof BioReagent, 4))
+                                                                    .anyfluidInputslot(6)
+                                                                    .anyfluidOutputslot(8)
                                                                     .outputslot(5).build());
   private final LazyOptional<IFluidHandler> fluidTankLazyOptional = LazyOptional.of(() -> new SimpleIOFluidHandler(inputTank,outputTank));
 

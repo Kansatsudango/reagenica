@@ -9,7 +9,6 @@ import javax.annotation.Nonnull;
 import com.mojang.blaze3d.systems.RenderSystem;
 
 import kandango.reagenica.client.ClientRenderUtil;
-import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.network.chat.Component;
@@ -38,14 +37,7 @@ public class FuelGeneratorScreen extends AbstractContainerScreen<FuelGeneratorMe
         int energy = menu.getEnergy();
         int capacity = menu.getMaxEnergy();
 
-        ClientRenderUtil.renderEnergyInGui(
-            graphics,
-            energy,
-            Minecraft.getInstance().level,
-            menu.getBlockEntity().getBlockPos(),
-            leftPos + 129, topPos + 19, 16, 48,
-            capacity
-        );
+        ClientRenderUtil.renderEnergyInGui(TEXTURE, graphics, leftPos, topPos, energy, capacity, 133, 37, 176, 33, 3, 16);
         int bt = menu.getBurnTime();
         int mt = menu.getMaxburntime();
         int arrowwidth = mt==0||bt==0 ? 0 : 24 - 24 * bt / mt;
@@ -57,10 +49,10 @@ public class FuelGeneratorScreen extends AbstractContainerScreen<FuelGeneratorMe
     protected void renderTooltip(@Nonnull GuiGraphics graphics, int mouseX, int mouseY) {
         super.renderTooltip(graphics, mouseX, mouseY);
 
-        int tankX = leftPos + 129;
-        int tankY = topPos + 19;
-        int tankWidth = 16;
-        int tankHeight = 48;
+        int tankX = leftPos + 132;
+        int tankY = topPos + 36;
+        int tankWidth = 5;
+        int tankHeight = 18;
 
         if (isMouseOver(mouseX, mouseY, tankX, tankY, tankWidth, tankHeight)) {
             int energy = menu.getEnergy();

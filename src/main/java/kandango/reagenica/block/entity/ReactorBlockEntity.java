@@ -8,11 +8,14 @@ import javax.annotation.Nullable;
 
 import kandango.reagenica.ChemiFluids;
 import kandango.reagenica.ChemiItems;
+import kandango.reagenica.ChemistryMod;
 import kandango.reagenica.block.entity.fluidhandlers.SimpleIOFluidHandler;
 import kandango.reagenica.block.entity.itemhandler.ChemiItemHandler;
+import kandango.reagenica.block.entity.itemhandler.CommonChemiItemHandler;
 import kandango.reagenica.block.entity.lamp.ILampController;
 import kandango.reagenica.block.entity.lamp.LampControllerHelper;
 import kandango.reagenica.block.entity.lamp.LampStates;
+import kandango.reagenica.block.entity.util.FluidItemConverter;
 import kandango.reagenica.block.entity.util.ItemStackUtil;
 import kandango.reagenica.packet.IDualTankBlock;
 import kandango.reagenica.packet.ModMessages;
@@ -23,6 +26,8 @@ import kandango.reagenica.screen.ReactorMenu;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.nbt.ListTag;
+import net.minecraft.nbt.Tag;
 import net.minecraft.network.Connection;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket;
@@ -51,7 +56,7 @@ import net.minecraftforge.items.ItemStackHandler;
 import net.minecraftforge.network.PacketDistributor;
 
 public class ReactorBlockEntity extends BlockEntity implements MenuProvider,ITickableBlockEntity,IDualTankBlock,ILampController{
-  private final int SLOTCOUNT = 9;
+  private final int SLOTCOUNT = 11;
   private final ChemiItemHandler itemHandler = new ChemiItemHandler(SLOTCOUNT) {
       @Override
       protected void onContentsChanged(int slot) {
@@ -61,13 +66,12 @@ public class ReactorBlockEntity extends BlockEntity implements MenuProvider,ITic
 
       @Override
       public boolean isItemValid(int slot, @Nullable ItemStack stack) {
-        return true;
+        return slot!=10;
       }
       
       @Override
-      public int getSlotLimit(int slot)
-      {
-        return 1;
+      public int getSlotLimit(int slot){
+        return slot<9 ? 1 : 64;
       }
     };
 
@@ -96,7 +100,7 @@ public class ReactorBlockEntity extends BlockEntity implements MenuProvider,ITic
     }
   };
 
-  private final LazyOptional<ItemStackHandler> itemHandlerLazyOptional = LazyOptional.of(() -> itemHandler);
+  private final LazyOptional<IItemHandler> itemHandlerLazyOptional = LazyOptional.of(() -> CommonChemiItemHandler.Builder.of(itemHandler).specificFluidInputSlot(ChemiFluids.DISTILLED_WATER.getFluid(), 9).build());
   private final LazyOptional<IFluidHandler> waterTankLazyOptional = LazyOptional.of(() -> new SimpleIOFluidHandler(fluidTank_main, fluidTank_heat));
 
   private boolean dirty=true;//Always dirty when loaded newly
@@ -116,6 +120,20 @@ public class ReactorBlockEntity extends BlockEntity implements MenuProvider,ITic
   public void load(@Nonnull CompoundTag tag){
     super.load(tag);
     itemHandler.deserializeNBT(tag.getCompound("Inventory"));
+    if (itemHandler.getSlots() != SLOTCOUNT) {
+      itemHandler.setSize(SLOTCOUNT);
+      ListTag tagList = tag.getCompound("Inventory").getList("Items", Tag.TAG_COMPOUND);
+      for(int i=0;i<tagList.size();i++){
+        CompoundTag itemTags = tagList.getCompound(i);
+        int slot = itemTags.getInt("Slot");
+        if (slot >= 0 && slot < 9){
+          itemHandler.setStackInSlot(slot, ItemStack.of(itemTags));
+        }else{
+          ChemistryMod.LOGGER.error("Reactor at {} has invalid inventory NBT, ignoring it.",this.getBlockPos());
+        }
+      }
+      ChemistryMod.LOGGER.info("Reactor at {} has older inventory NBT, expanded automatically.",this.getBlockPos());
+    }
     fluidTank_main.readFromNBT(tag.getCompound("MainTank"));
     fluidTank_heat.readFromNBT(tag.getCompound("HeatTank"));
     this.isSCRAMed = tag.getBoolean("SCRAM");
@@ -207,6 +225,10 @@ public class ReactorBlockEntity extends BlockEntity implements MenuProvider,ITic
     }
     if(this.dirty){
       this.dirty=false;
+      if(!this.itemHandler.getStackInSlot(9).isEmpty()){
+        boolean in = FluidItemConverter.drainfromItem(itemHandler, 9, fluidTank_main);
+        this.dirty |= in;
+      }
       if(!this.isSCRAMed){
         boolean oldActive=this.isActive;
         this.isActive=false;
