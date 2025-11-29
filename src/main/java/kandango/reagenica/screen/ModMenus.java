@@ -36,6 +36,9 @@ public class ModMenus {
     public static final RegistryObject<MenuType<RadioIsotopeGeneratorMenu>> GENERATOR_RI_MENU =
         MENU_TYPES.register("radioisotope_generator",
             () -> IForgeMenuType.create(RadioIsotopeGeneratorMenu::new));
+    public static final RegistryObject<MenuType<SolarPowerGeneratorMenu>> GENERATOR_SOLAR_MENU =
+        MENU_TYPES.register("solar_power_generator",
+            () -> IForgeMenuType.create(SolarPowerGeneratorMenu::new));
     public static final RegistryObject<MenuType<LeadBatteryMenu>> LEAD_BATTERY_MENU =
         MENU_TYPES.register("lead_battery",
             () -> IForgeMenuType.create(LeadBatteryMenu::new));

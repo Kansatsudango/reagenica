@@ -91,7 +91,7 @@ public abstract class ElectricGeneratorAbstract extends ElectricMachineAbstract{
     }
     int maxExtract = this.energyStorage.extractEnergy(Integer.MAX_VALUE, true);
     int demand = customers.stream().mapToInt(s -> demand(s, getOfferUnit())).sum();
-    if(maxExtract > demand){
+    if(maxExtract >= demand){
       for(StorageAndCost customer : customers){
         IEnergyStorage storage = customer.storage;
         double cost = customer.cost;

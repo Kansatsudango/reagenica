@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "GGG",
+    "QOQ",
+    "###"
+  ],
+  "key": {
+    "#": { "item": "reagenica:aluminium_ingot" },
+    "G": { "item": "minecraft:glass_pane" },
+    "Q": { "item": "minecraft:quartz" },
+    "O": { "item": "minecraft:obsidian" }
+  },
+  "result": {
+    "item": "reagenica:solar_power_generator",
+    "count": 1
+  }
+}

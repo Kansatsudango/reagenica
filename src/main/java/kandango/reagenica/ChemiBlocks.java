@@ -98,6 +98,10 @@ public class ChemiBlocks {
   public static final RegistryObject<Block> RADIOISOTOPE_GENERATOR = registerBlockandlist("radioisotope_generator", RadioIsotopeGenerator::new);
   public static final RegistryObject<Item> RADIOISOTOPE_GENERATOR_ITEM = registerItemandlist("radioisotope_generator",
       () -> new BlockItem(RADIOISOTOPE_GENERATOR.get(), new Item.Properties()));
+      
+  public static final RegistryObject<Block> SOLAR_POWER_GENERATOR = registerMachineBlockandlist("solar_power_generator", SolarPowerGenerator::new); 
+  public static final RegistryObject<Item> SOLAR_POWER_GENERATOR_ITEM = registerItemandlist("solar_power_generator",
+      () -> new BlockItem(SOLAR_POWER_GENERATOR.get(), new Item.Properties()));
 
   public static final RegistryObject<Block> BLASTFURNACE_BOTTOM = registerMachineBlockandlist("blast_furnace_bottom", BlastFurnaceBottom::new); 
   public static final RegistryObject<Block> BLASTFURNACE_SUB = registerMachineBlockandlist("blast_furnace_sub", BlastFurnaceSub::new);

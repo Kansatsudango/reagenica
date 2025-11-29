@@ -95,6 +95,11 @@ public class ModBlockEntities {
         () -> BlockEntityType.Builder.of((BlockEntityType.BlockEntitySupplier<RadioIsotopeGeneratorBlockEntity>)RadioIsotopeGeneratorBlockEntity::new,ChemiBlocks.RADIOISOTOPE_GENERATOR.get()).build(null));
 
     @SuppressWarnings("null")
+    public static final RegistryObject<BlockEntityType<SolarPowerGeneratorBlockEntity>> GENERATOR_SOLAR = 
+        BLOCK_ENTITIES.register("solar_power_generator", 
+        () -> BlockEntityType.Builder.of((BlockEntityType.BlockEntitySupplier<SolarPowerGeneratorBlockEntity>)SolarPowerGeneratorBlockEntity::new,ChemiBlocks.SOLAR_POWER_GENERATOR.get()).build(null));
+
+    @SuppressWarnings("null")
     public static final RegistryObject<BlockEntityType<LeadBatteryBlockEntity>> LEAD_BATTERY = 
         BLOCK_ENTITIES.register("lead_battery", 
         () -> BlockEntityType.Builder.of((BlockEntityType.BlockEntitySupplier<LeadBatteryBlockEntity>)LeadBatteryBlockEntity::new,ChemiBlocks.LEAD_BATTERY.get()).build(null));
