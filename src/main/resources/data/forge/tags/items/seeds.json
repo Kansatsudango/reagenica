@@ -1,0 +1,11 @@
+{
+  "replace": false,
+  "values": [
+    "reagenica:soybeans",
+    "reagenica:onion",
+    "reagenica:purple_onion",
+    "reagenica:rice",
+    "reagenica:tomato",
+    "reagenica:corn"
+  ]
+}

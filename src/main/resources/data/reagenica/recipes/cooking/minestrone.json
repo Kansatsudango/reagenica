@@ -8,5 +8,5 @@
     { "item": "minecraft:potato" },
     { "item": "reagenica:salt" }
   ],
-  "result": { "item": "reagenica:minestrone" }
+  "result": { "item": "reagenica:minestrone" , "count": 2}
 }
