@@ -2,6 +2,9 @@ package kandango.reagenica;
 
 import kandango.reagenica.block.fluid.ChemiFluidObject;
 import kandango.reagenica.block.fluid.ChemiGasObject;
+import kandango.reagenica.block.fluid.ChemiOnsenObject;
+import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.level.material.Fluid;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -39,4 +42,5 @@ public class ChemiFluids {
   public static final ChemiGasObject HYDROGEN = new ChemiGasObject("hydrogen", 0xCCdddddd);
   public static final ChemiGasObject OXYGEN = new ChemiGasObject("oxygen", 0xCCffe4e1);
   public static final ChemiGasObject NITROGEN = new ChemiGasObject("nitrogen", 0xCCf0faff);
+  public static final ChemiOnsenObject SIMPLE_HOTSPRING = new ChemiOnsenObject("simple_hotspring", 0xFFABCED8, new MobEffectInstance(MobEffects.REGENERATION, 60, 0));
 }

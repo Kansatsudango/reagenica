@@ -14,7 +14,7 @@ import net.minecraftforge.fluids.FluidType;
 import net.minecraftforge.fluids.ForgeFlowingFluid;
 import net.minecraftforge.registries.RegistryObject;
 
-public class ChemiFluidObject {
+public class ChemiFluidObject implements ChemiFluidInterface{
   private RegistryObject<FluidType> FluidType;
   private RegistryObject<FlowingFluid> StillFluid;
   private RegistryObject<FlowingFluid> FlowingFluid;

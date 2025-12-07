@@ -4,8 +4,7 @@ import kandango.reagenica.ChemiFluids;
 import kandango.reagenica.ChemiItems;
 import kandango.reagenica.ChemistryMod;
 import kandango.reagenica.block.entity.ModBlockEntities;
-import kandango.reagenica.block.fluid.ChemiFluidObject;
-import kandango.reagenica.block.fluid.ChemiGasObject;
+import kandango.reagenica.block.fluid.ChemiFluidInterface;
 import kandango.reagenica.client.renderer.DissolverFluidRenderer;
 import kandango.reagenica.client.renderer.ElectrolysisFluidRenderer;
 import kandango.reagenica.client.renderer.FluidPipeRenderer;
@@ -53,7 +52,8 @@ public class ClientSetupEvent {
             fluidTranslucent(ChemiFluids.NAPHTHA);
             fluidTranslucent(ChemiFluids.ETHYLENE);
             fluidTranslucent(ChemiFluids.BENZENE);
-            gasTranslucent(ChemiFluids.AMMONIA);
+            fluidTranslucent(ChemiFluids.AMMONIA);
+            fluidTranslucent(ChemiFluids.SIMPLE_HOTSPRING);
 
             BlockEntityRenderers.register(ModBlockEntities.TRADING_STALL.get(), TradingStallRenderer::new);
             BlockEntityRenderers.register(ModBlockEntities.PIPE_COPPER.get(), FluidPipeRenderer::new);
@@ -71,14 +71,9 @@ public class ClientSetupEvent {
         });
     }
 
-    private static void fluidTranslucent(ChemiFluidObject fluid){
+    private static void fluidTranslucent(ChemiFluidInterface fluid){
         fluid.getType().initializeClient(client -> {});
         ItemBlockRenderTypes.setRenderLayer(fluid.getFluid(), RenderType.translucent());
         ItemBlockRenderTypes.setRenderLayer(fluid.getFlowingFluid(), RenderType.translucent());
-    }
-    private static void gasTranslucent(ChemiGasObject gas){
-        gas.getType().initializeClient(client -> {});
-        ItemBlockRenderTypes.setRenderLayer(gas.getFluid(), RenderType.translucent());
-        ItemBlockRenderTypes.setRenderLayer(gas.getFlowingFluid(), RenderType.translucent());
     }
 }
