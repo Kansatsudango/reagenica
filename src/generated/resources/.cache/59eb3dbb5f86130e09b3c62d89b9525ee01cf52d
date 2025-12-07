@@ -1,4 +1,4 @@
-// 1.20.1	2025-11-16T22:32:12.125672	Loot Tables
+// 1.20.1	2025-12-07T19:08:59.4433619	Loot Tables
 fd599511177b57b7c4697466e227e89162e2d943 data/reagenica/loot_tables/blocks/advanced_farmland.json
 115802854012234d89e3ba52e3d8b2a271af6530 data/reagenica/loot_tables/blocks/air_separator.json
 af778c6940ed0700e603b9633a246c18de93eb49 data/reagenica/loot_tables/blocks/aluminium_block.json
@@ -91,6 +91,7 @@ d3183c2169504bb97ecbf4558a21e8cdefd4428a data/reagenica/loot_tables/blocks/red_p
 2efac53e2126f5e8b6f9d1757119bde3401b7551 data/reagenica/loot_tables/blocks/red_plastic_tile_pane.json
 bdfe5d6c80db24b7e9a5e49cb483d1e27d3aa107 data/reagenica/loot_tables/blocks/refined_copper_block.json
 7100be6ef189fd028c00be3435e19120c90fe1aa data/reagenica/loot_tables/blocks/rice_crop.json
+0d7394ec04a1f0988aa6dad9cbac2999d787369e data/reagenica/loot_tables/blocks/solar_power_generator.json
 0b1b57898048b6c8ba4c103c3eda5f0d6223ff36 data/reagenica/loot_tables/blocks/soybeans_crop.json
 41c761f74028f2ca241dfbb415698309bce5b99e data/reagenica/loot_tables/blocks/stack_lamp.json
 0b404fd796a590bd276dd1a4fbc75a36dac4a6b2 data/reagenica/loot_tables/blocks/tomato_crop.json
