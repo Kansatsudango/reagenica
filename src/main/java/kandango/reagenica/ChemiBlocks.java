@@ -7,20 +7,10 @@ import java.util.function.Supplier;
 import kandango.reagenica.block.*;
 import kandango.reagenica.block.farming.*;
 import kandango.reagenica.block.farming.crop.*;
-import kandango.reagenica.block.farming.grape.GrapeBlock;
-import kandango.reagenica.block.farming.grape.GrapePargola;
-import kandango.reagenica.block.farming.grape.GrapeSapling;
-import kandango.reagenica.block.farming.grape.GrapeStem;
-import kandango.reagenica.block.farming.grape.Pargola;
+import kandango.reagenica.block.farming.grape.*;
 import kandango.reagenica.generator.BlockLootType;
-import net.minecraft.world.item.BlockItem;
-import net.minecraft.world.item.CreativeModeTabs;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.item.ItemNameBlockItem;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.BushBlock;
-import net.minecraft.world.level.block.IronBarsBlock;
-import net.minecraft.world.level.block.LiquidBlock;
+import net.minecraft.world.item.*;
+import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockBehaviour.OffsetType;
 import net.minecraft.world.level.material.MapColor;
@@ -283,6 +273,16 @@ public class ChemiBlocks {
   public static final RegistryObject<Block> WILD_CORN = registerNoneBlockandlist("wild_corn", () -> new BushBlock(BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).noCollission().instabreak().sound(SoundType.CROP).offsetType(OffsetType.XZ)));
   public static final RegistryObject<Item> WILD_CORN_ITEM = registerItemandlist("wild_corn", 
       () -> new ItemNameBlockItem(WILD_CORN.get(), new Item.Properties()));
+
+  public static final RegistryObject<Block> YUNOHANA_WHITE = registerBlockandlist("yunohana_white", Yunohana::new); 
+  public static final RegistryObject<Item> YUNOHANA_WHITE_ITEM = registerItemandlist("yunohana_white",
+      () -> new BlockItem(YUNOHANA_WHITE.get(), new Item.Properties()));
+  public static final RegistryObject<Block> YUNOHANA_YELLOW = registerBlockandlist("yunohana_yellow", Yunohana::new); 
+  public static final RegistryObject<Item> YUNOHANA_YELLOW_ITEM = registerItemandlist("yunohana_yellow",
+      () -> new BlockItem(YUNOHANA_YELLOW.get(), new Item.Properties()));
+  public static final RegistryObject<Block> YUNOHANA_RED = registerBlockandlist("yunohana_red", Yunohana::new); 
+  public static final RegistryObject<Item> YUNOHANA_RED_ITEM = registerItemandlist("yunohana_red",
+      () -> new BlockItem(YUNOHANA_RED.get(), new Item.Properties()));
 
   public static final RegistryObject<Block> URANIUM_GLASS = registerSilktouchBlockandlist("uranium_glass",
             () -> new GlassLikeBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_LIGHT_GREEN)

@@ -1,0 +1,17 @@
+{
+  "ambientocclusion": false,
+  "textures": {
+    "particle": "reagenica:block/yunohana_yellow",
+    "yunohana": "reagenica:block/yunohana_yellow"
+  },
+  "elements": [
+    {   "from": [ 0, 0, 0.1 ],
+      "to": [ 16, 16, 0.1 ],
+      "faces": {
+        "north": { "uv": [ 16, 0, 0, 16 ], "texture": "#yunohana" },
+        "south": { "uv": [ 0, 0, 16, 16 ], "texture": "#yunohana" }
+      }
+    }
+  ],
+  "render_type": "cutout"
+}
