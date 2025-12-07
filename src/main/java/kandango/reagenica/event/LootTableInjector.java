@@ -28,6 +28,16 @@ public class LootTableInjector {
       .name("reagenica_grape_sapling").build();
       table.addPool(pool);
     }
+    if(name.equals(new ResourceLocation("minecraft", "chests/abandoned_mineshaft"))){
+      LootTable table = event.getTable();
+      LootPool pool = LootPool.lootPool()
+      .setRolls(ConstantValue.exactly(1))
+      .add(LootItem.lootTableItem(ChemiBlocks.GRAPE_SAPLING_ITEM.get()).setWeight(1)
+        .apply(SetItemCountFunction.setCount(ConstantValue.exactly(1))))
+      .add(LootItem.lootTableItem(ChemiBlocks.GRAPE.get()).setWeight(3))
+      .name("reagenica_grape_sapling").build();
+      table.addPool(pool);
+    }
     if(name.equals(new ResourceLocation("minecraft", "chests/simple_dungeon"))){
       LootTable table = event.getTable();
       LootPool pool = LootPool.lootPool()
