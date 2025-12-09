@@ -27,7 +27,7 @@ import kandango.reagenica.item.reagent.*;
 @Mod.EventBusSubscriber(modid = ChemistryMod.MODID, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class ChemiItems {
     public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, ChemistryMod.MODID);
-    public static List<RegistryObject<Item>> listItems = new ArrayList<>();
+    public static List<RegistryObject<? extends Item>> listItems = new ArrayList<>();
     public static List<CreativeTabContent> listCreativeTab = new ArrayList<>();
 
     public static final RegistryObject<Item> SAPPHIRE = registerandlist("sapphire", () -> new Item(new Item.Properties()));
@@ -240,8 +240,8 @@ public class ChemiItems {
     public static final RegistryObject<Item> FLUIDJAR = registerandlist("fluid_jar", () -> new FluidJar());
     public static final RegistryObject<Item> DEBUG_ROD = registerandlist("debug_rod", () -> new MagicalRod());
 
-    public static RegistryObject<Item> registerandlist(String name, Supplier<Item> supplier) {
-        RegistryObject<Item> item = ITEMS.register(name, supplier);
+    public static <T extends Item> RegistryObject<T> registerandlist(String name, Supplier<T> supplier) {
+        RegistryObject<T> item = ITEMS.register(name, supplier);
         listItems.add(item);
         listCreativeTab.add(new CreativeTabContent(item));
         return item;
@@ -253,7 +253,7 @@ public class ChemiItems {
         }
     }
     public record CreativeTabContent(Optional<Supplier<ItemStack>> stack, Optional<Supplier<ItemLike>> supplier) {
-        public CreativeTabContent(RegistryObject<Item> obj){
+        public CreativeTabContent(RegistryObject<? extends Item> obj){
             this(Optional.empty(), Optional.of(() -> obj.get()));
         }
         public CreativeTabContent(Supplier<ItemStack> stacksupplier){

@@ -274,13 +274,13 @@ public class ChemiBlocks {
   public static final RegistryObject<Item> WILD_CORN_ITEM = registerItemandlist("wild_corn", 
       () -> new ItemNameBlockItem(WILD_CORN.get(), new Item.Properties()));
 
-  public static final RegistryObject<Block> YUNOHANA_WHITE = registerBlockandlist("yunohana_white", Yunohana::new); 
+  public static final RegistryObject<Yunohana> YUNOHANA_WHITE = registerBlockandlist("yunohana_white", Yunohana::new); 
   public static final RegistryObject<Item> YUNOHANA_WHITE_ITEM = registerItemandlist("yunohana_white",
       () -> new BlockItem(YUNOHANA_WHITE.get(), new Item.Properties()));
-  public static final RegistryObject<Block> YUNOHANA_YELLOW = registerBlockandlist("yunohana_yellow", Yunohana::new); 
+  public static final RegistryObject<Yunohana> YUNOHANA_YELLOW = registerBlockandlist("yunohana_yellow", Yunohana::new); 
   public static final RegistryObject<Item> YUNOHANA_YELLOW_ITEM = registerItemandlist("yunohana_yellow",
       () -> new BlockItem(YUNOHANA_YELLOW.get(), new Item.Properties()));
-  public static final RegistryObject<Block> YUNOHANA_RED = registerBlockandlist("yunohana_red", Yunohana::new); 
+  public static final RegistryObject<Yunohana> YUNOHANA_RED = registerBlockandlist("yunohana_red", Yunohana::new); 
   public static final RegistryObject<Item> YUNOHANA_RED_ITEM = registerItemandlist("yunohana_red",
       () -> new BlockItem(YUNOHANA_RED.get(), new Item.Properties()));
 
@@ -511,53 +511,53 @@ public class ChemiBlocks {
     listBlockItems.add(item);
     return item;
   }
-  private static RegistryObject<Block> registerBlockandlist(String name, Supplier<Block> supplier) {
-    RegistryObject<Block> block = BLOCKS.register(name, supplier);
+  private static <T extends Block> RegistryObject<T> registerBlockandlist(String name, Supplier<T> supplier) {
+    RegistryObject<T> block = BLOCKS.register(name, supplier);
     listBlocks.add(BlockLootType.normal(block));
     return block;
   }
-  private static RegistryObject<Block> registerStoneBlockandlist(String name, Supplier<Block> supplier) {
-    RegistryObject<Block> block = BLOCKS.register(name, supplier);
+  private static <T extends Block> RegistryObject<T> registerStoneBlockandlist(String name, Supplier<T> supplier) {
+    RegistryObject<T> block = BLOCKS.register(name, supplier);
     listBlocks.add(BlockLootType.stone(block));
     return block;
   }
-  private static RegistryObject<Block> registerWoodBlockandlist(String name, Supplier<Block> supplier) {
-    RegistryObject<Block> block = BLOCKS.register(name, supplier);
+  private static <T extends Block> RegistryObject<T> registerWoodBlockandlist(String name, Supplier<T> supplier) {
+    RegistryObject<T> block = BLOCKS.register(name, supplier);
     listBlocks.add(BlockLootType.wood(block));
     return block;
   }
-  private static RegistryObject<Block> registerHoeBlockandlist(String name, Supplier<Block> supplier) {
-    RegistryObject<Block> block = BLOCKS.register(name, supplier);
+  private static <T extends Block> RegistryObject<T> registerHoeBlockandlist(String name, Supplier<T> supplier) {
+    RegistryObject<T> block = BLOCKS.register(name, supplier);
     listBlocks.add(BlockLootType.hoe(block));
     return block;
   }
-  private static RegistryObject<Block> registerMachineBlockandlist(String name, Supplier<Block> supplier) {
-    RegistryObject<Block> block = BLOCKS.register(name, supplier);
+  private static <T extends Block> RegistryObject<T> registerMachineBlockandlist(String name, Supplier<T> supplier) {
+    RegistryObject<T> block = BLOCKS.register(name, supplier);
     listBlocks.add(BlockLootType.machine(block));
     return block;
   }
-  private static RegistryObject<Block> registerBatteryBlockandlist(String name, Supplier<Block> supplier) {
-    RegistryObject<Block> block = BLOCKS.register(name, supplier);
+  private static <T extends Block> RegistryObject<T> registerBatteryBlockandlist(String name, Supplier<T> supplier) {
+    RegistryObject<T> block = BLOCKS.register(name, supplier);
     listBlocks.add(BlockLootType.battery(block));
     return block;
   }
-  private static RegistryObject<Block> registerSilktouchBlockandlist(String name, Supplier<Block> supplier) {
-    RegistryObject<Block> block = BLOCKS.register(name, supplier);
+  private static <T extends Block> RegistryObject<T> registerSilktouchBlockandlist(String name, Supplier<T> supplier) {
+    RegistryObject<T> block = BLOCKS.register(name, supplier);
     listBlocks.add(BlockLootType.silktouch(block));
     return block;
   }
-  private static RegistryObject<Block> registerOreBlockandlist(String name, Supplier<Block> supplier,int count, Supplier<RegistryObject<Item>> item, int lev) {
-    RegistryObject<Block> block = BLOCKS.register(name, supplier);
+  private static <T extends Block> RegistryObject<T> registerOreBlockandlist(String name, Supplier<T> supplier,int count, Supplier<RegistryObject<? extends Item>> item, int lev) {
+    RegistryObject<T> block = BLOCKS.register(name, supplier);
     listBlocks.add(BlockLootType.ore(block, count, item, lev));
     return block;
   }
-  private static RegistryObject<Block> registerPlantBlockandlist(String name, Supplier<Block> supplier,int count, Supplier<RegistryObject<Item>> veggies) {
-    RegistryObject<Block> block = BLOCKS.register(name, supplier);
+  private static <T extends Block> RegistryObject<T> registerPlantBlockandlist(String name, Supplier<T> supplier,int count, Supplier<RegistryObject<? extends Item>> veggies) {
+    RegistryObject<T> block = BLOCKS.register(name, supplier);
     listBlocks.add(BlockLootType.plants(block, count, veggies));
     return block;
   }
-  private static RegistryObject<Block> registerNoneBlockandlist(String name, Supplier<Block> supplier) {
-    RegistryObject<Block> block = BLOCKS.register(name, supplier);
+  private static <T extends Block> RegistryObject<T> registerNoneBlockandlist(String name, Supplier<T> supplier) {
+    RegistryObject<T> block = BLOCKS.register(name, supplier);
     listBlocks.add(BlockLootType.none(block));
     return block;
   }

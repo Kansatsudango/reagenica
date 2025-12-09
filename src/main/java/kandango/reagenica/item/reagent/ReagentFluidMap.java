@@ -24,8 +24,8 @@ public class ReagentFluidMap {
     fluidItemMap.put(fluid, continerItem);
     itemFluidMap.put(continerItem, fluid);
   }
-  public static void registerAll(List<RegistryObject<Item>> itemlist){
-    for(RegistryObject<Item> itemobj : itemlist){
+  public static void registerAll(List<RegistryObject<? extends Item>> itemlist){
+    for(RegistryObject<? extends Item> itemobj : itemlist){
       Item item = itemobj.get();
       if(item instanceof LiquidReagent reagent){
         reagent.getRelativeFluid().ifPresent(x -> ReagentFluidMap.register(x, reagent));
