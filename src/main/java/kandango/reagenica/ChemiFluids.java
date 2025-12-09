@@ -42,5 +42,5 @@ public class ChemiFluids {
   public static final ChemiGasObject HYDROGEN = new ChemiGasObject("hydrogen", 0xCCdddddd);
   public static final ChemiGasObject OXYGEN = new ChemiGasObject("oxygen", 0xCCffe4e1);
   public static final ChemiGasObject NITROGEN = new ChemiGasObject("nitrogen", 0xCCf0faff);
-  public static final ChemiOnsenObject SIMPLE_HOTSPRING = new ChemiOnsenObject("simple_hotspring", 0xFFABCED8, new MobEffectInstance(MobEffects.REGENERATION, 60, 0));
+  public static final ChemiOnsenObject SIMPLE_HOTSPRING = new ChemiOnsenObject("simple_hotspring", 0xFFABCED8, new MobEffectInstance(MobEffects.REGENERATION, 60, 0), ChemiBlocks.YUNOHANA_WHITE::get);
 }
