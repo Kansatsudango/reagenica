@@ -283,6 +283,12 @@ public class ChemiBlocks {
   public static final RegistryObject<Yunohana> YUNOHANA_RED = registerBlockandlist("yunohana_red", Yunohana::new); 
   public static final RegistryObject<Item> YUNOHANA_RED_ITEM = registerItemandlist("yunohana_red",
       () -> new BlockItem(YUNOHANA_RED.get(), new Item.Properties()));
+  public static final RegistryObject<Yunohana> YUNOHANA_SPOTTED = registerBlockandlist("yunohana_spotted", Yunohana::new); 
+  public static final RegistryObject<Item> YUNOHANA_SPOTTED_ITEM = registerItemandlist("yunohana_spotted",
+      () -> new BlockItem(YUNOHANA_SPOTTED.get(), new Item.Properties()));
+  public static final RegistryObject<Yunohana> YUNOHANA_DARK_YELLOW = registerBlockandlist("yunohana_dark_yellow", Yunohana::new); 
+  public static final RegistryObject<Item> YUNOHANA_DARK_YELLOW_ITEM = registerItemandlist("yunohana_dark_yellow",
+      () -> new BlockItem(YUNOHANA_DARK_YELLOW.get(), new Item.Properties()));
 
   public static final RegistryObject<Block> URANIUM_GLASS = registerSilktouchBlockandlist("uranium_glass",
             () -> new GlassLikeBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_LIGHT_GREEN)

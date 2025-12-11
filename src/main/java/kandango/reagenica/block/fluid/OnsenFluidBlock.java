@@ -4,7 +4,6 @@ import java.util.function.Supplier;
 
 import javax.annotation.Nonnull;
 
-import kandango.reagenica.ChemistryMod;
 import kandango.reagenica.block.Yunohana;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -47,7 +46,7 @@ public class OnsenFluidBlock extends LiquidBlock{
   public void randomTick(@Nonnull BlockState state, @Nonnull ServerLevel lv, @Nonnull BlockPos pos, @Nonnull RandomSource random) {
     for(int x=-1;x<=1;x++){
       for(int z=-1;z<=1;z++){
-        if(random.nextInt(4)!=0)continue;
+        if(random.nextInt(12)!=0)continue;
         BlockPos yunohanapos = pos.offset(x, 1, z);
         if(lv.isEmptyBlock(yunohanapos)){
           Yunohana yunohanaBlock = yunohana.get();
@@ -69,7 +68,6 @@ public class OnsenFluidBlock extends LiquidBlock{
         }
       }
     }
-    ChemistryMod.LOGGER.info("Ticked {}",pos.toShortString());
   }
 
   @Override

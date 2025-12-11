@@ -54,6 +54,10 @@ public class ClientSetupEvent {
             fluidTranslucent(ChemiFluids.BENZENE);
             fluidTranslucent(ChemiFluids.AMMONIA);
             fluidTranslucent(ChemiFluids.SIMPLE_HOTSPRING);
+            fluidTranslucent(ChemiFluids.SULFUR_HOTSPRING);
+            fluidTranslucent(ChemiFluids.CHLORIDE_HOTSPRING);
+            fluidTranslucent(ChemiFluids.IRON_HOTSPRING);
+            fluidTranslucent(ChemiFluids.RADIOACTIVE_HOTSPRING);
 
             BlockEntityRenderers.register(ModBlockEntities.TRADING_STALL.get(), TradingStallRenderer::new);
             BlockEntityRenderers.register(ModBlockEntities.PIPE_COPPER.get(), FluidPipeRenderer::new);

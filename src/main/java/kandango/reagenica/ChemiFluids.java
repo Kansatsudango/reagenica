@@ -43,4 +43,8 @@ public class ChemiFluids {
   public static final ChemiGasObject OXYGEN = new ChemiGasObject("oxygen", 0xCCffe4e1);
   public static final ChemiGasObject NITROGEN = new ChemiGasObject("nitrogen", 0xCCf0faff);
   public static final ChemiOnsenObject SIMPLE_HOTSPRING = new ChemiOnsenObject("simple_hotspring", 0xFFABCED8, new MobEffectInstance(MobEffects.REGENERATION, 60, 0), ChemiBlocks.YUNOHANA_WHITE::get);
+  public static final ChemiOnsenObject SULFUR_HOTSPRING = new ChemiOnsenObject("sulfur_hotspring", 0xFFDCCB18, new MobEffectInstance(MobEffects.DAMAGE_BOOST, 3600, 0), ChemiBlocks.YUNOHANA_YELLOW::get);
+  public static final ChemiOnsenObject CHLORIDE_HOTSPRING = new ChemiOnsenObject("chloride_hotspring", 0xFFC89932, new MobEffectInstance(MobEffects.REGENERATION, 60, 0), ChemiBlocks.YUNOHANA_SPOTTED::get);
+  public static final ChemiOnsenObject IRON_HOTSPRING = new ChemiOnsenObject("iron_hotspring", 0xFF8A3319, new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, 3600, 0), ChemiBlocks.YUNOHANA_RED::get);
+  public static final ChemiOnsenObject RADIOACTIVE_HOTSPRING = new ChemiOnsenObject("radioactive_hotspring", 0xFF7EBEA5, new MobEffectInstance(MobEffects.REGENERATION, 60, 0), ChemiBlocks.YUNOHANA_DARK_YELLOW::get);
 }
