@@ -77,8 +77,10 @@ public class OnsenFluidBlock extends LiquidBlock{
 
   @Override
   public void entityInside(@Nonnull BlockState state, @Nonnull Level lv, @Nonnull BlockPos pos, @Nonnull Entity entity) {
-    if(!lv.isClientSide && entity instanceof LivingEntity living){
-      living.addEffect(effect);
+    if(lv.getGameTime()%20==0){
+      if(!lv.isClientSide && entity instanceof LivingEntity living){
+        living.addEffect(new MobEffectInstance(effect));//effect instance is mutable!
+      }
     }
   }
 
