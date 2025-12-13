@@ -96,6 +96,9 @@ public class ModMenus {
     public static final RegistryObject<MenuType<OnsenDetecterMenu>> ONSEN_DETECTER_MENU =
         MENU_TYPES.register("onsen_detecter",
             () -> IForgeMenuType.create((id, inv, buf) -> new OnsenDetecterMenu(id, inv.player.level(), inv.player.blockPosition())));
+    public static final RegistryObject<MenuType<OnsenMinerMenu>> ONSEN_MINER_MENU =
+        MENU_TYPES.register("hotspring_miner",
+            () -> IForgeMenuType.create(OnsenMinerMenu::new));
 
     public static void register(IEventBus eventBus) {
         MENU_TYPES.register(eventBus);

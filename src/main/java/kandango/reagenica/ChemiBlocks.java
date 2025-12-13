@@ -161,6 +161,10 @@ public class ChemiBlocks {
   public static final RegistryObject<Item> COMPUTER_ITEM = registerItemandlist("computer",
     () -> new BlockItem(COMPUTER.get(), new Item.Properties()));
 
+  public static final RegistryObject<Block> ONSEN_MINER = registerMachineBlockandlist("hotspring_miner",OnsenMiner::new);
+  public static final RegistryObject<Item> ONSEN_MINER_ITEM = registerItemandlist("hotspring_miner",
+    () -> new BlockItem(ONSEN_MINER.get(), new Item.Properties()));
+
   public static final RegistryObject<Block> LEAD_ORE = registerOreBlockandlist("lead_ore", OresConfig::stoneOres, 1, () -> ChemiItems.RAW_LEAD, 2); 
   public static final RegistryObject<Item> LEAD_ORE_ITEM = registerItemandlist("lead_ore",
       () -> new BlockItem(LEAD_ORE.get(), new Item.Properties()));

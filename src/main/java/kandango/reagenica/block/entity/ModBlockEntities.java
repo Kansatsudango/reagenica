@@ -184,6 +184,11 @@ public class ModBlockEntities {
         BLOCK_ENTITIES.register("large_tank_interface", 
         () -> BlockEntityType.Builder.of((BlockEntityType.BlockEntitySupplier<LargeTankInterfaceBlockEntity>)LargeTankInterfaceBlockEntity::new,ChemiBlocks.LARGE_TANK_INTERFACE.get()).build(null));
 
+    @SuppressWarnings("null")
+    public static final RegistryObject<BlockEntityType<OnsenMinerBlockEntity>> ONSEN_MINER = 
+        BLOCK_ENTITIES.register("hotspring_miner", 
+        () -> BlockEntityType.Builder.of((BlockEntityType.BlockEntitySupplier<OnsenMinerBlockEntity>)OnsenMinerBlockEntity::new,ChemiBlocks.ONSEN_MINER.get()).build(null));
+
     public static void register(IEventBus eventBus) {
         BLOCK_ENTITIES.register(eventBus);
     }

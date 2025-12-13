@@ -42,14 +42,14 @@ public class TankComponent implements IScreenComponent{
       tank.getFluid(),
       Minecraft.getInstance().level,
       pos,
-      leftPos + x, topPos + y, topPos, leftPos,
+      leftPos + x, topPos + y, width, height,
       tank.getCapacity()
     );
   }
 
   @Override
   public void tooltip(@Nonnull GuiGraphics graphics, int mouseX, int mouseY, int topPos, int leftPos, Font font) {
-    if (isMouseOver(x, y, width, height,mouseX, mouseY)) {
+    if (isMouseOver(leftPos+x, topPos+y, width, height,mouseX, mouseY)) {
       FluidStack fluid = tank.getFluid();
       if (!fluid.isEmpty()) {
         List<Component> tooltip = new ArrayList<>();

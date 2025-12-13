@@ -41,6 +41,7 @@ public class ModScreens {
             MenuScreens.register(ModMenus.AIR_SEPARATOR_MENU.get(), AirSeparatorScreen::new);
             MenuScreens.register(ModMenus.HABER_BOSCH_MENU.get(), HaberBoschScreen::new);
             MenuScreens.register(ModMenus.ONSEN_DETECTER_MENU.get(), OnsenDetecterScreen::new);
+            MenuScreens.register(ModMenus.ONSEN_MINER_MENU.get(), OnsenMinerScreen::new);
         });
     }
 }
