@@ -192,6 +192,7 @@ public class ChemiItems {
     public static final RegistryObject<Item> SILVER_ARROW = registerandlist("silver_arrow", () -> new SilverArrowItem());
     public static final RegistryObject<Item> SILVER_BOW = registerandlist("silver_bow", () -> new SilverBowItem());
     public static final RegistryObject<Item> LAMP_LINKER = registerandlist("lamp_linker", () -> new LampLinker());
+    public static final RegistryObject<Item> ONSEN_DETECTER = registerandlist("geological_surveyor", () -> new OnsenDetecter());
     public static final RegistryObject<Item> UV_LAMP = registerandlist("uv_lamp", () -> new Item(new Item.Properties().durability(512)));
     public static final RegistryObject<Item> ETHANOL_FUEL = registerandlist("ethanol_fuel_pellet", () -> new Item(new Item.Properties()));
 
