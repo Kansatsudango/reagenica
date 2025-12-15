@@ -189,6 +189,11 @@ public class ModBlockEntities {
         BLOCK_ENTITIES.register("hotspring_miner", 
         () -> BlockEntityType.Builder.of((BlockEntityType.BlockEntitySupplier<OnsenMinerBlockEntity>)OnsenMinerBlockEntity::new,ChemiBlocks.ONSEN_MINER.get()).build(null));
 
+    @SuppressWarnings("null")
+    public static final RegistryObject<BlockEntityType<OnsenFillerBlockEntity>> ONSEN_FILLER = 
+        BLOCK_ENTITIES.register("hotspring_filler", 
+        () -> BlockEntityType.Builder.of((BlockEntityType.BlockEntitySupplier<OnsenFillerBlockEntity>)OnsenFillerBlockEntity::new,ChemiBlocks.ONSEN_FILLER.get()).build(null));
+
     public static void register(IEventBus eventBus) {
         BLOCK_ENTITIES.register(eventBus);
     }
