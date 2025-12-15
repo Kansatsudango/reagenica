@@ -3,17 +3,23 @@ package kandango.reagenica.block.fluid;
 import java.util.function.Consumer;
 
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.sounds.SoundEvents;
 import net.minecraftforge.client.extensions.common.IClientFluidTypeExtensions;
+import net.minecraftforge.common.SoundActions;
 import net.minecraftforge.fluids.FluidType;
 
 public class OrganicFluidType extends FluidType{
   private final int color;
   public OrganicFluidType(int color){
   super(FluidType.Properties.create()
-    .canDrown(false)
-    .canSwim(false)
+    .canDrown(true)
+    .canSwim(true)
     .density(1000)
     .viscosity(1000)
+    .supportsBoating(true)
+    .sound(SoundActions.BUCKET_FILL, SoundEvents.BUCKET_FILL)
+    .sound(SoundActions.BUCKET_EMPTY, SoundEvents.BUCKET_EMPTY)
+    .sound(SoundActions.FLUID_VAPORIZE, SoundEvents.FIRE_EXTINGUISH)
   );
   this.color = color;
   }

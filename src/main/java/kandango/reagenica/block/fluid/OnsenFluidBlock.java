@@ -9,6 +9,8 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.Entity;
@@ -77,9 +79,15 @@ public class OnsenFluidBlock extends LiquidBlock{
 
   @Override
   public void entityInside(@Nonnull BlockState state, @Nonnull Level lv, @Nonnull BlockPos pos, @Nonnull Entity entity) {
-    if(lv.getGameTime()%20==0){
-      if(!lv.isClientSide && entity instanceof LivingEntity living){
+    if(lv.isClientSide)return;
+    if(entity instanceof LivingEntity living){
+      if(lv.getGameTime()%20==0){
         living.addEffect(new MobEffectInstance(effect));//effect instance is mutable!
+      }
+      if(living.getDeltaMovement().lengthSqr() > 0.00001){
+        if(living.tickCount % 25 == 0){
+          lv.playSound(null, living.blockPosition(), SoundEvents.PLAYER_SWIM, SoundSource.PLAYERS, 0.2f, 0.9F + lv.random.nextFloat() * 0.2F);
+        }
       }
     }
   }

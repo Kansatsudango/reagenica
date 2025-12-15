@@ -9,7 +9,6 @@ import java.util.Set;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
-import kandango.reagenica.ChemiFluids;
 import kandango.reagenica.block.BlockUtil;
 import kandango.reagenica.block.OnsenFiller;
 import kandango.reagenica.block.entity.util.FluidStackUtil;
@@ -25,7 +24,11 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.Fluid;
 import net.minecraft.world.level.material.FluidState;
 import net.minecraftforge.common.capabilities.Capability;
+import net.minecraftforge.common.capabilities.ForgeCapabilities;
 import net.minecraftforge.common.util.LazyOptional;
+import net.minecraftforge.fluids.FluidStack;
+import net.minecraftforge.fluids.capability.IFluidHandler;
+import net.minecraftforge.fluids.capability.IFluidHandler.FluidAction;
 import net.minecraftforge.fluids.capability.templates.FluidTank;
 
 public class OnsenFillerBlockEntity extends BlockEntity implements ITickableBlockEntity{
@@ -84,12 +87,25 @@ public class OnsenFillerBlockEntity extends BlockEntity implements ITickableBloc
     if(lv==null){
       return;
     }
+    BlockEntity below = lv.getBlockEntity(worldPosition.below());
+    if(below!=null) below.getCapability(ForgeCapabilities.FLUID_HANDLER).ifPresent(this::drawFluid);
     if(cooldown>0){
       cooldown--;
     }else{
       cooldown=20;
-      @Nullable final Direction facing = BlockUtil.getStatus(lv.getBlockState(worldPosition),OnsenFiller.FACING).orElse(null);
-      fillWater(lv,facing,ChemiFluids.SIMPLE_HOTSPRING.getFluid());
+      if(fluidTank.getFluidAmount() >= 1000){
+        @Nullable final Direction facing = BlockUtil.getStatus(lv.getBlockState(worldPosition),OnsenFiller.FACING).orElse(null);
+        fillWater(lv,facing,fluidTank.getFluid().getFluid());
+      }
+    }
+  }
+  private void drawFluid(IFluidHandler another){
+    int max = fluidTank.getCapacity();
+    int current = fluidTank.getFluidAmount();
+    if(current<max){
+      int drawing = Math.min(max-current,100);
+      FluidStack stack = another.drain(drawing, FluidAction.EXECUTE);
+      fluidTank.fill(stack, FluidAction.EXECUTE);
     }
   }
   private void fillWater(@Nonnull Level lv,@Nullable Direction facing,@Nullable Fluid fluid){
@@ -109,6 +125,7 @@ public class OnsenFillerBlockEntity extends BlockEntity implements ITickableBloc
     }
   }
   private void placeSource(@Nonnull Level lv, BlockPos pos, Fluid fluid){
+    fluidTank.drain(1000, FluidAction.EXECUTE);
     BlockState state = fluid.defaultFluidState().createLegacyBlock();
     lv.setBlock(pos, state, Block.UPDATE_ALL);
   }
