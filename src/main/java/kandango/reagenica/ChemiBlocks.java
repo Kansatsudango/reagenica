@@ -164,9 +164,9 @@ public class ChemiBlocks {
   public static final RegistryObject<Block> ONSEN_MINER = registerMachineBlockandlist("hotspring_miner",OnsenMiner::new);
   public static final RegistryObject<Item> ONSEN_MINER_ITEM = registerItemandlist("hotspring_miner",
     () -> new BlockItem(ONSEN_MINER.get(), new Item.Properties()));
-  public static final RegistryObject<Block> ONSEN_FILLER = registerMachineBlockandlist("hotspring_filler",OnsenFiller::new);
-  public static final RegistryObject<Item> ONSEN_FILLER_ITEM = registerItemandlist("hotspring_filler",
-    () -> new BlockItem(ONSEN_FILLER.get(), new Item.Properties()));
+  public static final RegistryObject<Block> ONSEN_FILLER_WOOD = registerMachineBlockandlist("spring_outlet_wood",OnsenFillerWood::new);
+  public static final RegistryObject<Item> ONSEN_FILLER_WOOD_ITEM = registerItemandlist("spring_outlet_wood",
+    () -> new BlockItem(ONSEN_FILLER_WOOD.get(), new Item.Properties()));
 
   public static final RegistryObject<Block> LEAD_ORE = registerOreBlockandlist("lead_ore", OresConfig::stoneOres, 1, () -> ChemiItems.RAW_LEAD, 2); 
   public static final RegistryObject<Item> LEAD_ORE_ITEM = registerItemandlist("lead_ore",

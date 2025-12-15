@@ -58,4 +58,11 @@ public class ShapeStream {
     }
     return map;
   }
+  public Map<Direction,VoxelShape> createRots(Iterable<Direction> dirs){
+    Map<Direction,VoxelShape> map = new HashMap<>();
+    for(Direction dir : dirs){
+      map.put(dir, rotate(dir).build());
+    }
+    return map;
+  }
 }

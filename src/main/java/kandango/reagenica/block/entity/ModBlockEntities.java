@@ -192,7 +192,7 @@ public class ModBlockEntities {
     @SuppressWarnings("null")
     public static final RegistryObject<BlockEntityType<OnsenFillerBlockEntity>> ONSEN_FILLER = 
         BLOCK_ENTITIES.register("hotspring_filler", 
-        () -> BlockEntityType.Builder.of((BlockEntityType.BlockEntitySupplier<OnsenFillerBlockEntity>)OnsenFillerBlockEntity::new,ChemiBlocks.ONSEN_FILLER.get()).build(null));
+        () -> BlockEntityType.Builder.of((BlockEntityType.BlockEntitySupplier<OnsenFillerBlockEntity>)OnsenFillerBlockEntity::new,ChemiBlocks.ONSEN_FILLER_WOOD.get()).build(null));
 
     public static void register(IEventBus eventBus) {
         BLOCK_ENTITIES.register(eventBus);

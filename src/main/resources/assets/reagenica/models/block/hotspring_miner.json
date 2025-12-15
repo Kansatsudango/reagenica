@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/cube_bottom_top",
+  "textures": {
+    "bottom": "reagenica:block/fuel_generator_top",
+    "side": "reagenica:block/fuel_generator_side",
+    "top": "reagenica:block/onsen_miner_top"
+  }
+}

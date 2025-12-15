@@ -29,7 +29,7 @@ import org.jetbrains.annotations.Nullable;
 
 import kandango.reagenica.block.entity.OnsenFillerBlockEntity;
 
-public class OnsenFiller extends Block implements EntityBlock {
+public abstract class OnsenFiller extends Block implements EntityBlock {
   public static final DirectionProperty FACING = HorizontalDirectionalBlock.FACING;
 
   public OnsenFiller() {
