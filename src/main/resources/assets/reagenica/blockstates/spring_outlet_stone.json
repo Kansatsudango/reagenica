@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "facing=north": { "model": "reagenica:block/spring_outlet_stone", "y": 0 },
+    "facing=south": { "model": "reagenica:block/spring_outlet_stone", "y": 180 },
+    "facing=west":  { "model": "reagenica:block/spring_outlet_stone", "y": 270 },
+    "facing=east":  { "model": "reagenica:block/spring_outlet_stone", "y": 90 }
+  }
+}
