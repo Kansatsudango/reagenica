@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " # ",
+    "#W#",
+    "LQL"
+  ],
+  "key": {
+    "#": { "item": "reagenica:pvc" },
+    "W": { "item": "reagenica:polyethylene" },
+    "L": { "item": "minecraft:lapis_lazuli" },
+    "Q": { "item": "reagenica:smoky_quartz" }
+  },
+  "result": {
+    "item": "reagenica:geological_surveyor",
+    "count": 1
+  }
+}
