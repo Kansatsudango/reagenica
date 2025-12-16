@@ -11,6 +11,7 @@ import kandango.reagenica.client.renderer.FluidPipeRenderer;
 import kandango.reagenica.client.renderer.HeatFurnaceFluidRenderer;
 import kandango.reagenica.client.renderer.LargeTankRenderer;
 import kandango.reagenica.client.renderer.LeadBatteryFluidRenderer;
+import kandango.reagenica.client.renderer.OnsenFillerFluidRenderer;
 import kandango.reagenica.client.renderer.SmallTankRenderer;
 import kandango.reagenica.client.renderer.StackLampRenderer;
 import kandango.reagenica.client.renderer.TradingStallRenderer;
@@ -70,6 +71,7 @@ public class ClientSetupEvent {
             BlockEntityRenderers.register(ModBlockEntities.DISSOLVER.get(), DissolverFluidRenderer::new);
             BlockEntityRenderers.register(ModBlockEntities.LEAD_BATTERY.get(), LeadBatteryFluidRenderer::new);
             BlockEntityRenderers.register(ModBlockEntities.LARGE_TANK_CORE.get(), LargeTankRenderer::new);
+            BlockEntityRenderers.register(ModBlockEntities.ONSEN_FILLER.get(), OnsenFillerFluidRenderer::new);
 
             ItemProperties.register(ChemiItems.ALCHOHOL_LAMP.get(), new ResourceLocation("empty"), (stack, level, entity, seed) -> stack.getDamageValue() >= stack.getMaxDamage() ? 1.0F : 0.0F);
         });

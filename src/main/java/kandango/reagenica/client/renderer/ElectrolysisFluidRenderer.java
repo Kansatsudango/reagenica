@@ -34,7 +34,6 @@ public class ElectrolysisFluidRenderer implements BlockEntityRenderer<ElectroLys
 
     poseStack.pushPose();
     FluidBlockEntityRenderer.renderFluidCube(poseStack, bufferSource, fluid, min, min, min, max, height, max, level, pos, 15728880);
-    //FluidBlockEntityRenderer.renderFluidSide(poseStack, bufferSource, fluid, level, pos, packedLight, SquareRecord.createUpside(height, min, min, max, max));
     poseStack.popPose();
   }
 }

@@ -23,10 +23,13 @@ import net.minecraft.world.level.block.state.properties.DirectionProperty;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraftforge.network.NetworkHooks;
 
+import java.util.Collection;
+
 import javax.annotation.Nonnull;
 
 import org.jetbrains.annotations.Nullable;
 
+import kandango.reagenica.ChemiGeometry;
 import kandango.reagenica.block.entity.OnsenFillerBlockEntity;
 
 public abstract class OnsenFiller extends Block implements EntityBlock {
@@ -74,4 +77,6 @@ public abstract class OnsenFiller extends Block implements EntityBlock {
   public <T extends BlockEntity> BlockEntityTicker<T> getTicker(@Nonnull Level level, @Nonnull BlockState state, @Nonnull BlockEntityType<T> type) {
     return BlockUtil.getTicker(level, state, type);
   }
+
+  public abstract Collection<ChemiGeometry> waterFlows();
 }

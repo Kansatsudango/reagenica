@@ -67,7 +67,51 @@ public class FluidBlockEntityRenderer {
     renderToNorthern(renderingkit, minX, minY, maxX, maxY, minZ);
     renderToSouthern(renderingkit, minX, minY, maxX, maxY, maxZ);
     renderToWestern(renderingkit, minZ, minY, maxZ, maxY, minX);
-    renderToWestern(renderingkit, minZ, minY, maxZ, maxY, maxX);
+    renderToEastern(renderingkit, minZ, minY, maxZ, maxY, maxX);
+  }
+  public static void renderFlowingFluidCube(PoseStack poseStack, MultiBufferSource buffersource,
+                                   FluidStack fluidStack, float minX, float minY, float minZ,
+                                   float maxX, float maxY, float maxZ,
+                                   BlockAndTintGetter level, BlockPos pos, int light) {
+
+    if (fluidStack.isEmpty()) return;
+    Fluid fluid = fluidStack.getFluid();
+    FluidState fluidState = fluid.defaultFluidState();
+
+    // テクスチャ取得
+    TextureAtlasSprite[] sprites = ForgeHooksClient.getFluidSprites(level, pos, fluidState);
+    TextureAtlasSprite sprite = sprites[0];
+    TextureAtlasSprite sprite_flowing = sprites[1];
+    VertexConsumer buffer = buffersource.getBuffer(RenderType.entityTranslucent(sprite.atlasLocation()));
+
+    // 色取得
+    int color = Minecraft.getInstance().getBlockColors().getColor(fluidState.createLegacyBlock(), level, pos, 0);
+    if (color == -1) {
+        color = IClientFluidTypeExtensions.of(fluid).getTintColor(fluidStack);
+    }
+
+    // アルファが0の場合は255をセット
+    if (((color >> 24) & 0xFF) == 0) {
+        color |= 0xFF000000;
+    }
+    float a = ((color >> 24) & 0xFF) / 255f;
+    float r = ((color >> 16) & 0xFF) / 255f;
+    float g = ((color >> 8) & 0xFF) / 255f;
+    float b = (color & 0xFF) / 255f;
+
+    PoseStack.Pose pose = poseStack.last();
+    Matrix4f matrix = pose.pose();
+    Matrix3f normal = pose.normal();
+
+    RenderingHappySet renderingkit = new RenderingHappySet(buffer, matrix, r, g, b, a, sprite.getU0(), sprite.getV0(), sprite.getU1(), sprite.getV1(), light, normal);
+    RenderingHappySet flowrenderingkit = new RenderingHappySet(buffer, matrix, r, g, b, a, sprite_flowing.getU0(), sprite_flowing.getV1(), sprite_flowing.getU1(), sprite_flowing.getV0(), light, normal);
+
+    renderToUpper(renderingkit, minX, minZ, maxX, maxZ, maxY);
+    renderToLower(renderingkit, minX, minZ, maxX, maxZ, minY);
+    renderToNorthern(flowrenderingkit, minX, minY, maxX, maxY, minZ);
+    renderToSouthern(flowrenderingkit, minX, minY, maxX, maxY, maxZ);
+    renderToWestern(flowrenderingkit, minZ, minY, maxZ, maxY, minX);
+    renderToEastern(flowrenderingkit, minZ, minY, maxZ, maxY, maxX);
   }
   public static void renderToUpper(RenderingHappySet kit, float minX, float minZ, float maxX, float maxZ, float Y){
     final VertexConsumer buffer = kit.buffer;

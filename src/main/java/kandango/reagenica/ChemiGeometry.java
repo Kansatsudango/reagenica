@@ -7,6 +7,7 @@ import net.minecraft.world.phys.AABB;
 
 //This is utility class
 public class ChemiGeometry {
+  private static final double offset = 0.005;
   private final Space s1;
   private final Space s2;
   private ChemiGeometry(Space s1,Space s2){
@@ -26,6 +27,12 @@ public class ChemiGeometry {
   }
   public static ChemiGeometry create(double x1,double y1,double z1){
     return new ChemiGeometry(x1, y1, z1);
+  }
+  public static ChemiGeometry createPix(double x1,double y1,double z1,double x2,double y2,double z2){
+    return new ChemiGeometry(x1/16.0+offset, y1/16.0+offset, z1/16.0+offset, x2/16.0-offset, y2/16.0-offset, z2/16.0-offset);
+  }
+  public static ChemiGeometry createPrecicePix(double x1,double y1,double z1,double x2,double y2,double z2){
+    return new ChemiGeometry(x1/16.0, y1/16.0, z1/16.0, x2/16.0, y2/16.0, z2/16.0);
   }
 
   public ChemiGeometry rotate(Direction dir){
@@ -65,5 +72,14 @@ public class ChemiGeometry {
     else throw new IllegalArgumentException("Unknown Direction "+dir.toString());
   }
   public record Space(double x,double y,double z) {
+    public float fx(){
+      return (float)x;
+    }
+    public float fy(){
+      return (float)y;
+    }
+    public float fz(){
+      return (float)z;
+    }
   }
 }

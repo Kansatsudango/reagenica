@@ -1,9 +1,12 @@
 package kandango.reagenica.block;
 
+import java.util.Collection;
+import java.util.List;
 import java.util.Map;
 
 import javax.annotation.Nonnull;
 
+import kandango.reagenica.ChemiGeometry;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.level.BlockGetter;
@@ -19,5 +22,11 @@ public class OnsenFillerStone extends OnsenFiller{
   public VoxelShape getShape(@Nonnull BlockState state, @Nonnull BlockGetter getter, @Nonnull BlockPos pos, @Nonnull CollisionContext context) {
     Direction facing = state.getValue(FACING);
     return SHAPES.get(facing);
+  }
+  @Override
+  public Collection<ChemiGeometry> waterFlows() {
+    return List.of(ChemiGeometry.createPix(5, 2, 2, 9, 3, 8)
+                   ,ChemiGeometry.createPix(4, 1, -2, 12, 3, 3)
+                   ,ChemiGeometry.createPix(4, -2, -2, 12, 1, -0.5));
   }
 }
