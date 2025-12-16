@@ -12,6 +12,9 @@ import javax.annotation.Nullable;
 import kandango.reagenica.block.BlockUtil;
 import kandango.reagenica.block.OnsenFiller;
 import kandango.reagenica.block.entity.util.FluidStackUtil;
+import kandango.reagenica.packet.ISingleTankBlock;
+import kandango.reagenica.packet.ModMessages;
+import kandango.reagenica.packet.SyncFluidPacket;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
@@ -30,8 +33,9 @@ import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.fluids.capability.IFluidHandler;
 import net.minecraftforge.fluids.capability.IFluidHandler.FluidAction;
 import net.minecraftforge.fluids.capability.templates.FluidTank;
+import net.minecraftforge.network.PacketDistributor;
 
-public class OnsenFillerBlockEntity extends BlockEntity implements ITickableBlockEntity{
+public class OnsenFillerBlockEntity extends BlockEntity implements ITickableBlockEntity,ISingleTankBlock{
   private final FluidTank fluidTank = new FluidTank(1000){
     @Override
     protected void onContentsChanged(){
@@ -92,6 +96,7 @@ public class OnsenFillerBlockEntity extends BlockEntity implements ITickableBloc
     if(cooldown>0){
       cooldown--;
     }else{
+      syncFluidToClient();//Every 20 tick
       cooldown=20;
       if(fluidTank.getFluidAmount() >= 1000){
         @Nullable final Direction facing = BlockUtil.getStatus(lv.getBlockState(worldPosition),OnsenFiller.FACING).orElse(null);
@@ -204,5 +209,24 @@ public class OnsenFillerBlockEntity extends BlockEntity implements ITickableBloc
       }
     }
     return count < MAX_SIZE;
+  }
+
+  @Override
+  public void receivePacket(FluidStack fluid) {
+    fluidTank.setFluid(fluid);
+  }
+  private void syncFluidToClient(){
+    Level lv = this.level;
+    if(lv != null && !lv.isClientSide){
+      ModMessages.CHANNEL.send(
+        PacketDistributor.TRACKING_CHUNK.with(
+          () -> lv.getChunkAt(worldPosition)
+          ),
+          new SyncFluidPacket(worldPosition, fluidTank.getFluid().copy())
+      );
+    }
+  }
+  public FluidStack getRenderingFluid(){
+    return fluidTank.getFluid();
   }
 }

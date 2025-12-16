@@ -6,7 +6,6 @@ import javax.annotation.Nonnull;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 
-import kandango.reagenica.ChemiFluids;
 import kandango.reagenica.ChemiGeometry;
 import kandango.reagenica.ChemiGeometry.Space;
 import kandango.reagenica.block.BlockUtil;
@@ -29,7 +28,8 @@ public class OnsenFillerFluidRenderer implements BlockEntityRenderer<OnsenFiller
   @Override
   public void render(@Nonnull OnsenFillerBlockEntity filler, float partialTick, @Nonnull PoseStack poseStack, 
                        @Nonnull MultiBufferSource bufferSource, int packedLight, int packedOverlay) {
-    FluidStack fluid = new FluidStack(ChemiFluids.SIMPLE_HOTSPRING.getFluid(), packedOverlay);
+    FluidStack fluid = new FluidStack(filler.getRenderingFluid(), packedOverlay);
+    if(fluid.isEmpty())return;
     Level level = filler.getLevel();
     BlockPos pos = filler.getBlockPos();
 
