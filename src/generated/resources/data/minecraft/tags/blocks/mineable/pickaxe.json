@@ -24,6 +24,8 @@
     "reagenica:large_tank_core",
     "reagenica:large_tank_interface",
     "reagenica:computer",
+    "reagenica:hotspring_miner",
+    "reagenica:spring_outlet_wood",
     "reagenica:lead_ore",
     "reagenica:deepslate_lead_ore",
     "reagenica:chalcopyrite_ore",

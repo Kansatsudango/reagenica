@@ -1,4 +1,4 @@
-// 1.20.1	2025-12-07T19:08:59.4433619	Loot Tables
+// 1.20.1	2025-12-16T20:29:27.6019433	Loot Tables
 fd599511177b57b7c4697466e227e89162e2d943 data/reagenica/loot_tables/blocks/advanced_farmland.json
 115802854012234d89e3ba52e3d8b2a271af6530 data/reagenica/loot_tables/blocks/air_separator.json
 af778c6940ed0700e603b9633a246c18de93eb49 data/reagenica/loot_tables/blocks/aluminium_block.json
@@ -56,6 +56,7 @@ e405b8b6b40e1478d32d7a6799dc3582547a6a03 data/reagenica/loot_tables/blocks/green
 4b135c8a01aa9cf725ce8b61a87dbdea11c69b5b data/reagenica/loot_tables/blocks/haber_bosch.json
 cb0bb586f150be40053e6639f62e091a4203e411 data/reagenica/loot_tables/blocks/heat_furnace.json
 b6f238bd470b3ace8554f3ee62a80da95894e2d0 data/reagenica/loot_tables/blocks/heat_generator.json
+f5bf940394b5a2cd36d82642c315b512cae3d394 data/reagenica/loot_tables/blocks/hotspring_miner.json
 007219834da8f779512b2008e87e7b47029de21c data/reagenica/loot_tables/blocks/incubator.json
 85942b7fe97d729856c9ac61ef54d135436f1ca9 data/reagenica/loot_tables/blocks/large_tank_core.json
 1e0ca164e438cca59a5bc6025c4e9a2ab49748e6 data/reagenica/loot_tables/blocks/large_tank_interface.json
@@ -93,6 +94,7 @@ bdfe5d6c80db24b7e9a5e49cb483d1e27d3aa107 data/reagenica/loot_tables/blocks/refin
 7100be6ef189fd028c00be3435e19120c90fe1aa data/reagenica/loot_tables/blocks/rice_crop.json
 0d7394ec04a1f0988aa6dad9cbac2999d787369e data/reagenica/loot_tables/blocks/solar_power_generator.json
 0b1b57898048b6c8ba4c103c3eda5f0d6223ff36 data/reagenica/loot_tables/blocks/soybeans_crop.json
+af92c0bf0eb37c4af5d822a99cdf136fdbb1589b data/reagenica/loot_tables/blocks/spring_outlet_wood.json
 41c761f74028f2ca241dfbb415698309bce5b99e data/reagenica/loot_tables/blocks/stack_lamp.json
 0b404fd796a590bd276dd1a4fbc75a36dac4a6b2 data/reagenica/loot_tables/blocks/tomato_crop.json
 1e057cc5eb515b0da4207f5ec25aa1ffc97eda64 data/reagenica/loot_tables/blocks/trading_stall.json
@@ -107,3 +109,8 @@ bacc424e747e3d806e01bb4524af6eef20271165 data/reagenica/loot_tables/blocks/yello
 9e13856bd4cece2934ffc68840fb73e7e207120e data/reagenica/loot_tables/blocks/yellow_plastic_pane.json
 92dd4aa68b8c3875cfb1b48411b5a45643cdcc28 data/reagenica/loot_tables/blocks/yellow_plastic_tile.json
 833f5785fe49d0beace2c162034929ebf3f072dc data/reagenica/loot_tables/blocks/yellow_plastic_tile_pane.json
+78b26e59b072e135aa30b04940c0a1dfd64cde09 data/reagenica/loot_tables/blocks/yunohana_dark_yellow.json
+ad5792be47be31f97a1d9c4bcc4ee100bf454def data/reagenica/loot_tables/blocks/yunohana_red.json
+0206f0aee0b1121ca58a2d7ad0bf46fb679b9df2 data/reagenica/loot_tables/blocks/yunohana_spotted.json
+59388f1fbc32fa0d005068cc31edba7c71dab4e2 data/reagenica/loot_tables/blocks/yunohana_white.json
+bf49d832828de97a391eb7096fedab808ebedb0b data/reagenica/loot_tables/blocks/yunohana_yellow.json
