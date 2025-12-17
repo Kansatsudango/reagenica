@@ -11,11 +11,11 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "reagenica:spring_outlet_wood"
+          "name": "reagenica:spring_outlet_stone"
         }
       ],
       "rolls": 1.0
     }
   ],
-  "random_sequence": "reagenica:blocks/spring_outlet_wood"
+  "random_sequence": "reagenica:blocks/spring_outlet_stone"
 }

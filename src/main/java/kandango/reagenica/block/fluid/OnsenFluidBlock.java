@@ -48,7 +48,7 @@ public class OnsenFluidBlock extends LiquidBlock{
   public void randomTick(@Nonnull BlockState state, @Nonnull ServerLevel lv, @Nonnull BlockPos pos, @Nonnull RandomSource random) {
     for(int x=-1;x<=1;x++){
       for(int z=-1;z<=1;z++){
-        if(random.nextInt(12)!=0)continue;
+        if(random.nextInt(36)!=0)continue;
         BlockPos yunohanapos = pos.offset(x, 1, z);
         if(lv.isEmptyBlock(yunohanapos)){
           Yunohana yunohanaBlock = yunohana.get();

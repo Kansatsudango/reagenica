@@ -149,6 +149,7 @@ public class ChemiItems {
     public static final RegistryObject<Item> ALUMINA = registerandlist("alumina", () -> new ReagentPowderIndustrial(new ReagentProperties("Al2O3",0xFFFAF0E6,1,0,0),new Item.Properties()));
     public static final RegistryObject<Item> SALT = registerandlist("salt", () -> new ReagentPowderIndustrial(new ReagentProperties("NaCl",0xFFF0F8FF,0,0,0),new Item.Properties()));
     public static final RegistryObject<Item> CALCIUM_SULFATE = registerandlist("calcium_sulfate", () -> new Reagent(new ReagentProperties("CaSO4",0xFFFFFFE0,0,0,0),new Item.Properties()));
+    public static final RegistryObject<Item> SULFUR = registerandlist("sulfur", () -> new ReagentPowderIndustrial(new ReagentProperties("S",0xFFF2EA13,2,2,1),new Item.Properties()));
     public static final RegistryObject<Item> POWDER_CRYOLITE = registerandlist("powder_cryolite", () -> new ReagentPowderIndustrial(new ReagentProperties("Na3AlF6",0xFFFFFFE0,0,0,0),new Item.Properties()));
     public static final RegistryObject<Item> ALUMINA_WITH_CRYOLITE = registerandlist("alumina_with_cryolite", () -> new Item(new Item.Properties()));
     public static final RegistryObject<Item> URANIUM_NUGGET = registerandlist("uranium_nugget", () -> new Reagent(new ReagentProperties("U",0,4,0,1),new Item.Properties()));

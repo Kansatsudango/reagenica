@@ -9,7 +9,7 @@ public class Yunohana extends MultifaceBlock {
   private final MultifaceSpreader spreader;
 
   public Yunohana(){
-    super(BlockBehaviour.Properties.of().noCollission().noOcclusion().instabreak().sound(SoundType.GRAVEL));
+    super(BlockBehaviour.Properties.of().noCollission().noOcclusion().instabreak().sound(SoundType.SAND));
     this.spreader = new MultifaceSpreader(this);
   }
 

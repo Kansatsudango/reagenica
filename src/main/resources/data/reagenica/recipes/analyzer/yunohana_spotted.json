@@ -1,0 +1,21 @@
+{
+  "type": "reagenica:analyze",
+  "input": {
+    "item": "reagenica:yunohana_spotted"
+  },
+  "results": [
+    {
+      "item": "reagenica:salt",
+      "count": 1,
+      "chance": 1.0
+    },{
+      "item": "minecraft:quartz",
+      "count": 1,
+      "chance": 0.2
+    },{
+      "item": "reagenica:sulfur",
+      "count": 1,
+      "chance": 0.1
+    }
+  ]
+}

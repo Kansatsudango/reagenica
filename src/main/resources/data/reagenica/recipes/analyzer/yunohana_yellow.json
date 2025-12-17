@@ -1,0 +1,25 @@
+{
+  "type": "reagenica:analyze",
+  "input": {
+    "item": "reagenica:yunohana_yellow"
+  },
+  "results": [
+    {
+      "item": "reagenica:sulfur",
+      "count": 1,
+      "chance": 1.0
+    },{
+      "item": "reagenica:calcium_sulfate",
+      "count": 1,
+      "chance": 0.4
+    },{
+      "item": "minecraft:quartz",
+      "count": 1,
+      "chance": 0.2
+    },{
+      "item": "minecraft:gold_nugget",
+      "count": 1,
+      "chance": 0.1
+    }
+  ]
+}

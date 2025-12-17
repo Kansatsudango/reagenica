@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " X ",
+    "XPX",
+    "XPX"
+  ],
+  "key": {
+    "X": { "item": "minecraft:cobblestone" },
+    "P": { "item": "reagenica:copper_pipe"}
+  },
+  "result": {
+    "item": "reagenica:spring_outlet_stone",
+    "count": 1
+  }
+}

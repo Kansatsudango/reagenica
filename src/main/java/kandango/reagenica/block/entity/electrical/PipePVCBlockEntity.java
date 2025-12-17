@@ -11,7 +11,7 @@ public class PipePVCBlockEntity extends PipeAbstractBlockEntity{
 
   @Override
   protected int maxTransfer() {
-    return 48;
+    return 100;
   }
   
 }

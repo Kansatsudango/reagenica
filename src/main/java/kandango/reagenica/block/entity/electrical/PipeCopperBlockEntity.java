@@ -11,7 +11,7 @@ public class PipeCopperBlockEntity extends PipeAbstractBlockEntity{
 
   @Override
   protected int maxTransfer() {
-    return 24;
+    return 50;
   }
   
 }

@@ -1,0 +1,14 @@
+{
+  "type": "reagenica:heat_furnace",
+  "input": {
+    "item": "reagenica:sulfur"
+  },
+  "influid": {
+    "fluid": "minecraft:water",
+    "amount": 100
+  },
+  "outfluid": {
+    "fluid": "reagenica:sulfuric_acid",
+    "amount": 100
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "WWW",
+    "XPX",
+    "XPX"
+  ],
+  "key": {
+    "X": { "item": "minecraft:stick" },
+    "W": { "tag": "minecraft:planks" },
+    "P": { "item": "reagenica:copper_pipe"}
+  },
+  "result": {
+    "item": "reagenica:spring_outlet_wood",
+    "count": 1
+  }
+}

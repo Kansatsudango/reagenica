@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "# #",
+    "#P#",
+    "#D#"
+  ],
+  "key": {
+    "#": { "item": "minecraft:smooth_stone" },
+    "D": { "item": "minecraft:stone_pickaxe" },
+    "P": { "item": "reagenica:copper_pipe"}
+  },
+  "result": {
+    "item": "reagenica:hotspring_miner",
+    "count": 1
+  }
+}

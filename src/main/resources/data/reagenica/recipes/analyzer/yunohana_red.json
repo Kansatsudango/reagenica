@@ -1,0 +1,25 @@
+{
+  "type": "reagenica:analyze",
+  "input": {
+    "item": "reagenica:yunohana_red"
+  },
+  "results": [
+    {
+      "item": "minecraft:quartz",
+      "count": 1,
+      "chance": 0.6
+    },{
+      "item": "reagenica:iron_oxide",
+      "count": 1,
+      "chance": 0.4
+    },{
+      "item": "reagenica:salt",
+      "count": 1,
+      "chance": 0.1
+    },{
+      "item": "reagenica:trace_platinum",
+      "count": 1,
+      "chance": 0.01
+    }
+  ]
+}
