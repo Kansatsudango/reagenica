@@ -11,6 +11,7 @@ import javax.annotation.Nullable;
 
 import kandango.reagenica.block.BlockUtil;
 import kandango.reagenica.block.OnsenFiller;
+import kandango.reagenica.block.Yunohana;
 import kandango.reagenica.block.entity.util.FluidStackUtil;
 import kandango.reagenica.packet.ISingleTankBlock;
 import kandango.reagenica.packet.ModMessages;
@@ -202,7 +203,8 @@ public class OnsenFillerBlockEntity extends BlockEntity implements ITickableBloc
         BlockPos next = pos.relative(dir);
         if(visited.contains(next))continue;
         if(!lv.isLoaded(next))continue;
-        if(isSameFluid(lv, next, fluid) || lv.getBlockState(next).isAir()){
+        BlockState nextState = lv.getBlockState(next);
+        if(isSameFluid(lv, next, fluid) || nextState.isAir() || nextState.getBlock() instanceof Yunohana){
           queue.add(next);
           visited.add(next);
         }

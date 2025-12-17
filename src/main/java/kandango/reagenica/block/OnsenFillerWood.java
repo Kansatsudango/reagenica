@@ -26,7 +26,7 @@ public class OnsenFillerWood extends OnsenFiller{
   }
   @Override
   public Collection<ChemiGeometry> waterFlows() {
-    return List.of(ChemiGeometry.createPix(3, 7, -2, 13, 8, 13)
-                   ,ChemiGeometry.createPix(4, -2, -2, 12, 7, -0.5));
+    return List.of(ChemiGeometry.createPix(3, 7.01, -2, 13, 8, 13)
+                   ,ChemiGeometry.createPix(4, -2, -2, 12, 7.01, -0.5));
   }
 }

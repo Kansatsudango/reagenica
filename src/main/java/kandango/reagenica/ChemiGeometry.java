@@ -29,10 +29,10 @@ public class ChemiGeometry {
     return new ChemiGeometry(x1, y1, z1);
   }
   public static ChemiGeometry createPix(double x1,double y1,double z1,double x2,double y2,double z2){
-    return new ChemiGeometry(x1/16.0+offset, y1/16.0+offset, z1/16.0+offset, x2/16.0-offset, y2/16.0-offset, z2/16.0-offset);
-  }
-  public static ChemiGeometry createPrecicePix(double x1,double y1,double z1,double x2,double y2,double z2){
     return new ChemiGeometry(x1/16.0, y1/16.0, z1/16.0, x2/16.0, y2/16.0, z2/16.0);
+  }
+  public static ChemiGeometry createPixOffset(double x1,double y1,double z1,double x2,double y2,double z2){
+    return new ChemiGeometry(x1/16.0+offset, y1/16.0+offset, z1/16.0+offset, x2/16.0-offset, y2/16.0-offset, z2/16.0-offset);
   }
 
   public ChemiGeometry rotate(Direction dir){

@@ -25,8 +25,8 @@ public class OnsenFillerStone extends OnsenFiller{
   }
   @Override
   public Collection<ChemiGeometry> waterFlows() {
-    return List.of(ChemiGeometry.createPix(5, 2, 2, 9, 3, 8)
-                   ,ChemiGeometry.createPix(4, 1, -2, 12, 3, 3)
-                   ,ChemiGeometry.createPix(4, -2, -2, 12, 1, -0.5));
+    return List.of(ChemiGeometry.createPix(5, 2.01, 2, 9, 3, 8)
+                   ,ChemiGeometry.createPix(4, 1.01, -2, 12, 3, 3)
+                   ,ChemiGeometry.createPix(4, -2, -2, 12, 1.01, -0.5));
   }
 }
