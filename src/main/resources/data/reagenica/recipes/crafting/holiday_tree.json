@@ -6,7 +6,7 @@
     "T"
   ],
   "key": {
-    "T": { "item": "minecraft:spruce_sapring" },
+    "T": { "item": "minecraft:spruce_sapling" },
     "W": { "tag": "minecraft:wool" },
     "G": { "item": "minecraft:gold_ingot" }
   },

@@ -1,8 +1,9 @@
-// 1.20.1	2025-12-18T01:37:53.478021	Loot Tables
+// 1.20.1	2025-12-20T23:50:52.4442416	Loot Tables
 fd599511177b57b7c4697466e227e89162e2d943 data/reagenica/loot_tables/blocks/advanced_farmland.json
 115802854012234d89e3ba52e3d8b2a271af6530 data/reagenica/loot_tables/blocks/air_separator.json
 af778c6940ed0700e603b9633a246c18de93eb49 data/reagenica/loot_tables/blocks/aluminium_block.json
 5ed961b6f10df89fb7b024ee60c0b4d628d0a23d data/reagenica/loot_tables/blocks/analyzer.json
+1ce52d3d59db35f11cb7783dfebe86a9d24e238b data/reagenica/loot_tables/blocks/andon.json
 29066c5bc749e9de022fc579e3c404da68b4bbac data/reagenica/loot_tables/blocks/apatite_ore.json
 83968210ff3664a408fab1e2954a3db04af29a3e data/reagenica/loot_tables/blocks/bauxite_ore.json
 7c3be84c80a7bed043cbca3290bb9dadd28101af data/reagenica/loot_tables/blocks/blast_furnace_bottom.json
@@ -56,6 +57,7 @@ e405b8b6b40e1478d32d7a6799dc3582547a6a03 data/reagenica/loot_tables/blocks/green
 4b135c8a01aa9cf725ce8b61a87dbdea11c69b5b data/reagenica/loot_tables/blocks/haber_bosch.json
 cb0bb586f150be40053e6639f62e091a4203e411 data/reagenica/loot_tables/blocks/heat_furnace.json
 b6f238bd470b3ace8554f3ee62a80da95894e2d0 data/reagenica/loot_tables/blocks/heat_generator.json
+5289266463ae627c6c1e171b51327f9339e8552b data/reagenica/loot_tables/blocks/holiday_tree.json
 f5bf940394b5a2cd36d82642c315b512cae3d394 data/reagenica/loot_tables/blocks/hotspring_miner.json
 007219834da8f779512b2008e87e7b47029de21c data/reagenica/loot_tables/blocks/incubator.json
 85942b7fe97d729856c9ac61ef54d135436f1ca9 data/reagenica/loot_tables/blocks/large_tank_core.json

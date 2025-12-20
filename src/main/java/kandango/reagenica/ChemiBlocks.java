@@ -299,14 +299,10 @@ public class ChemiBlocks {
   public static final RegistryObject<Yunohana> YUNOHANA_DARK_YELLOW = registerBlockandlist("yunohana_dark_yellow", Yunohana::new); 
   public static final RegistryObject<Item> YUNOHANA_DARK_YELLOW_ITEM = registerItemandlist("yunohana_dark_yellow",
       () -> new BlockItem(YUNOHANA_DARK_YELLOW.get(), new Item.Properties()));
-  public static final RegistryObject<Block> ANDON = registerWoodBlockandlist("andon",
-      () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_ORANGE)
-                    .strength(0.8F).sound(SoundType.WOOD).lightLevel(state -> 15).noOcclusion()));
+  public static final RegistryObject<Block> ANDON = registerWoodBlockandlist("andon",Andon::new);
   public static final RegistryObject<Item> ANDON_ITEM = registerItemandlist("andon",
       () -> new BlockItem(ANDON.get(), new Item.Properties()));
-  public static final RegistryObject<Block> HOLIDAY_TREE = registerWoodBlockandlist("holiday_tree",
-      () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_GREEN)
-                    .strength(0.8F).sound(SoundType.WOOD).noOcclusion()));
+  public static final RegistryObject<Block> HOLIDAY_TREE = registerWoodBlockandlist("holiday_tree",HolidayTree::new);
   public static final RegistryObject<Item> HOLIDAY_TREE_ITEM = registerItemandlist("holiday_tree",
       () -> new BlockItem(HOLIDAY_TREE.get(), new Item.Properties()));
 
