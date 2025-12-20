@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "S S",
+    "PTP",
+    "S S"
+  ],
+  "key": {
+    "S": { "item": "minecraft:stick" },
+    "T": { "item": "minecraft:torch" },
+    "P": { "item": "minecraft:paper" }
+  },
+  "result": {
+    "item": "reagenica:andon",
+    "count": 1
+  }
+}

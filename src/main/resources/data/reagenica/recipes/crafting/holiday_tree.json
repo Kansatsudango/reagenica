@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "G",
+    "W",
+    "T"
+  ],
+  "key": {
+    "T": { "item": "minecraft:spruce_sapring" },
+    "W": { "tag": "minecraft:wool" },
+    "G": { "item": "minecraft:gold_ingot" }
+  },
+  "result": {
+    "item": "reagenica:holiday_tree",
+    "count": 1
+  }
+}
