@@ -3,6 +3,7 @@ package kandango.reagenica.block.entity;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
+import kandango.reagenica.ChemiGameRules;
 import kandango.reagenica.block.entity.fluidhandlers.DrainOnlyFluidHandler;
 import kandango.reagenica.block.entity.lamp.ILampController;
 import kandango.reagenica.block.entity.lamp.LampControllerHelper;
@@ -66,6 +67,7 @@ public class OnsenMinerBlockEntity extends BlockEntity implements MenuProvider,I
   @Nullable private OnsenTypes onsenType;
   private boolean dirty=false;
   private int tick=10;
+  private int turbo=0;
   private final LazyOptional<IItemHandler> itemHandlerLazyOptional = LazyOptional.of(() -> itemHandler);
   private final LazyOptional<IFluidHandler> fluidHandlerLazyOptional = LazyOptional.of(() -> new DrainOnlyFluidHandler(fluidTank));
   private final LampControllerHelper<OnsenMinerBlockEntity> lamphelper = new LampControllerHelper<OnsenMinerBlockEntity>(this);
@@ -79,12 +81,14 @@ public class OnsenMinerBlockEntity extends BlockEntity implements MenuProvider,I
     super.load(tag);
     itemHandler.deserializeNBT(tag.getCompound("Inventory"));
     fluidTank.readFromNBT(tag.getCompound("Tank"));
+    this.turbo=tag.getInt("Turbo");
   }
 
   @Override
   protected void saveAdditional(@Nonnull CompoundTag tag){
     tag.put("Inventory", itemHandler.serializeNBT());
     FluidStackUtil.saveFluid(tag, "Tank", fluidTank);
+    tag.putInt("Turbo", turbo);
     super.saveAdditional(tag);
   }
 
@@ -157,17 +161,19 @@ public class OnsenMinerBlockEntity extends BlockEntity implements MenuProvider,I
         dirty |= FluidItemConverter.draintoItem(itemHandler, 0, 1, fluidTank);
       }
     }
+    if(!ChemiGameRules.isOnsenGenerate(lv))return;
     if(onsenType==null){
       if(lv instanceof ServerLevel slv){
         onsenType = OnsenTypes.getOnsenTypeAt(slv, worldPosition);
       }
     }
     final OnsenTypes onsen = onsenType;
+    if(this.turbo>0)this.turbo--;
     if(tick>=10){
       tick=0;
       if(onsen!=null){
         Fluid onsenwater = onsen.getFluid();
-        FluidStack onsenWaterStack = new FluidStack(onsenwater, 25);
+        FluidStack onsenWaterStack = new FluidStack(onsenwater, this.turbo==0 ? 25 : 250);
         fluidTank.fill(onsenWaterStack, FluidAction.EXECUTE);
       }
       int max = this.fluidTank.getCapacity();

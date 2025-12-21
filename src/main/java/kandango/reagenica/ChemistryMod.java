@@ -33,5 +33,6 @@ public class ChemistryMod {
     ModRecipes.register(modEventBus);
     ModCreativeTabs.register(modEventBus);
     ChemiPOIs.register(modEventBus);
+    ChemiGameRules.init();
   }
 }
