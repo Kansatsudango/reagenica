@@ -1,0 +1,9 @@
+{
+  "name": "reagenica:onsen_village/path",
+  "fallback": "minecraft:empty",
+  "elements": [
+    { "weight": 3, "element": { "location": "reagenica:onsen_path_straight", "element_type": "minecraft:single_pool_element", "projection": "rigid", "processors": "minecraft:empty" }},
+    { "weight": 1, "element": { "location": "reagenica:onsen_path_three", "element_type": "minecraft:single_pool_element", "projection": "rigid", "processors": "minecraft:empty" }},
+    { "weight": 1, "element": { "location": "reagenica:onsen_empty", "element_type": "minecraft:single_pool_element", "projection": "rigid", "processors": "minecraft:empty" }}
+  ]
+}
