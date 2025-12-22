@@ -13,6 +13,8 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.EntityBlock;
 import net.minecraft.world.level.block.HorizontalDirectionalBlock;
+import net.minecraft.world.level.block.Mirror;
+import net.minecraft.world.level.block.Rotation;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
@@ -70,6 +72,18 @@ public class Analyzer extends Block implements EntityBlock {
   public boolean propagatesSkylightDown(@Nonnull BlockState state, @Nonnull BlockGetter world, @Nonnull BlockPos pos) {
     return true;
   }
+
+  @Override
+  public BlockState rotate(@Nonnull BlockState state, @Nonnull Rotation rotation) {
+    return state.setValue(FACING, rotation.rotate(state.getValue(FACING)));
+  }
+
+  @SuppressWarnings("deprecation")
+  @Override
+  public BlockState mirror(@Nonnull BlockState state, @Nonnull Mirror mirror) {
+    return state.rotate(mirror.getRotation(state.getValue(FACING)));
+  }
+  
   @Override
   public VoxelShape getShape(@Nonnull BlockState state, @Nonnull BlockGetter getter, @Nonnull BlockPos pos, @Nonnull CollisionContext context){
     return SHAPE;
