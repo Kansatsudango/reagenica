@@ -173,7 +173,7 @@ public class OnsenMinerBlockEntity extends BlockEntity implements MenuProvider,I
       tick=0;
       if(onsen!=null){
         Fluid onsenwater = onsen.getFluid();
-        FluidStack onsenWaterStack = new FluidStack(onsenwater, this.turbo==0 ? 25 : 250);
+        FluidStack onsenWaterStack = new FluidStack(onsenwater, this.turbo==0 ? 25 : 500);
         fluidTank.fill(onsenWaterStack, FluidAction.EXECUTE);
       }
       int max = this.fluidTank.getCapacity();

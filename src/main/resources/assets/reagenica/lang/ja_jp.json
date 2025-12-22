@@ -530,6 +530,7 @@
   "chat.reagenica.link_null": "先にリンクしたいブロックをクリックしてください",
   "chat.reagenica.link_success": "リンクを設定しました",
   "chat.reagenica.point_null": "このブロックはリンクできません",
+  "gamerule.doOnsenGenerate": "温泉採掘機の動作",
   "jei.reagenica.reagent_mixing": "試薬混合",
   "jei.reagenica.blast_furnace": "大きな高炉",
   "jei.reagenica.distilling": "蒸留",

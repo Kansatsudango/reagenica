@@ -530,6 +530,7 @@
   "chat.reagenica.link_null": "Please Click Link Target First.",
   "chat.reagenica.link_success": "Link Created",
   "chat.reagenica.point_null": "This Block is not Linkable.",
+  "gamerule.doOnsenGenerate": "Hotspring Miner Works",
   "jei.reagenica.reagent_mixing": "Reagent Mixing",
   "jei.reagenica.blast_furnace": "Large Blast Furnace",
   "jei.reagenica.distilling": "Distilling",
