@@ -11,7 +11,6 @@ import javax.annotation.Nullable;
 
 import kandango.reagenica.block.BlockUtil;
 import kandango.reagenica.block.OnsenFiller;
-import kandango.reagenica.block.Yunohana;
 import kandango.reagenica.block.entity.util.FluidStackUtil;
 import kandango.reagenica.packet.ISingleTankBlock;
 import kandango.reagenica.packet.ModMessages;
@@ -138,8 +137,8 @@ public class OnsenFillerBlockEntity extends BlockEntity implements ITickableBloc
   private boolean isWall(BlockState state, Fluid fillingFluid){
     FluidState fs = state.getFluidState();
     boolean is_same_fluid = (fs.getType().isSame(fillingFluid));
-    boolean is_air = state.isAir();
-    return !(is_same_fluid || is_air);
+    boolean is_solid = isSolidBlock(state, fillingFluid);
+    return !(is_same_fluid || !is_solid);
   }
   private Optional<BlockPos> findLowestFillingPos(@Nonnull Level lv, BlockPos origin, Fluid fluid){
     final int MAX_FLUID_VISIT = 1000;
@@ -204,13 +203,18 @@ public class OnsenFillerBlockEntity extends BlockEntity implements ITickableBloc
         if(visited.contains(next))continue;
         if(!lv.isLoaded(next))continue;
         BlockState nextState = lv.getBlockState(next);
-        if(isSameFluid(lv, next, fluid) || nextState.isAir() || nextState.getBlock() instanceof Yunohana){
+        if(isSameFluid(lv, next, fluid) || !isSolidBlock(nextState, fluid)){
           queue.add(next);
           visited.add(next);
         }
       }
     }
     return count < MAX_SIZE;
+  }
+  private boolean isSolidBlock(BlockState state, Fluid fluid){
+    if(state.isAir())return false;
+    if(state.canBeReplaced(fluid))return false;
+    return true;
   }
 
   @Override
