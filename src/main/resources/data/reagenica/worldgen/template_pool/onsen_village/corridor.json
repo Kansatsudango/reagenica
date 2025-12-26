@@ -1,0 +1,10 @@
+{
+  "name": "reagenica:onsen_village/house",
+  "fallback": "minecraft:empty",
+  "elements": [
+    { "weight": 1, "element": { "location": "reagenica:onsen_corridor_branch", "element_type": "minecraft:single_pool_element", "projection": "rigid", "processors": "minecraft:empty" }},
+    { "weight": 2, "element": { "location": "reagenica:onsen_corridor_chest", "element_type": "minecraft:single_pool_element", "projection": "rigid", "processors": "minecraft:empty" }},
+    { "weight": 3, "element": { "location": "reagenica:onsen_corridor_terminal", "element_type": "minecraft:single_pool_element", "projection": "rigid", "processors": "minecraft:empty" }},
+    { "weight": 2, "element": { "location": "reagenica:onsen_corridor_straight", "element_type": "minecraft:single_pool_element", "projection": "rigid", "processors": "minecraft:empty" }}
+  ]
+}
