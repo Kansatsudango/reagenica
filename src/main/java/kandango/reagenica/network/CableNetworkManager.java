@@ -25,6 +25,9 @@ public class CableNetworkManager {
     final Set<BlockPos> positions = pendingUpdates.get(currentDim);
     if(positions!=null && !positions.isEmpty()){
       for(BlockPos pos : positions){
+        if(!slv.isLoaded(pos)){
+          continue;
+        }
         int count = BroadcastUtil.broadcastChange(pos, slv);
         ChemistryMod.LOGGER.debug("Broadcasted from {}, notified to {} BEs.",pos.toShortString(),count);
       }
