@@ -4,5 +4,6 @@
   "result": { "item": "minecraft:iron_ingot", "count": 1 },
   "byproduct": { "item": "reagenica:slag", "count": 1 },
   "temp_min": 9500,
-  "temp_max": 16000
+  "temp_max": 16000,
+  "exp": 1.0
 }

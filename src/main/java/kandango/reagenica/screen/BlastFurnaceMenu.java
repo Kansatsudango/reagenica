@@ -2,14 +2,19 @@ package kandango.reagenica.screen;
 
 import java.util.List;
 
+import javax.annotation.Nonnull;
+
 import kandango.reagenica.ChemiUtils;
+import kandango.reagenica.ChemistryMod;
 import kandango.reagenica.block.entity.BlastFurnaceBlockEntity;
 import kandango.reagenica.screen.slots.SlotPriorityRule;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.world.entity.player.Inventory;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.DataSlot;
+import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.SlotItemHandler;
 
@@ -88,12 +93,38 @@ public class BlastFurnaceMenu extends ChemistryMenu<BlastFurnaceBlockEntity> {
     IItemHandler handler = be.getItemHandler();
     this.addSlot(new SlotItemHandler(handler, 0, 56, 23));
     this.addSlot(new SlotItemHandler(handler, 1, 56, 59));
-    this.addSlot(new SlotItemHandler(handler, 2, 116, 24));
+    this.addSlot(new SlotItemHandler(handler, 2, 116, 24){
+      @Override
+      public void onTake(@Nonnull Player player, @Nonnull ItemStack stack){
+        super.onTake(player, stack);
+        if(!player.level().isClientSide){
+          awardExp(player);
+        }
+      }
+    });
     this.addSlot(new SlotItemHandler(handler, 3, 116, 48));
+  }
+  @Override
+  protected ItemStack quickMoveStackFunc(int slotcount, @Nonnull Player player, int index, List<SlotPriorityRule> rules) {
+    if(index==2){
+      if(!player.level().isClientSide){
+        awardExp(player);
+      }
+    }
+    return super.quickMoveStackFunc(slotcount, player, index, rules);
   }
 
   @Override
   protected int slotCount() {
     return 4;
+  }
+
+  private void awardExp(Player pl){
+    BlastFurnaceBlockEntity be = this.blockEntity;
+    if(be==null){
+      ChemistryMod.LOGGER.warn("Tried to get Experience while Blockentity was null!");
+    }else{
+      be.awardExp(pl);
+    }
   }
 }

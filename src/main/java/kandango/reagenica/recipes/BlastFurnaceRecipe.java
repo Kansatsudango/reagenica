@@ -24,14 +24,17 @@ public class BlastFurnaceRecipe implements Recipe<Container> {
   public int getMinTemp() {return minTemp;}
   private final int maxTemp;
   public int getMaxTemp() {return maxTemp;}
+  private final float exp;
+  public float getExp(){return exp;}
 
-  public BlastFurnaceRecipe(ResourceLocation id, Ingredient in, ItemStack o, ItemStack bp, int min, int max){
+  public BlastFurnaceRecipe(ResourceLocation id, Ingredient in, ItemStack o, ItemStack bp, int min, int max, float exp){
     this.id=id;
     this.input = in;
     this.output = o;
     this.byproduct = bp;
     this.minTemp = min;
     this.maxTemp = max;
+    this.exp = exp;
   }
 
   @Override

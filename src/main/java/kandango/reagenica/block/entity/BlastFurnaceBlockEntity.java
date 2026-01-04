@@ -18,9 +18,11 @@ import net.minecraft.network.Connection;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.world.MenuProvider;
 import net.minecraft.world.SimpleContainer;
+import net.minecraft.world.entity.ExperienceOrb;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
@@ -71,6 +73,7 @@ public class BlastFurnaceBlockEntity extends BlockEntity implements MenuProvider
   private int maxtemp=16000;
   public int getmaxTemp(){return maxtemp;}
   public void setmaxTemp(int p){this.maxtemp=p;}
+  private float expSum = 0.0f;
 
   private final LazyOptional<IItemHandler> itemHandlerLazyOptional = LazyOptional.of(() -> CommonChemiItemHandler.Builder.of(itemHandler).fuelslot(1).outputslot(2,3).build());
   
@@ -87,6 +90,7 @@ public class BlastFurnaceBlockEntity extends BlockEntity implements MenuProvider
     this.progress=tag.getInt("Progress");
     this.temperature=tag.getInt("Temperature");
     this.maxtemp=tag.getInt("MaxTemp");
+    this.expSum=tag.getFloat("Exp");
   }
 
   @Override
@@ -98,6 +102,7 @@ public class BlastFurnaceBlockEntity extends BlockEntity implements MenuProvider
     tag.putInt("Progress", progress);
     tag.putInt("Temperature", temperature);
     tag.putInt("MaxTemp", maxtemp);
+    tag.putFloat("Exp", expSum);
   }
 
   @Override
@@ -184,8 +189,8 @@ public class BlastFurnaceBlockEntity extends BlockEntity implements MenuProvider
             this.progress=0;
             itemHandler.setStackInSlot(2, ItemStackUtil.addStack(this.itemHandler.getStackInSlot(2).copy(), output.copy()));
             itemHandler.setStackInSlot(3, ItemStackUtil.addStack(this.itemHandler.getStackInSlot(3).copy(), byproduct.copy()));
-            lv.sendBlockUpdated(worldPosition, getBlockState(), getBlockState(), 3);
-            itemHandler.getStackInSlot(0).shrink(1);
+            itemHandler.extractItem(0, 1, false);
+            this.expSum += recipe.getExp();
           }
         }
       }
@@ -235,5 +240,13 @@ public class BlastFurnaceBlockEntity extends BlockEntity implements MenuProvider
   public void invalidateCaps(){
     super.invalidateCaps();
     itemHandlerLazyOptional.invalidate();
+  }
+
+  public void awardExp(@Nonnull Player player){
+    if(this.level instanceof ServerLevel slv){
+      int award = (int)expSum;
+      ExperienceOrb.award(slv, player.position(), award);
+      expSum -= award;
+    }
   }
 }

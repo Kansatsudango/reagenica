@@ -19,7 +19,8 @@ public class BlastFurnaceRecipeSerializer implements RecipeSerializer<BlastFurna
         ItemStack byproduct = RecipeJsonHelper.itemStackFromJsonifPresent(json, "byproduct");
         int minTemp = RecipeJsonHelper.intFromJson(json, "temp_min");
         int maxTemp = RecipeJsonHelper.intFromJson(json, "temp_max");
-        return new BlastFurnaceRecipe(id, input, result, byproduct, minTemp, maxTemp);
+        float exp = RecipeJsonHelper.floatFromJson(json, "exp");
+        return new BlastFurnaceRecipe(id, input, result, byproduct, minTemp, maxTemp, exp);
     }
 
     @Override
@@ -29,7 +30,8 @@ public class BlastFurnaceRecipeSerializer implements RecipeSerializer<BlastFurna
         ItemStack byproduct = buf.readItem();
         int minTemp = buf.readInt();
         int maxTemp = buf.readInt();
-        return new BlastFurnaceRecipe(id, input, result, byproduct, minTemp, maxTemp);
+        float exp = buf.readFloat();
+        return new BlastFurnaceRecipe(id, input, result, byproduct, minTemp, maxTemp, exp);
     }
 
     @Override
@@ -39,5 +41,6 @@ public class BlastFurnaceRecipeSerializer implements RecipeSerializer<BlastFurna
       buf.writeItemStack(recipe.getByproduct(), false);
       buf.writeInt(recipe.getMinTemp());
       buf.writeInt(recipe.getMaxTemp());
+      buf.writeFloat(recipe.getExp());
     }
 }
