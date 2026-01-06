@@ -6,5 +6,5 @@
     { "item": "reagenica:soy_sauce" },
     { "item": "reagenica:mirin" }
   ],
-  "result": { "item": "reagenica:oyakodon", "count": 1 }
+  "result": { "item": "reagenica:oyakodon", "count": 2 }
 }

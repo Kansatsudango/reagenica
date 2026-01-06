@@ -128,8 +128,8 @@
               "function": "minecraft:set_count"
             }
           ],
-          "name": "reagenica:aqua_regia",
-          "weight": 40
+          "name": "reagenica:gold_solution",
+          "weight": 20
         },
         {
           "type": "minecraft:item",
@@ -145,7 +145,7 @@
             }
           ],
           "name": "reagenica:sulfuric_acid",
-          "weight": 20
+          "weight": 40
         },
         {
           "type": "minecraft:item",

@@ -5,5 +5,5 @@
     { "item": "reagenica:onion" },
     { "item": "reagenica:salt" }
   ],
-  "result": { "item": "reagenica:onion_soup" }
+  "result": { "item": "reagenica:onion_soup" , "count":2 }
 }

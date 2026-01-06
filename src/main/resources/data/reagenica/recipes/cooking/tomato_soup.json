@@ -4,5 +4,5 @@
     { "item": "reagenica:tomato" },
     { "item": "reagenica:salt" }
   ],
-  "result": { "item": "reagenica:tomato_soup" }
+  "result": { "item": "reagenica:tomato_soup" , "count":2 }
 }

@@ -4,5 +4,5 @@
     { "tag": "reagenica:seaweeds" },
     { "item": "reagenica:miso" }
   ],
-  "result": { "item": "reagenica:miso_soup", "count": 1 }
+  "result": { "item": "reagenica:miso_soup", "count": 2 }
 }

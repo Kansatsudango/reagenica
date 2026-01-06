@@ -11,19 +11,19 @@ public class ChemiFoodProperties {
             .fast()
             .build();
   public static final FoodProperties ONION_SOUP = new FoodProperties.Builder()
-            .nutrition(8)
+            .nutrition(6)
             .saturationMod(1.4f)
             .build();
   public static final FoodProperties BEANS_SOUP = new FoodProperties.Builder()
-            .nutrition(8)
+            .nutrition(6)
             .saturationMod(1.4f)
             .build();
   public static final FoodProperties TOMATO_SOUP = new FoodProperties.Builder()
-            .nutrition(8)
+            .nutrition(6)
             .saturationMod(1.4f)
             .build();
   public static final FoodProperties CORN_SOUP = new FoodProperties.Builder()
-            .nutrition(8)
+            .nutrition(6)
             .saturationMod(1.4f)
             .build();
   public static final FoodProperties CORN_BREAD = new FoodProperties.Builder()

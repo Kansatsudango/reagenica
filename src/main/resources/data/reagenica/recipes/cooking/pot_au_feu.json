@@ -7,5 +7,5 @@
     { "tag": "reagenica:meats" },
     { "item": "reagenica:salt" }
   ],
-  "result": { "item": "reagenica:pot_au_feu" }
+  "result": { "item": "reagenica:pot_au_feu" , "count":2 }
 }

@@ -155,22 +155,6 @@
               "function": "minecraft:set_count"
             }
           ],
-          "name": "reagenica:wine",
-          "weight": 20
-        },
-        {
-          "type": "minecraft:item",
-          "functions": [
-            {
-              "add": false,
-              "count": {
-                "type": "minecraft:uniform",
-                "max": 3.0,
-                "min": 1.0
-              },
-              "function": "minecraft:set_count"
-            }
-          ],
           "name": "reagenica:tomato_soup",
           "weight": 30
         },
@@ -187,8 +171,8 @@
               "function": "minecraft:set_count"
             }
           ],
-          "name": "reagenica:beef_stew",
-          "weight": 10
+          "name": "reagenica:pot_au_feu",
+          "weight": 20
         },
         {
           "type": "minecraft:item",
@@ -204,7 +188,7 @@
             }
           ],
           "name": "reagenica:meat_wine",
-          "weight": 10
+          "weight": 20
         }
       ],
       "rolls": {

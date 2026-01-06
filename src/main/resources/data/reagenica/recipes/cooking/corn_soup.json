@@ -4,5 +4,5 @@
     { "item": "reagenica:corn" },
     { "item": "reagenica:milk" }
   ],
-  "result": { "item": "reagenica:corn_soup" }
+  "result": { "item": "reagenica:corn_soup" , "count":2 }
 }
