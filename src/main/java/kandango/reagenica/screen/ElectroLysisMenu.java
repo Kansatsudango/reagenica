@@ -46,8 +46,8 @@ public class ElectroLysisMenu extends ChemistryMenu<ElectroLysisBlockEntity> {
   public List<SlotPriorityRule> quickMoveRules() {
     List<SlotPriorityRule> rules = List.of(
       new SlotPriorityRule(stack -> stack.is(ChemiTags.Items.ELECTRODES),0,2),
-      SlotPriorityRule.single(SlotPriorityPredicates.IsFluidcase, 9),
-      SlotPriorityRule.single(SlotPriorityPredicates.IsFluidContainer, 7),
+      SlotPriorityRule.single(SlotPriorityPredicates.IsFluidcase, ElectroLysisBlockEntity.OUTPUT_FLUID_SLOT),
+      SlotPriorityRule.single(SlotPriorityPredicates.IsFluidContainer, ElectroLysisBlockEntity.INPUT_FLUID_SLOT),
       SlotPriorityRule.single(stack -> stack.getItem() == ChemiItems.TESTTUBE.get(), 3),
       SlotPriorityRule.single(stack -> stack.getItem() == ChemiItems.TESTTUBE.get(), 5)
     );
