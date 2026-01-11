@@ -9,13 +9,12 @@ import kandango.reagenica.block.farming.*;
 import kandango.reagenica.block.farming.crop.*;
 import kandango.reagenica.block.farming.grape.*;
 import kandango.reagenica.generator.BlockLootType;
+import kandango.reagenica.worldgen.forestry.MetasequoiaGrower;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockBehaviour.OffsetType;
 import net.minecraft.world.level.material.MapColor;
-import net.minecraft.world.level.block.SoundType;
-
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
@@ -217,6 +216,19 @@ public class ChemiBlocks {
   public static final RegistryObject<Block> ADVANCED_FARMLAND = registerSilktouchBlockandlist("advanced_farmland", AdvancedFarmland::new);
   public static final RegistryObject<Item> ADVANCED_FARMLAND_ITEM = registerItemandlist("advanced_farmland",
       () -> new BlockItem(ADVANCED_FARMLAND.get(), new Item.Properties()));
+
+  public static final RegistryObject<Block> METASEQUOIA_LOG = registerStoneBlockandlist("metasequoia_log", () -> new RotatedPillarBlock(BlockBehaviour.Properties.copy(Blocks.OAK_LOG)));
+  public static final RegistryObject<Item> METASEQUOIA_LOG_ITEM = registerItemandlist("metasequoia_log",
+      () -> new BlockItem(METASEQUOIA_LOG.get(), new Item.Properties()));
+  public static final RegistryObject<Block> METASEQUOIA_PLANKS = registerStoneBlockandlist("metasequoia_planks", () -> new Block(BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS)));
+  public static final RegistryObject<Item> METASEQUOIA_PLANKS_ITEM = registerItemandlist("metasequoia_planks",
+      () -> new BlockItem(METASEQUOIA_PLANKS.get(), new Item.Properties()));
+  public static final RegistryObject<Block> METASEQUOIA_LEAVES = registerStoneBlockandlist("metasequoia_leaves", () -> new LeavesBlock(BlockBehaviour.Properties.copy(Blocks.OAK_LEAVES)));
+  public static final RegistryObject<Item> METASEQUOIA_LEAVES_ITEM = registerItemandlist("metasequoia_leaves",
+      () -> new BlockItem(METASEQUOIA_LEAVES.get(), new Item.Properties()));
+  public static final RegistryObject<Block> METASEQUOIA_SAPLING = registerStoneBlockandlist("metasequoia_sapling", () -> new SaplingBlock(new MetasequoiaGrower(),BlockBehaviour.Properties.copy(Blocks.OAK_SAPLING)));
+  public static final RegistryObject<Item> METASEQUOIA_SAPLING_ITEM = registerItemandlist("metasequoia_sapling",
+      () -> new BlockItem(METASEQUOIA_SAPLING.get(), new Item.Properties()));
 
   public static final RegistryObject<Block> DEBUG_CROP = registerPlantBlockandlist("debug_crop", () -> new AdvancedCropBlock(ChemiBlocks.DEBUG_CROP_SEEDS::get),2,() -> ChemiBlocks.DEBUG_CROP_SEEDS);
   public static final RegistryObject<Item> DEBUG_CROP_SEEDS = registerItemandlist("debug_seeds", 

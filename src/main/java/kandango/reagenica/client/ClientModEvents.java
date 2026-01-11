@@ -7,11 +7,17 @@ import kandango.reagenica.item.reagent.PowderReagent;
 import kandango.reagenica.item.reagent.Reagent;
 import kandango.reagenica.item.reagent.ReagentPowderIndustrial;
 import kandango.reagenica.ChemistryMod;
+
+import kandango.reagenica.ChemiBlocks;
 import kandango.reagenica.ChemiItems;
+import net.minecraft.client.color.block.BlockColor;
 import net.minecraft.client.color.item.ItemColor;
 import net.minecraft.client.color.item.ItemColors;
+import net.minecraft.client.renderer.BiomeColors;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.level.FoliageColor;
 import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.client.event.RegisterColorHandlersEvent;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber.Bus;
@@ -19,6 +25,7 @@ import net.minecraftforge.registries.RegistryObject;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 
 @EventBusSubscriber(modid = ChemistryMod.MODID, bus = Bus.MOD, value = Dist.CLIENT)
+@OnlyIn(Dist.CLIENT)
 public class ClientModEvents {
   public static final ItemColor REAGENT_ITEM_COLOR = (stack, tintIndex)-> {
     if(tintIndex == 1 && stack.getItem() instanceof Reagent reagent){
@@ -38,6 +45,13 @@ public class ClientModEvents {
     }
     return 0xFFFFFFFF;
   };
+  public static final BlockColor LEAVES_COLOR = (state, level, pos, tintIndex) -> {
+    if (level == null || pos == null) {
+      return FoliageColor.getDefaultColor();
+    }
+    return BiomeColors.getAverageFoliageColor(level, pos);
+  };
+  public static final ItemColor LEAVES_ITEM_COLOR = (stack, tintIndex) -> FoliageColor.getDefaultColor();
 
   @SuppressWarnings("deprecation")
   @SubscribeEvent
@@ -48,5 +62,11 @@ public class ClientModEvents {
     colors.register(REAGENT_ITEM_COLOR, ChemiItems.listItems.stream().filter(x -> x.get() instanceof GasReagent).map(RegistryObject::get).toArray(Item[]::new));
     colors.register(REAGENT_ITEM_COLOR_0, ChemiItems.listItems.stream().filter(x -> x.get() instanceof ReagentPowderIndustrial).map(RegistryObject::get).toArray(Item[]::new));
     colors.register(BIO_ITEM_COLOR, ChemiItems.listItems.stream().filter(x -> x.get() instanceof BioReagent).filter(x -> x!=ChemiItems.MEDIUM_PLATE).map(RegistryObject::get).toArray(Item[]::new));
+    event.register(LEAVES_ITEM_COLOR, ChemiBlocks.METASEQUOIA_LEAVES_ITEM.get());
+  }
+
+  @SubscribeEvent
+  public static void onRegisterBlockColors(RegisterColorHandlersEvent.Block event) {
+    event.register(LEAVES_COLOR, ChemiBlocks.METASEQUOIA_LEAVES.get());
   }
 }
