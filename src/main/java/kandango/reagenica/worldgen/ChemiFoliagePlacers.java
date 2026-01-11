@@ -1,6 +1,7 @@
 package kandango.reagenica.worldgen;
 
 import kandango.reagenica.ChemistryMod;
+import kandango.reagenica.worldgen.forestry.MegaMetasequoiaFoliagePlacer;
 import kandango.reagenica.worldgen.forestry.MetasequoiaFoliagePlacer;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.level.levelgen.feature.foliageplacers.FoliagePlacerType;
@@ -13,4 +14,6 @@ public class ChemiFoliagePlacers {
   
   public static final RegistryObject<FoliagePlacerType<MetasequoiaFoliagePlacer>> METASEQUOIA = 
           FOLIAGE_PLACERS.register("metasequoia", () -> new FoliagePlacerType<>(MetasequoiaFoliagePlacer.CODEC));
+  public static final RegistryObject<FoliagePlacerType<MegaMetasequoiaFoliagePlacer>> MEGA_METASEQUOIA = 
+          FOLIAGE_PLACERS.register("mega_metasequoia", () -> new FoliagePlacerType<>(MegaMetasequoiaFoliagePlacer.CODEC));
 }

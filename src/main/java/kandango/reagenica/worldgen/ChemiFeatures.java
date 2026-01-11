@@ -16,4 +16,5 @@ public class ChemiFeatures {
   public static final RegistryObject<Feature<NoneFeatureConfiguration>> OIL_RESERVOIR = FEATURES.register("oil_reservoir",() -> new OilReservoirFeature(NoneFeatureConfiguration.CODEC));
 
   public static final ResourceKey<ConfiguredFeature<?, ?>> METASEQUOIA = ResourceKey.create(Registries.CONFIGURED_FEATURE, new ResourceLocation(ChemistryMod.MODID, "metasequoia"));
+  public static final ResourceKey<ConfiguredFeature<?, ?>> MEGA_METASEQUOIA = ResourceKey.create(Registries.CONFIGURED_FEATURE, new ResourceLocation(ChemistryMod.MODID, "mega_metasequoia"));
 }
