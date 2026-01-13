@@ -17,4 +17,5 @@ public class ChemiFeatures {
 
   public static final ResourceKey<ConfiguredFeature<?, ?>> METASEQUOIA = ResourceKey.create(Registries.CONFIGURED_FEATURE, new ResourceLocation(ChemistryMod.MODID, "metasequoia"));
   public static final ResourceKey<ConfiguredFeature<?, ?>> MEGA_METASEQUOIA = ResourceKey.create(Registries.CONFIGURED_FEATURE, new ResourceLocation(ChemistryMod.MODID, "mega_metasequoia"));
+  public static final ResourceKey<ConfiguredFeature<?, ?>> TAXODIUM = ResourceKey.create(Registries.CONFIGURED_FEATURE, new ResourceLocation(ChemistryMod.MODID, "taxodium"));
 }

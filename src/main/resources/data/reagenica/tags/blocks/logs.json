@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
-    "reagenica:metasequoia_log"
+    "reagenica:metasequoia_log",
+    "reagenica:taxodium_log"
   ]
 }

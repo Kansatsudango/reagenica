@@ -1,0 +1,38 @@
+{
+  "type": "minecraft:tree",
+  "config": {
+    "trunk_provider": { "type": "minecraft:simple_state_provider",
+      "state": { "Name": "reagenica:taxodium_log" } },
+
+    "trunk_placer": {
+      "type": "reagenica:taxodium",
+      "base_height": 14,
+      "height_rand_a": 3,
+      "height_rand_b": 2
+    },
+
+    "foliage_provider": { "type": "minecraft:simple_state_provider",
+      "state": { "Name": "reagenica:taxodium_leaves" } },
+
+    "foliage_placer": {
+      "type": "reagenica:taxodium",
+      "radius": 3,
+      "offset": 0,
+      "height": 18
+    },
+
+    "minimum_size": {
+      "type": "minecraft:two_layers_feature_size",
+      "limit": 1,
+      "lower_size": 0,
+      "upper_size": 1
+    },
+
+    "dirt_provider": {
+      "type": "minecraft:simple_state_provider",
+      "state": { "Name": "minecraft:dirt" }
+    },
+
+    "decorators": []
+  }
+}
