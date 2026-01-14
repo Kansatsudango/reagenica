@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:block/leaves",
   "textures": {
-    "all": "reagenica:block/metasequoia_leaves"
+    "all": "reagenica:block/magnolia_leaves"
   },
   "render_type": "cutout"
 }

@@ -242,6 +242,30 @@ public class ChemiBlocks {
   public static final RegistryObject<Block> TAXODIUM_SAPLING = registerBlockandlist("taxodium_sapling", () -> new SaplingBlock(new TaxodiumGrower(),BlockBehaviour.Properties.copy(Blocks.OAK_SAPLING)));
   public static final RegistryObject<Item> TAXODIUM_SAPLING_ITEM = registerItemandlist("taxodium_sapling",
       () -> new BlockItem(TAXODIUM_SAPLING.get(), new Item.Properties()));
+  public static final RegistryObject<Block> GINKGO_LOG = registerWoodBlockandlist("ginkgo_log", () -> new RotatedPillarBlock(BlockBehaviour.Properties.copy(Blocks.OAK_LOG)));
+  public static final RegistryObject<Item> GINKGO_LOG_ITEM = registerItemandlist("ginkgo_log",
+      () -> new BlockItem(GINKGO_LOG.get(), new Item.Properties()));
+  public static final RegistryObject<Block> GINKGO_PLANKS = registerWoodBlockandlist("ginkgo_planks", () -> new Block(BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS)));
+  public static final RegistryObject<Item> GINKGO_PLANKS_ITEM = registerItemandlist("ginkgo_planks",
+      () -> new BlockItem(GINKGO_PLANKS.get(), new Item.Properties()));
+  public static final RegistryObject<Block> GINKGO_LEAVES = registerNoneBlockandlist("ginkgo_leaves", () -> new LeavesBlock(BlockBehaviour.Properties.copy(Blocks.OAK_LEAVES)));
+  public static final RegistryObject<Item> GINKGO_LEAVES_ITEM = registerItemandlist("ginkgo_leaves",
+      () -> new BlockItem(GINKGO_LEAVES.get(), new Item.Properties()));
+  public static final RegistryObject<Block> GINKGO_SAPLING = registerBlockandlist("ginkgo_sapling", () -> new SaplingBlock(new MetasequoiaGrower(),BlockBehaviour.Properties.copy(Blocks.OAK_SAPLING)));
+  public static final RegistryObject<Item> GINKGO_SAPLING_ITEM = registerItemandlist("ginkgo_sapling",
+      () -> new BlockItem(GINKGO_SAPLING.get(), new Item.Properties()));
+  public static final RegistryObject<Block> MAGNOLIA_LOG = registerWoodBlockandlist("magnolia_log", () -> new RotatedPillarBlock(BlockBehaviour.Properties.copy(Blocks.OAK_LOG)));
+  public static final RegistryObject<Item> MAGNOLIA_LOG_ITEM = registerItemandlist("magnolia_log",
+      () -> new BlockItem(MAGNOLIA_LOG.get(), new Item.Properties()));
+  public static final RegistryObject<Block> MAGNOLIA_PLANKS = registerWoodBlockandlist("magnolia_planks", () -> new Block(BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS)));
+  public static final RegistryObject<Item> MAGNOLIA_PLANKS_ITEM = registerItemandlist("magnolia_planks",
+      () -> new BlockItem(MAGNOLIA_PLANKS.get(), new Item.Properties()));
+  public static final RegistryObject<Block> MAGNOLIA_LEAVES = registerNoneBlockandlist("magnolia_leaves", () -> new LeavesBlock(BlockBehaviour.Properties.copy(Blocks.OAK_LEAVES)));
+  public static final RegistryObject<Item> MAGNOLIA_LEAVES_ITEM = registerItemandlist("magnolia_leaves",
+      () -> new BlockItem(MAGNOLIA_LEAVES.get(), new Item.Properties()));
+  public static final RegistryObject<Block> MAGNOLIA_SAPLING = registerBlockandlist("magnolia_sapling", () -> new SaplingBlock(new MetasequoiaGrower(),BlockBehaviour.Properties.copy(Blocks.OAK_SAPLING)));
+  public static final RegistryObject<Item> MAGNOLIA_SAPLING_ITEM = registerItemandlist("magnolia_sapling",
+      () -> new BlockItem(MAGNOLIA_SAPLING.get(), new Item.Properties()));
 
   public static final RegistryObject<Block> DEBUG_CROP = registerPlantBlockandlist("debug_crop", () -> new AdvancedCropBlock(ChemiBlocks.DEBUG_CROP_SEEDS::get),2,() -> ChemiBlocks.DEBUG_CROP_SEEDS);
   public static final RegistryObject<Item> DEBUG_CROP_SEEDS = registerItemandlist("debug_seeds", 
