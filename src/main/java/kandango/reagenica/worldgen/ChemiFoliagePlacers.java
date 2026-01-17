@@ -1,10 +1,7 @@
 package kandango.reagenica.worldgen;
 
 import kandango.reagenica.ChemistryMod;
-import kandango.reagenica.worldgen.forestry.MegaMetasequoiaFoliagePlacer;
-import kandango.reagenica.worldgen.forestry.MetasequoiaFoliagePlacer;
-import kandango.reagenica.worldgen.forestry.TaxodiumFoliagePlacer;
-import kandango.reagenica.worldgen.forestry.TaxodiumTrunkPlacer;
+import kandango.reagenica.worldgen.forestry.*;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.level.levelgen.feature.foliageplacers.FoliagePlacerType;
 import net.minecraft.world.level.levelgen.feature.trunkplacers.TrunkPlacerType;
@@ -23,6 +20,8 @@ public class ChemiFoliagePlacers {
           FOLIAGE_PLACERS.register("mega_metasequoia", () -> new FoliagePlacerType<>(MegaMetasequoiaFoliagePlacer.CODEC));
   public static final RegistryObject<FoliagePlacerType<TaxodiumFoliagePlacer>> TAXODIUM = 
           FOLIAGE_PLACERS.register("taxodium", () -> new FoliagePlacerType<>(TaxodiumFoliagePlacer.CODEC));
+  public static final RegistryObject<FoliagePlacerType<GinkgoFoliagePlacer>> GINKGO = 
+          FOLIAGE_PLACERS.register("ginkgo", () -> new FoliagePlacerType<>(GinkgoFoliagePlacer.CODEC));
   
           public static final RegistryObject<TrunkPlacerType<TaxodiumTrunkPlacer>> TAXODIUM_TRUNK = 
           TRUNK_PLACERS.register("taxodium", () -> new TrunkPlacerType<>(TaxodiumTrunkPlacer.CODEC));

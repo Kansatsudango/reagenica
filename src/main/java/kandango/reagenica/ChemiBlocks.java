@@ -9,8 +9,7 @@ import kandango.reagenica.block.farming.*;
 import kandango.reagenica.block.farming.crop.*;
 import kandango.reagenica.block.farming.grape.*;
 import kandango.reagenica.generator.BlockLootType;
-import kandango.reagenica.worldgen.forestry.MetasequoiaGrower;
-import kandango.reagenica.worldgen.forestry.TaxodiumGrower;
+import kandango.reagenica.worldgen.forestry.*;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
@@ -251,7 +250,7 @@ public class ChemiBlocks {
   public static final RegistryObject<Block> GINKGO_LEAVES = registerNoneBlockandlist("ginkgo_leaves", () -> new LeavesBlock(BlockBehaviour.Properties.copy(Blocks.OAK_LEAVES)));
   public static final RegistryObject<Item> GINKGO_LEAVES_ITEM = registerItemandlist("ginkgo_leaves",
       () -> new BlockItem(GINKGO_LEAVES.get(), new Item.Properties()));
-  public static final RegistryObject<Block> GINKGO_SAPLING = registerBlockandlist("ginkgo_sapling", () -> new SaplingBlock(new MetasequoiaGrower(),BlockBehaviour.Properties.copy(Blocks.OAK_SAPLING)));
+  public static final RegistryObject<Block> GINKGO_SAPLING = registerBlockandlist("ginkgo_sapling", () -> new SaplingBlock(new GinkgoGrower(),BlockBehaviour.Properties.copy(Blocks.OAK_SAPLING)));
   public static final RegistryObject<Item> GINKGO_SAPLING_ITEM = registerItemandlist("ginkgo_sapling",
       () -> new BlockItem(GINKGO_SAPLING.get(), new Item.Properties()));
   public static final RegistryObject<Block> MAGNOLIA_LOG = registerWoodBlockandlist("magnolia_log", () -> new RotatedPillarBlock(BlockBehaviour.Properties.copy(Blocks.OAK_LOG)));
@@ -263,7 +262,7 @@ public class ChemiBlocks {
   public static final RegistryObject<Block> MAGNOLIA_LEAVES = registerNoneBlockandlist("magnolia_leaves", () -> new LeavesBlock(BlockBehaviour.Properties.copy(Blocks.OAK_LEAVES)));
   public static final RegistryObject<Item> MAGNOLIA_LEAVES_ITEM = registerItemandlist("magnolia_leaves",
       () -> new BlockItem(MAGNOLIA_LEAVES.get(), new Item.Properties()));
-  public static final RegistryObject<Block> MAGNOLIA_SAPLING = registerBlockandlist("magnolia_sapling", () -> new SaplingBlock(new MetasequoiaGrower(),BlockBehaviour.Properties.copy(Blocks.OAK_SAPLING)));
+  public static final RegistryObject<Block> MAGNOLIA_SAPLING = registerBlockandlist("magnolia_sapling", () -> new SaplingBlock(new MagnoliaGrower(),BlockBehaviour.Properties.copy(Blocks.OAK_SAPLING)));
   public static final RegistryObject<Item> MAGNOLIA_SAPLING_ITEM = registerItemandlist("magnolia_sapling",
       () -> new BlockItem(MAGNOLIA_SAPLING.get(), new Item.Properties()));
 

@@ -2,6 +2,8 @@
   "replace": false,
   "values": [
     "reagenica:metasequoia_log",
-    "reagenica:taxodium_log"
+    "reagenica:taxodium_log",
+    "reagenica:ginkgo_log",
+    "reagenica:magnolia_log"
   ]
 }
