@@ -4,8 +4,126 @@
     "type": "minecraft:noise",
     "settings": "minecraft:overworld",
     "biome_source": {
-      "type": "minecraft:fixed",
-      "biome": "reagenica:metasequoia_forest"
+      "type": "minecraft:multi_noise",
+      "biomes": [
+        {
+          "biome": "minecraft:warm_ocean",
+          "parameters": {
+            "continentalness": [
+              -1.2,
+              -0.3
+            ],
+            "depth": [
+              -2,
+              2
+            ],
+            "erosion": [
+              -2,
+              2
+            ],
+            "humidity": [
+              -1,
+              1
+            ],
+            "offset": 0,
+            "temperature": [
+              0,
+              1
+            ],
+            "weirdness": [
+              -1,
+              1
+            ]
+          }
+        },{
+          "biome": "minecraft:lukewarm_ocean",
+          "parameters": {
+            "continentalness": [
+              -1.2,
+              -0.3
+            ],
+            "depth": [
+              -2,
+              2
+            ],
+            "erosion": [
+              -2,
+              2
+            ],
+            "humidity": [
+              -1,
+              1
+            ],
+            "offset": 0,
+            "temperature": [
+              -1,
+              0
+            ],
+            "weirdness": [
+              -1,
+              1
+            ]
+          }
+        },{
+          "biome": "reagenica:metasequoia_forest",
+          "parameters": {
+            "continentalness": [
+              0,
+              1
+            ],
+            "depth": [
+              -2,
+              2
+            ],
+            "erosion": [
+              -2,
+              2
+            ],
+            "humidity": [
+              0,
+              1
+            ],
+            "offset": 0,
+            "temperature": [
+              -1,
+              1
+            ],
+            "weirdness": [
+              -1,
+              1
+            ]
+          }
+        },{
+          "biome": "reagenica:paleo_plain",
+          "parameters": {
+            "continentalness": [
+              0,
+              1
+            ],
+            "depth": [
+              -2,
+              2
+            ],
+            "erosion": [
+              -2,
+              2
+            ],
+            "humidity": [
+              -1,
+              0
+            ],
+            "offset": 0,
+            "temperature": [
+              -1,
+              1
+            ],
+            "weirdness": [
+              -1,
+              1
+            ]
+          }
+        }
+      ]
     }
   }
 }
