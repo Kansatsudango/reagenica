@@ -3,8 +3,8 @@
   "fallback": "minecraft:empty",
   "elements": [
     { "weight": 3, "element": { "location": "reagenica:onsen_wood", "element_type": "minecraft:single_pool_element", "projection": "rigid", "processors": "minecraft:empty" }},
-    { "weight": 2, "element": { "location": "reagenica:onsen_stone", "element_type": "minecraft:single_pool_element", "projection": "rigid", "processors": "minecraft:empty" }},
+    { "weight": 2, "element": { "location": "reagenica:onsen_stone", "element_type": "minecraft:single_pool_element", "projection": "rigid", "processors": "minecraft:mossify_10_percent" }},
     { "weight": 1, "element": { "location": "reagenica:onsen_large_wood", "element_type": "minecraft:single_pool_element", "projection": "rigid", "processors": "minecraft:empty" }},
-    { "weight": 1, "element": { "location": "reagenica:onsen_delta", "element_type": "minecraft:single_pool_element", "projection": "rigid", "processors": "minecraft:empty" }}
+    { "weight": 1, "element": { "location": "reagenica:onsen_delta", "element_type": "minecraft:single_pool_element", "projection": "rigid", "processors": "minecraft:mossify_10_percent" }}
   ]
 }

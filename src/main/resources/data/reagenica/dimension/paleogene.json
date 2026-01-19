@@ -7,15 +7,15 @@
       "type": "minecraft:multi_noise",
       "biomes": [
         {
-          "biome": "minecraft:warm_ocean",
+          "biome": "reagenica:primeval_warm_ocean",
           "parameters": {
             "continentalness": [
               -1.2,
               -0.3
             ],
             "depth": [
-              -2,
-              2
+              -0.05,
+              0
             ],
             "erosion": [
               -2,
@@ -36,15 +36,15 @@
             ]
           }
         },{
-          "biome": "minecraft:lukewarm_ocean",
+          "biome": "reagenica:primeval_lukewarm_ocean",
           "parameters": {
             "continentalness": [
               -1.2,
               -0.3
             ],
             "depth": [
-              -2,
-              2
+              -0.05,
+              0
             ],
             "erosion": [
               -2,
@@ -61,6 +61,274 @@
             ],
             "weirdness": [
               -1,
+              1
+            ]
+          }
+        },
+        {
+          "biome": "reagenica:primeval_river",
+          "parameters": {
+            "continentalness": [
+              -0.1,
+              0.03
+            ],
+            "depth": [
+              -0.05,
+              0
+            ],
+            "erosion": [
+              -1,
+              1
+            ],
+            "humidity": [
+              -1,
+              0
+            ],
+            "offset": 0,
+            "temperature": [
+              -1,
+              1
+            ],
+            "weirdness": [
+              -0.1,
+              0.1
+            ]
+          }
+        },
+        {
+          "biome": "reagenica:primeval_river",
+          "parameters": {
+            "continentalness": [
+              0.03,
+              0.3
+            ],
+            "depth": [
+              -0.05,
+              0
+            ],
+            "erosion": [
+              -1,
+              0.445
+            ],
+            "humidity": [
+              -1,
+              0
+            ],
+            "offset": 0,
+            "temperature": [
+              -1,
+              1
+            ],
+            "weirdness": [
+              -0.1,
+              0.1
+            ]
+          }
+        },
+        {
+          "biome": "reagenica:primeval_river",
+          "parameters": {
+            "continentalness": [
+              0.03,
+              1.2
+            ],
+            "depth": [
+              -0.05,
+              0
+            ],
+            "erosion": [
+              -0.22,
+              0.55
+            ],
+            "humidity": [
+              -1,
+              0
+            ],
+            "offset": 0,
+            "temperature": [
+              -1,
+              1
+            ],
+            "weirdness": [
+              -0.1,
+              0.1
+            ]
+          }
+        },
+        {
+          "biome": "reagenica:primeval_taxodium_river",
+          "parameters": {
+            "continentalness": [
+              -0.1,
+              0.03
+            ],
+            "depth": [
+              -0.05,
+              0
+            ],
+            "erosion": [
+              -1,
+              1
+            ],
+            "humidity": [
+              0,
+              1
+            ],
+            "offset": 0,
+            "temperature": [
+              -1,
+              1
+            ],
+            "weirdness": [
+              -0.1,
+              0.1
+            ]
+          }
+        },
+        {
+          "biome": "reagenica:primeval_taxodium_river",
+          "parameters": {
+            "continentalness": [
+              0.03,
+              0.3
+            ],
+            "depth": [
+              -0.05,
+              0
+            ],
+            "erosion": [
+              -1,
+              0.445
+            ],
+            "humidity": [
+              0,
+              1
+            ],
+            "offset": 0,
+            "temperature": [
+              -1,
+              1
+            ],
+            "weirdness": [
+              -0.1,
+              0.1
+            ]
+          }
+        },
+        {
+          "biome": "reagenica:primeval_taxodium_river",
+          "parameters": {
+            "continentalness": [
+              0.03,
+              1.2
+            ],
+            "depth": [
+              -0.05,
+              0
+            ],
+            "erosion": [
+              -0.22,
+              0.55
+            ],
+            "humidity": [
+              0,
+              1
+            ],
+            "offset": 0,
+            "temperature": [
+              -1,
+              1
+            ],
+            "weirdness": [
+              -0.1,
+              0.1
+            ]
+          }
+        },
+        {
+          "biome": "reagenica:canyon_river",
+          "parameters": {
+            "continentalness": [
+              0.03,
+              1.2
+            ],
+            "depth": [
+              -0.05,
+              0
+            ],
+            "erosion": [
+              -0.375,
+              -0.22
+            ],
+            "humidity": [
+              -1,
+              1
+            ],
+            "offset": 0,
+            "temperature": [
+              -1,
+              1
+            ],
+            "weirdness": [
+              -0.1,
+              0.1
+            ]
+          }
+        },{
+          "biome": "reagenica:paleo_swamp",
+          "parameters": {
+            "continentalness": [
+              -0.11,
+              1.2
+            ],
+            "depth": [
+              -0.05,
+              0
+            ],
+            "erosion": [
+              0.445,
+              1.0
+            ],
+            "humidity": [
+              -1,
+              1
+            ],
+            "offset": 0,
+            "temperature": [
+              -1,
+              1
+            ],
+            "weirdness": [
+              -0.1,
+              0.1
+            ]
+          }
+        },{
+          "biome": "reagenica:metasequoia_forest",
+          "parameters": {
+            "continentalness": [
+              0,
+              1
+            ],
+            "depth": [
+              -0.05,
+              0
+            ],
+            "erosion": [
+              -2,
+              2
+            ],
+            "humidity": [
+              0,
+              1
+            ],
+            "offset": 0,
+            "temperature": [
+              -1,
+              1
+            ],
+            "weirdness": [
+              0.1,
               1
             ]
           }
@@ -72,8 +340,8 @@
               1
             ],
             "depth": [
-              -2,
-              2
+              -0.05,
+              0
             ],
             "erosion": [
               -2,
@@ -90,6 +358,35 @@
             ],
             "weirdness": [
               -1,
+              -0.1
+            ]
+          }
+        },{
+          "biome": "reagenica:paleo_plain",
+          "parameters": {
+            "continentalness": [
+              0,
+              1
+            ],
+            "depth": [
+              -0.05,
+              0
+            ],
+            "erosion": [
+              -2,
+              2
+            ],
+            "humidity": [
+              -1,
+              0
+            ],
+            "offset": 0,
+            "temperature": [
+              -1,
+              1
+            ],
+            "weirdness": [
+              0.1,
               1
             ]
           }
@@ -101,8 +398,8 @@
               1
             ],
             "depth": [
-              -2,
-              2
+              -0.05,
+              0
             ],
             "erosion": [
               -2,
@@ -119,7 +416,7 @@
             ],
             "weirdness": [
               -1,
-              1
+              -0.1
             ]
           }
         }
