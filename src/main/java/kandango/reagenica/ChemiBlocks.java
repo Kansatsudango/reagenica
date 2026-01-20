@@ -265,6 +265,13 @@ public class ChemiBlocks {
   public static final RegistryObject<Block> MAGNOLIA_SAPLING = registerBlockandlist("magnolia_sapling", () -> new SaplingBlock(new MagnoliaGrower(),BlockBehaviour.Properties.copy(Blocks.OAK_SAPLING)));
   public static final RegistryObject<Item> MAGNOLIA_SAPLING_ITEM = registerItemandlist("magnolia_sapling",
       () -> new BlockItem(MAGNOLIA_SAPLING.get(), new Item.Properties()));
+      
+  public static final RegistryObject<Block> PALEO_SAND = registerBlockandlist("paleo_sand", () -> new SandBlock(0xC9AE6B,BlockBehaviour.Properties.copy(Blocks.SAND)));
+  public static final RegistryObject<Item> PALEO_SAND_ITEM = registerItemandlist("paleo_sand",
+      () -> new BlockItem(PALEO_SAND.get(), new Item.Properties()));
+  public static final RegistryObject<Block> PALEO_SANDSTONE = registerBlockandlist("paleo_sandstone", () -> new Block(BlockBehaviour.Properties.copy(Blocks.SANDSTONE)));
+  public static final RegistryObject<Item> PALEO_SANDSTONE_ITEM = registerItemandlist("paleo_sandstone",
+      () -> new BlockItem(PALEO_SANDSTONE.get(), new Item.Properties()));
 
   public static final RegistryObject<Block> DEBUG_CROP = registerPlantBlockandlist("debug_crop", () -> new AdvancedCropBlock(ChemiBlocks.DEBUG_CROP_SEEDS::get),2,() -> ChemiBlocks.DEBUG_CROP_SEEDS);
   public static final RegistryObject<Item> DEBUG_CROP_SEEDS = registerItemandlist("debug_seeds", 

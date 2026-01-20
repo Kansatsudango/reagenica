@@ -1382,7 +1382,7 @@
                               "if_true": {
                                 "type": "minecraft:biome",
                                 "biome_is": [
-                                  "minecraft:desert"
+                                  "reagenica:paleo_desert"
                                 ]
                               },
                               "then_run": {
@@ -1400,14 +1400,14 @@
                                     "then_run": {
                                       "type": "minecraft:block",
                                       "result_state": {
-                                        "Name": "minecraft:sandstone"
+                                        "Name": "reagenica:paleo_sandstone"
                                       }
                                     }
                                   },
                                   {
                                     "type": "minecraft:block",
                                     "result_state": {
-                                      "Name": "minecraft:sand"
+                                      "Name": "reagenica:paleo_sand"
                                     }
                                   }
                                 ]
@@ -2158,7 +2158,7 @@
                               "if_true": {
                                 "type": "minecraft:biome",
                                 "biome_is": [
-                                  "minecraft:desert"
+                                  "reagenica:paleo_desert"
                                 ]
                               },
                               "then_run": {
@@ -2176,14 +2176,14 @@
                                     "then_run": {
                                       "type": "minecraft:block",
                                       "result_state": {
-                                        "Name": "minecraft:sandstone"
+                                        "Name": "reagenica:paleo_sandstone"
                                       }
                                     }
                                   },
                                   {
                                     "type": "minecraft:block",
                                     "result_state": {
-                                      "Name": "minecraft:sand"
+                                      "Name": "reagenica:paleo_sand"
                                     }
                                   }
                                 ]
@@ -2393,7 +2393,7 @@
                     "if_true": {
                       "type": "minecraft:biome",
                       "biome_is": [
-                        "minecraft:desert"
+                        "reagenica:paleo_desert"
                       ]
                     },
                     "then_run": {
@@ -2408,7 +2408,7 @@
                       "then_run": {
                         "type": "minecraft:block",
                         "result_state": {
-                          "Name": "minecraft:sandstone"
+                          "Name": "reagenica:paleo_sandstone"
                         }
                       }
                     }

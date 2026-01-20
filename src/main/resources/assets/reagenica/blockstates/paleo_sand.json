@@ -1,0 +1,21 @@
+{
+  "variants": {
+    "": [
+      {
+        "model": "reagenica:block/paleo_sand"
+      },
+      {
+        "model": "reagenica:block/paleo_sand",
+        "y": 90
+      },
+      {
+        "model": "reagenica:block/paleo_sand",
+        "y": 180
+      },
+      {
+        "model": "reagenica:block/paleo_sand",
+        "y": 270
+      }
+    ]
+  }
+}
