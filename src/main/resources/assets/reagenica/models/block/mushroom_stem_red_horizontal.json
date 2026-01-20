@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column_horizontal",
+  "textures": {
+    "end": "reagenica:block/mushroom_inside_red",
+    "side": "reagenica:block/mushroom_stem_red"
+  }
+}

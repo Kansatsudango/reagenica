@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "axis=x": {
+      "model": "reagenica:block/mushroom_stem_blue_horizontal",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y": {
+      "model": "reagenica:block/mushroom_stem_blue"
+    },
+    "axis=z": {
+      "model": "reagenica:block/mushroom_stem_blue_horizontal",
+      "x": 90
+    }
+  }
+}

@@ -272,6 +272,43 @@ public class ChemiBlocks {
   public static final RegistryObject<Block> PALEO_SANDSTONE = registerBlockandlist("paleo_sandstone", () -> new Block(BlockBehaviour.Properties.copy(Blocks.SANDSTONE)));
   public static final RegistryObject<Item> PALEO_SANDSTONE_ITEM = registerItemandlist("paleo_sandstone",
       () -> new BlockItem(PALEO_SANDSTONE.get(), new Item.Properties()));
+      
+  public static final RegistryObject<Block> MUSHROOM_STEM_RED = registerCustomHoeBlockandlist("mushroom_stem_red", () -> new RotatedPillarBlock(BlockBehaviour.Properties.copy(Blocks.MUSHROOM_STEM).lightLevel(state -> 14)));
+  public static final RegistryObject<Item> MUSHROOM_STEM_RED_ITEM = registerItemandlist("mushroom_stem_red",
+      () -> new BlockItem(MUSHROOM_STEM_RED.get(), new Item.Properties()));
+  public static final RegistryObject<Block> MUSHROOM_INSIDE_RED = registerCustomHoeBlockandlist("mushroom_inside_red", () -> new Block(BlockBehaviour.Properties.copy(Blocks.MUSHROOM_STEM).lightLevel(state -> 7)));
+  public static final RegistryObject<Item> MUSHROOM_INSIDE_RED_ITEM = registerItemandlist("mushroom_inside_red",
+      () -> new BlockItem(MUSHROOM_INSIDE_RED.get(), new Item.Properties()));
+  public static final RegistryObject<Block> MUSHROOM_SURFACE_RED = registerCustomHoeBlockandlist("mushroom_surface_red", () -> new Block(BlockBehaviour.Properties.copy(Blocks.MUSHROOM_STEM).lightLevel(state -> 3)));
+  public static final RegistryObject<Item> MUSHROOM_SURFACE_RED_ITEM = registerItemandlist("mushroom_surface_red",
+      () -> new BlockItem(MUSHROOM_SURFACE_RED.get(), new Item.Properties()));
+  public static final RegistryObject<Block> MUSHROOM_STEM_GREEN = registerCustomHoeBlockandlist("mushroom_stem_green", () -> new RotatedPillarBlock(BlockBehaviour.Properties.copy(Blocks.MUSHROOM_STEM).lightLevel(state -> 14)));
+  public static final RegistryObject<Item> MUSHROOM_STEM_GREEN_ITEM = registerItemandlist("mushroom_stem_green",
+      () -> new BlockItem(MUSHROOM_STEM_GREEN.get(), new Item.Properties()));
+  public static final RegistryObject<Block> MUSHROOM_INSIDE_GREEN = registerCustomHoeBlockandlist("mushroom_inside_green", () -> new Block(BlockBehaviour.Properties.copy(Blocks.MUSHROOM_STEM).lightLevel(state -> 7)));
+  public static final RegistryObject<Item> MUSHROOM_INSIDE_GREEN_ITEM = registerItemandlist("mushroom_inside_green",
+      () -> new BlockItem(MUSHROOM_INSIDE_GREEN.get(), new Item.Properties()));
+  public static final RegistryObject<Block> MUSHROOM_SURFACE_GREEN = registerCustomHoeBlockandlist("mushroom_surface_green", () -> new Block(BlockBehaviour.Properties.copy(Blocks.MUSHROOM_STEM).lightLevel(state -> 3)));
+  public static final RegistryObject<Item> MUSHROOM_SURFACE_GREEN_ITEM = registerItemandlist("mushroom_surface_green",
+      () -> new BlockItem(MUSHROOM_SURFACE_GREEN.get(), new Item.Properties()));
+  public static final RegistryObject<Block> MUSHROOM_STEM_PURPLE = registerCustomHoeBlockandlist("mushroom_stem_purple", () -> new RotatedPillarBlock(BlockBehaviour.Properties.copy(Blocks.MUSHROOM_STEM).lightLevel(state -> 14)));
+  public static final RegistryObject<Item> MUSHROOM_STEM_PURPLE_ITEM = registerItemandlist("mushroom_stem_purple",
+      () -> new BlockItem(MUSHROOM_STEM_PURPLE.get(), new Item.Properties()));
+  public static final RegistryObject<Block> MUSHROOM_INSIDE_PURPLE = registerCustomHoeBlockandlist("mushroom_inside_purple", () -> new Block(BlockBehaviour.Properties.copy(Blocks.MUSHROOM_STEM).lightLevel(state -> 7)));
+  public static final RegistryObject<Item> MUSHROOM_INSIDE_PURPLE_ITEM = registerItemandlist("mushroom_inside_purple",
+      () -> new BlockItem(MUSHROOM_INSIDE_PURPLE.get(), new Item.Properties()));
+  public static final RegistryObject<Block> MUSHROOM_SURFACE_PURPLE = registerCustomHoeBlockandlist("mushroom_surface_purple", () -> new Block(BlockBehaviour.Properties.copy(Blocks.MUSHROOM_STEM).lightLevel(state -> 3)));
+  public static final RegistryObject<Item> MUSHROOM_SURFACE_PURPLE_ITEM = registerItemandlist("mushroom_surface_purple",
+      () -> new BlockItem(MUSHROOM_SURFACE_PURPLE.get(), new Item.Properties()));
+  public static final RegistryObject<Block> MUSHROOM_STEM_BLUE = registerCustomHoeBlockandlist("mushroom_stem_blue", () -> new RotatedPillarBlock(BlockBehaviour.Properties.copy(Blocks.MUSHROOM_STEM).lightLevel(state -> 14)));
+  public static final RegistryObject<Item> MUSHROOM_STEM_BLUE_ITEM = registerItemandlist("mushroom_stem_blue",
+      () -> new BlockItem(MUSHROOM_STEM_BLUE.get(), new Item.Properties()));
+  public static final RegistryObject<Block> MUSHROOM_INSIDE_BLUE = registerCustomHoeBlockandlist("mushroom_inside_blue", () -> new Block(BlockBehaviour.Properties.copy(Blocks.MUSHROOM_STEM).lightLevel(state -> 7)));
+  public static final RegistryObject<Item> MUSHROOM_INSIDE_BLUE_ITEM = registerItemandlist("mushroom_inside_blue",
+      () -> new BlockItem(MUSHROOM_INSIDE_BLUE.get(), new Item.Properties()));
+  public static final RegistryObject<Block> MUSHROOM_SURFACE_BLUE = registerCustomHoeBlockandlist("mushroom_surface_blue", () -> new Block(BlockBehaviour.Properties.copy(Blocks.MUSHROOM_STEM).lightLevel(state -> 3)));
+  public static final RegistryObject<Item> MUSHROOM_SURFACE_BLUE_ITEM = registerItemandlist("mushroom_surface_blue",
+      () -> new BlockItem(MUSHROOM_SURFACE_BLUE.get(), new Item.Properties()));
 
   public static final RegistryObject<Block> DEBUG_CROP = registerPlantBlockandlist("debug_crop", () -> new AdvancedCropBlock(ChemiBlocks.DEBUG_CROP_SEEDS::get),2,() -> ChemiBlocks.DEBUG_CROP_SEEDS);
   public static final RegistryObject<Item> DEBUG_CROP_SEEDS = registerItemandlist("debug_seeds", 
@@ -631,6 +668,11 @@ public class ChemiBlocks {
   private static <T extends Block> RegistryObject<T> registerPlantBlockandlist(String name, Supplier<T> supplier,int count, Supplier<RegistryObject<? extends Item>> veggies) {
     RegistryObject<T> block = BLOCKS.register(name, supplier);
     listBlocks.add(BlockLootType.plants(block, count, veggies));
+    return block;
+  }
+  private static <T extends Block> RegistryObject<T> registerCustomHoeBlockandlist(String name, Supplier<T> supplier) {
+    RegistryObject<T> block = BLOCKS.register(name, supplier);
+    listBlocks.add(BlockLootType.silkhoes(block));
     return block;
   }
   private static <T extends Block> RegistryObject<T> registerNoneBlockandlist(String name, Supplier<T> supplier) {

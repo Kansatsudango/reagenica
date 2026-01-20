@@ -76,6 +76,9 @@ public class BlockLootType {
   public static BlockLootType none(RegistryObject<? extends Block> block){
     return new BlockLootType(block,BlockType.NONE, 0, null,MineableType.NONE);
   }
+  public static BlockLootType silkhoes(RegistryObject<? extends Block> block){
+    return new BlockLootType(block,BlockType.NONE, 0, null,MineableType.HOE);
+  }
   public enum BlockType{
     NORMAL,
     ORES,
