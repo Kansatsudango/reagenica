@@ -1,8 +1,8 @@
 {
-  "type": "minecraft:overworld",
+  "type": "reagenica:paleogene",
   "generator": {
     "type": "minecraft:noise",
-    "settings": "minecraft:overworld",
+    "settings": "reagenica:paleogene",
     "biome_source": {
       "type": "minecraft:multi_noise",
       "biomes": [
