@@ -1,0 +1,25 @@
+{
+  "type": "reagenica:small_mushroom",
+  "config": {
+    "stem": {
+      "type": "minecraft:simple_state_provider",
+      "state": {
+        "Name": "reagenica:mushroom_stem_green"
+      }
+    },
+
+    "inside": {
+      "type": "minecraft:simple_state_provider",
+      "state": {
+        "Name": "reagenica:mushroom_inside_green"
+      }
+    },
+
+    "surface": {
+      "type": "minecraft:simple_state_provider",
+      "state": {
+        "Name": "reagenica:mushroom_surface_green"
+      }
+    }
+  }
+}

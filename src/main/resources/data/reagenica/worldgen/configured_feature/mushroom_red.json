@@ -1,0 +1,33 @@
+{
+  "type": "reagenica:large_mushroom",
+  "config": {
+    "height": {
+      "type": "minecraft:uniform",
+      "value": {
+        "max_inclusive": 16,
+        "min_inclusive": 8
+      }
+    },
+
+    "stem": {
+      "type": "minecraft:simple_state_provider",
+      "state": {
+        "Name": "reagenica:mushroom_stem_red"
+      }
+    },
+
+    "inside": {
+      "type": "minecraft:simple_state_provider",
+      "state": {
+        "Name": "reagenica:mushroom_inside_red"
+      }
+    },
+
+    "surface": {
+      "type": "minecraft:simple_state_provider",
+      "state": {
+        "Name": "reagenica:mushroom_surface_red"
+      }
+    }
+  }
+}
