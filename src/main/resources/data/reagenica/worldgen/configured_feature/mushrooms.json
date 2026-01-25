@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:random_selector",
+  "config": {
+    "default": "reagenica:mushroom_purple",
+    "features": [
+      { "chance": 0.2, "feature": "reagenica:mushroom_small_red" },
+      { "chance": 0.25, "feature": "reagenica:mushroom_small_blue" },
+      { "chance": 0.33, "feature": "reagenica:mushroom_small_green" },
+      { "chance": 0.5, "feature": "reagenica:mushroom_small_purple" },
+
+      { "chance": 0.25, "feature": "reagenica:mushroom_red" },
+      { "chance": 0.33, "feature": "reagenica:mushroom_blue" },
+      { "chance": 0.5, "feature": "reagenica:mushroom_green" }
+    ]
+  }
+}

@@ -1,15 +1,12 @@
 package kandango.reagenica.client;
 
 import kandango.reagenica.item.bioreagent.BioReagent;
-import kandango.reagenica.item.reagent.GasReagent;
-import kandango.reagenica.item.reagent.LiquidReagent;
-import kandango.reagenica.item.reagent.PowderReagent;
-import kandango.reagenica.item.reagent.Reagent;
-import kandango.reagenica.item.reagent.ReagentPowderIndustrial;
+import kandango.reagenica.item.reagent.*;
 import kandango.reagenica.ChemistryMod;
-
+import kandango.reagenica.client.particle.*;
 import kandango.reagenica.ChemiBlocks;
 import kandango.reagenica.ChemiItems;
+import kandango.reagenica.ChemiParticles;
 import net.minecraft.client.color.block.BlockColor;
 import net.minecraft.client.color.item.ItemColor;
 import net.minecraft.client.color.item.ItemColors;
@@ -19,6 +16,7 @@ import net.minecraft.world.level.FoliageColor;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.client.event.RegisterColorHandlersEvent;
+import net.minecraftforge.client.event.RegisterParticleProvidersEvent;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber.Bus;
 import net.minecraftforge.registries.RegistryObject;
@@ -70,5 +68,11 @@ public class ClientModEvents {
   public static void onRegisterBlockColors(RegisterColorHandlersEvent.Block event) {
     event.register(LEAVES_COLOR, ChemiBlocks.METASEQUOIA_LEAVES.get());
     event.register(LEAVES_COLOR, ChemiBlocks.TAXODIUM_LEAVES.get());
+  }
+
+  @SubscribeEvent
+  public static void registerParticles(RegisterParticleProvidersEvent event) {
+    event.registerSpriteSet(ChemiParticles.GLOWING_SPORE.get(), GlowingSpore.Provider::new);
+    event.registerSpriteSet(ChemiParticles.AMBIENT_SPORE.get(), AmbientSpore.Provider::new);
   }
 }

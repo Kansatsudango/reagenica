@@ -18,6 +18,12 @@
       "sound": "minecraft:ambient.cave",
       "tick_delay": 6000
     },
+    "particle": {
+      "options": {
+        "type": "reagenica:ambient_spore"
+      },
+      "probability": 0.004
+    },
     "fog_color": 12638463,
     "grass_color": 7913582,
     "water_color": 4159204,
@@ -94,13 +100,10 @@
     ],
     [
       "minecraft:glow_lichen",
-      "reagenica:ginkgo_trees_sparce",
-      "minecraft:flower_default",
-      "minecraft:patch_grass_badlands",
+      "reagenica:mushrooms",
       "minecraft:brown_mushroom_normal",
       "minecraft:red_mushroom_normal",
       "minecraft:patch_sugar_cane",
-      "minecraft:patch_pumpkin",
       "minecraft:seagrass_river"
     ],
     [

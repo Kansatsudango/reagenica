@@ -31,6 +31,7 @@ public class ChemistryMod {
     ChemiFeatures.FEATURES.register(modEventBus);
     ChemiFoliagePlacers.FOLIAGE_PLACERS.register(modEventBus);
     ChemiFoliagePlacers.TRUNK_PLACERS.register(modEventBus);
+    ChemiParticles.PARTICLES.register(modEventBus);
     ModBlockEntities.register(modEventBus);
     ModMenus.register(modEventBus);
     ModRecipes.register(modEventBus);

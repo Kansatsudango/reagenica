@@ -965,7 +965,7 @@
                           "if_true": {
                             "type": "minecraft:biome",
                             "biome_is": [
-                              "reagenica:chaos_fungi_fields"
+                              "reagenica:chaos_fungi_field"
                             ]
                           },
                           "then_run": {
