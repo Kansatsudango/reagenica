@@ -19,9 +19,10 @@
       "tick_delay": 6000
     },
     "fog_color": 12638463,
-    "grass_color": 7913582,
-    "water_color": 4159204,
-    "water_fog_color": 329011
+    "foliage_color": 6975545,
+    "grass_color_modifier": "swamp",
+    "water_color": 6388580,
+    "water_fog_color": 2302743
   },
   "spawn_costs": {},
   "spawners": {
@@ -136,7 +137,7 @@
     ],
     [
       "minecraft:glow_lichen",
-      "reagenica:ginkgo_trees_sparce",
+      "reagenica:taxodium_trees",
       "minecraft:flower_default",
       "minecraft:patch_grass_badlands",
       "minecraft:brown_mushroom_normal",
