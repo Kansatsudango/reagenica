@@ -247,6 +247,9 @@ public class ChemiBlocks {
   public static final RegistryObject<Block> TAXODIUM_SAPLING = registerBlockandlist("taxodium_sapling", () -> new SaplingBlock(new TaxodiumGrower(),BlockBehaviour.Properties.copy(Blocks.OAK_SAPLING)));
   public static final RegistryObject<Item> TAXODIUM_SAPLING_ITEM = registerItemandlist("taxodium_sapling",
       () -> new BlockItem(TAXODIUM_SAPLING.get(), new Item.Properties()));
+  public static final RegistryObject<Block> TAXODIUM_ROOT = registerWoodBlockandlist("taxodium_root", () -> new TaxodiumRoot());
+  public static final RegistryObject<Item> TAXODIUM_ROOT_ITEM = registerItemandlist("taxodium_root",
+      () -> new BlockItem(TAXODIUM_ROOT.get(), new Item.Properties()));
   public static final RegistryObject<Block> GINKGO_LOG = registerWoodBlockandlist("ginkgo_log", () -> new RotatedPillarBlock(BlockBehaviour.Properties.copy(Blocks.OAK_LOG)));
   public static final RegistryObject<Item> GINKGO_LOG_ITEM = registerItemandlist("ginkgo_log",
       () -> new BlockItem(GINKGO_LOG.get(), new Item.Properties()));
