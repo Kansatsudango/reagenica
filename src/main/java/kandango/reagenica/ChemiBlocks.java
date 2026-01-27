@@ -208,6 +208,12 @@ public class ChemiBlocks {
   public static final RegistryObject<Block> CRYOLITE = registerStoneBlockandlist("cryolite", () -> new Block(BlockBehaviour.Properties.of().strength(2.0f, 3.0f).sound(SoundType.CALCITE)));
   public static final RegistryObject<Item> CRYOLITE_ITEM = registerItemandlist("cryolite",
       () -> new BlockItem(CRYOLITE.get(), new Item.Properties()));
+  public static final RegistryObject<Block> KIMBERLITE = registerStoneBlockandlist("kimberlite", () -> new Block(BlockBehaviour.Properties.of().strength(3.0f, 4.0f).sound(SoundType.DEEPSLATE_BRICKS)));
+  public static final RegistryObject<Item> KIMBERLITE_ITEM = registerItemandlist("kimberlite",
+      () -> new BlockItem(KIMBERLITE.get(), new Item.Properties()));
+  public static final RegistryObject<Block> SHIMMERING_KIMBERLITE = registerStoneBlockandlist("shimmering_kimberlite", () -> new Block(BlockBehaviour.Properties.of().strength(3.0f, 4.0f).sound(SoundType.DEEPSLATE_BRICKS)));
+  public static final RegistryObject<Item> SHIMMERING_KIMBERLITE_ITEM = registerItemandlist("shimmering_kimberlite",
+      () -> new BlockItem(SHIMMERING_KIMBERLITE.get(), new Item.Properties()));
 
   public static final RegistryObject<Block> TRADING_STALL = registerMachineBlockandlist("trading_stall", TradingStall::new); 
   public static final RegistryObject<Item> TRADING_STALL_ITEM = registerItemandlist("trading_stall",
