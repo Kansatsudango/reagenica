@@ -15,6 +15,7 @@ import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockBehaviour.OffsetType;
 import net.minecraft.world.level.material.MapColor;
+import net.minecraft.world.effect.MobEffects;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
@@ -281,6 +282,10 @@ public class ChemiBlocks {
   public static final RegistryObject<Block> PALEO_SANDSTONE = registerBlockandlist("paleo_sandstone", () -> new Block(BlockBehaviour.Properties.copy(Blocks.SANDSTONE)));
   public static final RegistryObject<Item> PALEO_SANDSTONE_ITEM = registerItemandlist("paleo_sandstone",
       () -> new BlockItem(PALEO_SANDSTONE.get(), new Item.Properties()));
+      
+  public static final RegistryObject<Block> ANCESTOR_ASTERACEAE = registerBlockandlist("ancestor_asteraceae", () -> new FlowerBlock(() -> MobEffects.DIG_SLOWDOWN, 140, BlockBehaviour.Properties.copy(Blocks.POPPY)));
+  public static final RegistryObject<Item> ANCESTOR_ASTERACEAE_ITEM = registerItemandlist("ancestor_asteraceae",
+      () -> new BlockItem(ANCESTOR_ASTERACEAE.get(), new Item.Properties()));
       
   public static final RegistryObject<Block> MUSHROOM_STEM_RED = registerCustomHoeBlockandlist("mushroom_stem_red", () -> new RotatedPillarBlock(BlockBehaviour.Properties.copy(Blocks.MUSHROOM_STEM).lightLevel(state -> 14)));
   public static final RegistryObject<Item> MUSHROOM_STEM_RED_ITEM = registerItemandlist("mushroom_stem_red",

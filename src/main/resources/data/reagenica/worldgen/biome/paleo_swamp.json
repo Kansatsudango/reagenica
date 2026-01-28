@@ -19,7 +19,7 @@
       "tick_delay": 6000
     },
     "fog_color": 15794113,
-    "foliage_color": 6975545,
+    "foliage_color": 7252550,
     "grass_color_modifier": "swamp",
     "water_color": 6388580,
     "water_fog_color": 2302743
@@ -90,8 +90,6 @@
       "minecraft:amethyst_geode"
     ],
     [
-      "minecraft:monster_room",
-      "minecraft:monster_room_deep"
     ],
     [],
     [],
@@ -137,14 +135,17 @@
     ],
     [
       "minecraft:glow_lichen",
+      "reagenica:dense_large_fern",
+      "reagenica:flower_swamp",
+      "reagenica:ferns",
       "reagenica:taxodium_trees",
-      "minecraft:flower_default",
-      "minecraft:patch_grass_badlands",
+      "reagenica:taxodium_roots",
+      "minecraft:patch_dead_bush",
+      "minecraft:patch_waterlily",
       "minecraft:brown_mushroom_normal",
       "minecraft:red_mushroom_normal",
       "minecraft:patch_sugar_cane",
-      "minecraft:patch_pumpkin",
-      "minecraft:seagrass_river"
+      "minecraft:seagrass_swamp"
     ],
     [
       "minecraft:freeze_top_layer"
