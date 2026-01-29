@@ -506,6 +506,35 @@
               1
             ]
           }
+        },{
+          "biome": "reagenica:diamond_cave",
+          "parameters": {
+            "continentalness": [
+              0.5,
+              1
+            ],
+            "depth": [
+              0.6,
+              1.2
+            ],
+            "erosion": [
+              -2,
+              2
+            ],
+            "humidity": [
+              -1,
+              1
+            ],
+            "offset": 0,
+            "temperature": [
+              0.55,
+              1
+            ],
+            "weirdness": [
+              0,
+              1
+            ]
+          }
         }
       ]
     }

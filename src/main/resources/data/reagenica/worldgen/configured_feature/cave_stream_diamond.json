@@ -1,0 +1,37 @@
+{
+  "type": "reagenica:cave_stream",
+  "config": {
+    "rockiness": {
+      "type": "minecraft:uniform",
+      "value": {
+        "max_exclusive": 0.4,
+        "min_inclusive": 0.1
+      }
+    },
+
+    "ore": {
+      "type": "minecraft:simple_state_provider",
+      "state": {
+        "Name": "minecraft:deepslate_diamond_ore"
+      }
+    },
+
+    "block": {
+      "type": "minecraft:weighted_state_provider",
+      "entries": [
+        {
+          "data": {
+            "Name": "minecraft:cobbled_deepslate"
+          },
+          "weight": 3
+        },
+        {
+          "data": {
+            "Name": "reagenica:kimberlite"
+          },
+          "weight": 1
+        }
+      ]
+    }
+  }
+}
