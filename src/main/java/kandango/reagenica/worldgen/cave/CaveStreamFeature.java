@@ -6,6 +6,7 @@ import javax.annotation.Nonnull;
 
 import com.mojang.serialization.Codec;
 
+import kandango.reagenica.ChemiTags;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.util.RandomSource;
@@ -25,10 +26,10 @@ public class CaveStreamFeature extends Feature<CaveStreamConfig>{
 
   @Override
   public boolean place(@Nonnull FeaturePlaceContext<CaveStreamConfig> ctx) {
-    WorldGenLevel lv = ctx.level();
-    BlockPos origin = ctx.origin();
-    RandomSource random = ctx.random();
-    CaveStreamConfig config = ctx.config();
+    final WorldGenLevel lv = ctx.level();
+    final BlockPos origin = ctx.origin();
+    final RandomSource random = ctx.random();
+    final CaveStreamConfig config = ctx.config();
 
     BlockPos.MutableBlockPos pos = origin.mutable();
     final float rockiness = config.rockiness().sample(random);
@@ -38,23 +39,25 @@ public class CaveStreamFeature extends Feature<CaveStreamConfig>{
         pos.set(origin.getX(), origin.getY(), origin.getZ());
         pos.move(x, 0, z);
         getFloorPos(lv, pos).filter(p -> isPlaceable(lv, p)).ifPresent(floor -> {
-          if(random.nextFloat() < rockiness){
-            if(random.nextFloat() < 0.4f*(1.1f-rockiness)){
-              setBlock(lv, floor, config.ore().getState(random, floor));
+          BlockState state = lv.getBlockState(floor);
+          if(state.is(ChemiTags.Blocks.CAVE_REPLACEABLE)){
+            if(random.nextFloat() < rockiness){
+              if(random.nextFloat() < 0.4f*(1.1f-rockiness)){
+                setBlock(lv, floor, config.ore().getState(random, floor));
+              }else{
+                setBlock(lv, floor, config.block().getState(random, floor));
+              }
             }else{
-              setBlock(lv, floor, config.block().getState(random, floor));
-            }
-          }else{
-            if(isWaterPlaceable(lv, floor)){
-              setBlock(lv, floor, Blocks.WATER.defaultBlockState());
-            }else{
-              setBlock(lv, floor, config.block().getState(random, floor));
+              if(isWaterPlaceable(lv, floor)){
+                setBlock(lv, floor, Blocks.WATER.defaultBlockState());
+              }else{
+                setBlock(lv, floor, config.block().getState(random, floor));
+              }
             }
           }
         });
       }
     }
-
     return true;
   }
 

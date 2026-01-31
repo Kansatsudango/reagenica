@@ -15,6 +15,7 @@ import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockBehaviour.OffsetType;
 import net.minecraft.world.level.material.MapColor;
+import net.minecraft.world.level.material.PushReaction;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -276,16 +277,29 @@ public class ChemiBlocks {
   public static final RegistryObject<Item> MAGNOLIA_SAPLING_ITEM = registerItemandlist("magnolia_sapling",
       () -> new BlockItem(MAGNOLIA_SAPLING.get(), new Item.Properties()));
       
+  public static final RegistryObject<Block> ANCESTOR_ASTERACEAE = registerBlockandlist("ancestor_asteraceae", () -> new FlowerBlock(() -> MobEffects.DIG_SLOWDOWN, 140, BlockBehaviour.Properties.copy(Blocks.POPPY)));
+  public static final RegistryObject<Item> ANCESTOR_ASTERACEAE_ITEM = registerItemandlist("ancestor_asteraceae",
+      () -> new BlockItem(ANCESTOR_ASTERACEAE.get(), new Item.Properties()));
+      
+  public static final RegistryObject<Block> AQUAMARINE_BLOCK = registerStoneBlockandlist("aquamarine_block", () -> new AmethystBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_LIGHT_BLUE).strength(1.5F).sound(SoundType.AMETHYST).requiresCorrectToolForDrops()));
+  public static final RegistryObject<Item> AQUAMARINE_BLOCK_ITEM = registerItemandlist("aquamarine_block",
+      () -> new BlockItem(AQUAMARINE_BLOCK.get(), new Item.Properties()));
+  public static final RegistryObject<Block> BUDDING_AQUAMARINE_BLOCK = registerNoneBlockandlist("budding_aquamarine_block", () -> new AmethystBlock(BlockBehaviour.Properties.copy(Blocks.BUDDING_AMETHYST)));
+  public static final RegistryObject<Item> BUDDING_AQUAMARINE_BLOCK_ITEM = registerItemandlist("budding_aquamarine_block",
+      () -> new BlockItem(BUDDING_AQUAMARINE_BLOCK.get(), new Item.Properties()));
+  public static final RegistryObject<Block> AQUAMARINE_CRYSTAL = registerBlockandlist("aquamarine_crystal", () -> new AmethystClusterBlock(7,3,BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_LIGHT_BLUE).forceSolidOn().noOcclusion().randomTicks().sound(SoundType.AMETHYST_CLUSTER).strength(1.5F).lightLevel(x -> 9).pushReaction(PushReaction.DESTROY)));
+  public static final RegistryObject<Item> AQUAMARINE_CRYSTAL_ITEM = registerItemandlist("aquamarine_crystal",
+      () -> new BlockItem(AQUAMARINE_CRYSTAL.get(), new Item.Properties()));
+  public static final RegistryObject<Block> AQUAMARINE_BUD = registerBlockandlist("aquamarine_bud", () -> new AmethystClusterBlock(5,3,BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_LIGHT_BLUE).forceSolidOn().noOcclusion().randomTicks().sound(SoundType.AMETHYST_CLUSTER).strength(1.5F).lightLevel(x -> 6).pushReaction(PushReaction.DESTROY)));
+  public static final RegistryObject<Item> AQUAMARINE_BUD_ITEM = registerItemandlist("aquamarine_bud",
+      () -> new BlockItem(AQUAMARINE_BUD.get(), new Item.Properties()));
+      
   public static final RegistryObject<Block> PALEO_SAND = registerBlockandlist("paleo_sand", () -> new SandBlock(0xC9AE6B,BlockBehaviour.Properties.copy(Blocks.SAND)));
   public static final RegistryObject<Item> PALEO_SAND_ITEM = registerItemandlist("paleo_sand",
       () -> new BlockItem(PALEO_SAND.get(), new Item.Properties()));
   public static final RegistryObject<Block> PALEO_SANDSTONE = registerBlockandlist("paleo_sandstone", () -> new Block(BlockBehaviour.Properties.copy(Blocks.SANDSTONE)));
   public static final RegistryObject<Item> PALEO_SANDSTONE_ITEM = registerItemandlist("paleo_sandstone",
       () -> new BlockItem(PALEO_SANDSTONE.get(), new Item.Properties()));
-      
-  public static final RegistryObject<Block> ANCESTOR_ASTERACEAE = registerBlockandlist("ancestor_asteraceae", () -> new FlowerBlock(() -> MobEffects.DIG_SLOWDOWN, 140, BlockBehaviour.Properties.copy(Blocks.POPPY)));
-  public static final RegistryObject<Item> ANCESTOR_ASTERACEAE_ITEM = registerItemandlist("ancestor_asteraceae",
-      () -> new BlockItem(ANCESTOR_ASTERACEAE.get(), new Item.Properties()));
       
   public static final RegistryObject<Block> MUSHROOM_STEM_RED = registerCustomHoeBlockandlist("mushroom_stem_red", () -> new RotatedPillarBlock(BlockBehaviour.Properties.copy(Blocks.MUSHROOM_STEM).lightLevel(state -> 14)));
   public static final RegistryObject<Item> MUSHROOM_STEM_RED_ITEM = registerItemandlist("mushroom_stem_red",

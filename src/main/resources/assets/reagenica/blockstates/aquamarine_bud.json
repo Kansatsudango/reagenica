@@ -1,0 +1,30 @@
+{
+  "variants": {
+    "facing=down": {
+      "model": "reagenica:block/aquamarine_bud",
+      "x": 180
+    },
+    "facing=east": {
+      "model": "reagenica:block/aquamarine_bud",
+      "x": 90,
+      "y": 90
+    },
+    "facing=north": {
+      "model": "reagenica:block/aquamarine_bud",
+      "x": 90
+    },
+    "facing=south": {
+      "model": "reagenica:block/aquamarine_bud",
+      "x": 90,
+      "y": 180
+    },
+    "facing=up": {
+      "model": "reagenica:block/aquamarine_bud"
+    },
+    "facing=west": {
+      "model": "reagenica:block/aquamarine_bud",
+      "x": 90,
+      "y": 270
+    }
+  }
+}

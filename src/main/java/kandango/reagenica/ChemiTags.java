@@ -16,6 +16,8 @@ public class ChemiTags {
       
     public static final TagKey<Block> TANK_BLOCKS =
       TagKey.create(Registries.BLOCK, new ResourceLocation("reagenica", "tank_block"));
+    public static final TagKey<Block> CAVE_REPLACEABLE =
+      TagKey.create(Registries.BLOCK, new ResourceLocation("reagenica", "cave_patch_replaceable"));
   }
   public static class Items {
     public static final TagKey<Item> ORE_BAG_ACCEPT =
