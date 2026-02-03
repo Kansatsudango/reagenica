@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cross",
+  "textures": {
+    "cross": "reagenica:block/citrine_bud"
+  },
+  "render_type": "cutout"
+}

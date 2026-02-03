@@ -1,0 +1,30 @@
+{
+  "variants": {
+    "facing=down": {
+      "model": "reagenica:block/citrine_crystal",
+      "x": 180
+    },
+    "facing=east": {
+      "model": "reagenica:block/citrine_crystal",
+      "x": 90,
+      "y": 90
+    },
+    "facing=north": {
+      "model": "reagenica:block/citrine_crystal",
+      "x": 90
+    },
+    "facing=south": {
+      "model": "reagenica:block/citrine_crystal",
+      "x": 90,
+      "y": 180
+    },
+    "facing=up": {
+      "model": "reagenica:block/citrine_crystal"
+    },
+    "facing=west": {
+      "model": "reagenica:block/citrine_crystal",
+      "x": 90,
+      "y": 270
+    }
+  }
+}

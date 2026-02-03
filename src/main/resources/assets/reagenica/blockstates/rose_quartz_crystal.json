@@ -1,0 +1,30 @@
+{
+  "variants": {
+    "facing=down": {
+      "model": "reagenica:block/rose_quartz_crystal",
+      "x": 180
+    },
+    "facing=east": {
+      "model": "reagenica:block/rose_quartz_crystal",
+      "x": 90,
+      "y": 90
+    },
+    "facing=north": {
+      "model": "reagenica:block/rose_quartz_crystal",
+      "x": 90
+    },
+    "facing=south": {
+      "model": "reagenica:block/rose_quartz_crystal",
+      "x": 90,
+      "y": 180
+    },
+    "facing=up": {
+      "model": "reagenica:block/rose_quartz_crystal"
+    },
+    "facing=west": {
+      "model": "reagenica:block/rose_quartz_crystal",
+      "x": 90,
+      "y": 270
+    }
+  }
+}

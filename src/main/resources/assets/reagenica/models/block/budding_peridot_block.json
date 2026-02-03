@@ -1,0 +1,6 @@
+{
+  "parent": "block/cube_all",
+  "textures": {
+    "all": "reagenica:block/budding_peridot_block"
+  }
+}
