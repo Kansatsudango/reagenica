@@ -32,7 +32,7 @@
       "minecraft:lake_lava_surface"
     ],
     [
-      "reagenica:aquamarine_geode"
+      "reagenica:emerald_geode"
     ],
     [
     ],
@@ -47,7 +47,6 @@
       "minecraft:ore_diorite_lower",
       "minecraft:ore_andesite_upper",
       "minecraft:ore_andesite_lower",
-      "reagenica:ore_kimberlite",
       "minecraft:ore_tuff",
       "minecraft:ore_gold",
       "minecraft:ore_gold_lower",
@@ -56,9 +55,7 @@
       "minecraft:ore_diamond",
       "minecraft:ore_diamond_large",
       "minecraft:ore_diamond_buried",
-      "reagenica:ore_rush_diamond",
-      "minecraft:ore_lapis",
-      "minecraft:ore_lapis_buried",
+      "reagenica:ore_rush_emerald",
       "minecraft:underwater_magma"
     ],
     [],
@@ -68,9 +65,16 @@
     ],
     [
       "minecraft:glow_lichen",
-      "reagenica:cave_surface_diamond",
-      "reagenica:cave_stream_diamond",
-      "reagenica:cave_patch_aquamarine"
+      "reagenica:cave_surface_emerald",
+      "reagenica:cave_stream_emerald",
+      "reagenica:cave_patch_emerald",
+      "reagenica:cave_surface_emerald_vegetation",
+      "reagenica:cave_emerald_vegetation",
+      "minecraft:patch_tall_grass_2",
+      "minecraft:lush_caves_ceiling_vegetation",
+      "minecraft:cave_vines",
+      "minecraft:spore_blossom",
+      "minecraft:classic_vines_cave_feature"
     ],
     [
       "minecraft:freeze_top_layer"

@@ -535,6 +535,35 @@
               1
             ]
           }
+        },{
+          "biome": "reagenica:emerald_cave",
+          "parameters": {
+            "continentalness": [
+              0,
+              0.5
+            ],
+            "depth": [
+              0.2,
+              0.8
+            ],
+            "erosion": [
+              -2,
+              2
+            ],
+            "humidity": [
+              -1,
+              1
+            ],
+            "offset": 0,
+            "temperature": [
+              0.55,
+              1
+            ],
+            "weirdness": [
+              0,
+              1
+            ]
+          }
         }
       ]
     }

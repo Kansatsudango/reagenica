@@ -284,7 +284,7 @@ public class ChemiBlocks {
   public static final RegistryObject<Block> AQUAMARINE_BLOCK = registerStoneBlockandlist("aquamarine_block", () -> new AmethystBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_LIGHT_BLUE).strength(1.5F).sound(SoundType.AMETHYST).requiresCorrectToolForDrops()));
   public static final RegistryObject<Item> AQUAMARINE_BLOCK_ITEM = registerItemandlist("aquamarine_block",
       () -> new BlockItem(AQUAMARINE_BLOCK.get(), new Item.Properties()));
-  public static final RegistryObject<Block> BUDDING_AQUAMARINE_BLOCK = registerNoneBlockandlist("budding_aquamarine_block", () -> new AmethystBlock(BlockBehaviour.Properties.copy(Blocks.BUDDING_AMETHYST)));
+  public static final RegistryObject<Block> BUDDING_AQUAMARINE_BLOCK = registerNoneBlockandlist("budding_aquamarine_block", () -> new BuddingCrystalBlock(BlockBehaviour.Properties.copy(Blocks.BUDDING_AMETHYST),ChemiBlocks.AQUAMARINE_BUD::get,ChemiBlocks.AQUAMARINE_CRYSTAL::get));
   public static final RegistryObject<Item> BUDDING_AQUAMARINE_BLOCK_ITEM = registerItemandlist("budding_aquamarine_block",
       () -> new BlockItem(BUDDING_AQUAMARINE_BLOCK.get(), new Item.Properties()));
   public static final RegistryObject<Block> AQUAMARINE_CRYSTAL = registerBlockandlist("aquamarine_crystal", () -> new AmethystClusterBlock(7,3,BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_LIGHT_BLUE).forceSolidOn().noOcclusion().randomTicks().sound(SoundType.AMETHYST_CLUSTER).strength(1.5F).lightLevel(x -> 9).pushReaction(PushReaction.DESTROY)));
@@ -296,7 +296,7 @@ public class ChemiBlocks {
   public static final RegistryObject<Block> CITRINE_BLOCK = registerStoneBlockandlist("citrine_block", () -> new AmethystBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_LIGHT_BLUE).strength(1.5F).sound(SoundType.AMETHYST).requiresCorrectToolForDrops()));
   public static final RegistryObject<Item> CITRINE_BLOCK_ITEM = registerItemandlist("citrine_block",
       () -> new BlockItem(CITRINE_BLOCK.get(), new Item.Properties()));
-  public static final RegistryObject<Block> BUDDING_CITRINE_BLOCK = registerNoneBlockandlist("budding_citrine_block", () -> new AmethystBlock(BlockBehaviour.Properties.copy(Blocks.BUDDING_AMETHYST)));
+  public static final RegistryObject<Block> BUDDING_CITRINE_BLOCK = registerNoneBlockandlist("budding_citrine_block", () -> new BuddingCrystalBlock(BlockBehaviour.Properties.copy(Blocks.BUDDING_AMETHYST),ChemiBlocks.CITRINE_BUD::get,ChemiBlocks.CITRINE_CRYSTAL::get));
   public static final RegistryObject<Item> BUDDING_CITRINE_BLOCK_ITEM = registerItemandlist("budding_citrine_block",
       () -> new BlockItem(BUDDING_CITRINE_BLOCK.get(), new Item.Properties()));
   public static final RegistryObject<Block> CITRINE_CRYSTAL = registerBlockandlist("citrine_crystal", () -> new AmethystClusterBlock(7,3,BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_LIGHT_BLUE).forceSolidOn().noOcclusion().randomTicks().sound(SoundType.AMETHYST_CLUSTER).strength(1.5F).lightLevel(x -> 9).pushReaction(PushReaction.DESTROY)));
@@ -308,7 +308,7 @@ public class ChemiBlocks {
   public static final RegistryObject<Block> EMERALD_BLOCK = registerStoneBlockandlist("emerald_block", () -> new AmethystBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_LIGHT_BLUE).strength(1.5F).sound(SoundType.AMETHYST).requiresCorrectToolForDrops()));
   public static final RegistryObject<Item> EMERALD_BLOCK_ITEM = registerItemandlist("emerald_block",
       () -> new BlockItem(EMERALD_BLOCK.get(), new Item.Properties()));
-  public static final RegistryObject<Block> BUDDING_EMERALD_BLOCK = registerNoneBlockandlist("budding_emerald_block", () -> new AmethystBlock(BlockBehaviour.Properties.copy(Blocks.BUDDING_AMETHYST)));
+  public static final RegistryObject<Block> BUDDING_EMERALD_BLOCK = registerNoneBlockandlist("budding_emerald_block", () -> new BuddingCrystalBlock(BlockBehaviour.Properties.copy(Blocks.BUDDING_AMETHYST),ChemiBlocks.EMERALD_BUD::get,ChemiBlocks.EMERALD_CRYSTAL::get));
   public static final RegistryObject<Item> BUDDING_EMERALD_BLOCK_ITEM = registerItemandlist("budding_emerald_block",
       () -> new BlockItem(BUDDING_EMERALD_BLOCK.get(), new Item.Properties()));
   public static final RegistryObject<Block> EMERALD_CRYSTAL = registerBlockandlist("emerald_crystal", () -> new AmethystClusterBlock(7,3,BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_LIGHT_BLUE).forceSolidOn().noOcclusion().randomTicks().sound(SoundType.AMETHYST_CLUSTER).strength(1.5F).lightLevel(x -> 9).pushReaction(PushReaction.DESTROY)));
@@ -320,7 +320,7 @@ public class ChemiBlocks {
   public static final RegistryObject<Block> LAPISQUARTZ_BLOCK = registerStoneBlockandlist("lapisquartz_block", () -> new AmethystBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_LIGHT_BLUE).strength(1.5F).sound(SoundType.AMETHYST).requiresCorrectToolForDrops()));
   public static final RegistryObject<Item> LAPISQUARTZ_BLOCK_ITEM = registerItemandlist("lapisquartz_block",
       () -> new BlockItem(LAPISQUARTZ_BLOCK.get(), new Item.Properties()));
-  public static final RegistryObject<Block> BUDDING_LAPISQUARTZ_BLOCK = registerNoneBlockandlist("budding_lapisquartz_block", () -> new AmethystBlock(BlockBehaviour.Properties.copy(Blocks.BUDDING_AMETHYST)));
+  public static final RegistryObject<Block> BUDDING_LAPISQUARTZ_BLOCK = registerNoneBlockandlist("budding_lapisquartz_block", () -> new BuddingCrystalBlock(BlockBehaviour.Properties.copy(Blocks.BUDDING_AMETHYST),ChemiBlocks.LAPISQUARTZ_BUD::get,ChemiBlocks.LAPISQUARTZ_CRYSTAL::get));
   public static final RegistryObject<Item> BUDDING_LAPISQUARTZ_BLOCK_ITEM = registerItemandlist("budding_lapisquartz_block",
       () -> new BlockItem(BUDDING_LAPISQUARTZ_BLOCK.get(), new Item.Properties()));
   public static final RegistryObject<Block> LAPISQUARTZ_CRYSTAL = registerBlockandlist("lapisquartz_crystal", () -> new AmethystClusterBlock(7,3,BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_LIGHT_BLUE).forceSolidOn().noOcclusion().randomTicks().sound(SoundType.AMETHYST_CLUSTER).strength(1.5F).lightLevel(x -> 9).pushReaction(PushReaction.DESTROY)));
@@ -332,7 +332,7 @@ public class ChemiBlocks {
   public static final RegistryObject<Block> MORION_BLOCK = registerStoneBlockandlist("morion_block", () -> new AmethystBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_LIGHT_BLUE).strength(1.5F).sound(SoundType.AMETHYST).requiresCorrectToolForDrops()));
   public static final RegistryObject<Item> MORION_BLOCK_ITEM = registerItemandlist("morion_block",
       () -> new BlockItem(MORION_BLOCK.get(), new Item.Properties()));
-  public static final RegistryObject<Block> BUDDING_MORION_BLOCK = registerNoneBlockandlist("budding_morion_block", () -> new AmethystBlock(BlockBehaviour.Properties.copy(Blocks.BUDDING_AMETHYST)));
+  public static final RegistryObject<Block> BUDDING_MORION_BLOCK = registerNoneBlockandlist("budding_morion_block", () -> new BuddingCrystalBlock(BlockBehaviour.Properties.copy(Blocks.BUDDING_AMETHYST),ChemiBlocks.MORION_BUD::get, ChemiBlocks.MORION_CRYSTAL::get));
   public static final RegistryObject<Item> BUDDING_MORION_BLOCK_ITEM = registerItemandlist("budding_morion_block",
       () -> new BlockItem(BUDDING_MORION_BLOCK.get(), new Item.Properties()));
   public static final RegistryObject<Block> MORION_CRYSTAL = registerBlockandlist("morion_crystal", () -> new AmethystClusterBlock(7,3,BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_LIGHT_BLUE).forceSolidOn().noOcclusion().randomTicks().sound(SoundType.AMETHYST_CLUSTER).strength(1.5F).lightLevel(x -> 9).pushReaction(PushReaction.DESTROY)));
@@ -344,7 +344,7 @@ public class ChemiBlocks {
   public static final RegistryObject<Block> PERIDOT_BLOCK = registerStoneBlockandlist("peridot_block", () -> new AmethystBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_LIGHT_BLUE).strength(1.5F).sound(SoundType.AMETHYST).requiresCorrectToolForDrops()));
   public static final RegistryObject<Item> PERIDOT_BLOCK_ITEM = registerItemandlist("peridot_block",
       () -> new BlockItem(PERIDOT_BLOCK.get(), new Item.Properties()));
-  public static final RegistryObject<Block> BUDDING_PERIDOT_BLOCK = registerNoneBlockandlist("budding_peridot_block", () -> new AmethystBlock(BlockBehaviour.Properties.copy(Blocks.BUDDING_AMETHYST)));
+  public static final RegistryObject<Block> BUDDING_PERIDOT_BLOCK = registerNoneBlockandlist("budding_peridot_block", () -> new BuddingCrystalBlock(BlockBehaviour.Properties.copy(Blocks.BUDDING_AMETHYST),ChemiBlocks.PERIDOT_BUD::get, ChemiBlocks.PERIDOT_CRYSTAL::get));
   public static final RegistryObject<Item> BUDDING_PERIDOT_BLOCK_ITEM = registerItemandlist("budding_peridot_block",
       () -> new BlockItem(BUDDING_PERIDOT_BLOCK.get(), new Item.Properties()));
   public static final RegistryObject<Block> PERIDOT_CRYSTAL = registerBlockandlist("peridot_crystal", () -> new AmethystClusterBlock(7,3,BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_LIGHT_BLUE).forceSolidOn().noOcclusion().randomTicks().sound(SoundType.AMETHYST_CLUSTER).strength(1.5F).lightLevel(x -> 9).pushReaction(PushReaction.DESTROY)));
@@ -356,7 +356,7 @@ public class ChemiBlocks {
   public static final RegistryObject<Block> RED_BERYL_BLOCK = registerStoneBlockandlist("red_beryl_block", () -> new AmethystBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_LIGHT_BLUE).strength(1.5F).sound(SoundType.AMETHYST).requiresCorrectToolForDrops()));
   public static final RegistryObject<Item> RED_BERYL_BLOCK_ITEM = registerItemandlist("red_beryl_block",
       () -> new BlockItem(RED_BERYL_BLOCK.get(), new Item.Properties()));
-  public static final RegistryObject<Block> BUDDING_RED_BERYL_BLOCK = registerNoneBlockandlist("budding_red_beryl_block", () -> new AmethystBlock(BlockBehaviour.Properties.copy(Blocks.BUDDING_AMETHYST)));
+  public static final RegistryObject<Block> BUDDING_RED_BERYL_BLOCK = registerNoneBlockandlist("budding_red_beryl_block", () -> new BuddingCrystalBlock(BlockBehaviour.Properties.copy(Blocks.BUDDING_AMETHYST),ChemiBlocks.RED_BERYL_BUD::get, ChemiBlocks.RED_BERYL_CRYSTAL::get));
   public static final RegistryObject<Item> BUDDING_RED_BERYL_BLOCK_ITEM = registerItemandlist("budding_red_beryl_block",
       () -> new BlockItem(BUDDING_RED_BERYL_BLOCK.get(), new Item.Properties()));
   public static final RegistryObject<Block> RED_BERYL_CRYSTAL = registerBlockandlist("red_beryl_crystal", () -> new AmethystClusterBlock(7,3,BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_LIGHT_BLUE).forceSolidOn().noOcclusion().randomTicks().sound(SoundType.AMETHYST_CLUSTER).strength(1.5F).lightLevel(x -> 9).pushReaction(PushReaction.DESTROY)));
@@ -368,7 +368,7 @@ public class ChemiBlocks {
   public static final RegistryObject<Block> ROSE_QUARTZ_BLOCK = registerStoneBlockandlist("rose_quartz_block", () -> new AmethystBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_LIGHT_BLUE).strength(1.5F).sound(SoundType.AMETHYST).requiresCorrectToolForDrops()));
   public static final RegistryObject<Item> ROSE_QUARTZ_BLOCK_ITEM = registerItemandlist("rose_quartz_block",
       () -> new BlockItem(ROSE_QUARTZ_BLOCK.get(), new Item.Properties()));
-  public static final RegistryObject<Block> BUDDING_ROSE_QUARTZ_BLOCK = registerNoneBlockandlist("budding_rose_quartz_block", () -> new AmethystBlock(BlockBehaviour.Properties.copy(Blocks.BUDDING_AMETHYST)));
+  public static final RegistryObject<Block> BUDDING_ROSE_QUARTZ_BLOCK = registerNoneBlockandlist("budding_rose_quartz_block", () -> new BuddingCrystalBlock(BlockBehaviour.Properties.copy(Blocks.BUDDING_AMETHYST),ChemiBlocks.ROSE_QUARTZ_BUD::get, ChemiBlocks.ROSE_QUARTZ_CRYSTAL::get));
   public static final RegistryObject<Item> BUDDING_ROSE_QUARTZ_BLOCK_ITEM = registerItemandlist("budding_rose_quartz_block",
       () -> new BlockItem(BUDDING_ROSE_QUARTZ_BLOCK.get(), new Item.Properties()));
   public static final RegistryObject<Block> ROSE_QUARTZ_CRYSTAL = registerBlockandlist("rose_quartz_crystal", () -> new AmethystClusterBlock(7,3,BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_LIGHT_BLUE).forceSolidOn().noOcclusion().randomTicks().sound(SoundType.AMETHYST_CLUSTER).strength(1.5F).lightLevel(x -> 9).pushReaction(PushReaction.DESTROY)));

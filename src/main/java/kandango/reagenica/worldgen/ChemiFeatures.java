@@ -1,8 +1,7 @@
 package kandango.reagenica.worldgen;
 
 import kandango.reagenica.ChemistryMod;
-import kandango.reagenica.worldgen.cave.CaveStreamConfig;
-import kandango.reagenica.worldgen.cave.CaveStreamFeature;
+import kandango.reagenica.worldgen.cave.*;
 import kandango.reagenica.worldgen.mushroom.*;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
@@ -20,6 +19,7 @@ public class ChemiFeatures {
   public static final RegistryObject<Feature<LargeMushroomConfig>> LARGE_MUSHROOM = FEATURES.register("large_mushroom",() -> new LargeMushroomFeature(LargeMushroomConfig.CODEC));
   public static final RegistryObject<Feature<SmallMushroomConfig>> SMALL_MUSHROOM = FEATURES.register("small_mushroom",() -> new SmallMushroomFeature(SmallMushroomConfig.CODEC));
   public static final RegistryObject<Feature<CaveStreamConfig>> CAVE_STREAM = FEATURES.register("cave_stream",() -> new CaveStreamFeature(CaveStreamConfig.CODEC));
+  public static final RegistryObject<Feature<CaveCrystalPatchConfig>> CAVE_CRYSTAL = FEATURES.register("cave_crystal_patch",() -> new CaveCrystalPatchFeature(CaveCrystalPatchConfig.CODEC));
 
   public static final ResourceKey<ConfiguredFeature<?, ?>> METASEQUOIA = ResourceKey.create(Registries.CONFIGURED_FEATURE, new ResourceLocation(ChemistryMod.MODID, "metasequoia"));
   public static final ResourceKey<ConfiguredFeature<?, ?>> MEGA_METASEQUOIA = ResourceKey.create(Registries.CONFIGURED_FEATURE, new ResourceLocation(ChemistryMod.MODID, "mega_metasequoia"));

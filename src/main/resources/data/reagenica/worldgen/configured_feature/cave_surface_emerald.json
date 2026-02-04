@@ -1,0 +1,46 @@
+{
+  "type": "reagenica:cave_stream",
+  "config": {
+    "rockiness": {
+      "type": "minecraft:constant",
+      "value": 1.0
+    },
+
+    "ore": {
+      "type": "minecraft:simple_state_provider",
+      "state": {
+        "Name": "minecraft:emerald_ore"
+      }
+    },
+
+    "block": {
+      "type": "minecraft:noise_threshold_provider",
+      "noise": {
+        "amplitudes": [
+          1.0
+        ],
+        "firstOctave": 0
+      },
+      "scale": 0.02,
+      "seed": 122334,
+      "threshold": -0.8,
+      "default_state": {
+        "Name": "minecraft:cobblestone"
+      },
+      "high_chance": 0.8,
+      "high_states": [
+        {
+          "Name": "minecraft:mossy_cobblestone"
+        },
+        {
+          "Name": "minecraft:andesite"
+        }
+      ],
+      "low_states": [
+        {
+          "Name": "minecraft:emerald_ore"
+        }
+      ]
+    }
+  }
+}

@@ -5,6 +5,8 @@
     "#minecraft:stone_ore_replaceables",
     "minecraft:water",
     "minecraft:cobbled_deepslate",
+    "minecraft:cobblestone",
+    "minecraft:mossy_cobblestone",
     "reagenica:kimberlite",
     "#minecraft:coal_ores",
     "#minecraft:copper_ores",
