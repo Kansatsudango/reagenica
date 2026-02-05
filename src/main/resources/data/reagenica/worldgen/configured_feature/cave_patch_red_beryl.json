@@ -1,0 +1,19 @@
+{
+  "type": "reagenica:cave_crystal_patch",
+  "config": {
+    "count": {
+      "type": "minecraft:uniform",
+      "value": {
+        "max_inclusive": 8,
+        "min_inclusive": 4
+      }
+    },
+
+    "crystal": {
+      "type": "minecraft:simple_state_provider",
+      "state": {
+        "Name": "reagenica:red_beryl_crystal"
+      }
+    }
+  }
+}

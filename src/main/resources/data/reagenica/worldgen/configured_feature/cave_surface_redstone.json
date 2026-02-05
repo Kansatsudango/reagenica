@@ -1,0 +1,40 @@
+{
+  "type": "reagenica:cave_stream",
+  "config": {
+    "rockiness": {
+      "type": "minecraft:constant",
+      "value": 1.0
+    },
+
+    "ore": {
+      "type": "minecraft:simple_state_provider",
+      "state": {
+        "Name": "minecraft:deepslate_redstone_ore"
+      }
+    },
+
+    "block": {
+      "type": "minecraft:weighted_state_provider",
+      "entries": [
+        {
+          "data": {
+            "Name": "minecraft:cobbled_deepslate"
+          },
+          "weight": 3
+        },
+        {
+          "data": {
+            "Name": "minecraft:redstone_block"
+          },
+          "weight": 1
+        },
+        {
+          "data": {
+            "Name": "minecraft:smooth_stone"
+          },
+          "weight": 1
+        }
+      ]
+    }
+  }
+}
