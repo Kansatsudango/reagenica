@@ -1,15 +1,9 @@
 {
-  "feature": "reagenica:cave_patch_rose_quartz",
+  "feature": "reagenica:rose_quartz_geode",
   "placement": [
     {
-      "type": "minecraft:count",
-      "count": {
-        "type": "minecraft:uniform",
-        "value": {
-          "max_inclusive": 4,
-          "min_inclusive": 2
-        }
-      }
+      "type": "minecraft:rarity_filter",
+      "chance": 18
     },
     {
       "type": "minecraft:in_square"
@@ -19,10 +13,10 @@
       "height": {
         "type": "minecraft:uniform",
         "max_inclusive": {
-          "absolute": 60
+          "absolute": 30
         },
         "min_inclusive": {
-          "above_bottom": 0
+          "above_bottom": 6
         }
       }
     },

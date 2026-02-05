@@ -1,13 +1,13 @@
 {
-  "feature": "reagenica:cave_patch_rose_quartz",
+  "feature": "reagenica:cave_stream_iron",
   "placement": [
     {
       "type": "minecraft:count",
       "count": {
         "type": "minecraft:uniform",
         "value": {
-          "max_inclusive": 4,
-          "min_inclusive": 2
+          "max_inclusive": 10,
+          "min_inclusive": 4
         }
       }
     },
@@ -19,7 +19,7 @@
       "height": {
         "type": "minecraft:uniform",
         "max_inclusive": {
-          "absolute": 60
+          "absolute": 256
         },
         "min_inclusive": {
           "above_bottom": 0

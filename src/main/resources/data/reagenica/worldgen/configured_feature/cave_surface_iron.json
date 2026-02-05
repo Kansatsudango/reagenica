@@ -1,0 +1,49 @@
+{
+  "type": "reagenica:cave_stream",
+  "config": {
+    "rockiness": {
+      "type": "minecraft:constant",
+      "value": 1.0
+    },
+
+    "ore": {
+      "type": "minecraft:simple_state_provider",
+      "state": {
+        "Name": "minecraft:iron_ore"
+      }
+    },
+
+    "block": {
+      "type": "minecraft:noise_threshold_provider",
+      "noise": {
+        "amplitudes": [
+          1.0
+        ],
+        "firstOctave": 0
+      },
+      "scale": 0.02,
+      "seed": 12333456,
+      "threshold": -0.3,
+      "default_state": {
+        "Name": "minecraft:diorite"
+      },
+      "high_chance": 0.8,
+      "high_states": [
+        {
+          "Name": "minecraft:cobblestone"
+        },
+        {
+          "Name": "minecraft:stone"
+        },
+        {
+          "Name": "minecraft:smooth_stone"
+        }
+      ],
+      "low_states": [
+        {
+          "Name": "minecraft:granite"
+        }
+      ]
+    }
+  }
+}
