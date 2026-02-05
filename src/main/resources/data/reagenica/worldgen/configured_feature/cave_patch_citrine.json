@@ -1,0 +1,19 @@
+{
+  "type": "reagenica:cave_crystal_patch",
+  "config": {
+    "count": {
+      "type": "minecraft:uniform",
+      "value": {
+        "max_inclusive": 12,
+        "min_inclusive": 6
+      }
+    },
+
+    "crystal": {
+      "type": "minecraft:simple_state_provider",
+      "state": {
+        "Name": "reagenica:citrine_crystal"
+      }
+    }
+  }
+}

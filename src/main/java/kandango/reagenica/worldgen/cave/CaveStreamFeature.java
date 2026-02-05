@@ -56,6 +56,16 @@ public class CaveStreamFeature extends Feature<CaveStreamConfig>{
             }
           }
         });
+        getCeilingPos(lv, pos).filter(p -> isPlaceable(lv, p)).ifPresent(ceil -> {
+          BlockState state = lv.getBlockState(ceil);
+          if(state.is(ChemiTags.Blocks.CAVE_REPLACEABLE)){
+            if(random.nextFloat() < 0.1f){
+              setBlock(lv, ceil, config.ore().getState(random, ceil));
+            }else{
+              setBlock(lv, ceil, config.block().getState(random, ceil));
+            }
+          }
+        });
       }
     }
     return true;
@@ -105,6 +115,22 @@ public class CaveStreamFeature extends Feature<CaveStreamConfig>{
       for(int i=0;i<10;i++){
         pos.move(0,1,0);
         if(lv.getBlockState(pos).isAir()) return Optional.of(pos.move(0,-1,0).immutable());
+      }
+    }
+    return Optional.empty();
+  }
+  private Optional<BlockPos> getCeilingPos(WorldGenLevel lv,BlockPos origin){
+    if(lv.getBlockState(origin).isAir()){
+      BlockPos.MutableBlockPos pos = origin.mutable();
+      for(int i=0;i<10;i++){
+        pos.move(0,1,0);
+        if(!lv.getBlockState(pos).isAir()) return Optional.of(pos.immutable());
+      }
+    }else{
+      BlockPos.MutableBlockPos pos = origin.mutable();
+      for(int i=0;i<10;i++){
+        pos.move(0,-1,0);
+        if(lv.getBlockState(pos).isAir()) return Optional.of(pos.move(0,1,0).immutable());
       }
     }
     return Optional.empty();

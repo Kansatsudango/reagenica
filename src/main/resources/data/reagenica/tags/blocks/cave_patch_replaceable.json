@@ -9,6 +9,8 @@
     "minecraft:mossy_cobblestone",
     "minecraft:smooth_stone",
     "minecraft:redstone_block",
+    "minecraft:gilded_blackstone",
+    "minecraft:blackstone",
     "reagenica:kimberlite",
     "#minecraft:coal_ores",
     "#minecraft:copper_ores",
@@ -18,6 +20,7 @@
     "#minecraft:lapis_ores",
     "#minecraft:redstone_ores",
     "#minecraft:coal_ores",
+    "#minecraft:emerald_ores",
     "#reagenica:chalcopyrite_ores",
     "#reagenica:oilsand_ores",
     "#reagenica:lead_ores"

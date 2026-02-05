@@ -1,15 +1,9 @@
 {
-  "feature": "reagenica:cave_patch_emerald",
+  "feature": "reagenica:ore_rush_gold",
   "placement": [
     {
       "type": "minecraft:count",
-      "count": {
-        "type": "minecraft:uniform",
-        "value": {
-          "max_inclusive": 4,
-          "min_inclusive": 2
-        }
-      }
+      "count": 32
     },
     {
       "type": "minecraft:in_square"
@@ -19,10 +13,10 @@
       "height": {
         "type": "minecraft:uniform",
         "max_inclusive": {
-          "absolute": 60
+          "absolute": 72
         },
         "min_inclusive": {
-          "above_bottom": 0
+          "above_bottom": -64
         }
       }
     },

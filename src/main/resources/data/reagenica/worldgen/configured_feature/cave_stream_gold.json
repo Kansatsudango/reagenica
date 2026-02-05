@@ -1,0 +1,49 @@
+{
+  "type": "reagenica:cave_stream",
+  "config": {
+    "rockiness": {
+      "type": "minecraft:uniform",
+      "value": {
+        "max_exclusive": 0.4,
+        "min_inclusive": 0.1
+      }
+    },
+
+    "ore": {
+      "type": "minecraft:simple_state_provider",
+      "state": {
+        "Name": "minecraft:deepslate_gold_ore"
+      }
+    },
+
+    "block": {
+      "type": "minecraft:noise_threshold_provider",
+      "noise": {
+        "amplitudes": [
+          1.0
+        ],
+        "firstOctave": 0
+      },
+      "scale": 0.02,
+      "seed": 122334,
+      "threshold": -0.8,
+      "default_state": {
+        "Name": "minecraft:blackstone"
+      },
+      "high_chance": 0.3,
+      "high_states": [
+        {
+          "Name": "minecraft:gilded_blackstone"
+        }
+      ],
+      "low_states": [
+        {
+          "Name": "minecraft:deepslate_gold_ore"
+        },
+        {
+          "Name": "minecraft:deepslate_emerald_ore"
+        }
+      ]
+    }
+  }
+}
