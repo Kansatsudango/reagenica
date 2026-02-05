@@ -507,28 +507,57 @@
             ]
           }
         },{
-          "biome": "reagenica:diamond_cave",
+          "biome": "reagenica:emerald_cave",
           "parameters": {
             "continentalness": [
-              0.5,
-              1
+              0.3,
+              1.0
             ],
             "depth": [
-              0.6,
-              1.2
+              0.1,
+              0.7
             ],
             "erosion": [
-              -2,
-              2
+              -1.2,
+              -0.3
             ],
             "humidity": [
-              -1,
-              1
+              0.3,
+              1.2
             ],
             "offset": 0,
             "temperature": [
-              0.55,
+              -1,
               1
+            ],
+            "weirdness": [
+              -1.2,
+              0.3
+            ]
+          }
+        },{
+          "biome": "reagenica:lapis_cave",
+          "parameters": {
+            "continentalness": [
+              0.3,
+              1
+            ],
+            "depth": [
+              0.1,
+              0.6
+            ],
+            "erosion": [
+              0.5,
+              1
+            ],
+            "humidity": [
+              -1,
+              -0.3
+            ],
+            "offset": 0,
+            "temperature": [
+              -1,
+              0
             ],
             "weirdness": [
               0,
@@ -536,19 +565,77 @@
             ]
           }
         },{
-          "biome": "reagenica:emerald_cave",
+          "biome": "reagenica:coal_cave",
           "parameters": {
             "continentalness": [
-              0,
-              0.5
+              -0.2,
+              0.2
             ],
             "depth": [
-              0.2,
-              0.8
+              0.1,
+              0.6
             ],
             "erosion": [
-              -2,
-              2
+              -1,
+              0.3
+            ],
+            "humidity": [
+              0.3,
+              1.2
+            ],
+            "offset": 0,
+            "temperature": [
+              0,
+              1
+            ],
+            "weirdness": [
+              -0.5,
+              0.5
+            ]
+          }
+        },{
+          "biome": "reagenica:iron_cave",
+          "parameters": {
+            "continentalness": [
+              0.3,
+              1.0
+            ],
+            "depth": [
+              0.1,
+              0.6
+            ],
+            "erosion": [
+              -1.2,
+              -0.3
+            ],
+            "humidity": [
+              -1,
+              -0.2
+            ],
+            "offset": 0,
+            "temperature": [
+              0.2,
+              1
+            ],
+            "weirdness": [
+              -0.1,
+              1
+            ]
+          }
+        },{
+          "biome": "reagenica:diamond_cave",
+          "parameters": {
+            "continentalness": [
+              0.5,
+              1
+            ],
+            "depth": [
+              0.7,
+              1.2
+            ],
+            "erosion": [
+              -1.2,
+              -0.5
             ],
             "humidity": [
               -1,
@@ -556,12 +643,128 @@
             ],
             "offset": 0,
             "temperature": [
-              0.55,
+              -1,
               1
             ],
             "weirdness": [
+              0.2,
+              1
+            ]
+          }
+        },{
+          "biome": "reagenica:lead_cave",
+          "parameters": {
+            "continentalness": [
+              0.2,
+              0.5
+            ],
+            "depth": [
+              0.6,
+              1.2
+            ],
+            "erosion": [
+              -0.5,
+              0.5
+            ],
+            "humidity": [
+              -1,
+              0
+            ],
+            "offset": 0,
+            "temperature": [
+              -1,
+              0
+            ],
+            "weirdness": [
+              -1,
+              1
+            ]
+          }
+        },{
+          "biome": "reagenica:gold_cave",
+          "parameters": {
+            "continentalness": [
+              0.2,
+              1
+            ],
+            "depth": [
+              0.6,
+              1.2
+            ],
+            "erosion": [
+              0,
+              0.7
+            ],
+            "humidity": [
+              -1,
+              1
+            ],
+            "offset": 0,
+            "temperature": [
               0,
               1
+            ],
+            "weirdness": [
+              0.2,
+              1
+            ]
+          }
+        },{
+          "biome": "reagenica:redstone_cave",
+          "parameters": {
+            "continentalness": [
+              -0.2,
+              1
+            ],
+            "depth": [
+              0.6,
+              1.2
+            ],
+            "erosion": [
+              -0.5,
+              0.5
+            ],
+            "humidity": [
+              -1,
+              0
+            ],
+            "offset": 0,
+            "temperature": [
+              -1,
+              0
+            ],
+            "weirdness": [
+              -1,
+              -0.2
+            ]
+          }
+        },{
+          "biome": "reagenica:common_cave",
+          "parameters": {
+            "continentalness": [
+              -1,
+              0.7
+            ],
+            "depth": [
+              1.4,
+              2
+            ],
+            "erosion": [
+              -0.8,
+              1
+            ],
+            "humidity": [
+              -1,
+              1
+            ],
+            "offset": 0,
+            "temperature": [
+              -1,
+              1
+            ],
+            "weirdness": [
+              -1,
+              0
             ]
           }
         }
