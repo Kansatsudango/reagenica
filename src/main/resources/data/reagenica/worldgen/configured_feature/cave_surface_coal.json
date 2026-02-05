@@ -1,0 +1,46 @@
+{
+  "type": "reagenica:cave_stream",
+  "config": {
+    "rockiness": {
+      "type": "minecraft:constant",
+      "value": 1.0
+    },
+
+    "ore": {
+      "type": "minecraft:simple_state_provider",
+      "state": {
+        "Name": "minecraft:coal_ore"
+      }
+    },
+
+    "block": {
+      "type": "minecraft:noise_threshold_provider",
+      "noise": {
+        "amplitudes": [
+          1.0
+        ],
+        "firstOctave": 0
+      },
+      "scale": 0.116,
+      "seed": 334455,
+      "threshold": 0,
+      "default_state": {
+        "Name": "minecraft:basalt"
+      },
+      "high_chance": 0.2,
+      "high_states": [
+        {
+          "Name": "reagenica:deepslate_oilsand_ore"
+        }
+      ],
+      "low_states": [
+        {
+          "Name": "minecraft:diorite"
+        },
+        {
+          "Name": "minecraft:andesite"
+        }
+      ]
+    }
+  }
+}
