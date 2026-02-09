@@ -72,6 +72,7 @@ public class CaveStreamFeature extends Feature<CaveStreamConfig>{
   }
 
   private boolean isPlaceable(WorldGenLevel lv, BlockPos pos){
+    if(lv.canSeeSky(pos) && pos.getY()>64)return false;
     BlockState state = lv.getBlockState(pos);
     BlockState below = lv.getBlockState(pos.below());
     FluidState fstate = state.getFluidState();

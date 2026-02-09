@@ -85,6 +85,9 @@ public class PaleoBiomeSource extends BiomeSource{
             return riverBiomes(t, h, c, e, w, d);
           }
         }else if(peakAndValleys(w) < -0.2){//Low
+          if(e > EROSION_5_6_BORDER){
+            return ChemiBiomes.PALEO_SWAMP;
+          }
           return inLandBiomes(t, h, c, e, w, d);
         }else if(peakAndValleys(w) < 0.2){//Mid
           if(e < EROSION_0_1_BORDER && c > COAST_NEAR_BORDER){

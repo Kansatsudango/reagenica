@@ -761,6 +761,75 @@
                           }
                         },
                         {
+                          "type": "minecraft:condition",
+                          "if_true": {
+                            "type": "minecraft:biome",
+                            "biome_is": [
+                              "reagenica:volcano_peaks",
+                              "reagenica:volcano_slopes"
+                            ]
+                          },
+                          "then_run": {
+                            "type": "minecraft:sequence",
+                            "sequence": [
+                              {
+                                "type": "minecraft:condition",
+                                "if_true": {
+                                  "type": "minecraft:noise_threshold",
+                                  "max_threshold": 0.1,
+                                  "min_threshold": -0.1,
+                                  "noise": "minecraft:surface"
+                                },
+                                "then_run": {
+                                  "type": "minecraft:block",
+                                  "result_state": {
+                                    "Name": "minecraft:magma_block"
+                                  }
+                                }
+                              },
+                              {
+                                "type": "minecraft:condition",
+                                "if_true": {
+                                  "type": "minecraft:noise_threshold",
+                                  "max_threshold": 0.3,
+                                  "min_threshold": 0.1,
+                                  "noise": "minecraft:surface"
+                                },
+                                "then_run": {
+                                  "type": "minecraft:block",
+                                  "result_state": {
+                                    "Name": "minecraft:blackstone"
+                                  }
+                                }
+                              },
+                              {
+                                "type": "minecraft:condition",
+                                "if_true": {
+                                  "type": "minecraft:noise_threshold",
+                                  "max_threshold": -0.1,
+                                  "min_threshold": -0.3,
+                                  "noise": "minecraft:surface"
+                                },
+                                "then_run": {
+                                  "type": "minecraft:block",
+                                  "result_state": {
+                                    "Name": "minecraft:blackstone"
+                                  }
+                                }
+                              },
+                              {
+                                "type": "minecraft:block",
+                                "result_state": {
+                                  "Name": "minecraft:basalt",
+                                  "Properties": {
+                                    "snowy": "false"
+                                  }
+                                }
+                              }
+                            ]
+                          }
+                        },
+                        {
                           "type": "minecraft:sequence",
                           "sequence": [
                             {
@@ -902,14 +971,68 @@
                           "if_true": {
                             "type": "minecraft:biome",
                             "biome_is": [
-                              "minecraft:mangrove_swamp"
+                              "reagenica:volcano_peaks",
+                              "reagenica:volcano_slopes"
                             ]
                           },
                           "then_run": {
-                            "type": "minecraft:block",
-                            "result_state": {
-                              "Name": "minecraft:mud"
-                            }
+                            "type": "minecraft:sequence",
+                            "sequence": [
+                              {
+                                "type": "minecraft:condition",
+                                "if_true": {
+                                  "type": "minecraft:noise_threshold",
+                                  "max_threshold": 0.1,
+                                  "min_threshold": -0.1,
+                                  "noise": "minecraft:surface"
+                                },
+                                "then_run": {
+                                  "type": "minecraft:block",
+                                  "result_state": {
+                                    "Name": "minecraft:magma_block"
+                                  }
+                                }
+                              },
+                              {
+                                "type": "minecraft:condition",
+                                "if_true": {
+                                  "type": "minecraft:noise_threshold",
+                                  "max_threshold": 0.3,
+                                  "min_threshold": 0.1,
+                                  "noise": "minecraft:surface"
+                                },
+                                "then_run": {
+                                  "type": "minecraft:block",
+                                  "result_state": {
+                                    "Name": "minecraft:blackstone"
+                                  }
+                                }
+                              },
+                              {
+                                "type": "minecraft:condition",
+                                "if_true": {
+                                  "type": "minecraft:noise_threshold",
+                                  "max_threshold": -0.1,
+                                  "min_threshold": -0.3,
+                                  "noise": "minecraft:surface"
+                                },
+                                "then_run": {
+                                  "type": "minecraft:block",
+                                  "result_state": {
+                                    "Name": "minecraft:blackstone"
+                                  }
+                                }
+                              },
+                              {
+                                "type": "minecraft:block",
+                                "result_state": {
+                                  "Name": "minecraft:basalt",
+                                  "Properties": {
+                                    "snowy": "false"
+                                  }
+                                }
+                              }
+                            ]
                           }
                         },
                         {
