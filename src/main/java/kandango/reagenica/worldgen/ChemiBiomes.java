@@ -60,6 +60,8 @@ public class ChemiBiomes {
     
   public static final ResourceKey<Biome> PALEO_MEADOW = addToList(
     ResourceKey.create(Registries.BIOME, new ResourceLocation(ChemistryMod.MODID, "paleo_meadow")));
+  public static final ResourceKey<Biome> LAVA_PLATEAU = addToList(
+    ResourceKey.create(Registries.BIOME, new ResourceLocation(ChemistryMod.MODID, "lava_plateau")));
 
   public static final ResourceKey<Biome> COMMON_CAVE = addToList(
     ResourceKey.create(Registries.BIOME, new ResourceLocation(ChemistryMod.MODID, "common_cave")));

@@ -15,11 +15,23 @@
     "mood_sound": {
       "block_search_extent": 8,
       "offset": 2.0,
-      "sound": "minecraft:ambient.cave",
+      "sound": "minecraft:ambient.basalt_deltas.mood",
       "tick_delay": 6000
     },
-    "fog_color": 12638463,
-    "grass_color": 7913582,
+    "music": {
+      "max_delay": 24000,
+      "min_delay": 12000,
+      "replace_current_music": false,
+      "sound": "minecraft:music.nether.basalt_deltas"
+    },
+    "particle": {
+      "options": {
+        "type": "minecraft:white_ash"
+      },
+      "probability": 0.01
+    },
+    "fog_color": 6840176,
+    "grass_color": 13162593,
     "water_color": 4159204,
     "water_fog_color": 329011
   },
@@ -136,9 +148,8 @@
     ],
     [
       "minecraft:glow_lichen",
-      "reagenica:ginkgo_trees_sparce",
-      "minecraft:flower_default",
       "minecraft:patch_grass_badlands",
+      "minecraft:patch_dead_bush_2",
       "minecraft:brown_mushroom_normal",
       "minecraft:red_mushroom_normal",
       "minecraft:patch_sugar_cane",

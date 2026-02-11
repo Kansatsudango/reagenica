@@ -80,13 +80,15 @@ public class PaleoBiomeSource extends BiomeSource{
           if(e > 0.445){
             return ChemiBiomes.PALEO_SWAMP;
           }else if(c > NEAR_MID_BORDER && e < EROSION_1_2_BORDER){
-            return inLandBiomes(t, h, c, e, w, d);
+            return plateauBiomes(t, h, c, e, w, d);
           }else{
             return riverBiomes(t, h, c, e, w, d);
           }
         }else if(peakAndValleys(w) < -0.2){//Low
           if(e > EROSION_5_6_BORDER){
             return ChemiBiomes.PALEO_SWAMP;
+          }else if(c > NEAR_MID_BORDER && e < EROSION_1_2_BORDER){
+            return plateauBiomes(t, h, c, e, w, d);
           }
           return inLandBiomes(t, h, c, e, w, d);
         }else if(peakAndValleys(w) < 0.2){//Mid
@@ -162,6 +164,7 @@ public class PaleoBiomeSource extends BiomeSource{
     else return ChemiBiomes.WARM_SLOPES;
   }
   private ResourceKey<Biome> plateauBiomes(float t, float h, float c, float e, float w, float d){
+    if(w > 0 && h < 0.1f) return ChemiBiomes.LAVA_PLATEAU;
     return ChemiBiomes.PALEO_MEADOW;
   }
 
