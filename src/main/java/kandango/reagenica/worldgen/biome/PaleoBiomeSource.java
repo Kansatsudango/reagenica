@@ -87,7 +87,7 @@ public class PaleoBiomeSource extends BiomeSource{
         }else if(peakAndValleys(w) < -0.2){//Low
           if(e > EROSION_5_6_BORDER){
             return ChemiBiomes.PALEO_SWAMP;
-          }else if(c > NEAR_MID_BORDER && e < EROSION_1_2_BORDER){
+          }else if(c > NEAR_MID_BORDER && e < EROSION_2_3_BORDER){
             return plateauBiomes(t, h, c, e, w, d);
           }
           return inLandBiomes(t, h, c, e, w, d);
@@ -96,7 +96,7 @@ public class PaleoBiomeSource extends BiomeSource{
             return slopeBiomes(t, h, c, e, w, d);
           }else if(e < EROSION_1_2_BORDER && c > MID_FAR_BORDER){
             return slopeBiomes(t, h, c, e, w, d);
-          }else if(e < EROSION_2_3_BORDER && c > MID_FAR_BORDER){
+          }else if(e < EROSION_2_3_BORDER && c > NEAR_MID_BORDER){
             return plateauBiomes(t, h, c, e, w, d);
           }
           return inLandBiomes(t, h, c, e, w, d);
@@ -150,8 +150,18 @@ public class PaleoBiomeSource extends BiomeSource{
     else return ChemiBiomes.PRIMEVAL_RIVER;
   }
   private ResourceKey<Biome> inLandBiomes(float t, float h, float c, float e, float w, float d){
-    if(h<0)return ChemiBiomes.PALEO_PLAIN;
-    else return ChemiBiomes.METASEQUOIA_FOREST;
+    if(t>0.55){
+      if(h<0.3)return ChemiBiomes.PALEO_DESERT;
+      else return ChemiBiomes.PALEO_OASIS;
+    }else if(t>0.1){
+      return ChemiBiomes.FERN_GARDEN;
+    }else if(t>-0.55){
+      if(h<-0.1)return ChemiBiomes.PALEO_PLAIN;
+      else if(h<0.2 && w>0)return ChemiBiomes.MAGNOLIA_FOREST;
+      else return ChemiBiomes.METASEQUOIA_FOREST;
+    }else{
+      return ChemiBiomes.PALEO_PLAIN;
+    }
   }
   private ResourceKey<Biome> peakBiomes(float t, float h, float c, float e, float w, float d){
     if(w > 0 && h < 0.1f) return ChemiBiomes.VOLCANO_PEAKS;

@@ -6,32 +6,19 @@
       "minecraft:canyon"
     ]
   },
-  "temperature": 1.4,
-  "downfall": 0.8,
+  "temperature": 0.95,
+  "downfall": 0.9,
   "has_precipitation": true,
 
   "effects": {
-    "sky_color": 7907327,
+    "sky_color": 7842047,
     "mood_sound": {
       "block_search_extent": 8,
       "offset": 2.0,
-      "sound": "minecraft:ambient.basalt_deltas.mood",
+      "sound": "minecraft:ambient.cave",
       "tick_delay": 6000
     },
-    "music": {
-      "max_delay": 24000,
-      "min_delay": 12000,
-      "replace_current_music": false,
-      "sound": "minecraft:music.nether.basalt_deltas"
-    },
-    "particle": {
-      "options": {
-        "type": "minecraft:white_ash"
-      },
-      "probability": 0.01
-    },
-    "fog_color": 6840176,
-    "grass_color": 13162593,
+    "fog_color": 12638463,
     "water_color": 4159204,
     "water_fog_color": 329011
   },
@@ -49,37 +36,20 @@
     "creature": [
       {
         "type": "minecraft:sheep",
-        "maxCount": 4,
-        "minCount": 4,
-        "weight": 12
-      },
-      {
-        "type": "minecraft:pig",
-        "maxCount": 4,
-        "minCount": 4,
-        "weight": 10
-      },
-      {
-        "type": "minecraft:chicken",
-        "maxCount": 4,
-        "minCount": 4,
-        "weight": 10
-      },
-      {
-        "type": "minecraft:cow",
-        "maxCount": 4,
-        "minCount": 4,
-        "weight": 8
-      },
-      {
-        "type": "minecraft:rabbit",
         "maxCount": 3,
         "minCount": 2,
         "weight": 4
       }
     ],
     "misc": [],
-    "monster": [],
+    "monster": [
+      {
+        "type": "minecraft:ocelot",
+        "maxCount": 3,
+        "minCount": 1,
+        "weight": 2
+      }
+    ],
     "underground_water_creature": [
       {
         "type": "minecraft:glow_squid",
@@ -103,8 +73,7 @@
     [
     ],
     [
-      "reagenica:lava_rock_andesite",
-      "reagenica:lava_rock_basalt"
+      "reagenica:oasis_water"
     ],
     [],
     [
@@ -149,11 +118,11 @@
     ],
     [
       "minecraft:glow_lichen",
+      "minecraft:trees_sparse_jungle",
       "minecraft:patch_grass_jungle",
-      "minecraft:patch_dead_bush_2",
       "minecraft:brown_mushroom_normal",
       "minecraft:red_mushroom_normal",
-      "minecraft:seagrass_river"
+      "minecraft:patch_sugar_cane"
     ],
     [
       "minecraft:freeze_top_layer"
