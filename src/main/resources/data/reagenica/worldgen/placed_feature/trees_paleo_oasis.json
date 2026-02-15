@@ -1,9 +1,9 @@
 {
-  "feature": "minecraft:trees_sparse_jungle",
+  "feature": "reagenica:trees_paleo_oasis",
   "placement": [
     { 
-      "type": "minecraft:rarity_filter", 
-      "chance": 4
+      "type": "minecraft:count", 
+      "count": 3
     },
     {
       "type": "minecraft:in_square"

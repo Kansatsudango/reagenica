@@ -276,6 +276,18 @@ public class ChemiBlocks {
   public static final RegistryObject<Block> MAGNOLIA_SAPLING = registerBlockandlist("magnolia_sapling", () -> new SaplingBlock(new MagnoliaGrower(),BlockBehaviour.Properties.copy(Blocks.OAK_SAPLING)));
   public static final RegistryObject<Item> MAGNOLIA_SAPLING_ITEM = registerItemandlist("magnolia_sapling",
       () -> new BlockItem(MAGNOLIA_SAPLING.get(), new Item.Properties()));
+  public static final RegistryObject<Block> FICUS_LOG = registerWoodBlockandlist("ficus_log", () -> new RotatedPillarBlock(BlockBehaviour.Properties.copy(Blocks.OAK_LOG)));
+  public static final RegistryObject<Item> FICUS_LOG_ITEM = registerItemandlist("ficus_log",
+      () -> new BlockItem(FICUS_LOG.get(), new Item.Properties()));
+  public static final RegistryObject<Block> FICUS_PLANKS = registerWoodBlockandlist("ficus_planks", () -> new Block(BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS)));
+  public static final RegistryObject<Item> FICUS_PLANKS_ITEM = registerItemandlist("ficus_planks",
+      () -> new BlockItem(FICUS_PLANKS.get(), new Item.Properties()));
+  public static final RegistryObject<Block> FICUS_LEAVES = registerNoneBlockandlist("ficus_leaves", () -> new LeavesBlock(BlockBehaviour.Properties.copy(Blocks.OAK_LEAVES)));
+  public static final RegistryObject<Item> FICUS_LEAVES_ITEM = registerItemandlist("ficus_leaves",
+      () -> new BlockItem(FICUS_LEAVES.get(), new Item.Properties()));
+  public static final RegistryObject<Block> FICUS_SAPLING = registerBlockandlist("ficus_sapling", () -> new SaplingBlock(new FicusGrower(),BlockBehaviour.Properties.copy(Blocks.OAK_SAPLING)));
+  public static final RegistryObject<Item> FICUS_SAPLING_ITEM = registerItemandlist("ficus_sapling",
+      () -> new BlockItem(FICUS_SAPLING.get(), new Item.Properties()));
       
   public static final RegistryObject<Block> ANCESTOR_ASTERACEAE = registerBlockandlist("ancestor_asteraceae", () -> new FlowerBlock(() -> MobEffects.DIG_SLOWDOWN, 140, BlockBehaviour.Properties.copy(Blocks.POPPY)));
   public static final RegistryObject<Item> ANCESTOR_ASTERACEAE_ITEM = registerItemandlist("ancestor_asteraceae",

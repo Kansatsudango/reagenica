@@ -62,12 +62,14 @@ public class ClientModEvents {
     colors.register(BIO_ITEM_COLOR, ChemiItems.listItems.stream().filter(x -> x.get() instanceof BioReagent).filter(x -> x!=ChemiItems.MEDIUM_PLATE).map(RegistryObject::get).toArray(Item[]::new));
     event.register(LEAVES_ITEM_COLOR, ChemiBlocks.METASEQUOIA_LEAVES_ITEM.get());
     event.register(LEAVES_ITEM_COLOR, ChemiBlocks.TAXODIUM_LEAVES_ITEM.get());
+    event.register(LEAVES_ITEM_COLOR, ChemiBlocks.FICUS_LEAVES_ITEM.get());
   }
 
   @SubscribeEvent
   public static void onRegisterBlockColors(RegisterColorHandlersEvent.Block event) {
     event.register(LEAVES_COLOR, ChemiBlocks.METASEQUOIA_LEAVES.get());
     event.register(LEAVES_COLOR, ChemiBlocks.TAXODIUM_LEAVES.get());
+    event.register(LEAVES_COLOR, ChemiBlocks.FICUS_LEAVES.get());
   }
 
   @SubscribeEvent

@@ -46,6 +46,8 @@ public class ChemiBiomes {
     ResourceKey.create(Registries.BIOME, new ResourceLocation(ChemistryMod.MODID, "paleo_desert_oasis")));
   public static final ResourceKey<Biome> FERN_GARDEN = addToList(
     ResourceKey.create(Registries.BIOME, new ResourceLocation(ChemistryMod.MODID, "fern_garden")));
+  public static final ResourceKey<Biome> PALEO_JUNGLE = addToList(
+    ResourceKey.create(Registries.BIOME, new ResourceLocation(ChemistryMod.MODID, "paleo_jungle")));
   public static final ResourceKey<Biome> PALEO_SWAMP = addToList(
     ResourceKey.create(Registries.BIOME, new ResourceLocation(ChemistryMod.MODID, "paleo_swamp")));
   public static final ResourceKey<Biome> FUNGI_FIELD = addToList(
