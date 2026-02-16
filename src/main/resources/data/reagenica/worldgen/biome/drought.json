@@ -6,33 +6,21 @@
       "minecraft:canyon"
     ]
   },
-  "temperature": 1.4,
-  "downfall": 0.8,
-  "has_precipitation": true,
+  "temperature": 2.0,
+  "downfall": 0.0,
+  "has_precipitation": false,
 
   "effects": {
-    "sky_color": 7907327,
+    "sky_color": 9753596,
     "mood_sound": {
       "block_search_extent": 8,
       "offset": 2.0,
-      "sound": "minecraft:ambient.basalt_deltas.mood",
+      "sound": "minecraft:ambient.cave",
       "tick_delay": 6000
     },
-    "music": {
-      "max_delay": 24000,
-      "min_delay": 12000,
-      "replace_current_music": false,
-      "sound": "minecraft:music.nether.basalt_deltas"
-    },
-    "particle": {
-      "options": {
-        "type": "minecraft:white_ash"
-      },
-      "probability": 0.004
-    },
     "fog_color": 12638463,
-    "grass_color": 13162593,
-    "water_color": 4159204,
+    "grass_color": 6593335,
+    "water_color": 4558056,
     "water_fog_color": 329011
   },
   "spawn_costs": {},
@@ -47,30 +35,6 @@
     ],
     "axolotls": [],
     "creature": [
-      {
-        "type": "minecraft:sheep",
-        "maxCount": 4,
-        "minCount": 4,
-        "weight": 12
-      },
-      {
-        "type": "minecraft:pig",
-        "maxCount": 4,
-        "minCount": 4,
-        "weight": 10
-      },
-      {
-        "type": "minecraft:chicken",
-        "maxCount": 4,
-        "minCount": 4,
-        "weight": 10
-      },
-      {
-        "type": "minecraft:cow",
-        "maxCount": 4,
-        "minCount": 4,
-        "weight": 8
-      },
       {
         "type": "minecraft:rabbit",
         "maxCount": 3,
@@ -102,10 +66,7 @@
     ],
     [
     ],
-    [
-      "reagenica:lava_rock_andesite",
-      "reagenica:lava_rock_basalt"
-    ],
+    [],
     [],
     [
       "minecraft:ore_dirt",
@@ -153,7 +114,7 @@
       "minecraft:patch_dead_bush_2",
       "minecraft:brown_mushroom_normal",
       "minecraft:red_mushroom_normal",
-      "minecraft:seagrass_river"
+      "minecraft:patch_cactus_desert"
     ],
     [
       "minecraft:freeze_top_layer"

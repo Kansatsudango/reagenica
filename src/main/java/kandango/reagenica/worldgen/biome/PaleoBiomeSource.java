@@ -158,7 +158,11 @@ public class PaleoBiomeSource extends BiomeSource{
   }
   private ResourceKey<Biome> inLandBiomes(float t, float h, float c, float e, float w, float d){
     if(t>0.55){
-      return ChemiBiomes.PALEO_JUNGLE;
+      if(e<EROSION_3_4_BORDER && h<0){
+        return droughtBiomes(t, h, c, e, w, d);
+      }else{
+        return ChemiBiomes.PALEO_JUNGLE;
+      }
     }else if(t>0.1){
       if(w<0){
         if(h<-0.1)return ChemiBiomes.PALEO_PLAIN;
@@ -169,8 +173,9 @@ public class PaleoBiomeSource extends BiomeSource{
         else return ChemiBiomes.PALEO_OASIS;
       }
     }else if(t>-0.55){
-      if(h<-0.1)return ChemiBiomes.PALEO_PLAIN;
+      if(h<-0.2)return ChemiBiomes.PALEO_PLAIN;
       else if(h<0.2 && w>0)return ChemiBiomes.MAGNOLIA_FOREST;
+      else if(w>0)return ChemiBiomes.MEGA_METASEQUOIA_FOREST;
       else return ChemiBiomes.METASEQUOIA_FOREST;
     }else{
       return ChemiBiomes.PALEO_PLAIN;
@@ -179,16 +184,23 @@ public class PaleoBiomeSource extends BiomeSource{
   private ResourceKey<Biome> peakBiomes(float t, float h, float c, float e, float w, float d){
     if(w > 0 && h < 0.1f) return ChemiBiomes.VOLCANO_PEAKS;
     else if(t < 0) return ChemiBiomes.SNOWY_PEAKS;
+    else if(t>0.55) return droughtBiomes(t, h, c, e, w, d);
     else return ChemiBiomes.ROCKY_PEAKS;
   }
   private ResourceKey<Biome> slopeBiomes(float t, float h, float c, float e, float w, float d){
     if(w > 0 && h < 0.1f) return ChemiBiomes.VOLCANO_SLOPES;
     else if(t < 0) return ChemiBiomes.SNOWY_SLOPES;
+    else if(t > 0.55) return droughtBiomes(t, h, c, e, w, d);
     else return ChemiBiomes.WARM_SLOPES;
   }
   private ResourceKey<Biome> plateauBiomes(float t, float h, float c, float e, float w, float d){
-    if(w > 0 && h < 0.1f) return ChemiBiomes.LAVA_PLATEAU;
+    if(t>0.55)return droughtBiomes(t, h, c, e, w, d);
+    else if(w > 0 && h < 0.1f) return ChemiBiomes.LAVA_PLATEAU;
     return ChemiBiomes.PALEO_MEADOW;
+  }
+  private ResourceKey<Biome> droughtBiomes(float t, float h, float c, float e, float w, float d){
+    if(h>-0.1)return ChemiBiomes.MESA_FOREST;
+    else return ChemiBiomes.MESA;
   }
 
   private float peakAndValleys(float weirdness){

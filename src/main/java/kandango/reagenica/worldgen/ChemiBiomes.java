@@ -36,6 +36,8 @@ public class ChemiBiomes {
 
   public static final ResourceKey<Biome> METASEQUOIA_FOREST = addToList(
     ResourceKey.create(Registries.BIOME, new ResourceLocation(ChemistryMod.MODID, "metasequoia_forest")));
+  public static final ResourceKey<Biome> MEGA_METASEQUOIA_FOREST = addToList(
+    ResourceKey.create(Registries.BIOME, new ResourceLocation(ChemistryMod.MODID, "mega_metasequoia_forest")));
   public static final ResourceKey<Biome> MAGNOLIA_FOREST = addToList(
     ResourceKey.create(Registries.BIOME, new ResourceLocation(ChemistryMod.MODID, "magnolia_forest")));
   public static final ResourceKey<Biome> PALEO_PLAIN = addToList(
@@ -50,6 +52,10 @@ public class ChemiBiomes {
     ResourceKey.create(Registries.BIOME, new ResourceLocation(ChemistryMod.MODID, "paleo_jungle")));
   public static final ResourceKey<Biome> PALEO_SWAMP = addToList(
     ResourceKey.create(Registries.BIOME, new ResourceLocation(ChemistryMod.MODID, "paleo_swamp")));
+  public static final ResourceKey<Biome> MESA = addToList(
+    ResourceKey.create(Registries.BIOME, new ResourceLocation(ChemistryMod.MODID, "drought")));
+  public static final ResourceKey<Biome> MESA_FOREST = addToList(
+    ResourceKey.create(Registries.BIOME, new ResourceLocation(ChemistryMod.MODID, "drought_forest")));
   public static final ResourceKey<Biome> FUNGI_FIELD = addToList(
     ResourceKey.create(Registries.BIOME, new ResourceLocation(ChemistryMod.MODID, "chaos_fungi_field")));
 
