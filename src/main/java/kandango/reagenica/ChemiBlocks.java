@@ -433,6 +433,10 @@ public class ChemiBlocks {
   public static final RegistryObject<Block> MUSHROOM_SURFACE_BLUE = registerCustomHoeBlockandlist("mushroom_surface_blue", () -> new Block(BlockBehaviour.Properties.copy(Blocks.MUSHROOM_STEM).lightLevel(state -> 3)));
   public static final RegistryObject<Item> MUSHROOM_SURFACE_BLUE_ITEM = registerItemandlist("mushroom_surface_blue",
       () -> new BlockItem(MUSHROOM_SURFACE_BLUE.get(), new Item.Properties()));
+      
+  public static final RegistryObject<Block> PALEO_PORTAL = registerBlockandlist("paleo_portal", () -> new PaleoPortalBlock(BlockBehaviour.Properties.copy(Blocks.NETHER_PORTAL)));
+  public static final RegistryObject<Item> PALEO_PORTAL_ITEM = registerItemandlist("paleo_portal",
+      () -> new BlockItem(PALEO_PORTAL.get(), new Item.Properties()));
 
   public static final RegistryObject<Block> DEBUG_CROP = registerPlantBlockandlist("debug_crop", () -> new AdvancedCropBlock(ChemiBlocks.DEBUG_CROP_SEEDS::get),2,() -> ChemiBlocks.DEBUG_CROP_SEEDS);
   public static final RegistryObject<Item> DEBUG_CROP_SEEDS = registerItemandlist("debug_seeds", 

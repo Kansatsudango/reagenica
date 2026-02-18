@@ -10,6 +10,7 @@ import kandango.reagenica.worldgen.biome.PaleoBiomeSource;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.biome.BiomeSource;
 import net.minecraftforge.registries.DeferredRegister;
@@ -21,6 +22,9 @@ public class ChemiBiomes {
   public static final RegistryObject<Codec<PaleoBiomeSource>> PALEO_BIOME_SOURCE = 
     BIOME_SOURCE.register("paleo_biomes", () -> PaleoBiomeSource.CODEC);
   public static final List<ResourceKey<Biome>> biomeList = new ArrayList<>();
+
+  public static final ResourceKey<Level> PALEO_LEVEL = 
+    ResourceKey.create(Registries.DIMENSION, new ResourceLocation(ChemistryMod.MODID, "paleogene"));
 
   public static final ResourceKey<Biome> WARM_OCEAN = addToList(
     ResourceKey.create(Registries.BIOME, new ResourceLocation(ChemistryMod.MODID, "primeval_warm_ocean")));

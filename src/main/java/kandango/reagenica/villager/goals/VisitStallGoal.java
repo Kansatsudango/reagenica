@@ -5,7 +5,7 @@ import java.util.Optional;
 import kandango.reagenica.ChemistryMod;
 import kandango.reagenica.block.entity.TradingStallBlockEntity;
 import kandango.reagenica.villager.StallVisitCooldown;
-import kandango.reagenica.villager.pois.ChemiPOIs;
+import kandango.reagenica.world.ChemiPOIs;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.InteractionHand;

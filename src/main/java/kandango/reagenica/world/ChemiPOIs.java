@@ -1,4 +1,4 @@
-package kandango.reagenica.villager.pois;
+package kandango.reagenica.world;
 
 import java.util.Set;
 
@@ -14,6 +14,10 @@ public class ChemiPOIs {
   public static final DeferredRegister<PoiType> POI_TYPES = DeferredRegister.create(ForgeRegistries.POI_TYPES, ChemistryMod.MODID);
   public static final RegistryObject<PoiType> STALL_POI = POI_TYPES.register("stall_poi",
     () -> new PoiType(Set.copyOf(ChemiBlocks.TRADING_STALL.get().getStateDefinition().getPossibleStates()),1,1)
+  );
+
+  public static final RegistryObject<PoiType> PALEO_PORTAL_POI = POI_TYPES.register("geologist_portal", 
+    () -> new PoiType(Set.copyOf(ChemiBlocks.PALEO_PORTAL.get().getStateDefinition().getPossibleStates()), 0, 1)
   );
 
   public static void register(IEventBus modEventbus){

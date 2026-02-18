@@ -9,7 +9,7 @@ import kandango.reagenica.block.entity.ModBlockEntities;
 import kandango.reagenica.block.fluid.ChemiFluidTypes;
 import kandango.reagenica.recipes.ModRecipes;
 import kandango.reagenica.screen.ModMenus;
-import kandango.reagenica.villager.pois.ChemiPOIs;
+import kandango.reagenica.world.ChemiPOIs;
 import kandango.reagenica.worldgen.ChemiBiomes;
 import kandango.reagenica.worldgen.ChemiFeatures;
 import kandango.reagenica.worldgen.ChemiFoliagePlacers;
