@@ -23,6 +23,8 @@ public class ModCreativeTabContents {
           for(int i=0;i!=ChemiBlocks.listBlockItems.size();i++){
             event.accept(ChemiBlocks.listBlockItems.get(i));
           }
+        }else if(event.getTab() == ModCreativeTabs.PALEO_TAB.get()){
+          ChemiBlocks.METASEQUOIA.blockItems().forEach(event::accept);
         }
     }
 }

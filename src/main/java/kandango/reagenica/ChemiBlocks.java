@@ -8,6 +8,7 @@ import kandango.reagenica.block.*;
 import kandango.reagenica.block.farming.*;
 import kandango.reagenica.block.farming.crop.*;
 import kandango.reagenica.block.farming.grape.*;
+import kandango.reagenica.blockfamily.WoodFamily;
 import kandango.reagenica.generator.BlockLootType;
 import kandango.reagenica.worldgen.forestry.*;
 import net.minecraft.world.item.*;
@@ -225,25 +226,30 @@ public class ChemiBlocks {
   public static final RegistryObject<Item> ADVANCED_FARMLAND_ITEM = registerItemandlist("advanced_farmland",
       () -> new BlockItem(ADVANCED_FARMLAND.get(), new Item.Properties()));
 
-  public static final RegistryObject<Block> METASEQUOIA_LOG = registerWoodBlockandlist("metasequoia_log", () -> new RotatedPillarBlock(BlockBehaviour.Properties.copy(Blocks.OAK_LOG)));
-  public static final RegistryObject<Item> METASEQUOIA_LOG_ITEM = registerItemandlist("metasequoia_log",
-      () -> new BlockItem(METASEQUOIA_LOG.get(), new Item.Properties()));
-  public static final RegistryObject<Block> METASEQUOIA_PLANKS = registerWoodBlockandlist("metasequoia_planks", () -> new Block(BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS)));
-  public static final RegistryObject<Item> METASEQUOIA_PLANKS_ITEM = registerItemandlist("metasequoia_planks",
-      () -> new BlockItem(METASEQUOIA_PLANKS.get(), new Item.Properties()));
-  public static final RegistryObject<Block> METASEQUOIA_LEAVES = registerNoneBlockandlist("metasequoia_leaves", () -> new LeavesBlock(BlockBehaviour.Properties.copy(Blocks.OAK_LEAVES)));
-  public static final RegistryObject<Item> METASEQUOIA_LEAVES_ITEM = registerItemandlist("metasequoia_leaves",
-      () -> new BlockItem(METASEQUOIA_LEAVES.get(), new Item.Properties()));
-  public static final RegistryObject<Block> METASEQUOIA_SAPLING = registerBlockandlist("metasequoia_sapling", () -> new SaplingBlock(new MetasequoiaGrower(),BlockBehaviour.Properties.copy(Blocks.OAK_SAPLING)));
-  public static final RegistryObject<Item> METASEQUOIA_SAPLING_ITEM = registerItemandlist("metasequoia_sapling",
-      () -> new BlockItem(METASEQUOIA_SAPLING.get(), new Item.Properties()));
+//   public static final RegistryObject<Block> METASEQUOIA_LOG = registerWoodBlockandlist("metasequoia_log", () -> new RotatedPillarBlock(BlockBehaviour.Properties.copy(Blocks.OAK_LOG)));
+//   public static final RegistryObject<Item> METASEQUOIA_LOG_ITEM = registerItemandlist("metasequoia_log",
+//       () -> new BlockItem(METASEQUOIA_LOG.get(), new Item.Properties()));
+//   public static final RegistryObject<Block> METASEQUOIA_LEAVES = registerExternalConfigBlockandlist("metasequoia_leaves", () -> new LeavesBlock(BlockBehaviour.Properties.copy(Blocks.OAK_LEAVES)));
+//   public static final RegistryObject<Item> METASEQUOIA_LEAVES_ITEM = registerItemandlist("metasequoia_leaves",
+//       () -> new BlockItem(METASEQUOIA_LEAVES.get(), new Item.Properties()));
+//   public static final RegistryObject<Block> METASEQUOIA_SAPLING = registerBlockandlist("metasequoia_sapling", () -> new SaplingBlock(new MetasequoiaGrower(),BlockBehaviour.Properties.copy(Blocks.OAK_SAPLING)));
+//   public static final RegistryObject<Item> METASEQUOIA_SAPLING_ITEM = registerItemandlist("metasequoia_sapling",
+//       () -> new BlockItem(METASEQUOIA_SAPLING.get(), new Item.Properties()));
+//   public static final RegistryObject<Block> METASEQUOIA_PLANKS = registerWoodBlockandlist("metasequoia_planks", () -> new Block(BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS)));
+//   public static final RegistryObject<Item> METASEQUOIA_PLANKS_ITEM = registerItemandlist("metasequoia_planks",
+//       () -> new BlockItem(METASEQUOIA_PLANKS.get(), new Item.Properties()));
+//   public static final RegistryObject<StairBlock> METASEQUOIA_STAIRS = registerWoodBlockandlist("metasequoia_stairs", () -> new StairBlock(() -> METASEQUOIA_PLANKS.get().defaultBlockState(), BlockBehaviour.Properties.copy(Blocks.OAK_STAIRS)));
+//   public static final RegistryObject<Item> METASEQUOIA_STAIRS_ITEM = registerItemandlist("metasequoia_stairs",
+//       () -> new BlockItem(METASEQUOIA_STAIRS.get(), new Item.Properties()));
+  public static final WoodFamily METASEQUOIA = new WoodFamily("metasequoia", () -> new MetasequoiaGrower());
+  static{METASEQUOIA.addLootTable(listBlocks);}
   public static final RegistryObject<Block> TAXODIUM_LOG = registerWoodBlockandlist("taxodium_log", () -> new RotatedPillarBlock(BlockBehaviour.Properties.copy(Blocks.OAK_LOG)));
   public static final RegistryObject<Item> TAXODIUM_LOG_ITEM = registerItemandlist("taxodium_log",
       () -> new BlockItem(TAXODIUM_LOG.get(), new Item.Properties()));
   public static final RegistryObject<Block> TAXODIUM_PLANKS = registerWoodBlockandlist("taxodium_planks", () -> new Block(BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS)));
   public static final RegistryObject<Item> TAXODIUM_PLANKS_ITEM = registerItemandlist("taxodium_planks",
       () -> new BlockItem(TAXODIUM_PLANKS.get(), new Item.Properties()));
-  public static final RegistryObject<Block> TAXODIUM_LEAVES = registerNoneBlockandlist("taxodium_leaves", () -> new LeavesBlock(BlockBehaviour.Properties.copy(Blocks.OAK_LEAVES)));
+  public static final RegistryObject<Block> TAXODIUM_LEAVES = registerExternalConfigBlockandlist("taxodium_leaves", () -> new LeavesBlock(BlockBehaviour.Properties.copy(Blocks.OAK_LEAVES)));
   public static final RegistryObject<Item> TAXODIUM_LEAVES_ITEM = registerItemandlist("taxodium_leaves",
       () -> new BlockItem(TAXODIUM_LEAVES.get(), new Item.Properties()));
   public static final RegistryObject<Block> TAXODIUM_SAPLING = registerBlockandlist("taxodium_sapling", () -> new SaplingBlock(new TaxodiumGrower(),BlockBehaviour.Properties.copy(Blocks.OAK_SAPLING)));
@@ -258,7 +264,7 @@ public class ChemiBlocks {
   public static final RegistryObject<Block> GINKGO_PLANKS = registerWoodBlockandlist("ginkgo_planks", () -> new Block(BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS)));
   public static final RegistryObject<Item> GINKGO_PLANKS_ITEM = registerItemandlist("ginkgo_planks",
       () -> new BlockItem(GINKGO_PLANKS.get(), new Item.Properties()));
-  public static final RegistryObject<Block> GINKGO_LEAVES = registerNoneBlockandlist("ginkgo_leaves", () -> new LeavesBlock(BlockBehaviour.Properties.copy(Blocks.OAK_LEAVES)));
+  public static final RegistryObject<Block> GINKGO_LEAVES = registerExternalConfigBlockandlist("ginkgo_leaves", () -> new LeavesBlock(BlockBehaviour.Properties.copy(Blocks.OAK_LEAVES)));
   public static final RegistryObject<Item> GINKGO_LEAVES_ITEM = registerItemandlist("ginkgo_leaves",
       () -> new BlockItem(GINKGO_LEAVES.get(), new Item.Properties()));
   public static final RegistryObject<Block> GINKGO_SAPLING = registerBlockandlist("ginkgo_sapling", () -> new SaplingBlock(new GinkgoGrower(),BlockBehaviour.Properties.copy(Blocks.OAK_SAPLING)));
@@ -270,7 +276,7 @@ public class ChemiBlocks {
   public static final RegistryObject<Block> MAGNOLIA_PLANKS = registerWoodBlockandlist("magnolia_planks", () -> new Block(BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS)));
   public static final RegistryObject<Item> MAGNOLIA_PLANKS_ITEM = registerItemandlist("magnolia_planks",
       () -> new BlockItem(MAGNOLIA_PLANKS.get(), new Item.Properties()));
-  public static final RegistryObject<Block> MAGNOLIA_LEAVES = registerNoneBlockandlist("magnolia_leaves", () -> new LeavesBlock(BlockBehaviour.Properties.copy(Blocks.OAK_LEAVES)));
+  public static final RegistryObject<Block> MAGNOLIA_LEAVES = registerExternalConfigBlockandlist("magnolia_leaves", () -> new LeavesBlock(BlockBehaviour.Properties.copy(Blocks.OAK_LEAVES)));
   public static final RegistryObject<Item> MAGNOLIA_LEAVES_ITEM = registerItemandlist("magnolia_leaves",
       () -> new BlockItem(MAGNOLIA_LEAVES.get(), new Item.Properties()));
   public static final RegistryObject<Block> MAGNOLIA_SAPLING = registerBlockandlist("magnolia_sapling", () -> new SaplingBlock(new MagnoliaGrower(),BlockBehaviour.Properties.copy(Blocks.OAK_SAPLING)));
@@ -282,7 +288,7 @@ public class ChemiBlocks {
   public static final RegistryObject<Block> FICUS_PLANKS = registerWoodBlockandlist("ficus_planks", () -> new Block(BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS)));
   public static final RegistryObject<Item> FICUS_PLANKS_ITEM = registerItemandlist("ficus_planks",
       () -> new BlockItem(FICUS_PLANKS.get(), new Item.Properties()));
-  public static final RegistryObject<Block> FICUS_LEAVES = registerNoneBlockandlist("ficus_leaves", () -> new LeavesBlock(BlockBehaviour.Properties.copy(Blocks.OAK_LEAVES)));
+  public static final RegistryObject<Block> FICUS_LEAVES = registerExternalConfigBlockandlist("ficus_leaves", () -> new LeavesBlock(BlockBehaviour.Properties.copy(Blocks.OAK_LEAVES)));
   public static final RegistryObject<Item> FICUS_LEAVES_ITEM = registerItemandlist("ficus_leaves",
       () -> new BlockItem(FICUS_LEAVES.get(), new Item.Properties()));
   public static final RegistryObject<Block> FICUS_SAPLING = registerBlockandlist("ficus_sapling", () -> new SaplingBlock(new FicusGrower(),BlockBehaviour.Properties.copy(Blocks.OAK_SAPLING)));
@@ -296,7 +302,7 @@ public class ChemiBlocks {
   public static final RegistryObject<Block> AQUAMARINE_BLOCK = registerStoneBlockandlist("aquamarine_block", () -> new AmethystBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_LIGHT_BLUE).strength(1.5F).sound(SoundType.AMETHYST).requiresCorrectToolForDrops()));
   public static final RegistryObject<Item> AQUAMARINE_BLOCK_ITEM = registerItemandlist("aquamarine_block",
       () -> new BlockItem(AQUAMARINE_BLOCK.get(), new Item.Properties()));
-  public static final RegistryObject<Block> BUDDING_AQUAMARINE_BLOCK = registerNoneBlockandlist("budding_aquamarine_block", () -> new BuddingCrystalBlock(BlockBehaviour.Properties.copy(Blocks.BUDDING_AMETHYST),ChemiBlocks.AQUAMARINE_BUD::get,ChemiBlocks.AQUAMARINE_CRYSTAL::get));
+  public static final RegistryObject<Block> BUDDING_AQUAMARINE_BLOCK = registerExternalConfigBlockandlist("budding_aquamarine_block", () -> new BuddingCrystalBlock(BlockBehaviour.Properties.copy(Blocks.BUDDING_AMETHYST),ChemiBlocks.AQUAMARINE_BUD::get,ChemiBlocks.AQUAMARINE_CRYSTAL::get));
   public static final RegistryObject<Item> BUDDING_AQUAMARINE_BLOCK_ITEM = registerItemandlist("budding_aquamarine_block",
       () -> new BlockItem(BUDDING_AQUAMARINE_BLOCK.get(), new Item.Properties()));
   public static final RegistryObject<Block> AQUAMARINE_CRYSTAL = registerBlockandlist("aquamarine_crystal", () -> new AmethystClusterBlock(7,3,BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_LIGHT_BLUE).forceSolidOn().noOcclusion().randomTicks().sound(SoundType.AMETHYST_CLUSTER).strength(1.5F).lightLevel(x -> 9).pushReaction(PushReaction.DESTROY)));
@@ -308,7 +314,7 @@ public class ChemiBlocks {
   public static final RegistryObject<Block> CITRINE_BLOCK = registerStoneBlockandlist("citrine_block", () -> new AmethystBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_LIGHT_BLUE).strength(1.5F).sound(SoundType.AMETHYST).requiresCorrectToolForDrops()));
   public static final RegistryObject<Item> CITRINE_BLOCK_ITEM = registerItemandlist("citrine_block",
       () -> new BlockItem(CITRINE_BLOCK.get(), new Item.Properties()));
-  public static final RegistryObject<Block> BUDDING_CITRINE_BLOCK = registerNoneBlockandlist("budding_citrine_block", () -> new BuddingCrystalBlock(BlockBehaviour.Properties.copy(Blocks.BUDDING_AMETHYST),ChemiBlocks.CITRINE_BUD::get,ChemiBlocks.CITRINE_CRYSTAL::get));
+  public static final RegistryObject<Block> BUDDING_CITRINE_BLOCK = registerExternalConfigBlockandlist("budding_citrine_block", () -> new BuddingCrystalBlock(BlockBehaviour.Properties.copy(Blocks.BUDDING_AMETHYST),ChemiBlocks.CITRINE_BUD::get,ChemiBlocks.CITRINE_CRYSTAL::get));
   public static final RegistryObject<Item> BUDDING_CITRINE_BLOCK_ITEM = registerItemandlist("budding_citrine_block",
       () -> new BlockItem(BUDDING_CITRINE_BLOCK.get(), new Item.Properties()));
   public static final RegistryObject<Block> CITRINE_CRYSTAL = registerBlockandlist("citrine_crystal", () -> new AmethystClusterBlock(7,3,BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_LIGHT_BLUE).forceSolidOn().noOcclusion().randomTicks().sound(SoundType.AMETHYST_CLUSTER).strength(1.5F).lightLevel(x -> 9).pushReaction(PushReaction.DESTROY)));
@@ -320,7 +326,7 @@ public class ChemiBlocks {
   public static final RegistryObject<Block> EMERALD_BLOCK = registerStoneBlockandlist("emerald_block", () -> new AmethystBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_LIGHT_BLUE).strength(1.5F).sound(SoundType.AMETHYST).requiresCorrectToolForDrops()));
   public static final RegistryObject<Item> EMERALD_BLOCK_ITEM = registerItemandlist("emerald_block",
       () -> new BlockItem(EMERALD_BLOCK.get(), new Item.Properties()));
-  public static final RegistryObject<Block> BUDDING_EMERALD_BLOCK = registerNoneBlockandlist("budding_emerald_block", () -> new BuddingCrystalBlock(BlockBehaviour.Properties.copy(Blocks.BUDDING_AMETHYST),ChemiBlocks.EMERALD_BUD::get,ChemiBlocks.EMERALD_CRYSTAL::get));
+  public static final RegistryObject<Block> BUDDING_EMERALD_BLOCK = registerExternalConfigBlockandlist("budding_emerald_block", () -> new BuddingCrystalBlock(BlockBehaviour.Properties.copy(Blocks.BUDDING_AMETHYST),ChemiBlocks.EMERALD_BUD::get,ChemiBlocks.EMERALD_CRYSTAL::get));
   public static final RegistryObject<Item> BUDDING_EMERALD_BLOCK_ITEM = registerItemandlist("budding_emerald_block",
       () -> new BlockItem(BUDDING_EMERALD_BLOCK.get(), new Item.Properties()));
   public static final RegistryObject<Block> EMERALD_CRYSTAL = registerBlockandlist("emerald_crystal", () -> new AmethystClusterBlock(7,3,BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_LIGHT_BLUE).forceSolidOn().noOcclusion().randomTicks().sound(SoundType.AMETHYST_CLUSTER).strength(1.5F).lightLevel(x -> 9).pushReaction(PushReaction.DESTROY)));
@@ -332,7 +338,7 @@ public class ChemiBlocks {
   public static final RegistryObject<Block> LAPISQUARTZ_BLOCK = registerStoneBlockandlist("lapisquartz_block", () -> new AmethystBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_LIGHT_BLUE).strength(1.5F).sound(SoundType.AMETHYST).requiresCorrectToolForDrops()));
   public static final RegistryObject<Item> LAPISQUARTZ_BLOCK_ITEM = registerItemandlist("lapisquartz_block",
       () -> new BlockItem(LAPISQUARTZ_BLOCK.get(), new Item.Properties()));
-  public static final RegistryObject<Block> BUDDING_LAPISQUARTZ_BLOCK = registerNoneBlockandlist("budding_lapisquartz_block", () -> new BuddingCrystalBlock(BlockBehaviour.Properties.copy(Blocks.BUDDING_AMETHYST),ChemiBlocks.LAPISQUARTZ_BUD::get,ChemiBlocks.LAPISQUARTZ_CRYSTAL::get));
+  public static final RegistryObject<Block> BUDDING_LAPISQUARTZ_BLOCK = registerExternalConfigBlockandlist("budding_lapisquartz_block", () -> new BuddingCrystalBlock(BlockBehaviour.Properties.copy(Blocks.BUDDING_AMETHYST),ChemiBlocks.LAPISQUARTZ_BUD::get,ChemiBlocks.LAPISQUARTZ_CRYSTAL::get));
   public static final RegistryObject<Item> BUDDING_LAPISQUARTZ_BLOCK_ITEM = registerItemandlist("budding_lapisquartz_block",
       () -> new BlockItem(BUDDING_LAPISQUARTZ_BLOCK.get(), new Item.Properties()));
   public static final RegistryObject<Block> LAPISQUARTZ_CRYSTAL = registerBlockandlist("lapisquartz_crystal", () -> new AmethystClusterBlock(7,3,BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_LIGHT_BLUE).forceSolidOn().noOcclusion().randomTicks().sound(SoundType.AMETHYST_CLUSTER).strength(1.5F).lightLevel(x -> 9).pushReaction(PushReaction.DESTROY)));
@@ -344,7 +350,7 @@ public class ChemiBlocks {
   public static final RegistryObject<Block> MORION_BLOCK = registerStoneBlockandlist("morion_block", () -> new AmethystBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_LIGHT_BLUE).strength(1.5F).sound(SoundType.AMETHYST).requiresCorrectToolForDrops()));
   public static final RegistryObject<Item> MORION_BLOCK_ITEM = registerItemandlist("morion_block",
       () -> new BlockItem(MORION_BLOCK.get(), new Item.Properties()));
-  public static final RegistryObject<Block> BUDDING_MORION_BLOCK = registerNoneBlockandlist("budding_morion_block", () -> new BuddingCrystalBlock(BlockBehaviour.Properties.copy(Blocks.BUDDING_AMETHYST),ChemiBlocks.MORION_BUD::get, ChemiBlocks.MORION_CRYSTAL::get));
+  public static final RegistryObject<Block> BUDDING_MORION_BLOCK = registerExternalConfigBlockandlist("budding_morion_block", () -> new BuddingCrystalBlock(BlockBehaviour.Properties.copy(Blocks.BUDDING_AMETHYST),ChemiBlocks.MORION_BUD::get, ChemiBlocks.MORION_CRYSTAL::get));
   public static final RegistryObject<Item> BUDDING_MORION_BLOCK_ITEM = registerItemandlist("budding_morion_block",
       () -> new BlockItem(BUDDING_MORION_BLOCK.get(), new Item.Properties()));
   public static final RegistryObject<Block> MORION_CRYSTAL = registerBlockandlist("morion_crystal", () -> new AmethystClusterBlock(7,3,BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_LIGHT_BLUE).forceSolidOn().noOcclusion().randomTicks().sound(SoundType.AMETHYST_CLUSTER).strength(1.5F).lightLevel(x -> 9).pushReaction(PushReaction.DESTROY)));
@@ -356,7 +362,7 @@ public class ChemiBlocks {
   public static final RegistryObject<Block> PERIDOT_BLOCK = registerStoneBlockandlist("peridot_block", () -> new AmethystBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_LIGHT_BLUE).strength(1.5F).sound(SoundType.AMETHYST).requiresCorrectToolForDrops()));
   public static final RegistryObject<Item> PERIDOT_BLOCK_ITEM = registerItemandlist("peridot_block",
       () -> new BlockItem(PERIDOT_BLOCK.get(), new Item.Properties()));
-  public static final RegistryObject<Block> BUDDING_PERIDOT_BLOCK = registerNoneBlockandlist("budding_peridot_block", () -> new BuddingCrystalBlock(BlockBehaviour.Properties.copy(Blocks.BUDDING_AMETHYST),ChemiBlocks.PERIDOT_BUD::get, ChemiBlocks.PERIDOT_CRYSTAL::get));
+  public static final RegistryObject<Block> BUDDING_PERIDOT_BLOCK = registerExternalConfigBlockandlist("budding_peridot_block", () -> new BuddingCrystalBlock(BlockBehaviour.Properties.copy(Blocks.BUDDING_AMETHYST),ChemiBlocks.PERIDOT_BUD::get, ChemiBlocks.PERIDOT_CRYSTAL::get));
   public static final RegistryObject<Item> BUDDING_PERIDOT_BLOCK_ITEM = registerItemandlist("budding_peridot_block",
       () -> new BlockItem(BUDDING_PERIDOT_BLOCK.get(), new Item.Properties()));
   public static final RegistryObject<Block> PERIDOT_CRYSTAL = registerBlockandlist("peridot_crystal", () -> new AmethystClusterBlock(7,3,BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_LIGHT_BLUE).forceSolidOn().noOcclusion().randomTicks().sound(SoundType.AMETHYST_CLUSTER).strength(1.5F).lightLevel(x -> 9).pushReaction(PushReaction.DESTROY)));
@@ -368,7 +374,7 @@ public class ChemiBlocks {
   public static final RegistryObject<Block> RED_BERYL_BLOCK = registerStoneBlockandlist("red_beryl_block", () -> new AmethystBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_LIGHT_BLUE).strength(1.5F).sound(SoundType.AMETHYST).requiresCorrectToolForDrops()));
   public static final RegistryObject<Item> RED_BERYL_BLOCK_ITEM = registerItemandlist("red_beryl_block",
       () -> new BlockItem(RED_BERYL_BLOCK.get(), new Item.Properties()));
-  public static final RegistryObject<Block> BUDDING_RED_BERYL_BLOCK = registerNoneBlockandlist("budding_red_beryl_block", () -> new BuddingCrystalBlock(BlockBehaviour.Properties.copy(Blocks.BUDDING_AMETHYST),ChemiBlocks.RED_BERYL_BUD::get, ChemiBlocks.RED_BERYL_CRYSTAL::get));
+  public static final RegistryObject<Block> BUDDING_RED_BERYL_BLOCK = registerExternalConfigBlockandlist("budding_red_beryl_block", () -> new BuddingCrystalBlock(BlockBehaviour.Properties.copy(Blocks.BUDDING_AMETHYST),ChemiBlocks.RED_BERYL_BUD::get, ChemiBlocks.RED_BERYL_CRYSTAL::get));
   public static final RegistryObject<Item> BUDDING_RED_BERYL_BLOCK_ITEM = registerItemandlist("budding_red_beryl_block",
       () -> new BlockItem(BUDDING_RED_BERYL_BLOCK.get(), new Item.Properties()));
   public static final RegistryObject<Block> RED_BERYL_CRYSTAL = registerBlockandlist("red_beryl_crystal", () -> new AmethystClusterBlock(7,3,BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_LIGHT_BLUE).forceSolidOn().noOcclusion().randomTicks().sound(SoundType.AMETHYST_CLUSTER).strength(1.5F).lightLevel(x -> 9).pushReaction(PushReaction.DESTROY)));
@@ -380,7 +386,7 @@ public class ChemiBlocks {
   public static final RegistryObject<Block> ROSE_QUARTZ_BLOCK = registerStoneBlockandlist("rose_quartz_block", () -> new AmethystBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_LIGHT_BLUE).strength(1.5F).sound(SoundType.AMETHYST).requiresCorrectToolForDrops()));
   public static final RegistryObject<Item> ROSE_QUARTZ_BLOCK_ITEM = registerItemandlist("rose_quartz_block",
       () -> new BlockItem(ROSE_QUARTZ_BLOCK.get(), new Item.Properties()));
-  public static final RegistryObject<Block> BUDDING_ROSE_QUARTZ_BLOCK = registerNoneBlockandlist("budding_rose_quartz_block", () -> new BuddingCrystalBlock(BlockBehaviour.Properties.copy(Blocks.BUDDING_AMETHYST),ChemiBlocks.ROSE_QUARTZ_BUD::get, ChemiBlocks.ROSE_QUARTZ_CRYSTAL::get));
+  public static final RegistryObject<Block> BUDDING_ROSE_QUARTZ_BLOCK = registerExternalConfigBlockandlist("budding_rose_quartz_block", () -> new BuddingCrystalBlock(BlockBehaviour.Properties.copy(Blocks.BUDDING_AMETHYST),ChemiBlocks.ROSE_QUARTZ_BUD::get, ChemiBlocks.ROSE_QUARTZ_CRYSTAL::get));
   public static final RegistryObject<Item> BUDDING_ROSE_QUARTZ_BLOCK_ITEM = registerItemandlist("budding_rose_quartz_block",
       () -> new BlockItem(BUDDING_ROSE_QUARTZ_BLOCK.get(), new Item.Properties()));
   public static final RegistryObject<Block> ROSE_QUARTZ_CRYSTAL = registerBlockandlist("rose_quartz_crystal", () -> new AmethystClusterBlock(7,3,BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_LIGHT_BLUE).forceSolidOn().noOcclusion().randomTicks().sound(SoundType.AMETHYST_CLUSTER).strength(1.5F).lightLevel(x -> 9).pushReaction(PushReaction.DESTROY)));
@@ -445,7 +451,7 @@ public class ChemiBlocks {
   public static final RegistryObject<Block> RICE_CROP = registerPlantBlockandlist("rice_crop", () -> new AdvancedCropBlock(ChemiBlocks.RICE_SEEDS::get),2,() -> ChemiBlocks.RICE_SEEDS);
   public static final RegistryObject<Item> RICE_SEEDS = registerItemandlist("rice", 
       () -> new ItemNameBlockItem(RICE_CROP.get(), new Item.Properties()));
-  public static final RegistryObject<Block> ONION_CROP = registerNoneBlockandlist("onion_crop", () -> new AdvancedCropBlock(ChemiBlocks.ONION_SEEDS::get));//Using manually provided loottable
+  public static final RegistryObject<Block> ONION_CROP = registerExternalConfigBlockandlist("onion_crop", () -> new AdvancedCropBlock(ChemiBlocks.ONION_SEEDS::get));//Using manually provided loottable
   public static final RegistryObject<Item> ONION_SEEDS = registerItemandlist("onion", 
       () -> new ItemNameBlockItem(ONION_CROP.get(), new Item.Properties()));
   public static final RegistryObject<Item> ONION_SEEDS_PURPLE = registerItemandlist("purple_onion", 
@@ -466,10 +472,10 @@ public class ChemiBlocks {
   public static final RegistryObject<Block> GRAPE_PARGOLA = registerHoeBlockandlist("grape_pargola", GrapePargola::new);
   public static final RegistryObject<Item> GRAPE_PARGOLA_ITEM = registerItemandlist("grape_pargola",
       () -> new BlockItem(GRAPE_PARGOLA.get(), new Item.Properties()));
-  public static final RegistryObject<Block> GRAPE_CROP = registerNoneBlockandlist("grape_crop", GrapeBlock::new);
+  public static final RegistryObject<Block> GRAPE_CROP = registerExternalConfigBlockandlist("grape_crop", GrapeBlock::new);
   public static final RegistryObject<Item> GRAPE = registerItemandlist("grape", 
       () -> new Item(new Item.Properties()));
-  public static final RegistryObject<Block> GRAPE_SAPLING = registerNoneBlockandlist("grape_sapling", GrapeSapling::new);
+  public static final RegistryObject<Block> GRAPE_SAPLING = registerExternalConfigBlockandlist("grape_sapling", GrapeSapling::new);
   public static final RegistryObject<Item> GRAPE_SAPLING_ITEM = registerItemandlist("grape_sapling", 
       () -> new BlockItem(GRAPE_SAPLING.get(), new Item.Properties()));
       
@@ -486,19 +492,19 @@ public class ChemiBlocks {
   public static final RegistryObject<Item> PUMP_ITEM = registerItemandlist("drain_pipe",
       () -> new BlockItem(PUMP.get(), new Item.Properties()));
       
-  public static final RegistryObject<Block> WILD_ONION = registerNoneBlockandlist("wild_onion", () -> new BushBlock(BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).noCollission().instabreak().sound(SoundType.CROP).offsetType(OffsetType.XZ)));
+  public static final RegistryObject<Block> WILD_ONION = registerExternalConfigBlockandlist("wild_onion", () -> new BushBlock(BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).noCollission().instabreak().sound(SoundType.CROP).offsetType(OffsetType.XZ)));
   public static final RegistryObject<Item> WILD_ONION_ITEM = registerItemandlist("wild_onion", 
       () -> new ItemNameBlockItem(WILD_ONION.get(), new Item.Properties()));
-  public static final RegistryObject<Block> WILD_RICE = registerNoneBlockandlist("wild_rice", () -> new BushBlock(BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).noCollission().instabreak().sound(SoundType.CROP).offsetType(OffsetType.XZ)));
+  public static final RegistryObject<Block> WILD_RICE = registerExternalConfigBlockandlist("wild_rice", () -> new BushBlock(BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).noCollission().instabreak().sound(SoundType.CROP).offsetType(OffsetType.XZ)));
   public static final RegistryObject<Item> WILD_RICE_ITEM = registerItemandlist("wild_rice", 
       () -> new ItemNameBlockItem(WILD_RICE.get(), new Item.Properties()));
-  public static final RegistryObject<Block> WILD_SOYBEAN = registerNoneBlockandlist("wild_soybeans", () -> new BushBlock(BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).noCollission().instabreak().sound(SoundType.CROP).offsetType(OffsetType.XZ)));
+  public static final RegistryObject<Block> WILD_SOYBEAN = registerExternalConfigBlockandlist("wild_soybeans", () -> new BushBlock(BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).noCollission().instabreak().sound(SoundType.CROP).offsetType(OffsetType.XZ)));
   public static final RegistryObject<Item> WILD_SOYBEAN_ITEM = registerItemandlist("wild_soybeans", 
       () -> new ItemNameBlockItem(WILD_SOYBEAN.get(), new Item.Properties()));
-  public static final RegistryObject<Block> WILD_TOMATO = registerNoneBlockandlist("wild_tomato", () -> new BushBlock(BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).noCollission().instabreak().sound(SoundType.CROP).offsetType(OffsetType.XZ)));
+  public static final RegistryObject<Block> WILD_TOMATO = registerExternalConfigBlockandlist("wild_tomato", () -> new BushBlock(BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).noCollission().instabreak().sound(SoundType.CROP).offsetType(OffsetType.XZ)));
   public static final RegistryObject<Item> WILD_TOMATO_ITEM = registerItemandlist("wild_tomato", 
       () -> new ItemNameBlockItem(WILD_TOMATO.get(), new Item.Properties()));
-  public static final RegistryObject<Block> WILD_CORN = registerNoneBlockandlist("wild_corn", () -> new BushBlock(BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).noCollission().instabreak().sound(SoundType.CROP).offsetType(OffsetType.XZ)));
+  public static final RegistryObject<Block> WILD_CORN = registerExternalConfigBlockandlist("wild_corn", () -> new BushBlock(BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).noCollission().instabreak().sound(SoundType.CROP).offsetType(OffsetType.XZ)));
   public static final RegistryObject<Item> WILD_CORN_ITEM = registerItemandlist("wild_corn", 
       () -> new ItemNameBlockItem(WILD_CORN.get(), new Item.Properties()));
 
@@ -801,7 +807,7 @@ public class ChemiBlocks {
     listBlocks.add(BlockLootType.silkhoes(block));
     return block;
   }
-  private static <T extends Block> RegistryObject<T> registerNoneBlockandlist(String name, Supplier<T> supplier) {
+  private static <T extends Block> RegistryObject<T> registerExternalConfigBlockandlist(String name, Supplier<T> supplier) {
     RegistryObject<T> block = BLOCKS.register(name, supplier);
     listBlocks.add(BlockLootType.none(block));
     return block;

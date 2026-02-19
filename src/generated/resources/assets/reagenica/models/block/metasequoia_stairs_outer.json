@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/outer_stairs",
+  "textures": {
+    "bottom": "reagenica:block/metasequoia_planks",
+    "side": "reagenica:block/metasequoia_planks",
+    "top": "reagenica:block/metasequoia_planks"
+  }
+}

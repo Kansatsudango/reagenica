@@ -1,5 +1,18 @@
 {
   "values": [
+    "reagenica:metasequoia_leaves",
+    "reagenica:mushroom_stem_red",
+    "reagenica:mushroom_inside_red",
+    "reagenica:mushroom_surface_red",
+    "reagenica:mushroom_stem_green",
+    "reagenica:mushroom_inside_green",
+    "reagenica:mushroom_surface_green",
+    "reagenica:mushroom_stem_purple",
+    "reagenica:mushroom_inside_purple",
+    "reagenica:mushroom_surface_purple",
+    "reagenica:mushroom_stem_blue",
+    "reagenica:mushroom_inside_blue",
+    "reagenica:mushroom_surface_blue",
     "reagenica:grape_pargola"
   ]
 }

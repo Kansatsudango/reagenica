@@ -1,6 +1,21 @@
 {
   "values": [
     "reagenica:spring_outlet_wood",
+    "reagenica:metasequoia_log",
+    "reagenica:metasequoia_planks",
+    "reagenica:metasequoia_stairs",
+    "reagenica:metasequoia_trapdoor",
+    "reagenica:metasequoia_door",
+    "reagenica:metasequoia_button",
+    "reagenica:taxodium_log",
+    "reagenica:taxodium_planks",
+    "reagenica:taxodium_root",
+    "reagenica:ginkgo_log",
+    "reagenica:ginkgo_planks",
+    "reagenica:magnolia_log",
+    "reagenica:magnolia_planks",
+    "reagenica:ficus_log",
+    "reagenica:ficus_planks",
     "reagenica:pargola",
     "reagenica:andon",
     "reagenica:holiday_tree"
