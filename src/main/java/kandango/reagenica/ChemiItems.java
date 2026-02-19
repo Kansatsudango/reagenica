@@ -172,6 +172,7 @@ public class ChemiItems {
     public static final RegistryObject<Item> COPPER_FILTER = registerandlist("copper_filter", () -> new Item(new Item.Properties().durability(40)));
     public static final RegistryObject<Item> SILVER_FILTER = registerandlist("silver_filter", () -> new Item(new Item.Properties().durability(600).rarity(Rarity.UNCOMMON)));
     public static final RegistryObject<Item> PLATINUM_FILTER = registerandlist("platinum_filter", () -> new Item(new Item.Properties().durability(2400).rarity(Rarity.UNCOMMON)));
+    public static final RegistryObject<Item> GEOLOGIST_ROD = registerandlist("geologist_rod", () -> new GeologistRod());
     
     public static final RegistryObject<Item> URANIUM_FUEL_ROD = registerandlist("uranium_fuel_rod", () -> new Item(new Item.Properties().stacksTo(1).durability(3600).rarity(Rarity.UNCOMMON)));
     public static final RegistryObject<Item> DEPLETED_FUEL_ROD = registerandlist("depleted_fuel_rod", () -> new Item(new Item.Properties()));
