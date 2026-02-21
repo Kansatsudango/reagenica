@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "reagenica:block/metasequoia_slab"
+    },
+    "type=double": {
+      "model": "reagenica:block/metasequoia_planks"
+    },
+    "type=top": {
+      "model": "reagenica:block/metasequoia_slab_top"
+    }
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "reagenica:block/stripped_ficus_log_top",
+    "side": "reagenica:block/stripped_ficus_log"
+  }
+}

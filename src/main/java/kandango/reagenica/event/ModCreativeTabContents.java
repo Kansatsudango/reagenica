@@ -25,6 +25,10 @@ public class ModCreativeTabContents {
           }
         }else if(event.getTab() == ModCreativeTabs.PALEO_TAB.get()){
           ChemiBlocks.METASEQUOIA.blockItems().forEach(event::accept);
+          ChemiBlocks.TAXODIUM.blockItems().forEach(event::accept);
+          ChemiBlocks.GINKGO.blockItems().forEach(event::accept);
+          ChemiBlocks.MAGNOLIA.blockItems().forEach(event::accept);
+          ChemiBlocks.FICUS.blockItems().forEach(event::accept);
         }
     }
 }

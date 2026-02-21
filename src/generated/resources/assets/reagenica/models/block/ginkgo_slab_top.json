@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab_top",
+  "textures": {
+    "bottom": "reagenica:block/ginkgo_planks",
+    "side": "reagenica:block/ginkgo_planks",
+    "top": "reagenica:block/ginkgo_planks"
+  }
+}

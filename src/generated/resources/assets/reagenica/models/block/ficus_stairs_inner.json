@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/inner_stairs",
+  "textures": {
+    "bottom": "reagenica:block/ficus_planks",
+    "side": "reagenica:block/ficus_planks",
+    "top": "reagenica:block/ficus_planks"
+  }
+}

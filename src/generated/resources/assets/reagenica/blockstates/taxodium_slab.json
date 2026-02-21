@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "reagenica:block/taxodium_slab"
+    },
+    "type=double": {
+      "model": "reagenica:block/taxodium_planks"
+    },
+    "type=top": {
+      "model": "reagenica:block/taxodium_slab_top"
+    }
+  }
+}

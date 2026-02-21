@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab_top",
+  "textures": {
+    "bottom": "reagenica:block/taxodium_planks",
+    "side": "reagenica:block/taxodium_planks",
+    "top": "reagenica:block/taxodium_planks"
+  }
+}

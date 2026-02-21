@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "reagenica:block/ginkgo_slab"
+    },
+    "type=double": {
+      "model": "reagenica:block/ginkgo_planks"
+    },
+    "type=top": {
+      "model": "reagenica:block/ginkgo_slab_top"
+    }
+  }
+}

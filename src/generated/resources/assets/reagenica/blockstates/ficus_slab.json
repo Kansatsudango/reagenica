@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "reagenica:block/ficus_slab"
+    },
+    "type=double": {
+      "model": "reagenica:block/ficus_planks"
+    },
+    "type=top": {
+      "model": "reagenica:block/ficus_slab_top"
+    }
+  }
+}

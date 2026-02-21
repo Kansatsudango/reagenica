@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/stairs",
+  "textures": {
+    "bottom": "reagenica:block/magnolia_planks",
+    "side": "reagenica:block/magnolia_planks",
+    "top": "reagenica:block/magnolia_planks"
+  }
+}
