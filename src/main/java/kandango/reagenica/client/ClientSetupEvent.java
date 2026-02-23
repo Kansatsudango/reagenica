@@ -18,6 +18,8 @@ import kandango.reagenica.client.renderer.TradingStallRenderer;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderers;
+import net.minecraft.client.renderer.blockentity.HangingSignRenderer;
+import net.minecraft.client.renderer.blockentity.SignRenderer;
 import net.minecraft.client.renderer.item.ItemProperties;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.api.distmarker.Dist;
@@ -72,6 +74,8 @@ public class ClientSetupEvent {
             BlockEntityRenderers.register(ModBlockEntities.LEAD_BATTERY.get(), LeadBatteryFluidRenderer::new);
             BlockEntityRenderers.register(ModBlockEntities.LARGE_TANK_CORE.get(), LargeTankRenderer::new);
             BlockEntityRenderers.register(ModBlockEntities.ONSEN_FILLER.get(), OnsenFillerFluidRenderer::new);
+            BlockEntityRenderers.register(ModBlockEntities.SIGN.get(), SignRenderer::new);
+            BlockEntityRenderers.register(ModBlockEntities.HANGING_SIGN.get(), HangingSignRenderer::new);
 
             ItemProperties.register(ChemiItems.ALCHOHOL_LAMP.get(), new ResourceLocation("empty"), (stack, level, entity, seed) -> stack.getDamageValue() >= stack.getMaxDamage() ? 1.0F : 0.0F);
         });

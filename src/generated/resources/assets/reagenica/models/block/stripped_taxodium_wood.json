@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "reagenica:block/stripped_taxodium_log",
+    "side": "reagenica:block/stripped_taxodium_log"
+  }
+}

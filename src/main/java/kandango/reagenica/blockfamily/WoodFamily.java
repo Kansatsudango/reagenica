@@ -5,25 +5,35 @@ import java.util.function.Supplier;
 import java.util.stream.Stream;
 
 import kandango.reagenica.ChemiBlocks;
+import kandango.reagenica.block.sign.*;
 import kandango.reagenica.generator.BlockLootType;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.item.BlockItem;
+import net.minecraft.world.item.HangingSignItem;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.SignItem;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.PressurePlateBlock.Sensitivity;
 import net.minecraft.world.level.block.grower.AbstractTreeGrower;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.properties.BlockSetType;
+import net.minecraft.world.level.block.state.properties.WoodType;
 import net.minecraftforge.registries.RegistryObject;
 
 public class WoodFamily {
   public final RegistryObject<RotatedPillarBlock> LOG;
+  public final RegistryObject<RotatedPillarBlock> WOOD;
   public final RegistryObject<LeavesBlock> LEAVES;
   public final RegistryObject<SaplingBlock> SAPLING;
   public final RegistryObject<Block> PLANKS;
   public final RegistryObject<StairBlock> STAIRS;
   public final RegistryObject<SlabBlock> SLAB;
   public final RegistryObject<RotatedPillarBlock> STRIPPED_LOG;
+  public final RegistryObject<RotatedPillarBlock> STRIPPED_WOOD;
+  public final RegistryObject<ChemiStandingSignBlock> STANDING_SIGN;
+  public final RegistryObject<ChemiWallSignBlock> WALL_SIGN;
+  public final RegistryObject<ChemiCeilingHangingSignBlock> CEILING_HANGING_SIGN;
+  public final RegistryObject<ChemiWallHangingSignBlock> WALL_HANGING_SIGN;
   public final RegistryObject<FenceBlock> FENCE;
   public final RegistryObject<FenceGateBlock> FENCE_GATE;
   public final RegistryObject<TrapDoorBlock> TRAPDOOR;
@@ -31,12 +41,16 @@ public class WoodFamily {
   public final RegistryObject<ButtonBlock> BUTTON;
   public final RegistryObject<PressurePlateBlock> PRESSURE_PLATE;
   public final RegistryObject<BlockItem> LOG_ITEM;
+  public final RegistryObject<BlockItem> WOOD_ITEM;
   public final RegistryObject<BlockItem> LEAVES_ITEM;
   public final RegistryObject<BlockItem> SAPLING_ITEM;
   public final RegistryObject<BlockItem> PLANKS_ITEM;
   public final RegistryObject<BlockItem> STAIRS_ITEM;
   public final RegistryObject<BlockItem> SLAB_ITEM;
   public final RegistryObject<BlockItem> STRIPPED_LOG_ITEM;
+  public final RegistryObject<BlockItem> STRIPPED_WOOD_ITEM;
+  public final RegistryObject<SignItem> SIGN_ITEM;
+  public final RegistryObject<HangingSignItem> HANGING_SIGN_ITEM;
   public final RegistryObject<BlockItem> FENCE_ITEM;
   public final RegistryObject<BlockItem> FENCE_GATE_ITEM;
   public final RegistryObject<BlockItem> TRAPDOOR_ITEM;
@@ -45,11 +59,15 @@ public class WoodFamily {
   public final RegistryObject<BlockItem> PRESSURE_PLATE_ITEM;
   public final String name;
   public final BlockSetType setType;
+  public final WoodType woodType;
   public WoodFamily(String name, Supplier<AbstractTreeGrower> grower){
     this.name = name;
     this.setType = BlockSetType.register(new BlockSetType(name));
+    this.woodType = WoodType.register(new WoodType("reagenica:"+name, setType));
     this.LOG = ChemiBlocks.BLOCKS.register(name+"_log", () -> new RotatedPillarBlock(BlockBehaviour.Properties.copy(Blocks.OAK_LOG)));
     this.LOG_ITEM = ChemiBlocks.ITEMS.register(name+"_log", () -> new BlockItem(LOG.get(), new Item.Properties()));
+    this.WOOD = ChemiBlocks.BLOCKS.register(name+"_wood", () -> new RotatedPillarBlock(BlockBehaviour.Properties.copy(Blocks.OAK_WOOD)));
+    this.WOOD_ITEM = ChemiBlocks.ITEMS.register(name+"_wood", () -> new BlockItem(WOOD.get(), new Item.Properties()));
     this.LEAVES = ChemiBlocks.BLOCKS.register(name+"_leaves", () -> new LeavesBlock(BlockBehaviour.Properties.copy(Blocks.OAK_LEAVES)));
     this.LEAVES_ITEM = ChemiBlocks.ITEMS.register(name+"_leaves", () -> new BlockItem(LEAVES.get(), new Item.Properties()));
     this.SAPLING = ChemiBlocks.BLOCKS.register(name+"_sapling", () -> new SaplingBlock(grower.get(),BlockBehaviour.Properties.copy(Blocks.OAK_SAPLING)));
@@ -62,6 +80,14 @@ public class WoodFamily {
     this.SLAB_ITEM = ChemiBlocks.ITEMS.register(name+"_slab", () -> new BlockItem(SLAB.get(), new Item.Properties()));
     this.STRIPPED_LOG = ChemiBlocks.BLOCKS.register("stripped_"+name+"_log", () -> new RotatedPillarBlock(BlockBehaviour.Properties.copy(Blocks.STRIPPED_OAK_LOG)));
     this.STRIPPED_LOG_ITEM = ChemiBlocks.ITEMS.register("stripped_"+name+"_log", () -> new BlockItem(STRIPPED_LOG.get(), new Item.Properties()));
+    this.STRIPPED_WOOD = ChemiBlocks.BLOCKS.register("stripped_"+name+"_wood", () -> new RotatedPillarBlock(BlockBehaviour.Properties.copy(Blocks.STRIPPED_OAK_WOOD)));
+    this.STRIPPED_WOOD_ITEM = ChemiBlocks.ITEMS.register("stripped_"+name+"_wood", () -> new BlockItem(STRIPPED_LOG.get(), new Item.Properties()));
+    this.STANDING_SIGN = ChemiBlocks.BLOCKS.register(name+"_sign", () -> new ChemiStandingSignBlock(BlockBehaviour.Properties.copy(Blocks.OAK_SIGN), woodType));
+    this.WALL_SIGN = ChemiBlocks.BLOCKS.register(name+"_wall_sign", () -> new ChemiWallSignBlock(BlockBehaviour.Properties.copy(Blocks.OAK_WALL_SIGN), woodType));
+    this.SIGN_ITEM = ChemiBlocks.ITEMS.register(name+"_sign", () -> new SignItem(new Item.Properties(), STANDING_SIGN.get(), WALL_SIGN.get()));
+    this.CEILING_HANGING_SIGN = ChemiBlocks.BLOCKS.register(name+"_hanging_sign", () -> new ChemiCeilingHangingSignBlock(BlockBehaviour.Properties.copy(Blocks.OAK_HANGING_SIGN), woodType));
+    this.WALL_HANGING_SIGN = ChemiBlocks.BLOCKS.register(name+"_wall_hanging_sign", () -> new ChemiWallHangingSignBlock(BlockBehaviour.Properties.copy(Blocks.OAK_WALL_HANGING_SIGN), woodType));
+    this.HANGING_SIGN_ITEM = ChemiBlocks.ITEMS.register(name+"_hanging_sign", () -> new HangingSignItem(CEILING_HANGING_SIGN.get(), WALL_HANGING_SIGN.get(), new Item.Properties()));
     this.FENCE = ChemiBlocks.BLOCKS.register(name+"_fence", () -> new FenceBlock(BlockBehaviour.Properties.copy(Blocks.OAK_FENCE)));
     this.FENCE_ITEM = ChemiBlocks.ITEMS.register(name+"_fence", () -> new BlockItem(FENCE.get(), new Item.Properties()));
     this.FENCE_GATE = ChemiBlocks.BLOCKS.register(name+"_fence_gate", () -> new FenceGateBlock(BlockBehaviour.Properties.copy(Blocks.OAK_FENCE_GATE),SoundEvents.FENCE_GATE_OPEN,SoundEvents.FENCE_GATE_CLOSE));
@@ -77,12 +103,18 @@ public class WoodFamily {
   }
   public void addLootTable(List<? super BlockLootType> list){
     list.add(BlockLootType.wood(LOG));
+    list.add(BlockLootType.wood(WOOD));
     list.add(BlockLootType.silkhoes(LEAVES));
     list.add(BlockLootType.normal(SAPLING));
     list.add(BlockLootType.wood(PLANKS));
     list.add(BlockLootType.wood(STAIRS));
     list.add(BlockLootType.wood(SLAB));
     list.add(BlockLootType.wood(STRIPPED_LOG));
+    list.add(BlockLootType.wood(STRIPPED_WOOD));
+    list.add(BlockLootType.wood(STANDING_SIGN));
+    list.add(BlockLootType.wood(WALL_SIGN));
+    list.add(BlockLootType.wood(CEILING_HANGING_SIGN));
+    list.add(BlockLootType.wood(WALL_HANGING_SIGN));
     list.add(BlockLootType.wood(FENCE));
     list.add(BlockLootType.wood(FENCE_GATE));
     list.add(BlockLootType.wood(TRAPDOOR));
@@ -90,8 +122,9 @@ public class WoodFamily {
     list.add(BlockLootType.wood(BUTTON));
     list.add(BlockLootType.wood(PRESSURE_PLATE));
   }
-  public Stream<RegistryObject<BlockItem>> blockItems(){
-    return Stream.of(LOG_ITEM, LEAVES_ITEM, SAPLING_ITEM, PLANKS_ITEM, STAIRS_ITEM, SLAB_ITEM, STRIPPED_LOG_ITEM,
+  public Stream<RegistryObject<? extends BlockItem>> blockItems(){
+    return Stream.of(LOG_ITEM, WOOD_ITEM, LEAVES_ITEM, SAPLING_ITEM, PLANKS_ITEM, STAIRS_ITEM, SLAB_ITEM,
+       STRIPPED_LOG_ITEM, STRIPPED_WOOD_ITEM, SIGN_ITEM, HANGING_SIGN_ITEM,
        FENCE_ITEM, FENCE_GATE_ITEM, TRAPDOOR_ITEM, DOOR_ITEM, BUTTON_ITEM, PRESSURE_PLATE_ITEM);
   }
 }

@@ -4,8 +4,10 @@ import kandango.reagenica.ChemiBlocks;
 import kandango.reagenica.ChemistryMod;
 import kandango.reagenica.blockfamily.WoodFamily;
 import net.minecraft.data.PackOutput;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.ButtonBlock;
+import net.minecraft.world.level.block.CeilingHangingSignBlock;
 import net.minecraft.world.level.block.DoorBlock;
 import net.minecraft.world.level.block.FenceBlock;
 import net.minecraft.world.level.block.FenceGateBlock;
@@ -13,8 +15,13 @@ import net.minecraft.world.level.block.PressurePlateBlock;
 import net.minecraft.world.level.block.RotatedPillarBlock;
 import net.minecraft.world.level.block.SlabBlock;
 import net.minecraft.world.level.block.StairBlock;
+import net.minecraft.world.level.block.StandingSignBlock;
 import net.minecraft.world.level.block.TrapDoorBlock;
+import net.minecraft.world.level.block.WallHangingSignBlock;
+import net.minecraft.world.level.block.WallSignBlock;
 import net.minecraftforge.client.model.generators.BlockStateProvider;
+import net.minecraftforge.client.model.generators.ConfiguredModel;
+import net.minecraftforge.client.model.generators.ModelFile;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.registries.RegistryObject;
 
@@ -44,6 +51,10 @@ public class ChemiBlockStateProvider extends BlockStateProvider{
   private void registerLogBlockWithItem(RegistryObject<? extends RotatedPillarBlock> log){
     logBlock(log.get());
     simpleBlockItem(log.get(), models().getExistingFile(blockTexture(log.get())));
+  }
+  private void registerWoodBlockWithItem(RegistryObject<? extends RotatedPillarBlock> wood, String name){
+    axisBlock(wood.get(), modLoc("block/"+name+"_log"), modLoc("block/"+name+"_log"));
+    simpleBlockItem(wood.get(), models().getExistingFile(blockTexture(wood.get())));
   }
   private void registerTrapdoorBlockWithItem(RegistryObject<? extends TrapDoorBlock> trapdoor, String name){
     trapdoorBlockWithRenderType(trapdoor.get(), modLoc("block/"+name+"_trapdoor"), true, "cutout");
@@ -85,14 +96,32 @@ public class ChemiBlockStateProvider extends BlockStateProvider{
             modLoc("block/" + name + "_fence_gate")
     );
   }
+  private void registerSignBlocksWithItem(RegistryObject<? extends StandingSignBlock> sign, RegistryObject<? extends WallSignBlock> wallsign, String name){
+    signBlock(sign.get(), wallsign.get(), modLoc("block/"+name+"_planks"));
+  }
+  private void registerHangingSign(RegistryObject<? extends CeilingHangingSignBlock> hanging, RegistryObject<? extends WallHangingSignBlock> wall, String name) {
+    ResourceLocation particle = modLoc("block/stripped_" + name + "_log");
+    ModelFile model = models().getBuilder(name + "_hanging_sign")
+            .texture("particle", particle);
+    getVariantBuilder(hanging.get())
+            .partialState()
+            .addModels(new ConfiguredModel(model));
+    getVariantBuilder(wall.get())
+            .partialState()
+            .addModels(new ConfiguredModel(model));
+}
   private void registerWoodThings(WoodFamily woodFamily){
     registerLogBlockWithItem(woodFamily.LOG);
+    registerWoodBlockWithItem(woodFamily.WOOD, woodFamily.name);
     registerCutoutSimpleBlockWithItem(woodFamily.LEAVES, woodFamily.name+"_leaves");
     registerCutoutCrossBlockWithItem(woodFamily.SAPLING, woodFamily.name+"_sapling");
     registerSimpleBlockWithItem(woodFamily.PLANKS);
     registerStairBlockWithItem(woodFamily.STAIRS, woodFamily.PLANKS);
     registerSlabBlockWithItem(woodFamily.SLAB, woodFamily.name);
     registerLogBlockWithItem(woodFamily.STRIPPED_LOG);
+    registerWoodBlockWithItem(woodFamily.STRIPPED_WOOD, "stripped_"+woodFamily.name);
+    registerSignBlocksWithItem(woodFamily.STANDING_SIGN, woodFamily.WALL_SIGN, woodFamily.name);
+    registerHangingSign(woodFamily.CEILING_HANGING_SIGN, woodFamily.WALL_HANGING_SIGN, woodFamily.name);
     registerFenceBlockWithItem(woodFamily.FENCE, woodFamily.name);
     registerFenceGateBlockWithItem(woodFamily.FENCE_GATE, woodFamily.name);
     registerTrapdoorBlockWithItem(woodFamily.TRAPDOOR, woodFamily.name);

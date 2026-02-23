@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "reagenica:block/magnolia_log",
+    "side": "reagenica:block/magnolia_log"
+  }
+}

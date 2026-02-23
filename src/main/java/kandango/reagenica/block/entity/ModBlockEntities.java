@@ -194,6 +194,26 @@ public class ModBlockEntities {
         BLOCK_ENTITIES.register("hotspring_filler", 
         () -> BlockEntityType.Builder.of((BlockEntityType.BlockEntitySupplier<OnsenFillerBlockEntity>)OnsenFillerBlockEntity::new,ChemiBlocks.ONSEN_FILLER_WOOD.get(),ChemiBlocks.ONSEN_FILLER_STONE.get()).build(null));
 
+    @SuppressWarnings("null")
+    public static final RegistryObject<BlockEntityType<ChemiSignBlockEntity>> SIGN = 
+        BLOCK_ENTITIES.register("sign", 
+        () -> BlockEntityType.Builder.of((BlockEntityType.BlockEntitySupplier<ChemiSignBlockEntity>)ChemiSignBlockEntity::new,
+                ChemiBlocks.METASEQUOIA.STANDING_SIGN.get(),ChemiBlocks.METASEQUOIA.WALL_SIGN.get(),
+                ChemiBlocks.TAXODIUM.STANDING_SIGN.get(),ChemiBlocks.TAXODIUM.WALL_SIGN.get(),
+                ChemiBlocks.GINKGO.STANDING_SIGN.get(),ChemiBlocks.GINKGO.WALL_SIGN.get(),
+                ChemiBlocks.MAGNOLIA.STANDING_SIGN.get(),ChemiBlocks.MAGNOLIA.WALL_SIGN.get(),
+                ChemiBlocks.FICUS.STANDING_SIGN.get(),ChemiBlocks.FICUS.WALL_SIGN.get()).build(null));
+
+    @SuppressWarnings("null")
+    public static final RegistryObject<BlockEntityType<ChemiHangingSignBlockEntity>> HANGING_SIGN = 
+        BLOCK_ENTITIES.register("hanging_sign", 
+        () -> BlockEntityType.Builder.of((BlockEntityType.BlockEntitySupplier<ChemiHangingSignBlockEntity>)ChemiHangingSignBlockEntity::new,
+                ChemiBlocks.METASEQUOIA.CEILING_HANGING_SIGN.get(),ChemiBlocks.METASEQUOIA.WALL_HANGING_SIGN.get(),
+                ChemiBlocks.TAXODIUM.CEILING_HANGING_SIGN.get(),ChemiBlocks.TAXODIUM.WALL_HANGING_SIGN.get(),
+                ChemiBlocks.GINKGO.CEILING_HANGING_SIGN.get(),ChemiBlocks.GINKGO.WALL_HANGING_SIGN.get(),
+                ChemiBlocks.MAGNOLIA.CEILING_HANGING_SIGN.get(),ChemiBlocks.MAGNOLIA.WALL_HANGING_SIGN.get(),
+                ChemiBlocks.FICUS.CEILING_HANGING_SIGN.get(),ChemiBlocks.FICUS.WALL_HANGING_SIGN.get()).build(null));
+
     public static void register(IEventBus eventBus) {
         BLOCK_ENTITIES.register(eventBus);
     }
