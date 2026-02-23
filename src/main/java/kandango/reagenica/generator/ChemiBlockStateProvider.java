@@ -62,6 +62,7 @@ public class ChemiBlockStateProvider extends BlockStateProvider{
   }
   private void registerDoorBlockWithItem(RegistryObject<? extends DoorBlock> door, String name){
     doorBlockWithRenderType(door.get(), modLoc("block/"+name+"_door_bottom"), modLoc("block/"+name+"_door_top"), "cutout");
+    itemModels().withExistingParent(name+"_door", mcLoc("item/generated")).texture("layer0", modLoc("item/"+name+"_door"));
   }
   private void registerSimpleBlockWithItem(RegistryObject<? extends Block> block){
     simpleBlockWithItem(block.get(), models().getExistingFile(blockTexture(block.get())));
@@ -98,6 +99,7 @@ public class ChemiBlockStateProvider extends BlockStateProvider{
   }
   private void registerSignBlocksWithItem(RegistryObject<? extends StandingSignBlock> sign, RegistryObject<? extends WallSignBlock> wallsign, String name){
     signBlock(sign.get(), wallsign.get(), modLoc("block/"+name+"_planks"));
+    itemModels().withExistingParent(name+"_sign", mcLoc("item/generated")).texture("layer0", modLoc("item/"+name+"_sign"));
   }
   private void registerHangingSign(RegistryObject<? extends CeilingHangingSignBlock> hanging, RegistryObject<? extends WallHangingSignBlock> wall, String name) {
     ResourceLocation particle = modLoc("block/stripped_" + name + "_log");
@@ -109,6 +111,7 @@ public class ChemiBlockStateProvider extends BlockStateProvider{
     getVariantBuilder(wall.get())
             .partialState()
             .addModels(new ConfiguredModel(model));
+    itemModels().withExistingParent(name+"_hanging_sign", mcLoc("item/generated")).texture("layer0", modLoc("item/"+name+"_hanging_sign"));
 }
   private void registerWoodThings(WoodFamily woodFamily){
     registerLogBlockWithItem(woodFamily.LOG);
