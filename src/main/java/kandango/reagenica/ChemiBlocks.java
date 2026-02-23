@@ -207,6 +207,10 @@ public class ChemiBlocks {
   public static final RegistryObject<Block> OILSAND_DEEPSLATE_ORE = registerOreBlockandlist("deepslate_oilsand_ore", OresConfig::deepslateOres, 1, () -> ChemiItems.OIL_SAND, 1);
   public static final RegistryObject<Item> OILSAND_DEEPSLATE_ORE_ITEM = registerItemandlist("deepslate_oilsand_ore",
       () -> new BlockItem(OILSAND_DEEPSLATE_ORE.get(), new Item.Properties()));
+      
+  public static final RegistryObject<Block> IRIDIUM_ORE = registerOreBlockandlist("iridium_ore", OresConfig::stoneOres, 1, () -> ChemiItems.OIL_SAND, 1);
+  public static final RegistryObject<Item> IRIDIUM_ORE_ITEM = registerItemandlist("iridium_ore",
+      () -> new BlockItem(IRIDIUM_ORE.get(), new Item.Properties()));
 
   public static final RegistryObject<Block> CRYOLITE = registerStoneBlockandlist("cryolite", () -> new Block(BlockBehaviour.Properties.of().strength(2.0f, 3.0f).sound(SoundType.CALCITE)));
   public static final RegistryObject<Item> CRYOLITE_ITEM = registerItemandlist("cryolite",
@@ -236,6 +240,9 @@ public class ChemiBlocks {
   static{MAGNOLIA.addLootTable(listBlocks);}
   public static final WoodFamily FICUS = new WoodFamily("ficus", () -> new FicusGrower());
   static{FICUS.addLootTable(listBlocks);}
+  public static final RegistryObject<Block> TAXODIUM_ROOT = registerWoodBlockandlist("taxodium_root", () -> new TaxodiumRoot());
+  public static final RegistryObject<Item> TAXODIUM_ROOT_ITEM = registerItemandlist("taxodium_root",
+      () -> new BlockItem(TAXODIUM_ROOT.get(), new Item.Properties()));
       
   public static final RegistryObject<Block> ANCESTOR_ASTERACEAE = registerBlockandlist("ancestor_asteraceae", () -> new FlowerBlock(() -> MobEffects.DIG_SLOWDOWN, 140, BlockBehaviour.Properties.copy(Blocks.POPPY)));
   public static final RegistryObject<Item> ANCESTOR_ASTERACEAE_ITEM = registerItemandlist("ancestor_asteraceae",

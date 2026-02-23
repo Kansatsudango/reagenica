@@ -1,0 +1,7 @@
+{
+  "type": "reagenica:mega_crater",
+  "biomes": "#reagenica:has_structure/mega_crater",
+  "step": "top_layer_modification",
+  "spawn_overrides": {},
+  "terrain_adaptation": "beard_thin"
+}

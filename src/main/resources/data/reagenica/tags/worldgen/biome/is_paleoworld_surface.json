@@ -1,0 +1,27 @@
+{
+  "values": [
+    "reagenica:canyon_river",
+    "reagenica:chaos_fungi_field",
+    "reagenica:drought_forest",
+    "reagenica:drought",
+    "reagenica:fern_garden",
+    "reagenica:lava_plateau",
+    "reagenica:magnolia_forest",
+    "reagenica:paleo_desert_oasis",
+    "reagenica:paleo_desert",
+    "reagenica:paleo_jungle",
+    "reagenica:paleo_meadow",
+    "reagenica:paleo_plain",
+    "reagenica:paleo_swamp",
+    "reagenica:primeval_lukewarm_ocean",
+    "reagenica:primeval_river",
+    "reagenica:primeval_taxodium_river",
+    "reagenica:primeval_warm_ocean",
+    "reagenica:rocky_peaks",
+    "reagenica:snowy_peaks",
+    "reagenica:snowy_slopes",
+    "reagenica:volcano_peaks",
+    "reagenica:volcano_slopes",
+    "reagenica:warm_slopes"
+  ]
+}

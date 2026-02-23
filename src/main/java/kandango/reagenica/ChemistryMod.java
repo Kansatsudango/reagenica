@@ -13,6 +13,7 @@ import kandango.reagenica.world.ChemiPOIs;
 import kandango.reagenica.worldgen.ChemiBiomes;
 import kandango.reagenica.worldgen.ChemiFeatures;
 import kandango.reagenica.worldgen.ChemiFoliagePlacers;
+import kandango.reagenica.worldgen.ChemiStructures;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 
@@ -34,6 +35,8 @@ public class ChemistryMod {
     ChemiFoliagePlacers.TRUNK_PLACERS.register(modEventBus);
     ChemiParticles.PARTICLES.register(modEventBus);
     ChemiBiomes.BIOME_SOURCE.register(modEventBus);
+    ChemiStructures.STRUCTURE_TYPES.register(modEventBus);
+    ChemiStructures.PIECES.register(modEventBus);
     ModBlockEntities.register(modEventBus);
     ModMenus.register(modEventBus);
     ModRecipes.register(modEventBus);

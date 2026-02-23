@@ -1,0 +1,14 @@
+{
+  "structures": [
+    {
+      "structure": "reagenica:mega_crater",
+      "weight": 1
+    }
+  ],
+  "placement": {
+    "type": "minecraft:random_spread",
+    "spacing": 300,
+    "separation": 40,
+    "salt": 65500000
+  }
+}
