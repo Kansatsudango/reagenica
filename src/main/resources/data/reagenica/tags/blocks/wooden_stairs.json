@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "reagenica:metasequoia_stairs",
+    "reagenica:taxodium_stairs",
+    "reagenica:ginkgo_stairs",
+    "reagenica:magnolia_stairs",
+    "reagenica:ficus_stairs"
+  ]
+}

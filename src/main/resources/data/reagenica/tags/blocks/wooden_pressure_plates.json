@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "reagenica:metasequoia_pressure_plate",
+    "reagenica:taxodium_pressure_plate",
+    "reagenica:ginkgo_pressure_plate",
+    "reagenica:magnolia_pressure_plate",
+    "reagenica:ficus_pressure_plate"
+  ]
+}

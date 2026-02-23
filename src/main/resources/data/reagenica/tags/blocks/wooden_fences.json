@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "reagenica:metasequoia_fence",
+    "reagenica:taxodium_fence",
+    "reagenica:ginkgo_fence",
+    "reagenica:magnolia_fence",
+    "reagenica:ficus_fence"
+  ]
+}

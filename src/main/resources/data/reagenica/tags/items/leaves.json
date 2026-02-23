@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "reagenica:metasequoia_leaves",
+    "reagenica:taxodium_leaves",
+    "reagenica:ginkgo_leaves",
+    "reagenica:magnolia_leaves",
+    "reagenica:ficus_leaves"
+  ]
+}

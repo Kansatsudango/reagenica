@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    {
+      "item": "reagenica:ginkgo_planks"
+    }
+  ],
+  "result": {
+    "item": "reagenica:ginkgo_button"
+  }
+}

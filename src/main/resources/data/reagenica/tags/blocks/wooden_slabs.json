@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "reagenica:metasequoia_slab",
+    "reagenica:taxodium_slab",
+    "reagenica:ginkgo_slab",
+    "reagenica:magnolia_slab",
+    "reagenica:ficus_slab"
+  ]
+}

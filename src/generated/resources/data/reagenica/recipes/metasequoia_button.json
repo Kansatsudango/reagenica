@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    {
+      "item": "reagenica:metasequoia_planks"
+    }
+  ],
+  "result": {
+    "item": "reagenica:metasequoia_button"
+  }
+}

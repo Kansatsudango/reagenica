@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    {
+      "item": "reagenica:ficus_planks"
+    }
+  ],
+  "result": {
+    "item": "reagenica:ficus_button"
+  }
+}

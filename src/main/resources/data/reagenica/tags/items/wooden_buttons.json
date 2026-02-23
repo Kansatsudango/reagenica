@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "reagenica:metasequoia_button",
+    "reagenica:taxodium_button",
+    "reagenica:ginkgo_button",
+    "reagenica:magnolia_button",
+    "reagenica:ficus_button"
+  ]
+}

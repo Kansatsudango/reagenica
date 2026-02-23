@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "reagenica:metasequoia_trapdoor",
+    "reagenica:taxodium_trapdoor",
+    "reagenica:ginkgo_trapdoor",
+    "reagenica:magnolia_trapdoor",
+    "reagenica:ficus_trapdoor"
+  ]
+}
