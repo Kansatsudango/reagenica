@@ -99,6 +99,12 @@ public class ChemiFoodProperties {
             .saturationMod(0.5f)
             .fast()
             .build();
+  public static final FoodProperties ROASTED_GINKGO = new FoodProperties.Builder()
+            .nutrition(4)
+            .saturationMod(1.0f)
+            .fast()
+            .effect(() -> new MobEffectInstance(MobEffects.POISON,100,0), 0.05f)
+            .build();
   public static final FoodProperties COOKED_ONION = new FoodProperties.Builder()
             .nutrition(5)
             .saturationMod(1.2f)

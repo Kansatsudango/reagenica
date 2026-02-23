@@ -1,7 +1,0 @@
-{
-  "parent": "minecraft:block/leaves",
-  "textures": {
-    "all": "reagenica:block/ginkgo_leaves"
-  },
-  "render_type": "cutout"
-}

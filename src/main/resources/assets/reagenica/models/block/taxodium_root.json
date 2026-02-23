@@ -1,7 +1,0 @@
-{
-  "parent": "minecraft:block/cross",
-  "textures": {
-    "cross": "reagenica:block/taxodium_root_cross"
-  },
-  "render_type": "cutout"
-}

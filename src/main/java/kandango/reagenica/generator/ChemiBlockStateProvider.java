@@ -65,13 +65,18 @@ public class ChemiBlockStateProvider extends BlockStateProvider{
     itemModels().withExistingParent(name+"_door", mcLoc("item/generated")).texture("layer0", modLoc("item/"+name+"_door"));
   }
   private void registerSimpleBlockWithItem(RegistryObject<? extends Block> block){
-    simpleBlockWithItem(block.get(), models().getExistingFile(blockTexture(block.get())));
+    simpleBlockWithItem(block.get(), cubeAll(block.get()));
   }
-  private void registerCutoutSimpleBlockWithItem(RegistryObject<? extends Block> block, String name){
-    simpleBlockWithItem(block.get(), models().cubeAll(name, modLoc("block/"+name)).renderType("cutout"));
+  private void registerLeavesBlockWithItem(RegistryObject<? extends Block> leaves, String name){
+    ModelFile model = models().withExistingParent(name+"_leaves", mcLoc("block/leaves")).texture("all", modLoc("block/"+name+"_leaves")).renderType("cutout");
+    getVariantBuilder(leaves.get())
+            .partialState()
+            .addModels(new ConfiguredModel(model));
+    simpleBlockItem(leaves.get(), models().getExistingFile(blockTexture(leaves.get())));
   }
   private void registerCutoutCrossBlockWithItem(RegistryObject<? extends Block> block, String name){
-    simpleBlockWithItem(block.get(), models().cross(name, modLoc("block/"+name)).renderType("cutout"));
+    simpleBlock(block.get(), models().cross(name, modLoc("block/"+name)).renderType("cutout"));
+    itemModels().withExistingParent(name, mcLoc("item/generated")).texture("layer0", modLoc("block/"+name));
   }
   private void registerButtonBlockWithItem(RegistryObject<? extends ButtonBlock> button, String name){
     buttonBlock(button.get(), modLoc("block/"+name+"_planks"));
@@ -116,7 +121,7 @@ public class ChemiBlockStateProvider extends BlockStateProvider{
   private void registerWoodThings(WoodFamily woodFamily){
     registerLogBlockWithItem(woodFamily.LOG);
     registerWoodBlockWithItem(woodFamily.WOOD, woodFamily.name);
-    registerCutoutSimpleBlockWithItem(woodFamily.LEAVES, woodFamily.name+"_leaves");
+    registerLeavesBlockWithItem(woodFamily.LEAVES, woodFamily.name);
     registerCutoutCrossBlockWithItem(woodFamily.SAPLING, woodFamily.name+"_sapling");
     registerSimpleBlockWithItem(woodFamily.PLANKS);
     registerStairBlockWithItem(woodFamily.STAIRS, woodFamily.PLANKS);

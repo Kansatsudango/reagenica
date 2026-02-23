@@ -1,7 +1,0 @@
-{
-  "parent": "minecraft:block/cube_column_horizontal",
-  "textures": {
-    "end": "reagenica:block/magnolia_log_top",
-    "side": "reagenica:block/magnolia_log"
-  }
-}

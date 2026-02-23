@@ -230,11 +230,11 @@ public class ChemiBlocks {
   static{METASEQUOIA.addLootTable(listBlocks);}
   public static final WoodFamily TAXODIUM = new WoodFamily("taxodium", () -> new TaxodiumGrower());
   static{TAXODIUM.addLootTable(listBlocks);}
-  public static final WoodFamily GINKGO = new WoodFamily("ginkgo", () -> new MetasequoiaGrower());
+  public static final WoodFamily GINKGO = new WoodFamily("ginkgo", () -> new GinkgoGrower());
   static{GINKGO.addLootTable(listBlocks);}
-  public static final WoodFamily MAGNOLIA = new WoodFamily("magnolia", () -> new MetasequoiaGrower());
+  public static final WoodFamily MAGNOLIA = new WoodFamily("magnolia", () -> new MagnoliaGrower());
   static{MAGNOLIA.addLootTable(listBlocks);}
-  public static final WoodFamily FICUS = new WoodFamily("ficus", () -> new MetasequoiaGrower());
+  public static final WoodFamily FICUS = new WoodFamily("ficus", () -> new FicusGrower());
   static{FICUS.addLootTable(listBlocks);}
       
   public static final RegistryObject<Block> ANCESTOR_ASTERACEAE = registerBlockandlist("ancestor_asteraceae", () -> new FlowerBlock(() -> MobEffects.DIG_SLOWDOWN, 140, BlockBehaviour.Properties.copy(Blocks.POPPY)));
