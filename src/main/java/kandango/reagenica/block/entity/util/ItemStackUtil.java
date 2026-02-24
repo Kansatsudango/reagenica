@@ -74,6 +74,11 @@ public class ItemStackUtil {
       return stack;
     }
   }
+  public static void shrinkSlot(ItemStackHandler handler, int slot, int count){
+    ItemStack stack = handler.getStackInSlot(slot).copy();
+    stack.shrink(count);
+    handler.setStackInSlot(slot, stack);
+  }
 
   public static int getFuelExceptforLava(ItemStack itemstack){
     int burn = ForgeHooks.getBurnTime(itemstack, RecipeType.SMELTING);

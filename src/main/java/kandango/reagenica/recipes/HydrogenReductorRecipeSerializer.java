@@ -16,7 +16,7 @@ public class HydrogenReductorRecipeSerializer implements RecipeSerializer<Hydrog
     public HydrogenReductorRecipe fromJson(@Nonnull ResourceLocation id, @Nonnull JsonObject json) {
         Ingredient input = RecipeJsonHelper.ingredientFromJsonRequired(json, "input");
         ItemStack result = RecipeJsonHelper.itemStackFromJsonRequired(json, "result");
-        ItemStack byproduct = RecipeJsonHelper.itemStackFromJsonRequired(json, "byproduct");
+        ItemStack byproduct = RecipeJsonHelper.itemStackFromJsonifPresent(json, "byproduct");
         return new HydrogenReductorRecipe(id, input, result, byproduct);
     }
 

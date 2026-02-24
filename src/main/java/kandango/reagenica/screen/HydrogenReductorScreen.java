@@ -6,6 +6,7 @@ import javax.annotation.Nonnull;
 
 import com.mojang.blaze3d.systems.RenderSystem;
 
+import kandango.reagenica.screen.components.ArrowComponent;
 import kandango.reagenica.screen.components.EnergyComponent;
 import kandango.reagenica.screen.components.IScreenComponent;
 import kandango.reagenica.screen.components.TankComponent;
@@ -26,6 +27,7 @@ public class HydrogenReductorScreen extends AbstractContainerScreen<HydrogenRedu
     this.inventoryLabelY = this.imageHeight - 94;
     components.add(new TankComponent(menu.getHydrogenTank(), 26, 30, menu.getBlockEntity().getBlockPos()));
     components.add(new EnergyComponent(menu.getEnergyStorage(), 158, 60, TEXTURE));
+    components.add(new ArrowComponent(() -> menu.getProgress(), () -> 200, 76, 34, TEXTURE));
   }
 
   @Override

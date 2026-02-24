@@ -12,9 +12,12 @@ import kandango.reagenica.block.entity.lamp.LampControllerHelper;
 import kandango.reagenica.block.entity.lamp.LampStates;
 import kandango.reagenica.block.entity.util.FluidItemConverter;
 import kandango.reagenica.block.entity.util.FluidStackUtil;
+import kandango.reagenica.block.entity.util.ItemStackUtil;
 import kandango.reagenica.packet.ISingleTankBlock;
 import kandango.reagenica.packet.ModMessages;
 import kandango.reagenica.packet.SyncFluidPacket;
+import kandango.reagenica.recipes.HydrogenReductorRecipe;
+import kandango.reagenica.recipes.ModRecipes;
 import kandango.reagenica.screen.HydrogenReductorMenu;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -23,6 +26,7 @@ import net.minecraft.network.Connection;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket;
 import net.minecraft.world.MenuProvider;
+import net.minecraft.world.SimpleContainer;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
@@ -34,12 +38,16 @@ import net.minecraftforge.common.capabilities.ForgeCapabilities;
 import net.minecraftforge.common.util.LazyOptional;
 import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.fluids.capability.IFluidHandler;
+import net.minecraftforge.fluids.capability.IFluidHandler.FluidAction;
 import net.minecraftforge.fluids.capability.templates.FluidTank;
 import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.ItemStackHandler;
 import net.minecraftforge.network.PacketDistributor;
 
 public class HydrogenReductorBlockEntity extends ElectricConsumerAbstract implements MenuProvider,ISingleTankBlock,ILampController{
+  public static final int HydrogenUnit = 50;
+  public static final int EnergyUnit = 20;
+  
   private final ItemStackHandler itemHandler = new ItemStackHandler(8) {
       @Override
       protected void onContentsChanged(int slot) {
@@ -71,6 +79,7 @@ public class HydrogenReductorBlockEntity extends ElectricConsumerAbstract implem
   public int getProgress(){return progress;}
   public void setProgress(int p){this.progress=p;}
   private boolean dirty=true;//Always dirty when loaded newly
+  @Nullable private HydrogenReductorRecipe cachedRecipe = null;
   private final LampControllerHelper<HydrogenReductorBlockEntity> lamphelper = new LampControllerHelper<HydrogenReductorBlockEntity>(this);
 
   private final LazyOptional<IItemHandler> itemHandlerLazyOptional = LazyOptional.of(() -> CommonChemiItemHandler.Builder.of(itemHandler).fuelslot(1).outputslot(2,3).anyfluidInputslot(4).anyfluidOutputslot(6).build());
@@ -170,7 +179,36 @@ public class HydrogenReductorBlockEntity extends ElectricConsumerAbstract implem
         boolean in = FluidItemConverter.drainfromItem(itemHandler, 3, hydrogenTank);
         this.dirty |= in;
       }
+      SimpleContainer container = new SimpleContainer(1);
+      container.setItem(0, itemHandler.getStackInSlot(0));
+      this.cachedRecipe = lv.getRecipeManager().getRecipeFor(ModRecipes.HYDROGEN_REDUCTOR_TYPE.get(), container, lv).filter(r -> isInsertable(r)).orElse(null);
     }
+    boolean isRunning = false;
+    if(isMachineReady() && cachedRecipe!=null){
+      @Nonnull final HydrogenReductorRecipe recipe = cachedRecipe;
+      progress++;
+      isRunning=true;
+      this.consumeEnergy(EnergyUnit);
+      if(progress>=200){
+        progress=0;
+        ItemStackUtil.shrinkSlot(itemHandler, 0, 1);
+        ItemStackUtil.addStackToSlot(itemHandler, 1, recipe.getOutput().copy());
+        ItemStackUtil.addStackToSlot(itemHandler, 2, recipe.getByProduct().copy());
+        hydrogenTank.drain(HydrogenUnit, FluidAction.EXECUTE);
+      }
+    }
+    if(isRunning)lamphelper.changeLampState(LampStates.GREEN);
+    else if(cachedRecipe==null)lamphelper.changeLampState(LampStates.YELLOW);
+    else if(hydrogenTank.getFluidAmount() < HydrogenUnit)lamphelper.changeLampState(LampStates.WARN);
+    else lamphelper.changeLampState(LampStates.RED);
+  }
+  private boolean isInsertable(HydrogenReductorRecipe recipe){
+    return ItemStackUtil.canAddStack(itemHandler.getStackInSlot(1), recipe.getOutput())
+        && ItemStackUtil.canAddStack(itemHandler.getStackInSlot(2), recipe.getByProduct());
+  }
+  private boolean isMachineReady(){
+    return hydrogenTank.getFluidAmount() >= HydrogenUnit
+        && energyStorage.getEnergyStored() >= EnergyUnit;
   }
   @Override
   protected ElectricStorage energyStorageProvider() {

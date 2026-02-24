@@ -1,0 +1,5 @@
+{
+  "type": "reagenica:hydrogen_reductor",
+  "input": { "item": "reagenica:iridium_dioxide" },
+  "result": { "item": "reagenica:pure_iridium_powder", "count": 1 }
+}
