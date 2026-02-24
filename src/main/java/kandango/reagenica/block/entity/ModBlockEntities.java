@@ -175,6 +175,11 @@ public class ModBlockEntities {
         () -> BlockEntityType.Builder.of((BlockEntityType.BlockEntitySupplier<HaberBoschBlockEntity>)HaberBoschBlockEntity::new,ChemiBlocks.HABER_BOSCH.get()).build(null));
 
     @SuppressWarnings("null")
+    public static final RegistryObject<BlockEntityType<HydrogenReductorBlockEntity>> HYDROGEN_REDUCTOR = 
+        BLOCK_ENTITIES.register("hydrogen_reductor", 
+        () -> BlockEntityType.Builder.of((BlockEntityType.BlockEntitySupplier<HydrogenReductorBlockEntity>)HydrogenReductorBlockEntity::new,ChemiBlocks.HYDROGEN_REDUCTOR.get()).build(null));
+
+    @SuppressWarnings("null")
     public static final RegistryObject<BlockEntityType<LargeTankCoreBlockEntity>> LARGE_TANK_CORE = 
         BLOCK_ENTITIES.register("large_tank_core", 
         () -> BlockEntityType.Builder.of((BlockEntityType.BlockEntitySupplier<LargeTankCoreBlockEntity>)LargeTankCoreBlockEntity::new,ChemiBlocks.LARGE_TANK_CORE.get()).build(null));

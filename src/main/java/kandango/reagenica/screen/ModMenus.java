@@ -93,6 +93,9 @@ public class ModMenus {
     public static final RegistryObject<MenuType<HaberBoschMenu>> HABER_BOSCH_MENU =
         MENU_TYPES.register("haber_bosch",
             () -> IForgeMenuType.create(HaberBoschMenu::new));
+    public static final RegistryObject<MenuType<HydrogenReductorMenu>> HYDROGEN_REDUCTOR_MENU =
+        MENU_TYPES.register("hydrogen_reductor",
+            () -> IForgeMenuType.create(HydrogenReductorMenu::new));
     public static final RegistryObject<MenuType<OnsenDetecterMenu>> ONSEN_DETECTER_MENU =
         MENU_TYPES.register("onsen_detecter",
             () -> IForgeMenuType.create((id, inv, buf) -> new OnsenDetecterMenu(id, inv.player.level(), inv.player.blockPosition())));

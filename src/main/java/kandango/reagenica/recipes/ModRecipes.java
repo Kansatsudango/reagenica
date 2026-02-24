@@ -124,6 +124,16 @@ public class ModRecipes {
     public static final RegistryObject<RecipeSerializer<ReactorRecipe>> REACTOR_SERIALIZER = 
         SERIALIZERS.register("reactor", ReactorRecipeSerializer::new);
         
+    public static final RegistryObject<RecipeType<HydrogenReductorRecipe>> HYDROGEN_REDUCTOR_TYPE = 
+        TYPES.register("hydrogen_reductor", () -> new RecipeType<HydrogenReductorRecipe>() {
+            @Override
+            public String toString(){
+                return "reagenica:hydrogen_reductor";
+            }
+        });
+    public static final RegistryObject<RecipeSerializer<HydrogenReductorRecipe>> HYDROGEN_REDUCTOR_SERIALIZER = 
+        SERIALIZERS.register("hydrogen_reductor", HydrogenReductorRecipeSerializer::new);
+        
     public static final RegistryObject<RecipeType<CookingRecipe>> COOKING_TYPE = 
         TYPES.register("cooking", () -> new RecipeType<CookingRecipe>() {
             @Override

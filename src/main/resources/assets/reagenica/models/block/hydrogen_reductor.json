@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/orientable",
+  "textures": {
+    "front": "reagenica:block/hydrogen_reductor",
+    "side": "reagenica:block/reactor_side",
+    "top": "reagenica:block/reactor_top"
+  }
+}
