@@ -212,7 +212,7 @@ public class ChemiBlocks {
   public static final RegistryObject<Item> OILSAND_DEEPSLATE_ORE_ITEM = registerItemandlist("deepslate_oilsand_ore",
       () -> new BlockItem(OILSAND_DEEPSLATE_ORE.get(), new Item.Properties()));
       
-  public static final RegistryObject<Block> IRIDIUM_ORE = registerOreBlockandlist("iridium_ore", OresConfig::stoneOres, 1, () -> ChemiItems.OIL_SAND, 1);
+  public static final RegistryObject<Block> IRIDIUM_ORE = registerOreBlockandlist("iridium_ore", OresConfig::stoneOres, 1, () -> ChemiItems.RAW_IRIDIUM, 1);
   public static final RegistryObject<Item> IRIDIUM_ORE_ITEM = registerItemandlist("iridium_ore",
       () -> new BlockItem(IRIDIUM_ORE.get(), new Item.Properties()));
 

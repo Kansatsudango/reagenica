@@ -49,6 +49,8 @@ public class ChemiItems {
     public static final RegistryObject<Item> GOLD_SOLUTION = registerandlist("gold_solution", () -> new LiquidReagent(new ReagentProperties("?",0xFFffd700,4,0,3), () -> ChemiFluids.GOLD_SOLUTION.getFluid()));
     public static final RegistryObject<Item> SILVER_SOLUTION = registerandlist("silver_solution", () -> new LiquidReagent(new ReagentProperties("?",0xFF87cefa,4,0,3), () -> ChemiFluids.SILVER_SOLUTION.getFluid()));
     public static final RegistryObject<Item> PLATINUM_SOLUTION = registerandlist("platinum_solution", () -> new LiquidReagent(new ReagentProperties("?",0xFFdda0dd,4,0,3), () -> ChemiFluids.PLATINUM_SOLUTION.getFluid()));
+    public static final RegistryObject<Item> IRIDIUM_SOLUTION = registerandlist("iridium_solution", () -> new LiquidReagent(new ReagentProperties("?",0xFFbde07d,4,0,3)));
+    public static final RegistryObject<Item> IRIDIUM_SOLUTION_NEU = registerandlist("iridium_solution_neu", () -> new LiquidReagent(new ReagentProperties("?",0xFFe2dc7f,4,0,3)));
     public static final RegistryObject<Item> ALUMINA_MELT = registerandlist("alumina_melt", () -> new LiquidReagent(new ReagentProperties("?",0xFFcc9988,4,0,3), () -> ChemiFluids.ALUMINA_MELT.getFluid()));
     public static final RegistryObject<Item> BIOETHANOL = registerandlist("bioethanol", () -> new LiquidReagent(new ReagentProperties("CH3CH2OH+?",0xffffddbb,2,1,0), () -> ChemiFluids.BIOETHANOL.getFluid()));
     public static final RegistryObject<Item> ETHANOL = registerandlist("ethanol", () -> new LiquidReagent(new ReagentProperties("CH3CH2OH",0xFFDDDDDD,2,3,0), () -> ChemiFluids.ETHANOL.getFluid()));
@@ -102,6 +104,8 @@ public class ChemiItems {
     public static final RegistryObject<Item> COPPER_OXIDE_REAGENT = registerandlist("copperoxide_reagent", () -> new PowderReagent(new ReagentProperties("CuO",0xFF302833,1,0,0), new Item.Properties()));
     public static final RegistryObject<Item> AGAR = registerandlist("agar", () -> new PowderReagent(new ReagentProperties("H[C12H18O9]nOH",0xFFF0F8FF,0,0,0), new Item.Properties()));
     public static final RegistryObject<Item> SODIUM_NITRITE = registerandlist("sodium_nitrite", () -> new LiquidReagent(new ReagentProperties("NaNO2",0xFFede9b8,3,0,1)));
+    public static final RegistryObject<Item> AMMONIUM_HEXACHLOROIRIDATE = registerandlist("ammonium_hexachloroiridate", () -> new PowderReagent(new ReagentProperties("(NH4)2IrCl6",0xFF6b3e1d,3,0,1), new Item.Properties().rarity(Rarity.UNCOMMON)));
+    public static final RegistryObject<Item> IRIDIUM_DIOXIDE = registerandlist("iridium_dioxide", () -> new PowderReagent(new ReagentProperties("IrO2",0xFF26120a,3,0,1), new Item.Properties().rarity(Rarity.UNCOMMON)));
 
     public static final RegistryObject<Item> PLASTIC_DISH = registerandlist("plastic_dish", () -> new Item(new Item.Properties()));
     public static final RegistryObject<Item> MEDIUM_PLATE = registerandlist("medium_plate", () -> new BioReagent(new BioProperties("",0x00FFFFFF),64));
@@ -124,6 +128,7 @@ public class ChemiItems {
     public static final RegistryObject<Item> RAW_BAUXITE = registerandlist("raw_bauxite", () -> new Item(new Item.Properties()));
     public static final RegistryObject<Item> RAW_APATITE = registerandlist("raw_apatite", () -> new Item(new Item.Properties()));
     public static final RegistryObject<Item> OIL_SAND = registerandlist("oilsand", () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> RAW_IRIDIUM = registerandlist("raw_iridium", () -> new Item(new Item.Properties().rarity(Rarity.UNCOMMON)));
 
     public static final RegistryObject<Item> POWDER_LEAD = registerandlist("powder_lead", () -> new Item(new Item.Properties()));
     public static final RegistryObject<Item> POWDER_CHALCOPYRITE = registerandlist("powder_chalcopyrite", () -> new Item(new Item.Properties()));
@@ -131,6 +136,7 @@ public class ChemiItems {
     public static final RegistryObject<Item> POWDER_APATITE = registerandlist("powder_apatite", () -> new Item(new Item.Properties()));
     public static final RegistryObject<Item> POWDER_GOLD_ORE = registerandlist("powder_gold_ore", () -> new Item(new Item.Properties()));
     public static final RegistryObject<Item> POWDER_IRON_ORE = registerandlist("powder_iron_ore", () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> POWDER_IRIDIUM = registerandlist("powder_iridium_ore", () -> new Item(new Item.Properties().rarity(Rarity.UNCOMMON)));
     
     public static final RegistryObject<Item> LEAD_INGOT = registerandlist("lead_ingot", () -> new Item(new Item.Properties()));
     public static final RegistryObject<Item> REFINED_COPPER_INGOT = registerandlist("refined_copper_ingot", () -> new Item(new Item.Properties()));
@@ -141,6 +147,7 @@ public class ChemiItems {
     public static final RegistryObject<Item> COBALT_INGOT = registerandlist("cobalt_ingot", () -> new Item(new Item.Properties()));
     public static final RegistryObject<Item> PLUTONIUM_INGOT = registerandlist("plutonium_ingot", () -> new Item(new Item.Properties()));
     public static final RegistryObject<Item> REINFORCED_INGOT = registerandlist("reinforced_ingot", () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> IRIDIUM_INGOT = registerandlist("iridium_ingot", () -> new Item(new Item.Properties().rarity(Rarity.UNCOMMON)));
 
     public static final RegistryObject<Item> IRON_OXIDE = registerandlist("iron_oxide", () -> new ReagentPowderIndustrial(new ReagentProperties("Fe2O3",0xFF8B0000,1,0,0),new Item.Properties()));
     public static final RegistryObject<Item> COPPER_OXIDE = registerandlist("copper_oxide", () -> new ReagentPowderIndustrial(new ReagentProperties("CuO",0xFF222222,2,0,1),new Item.Properties()));
@@ -155,6 +162,7 @@ public class ChemiItems {
     public static final RegistryObject<Item> URANIUM_NUGGET = registerandlist("uranium_nugget", () -> new Reagent(new ReagentProperties("U",0,4,0,1),new Item.Properties()));
     public static final RegistryObject<Item> COBALT_NUGGET = registerandlist("cobalt_nugget", () -> new Reagent(new ReagentProperties("Co",0,3,0,2),new Item.Properties()));
     public static final RegistryObject<Item> PLUTONIUM_NUGGET = registerandlist("plutonium_nugget", () -> new Reagent(new ReagentProperties("Pu",0,4,0,1),new Item.Properties().rarity(Rarity.UNCOMMON)));
+    public static final RegistryObject<Item> IRIDIUM_NUGGET = registerandlist("pure_iridium_powder", () -> new Reagent(new ReagentProperties("Ir",0,1,0,1),new Item.Properties().rarity(Rarity.UNCOMMON)));
     public static final RegistryObject<Item> ANODE_SLIME = registerandlist("anode_slime", () -> new Reagent(new ReagentProperties("?",0,1,0,0),new Item.Properties()));
     public static final RegistryObject<Item> SLAG = registerandlist("slag", () -> new Item(new Item.Properties()));
     public static final RegistryObject<Item> ALUMINIUM_CATALYST = registerandlist("aluminium_catalyst", () -> new Item(new Item.Properties().durability(256)));
