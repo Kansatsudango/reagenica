@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "reagenica:stripped_metasequoia_log",
+    "reagenica:stripped_taxodium_log",
+    "reagenica:stripped_ginkgo_log",
+    "reagenica:stripped_magnolia_log",
+    "reagenica:stripped_ficus_log"
+  ]
+}

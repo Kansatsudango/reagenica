@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "reagenica:stripped_metasequoia_wood",
+    "reagenica:stripped_taxodium_wood",
+    "reagenica:stripped_ginkgo_wood",
+    "reagenica:stripped_magnolia_wood",
+    "reagenica:stripped_ficus_wood"
+  ]
+}
