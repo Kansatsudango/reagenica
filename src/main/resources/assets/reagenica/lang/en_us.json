@@ -353,6 +353,11 @@
   "item.reagenica.powder_iridium_ore": "Crushed Raw Iridium",
   "item.reagenica.iridium_ingot": "Iridium Ingot",
   "item.reagenica.pure_iridium_powder": "Pure Iridium Powder",
+  "item.reagenica.sodium_peroxide_melt": "Melt Sodium Peroxide",
+  "item.reagenica.sodium_chloride_melt": "Melt Sodium Chloride",
+  "item.reagenica.sodium_peroxide": "Sodium Peroxide",
+  "item.reagenica.sodium_ingot": "Sodium Ingot",
+  "item.reagenica.sodium_chloride_melt_bucket": "Melt Sodium Chloride Bucket",
   "item.reagenica.geologist_rod": "Geologist's Rod",
   "item.reagenica.ginkgo_nuts": "Ginkgo Nuts",
   "item.reagenica.fig": "Fig",
@@ -507,6 +512,7 @@
   "fluid_type.reagenica.heated_water": "Heated Water",
   "fluid_type.reagenica.aqua_regia": "Aqua Regia",
   "fluid_type.reagenica.alumina_melt": "Melt Alumina",
+  "fluid_type.reagenica.sodium_chloride_melt": "Melt Sodium Chloride",
   "fluid_type.reagenica.gold_solution": "Gold Solution",
   "fluid_type.reagenica.silver_solution": "Silver Solution",
   "fluid_type.reagenica.platinum_solution": "Platinum Solution",
@@ -703,6 +709,7 @@
   "jei.reagenica.haber_bosch": "Haber Bosch Process",
   "jei.reagenica.air_separator": "Air Separation",
   "jei.reagenica.incubator": "Incubating",
+  "jei.reagenica.hydrogen_reduction": "Hydrogen Reduction",
   "jei.reagenica.contamination_top": "Unsterilized plates may become",
   "jei.reagenica.contamination_bottom": "contaminated during growth."
 }

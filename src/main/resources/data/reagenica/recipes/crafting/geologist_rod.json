@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "  C",
+    " I ",
+    "S  "
+  ],
+  "key": {
+    "C": { "item": "minecraft:clock" },
+    "I": { "item": "reagenica:cobalt_ingot" },
+    "S": { "item": "minecraft:stick" }
+  },
+  "result": {
+    "item": "reagenica:geologist_rod",
+    "count": 1
+  }
+}

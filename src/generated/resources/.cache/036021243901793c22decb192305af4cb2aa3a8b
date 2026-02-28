@@ -1,6 +1,6 @@
-// 1.20.1	2026-02-23T14:15:43.2210555	Tags for minecraft:block mod id reagenica
-92ee437987b343bbfa5faf78c9517cc31cf78639 data/minecraft/tags/blocks/mineable/axe.json
+// 1.20.1	2026-02-28T13:59:46.7626549	Tags for minecraft:block mod id reagenica
+63c9db082137694eb3b80491042164ea0b0cd8a2 data/minecraft/tags/blocks/mineable/axe.json
 335b95fd50487891950202462f81715d4e7eabd7 data/minecraft/tags/blocks/mineable/hoe.json
-92cd2ec7ea959ac1d8d9f60f5cc97fa03459cb57 data/minecraft/tags/blocks/mineable/pickaxe.json
+e9e4171a4963a1b7b8ce54be2dcceea1cc6e7cd9 data/minecraft/tags/blocks/mineable/pickaxe.json
 796e2b7c9dcd57d77075a027948ba2817b626074 data/minecraft/tags/blocks/needs_iron_tool.json
-52afb68da7d9ff101b8e5f3276527278c25c66c7 data/minecraft/tags/blocks/needs_stone_tool.json
+645842767d218484a9b1bfddb585ff119b93127c data/minecraft/tags/blocks/needs_stone_tool.json

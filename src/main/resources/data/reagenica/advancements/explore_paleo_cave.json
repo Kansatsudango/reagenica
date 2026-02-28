@@ -1,0 +1,175 @@
+{
+  "parent": "reagenica:geologist",
+  "display": {
+    "icon": { "item": "reagenica:aquamarine_crystal" },
+  "title": {
+    "translate": "advancements.reagenica.explore_paleo_cave.title"
+  },
+  "description": {
+    "translate": "advancements.reagenica.explore_paleo_cave.desc"
+  },
+  "frame": "challenge",
+  "show_toast": true,
+  "announce_to_chat": true
+  },
+  "criteria": {
+    "reagenica:coal_cave": {
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "biome": "reagenica:coal_cave"
+              }
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:location"
+    },
+    "reagenica:diamond_cave": {
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "biome": "reagenica:diamond_cave"
+              }
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:location"
+    },
+    "reagenica:emerald_cave": {
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "biome": "reagenica:emerald_cave"
+              }
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:location"
+    },
+    "reagenica:gold_cave": {
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "biome": "reagenica:gold_cave"
+              }
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:location"
+    },
+    "reagenica:iron_cave": {
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "biome": "reagenica:iron_cave"
+              }
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:location"
+    },
+    "reagenica:lapis_cave": {
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "biome": "reagenica:lapis_cave"
+              }
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:location"
+    },
+    "reagenica:lead_cave": {
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "biome": "reagenica:lead_cave"
+              }
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:location"
+    },
+    "reagenica:redstone_cave": {
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "biome": "reagenica:redstone_cave"
+              }
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:location"
+    }
+  },
+  "requirements": [
+    [
+      "reagenica:coal_cave"
+    ],
+    [
+      "reagenica:diamond_cave"
+    ],
+    [
+      "reagenica:emerald_block"
+    ],
+    [
+      "reagenica:gold_cave"
+    ],
+    [
+      "reagenica:iron_cave"
+    ],
+    [
+      "reagenica:lapis_cave"
+    ],
+    [
+      "reagenica:lead_cave"
+    ],
+    [
+      "reagenica:redstone_cave"
+    ]
+  ],
+  "rewards": {
+    "experience": 500
+  },
+  "sends_telemetry_event": true
+}

@@ -1,0 +1,9 @@
+{
+  "type": "reagenica:reagent_mixing",
+  "inputs":[
+    { "item": "reagenica:powder_iridium_ore" },
+    { "item": "reagenica:sodium_peroxide_melt" }
+  ],
+  "requires_heat": false,
+  "result_a": { "item": "reagenica:iridium_solution", "count":1}
+}

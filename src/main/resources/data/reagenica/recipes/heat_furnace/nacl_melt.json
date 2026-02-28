@@ -1,0 +1,10 @@
+{
+  "type": "reagenica:heat_furnace",
+  "input": {
+    "item": "reagenica:salt"
+  },
+  "outfluid": {
+    "fluid": "reagenica:sodium_chloride_melt",
+    "amount": 100
+  }
+}

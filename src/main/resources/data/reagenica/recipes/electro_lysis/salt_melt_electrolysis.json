@@ -1,0 +1,19 @@
+{
+  "type": "reagenica:electrolysis",
+  "influid": {
+    "fluid": "reagenica:sodium_chloride_melt",
+    "amount": 100
+  },
+  "cathode": {
+    "item": "reagenica:platinum_electrode"
+  },
+  "anode": {
+    "item": "reagenica:platinum_electrode"
+  },
+  "result_n": {
+    "item": "reagenica:sodium_ingot"
+  },
+  "result_gas_p": {
+    "item": "reagenica:chlorine"
+  }
+}

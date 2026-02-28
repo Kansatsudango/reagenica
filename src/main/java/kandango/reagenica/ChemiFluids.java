@@ -25,6 +25,7 @@ public class ChemiFluids {
   public static final ChemiFluidObject HEATED_WATER = new ChemiFluidObject("heated_water", 0xccfff0f5);
   public static final ChemiFluidObject AQUA_REGIA = new ChemiFluidObject("aqua_regia", 0xccfa8072);
   public static final ChemiFluidObject ALUMINA_MELT = new ChemiFluidObject("alumina_melt", 0x33cc9988);
+  public static final ChemiFluidObject SODIUM_CHLORIDE_MELT = new ChemiFluidObject("sodium_chloride_melt", 0x339ea66f);
   public static final ChemiFluidObject GOLD_SOLUTION = new ChemiFluidObject("gold_solution", 0xbbffd700);
   public static final ChemiFluidObject SILVER_SOLUTION = new ChemiFluidObject("silver_solution", 0xbb87cefa);
   public static final ChemiFluidObject PLATINUM_SOLUTION = new ChemiFluidObject("platinum_solution", 0xbbdda0dd);

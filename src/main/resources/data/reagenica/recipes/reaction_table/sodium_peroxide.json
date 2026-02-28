@@ -1,0 +1,10 @@
+{
+  "type": "reagenica:reagent_mixing",
+  "inputs":[
+    { "item": "reagenica:oxygen" },
+    { "item": "reagenica:sodium_ingot" }
+  ],
+  "requires_heat": true,
+  "result_a": { "item": "reagenica:sodium_peroxide", "count":1},
+  "result_b": { "item": "reagenica:testtube","count":1}
+}

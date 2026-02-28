@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###",
+    "#P#",
+    "#R#"
+  ],
+  "key": {
+    "#": { "item": "reagenica:reinforced_ingot" },
+    "P": { "item": "reagenica:platinum_ingot" },
+    "R": { "item": "minecraft:redstone" }
+  },
+  "result": {
+    "item": "reagenica:hydrogen_reductor",
+    "count": 1
+  }
+}

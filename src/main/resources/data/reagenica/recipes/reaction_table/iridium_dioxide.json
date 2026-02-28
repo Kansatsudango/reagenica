@@ -1,0 +1,8 @@
+{
+  "type": "reagenica:reagent_mixing",
+  "inputs":[
+    { "item": "reagenica:ammonium_hexachloroiridate" }
+  ],
+  "requires_heat": true,
+  "result_a": { "item": "reagenica:iridium_dioxide", "count":1}
+}

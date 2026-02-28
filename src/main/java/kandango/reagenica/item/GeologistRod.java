@@ -19,7 +19,7 @@ import net.minecraftforge.common.Tags.Blocks;
 
 public class GeologistRod extends Item{
   public GeologistRod(){
-    super(new Item.Properties().rarity(Rarity.RARE).stacksTo(1));
+    super(new Item.Properties().rarity(Rarity.UNCOMMON).stacksTo(1));
   }
 
   @Override

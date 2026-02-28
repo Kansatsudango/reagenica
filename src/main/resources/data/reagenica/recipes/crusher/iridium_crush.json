@@ -1,0 +1,9 @@
+{
+  "type": "reagenica:crushing",
+  "input": {
+    "item": "reagenica:raw_iridium"
+  },
+  "result": {
+    "item": "reagenica:powder_iridium_ore"
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "parent": "reagenica:geologist",
+  "display": {
+    "icon": { "item": "reagenica:iridium_ore" },
+  "title": {
+    "translate": "advancements.reagenica.crater.title"
+  },
+  "description": {
+    "translate": "advancements.reagenica.crater.desc"
+  },
+  "frame": "task",
+  "show_toast": true,
+  "announce_to_chat": true
+  },
+  "criteria": {
+    "reagenica:crater": {
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "structure": "reagenica:mega_crater"
+              }
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:location"
+    }
+  },
+  "requirements": [
+    [
+      "reagenica:crater"
+    ]
+  ]
+}

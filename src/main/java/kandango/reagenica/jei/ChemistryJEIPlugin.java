@@ -14,6 +14,7 @@ import kandango.reagenica.recipes.ElectroLysisRecipe;
 import kandango.reagenica.recipes.FermentationRecipe;
 import kandango.reagenica.recipes.FractionalDistillerRecipe;
 import kandango.reagenica.recipes.HeatFurnaceRecipe;
+import kandango.reagenica.recipes.HydrogenReductorRecipe;
 import kandango.reagenica.recipes.ModRecipes;
 import kandango.reagenica.recipes.ReactorRecipe;
 import kandango.reagenica.recipes.ReagentMixingRecipe;
@@ -117,6 +118,13 @@ public class ChemistryJEIPlugin implements IModPlugin{
       ModRecipes.STALL_TRADING_TYPE,
       helper -> new TradingCategory(helper),
       () -> new ItemStack(ChemiBlocks.TRADING_STALL.get())
+    ),
+    new JEIPluginRecipes<>(
+      "hydrogen_reductor",
+      HydrogenReductorRecipe.class,
+      ModRecipes.HYDROGEN_REDUCTOR_TYPE,
+      helper -> new HydrogenReductorCategory(helper),
+      () -> new ItemStack(ChemiBlocks.HYDROGEN_REDUCTOR.get())
     )
   );
 

@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    { "item": "reagenica:pure_iridium_powder" },
+    { "item": "reagenica:pure_iridium_powder" },
+    { "item": "reagenica:pure_iridium_powder" },
+    { "item": "reagenica:pure_iridium_powder" },
+    { "item": "reagenica:pure_iridium_powder" },
+    { "item": "reagenica:pure_iridium_powder" },
+    { "item": "reagenica:pure_iridium_powder" },
+    { "item": "reagenica:pure_iridium_powder" },
+    { "item": "reagenica:pure_iridium_powder" }
+  ],
+  "result": {
+    "item": "reagenica:iridium_ingot",
+    "count": 1
+  }
+}

@@ -1,4 +1,4 @@
-// 1.20.1	2026-02-23T14:15:43.2070548	Loot Tables
+// 1.20.1	2026-02-28T13:59:46.7566579	Loot Tables
 fd599511177b57b7c4697466e227e89162e2d943 data/reagenica/loot_tables/blocks/advanced_farmland.json
 115802854012234d89e3ba52e3d8b2a271af6530 data/reagenica/loot_tables/blocks/air_separator.json
 af778c6940ed0700e603b9633a246c18de93eb49 data/reagenica/loot_tables/blocks/aluminium_block.json
@@ -111,7 +111,9 @@ cb0bb586f150be40053e6639f62e091a4203e411 data/reagenica/loot_tables/blocks/heat_
 b6f238bd470b3ace8554f3ee62a80da95894e2d0 data/reagenica/loot_tables/blocks/heat_generator.json
 5289266463ae627c6c1e171b51327f9339e8552b data/reagenica/loot_tables/blocks/holiday_tree.json
 f5bf940394b5a2cd36d82642c315b512cae3d394 data/reagenica/loot_tables/blocks/hotspring_miner.json
+e51d75b8726bd6d642b61667fd25d4de1da15f1e data/reagenica/loot_tables/blocks/hydrogen_reductor.json
 007219834da8f779512b2008e87e7b47029de21c data/reagenica/loot_tables/blocks/incubator.json
+705daa5afa6dc3268b3bbb4e2d2bafc94b7180e6 data/reagenica/loot_tables/blocks/iridium_ore.json
 6eba1378fd4e8746bbe6f6d1c2c92bda396e541e data/reagenica/loot_tables/blocks/kimberlite.json
 f178fbdf3911dad196ed7c29c9fe545e0db7edd2 data/reagenica/loot_tables/blocks/lapisquartz_block.json
 9125ddc2e04cba97f0bd60338a77c3af4be64198 data/reagenica/loot_tables/blocks/lapisquartz_bud.json
@@ -236,6 +238,7 @@ a6824648f7818d691388e2ec19fb2a85fcabb859 data/reagenica/loot_tables/blocks/strip
 d0805a47a8f621a18db760308de03530eef718b6 data/reagenica/loot_tables/blocks/taxodium_log.json
 8ef068182ae839456f1e9b6519970112ad273519 data/reagenica/loot_tables/blocks/taxodium_planks.json
 5ed9c17939f34ba272055b20ab1308af47c903ac data/reagenica/loot_tables/blocks/taxodium_pressure_plate.json
+62828ecc705b9c8f63a0211621090ce9c9d6b556 data/reagenica/loot_tables/blocks/taxodium_root.json
 db56d938d359fa3da709699e9e580987409c675e data/reagenica/loot_tables/blocks/taxodium_sapling.json
 421112faa7cf873e388d0c9cff1dd287ab888b46 data/reagenica/loot_tables/blocks/taxodium_sign.json
 63def06078f1f4d1b423cfecc7893547acc43093 data/reagenica/loot_tables/blocks/taxodium_slab.json

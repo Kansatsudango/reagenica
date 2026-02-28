@@ -1,0 +1,9 @@
+{
+  "type": "reagenica:reagent_mixing",
+  "inputs":[
+    { "item": "reagenica:sodium_peroxide" },
+    { "item": "reagenica:testtube" }
+  ],
+  "requires_heat": true,
+  "result_a": { "item": "reagenica:sodium_peroxide_melt", "count":1}
+}

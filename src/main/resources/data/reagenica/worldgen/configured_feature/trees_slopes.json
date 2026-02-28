@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:random_selector",
+  "config": {
+    "default": "reagenica:metasequoia_checked",
+    "features": [
+      {
+        "chance": 0.1,
+        "feature": "minecraft:spruce_checked"
+      },
+      {
+        "chance": 0.3,
+        "feature": "reagenica:ginkgo_checked"
+      },
+      {
+        "chance":0.2,
+        "feature": "reagenica:magnolia_checked"
+      }
+    ]
+  }
+}

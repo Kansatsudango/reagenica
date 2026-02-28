@@ -1,0 +1,6 @@
+{
+  "type": "reagenica:hydrogen_reductor",
+  "input": { "item": "reagenica:copper_oxide" },
+  "result": { "item": "minecraft:copper_ingot", "count": 4 },
+  "byproduct": { "item": "reagenica:slag", "count": 1 }
+}

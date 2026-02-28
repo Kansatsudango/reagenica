@@ -1,0 +1,24 @@
+{
+  "parent": "reagenica:cobalt",
+  "display": {
+    "icon": { "item": "reagenica:geologist_rod" },
+  "title": {
+    "translate": "advancements.reagenica.geologist.title"
+  },
+  "description": {
+    "translate": "advancements.reagenica.geologist.desc"
+  },
+  "frame": "task",
+  "show_toast": true,
+  "announce_to_chat": true
+  },
+  "criteria": {
+    "example": {
+      "trigger": "minecraft:changed_dimension",
+      "conditions": {
+        "from": "minecraft:overworld",
+        "to": "reagenica:paleogene"
+      }
+    }
+  }
+}
