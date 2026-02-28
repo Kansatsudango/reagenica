@@ -33,8 +33,21 @@ public class PaleoTeleporter implements ITeleporter{
   private Optional<BlockPos> findClosestPortal(ServerLevel destWorld, BlockPos origin){
     PoiManager manager = destWorld.getPoiManager();
     return manager.findClosest(
-      poi -> poi.is(ChemiPOIs.PALEO_PORTAL_POI.getKey()), 
-      origin, 64, PoiManager.Occupancy.ANY);
+        poi -> poi.is(ChemiPOIs.PALEO_PORTAL_POI.getKey()), 
+        origin, 64, PoiManager.Occupancy.ANY)
+      .or(() -> findPortalVertically(manager, origin));
+  }
+  private Optional<BlockPos> findPortalVertically(PoiManager manager, BlockPos origin){
+    BlockPos.MutableBlockPos pos = origin.mutable();
+    for(int y=-64;y<=320;y+=16){
+      BlockPos portal = manager.findClosest(
+        poi -> poi.is(ChemiPOIs.PALEO_PORTAL_POI.getKey()), 
+        pos.setY(y), 64, PoiManager.Occupancy.ANY).orElse(null);
+      if(portal!=null){
+        return Optional.of(portal);
+      }
+    }
+    return Optional.empty();
   }
 
   private BlockPos createPortal(ServerLevel lv, BlockPos origin){
