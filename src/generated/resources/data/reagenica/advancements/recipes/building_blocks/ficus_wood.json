@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_stripped_log": {
+    "has_log": {
       "conditions": {
         "items": [
           {
             "items": [
-              "reagenica:stripped_magnolia_log"
+              "reagenica:ficus_log"
             ]
           }
         ]
@@ -15,20 +15,20 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "reagenica:magnolia_hanging_sign"
+        "recipe": "reagenica:ficus_wood"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_stripped_log",
+      "has_log",
       "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "reagenica:magnolia_hanging_sign"
+      "reagenica:ficus_wood"
     ]
   },
   "sends_telemetry_event": false

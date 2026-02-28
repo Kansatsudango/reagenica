@@ -5,6 +5,7 @@ import java.util.function.Supplier;
 import java.util.stream.Stream;
 
 import kandango.reagenica.ChemiBlocks;
+import kandango.reagenica.block.ChemiLogBlock;
 import kandango.reagenica.block.sign.*;
 import kandango.reagenica.generator.BlockLootType;
 import net.minecraft.sounds.SoundEvents;
@@ -21,8 +22,8 @@ import net.minecraft.world.level.block.state.properties.WoodType;
 import net.minecraftforge.registries.RegistryObject;
 
 public class WoodFamily {
-  public final RegistryObject<RotatedPillarBlock> LOG;
-  public final RegistryObject<RotatedPillarBlock> WOOD;
+  public final RegistryObject<ChemiLogBlock> LOG;
+  public final RegistryObject<ChemiLogBlock> WOOD;
   public final RegistryObject<LeavesBlock> LEAVES;
   public final RegistryObject<SaplingBlock> SAPLING;
   public final RegistryObject<Block> PLANKS;
@@ -64,9 +65,13 @@ public class WoodFamily {
     this.name = name;
     this.setType = BlockSetType.register(new BlockSetType(name));
     this.woodType = WoodType.register(new WoodType("reagenica:"+name, setType));
-    this.LOG = ChemiBlocks.BLOCKS.register(name+"_log", () -> new RotatedPillarBlock(BlockBehaviour.Properties.copy(Blocks.OAK_LOG)));
+    this.STRIPPED_LOG = ChemiBlocks.BLOCKS.register("stripped_"+name+"_log", () -> new RotatedPillarBlock(BlockBehaviour.Properties.copy(Blocks.STRIPPED_OAK_LOG)));
+    this.STRIPPED_LOG_ITEM = ChemiBlocks.ITEMS.register("stripped_"+name+"_log", () -> new BlockItem(STRIPPED_LOG.get(), new Item.Properties()));
+    this.STRIPPED_WOOD = ChemiBlocks.BLOCKS.register("stripped_"+name+"_wood", () -> new RotatedPillarBlock(BlockBehaviour.Properties.copy(Blocks.STRIPPED_OAK_WOOD)));
+    this.STRIPPED_WOOD_ITEM = ChemiBlocks.ITEMS.register("stripped_"+name+"_wood", () -> new BlockItem(STRIPPED_WOOD.get(), new Item.Properties()));
+    this.LOG = ChemiBlocks.BLOCKS.register(name+"_log", () -> new ChemiLogBlock(this.STRIPPED_LOG.get(),BlockBehaviour.Properties.copy(Blocks.OAK_LOG)));
     this.LOG_ITEM = ChemiBlocks.ITEMS.register(name+"_log", () -> new BlockItem(LOG.get(), new Item.Properties()));
-    this.WOOD = ChemiBlocks.BLOCKS.register(name+"_wood", () -> new RotatedPillarBlock(BlockBehaviour.Properties.copy(Blocks.OAK_WOOD)));
+    this.WOOD = ChemiBlocks.BLOCKS.register(name+"_wood", () -> new ChemiLogBlock(this.STRIPPED_WOOD.get(),BlockBehaviour.Properties.copy(Blocks.OAK_WOOD)));
     this.WOOD_ITEM = ChemiBlocks.ITEMS.register(name+"_wood", () -> new BlockItem(WOOD.get(), new Item.Properties()));
     this.LEAVES = ChemiBlocks.BLOCKS.register(name+"_leaves", () -> new LeavesBlock(BlockBehaviour.Properties.copy(Blocks.OAK_LEAVES)));
     this.LEAVES_ITEM = ChemiBlocks.ITEMS.register(name+"_leaves", () -> new BlockItem(LEAVES.get(), new Item.Properties()));
@@ -78,10 +83,6 @@ public class WoodFamily {
     this.STAIRS_ITEM = ChemiBlocks.ITEMS.register(name+"_stairs", () -> new BlockItem(STAIRS.get(), new Item.Properties()));
     this.SLAB = ChemiBlocks.BLOCKS.register(name+"_slab", () -> new SlabBlock(BlockBehaviour.Properties.copy(Blocks.OAK_SLAB)));
     this.SLAB_ITEM = ChemiBlocks.ITEMS.register(name+"_slab", () -> new BlockItem(SLAB.get(), new Item.Properties()));
-    this.STRIPPED_LOG = ChemiBlocks.BLOCKS.register("stripped_"+name+"_log", () -> new RotatedPillarBlock(BlockBehaviour.Properties.copy(Blocks.STRIPPED_OAK_LOG)));
-    this.STRIPPED_LOG_ITEM = ChemiBlocks.ITEMS.register("stripped_"+name+"_log", () -> new BlockItem(STRIPPED_LOG.get(), new Item.Properties()));
-    this.STRIPPED_WOOD = ChemiBlocks.BLOCKS.register("stripped_"+name+"_wood", () -> new RotatedPillarBlock(BlockBehaviour.Properties.copy(Blocks.STRIPPED_OAK_WOOD)));
-    this.STRIPPED_WOOD_ITEM = ChemiBlocks.ITEMS.register("stripped_"+name+"_wood", () -> new BlockItem(STRIPPED_LOG.get(), new Item.Properties()));
     this.STANDING_SIGN = ChemiBlocks.BLOCKS.register(name+"_sign", () -> new ChemiStandingSignBlock(BlockBehaviour.Properties.copy(Blocks.OAK_SIGN), woodType));
     this.WALL_SIGN = ChemiBlocks.BLOCKS.register(name+"_wall_sign", () -> new ChemiWallSignBlock(BlockBehaviour.Properties.copy(Blocks.OAK_WALL_SIGN), woodType));
     this.SIGN_ITEM = ChemiBlocks.ITEMS.register(name+"_sign", () -> new SignItem(new Item.Properties(), STANDING_SIGN.get(), WALL_SIGN.get()));

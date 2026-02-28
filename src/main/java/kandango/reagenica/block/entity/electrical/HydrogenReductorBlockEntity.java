@@ -82,7 +82,7 @@ public class HydrogenReductorBlockEntity extends ElectricConsumerAbstract implem
   @Nullable private HydrogenReductorRecipe cachedRecipe = null;
   private final LampControllerHelper<HydrogenReductorBlockEntity> lamphelper = new LampControllerHelper<HydrogenReductorBlockEntity>(this);
 
-  private final LazyOptional<IItemHandler> itemHandlerLazyOptional = LazyOptional.of(() -> CommonChemiItemHandler.Builder.of(itemHandler).fuelslot(1).outputslot(2,3).anyfluidInputslot(4).anyfluidOutputslot(6).build());
+  private final LazyOptional<IItemHandler> itemHandlerLazyOptional = LazyOptional.of(() -> CommonChemiItemHandler.Builder.of(itemHandler).outputslot(1,2).specificFluidInputSlot(ChemiFluids.HYDROGEN.getFluid(), 3).build());
   private final LazyOptional<IFluidHandler> fluidTankLazyOptional = LazyOptional.of(() -> new FillOnlyFluidHandler(hydrogenTank));
 
   public HydrogenReductorBlockEntity(BlockPos pos, BlockState state){
@@ -177,7 +177,8 @@ public class HydrogenReductorBlockEntity extends ElectricConsumerAbstract implem
       this.dirty=false;
       if(!this.itemHandler.getStackInSlot(3).isEmpty()){
         boolean in = FluidItemConverter.drainfromItem(itemHandler, 3, hydrogenTank);
-        this.dirty |= in;
+        boolean out = FluidItemConverter.draintoItem(itemHandler, 3, hydrogenTank);
+        this.dirty = in|out;
       }
       SimpleContainer container = new SimpleContainer(1);
       container.setItem(0, itemHandler.getStackInSlot(0));

@@ -6,7 +6,7 @@
         "items": [
           {
             "items": [
-              "reagenica:stripped_magnolia_log"
+              "reagenica:stripped_taxodium_log"
             ]
           }
         ]
@@ -15,7 +15,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "reagenica:magnolia_hanging_sign"
+        "recipe": "reagenica:stripped_taxodium_wood"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -28,7 +28,7 @@
   ],
   "rewards": {
     "recipes": [
-      "reagenica:magnolia_hanging_sign"
+      "reagenica:stripped_taxodium_wood"
     ]
   },
   "sends_telemetry_event": false

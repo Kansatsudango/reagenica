@@ -38,9 +38,8 @@ public class HydrogenReductorMenu extends ChemistryMenu<HydrogenReductorBlockEnt
   @Override
   public List<SlotPriorityRule> quickMoveRules() {
     List<SlotPriorityRule> rules = List.of(
-      SlotPriorityRule.single(SlotPriorityPredicates.IsFuel, 1),
-      SlotPriorityRule.single(SlotPriorityPredicates.IsFluidcase, 6),
-      SlotPriorityRule.single(SlotPriorityPredicates.IsFluidContainer, 4)
+      SlotPriorityRule.single(SlotPriorityPredicates.IsFluidContainer, 3),
+      SlotPriorityRule.single(SlotPriorityPredicates.IsFluidcase, 3)
     );
     return rules;
   }

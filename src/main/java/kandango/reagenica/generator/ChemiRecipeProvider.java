@@ -42,6 +42,8 @@ public class ChemiRecipeProvider extends RecipeProvider{
       return new WoodFamilyRecipeGenerator(family);
     }
     public void register(Consumer<FinishedRecipe> consumer){
+      wood(consumer);
+      strippedwood(consumer);
       planks(consumer);
       stairs(consumer);
       slab(consumer);
@@ -53,6 +55,22 @@ public class ChemiRecipeProvider extends RecipeProvider{
       door(consumer);
       button(consumer);
       pressureplate(consumer);
+    }
+    private void wood(Consumer<FinishedRecipe> consumer){
+      ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, woodFamily.WOOD.get(), 3)
+            .pattern("LL")
+            .pattern("LL")
+            .define('L', woodFamily.LOG_ITEM.get())
+            .unlockedBy("has_log", has(woodFamily.LOG.get()))
+            .save(consumer);
+    }
+    private void strippedwood(Consumer<FinishedRecipe> consumer){
+      ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, woodFamily.STRIPPED_WOOD.get(), 3)
+            .pattern("LL")
+            .pattern("LL")
+            .define('L', woodFamily.STRIPPED_LOG_ITEM.get())
+            .unlockedBy("has_stripped_log", has(woodFamily.STRIPPED_LOG.get()))
+            .save(consumer);
     }
     private void planks(Consumer<FinishedRecipe> consumer){
       ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS, woodFamily.PLANKS.get(), 4)
