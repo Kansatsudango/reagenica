@@ -23,6 +23,7 @@ import kandango.reagenica.item.bioreagent.*;
 import kandango.reagenica.item.burnable.*;
 import kandango.reagenica.item.farming.*;
 import kandango.reagenica.item.reagent.*;
+import kandango.reagenica.screen.ModMenus;
 
 @Mod.EventBusSubscriber(modid = ChemistryMod.MODID, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class ChemiItems {
@@ -198,8 +199,10 @@ public class ChemiItems {
     public static final RegistryObject<Item> GOLD_ELECTRODE = registerandlist("gold_electrode", () -> new Item(new Item.Properties().durability(128)));
     public static final RegistryObject<Item> PLATINUM_ELECTRODE = registerandlist("platinum_electrode", () -> new Item(new Item.Properties().durability(2560).rarity(Rarity.RARE)));
 
-    public static final RegistryObject<Item> ORE_BAG = registerandlist("ore_bag", () -> new OreBag());
-    public static final RegistryObject<Item> NYLON_BAG = registerandlist("nylon_bag", () -> new NylonBag());
+    public static final RegistryObject<Item> ORE_BAG = registerandlist("ore_bag", () -> new CommonBag<>(27, 84, ModMenus.ORE_BAG_MENU, stack -> stack.is(ChemiTags.Items.ORE_BAG_ACCEPT)));
+    public static final RegistryObject<Item> NYLON_BAG = registerandlist("nylon_bag", () -> new CommonBag<>(18, 66, ModMenus.NYLON_BAG_MENU));
+    public static final RegistryObject<Item> PLATINUM_BAG = registerandlist("platinum_bag", () -> new CommonBag<>(27, 84, ModMenus.PLATINUM_BAG_MENU));
+    public static final RegistryObject<Item> IRIDIUM_BAG = registerandlist("iridium_bag", () -> new CommonBag<>(54, 140, ModMenus.IRIDIUM_BAG_MENU));
     public static final RegistryObject<Item> FERTILIZER = registerandlist("fertilizer", () -> new Fertilizer());
     public static final RegistryObject<Item> PHOSPHO_FERTILIZER = registerandlist("phospho_fertilizer", () -> new PhosphoFertilizer());
     public static final RegistryObject<Item> MINEWIPE = registerandlist("minewipe", () -> new MineWipe());

@@ -29,6 +29,7 @@ import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.ItemStackHandler;
 import net.minecraftforge.network.NetworkHooks;
 
+//Legacy, Not used now
 public class NylonBag extends Item{
 
   public NylonBag(){

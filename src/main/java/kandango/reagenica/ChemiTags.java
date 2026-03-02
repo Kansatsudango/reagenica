@@ -22,6 +22,8 @@ public class ChemiTags {
   public static class Items {
     public static final TagKey<Item> ORE_BAG_ACCEPT =
       TagKey.create(Registries.ITEM, new ResourceLocation("reagenica", "orebag_accept"));
+    public static final TagKey<Item> BAGS_DENY =
+      TagKey.create(Registries.ITEM, new ResourceLocation("reagenica", "bags_deny"));
     public static final TagKey<Item> ELECTRODES =
       TagKey.create(Registries.ITEM, new ResourceLocation("reagenica", "electrodes"));
     public static final TagKey<Item> STRONG_ACIDS =

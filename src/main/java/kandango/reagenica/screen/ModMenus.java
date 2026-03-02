@@ -54,12 +54,18 @@ public class ModMenus {
     public static final RegistryObject<MenuType<ElectroLysisMenu>> ELECTROLYSIS_MENU =
         MENU_TYPES.register("electrolysis",
             () -> IForgeMenuType.create(ElectroLysisMenu::new));
-    public static final RegistryObject<MenuType<OreBagMenu>> ORE_BAG_MENU =
+    public static final RegistryObject<MenuType<SimpleBagMenu>> ORE_BAG_MENU =
         MENU_TYPES.register("ore_bag",
-            () -> IForgeMenuType.create(OreBagMenu::new));
-    public static final RegistryObject<MenuType<NylonBagMenu>> NYLON_BAG_MENU =
+            () -> IForgeMenuType.create((id, inv, buf) -> new SimpleBagMenu(ModMenus.ORE_BAG_MENU.get(), 84, id, inv, buf)));
+    public static final RegistryObject<MenuType<SimpleBagMenu>> NYLON_BAG_MENU =
         MENU_TYPES.register("nylon_bag",
-            () -> IForgeMenuType.create(NylonBagMenu::new));
+            () -> IForgeMenuType.create((id, inv, buf) -> new SimpleBagMenu(ModMenus.PLATINUM_BAG_MENU.get(), 66, id, inv, buf)));
+    public static final RegistryObject<MenuType<SimpleBagMenu>> PLATINUM_BAG_MENU =
+        MENU_TYPES.register("platinum_bag",
+            () -> IForgeMenuType.create((id, inv, buf) -> new SimpleBagMenu(ModMenus.PLATINUM_BAG_MENU.get(), 84, id, inv, buf)));
+    public static final RegistryObject<MenuType<SimpleBagMenu>> IRIDIUM_BAG_MENU =
+        MENU_TYPES.register("iridium_bag",
+            () -> IForgeMenuType.create((id, inv, buf) -> new SimpleBagMenu(ModMenus.IRIDIUM_BAG_MENU.get(), 140, id, inv, buf)));
     public static final RegistryObject<MenuType<TradingStallMenu>> TRADING_STALL_MENU =
         MENU_TYPES.register("trading_stall",
             () -> IForgeMenuType.create(TradingStallMenu::new));

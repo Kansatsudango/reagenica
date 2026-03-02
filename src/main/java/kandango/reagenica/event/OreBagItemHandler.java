@@ -1,8 +1,8 @@
 package kandango.reagenica.event;
 
+import kandango.reagenica.ChemiItems;
 import kandango.reagenica.ChemiTags;
 import kandango.reagenica.ChemistryMod;
-import kandango.reagenica.item.OreBag;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.entity.item.ItemEntity;
@@ -27,7 +27,7 @@ public class OreBagItemHandler {
 
     Inventory inv = player.getInventory();
     for(ItemStack stack : inv.items){
-      if(stack.getItem() instanceof OreBag){
+      if(stack.is(ChemiItems.ORE_BAG.get())){
         if(stack.getCapability(ForgeCapabilities.ITEM_HANDLER).isPresent()){
           IItemHandler handler = stack.getCapability(ForgeCapabilities.ITEM_HANDLER).orElseThrow(() -> new IllegalStateException());
           if(handler instanceof ItemStackHandler itemHandler){
