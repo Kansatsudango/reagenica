@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "reagenica:item/chicken_saute_with_potato"
+  }
+}

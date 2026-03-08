@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "reagenica:iridium_ingot"
+  },
+  "base": {
+    "item": "reagenica:platinum_helmet"
+  },
+  "result": {
+    "item": "reagenica:iridium_helmet"
+  },
+  "template": {
+    "item": "reagenica:iridium_upgrade_smithing_template"
+  }
+}

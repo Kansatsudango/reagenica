@@ -29,6 +29,9 @@ public class ModCreativeTabContents {
           ChemiBlocks.GINKGO.blockItems().forEach(event::accept);
           ChemiBlocks.MAGNOLIA.blockItems().forEach(event::accept);
           ChemiBlocks.FICUS.blockItems().forEach(event::accept);
+        }else if(event.getTab() == ModCreativeTabs.TOOLS.get()){
+          ChemiItems.PLATINUM_ARMOR.armorItems().forEach(event::accept);
+          ChemiItems.IRIDIUM_ARMOR.armorItems().forEach(event::accept);
         }
     }
 }

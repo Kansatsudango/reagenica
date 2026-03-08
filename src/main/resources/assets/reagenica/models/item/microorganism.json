@@ -1,7 +1,7 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "reagenica:item/culture_dish",
+    "layer0": "reagenica:item/medium_plate",
     "layer1": "reagenica:item/microorganism_on_dish"
   }
 }

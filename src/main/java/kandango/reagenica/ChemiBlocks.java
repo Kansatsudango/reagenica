@@ -8,7 +8,7 @@ import kandango.reagenica.block.*;
 import kandango.reagenica.block.farming.*;
 import kandango.reagenica.block.farming.crop.*;
 import kandango.reagenica.block.farming.grape.*;
-import kandango.reagenica.blockfamily.WoodFamily;
+import kandango.reagenica.family.WoodFamily;
 import kandango.reagenica.generator.BlockLootType;
 import kandango.reagenica.worldgen.forestry.*;
 import net.minecraft.world.item.*;

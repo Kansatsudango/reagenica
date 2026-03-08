@@ -3,11 +3,16 @@ package kandango.reagenica.item.reagent;
 import java.util.Optional;
 import java.util.function.Supplier;
 
+import net.minecraft.world.item.Item;
 import net.minecraft.world.level.material.Fluid;
 
 public class PowderReagent extends Reagent{
   private final Supplier<Fluid> lazyfluid;
   
+  public PowderReagent(ReagentProperties rp){
+    super(rp,new Item.Properties());
+    this.lazyfluid = () -> null;
+  }
   public PowderReagent(ReagentProperties rp, Properties properties){
     super(rp,properties);
     this.lazyfluid = () -> null;

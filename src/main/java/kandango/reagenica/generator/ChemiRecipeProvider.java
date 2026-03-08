@@ -5,8 +5,10 @@ import java.util.function.Consumer;
 import javax.annotation.Nonnull;
 
 import kandango.reagenica.ChemiBlocks;
+import kandango.reagenica.ChemiItems;
 import kandango.reagenica.ChemistryMod;
-import kandango.reagenica.blockfamily.WoodFamily;
+import kandango.reagenica.family.ArmorFamily;
+import kandango.reagenica.family.WoodFamily;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.FinishedRecipe;
@@ -14,10 +16,13 @@ import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.RecipeProvider;
 import net.minecraft.data.recipes.ShapedRecipeBuilder;
 import net.minecraft.data.recipes.ShapelessRecipeBuilder;
+import net.minecraft.data.recipes.SmithingTransformRecipeBuilder;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.item.crafting.Ingredient;
+import net.minecraft.world.level.ItemLike;
 
 public class ChemiRecipeProvider extends RecipeProvider{
   public ChemiRecipeProvider(PackOutput output){
@@ -30,6 +35,8 @@ public class ChemiRecipeProvider extends RecipeProvider{
     WoodFamilyRecipeGenerator.of(ChemiBlocks.GINKGO).register(consumer);
     WoodFamilyRecipeGenerator.of(ChemiBlocks.MAGNOLIA).register(consumer);
     WoodFamilyRecipeGenerator.of(ChemiBlocks.FICUS).register(consumer);
+    ArmorRecipeGenerator.ofPair(ChemiItems.PLATINUM_ARMOR, ChemiItems.PLATINUM_INGOT.get()).register(consumer);
+    SmithingRecipeGenerator.smith(ChemiItems.PLATINUM_ARMOR, ChemiItems.IRIDIUM_ARMOR, ChemiItems.IRIDIUM_INGOT.get(), ChemiItems.IRIDIUM_UPGRADE_STH.get()).register(consumer);
   }
   private static class WoodFamilyRecipeGenerator {
     private final WoodFamily woodFamily;
@@ -163,5 +170,73 @@ public class ChemiRecipeProvider extends RecipeProvider{
             .save(consumer);
     }
   }
+  private static class ArmorRecipeGenerator{
+    private final Item ingredient;
+    private final ArmorFamily family;
 
+    private ArmorRecipeGenerator(ArmorFamily family, Item ingredient){
+      this.family = family;
+      this.ingredient = ingredient;
+    }
+    public static ArmorRecipeGenerator ofPair(ArmorFamily family, Item ing){
+      return new ArmorRecipeGenerator(family, ing);
+    }
+    public void register(Consumer<FinishedRecipe> consumer){
+      ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, family.HELMET.get(), 1)
+        .pattern("###")
+        .pattern("# #")
+        .define('#', ingredient)
+        .unlockedBy("has_material", has(ingredient))
+        .save(consumer);
+      ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, family.CHESTPLATE.get(), 1)
+        .pattern("# #")
+        .pattern("###")
+        .pattern("###")
+        .define('#', ingredient)
+        .unlockedBy("has_material", has(ingredient))
+        .save(consumer);
+      ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, family.LEGGINGS.get(), 1)
+        .pattern("###")
+        .pattern("# #")
+        .pattern("# #")
+        .define('#', ingredient)
+        .unlockedBy("has_material", has(ingredient))
+        .save(consumer);
+      ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, family.BOOTS.get(), 1)
+        .pattern("# #")
+        .pattern("# #")
+        .define('#', ingredient)
+        .unlockedBy("has_material", has(ingredient))
+        .save(consumer);
+    }
+  }
+  private static class SmithingRecipeGenerator{
+    private final Ingredient template;
+    private final Item material;
+    private final ArmorFamily baseFamily;
+    private final ArmorFamily upgradedFamily;
+    private SmithingRecipeGenerator(ArmorFamily base, ArmorFamily upgraded, Item material, Ingredient template){
+      this.template = template;
+      this.material = material;
+      this.baseFamily = base;
+      this.upgradedFamily = upgraded;
+    }
+    public static SmithingRecipeGenerator smith(ArmorFamily base, ArmorFamily upgraded, Item material, ItemLike template){
+      return new SmithingRecipeGenerator(base, upgraded, material, Ingredient.of(template));
+    }
+    public void register(Consumer<FinishedRecipe> consumer){
+      SmithingTransformRecipeBuilder.smithing(template, Ingredient.of(baseFamily.HELMET.get()),
+                Ingredient.of(material), RecipeCategory.COMBAT, upgradedFamily.HELMET.get())
+                .unlocks("has_material", has(material)).save(consumer, upgradedFamily.HELMET.getId());
+      SmithingTransformRecipeBuilder.smithing(template, Ingredient.of(baseFamily.CHESTPLATE.get()),
+                Ingredient.of(material), RecipeCategory.COMBAT, upgradedFamily.CHESTPLATE.get())
+                .unlocks("has_material", has(material)).save(consumer, upgradedFamily.CHESTPLATE.getId());
+      SmithingTransformRecipeBuilder.smithing(template, Ingredient.of(baseFamily.LEGGINGS.get()),
+                Ingredient.of(material), RecipeCategory.COMBAT, upgradedFamily.LEGGINGS.get())
+                .unlocks("has_material", has(material)).save(consumer, upgradedFamily.LEGGINGS.getId());
+      SmithingTransformRecipeBuilder.smithing(template, Ingredient.of(baseFamily.BOOTS.get()),
+                Ingredient.of(material), RecipeCategory.COMBAT, upgradedFamily.BOOTS.get())
+                .unlocks("has_material", has(material)).save(consumer, upgradedFamily.BOOTS.getId());
+    }
+  }
 }

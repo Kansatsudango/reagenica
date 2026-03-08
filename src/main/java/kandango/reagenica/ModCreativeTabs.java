@@ -23,6 +23,11 @@ public class ModCreativeTabs {
       .title(Component.translatable("itemGroup.reagenica.paleo"))
       .icon(() -> new ItemStack(ChemiBlocks.METASEQUOIA.LOG.get()))
       .build());
+  public static final RegistryObject<CreativeModeTab> TOOLS =
+    TABS.register("tools", () -> CreativeModeTab.builder()
+      .title(Component.translatable("itemGroup.reagenica.tools"))
+      .icon(() -> new ItemStack(ChemiItems.PLATINUM_ARMOR.CHESTPLATE.get()))
+      .build());
 
   public static void register(IEventBus bus) {
     TABS.register(bus);
