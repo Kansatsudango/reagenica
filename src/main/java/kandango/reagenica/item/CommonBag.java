@@ -115,9 +115,11 @@ public class CommonBag<T extends AbstractContainerMenu> extends Item{
     private final ItemStackHandler handler;
     private final LazyOptional<IItemHandler> lazyHandler;
     private final ItemStack stack;
+    private final int slotsCount;
 
     public CommonBagProvider(ItemStack stack, int count, Predicate<ItemStack> isValid) {
       this.stack = stack;
+      this.slotsCount = count;
       this.handler = new ItemStackHandler(count){
         @Override
         public boolean isItemValid(int slot, @Nullable ItemStack stack) {
@@ -138,7 +140,13 @@ public class CommonBag<T extends AbstractContainerMenu> extends Item{
     private void load(){
       CompoundTag tag = stack.getTag();
       if(tag!=null && tag.contains("Inventory")){
-        handler.deserializeNBT(tag.getCompound("Inventory"));
+        CompoundTag inventoryTag = tag.getCompound("Inventory");
+        int slotCount = inventoryTag.getInt("Size");
+        if(slotCount != this.slotsCount){
+          ChemistryMod.LOGGER.debug("Common Bag Inventory size changed.");
+          inventoryTag.putInt("Size", this.slotsCount);
+        }
+        handler.deserializeNBT(inventoryTag);
       }
       CompoundTag fullTag = stack.save(new CompoundTag());
       if(fullTag.contains("ForgeCaps")){
