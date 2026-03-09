@@ -1,4 +1,4 @@
-// 1.20.1	2026-03-09T11:05:11.0069031	Item Models: reagenica
+// 1.20.1	2026-03-09T16:25:59.0352393	Item Models: reagenica
 6f0d9872c5f176206015dd5f6420e71fe71f2cb9 assets/reagenica/models/item/acetobacter.json
 54ef03ed6b05d449bef3092145440fb8c97020f5 assets/reagenica/models/item/adipamide.json
 54ef03ed6b05d449bef3092145440fb8c97020f5 assets/reagenica/models/item/adipic_acid.json
@@ -166,16 +166,21 @@ fba9a6a6ea1b8efcd0f5d2272b5b69a5617787a1 assets/reagenica/models/item/hydrogen_b
 55e8fd85879a5d222fe1eba418faeab769d24409 assets/reagenica/models/item/hydrogen_chloride.json
 4efe394115a14a6a8bbee0be69a7f2e0b6ac4d65 assets/reagenica/models/item/hydrogen_reductor.json
 cae000c0064c8c2172bc90092f048eb9964da28d assets/reagenica/models/item/incubator.json
+01f5610b518a95fdbe40e9c95ca3bca1e5a52195 assets/reagenica/models/item/iridium_axe.json
 b0f6c5f028f4b15d36fe47436df277461fbac326 assets/reagenica/models/item/iridium_bag.json
 a7e6cb4165dcd8f0bdd42c4810c47a68441f564b assets/reagenica/models/item/iridium_boots.json
 f0d3d7c909bcdc43ae7f5e08e8a135b8e2b641c4 assets/reagenica/models/item/iridium_chestplate.json
 9407bb3bb581b6167431ee2c911cb125eb9aaa19 assets/reagenica/models/item/iridium_dioxide.json
 0ed9f4a65d72d6fe30fe3ea540e5e2ce34af22fa assets/reagenica/models/item/iridium_helmet.json
+7b482ba8c802dda6c0b4ef530b0a169051aee397 assets/reagenica/models/item/iridium_hoe.json
 3ae59c98b58fc7b5b6e444ba476674e76ef9ed8e assets/reagenica/models/item/iridium_ingot.json
 01bed9615d04aad708dfc4643591d1d747f39a67 assets/reagenica/models/item/iridium_leggings.json
 0bb773ad4a05259ca2807a64bef7009d44924327 assets/reagenica/models/item/iridium_ore.json
+755991cd05bbe41de394bbf4f37afe3658bb2f97 assets/reagenica/models/item/iridium_pickaxe.json
+2b74e30ac9494cee35847fab095164103dd2405a assets/reagenica/models/item/iridium_shovel.json
 54ef03ed6b05d449bef3092145440fb8c97020f5 assets/reagenica/models/item/iridium_solution.json
 54ef03ed6b05d449bef3092145440fb8c97020f5 assets/reagenica/models/item/iridium_solution_neu.json
+09f1d022c7dad5a15271127ed17f67a152dbbb93 assets/reagenica/models/item/iridium_sword.json
 7b4b9ebb90b2ff0fc0ad6eadb21033ef7998458d assets/reagenica/models/item/iridium_upgrade_smithing_template.json
 9bf35878edbd67203118cb4eb8d05ddf55dd2f1b assets/reagenica/models/item/iron_hotspring_bucket.json
 27cdc16cbad77cc6ed6e2339d9a571325bcca271 assets/reagenica/models/item/iron_oxide.json
@@ -261,6 +266,7 @@ e36c7cdb1a3cf6b9093f722da4496a514ac7f4b1 assets/reagenica/models/item/pargola.js
 d3a10dc1e35074d421267656dcdfadeae57f9789 assets/reagenica/models/item/phosphoric_acid_catalyst.json
 32e82492ad64c586e755d7008742d24c85220f21 assets/reagenica/models/item/phospho_fertilizer.json
 0f729f4151d8d424fe6767e36bc5bbe28dca2e55 assets/reagenica/models/item/plastic_dish.json
+bd6a8906b0bf9ce9d372dbf63e493ed751414795 assets/reagenica/models/item/platinum_axe.json
 841e728144889388b95b3fe5301df6bfcdaf7aed assets/reagenica/models/item/platinum_bag.json
 f2ce403c855e171217e0920b13f75b3d8294c3ba assets/reagenica/models/item/platinum_boots.json
 5cf31271da9d1b6ecee8f8556f70812101134267 assets/reagenica/models/item/platinum_catalyst.json
@@ -268,11 +274,15 @@ dc3f1f187e10a4fcfbc7572b977eb437041da4ca assets/reagenica/models/item/platinum_c
 28c0688bfb6963c9f67131b5c20e462ea657e772 assets/reagenica/models/item/platinum_electrode.json
 3fa666ee3de5c50c608fa756fd13cb69fc603db0 assets/reagenica/models/item/platinum_filter.json
 1fddc20cf2697e8c5959c498c2a6acd4fa4e3898 assets/reagenica/models/item/platinum_helmet.json
+4b66044b354cc4eefe19f68f370a318268f826cc assets/reagenica/models/item/platinum_hoe.json
 23cdbf063123ea784adce2ecf1860b5a675665aa assets/reagenica/models/item/platinum_ingot.json
 3b11ec7b46ff04ece9eb0c563031d6cf68617998 assets/reagenica/models/item/platinum_leggings.json
 c61b699fd97e4082ec57192dfcd0497d648b1bcf assets/reagenica/models/item/platinum_nugget.json
+02b2c154dd34ff0ed5f35b5863cb0bbd607c3ab9 assets/reagenica/models/item/platinum_pickaxe.json
+8c4a167943a54a36448292afd78610d749803f83 assets/reagenica/models/item/platinum_shovel.json
 54ef03ed6b05d449bef3092145440fb8c97020f5 assets/reagenica/models/item/platinum_solution.json
 144ae317637dd4c3c1753f2bc217417ceed17c7f assets/reagenica/models/item/platinum_solution_bucket.json
+234c6a464ef132d4a4e0c8c3e740a9e31c9a272e assets/reagenica/models/item/platinum_sword.json
 145a6fc64a453146e353d8d3af65b270e308bea5 assets/reagenica/models/item/plutonium_ingot.json
 68cdd5292bac1c44d13b4c17e2f61f86cfe0ddd8 assets/reagenica/models/item/plutonium_nugget.json
 67df3cd60da63fe390fec25637d9b4e0161c77c4 assets/reagenica/models/item/plutonium_pellet.json

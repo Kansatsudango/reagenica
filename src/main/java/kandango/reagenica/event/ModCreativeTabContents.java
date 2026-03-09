@@ -32,6 +32,8 @@ public class ModCreativeTabContents {
         }else if(event.getTab() == ModCreativeTabs.TOOLS.get()){
           ChemiItems.PLATINUM_ARMOR.armorItems().forEach(event::accept);
           ChemiItems.IRIDIUM_ARMOR.armorItems().forEach(event::accept);
+          ChemiItems.PLATINUM_TOOLS.toolItems().forEach(event::accept);
+          ChemiItems.IRIDIUM_TOOLS.toolItems().forEach(event::accept);
         }
     }
 }

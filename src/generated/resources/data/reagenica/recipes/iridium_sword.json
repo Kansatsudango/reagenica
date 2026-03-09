@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "reagenica:iridium_ingot"
+  },
+  "base": {
+    "item": "reagenica:platinum_sword"
+  },
+  "result": {
+    "item": "reagenica:iridium_sword"
+  },
+  "template": {
+    "item": "reagenica:iridium_upgrade_smithing_template"
+  }
+}

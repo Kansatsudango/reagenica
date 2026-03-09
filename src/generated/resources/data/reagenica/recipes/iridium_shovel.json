@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "reagenica:iridium_ingot"
+  },
+  "base": {
+    "item": "reagenica:platinum_shovel"
+  },
+  "result": {
+    "item": "reagenica:iridium_shovel"
+  },
+  "template": {
+    "item": "reagenica:iridium_upgrade_smithing_template"
+  }
+}

@@ -14,6 +14,7 @@ import net.minecraft.server.packs.PackType;
 import net.minecraft.world.item.DiggerItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.SwordItem;
+import net.minecraft.world.item.TieredItem;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.client.model.generators.ItemModelProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
@@ -29,7 +30,12 @@ public class ChemiItemModelProvider extends ItemModelProvider{
     ChemiItems.listItems.stream().forEach(this::register);
     ChemiItems.PLATINUM_ARMOR.armorItems().forEach(this::register);
     ChemiItems.IRIDIUM_ARMOR.armorItems().forEach(this::register);
+    ChemiItems.PLATINUM_TOOLS.toolItems().forEach(this::registerTools);
+    ChemiItems.IRIDIUM_TOOLS.toolItems().forEach(this::registerTools);
     ChemiBlocks.listBlocks.stream().map(b -> b.blockreg()).forEach(this::blockItemSafe);
+  }
+  private void registerTools(RegistryObject<? extends TieredItem> item){
+    handheldItem(item);
   }
   private void register(RegistryObject<? extends Item> item){
     Item instance = item.get();
