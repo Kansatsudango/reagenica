@@ -1,16 +1,20 @@
 package kandango.reagenica.event;
 
+import kandango.reagenica.ChemiEnchantments;
 import kandango.reagenica.ChemiItems;
 import kandango.reagenica.ChemistryMod;
+import kandango.reagenica.enchantment.BigMinerEnchantment;
 import kandango.reagenica.network.CableNetworkManager;
 import kandango.reagenica.worldgen.ChemiBiomes;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.event.furnace.FurnaceFuelBurnTimeEvent;
+import net.minecraftforge.event.level.BlockEvent;
 import net.minecraftforge.event.level.SleepFinishedTimeEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -50,4 +54,21 @@ public class ForgeEventHandler {
       }
     }
   }
+
+  @SubscribeEvent
+  public static void onBreak(BlockEvent.BreakEvent event){
+    if(veinMining.get())return; // Prevent infinite recursion
+    Player player = event.getPlayer();
+    ItemStack stack = player.getMainHandItem();
+    int enchLevel = stack.getEnchantmentLevel(ChemiEnchantments.BIG_MINING.get());
+    if(enchLevel>=1){
+      LevelAccessor lv = event.getLevel();
+      if(lv instanceof ServerLevel slv){
+        veinMining.set(true);
+        BigMinerEnchantment.run(slv, player, event.getPos(), stack, enchLevel);
+        veinMining.set(false);
+      }
+    }
+  }
+  private static final ThreadLocal<Boolean> veinMining = ThreadLocal.withInitial(() -> false);
 }

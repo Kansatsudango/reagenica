@@ -37,6 +37,7 @@ public class ChemistryMod {
     ChemiBiomes.BIOME_SOURCE.register(modEventBus);
     ChemiStructures.STRUCTURE_TYPES.register(modEventBus);
     ChemiStructures.PIECES.register(modEventBus);
+    ChemiEnchantments.ENCHANTMENTS.register(modEventBus);
     ModBlockEntities.register(modEventBus);
     ModMenus.register(modEventBus);
     ModRecipes.register(modEventBus);
