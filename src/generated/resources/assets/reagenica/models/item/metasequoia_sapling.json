@@ -1,3 +1,6 @@
 {
-  "parent": "reagenica:block/metasequoia_sapling"
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "reagenica:block/metasequoia_sapling"
+  }
 }
