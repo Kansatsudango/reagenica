@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Set;
 
 import kandango.reagenica.ChemiBlocks;
+import kandango.reagenica.family.WoodFamily;
 import kandango.reagenica.generator.BlockLootType.BlockType;
 import net.minecraft.advancements.critereon.StatePropertiesPredicate;
 import net.minecraft.data.PackOutput;
@@ -34,6 +35,11 @@ public class ChemiLootTableProvider extends LootTableProvider{
 
     @Override
     protected void generate(){
+      processWood(ChemiBlocks.METASEQUOIA);
+      processWood(ChemiBlocks.TAXODIUM);
+      processWood(ChemiBlocks.GINKGO);
+      processWood(ChemiBlocks.MAGNOLIA);
+      processWood(ChemiBlocks.FICUS);
       for(BlockLootType block : ChemiBlocks.listBlocks){
         if(block.type()==BlockType.NORMAL){
           dropSelf(block.blockreg().get());
@@ -58,6 +64,27 @@ public class ChemiLootTableProvider extends LootTableProvider{
     @Override
     protected Iterable<Block> getKnownBlocks(){
       return ChemiBlocks.BLOCKS.getEntries().stream().map(e -> e.get()).toList();
+    }
+    private void processWood(WoodFamily family){
+      dropSelf(family.LOG.get());
+      dropSelf(family.WOOD.get());
+      dropSelf(family.LEAVES.get());//dummy
+      dropSelf(family.SAPLING.get());
+      dropSelf(family.PLANKS.get());
+      dropSelf(family.STAIRS.get());
+      add(family.SLAB.get(),createSlabItemTable(family.SLAB.get()));
+      dropSelf(family.STRIPPED_LOG.get());
+      dropSelf(family.STRIPPED_WOOD.get());
+      dropSelf(family.STANDING_SIGN.get());
+      dropSelf(family.WALL_SIGN.get());
+      dropSelf(family.CEILING_HANGING_SIGN.get());
+      dropSelf(family.WALL_HANGING_SIGN.get());
+      dropSelf(family.FENCE.get());
+      dropSelf(family.FENCE_GATE.get());
+      dropSelf(family.TRAPDOOR.get());
+      add(family.DOOR.get(),createDoorTable(family.DOOR.get()));
+      dropSelf(family.BUTTON.get());
+      dropSelf(family.PRESSURE_PLATE.get());
     }
   }
 }

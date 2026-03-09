@@ -76,6 +76,9 @@ public class ChemiItemModelProvider extends ItemModelProvider{
     ResourceLocation model = modLoc("block/" + block.getId().getPath());
     if (existingFileHelper.exists(model, PackType.CLIENT_RESOURCES, ".json", "models")) {
       withExistingParent(block.getId().getPath(), model);
+      ChemistryMod.LOGGER.info("Created {} blockItem model automatically.",block.getId().getPath());
+    }else{
+      ChemistryMod.LOGGER.info("{} blockItem model was skipped.",block.getId().getPath());
     }
-}
+  }
 }

@@ -1,3 +1,6 @@
 {
-  "parent": "reagenica:block/magnolia_sign"
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "reagenica:item/magnolia_sign"
+  }
 }
