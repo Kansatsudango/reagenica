@@ -4,10 +4,13 @@ import kandango.reagenica.ChemiEnchantments;
 import kandango.reagenica.ChemiItems;
 import kandango.reagenica.ChemistryMod;
 import kandango.reagenica.enchantment.BigMinerEnchantment;
+import kandango.reagenica.enchantment.VeinMinerEnchantment;
+import kandango.reagenica.event.task.ChainMiningTaskManager;
 import kandango.reagenica.network.CableNetworkManager;
 import kandango.reagenica.worldgen.ChemiBiomes;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
@@ -26,6 +29,9 @@ public class ForgeEventHandler {
   public static void onLevelTick(TickEvent.LevelTickEvent event) {
     if (!event.level.isClientSide && event.phase == TickEvent.Phase.END) {
       CableNetworkManager.tick((ServerLevel) event.level);
+      veinMining.set(true);
+      ChainMiningTaskManager.tick((ServerLevel) event.level);
+      veinMining.set(false);
     }
   }
 
@@ -63,12 +69,19 @@ public class ForgeEventHandler {
     int enchLevel = stack.getEnchantmentLevel(ChemiEnchantments.BIG_MINING.get());
     if(enchLevel>=1){
       LevelAccessor lv = event.getLevel();
-      if(lv instanceof ServerLevel slv){
+      if(lv instanceof ServerLevel slv && player instanceof ServerPlayer sp){
         veinMining.set(true);
-        BigMinerEnchantment.run(slv, player, event.getPos(), stack, enchLevel);
+        BigMinerEnchantment.run(slv, sp, event.getPos(), stack, enchLevel);
         veinMining.set(false);
       }
     }
+    enchLevel = stack.getEnchantmentLevel(ChemiEnchantments.CHAIN_MINING.get());
+    if(enchLevel>=1){
+      LevelAccessor lv = event.getLevel();
+      if(lv instanceof ServerLevel slv && player instanceof ServerPlayer sp){
+        VeinMinerEnchantment.run(slv, sp, event.getPos(), stack, enchLevel);
+      }
+    }
   }
-  private static final ThreadLocal<Boolean> veinMining = ThreadLocal.withInitial(() -> false);
+  public static final ThreadLocal<Boolean> veinMining = ThreadLocal.withInitial(() -> false);
 }
