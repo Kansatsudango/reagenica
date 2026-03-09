@@ -1,5 +1,6 @@
 package kandango.reagenica.generator;
 
+import kandango.reagenica.ChemiBlocks;
 import kandango.reagenica.ChemiItems;
 import kandango.reagenica.ChemistryMod;
 import kandango.reagenica.item.bioreagent.BioReagent;
@@ -8,9 +9,12 @@ import kandango.reagenica.item.reagent.LiquidReagent;
 import kandango.reagenica.item.reagent.PowderReagent;
 import kandango.reagenica.item.reagent.ReagentPowderIndustrial;
 import net.minecraft.data.PackOutput;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.server.packs.PackType;
 import net.minecraft.world.item.DiggerItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.SwordItem;
+import net.minecraft.world.level.block.Block;
 import net.minecraftforge.client.model.generators.ItemModelProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.registries.RegistryObject;
@@ -25,6 +29,7 @@ public class ChemiItemModelProvider extends ItemModelProvider{
     ChemiItems.listItems.stream().forEach(this::register);
     ChemiItems.PLATINUM_ARMOR.armorItems().forEach(this::register);
     ChemiItems.IRIDIUM_ARMOR.armorItems().forEach(this::register);
+    ChemiBlocks.listBlocks.stream().map(b -> b.blockreg()).forEach(this::blockItemSafe);
   }
   private void register(RegistryObject<? extends Item> item){
     Item instance = item.get();
@@ -67,4 +72,10 @@ public class ChemiItemModelProvider extends ItemModelProvider{
   private void bioPlateItem(RegistryObject<? extends Item> item) {
     withExistingParent(item.getId().getPath(), modLoc("item/microorganism"));
   }
+  private void blockItemSafe(RegistryObject<? extends Block> block) {
+    ResourceLocation model = modLoc("block/" + block.getId().getPath());
+    if (existingFileHelper.exists(model, PackType.CLIENT_RESOURCES, ".json", "models")) {
+      withExistingParent(block.getId().getPath(), model);
+    }
+}
 }

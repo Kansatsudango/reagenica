@@ -1,6 +1,3 @@
 {
-  "parent": "minecraft:item/generated",
-  "textures": {
-    "layer0": "reagenica:item/taxodium_hanging_sign"
-  }
+  "parent": "reagenica:block/taxodium_hanging_sign"
 }

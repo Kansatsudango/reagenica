@@ -19,7 +19,7 @@ public class DataGenerators {
 
     generator.addProvider(event.includeServer(), new ChemiLootTableProvider(packOutput));
     generator.addProvider(event.includeServer(), new ChemiBlocktagsProvider(packOutput, lookupProvider, existingFileHelper));
-    generator.addProvider(event.includeClient(), new WoodBlockStateProvider(packOutput, existingFileHelper));
+    generator.addProvider(event.includeClient(), new ChemiBlockStateProvider(packOutput, existingFileHelper));
     generator.addProvider(event.includeClient(), new ChemiItemModelProvider(packOutput, existingFileHelper));
     generator.addProvider(event.includeServer(), new ChemiRecipeProvider(packOutput));
   }

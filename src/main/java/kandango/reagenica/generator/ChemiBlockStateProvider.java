@@ -25,9 +25,9 @@ import net.minecraftforge.client.model.generators.ModelFile;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.registries.RegistryObject;
 
-public class WoodBlockStateProvider extends BlockStateProvider{
+public class ChemiBlockStateProvider extends BlockStateProvider{
 
-  public WoodBlockStateProvider(PackOutput output, ExistingFileHelper exFileHelper) {
+  public ChemiBlockStateProvider(PackOutput output, ExistingFileHelper exFileHelper) {
     super(output, ChemistryMod.MODID, exFileHelper);
   }
 
