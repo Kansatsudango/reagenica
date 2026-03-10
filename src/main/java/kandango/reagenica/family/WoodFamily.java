@@ -1,5 +1,7 @@
 package kandango.reagenica.family;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.function.Supplier;
 import java.util.stream.Stream;
@@ -7,7 +9,6 @@ import java.util.stream.Stream;
 import kandango.reagenica.ChemiBlocks;
 import kandango.reagenica.block.ChemiLogBlock;
 import kandango.reagenica.block.sign.*;
-import kandango.reagenica.generator.BlockLootType;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.HangingSignItem;
@@ -22,6 +23,7 @@ import net.minecraft.world.level.block.state.properties.WoodType;
 import net.minecraftforge.registries.RegistryObject;
 
 public class WoodFamily {
+  public static final List<WoodFamily> Woods = Collections.synchronizedList(new ArrayList<>());
   public final RegistryObject<ChemiLogBlock> LOG;
   public final RegistryObject<ChemiLogBlock> WOOD;
   public final RegistryObject<LeavesBlock> LEAVES;
@@ -101,27 +103,7 @@ public class WoodFamily {
     this.BUTTON_ITEM = ChemiBlocks.ITEMS.register(name+"_button", () -> new BlockItem(BUTTON.get(), new Item.Properties()));
     this.PRESSURE_PLATE = ChemiBlocks.BLOCKS.register(name+"_pressure_plate", () -> new PressurePlateBlock(Sensitivity.EVERYTHING, BlockBehaviour.Properties.copy(Blocks.OAK_BUTTON), setType));
     this.PRESSURE_PLATE_ITEM = ChemiBlocks.ITEMS.register(name+"_pressure_plate", () -> new BlockItem(PRESSURE_PLATE.get(), new Item.Properties()));
-  }
-  public void addLootTable(List<? super BlockLootType> list){
-    list.add(BlockLootType.wood(LOG));
-    list.add(BlockLootType.wood(WOOD));
-    list.add(BlockLootType.silkhoes(LEAVES));
-    list.add(BlockLootType.normal(SAPLING));
-    list.add(BlockLootType.wood(PLANKS));
-    list.add(BlockLootType.wood(STAIRS));
-    list.add(BlockLootType.wood(SLAB));
-    list.add(BlockLootType.wood(STRIPPED_LOG));
-    list.add(BlockLootType.wood(STRIPPED_WOOD));
-    list.add(BlockLootType.wood(STANDING_SIGN));
-    list.add(BlockLootType.wood(WALL_SIGN));
-    list.add(BlockLootType.wood(CEILING_HANGING_SIGN));
-    list.add(BlockLootType.wood(WALL_HANGING_SIGN));
-    list.add(BlockLootType.wood(FENCE));
-    list.add(BlockLootType.wood(FENCE_GATE));
-    list.add(BlockLootType.wood(TRAPDOOR));
-    list.add(BlockLootType.wood(DOOR));
-    list.add(BlockLootType.wood(BUTTON));
-    list.add(BlockLootType.wood(PRESSURE_PLATE));
+    Woods.add(this);
   }
   public Stream<RegistryObject<? extends BlockItem>> blockItems(){
     return Stream.of(LOG_ITEM, WOOD_ITEM, LEAVES_ITEM, SAPLING_ITEM, PLANKS_ITEM, STAIRS_ITEM, SLAB_ITEM,

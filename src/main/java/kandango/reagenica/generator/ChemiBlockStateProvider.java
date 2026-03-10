@@ -1,6 +1,5 @@
 package kandango.reagenica.generator;
 
-import kandango.reagenica.ChemiBlocks;
 import kandango.reagenica.ChemistryMod;
 import kandango.reagenica.family.WoodFamily;
 import net.minecraft.data.PackOutput;
@@ -33,11 +32,7 @@ public class ChemiBlockStateProvider extends BlockStateProvider{
 
   @Override
   protected void registerStatesAndModels() {
-    registerWoodThings(ChemiBlocks.METASEQUOIA);
-    registerWoodThings(ChemiBlocks.TAXODIUM);
-    registerWoodThings(ChemiBlocks.GINKGO);
-    registerWoodThings(ChemiBlocks.MAGNOLIA);
-    registerWoodThings(ChemiBlocks.FICUS);
+    WoodFamily.Woods.forEach(this::processWood);
   }
 
   private void registerStairBlockWithItem(RegistryObject<? extends StairBlock> stairs, RegistryObject<? extends Block> base){
@@ -117,8 +112,9 @@ public class ChemiBlockStateProvider extends BlockStateProvider{
             .partialState()
             .addModels(new ConfiguredModel(model));
     itemModels().withExistingParent(name+"_hanging_sign", mcLoc("item/generated")).texture("layer0", modLoc("item/"+name+"_hanging_sign"));
-}
-  private void registerWoodThings(WoodFamily woodFamily){
+  }
+
+  private void processWood(WoodFamily woodFamily){
     registerLogBlockWithItem(woodFamily.LOG);
     registerWoodBlockWithItem(woodFamily.WOOD, woodFamily.name);
     registerLeavesBlockWithItem(woodFamily.LEAVES, woodFamily.name);
@@ -137,5 +133,4 @@ public class ChemiBlockStateProvider extends BlockStateProvider{
     registerButtonBlockWithItem(woodFamily.BUTTON, woodFamily.name);
     registerPressurePlateBlockWithItem(woodFamily.PRESSURE_PLATE, woodFamily.name);
   }
-  
 }

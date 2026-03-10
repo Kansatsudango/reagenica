@@ -1,3 +1,6 @@
 {
-  "parent": "reagenica:block/red_beryl_crystal"
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "reagenica:block/red_beryl_crystal"
+  }
 }

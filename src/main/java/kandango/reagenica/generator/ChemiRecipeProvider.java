@@ -4,10 +4,10 @@ import java.util.function.Consumer;
 
 import javax.annotation.Nonnull;
 
-import kandango.reagenica.ChemiBlocks;
 import kandango.reagenica.ChemiItems;
 import kandango.reagenica.ChemistryMod;
 import kandango.reagenica.family.ArmorFamily;
+import kandango.reagenica.family.CrystalFamily;
 import kandango.reagenica.family.ToolFamily;
 import kandango.reagenica.family.WoodFamily;
 import net.minecraft.core.registries.Registries;
@@ -31,11 +31,8 @@ public class ChemiRecipeProvider extends RecipeProvider{
   }
   @Override
   protected void buildRecipes(@Nonnull Consumer<FinishedRecipe> consumer) {
-    WoodFamilyRecipeGenerator.of(ChemiBlocks.METASEQUOIA).register(consumer);
-    WoodFamilyRecipeGenerator.of(ChemiBlocks.TAXODIUM).register(consumer);
-    WoodFamilyRecipeGenerator.of(ChemiBlocks.GINKGO).register(consumer);
-    WoodFamilyRecipeGenerator.of(ChemiBlocks.MAGNOLIA).register(consumer);
-    WoodFamilyRecipeGenerator.of(ChemiBlocks.FICUS).register(consumer);
+    WoodFamily.Woods.forEach(family -> WoodFamilyRecipeGenerator.of(family).register(consumer));
+    CrystalFamily.Crystals.forEach(family -> CrystalRecipeGenerator.of(family).register(consumer));
     ArmorRecipeGenerator.ofPair(ChemiItems.PLATINUM_ARMOR, ChemiItems.PLATINUM_INGOT.get()).register(consumer);
     ArmorSmithingRecipeGenerator.smith(ChemiItems.PLATINUM_ARMOR, ChemiItems.IRIDIUM_ARMOR, ChemiItems.IRIDIUM_INGOT.get(), ChemiItems.IRIDIUM_UPGRADE_STH.get()).register(consumer);
     ToolRecipeGenerator.ofPair(ChemiItems.PLATINUM_TOOLS, ChemiItems.PLATINUM_INGOT.get(), Ingredient.of(Items.DIAMOND)).register(consumer);
@@ -332,6 +329,24 @@ public class ChemiRecipeProvider extends RecipeProvider{
       SmithingTransformRecipeBuilder.smithing(template, Ingredient.of(baseFamily.HOE.get()),
                 Ingredient.of(material), RecipeCategory.COMBAT, upgradedFamily.HOE.get())
                 .unlocks("has_material", has(material)).save(consumer, upgradedFamily.HOE.getId());
+    }
+  }
+  private static class CrystalRecipeGenerator{
+    private final CrystalFamily family;
+
+    private CrystalRecipeGenerator(CrystalFamily family){
+      this.family = family;
+    }
+    public static CrystalRecipeGenerator of(CrystalFamily family){
+      return new CrystalRecipeGenerator(family);
+    }
+    public void register(Consumer<FinishedRecipe> consumer){
+      ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, family.BLOCK_ITEM.get(), 1)
+        .pattern("##")
+        .pattern("##")
+        .define('#', family.SHARD_ITEM.get())
+        .unlockedBy("has_material", has(family.SHARD_ITEM.get()))
+        .save(consumer);
     }
   }
 }

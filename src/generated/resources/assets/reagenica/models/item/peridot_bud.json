@@ -1,3 +1,6 @@
 {
-  "parent": "reagenica:block/peridot_bud"
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "reagenica:block/peridot_bud"
+  }
 }

@@ -3,6 +3,7 @@ package kandango.reagenica.generator;
 import kandango.reagenica.ChemiBlocks;
 import kandango.reagenica.ChemiItems;
 import kandango.reagenica.ChemistryMod;
+import kandango.reagenica.family.CrystalFamily;
 import kandango.reagenica.item.bioreagent.BioReagent;
 import kandango.reagenica.item.reagent.GasReagent;
 import kandango.reagenica.item.reagent.LiquidReagent;
@@ -33,6 +34,7 @@ public class ChemiItemModelProvider extends ItemModelProvider{
     ChemiItems.PLATINUM_TOOLS.toolItems().forEach(this::registerTools);
     ChemiItems.IRIDIUM_TOOLS.toolItems().forEach(this::registerTools);
     ChemiBlocks.listBlocks.stream().map(b -> b.blockreg()).forEach(this::blockItemSafe);
+    CrystalFamily.Crystals.stream().forEach(this::crystalFamily);
   }
   private void registerTools(RegistryObject<? extends TieredItem> item){
     handheldItem(item);
@@ -58,6 +60,10 @@ public class ChemiItemModelProvider extends ItemModelProvider{
   private void simpleItem(RegistryObject<? extends Item> item) {
     withExistingParent(item.getId().getPath(), mcLoc("item/generated"))
             .texture("layer0", modLoc("item/" + item.getId().getPath()));
+  }
+  private void simpleItemInBlock(RegistryObject<? extends Item> item) {
+    withExistingParent(item.getId().getPath(), mcLoc("item/generated"))
+            .texture("layer0", modLoc("block/" + item.getId().getPath()));
   }
   private void handheldItem(RegistryObject<? extends Item> item) {
     withExistingParent(item.getId().getPath(), mcLoc("item/handheld"))
@@ -86,5 +92,12 @@ public class ChemiItemModelProvider extends ItemModelProvider{
     }else{
       ChemistryMod.LOGGER.info("{} blockItem model was skipped.",block.getId().getPath());
     }
+  }
+  private void crystalFamily(CrystalFamily crystal){
+    blockItemSafe(crystal.BLOCK);
+    blockItemSafe(crystal.BUDDING_BLOCK);
+    simpleItemInBlock(crystal.CRYSTAL_ITEM);
+    simpleItemInBlock(crystal.CRYSTAL_BUD_ITEM);
+    simpleItem(crystal.SHARD_ITEM);
   }
 }

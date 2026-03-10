@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Set;
 
 import kandango.reagenica.ChemiBlocks;
+import kandango.reagenica.family.CrystalFamily;
 import kandango.reagenica.family.WoodFamily;
 import kandango.reagenica.generator.BlockLootType.BlockType;
 import net.minecraft.advancements.critereon.StatePropertiesPredicate;
@@ -11,9 +12,11 @@ import net.minecraft.data.PackOutput;
 import net.minecraft.data.loot.BlockLootSubProvider;
 import net.minecraft.data.loot.LootTableProvider;
 import net.minecraft.world.flag.FeatureFlags;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.CropBlock;
+import net.minecraft.world.level.storage.loot.entries.LootItem;
 import net.minecraft.world.level.storage.loot.functions.ApplyBonusCount;
 import net.minecraft.world.level.storage.loot.functions.CopyNbtFunction;
 import net.minecraft.world.level.storage.loot.functions.SetItemCountFunction;
@@ -35,11 +38,8 @@ public class ChemiLootTableProvider extends LootTableProvider{
 
     @Override
     protected void generate(){
-      processWood(ChemiBlocks.METASEQUOIA);
-      processWood(ChemiBlocks.TAXODIUM);
-      processWood(ChemiBlocks.GINKGO);
-      processWood(ChemiBlocks.MAGNOLIA);
-      processWood(ChemiBlocks.FICUS);
+      WoodFamily.Woods.forEach(this::processWood);
+      CrystalFamily.Crystals.forEach(this::processCrystal);
       for(BlockLootType block : ChemiBlocks.listBlocks){
         if(block.type()==BlockType.NORMAL){
           dropSelf(block.blockreg().get());
@@ -85,6 +85,28 @@ public class ChemiLootTableProvider extends LootTableProvider{
       add(family.DOOR.get(),createDoorTable(family.DOOR.get()));
       dropSelf(family.BUTTON.get());
       dropSelf(family.PRESSURE_PLATE.get());
+    }
+    private void processCrystal(CrystalFamily family){
+      dropSelf(family.BLOCK.get());
+      add(family.BUDDING_BLOCK.get(), noDrop());
+      dropOtherWithFortuneUnlessSilktouch(family.CRYSTAL.get(), family.SHARD_ITEM.get());
+      dropWhenSilkTouch(family.CRYSTAL_BUD.get());
+    }
+
+    protected void dropOtherWithFortuneUnlessSilktouch(Block block, Item drop){
+      add(block,
+        createSilkTouchDispatchTable(
+            block,
+            applyExplosionDecay(
+                block,
+                LootItem.lootTableItem(drop)
+                  .apply(SetItemCountFunction.setCount(UniformGenerator.between(2, 4)))
+                  .apply(ApplyBonusCount.addOreBonusCount(
+                        Enchantments.BLOCK_FORTUNE
+                ))
+            )
+        )
+    );
     }
   }
 }

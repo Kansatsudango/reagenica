@@ -1,3 +1,6 @@
 {
-  "parent": "reagenica:block/rose_quartz_crystal"
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "reagenica:block/rose_quartz_crystal"
+  }
 }

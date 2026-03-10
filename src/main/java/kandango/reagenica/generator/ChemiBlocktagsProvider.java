@@ -5,6 +5,7 @@ import java.util.concurrent.CompletableFuture;
 import javax.annotation.Nonnull;
 
 import kandango.reagenica.ChemiBlocks;
+import kandango.reagenica.family.CrystalFamily;
 import kandango.reagenica.family.WoodFamily;
 import kandango.reagenica.generator.BlockLootType.MineableType;
 import net.minecraft.core.HolderLookup;
@@ -20,11 +21,8 @@ public class ChemiBlocktagsProvider extends BlockTagsProvider {
 
   @Override
   protected void addTags(@Nonnull HolderLookup.Provider provider) {
-    processWood(ChemiBlocks.METASEQUOIA);
-    processWood(ChemiBlocks.TAXODIUM);
-    processWood(ChemiBlocks.GINKGO);
-    processWood(ChemiBlocks.MAGNOLIA);
-    processWood(ChemiBlocks.FICUS);
+    WoodFamily.Woods.forEach(this::processWood);
+    CrystalFamily.Crystals.forEach(this::processCrystal);
     for(BlockLootType block : ChemiBlocks.listBlocks){
       if(block.mine()==MineableType.PICKAXE){
         tag(BlockTags.MINEABLE_WITH_PICKAXE).add(block.blockreg().get());
@@ -55,5 +53,8 @@ public class ChemiBlocktagsProvider extends BlockTagsProvider {
 
   private void processWood(WoodFamily family){
     family.blocks().forEach(r -> tag(BlockTags.MINEABLE_WITH_AXE).add(r.get()));
+  }
+  private void processCrystal(CrystalFamily family){
+    family.crystalBlocks().forEach(r -> tag(BlockTags.MINEABLE_WITH_PICKAXE).add(r.get()));
   }
 }
