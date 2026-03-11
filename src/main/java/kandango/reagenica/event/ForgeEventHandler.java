@@ -1,8 +1,11 @@
 package kandango.reagenica.event;
 
+import java.util.stream.StreamSupport;
+
 import kandango.reagenica.ChemiEnchantments;
 import kandango.reagenica.ChemiItems;
 import kandango.reagenica.ChemistryMod;
+import kandango.reagenica.enchantment.AntiPoisonEnchantment;
 import kandango.reagenica.enchantment.BigMinerEnchantment;
 import kandango.reagenica.enchantment.VeinMinerEnchantment;
 import kandango.reagenica.event.task.ChainMiningTaskManager;
@@ -11,15 +14,20 @@ import kandango.reagenica.worldgen.ChemiBiomes;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.world.effect.MobEffectCategory;
+import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraftforge.event.TickEvent;
+import net.minecraftforge.event.entity.living.MobEffectEvent;
 import net.minecraftforge.event.furnace.FurnaceFuelBurnTimeEvent;
 import net.minecraftforge.event.level.BlockEvent;
 import net.minecraftforge.event.level.SleepFinishedTimeEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.eventbus.api.Event.Result;
 import net.minecraftforge.fml.common.Mod;
 
 @Mod.EventBusSubscriber(modid = ChemistryMod.MODID, bus = Mod.EventBusSubscriber.Bus.FORGE)
@@ -84,4 +92,23 @@ public class ForgeEventHandler {
     }
   }
   public static final ThreadLocal<Boolean> veinMining = ThreadLocal.withInitial(() -> false);
+
+  @SubscribeEvent
+  public static void onEffectAdded(MobEffectEvent.Applicable event){
+    if(effectApplying.get())return;
+    LivingEntity entity = event.getEntity();
+    if(entity.level().isClientSide)return;
+    int enchLevel = StreamSupport.stream(entity.getArmorSlots().spliterator(),false)
+                                 .mapToInt(stack -> stack.getEnchantmentLevel(ChemiEnchantments.ANTI_POISON.get()))
+                                 .sum();
+    MobEffectInstance effect = event.getEffectInstance();
+    if(enchLevel>0 && effect.getEffect().getCategory() == MobEffectCategory.HARMFUL){
+      MobEffectInstance reducted = AntiPoisonEnchantment.run(entity, effect, enchLevel);
+      effectApplying.set(true);
+      entity.addEffect(reducted);
+      effectApplying.set(false);
+      event.setResult(Result.DENY);// Deny original Effect
+    }
+  }
+  public static final ThreadLocal<Boolean> effectApplying = ThreadLocal.withInitial(() -> false);
 }

@@ -1,8 +1,11 @@
 package kandango.reagenica;
 
+import kandango.reagenica.enchantment.AntiPoisonEnchantment;
 import kandango.reagenica.enchantment.BigMinerEnchantment;
 import kandango.reagenica.enchantment.VeinMinerEnchantment;
+import kandango.reagenica.family.ChemiArmorMaterials;
 import kandango.reagenica.family.ChemiToolTiers;
+import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.DiggerItem;
 import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.item.enchantment.EnchantmentCategory;
@@ -18,9 +21,15 @@ public class ChemiEnchantments {
     EnchantmentCategory.create("iridium_digger",
       item -> item instanceof DiggerItem digger &&
               digger.getTier() == ChemiToolTiers.IRIDIUM);
+  public static final EnchantmentCategory IRIDIUM_ARMOR = 
+    EnchantmentCategory.create("iridium_armor",
+      item -> item instanceof ArmorItem armor &&
+              armor.getMaterial() == ChemiArmorMaterials.IRIDIUM);
   
   public static final RegistryObject<Enchantment> BIG_MINING = 
       ENCHANTMENTS.register("big_mining",BigMinerEnchantment::new);
   public static final RegistryObject<Enchantment> CHAIN_MINING = 
       ENCHANTMENTS.register("chain_mining",VeinMinerEnchantment::new);
+  public static final RegistryObject<Enchantment> ANTI_POISON = 
+      ENCHANTMENTS.register("anti_poison",AntiPoisonEnchantment::new);
 }
