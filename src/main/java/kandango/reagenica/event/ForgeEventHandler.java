@@ -7,21 +7,29 @@ import kandango.reagenica.ChemiItems;
 import kandango.reagenica.ChemistryMod;
 import kandango.reagenica.enchantment.AntiPoisonEnchantment;
 import kandango.reagenica.enchantment.BigMinerEnchantment;
+import kandango.reagenica.enchantment.CrystalizedEnchantment;
+import kandango.reagenica.enchantment.LastStandEnchantment;
 import kandango.reagenica.enchantment.VeinMinerEnchantment;
 import kandango.reagenica.event.task.ChainMiningTaskManager;
+import kandango.reagenica.family.ChemiToolTiers;
 import kandango.reagenica.network.CableNetworkManager;
 import kandango.reagenica.worldgen.ChemiBiomes;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.effect.MobEffectCategory;
 import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.SwordItem;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraftforge.event.TickEvent;
+import net.minecraftforge.event.entity.living.LivingDropsEvent;
+import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.event.entity.living.MobEffectEvent;
 import net.minecraftforge.event.furnace.FurnaceFuelBurnTimeEvent;
 import net.minecraftforge.event.level.BlockEvent;
@@ -111,4 +119,33 @@ public class ForgeEventHandler {
     }
   }
   public static final ThreadLocal<Boolean> effectApplying = ThreadLocal.withInitial(() -> false);
+
+  @SubscribeEvent
+  public static void onLivingHurt(LivingHurtEvent event){
+    if(event.getEntity().level().isClientSide)return;
+    if(event.getSource().getEntity() instanceof LivingEntity entity){
+      LivingEntity target = event.getEntity();
+      ItemStack weapon = entity.getMainHandItem();
+      int enchLevel = weapon.getEnchantmentLevel(ChemiEnchantments.LAST_STAND.get());
+      if(enchLevel>0){
+        float finalDamage = LastStandEnchantment.calc(entity, event.getAmount(), enchLevel);
+        event.setAmount(finalDamage);
+      }
+      if(weapon.getItem() instanceof SwordItem sword && sword.getTier() == ChemiToolTiers.IRIDIUM){
+        target.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 100, 1));
+      }
+    }
+  }
+
+  @SubscribeEvent
+  public static void onLivingDrops(LivingDropsEvent event) {
+    DamageSource source = event.getSource();
+    if(source.getEntity() instanceof Player player){
+      ItemStack weapon = player.getMainHandItem();
+      int enchLevel = weapon.getEnchantmentLevel(ChemiEnchantments.CRYSTALIZED.get());
+      if(enchLevel > 0){
+        CrystalizedEnchantment.loot(event.getEntity(), enchLevel).ifPresent(item -> event.getDrops().add(item));
+      }
+    }
+  }
 }
