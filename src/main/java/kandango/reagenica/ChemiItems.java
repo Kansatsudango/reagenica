@@ -28,6 +28,7 @@ import kandango.reagenica.item.burnable.*;
 import kandango.reagenica.item.farming.*;
 import kandango.reagenica.item.reagent.*;
 import kandango.reagenica.screen.ModMenus;
+import kandango.reagenica.worldgen.ChemiBiomes;
 
 @Mod.EventBusSubscriber(modid = ChemistryMod.MODID, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class ChemiItems {
@@ -217,6 +218,15 @@ public class ChemiItems {
   public static final RegistryObject<Item> ONSEN_DETECTER = registerandlist("geological_surveyor", () -> new OnsenDetecter());
   public static final RegistryObject<Item> UV_LAMP = registerandlist("uv_lamp", () -> new Item(new Item.Properties().durability(512)));
   public static final RegistryObject<Item> ETHANOL_FUEL = registerandlist("ethanol_fuel_pellet", () -> new Item(new Item.Properties()));
+
+  public static final RegistryObject<Item> COAL_COMPASS = registerandlist("location_compass_coal", () -> new LocationCompass(ChemiBiomes.COAL_CAVE));
+  public static final RegistryObject<Item> IRON_COMPASS = registerandlist("location_compass_iron", () -> new LocationCompass(ChemiBiomes.IRON_CAVE));
+  public static final RegistryObject<Item> GOLD_COMPASS = registerandlist("location_compass_gold", () -> new LocationCompass(ChemiBiomes.GOLD_CAVE));
+  public static final RegistryObject<Item> LAPIS_COMPASS = registerandlist("location_compass_lapis", () -> new LocationCompass(ChemiBiomes.LAPIS_CAVE));
+  public static final RegistryObject<Item> REDSTONE_COMPASS = registerandlist("location_compass_redstone", () -> new LocationCompass(ChemiBiomes.REDSTONE_CAVE));
+  public static final RegistryObject<Item> EMERALD_COMPASS = registerandlist("location_compass_emerald", () -> new LocationCompass(ChemiBiomes.EMERALD_CAVE));
+  public static final RegistryObject<Item> DIAMOND_COMPASS = registerandlist("location_compass_diamond", () -> new LocationCompass(ChemiBiomes.DIAMOND_CAVE));
+  public static final RegistryObject<Item> LEAD_COMPASS = registerandlist("location_compass_lead", () -> new LocationCompass(ChemiBiomes.LEAD_CAVE));
 
   public static final RegistryObject<Item> MISO = registerandlist("miso", () -> new Item(new Item.Properties()));
   public static final RegistryObject<Item> KOJI = registerandlist("koji", () -> new Item(new Item.Properties()));

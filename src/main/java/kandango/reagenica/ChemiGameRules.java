@@ -13,4 +13,9 @@ public class ChemiGameRules {
   public static boolean isOnsenGenerate(@Nonnull Level lv){
     return lv.getGameRules().getRule(DO_ONSEN_GENERATE).get();
   }
+  public static final GameRules.Key<GameRules.BooleanValue> ALLOW_COMPASS =
+                GameRules.register("allowLocationCompassUse", GameRules.Category.PLAYER, GameRules.BooleanValue.create(true));
+  public static boolean isCompassAllowed(@Nonnull Level lv){
+    return lv.getGameRules().getRule(ALLOW_COMPASS).get();
+  }
 }

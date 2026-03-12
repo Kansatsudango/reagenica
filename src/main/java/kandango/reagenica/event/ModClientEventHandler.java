@@ -5,8 +5,10 @@ import kandango.reagenica.ChemiEntities;
 import kandango.reagenica.ChemiItems;
 import kandango.reagenica.ChemistryMod;
 import kandango.reagenica.entity.renderer.SilverArrowRenderer;
+import kandango.reagenica.item.LocationCompass;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
+import net.minecraft.client.renderer.item.CompassItemPropertyFunction;
 import net.minecraft.client.renderer.item.ItemProperties;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.api.distmarker.Dist;
@@ -31,6 +33,15 @@ public class ModClientEventHandler {
         ItemProperties.register(ChemiItems.SILVER_BOW.get(), new ResourceLocation("pulling"), (stack, level, entity, seed) -> {
             return (entity != null && entity.isUsingItem() && entity.getUseItem() == stack) ? 1.0F : 0.0F;
         });
+
+        ItemProperties.register(ChemiItems.COAL_COMPASS.get(), new ResourceLocation("angle"), new CompassItemPropertyFunction(LocationCompass::getPos));
+        ItemProperties.register(ChemiItems.IRON_COMPASS.get(), new ResourceLocation("angle"), new CompassItemPropertyFunction(LocationCompass::getPos));
+        ItemProperties.register(ChemiItems.GOLD_COMPASS.get(), new ResourceLocation("angle"), new CompassItemPropertyFunction(LocationCompass::getPos));
+        ItemProperties.register(ChemiItems.LAPIS_COMPASS.get(), new ResourceLocation("angle"), new CompassItemPropertyFunction(LocationCompass::getPos));
+        ItemProperties.register(ChemiItems.REDSTONE_COMPASS.get(), new ResourceLocation("angle"), new CompassItemPropertyFunction(LocationCompass::getPos));
+        ItemProperties.register(ChemiItems.EMERALD_COMPASS.get(), new ResourceLocation("angle"), new CompassItemPropertyFunction(LocationCompass::getPos));
+        ItemProperties.register(ChemiItems.DIAMOND_COMPASS.get(), new ResourceLocation("angle"), new CompassItemPropertyFunction(LocationCompass::getPos));
+        ItemProperties.register(ChemiItems.LEAD_COMPASS.get(), new ResourceLocation("angle"), new CompassItemPropertyFunction(LocationCompass::getPos));
     });
   }
 
