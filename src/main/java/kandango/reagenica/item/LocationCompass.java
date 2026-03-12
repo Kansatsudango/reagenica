@@ -54,7 +54,7 @@ public class LocationCompass extends Item{
         return InteractionResultHolder.success(stack);
       }
       if(!slv.dimension().equals(ChemiBiomes.PALEO_LEVEL)){
-        sp.displayClientMessage(Component.translatable("chat.reagenica.compass_dimension_wrong"), true);
+        sp.displayClientMessage(Component.translatable("chat.reagenica.compass_dimension_wrong").withStyle(ChatFormatting.YELLOW), true);
         return InteractionResultHolder.success(stack);
       }
       BlockPos origin = player.blockPosition();
@@ -66,9 +66,9 @@ public class LocationCompass extends Item{
           BlockPos pos = result.getFirst();
           tag.putInt(XKey, pos.getX());
           tag.putInt(ZKey, pos.getZ());
-          sp.displayClientMessage(Component.translatable("chat.reagenica.compass_biome_success"), true);
+          sp.displayClientMessage(Component.translatable("chat.reagenica.compass_biome_success").withStyle(ChatFormatting.GREEN), true);
         }else{
-          sp.displayClientMessage(Component.translatable("chat.reagenica.compass_biome_not_found"), true);
+          sp.displayClientMessage(Component.translatable("chat.reagenica.compass_biome_not_found").withStyle(ChatFormatting.YELLOW), true);
         }
       }catch(NoSuchBiomeException e){
         ChemistryMod.LOGGER.warn("Reagenica compass : No Such Biome: {}, Player: {}", Biome.toString(), player.getName());
