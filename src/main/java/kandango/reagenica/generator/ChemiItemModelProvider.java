@@ -3,7 +3,9 @@ package kandango.reagenica.generator;
 import kandango.reagenica.ChemiBlocks;
 import kandango.reagenica.ChemiItems;
 import kandango.reagenica.ChemistryMod;
+import kandango.reagenica.family.ArmorFamily;
 import kandango.reagenica.family.CrystalFamily;
+import kandango.reagenica.family.ToolFamily;
 import kandango.reagenica.item.bioreagent.BioReagent;
 import kandango.reagenica.item.reagent.GasReagent;
 import kandango.reagenica.item.reagent.LiquidReagent;
@@ -29,10 +31,8 @@ public class ChemiItemModelProvider extends ItemModelProvider{
   @Override
   protected void registerModels() {
     ChemiItems.listItems.stream().forEach(this::register);
-    ChemiItems.PLATINUM_ARMOR.armorItems().forEach(this::register);
-    ChemiItems.IRIDIUM_ARMOR.armorItems().forEach(this::register);
-    ChemiItems.PLATINUM_TOOLS.toolItems().forEach(this::registerTools);
-    ChemiItems.IRIDIUM_TOOLS.toolItems().forEach(this::registerTools);
+    ArmorFamily.Armors.stream().flatMap(ArmorFamily::armorItems).forEach(this::register);
+    ToolFamily.Tools.stream().flatMap(ToolFamily::toolItems).forEach(this::registerTools);
     ChemiBlocks.listBlocks.stream().map(b -> b.blockreg()).forEach(this::blockItemSafe);
     CrystalFamily.Crystals.stream().forEach(this::crystalFamily);
   }
@@ -53,7 +53,7 @@ public class ChemiItemModelProvider extends ItemModelProvider{
       bioPlateItem(item);
     }else if(instance instanceof DiggerItem || instance instanceof SwordItem){
       handheldItem(item);
-    }else{
+    }else if(!existingFileHelper.exists(modLoc("item/" + item.getId().getPath()), PackType.CLIENT_RESOURCES, ".json", "models")){
       simpleItem(item);
     }
   }

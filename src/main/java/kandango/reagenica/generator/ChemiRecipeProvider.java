@@ -35,8 +35,10 @@ public class ChemiRecipeProvider extends RecipeProvider{
     CrystalFamily.Crystals.forEach(family -> CrystalRecipeGenerator.of(family).register(consumer));
     ArmorRecipeGenerator.ofPair(ChemiItems.PLATINUM_ARMOR, ChemiItems.PLATINUM_INGOT.get()).register(consumer);
     ArmorSmithingRecipeGenerator.smith(ChemiItems.PLATINUM_ARMOR, ChemiItems.IRIDIUM_ARMOR, ChemiItems.IRIDIUM_INGOT.get(), ChemiItems.IRIDIUM_UPGRADE_STH.get()).register(consumer);
+    ArmorRecipeGenerator.ofPair(ChemiItems.PINK_GOLD_ARMOR, ChemiItems.PINK_GOLD_INGOT.get()).register(consumer);
     ToolRecipeGenerator.ofPair(ChemiItems.PLATINUM_TOOLS, ChemiItems.PLATINUM_INGOT.get(), Ingredient.of(Items.DIAMOND)).register(consumer);
     ToolSmithingRecipeGenerator.smith(ChemiItems.PLATINUM_TOOLS, ChemiItems.IRIDIUM_TOOLS, ChemiItems.IRIDIUM_INGOT.get(), ChemiItems.IRIDIUM_UPGRADE_STH.get()).register(consumer);
+    ToolRecipeGenerator.ofPair(ChemiItems.PINK_GOLD_TOOLS, ChemiItems.PINK_GOLD_INGOT.get(), Ingredient.of(Items.STICK)).register(consumer);
   }
   private static class WoodFamilyRecipeGenerator {
     private final WoodFamily woodFamily;

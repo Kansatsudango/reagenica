@@ -9,7 +9,10 @@ import kandango.reagenica.ChemistryMod;
 import kandango.reagenica.ChemiItems;
 import kandango.reagenica.ModCreativeTabs;
 import kandango.reagenica.ChemiItems.CreativeTabContent;
+import kandango.reagenica.family.ArmorFamily;
 import kandango.reagenica.family.CrystalFamily;
+import kandango.reagenica.family.ToolFamily;
+import kandango.reagenica.family.WoodFamily;
 
 @Mod.EventBusSubscriber(modid = ChemistryMod.MODID, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class ModCreativeTabContents {
@@ -25,17 +28,11 @@ public class ModCreativeTabContents {
             event.accept(ChemiBlocks.listBlockItems.get(i));
           }
         }else if(event.getTab() == ModCreativeTabs.PALEO_TAB.get()){
-          ChemiBlocks.METASEQUOIA.blockItems().forEach(event::accept);
-          ChemiBlocks.TAXODIUM.blockItems().forEach(event::accept);
-          ChemiBlocks.GINKGO.blockItems().forEach(event::accept);
-          ChemiBlocks.MAGNOLIA.blockItems().forEach(event::accept);
-          ChemiBlocks.FICUS.blockItems().forEach(event::accept);
+          WoodFamily.Woods.stream().flatMap(WoodFamily::blockItems).forEach(event::accept);
           CrystalFamily.Crystals.stream().flatMap(c -> c.crystalItems()).forEach(event::accept);
         }else if(event.getTab() == ModCreativeTabs.TOOLS.get()){
-          ChemiItems.PLATINUM_ARMOR.armorItems().forEach(event::accept);
-          ChemiItems.IRIDIUM_ARMOR.armorItems().forEach(event::accept);
-          ChemiItems.PLATINUM_TOOLS.toolItems().forEach(event::accept);
-          ChemiItems.IRIDIUM_TOOLS.toolItems().forEach(event::accept);
+          ToolFamily.Tools.stream().flatMap(ToolFamily::toolItems).forEach(event::accept);
+          ArmorFamily.Armors.stream().flatMap(ArmorFamily::armorItems).forEach(event::accept);
         }
     }
 }

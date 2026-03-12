@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "#": {
+      "item": "reagenica:pink_gold_ingot"
+    },
+    "+": {
+      "item": "minecraft:stick"
+    }
+  },
+  "pattern": [
+    "#",
+    "#",
+    "+"
+  ],
+  "result": {
+    "item": "reagenica:pink_gold_sword"
+  },
+  "show_notification": true
+}

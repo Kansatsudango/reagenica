@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "reagenica:item/alchohol_lamp"
+    "layer0": "reagenica:item/pink_gold_boots"
   }
 }

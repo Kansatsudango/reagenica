@@ -16,12 +16,16 @@ import net.minecraft.world.item.crafting.Ingredient;
 
 public enum ChemiArmorMaterials implements ArmorMaterial{
   PLATINUM("reagenica:platinum", 40, defences(4, 6, 8, 4),
-    16, SoundEvents.ARMOR_EQUIP_GOLD, 2.0f, 0.1f, 
+    12, SoundEvents.ARMOR_EQUIP_GOLD, 2.0f, 0.1f, 
     () -> Ingredient.of(ChemiItems.PLATINUM_INGOT.get()) 
   ),
-  IRIDIUM("reagenica:iridium", 48, defences(4, 6, 8, 4),
-    24, SoundEvents.ARMOR_EQUIP_DIAMOND, 3.0f, 0.15f, 
+  IRIDIUM("reagenica:iridium", 70, defences(4, 6, 8, 4),
+    15, SoundEvents.ARMOR_EQUIP_DIAMOND, 3.0f, 0.15f, 
     () -> Ingredient.of(ChemiItems.IRIDIUM_INGOT.get())
+  ),
+  PINK_GOLD("reagenica:pink_gold", 14, defences(3, 5, 7, 3),
+    25, SoundEvents.ARMOR_EQUIP_GOLD, 0.75f, 0.0f, 
+    () -> Ingredient.of(ChemiItems.PINK_GOLD_INGOT.get())
   );
 	private final String name;
 	private final int durability;

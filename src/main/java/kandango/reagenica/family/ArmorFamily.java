@@ -1,5 +1,8 @@
 package kandango.reagenica.family;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 import java.util.stream.Stream;
 
 import kandango.reagenica.ChemiItems;
@@ -10,6 +13,7 @@ import net.minecraft.world.item.Rarity;
 import net.minecraftforge.registries.RegistryObject;
 
 public class ArmorFamily {
+  public static final List<ArmorFamily> Armors = Collections.synchronizedList(new ArrayList<>());
   public final RegistryObject<ArmorItem> HELMET;
   public final RegistryObject<ArmorItem> CHESTPLATE;
   public final RegistryObject<ArmorItem> LEGGINGS;
@@ -31,6 +35,7 @@ public class ArmorFamily {
     this.BOOTS = ChemiItems.ITEMS.register(name+"_boots", () -> new ArmorItem(
       material, ArmorItem.Type.BOOTS, new Item.Properties().rarity(rarity))
     );
+    Armors.add(this);
   }
   public Stream<RegistryObject<ArmorItem>> armorItems(){
     return Stream.of(HELMET, CHESTPLATE, LEGGINGS, BOOTS);

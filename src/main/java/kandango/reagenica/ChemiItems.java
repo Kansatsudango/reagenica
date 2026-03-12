@@ -158,6 +158,7 @@ public class ChemiItems {
   public static final RegistryObject<Item> REINFORCED_INGOT = registerandlist("reinforced_ingot", () -> new Item(new Item.Properties()));
   public static final RegistryObject<Item> SODIUM_INGOT = registerandlist("sodium_ingot", () -> new Item(new Item.Properties()));
   public static final RegistryObject<Item> IRIDIUM_INGOT = registerandlist("iridium_ingot", () -> new Item(new Item.Properties().rarity(Rarity.UNCOMMON)));
+  public static final RegistryObject<Item> PINK_GOLD_INGOT = registerandlist("pink_gold_ingot", () -> new Item(new Item.Properties()));
 
   public static final RegistryObject<ReagentPowderIndustrial> IRON_OXIDE = registerandlist("iron_oxide", () -> new ReagentPowderIndustrial(new ReagentProperties("Fe2O3",0xFF8B0000,1,0,0),new Item.Properties()));
   public static final RegistryObject<ReagentPowderIndustrial> COPPER_OXIDE = registerandlist("copper_oxide", () -> new ReagentPowderIndustrial(new ReagentProperties("CuO",0xFF222222,2,0,1),new Item.Properties()));
@@ -278,8 +279,10 @@ public class ChemiItems {
 
   public static final ArmorFamily PLATINUM_ARMOR = new ArmorFamily("platinum", ChemiArmorMaterials.PLATINUM, Rarity.UNCOMMON);
   public static final ArmorFamily IRIDIUM_ARMOR = new ArmorFamily("iridium", ChemiArmorMaterials.IRIDIUM, Rarity.RARE);
+  public static final ArmorFamily PINK_GOLD_ARMOR = new ArmorFamily("pink_gold", ChemiArmorMaterials.PINK_GOLD, Rarity.COMMON);
   public static final ToolFamily PLATINUM_TOOLS = new ToolFamily("platinum", ChemiToolTiers.PLATINUM, Rarity.UNCOMMON);
   public static final ToolFamily IRIDIUM_TOOLS = new ToolFamily("iridium", ChemiToolTiers.IRIDIUM, Rarity.RARE);
+  public static final ToolFamily PINK_GOLD_TOOLS = new ToolFamily("pink_gold", ChemiToolTiers.PINK_GOLD, Rarity.COMMON);
 
   public static <T extends Item> RegistryObject<T> registerandlist(String name, Supplier<T> supplier) {
     RegistryObject<T> item = ITEMS.register(name, supplier);

@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "reagenica:item/cooking_sake_bucket"
+    "layer0": "reagenica:item/pink_gold_leggings"
   }
 }

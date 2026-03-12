@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "#": {
+      "item": "reagenica:pink_gold_ingot"
+    },
+    "+": {
+      "item": "minecraft:stick"
+    },
+    "/": {
+      "item": "minecraft:stick"
+    }
+  },
+  "pattern": [
+    "##",
+    " +",
+    " /"
+  ],
+  "result": {
+    "item": "reagenica:pink_gold_hoe"
+  },
+  "show_notification": true
+}

@@ -26,7 +26,7 @@ public class ModCreativeTabs {
   public static final RegistryObject<CreativeModeTab> TOOLS =
     TABS.register("tools", () -> CreativeModeTab.builder()
       .title(Component.translatable("itemGroup.reagenica.tools"))
-      .icon(() -> new ItemStack(ChemiItems.PLATINUM_ARMOR.CHESTPLATE.get()))
+      .icon(() -> new ItemStack(ChemiItems.IRIDIUM_TOOLS.AXE.get()))
       .build());
 
   public static void register(IEventBus bus) {

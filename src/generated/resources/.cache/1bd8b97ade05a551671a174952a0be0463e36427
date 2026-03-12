@@ -1,11 +1,10 @@
-// 1.20.1	2026-03-10T21:37:07.0855248	Item Models: reagenica
+// 1.20.1	2026-03-12T19:08:49.3661247	Item Models: reagenica
 6f0d9872c5f176206015dd5f6420e71fe71f2cb9 assets/reagenica/models/item/acetobacter.json
 54ef03ed6b05d449bef3092145440fb8c97020f5 assets/reagenica/models/item/adipamide.json
 54ef03ed6b05d449bef3092145440fb8c97020f5 assets/reagenica/models/item/adipic_acid.json
 c9d624f7517f70137cb4d7e820f7eb0b133bbaed assets/reagenica/models/item/advanced_farmland.json
 9407bb3bb581b6167431ee2c911cb125eb9aaa19 assets/reagenica/models/item/agar.json
 75d71bfa8a8489a621b0c11339b4abb612b686f3 assets/reagenica/models/item/air_separator.json
-10f45a2e09e1acea5f23602e1e920e3408a469c2 assets/reagenica/models/item/alchohol_lamp.json
 27cdc16cbad77cc6ed6e2339d9a571325bcca271 assets/reagenica/models/item/alumina.json
 54ef03ed6b05d449bef3092145440fb8c97020f5 assets/reagenica/models/item/alumina_melt.json
 dcd160170c46bbd85a169ab684ae0831a5bc3dd7 assets/reagenica/models/item/alumina_melt_bucket.json
@@ -78,7 +77,6 @@ bdcf16887f55bfe1a7ad16f6f9cbca15db9ebdfe assets/reagenica/models/item/citrine_cr
 367b0122921a0b531e6ff028c3e27959194f35a1 assets/reagenica/models/item/cooked_onion.json
 394bfb3bd73d50188aa973a14b1bfe3e956b5655 assets/reagenica/models/item/cooking_pot.json
 54ef03ed6b05d449bef3092145440fb8c97020f5 assets/reagenica/models/item/cooking_sake.json
-5064663cdba9dd0819ead78caa0e5084e936cd64 assets/reagenica/models/item/cooking_sake_bucket.json
 9407bb3bb581b6167431ee2c911cb125eb9aaa19 assets/reagenica/models/item/copperoxide_reagent.json
 5bd834a49cacffe5a16c87a9f5eea78676cf3d2a assets/reagenica/models/item/copper_cable.json
 fe8202909799648ce84d94f294db61e4e5055ce8 assets/reagenica/models/item/copper_catalyst.json
@@ -271,6 +269,16 @@ e36c7cdb1a3cf6b9093f722da4496a514ac7f4b1 assets/reagenica/models/item/pargola.js
 0ab4cbf52d051f664658071de127aee5fe3f38c0 assets/reagenica/models/item/phosphoric_acid_bucket.json
 d3a10dc1e35074d421267656dcdfadeae57f9789 assets/reagenica/models/item/phosphoric_acid_catalyst.json
 32e82492ad64c586e755d7008742d24c85220f21 assets/reagenica/models/item/phospho_fertilizer.json
+7a388908c567d936816b1298c32917302ee8c6c0 assets/reagenica/models/item/pink_gold_axe.json
+e5e6fcc8def69d2795c73e43b77ea274d938875a assets/reagenica/models/item/pink_gold_boots.json
+cbae4209863b539fd9e3d45ec63a8283c4aaddac assets/reagenica/models/item/pink_gold_chestplate.json
+245fe0e1d9b13df9d2250fede453426d151ffb38 assets/reagenica/models/item/pink_gold_helmet.json
+065501eac06c6f8c849898fa11c9e6c09f08bcfe assets/reagenica/models/item/pink_gold_hoe.json
+c7d109a223fd95a09420bca7429e90bb71be9482 assets/reagenica/models/item/pink_gold_ingot.json
+726fef938eac380db37e8a892a8c7c749402fb6a assets/reagenica/models/item/pink_gold_leggings.json
+8933a604f5b5eec83cb8a678bada21dc4d45dd02 assets/reagenica/models/item/pink_gold_pickaxe.json
+9c3ea959be5c5d1af42a180a6abe7a83b90b6b3c assets/reagenica/models/item/pink_gold_shovel.json
+1042793a9418119b4449108ac15c71c69835d7fd assets/reagenica/models/item/pink_gold_sword.json
 0f729f4151d8d424fe6767e36bc5bbe28dca2e55 assets/reagenica/models/item/plastic_dish.json
 bd6a8906b0bf9ce9d372dbf63e493ed751414795 assets/reagenica/models/item/platinum_axe.json
 841e728144889388b95b3fe5301df6bfcdaf7aed assets/reagenica/models/item/platinum_bag.json
