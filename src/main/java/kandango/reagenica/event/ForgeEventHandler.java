@@ -1,7 +1,9 @@
 package kandango.reagenica.event;
 
+import java.util.List;
 import java.util.stream.StreamSupport;
 
+import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
 import kandango.reagenica.ChemiEnchantments;
 import kandango.reagenica.ChemiItems;
 import kandango.reagenica.ChemistryMod;
@@ -13,6 +15,8 @@ import kandango.reagenica.enchantment.VeinMinerEnchantment;
 import kandango.reagenica.event.task.ChainMiningTaskManager;
 import kandango.reagenica.family.ChemiToolTiers;
 import kandango.reagenica.network.CableNetworkManager;
+import kandango.reagenica.villager.ChemiVillagerProfessions;
+import kandango.reagenica.villager.ChemiVillagerTrades;
 import kandango.reagenica.worldgen.ChemiBiomes;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.level.ServerLevel;
@@ -22,6 +26,7 @@ import net.minecraft.world.effect.MobEffectCategory;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.npc.VillagerTrades;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.SwordItem;
@@ -34,6 +39,7 @@ import net.minecraftforge.event.entity.living.MobEffectEvent;
 import net.minecraftforge.event.furnace.FurnaceFuelBurnTimeEvent;
 import net.minecraftforge.event.level.BlockEvent;
 import net.minecraftforge.event.level.SleepFinishedTimeEvent;
+import net.minecraftforge.event.village.VillagerTradesEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.eventbus.api.Event.Result;
 import net.minecraftforge.fml.common.Mod;
@@ -146,6 +152,17 @@ public class ForgeEventHandler {
       if(enchLevel > 0){
         CrystalizedEnchantment.loot(event.getEntity(), enchLevel).ifPresent(item -> event.getDrops().add(item));
       }
+    }
+  }
+  
+  @SubscribeEvent
+  public static void addTrades(VillagerTradesEvent event){
+    if(event.getType() == ChemiVillagerProfessions.CHEMIST.get()){
+      Int2ObjectMap<List<VillagerTrades.ItemListing>> trades = event.getTrades();
+      ChemiVillagerTrades.addChemistTrades(trades);
+    }else if(event.getType() == ChemiVillagerProfessions.GEOLOGIST.get()){
+      Int2ObjectMap<List<VillagerTrades.ItemListing>> trades = event.getTrades();
+      ChemiVillagerTrades.addGeologistTrades(trades);
     }
   }
 }

@@ -20,6 +20,13 @@ public class ChemiPOIs {
     () -> new PoiType(Set.copyOf(ChemiBlocks.PALEO_PORTAL.get().getStateDefinition().getPossibleStates()), 0, 1)
   );
 
+  public static final RegistryObject<PoiType> CHEMIST_POI = POI_TYPES.register("chemist_poi", 
+    () -> new PoiType(Set.copyOf(ChemiBlocks.EXPERIMENT_BLOCK.get().getStateDefinition().getPossibleStates()), 1, 1)
+  );
+  public static final RegistryObject<PoiType> GEOLOGIST_POI = POI_TYPES.register("geologist_poi", 
+    () -> new PoiType(Set.copyOf(ChemiBlocks.ANALYZER.get().getStateDefinition().getPossibleStates()), 1, 1)
+  );
+
   public static void register(IEventBus modEventbus){
     POI_TYPES.register(modEventbus);
   }

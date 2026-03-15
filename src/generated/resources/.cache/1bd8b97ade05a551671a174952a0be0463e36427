@@ -1,4 +1,4 @@
-// 1.20.1	2026-03-12T19:08:49.3661247	Item Models: reagenica
+// 1.20.1	2026-03-13T10:31:09.5486173	Item Models: reagenica
 6f0d9872c5f176206015dd5f6420e71fe71f2cb9 assets/reagenica/models/item/acetobacter.json
 54ef03ed6b05d449bef3092145440fb8c97020f5 assets/reagenica/models/item/adipamide.json
 54ef03ed6b05d449bef3092145440fb8c97020f5 assets/reagenica/models/item/adipic_acid.json
@@ -279,6 +279,7 @@ c7d109a223fd95a09420bca7429e90bb71be9482 assets/reagenica/models/item/pink_gold_
 8933a604f5b5eec83cb8a678bada21dc4d45dd02 assets/reagenica/models/item/pink_gold_pickaxe.json
 9c3ea959be5c5d1af42a180a6abe7a83b90b6b3c assets/reagenica/models/item/pink_gold_shovel.json
 1042793a9418119b4449108ac15c71c69835d7fd assets/reagenica/models/item/pink_gold_sword.json
+54ef03ed6b05d449bef3092145440fb8c97020f5 assets/reagenica/models/item/plasmid.json
 0f729f4151d8d424fe6767e36bc5bbe28dca2e55 assets/reagenica/models/item/plastic_dish.json
 bd6a8906b0bf9ce9d372dbf63e493ed751414795 assets/reagenica/models/item/platinum_axe.json
 841e728144889388b95b3fe5301df6bfcdaf7aed assets/reagenica/models/item/platinum_bag.json

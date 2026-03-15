@@ -4,9 +4,11 @@ import java.lang.reflect.Field;
 
 import javax.annotation.Nonnull;
 
+import kandango.reagenica.ChemiBlocks;
 import kandango.reagenica.ChemistryMod;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.InteractionResult;
+import net.minecraft.world.entity.ai.village.poi.PoiTypes;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
@@ -32,6 +34,7 @@ public class MagicalRod extends Item{
         ChemistryMod.LOGGER.error("Exception caught!",e);
       }
     }
+    ChemistryMod.LOGGER.info("{}",PoiTypes.hasPoi(ChemiBlocks.EXPERIMENT_BLOCK.get().defaultBlockState()));
 
     return InteractionResult.SUCCESS;
   }

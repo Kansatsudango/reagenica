@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "reagenica:canyon_river",
+    "reagenica:primeval_lukewarm_ocean",
+    "reagenica:primeval_river",
+    "reagenica:primeval_taxodium_river",
+    "reagenica:primeval_warm_ocean"
+  ]
+}

@@ -5,6 +5,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.levelgen.structure.Structure;
 
 public class ChemiTags {
   public static class Blocks {
@@ -30,5 +31,9 @@ public class ChemiTags {
       TagKey.create(Registries.ITEM, new ResourceLocation("reagenica", "strong_acids"));
     public static final TagKey<Item> NYLON_BAGS =
       TagKey.create(Registries.ITEM, new ResourceLocation("reagenica", "nylon_bags"));
+  }
+  public static class Structures {
+    public static final TagKey<Structure> CRATER_TARGET = 
+      TagKey.create(Registries.STRUCTURE, new ResourceLocation("reagenica", "crater_map_targets"));
   }
 }

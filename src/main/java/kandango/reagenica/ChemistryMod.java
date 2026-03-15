@@ -9,6 +9,7 @@ import kandango.reagenica.block.entity.ModBlockEntities;
 import kandango.reagenica.block.fluid.ChemiFluidTypes;
 import kandango.reagenica.recipes.ModRecipes;
 import kandango.reagenica.screen.ModMenus;
+import kandango.reagenica.villager.ChemiVillagerProfessions;
 import kandango.reagenica.world.ChemiPOIs;
 import kandango.reagenica.worldgen.ChemiBiomes;
 import kandango.reagenica.worldgen.ChemiFeatures;
@@ -38,6 +39,7 @@ public class ChemistryMod {
     ChemiStructures.STRUCTURE_TYPES.register(modEventBus);
     ChemiStructures.PIECES.register(modEventBus);
     ChemiEnchantments.ENCHANTMENTS.register(modEventBus);
+    ChemiVillagerProfessions.PROFESSIONS.register(modEventBus);
     ModBlockEntities.register(modEventBus);
     ModMenus.register(modEventBus);
     ModRecipes.register(modEventBus);

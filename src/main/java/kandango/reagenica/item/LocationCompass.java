@@ -50,7 +50,7 @@ public class LocationCompass extends Item{
     if(tag.contains(XKey) && tag.contains(ZKey))return InteractionResultHolder.pass(stack);
     if(level instanceof ServerLevel slv && player instanceof ServerPlayer sp){
       if(!ChemiGameRules.isCompassAllowed(slv) && !sp.hasPermissions(2)){
-        sp.displayClientMessage(Component.translatable("chat.reagenica.compass_denied").withStyle(ChatFormatting.YELLOW), true);
+        sp.displayClientMessage(Component.translatable("chat.reagenica.location_denied").withStyle(ChatFormatting.YELLOW), true);
         return InteractionResultHolder.success(stack);
       }
       if(!slv.dimension().equals(ChemiBiomes.PALEO_LEVEL)){

@@ -6,6 +6,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Rarity;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.material.Fluids;
+import net.minecraft.world.level.saveddata.maps.MapDecoration;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -131,6 +132,7 @@ public class ChemiItems {
   public static final RegistryObject<BioReagent> ORYZAE = registerandlist("aspergillus_oryzae", () -> new BioReagent(new BioProperties("Aspergillus oryzae",0xffd6e9ca)));
   public static final RegistryObject<BioReagent> ACETOBACTER = registerandlist("acetobacter", () -> new BioReagent(new BioProperties("acetobacter",0xfffc773f)));
   public static final RegistryObject<BioReagent> CONTAMINATED_PLATE = registerandlist("contaminated_sample", () -> new BioReagent(new BioProperties("Contaminated",0)));
+  public static final RegistryObject<LiquidReagent> PLASMID = registerandlist("plasmid", () -> new LiquidReagent(new ReagentProperties("?",0xFFabced8,0,0,0)));
   
   public static final RegistryObject<Item> RAW_LEAD = registerandlist("raw_lead", () -> new Item(new Item.Properties()));
   public static final RegistryObject<Item> RAW_CHALCOPYRITE = registerandlist("raw_chalcopyrite", () -> new Item(new Item.Properties()));
@@ -228,6 +230,8 @@ public class ChemiItems {
   public static final RegistryObject<Item> EMERALD_COMPASS = registerandlist("location_compass_emerald", () -> new LocationCompass(ChemiBiomes.EMERALD_CAVE));
   public static final RegistryObject<Item> DIAMOND_COMPASS = registerandlist("location_compass_diamond", () -> new LocationCompass(ChemiBiomes.DIAMOND_CAVE));
   public static final RegistryObject<Item> LEAD_COMPASS = registerandlist("location_compass_lead", () -> new LocationCompass(ChemiBiomes.LEAD_CAVE));
+  public static final RegistryObject<ExplorerMapKit> CRATER_MAP_KIT = registerandlist("crater_map_book", () -> new ExplorerMapKit(new Item.Properties(), "crater", MapDecoration.Type.TARGET_X, ExplorerMapKit.Crater));
+  public static final RegistryObject<ExplorerMapKit> VOLCANO_MAP_KIT = registerandlist("volcano_map_book", () -> new ExplorerMapKit(new Item.Properties(), "volcano", MapDecoration.Type.TARGET_X, ExplorerMapKit.Volcano));
 
   public static final RegistryObject<Item> MISO = registerandlist("miso", () -> new Item(new Item.Properties()));
   public static final RegistryObject<Item> KOJI = registerandlist("koji", () -> new Item(new Item.Properties()));

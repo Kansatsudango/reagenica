@@ -11,11 +11,11 @@ import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 @Mod.EventBusSubscriber(modid = "reagenica", bus = Mod.EventBusSubscriber.Bus.MOD)
 public class ModEventHandler {
 
-    @SubscribeEvent
-    public static void onCommonSetup(FMLCommonSetupEvent event) {
-        ModMessages.register();
-        ReagentFluidMap.registerAll(ChemiItems.listItems);
-        ReagentFluidMap.printMap();
-        ChemiFluidBurnMap.register();
-    }
+  @SubscribeEvent
+  public static void onCommonSetup(FMLCommonSetupEvent event) {
+    ModMessages.register();
+    ReagentFluidMap.registerAll(ChemiItems.listItems);
+    ReagentFluidMap.printMap();
+    ChemiFluidBurnMap.register();
+  }
 }
