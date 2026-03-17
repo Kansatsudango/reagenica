@@ -1,0 +1,8 @@
+{
+  "replace": false,
+  "values": [
+    "reagenica:yeast",
+    "reagenica:aspergillus_oryzae",
+    "reagenica:acetobacter"
+  ]
+}

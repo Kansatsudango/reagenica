@@ -41,7 +41,7 @@ public class ChemiVillagerTrades {
     novice.add(buy(Items.GRAVEL, 12, 1, 12, 2, 0.05f));
     novice.add(buy(OIL_SAND.get(), 6, 1, 12, 2, 0.05f));
     novice.add(buy(RAW_CHALCOPYRITE.get(), 5, 1, 12, 2, 0.05f));
-    novice.add(sell(Items.COBBLED_DEEPSLATE, 8, 1, 16, 1, 0.03f));
+    novice.add(sell(Items.COBBLED_DEEPSLATE, 8, 1, 16, 1, 0.01f));
     apprentice.add(buy(YUNOHANA_WHITE_ITEM.get(), 4, 1, 12, 6, 0.05f));
     apprentice.add(buy(YUNOHANA_SPOTTED_ITEM.get(), 4, 1, 12, 6, 0.05f));
     journeyman.add(sell(VOLCANO_MAP_KIT.get(), 1, 8, 1, 10, 0.1f));
@@ -54,7 +54,7 @@ public class ChemiVillagerTrades {
     expert.add(buy(LAPISQUARTZ.SHARD_ITEM.get(), 2, 1, 16, 18, 0.05f));
     expert.add(buy(MORION.SHARD_ITEM.get(), 2, 1, 16, 18, 0.05f));
     expert.add(buy(PERIDOT.SHARD_ITEM.get(), 2, 1, 16, 18, 0.05f));
-    master.add(sell(IRIDIUM_UPGRADE_STH.get(), 1, Items.DIAMOND, 7, 48, 16, 0, 0.03f));
+    master.add(sell(IRIDIUM_UPGRADE_STH.get(), 1, IRIDIUM_INGOT.get(), 1, 48, 16, 0, 0.03f));
     master.add(sell(CRATER_MAP_KIT.get(), 1, 16, 1, 0, 0.1f));
   }
 

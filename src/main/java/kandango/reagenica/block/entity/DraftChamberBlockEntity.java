@@ -6,6 +6,7 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
 import kandango.reagenica.ChemiItems;
+import kandango.reagenica.ChemiTags;
 import kandango.reagenica.block.entity.util.ItemStackUtil;
 import kandango.reagenica.item.bioreagent.BioGrowingPlate;
 import kandango.reagenica.item.bioreagent.BioReagent;
@@ -113,6 +114,24 @@ public class DraftChamberBlockEntity extends BlockEntity implements MenuProvider
     container.setItem(2, itemHandler.getStackInSlot(11));
     container.setItem(3, itemHandler.getStackInSlot(12));
     Optional<ReagentMixingRecipe> recipeOpt = ReagentMixingRecipe.getRecipe(container, lv);
+    if(itemHandler.getStackInSlot(10).is(ChemiItems.PLASMID.get())){
+      ItemStack mainPlate = itemHandler.getStackInSlot(9).copy();
+      if(mainPlate.is(ChemiTags.Items.PLATES)){
+        int count = itemHandler.getStackInSlot(10).getCount();
+        int speed = BioReagent.getSpeedOf(mainPlate);
+        boolean sterile = BioReagent.isSterileOf(mainPlate);
+        int newSpeed = Math.min(speed+count, 30);
+        if(newSpeed > speed){
+          BioReagent.setStats(mainPlate, newSpeed, sterile);
+          int used = newSpeed - speed;
+          itemHandler.extractItem(9, 1, false);
+          itemHandler.extractItem(10, used, false);
+          ItemStackUtil.insertOrElseThrow(lv, worldPosition, itemHandler, mainPlate, 6, 9);
+          setChanged();
+          return true;
+        }
+      }
+    }
     if(recipeOpt.map(r -> r.getOutputA().getItem() == ChemiItems.GROWING_PLATE.get()).orElse(false)){
       boolean swapped = false;
       ItemStack stackPlate = itemHandler.getStackInSlot(9).copy();

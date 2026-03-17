@@ -6,6 +6,7 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
 import kandango.reagenica.ChemiItems;
+import kandango.reagenica.utils.ComponentUtil;
 import net.minecraft.ChatFormatting;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
@@ -49,6 +50,14 @@ public class BioReagent extends Item{
     CompoundTag tag = stack.getOrCreateTag();
     tag.putInt(COLOR_KEY, color);
   }
+  public static int getSpeedOf(ItemStack stack){
+    CompoundTag tag = stack.getTag();
+    return (tag != null && tag.contains(SPEED_KEY)) ? tag.getInt(SPEED_KEY) : 0;
+  }
+  public static boolean isSterileOf(ItemStack stack){
+    CompoundTag tag = stack.getTag();
+    return tag!=null && tag.contains(STERILE_KEY) && tag.getBoolean(STERILE_KEY);
+  }
   public int getSpeed(ItemStack stack){
     return getOrDefault(stack, SPEED_KEY, 0);
   }
@@ -61,7 +70,14 @@ public class BioReagent extends Item{
   public void appendHoverText(@Nonnull ItemStack stack, @Nullable Level level, @Nonnull List<Component> tooltip, @Nonnull TooltipFlag flag) {
     super.appendHoverText(stack, level, tooltip, flag);
     if(!props.scientific_name().isEmpty())tooltip.add(Component.literal(props.scientific_name()).withStyle(ChatFormatting.ITALIC).withStyle(ChatFormatting.GRAY));
-    if(!(stack.getItem() == ChemiItems.CONTAMINATED_PLATE.get()))tooltip.add(Component.literal("Efficiency: " + getSpeed(stack)).withStyle(ChatFormatting.GRAY));
+    final int speed = getSpeed(stack);
+    if(!(stack.getItem() == ChemiItems.CONTAMINATED_PLATE.get())){
+      if(speed<30){
+        tooltip.add(Component.literal("Efficiency: " + speed).withStyle(ChatFormatting.GRAY));
+      }else{
+        tooltip.add(ComponentUtil.rainbowLine("Efficiency: MAX", level, 15, 80));
+      }
+    }
     if(isSterile(stack))tooltip.add(Component.translatable("tooltip.reagenica.sterile").withStyle(ChatFormatting.GREEN));
   }
 

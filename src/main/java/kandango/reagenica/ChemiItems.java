@@ -132,7 +132,7 @@ public class ChemiItems {
   public static final RegistryObject<BioReagent> ORYZAE = registerandlist("aspergillus_oryzae", () -> new BioReagent(new BioProperties("Aspergillus oryzae",0xffd6e9ca)));
   public static final RegistryObject<BioReagent> ACETOBACTER = registerandlist("acetobacter", () -> new BioReagent(new BioProperties("acetobacter",0xfffc773f)));
   public static final RegistryObject<BioReagent> CONTAMINATED_PLATE = registerandlist("contaminated_sample", () -> new BioReagent(new BioProperties("Contaminated",0)));
-  public static final RegistryObject<LiquidReagent> PLASMID = registerandlist("plasmid", () -> new LiquidReagent(new ReagentProperties("?",0xFFabced8,0,0,0)));
+  public static final RegistryObject<LiquidReagent> PLASMID = registerandlist("plasmid", () -> new Plasmid(new ReagentProperties("?",0xFFabced8,0,0,0)));
   
   public static final RegistryObject<Item> RAW_LEAD = registerandlist("raw_lead", () -> new Item(new Item.Properties()));
   public static final RegistryObject<Item> RAW_CHALCOPYRITE = registerandlist("raw_chalcopyrite", () -> new Item(new Item.Properties()));
