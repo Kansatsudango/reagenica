@@ -1,0 +1,84 @@
+{
+  "parent": "reagenica:iridium",
+  "display": {
+    "icon": { "item": "reagenica:iridium_pickaxe" },
+  "title": {
+    "translate": "advancements.reagenica.iridium_tools.title"
+  },
+  "description": {
+    "translate": "advancements.reagenica.iridium_tools.desc"
+  },
+  "frame": "task",
+  "show_toast": true,
+  "announce_to_chat": true
+  },
+  "criteria": {
+    "helmet": {
+      "trigger": "minecraft:recipe_crafted",
+      "conditions": {
+        "recipe_id": "reagenica:iridium_helmet"
+      }
+    },
+    "chestplate": {
+      "trigger": "minecraft:recipe_crafted",
+      "conditions": {
+        "recipe_id": "reagenica:iridium_chestplate"
+      }
+    },
+    "leggings": {
+      "trigger": "minecraft:recipe_crafted",
+      "conditions": {
+        "recipe_id": "reagenica:iridium_leggings"
+      }
+    },
+    "boots": {
+      "trigger": "minecraft:recipe_crafted",
+      "conditions": {
+        "recipe_id": "reagenica:iridium_boots"
+      }
+    },
+    "sword": {
+      "trigger": "minecraft:recipe_crafted",
+      "conditions": {
+        "recipe_id": "reagenica:iridium_sword"
+      }
+    },
+    "pickaxe": {
+      "trigger": "minecraft:recipe_crafted",
+      "conditions": {
+        "recipe_id": "reagenica:iridium_pickaxe"
+      }
+    },
+    "axe": {
+      "trigger": "minecraft:recipe_crafted",
+      "conditions": {
+        "recipe_id": "reagenica:iridium_axe"
+      }
+    },
+    "shovel": {
+      "trigger": "minecraft:recipe_crafted",
+      "conditions": {
+        "recipe_id": "reagenica:iridium_shovel"
+      }
+    },
+    "hoe": {
+      "trigger": "minecraft:recipe_crafted",
+      "conditions": {
+        "recipe_id": "reagenica:iridium_hoe"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "helmet",
+      "chestplate",
+      "leggings",
+      "boots",
+      "sword",
+      "pickaxe",
+      "axe",
+      "shovel",
+      "hoe"
+    ]
+  ]
+}

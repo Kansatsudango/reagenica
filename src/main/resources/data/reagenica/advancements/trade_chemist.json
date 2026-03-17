@@ -1,0 +1,25 @@
+{
+  "parent": "reagenica:draft_chamber",
+  "display": {
+    "icon": { "item": "reagenica:plasmid" },
+  "title": {
+    "translate": "advancements.reagenica.trade_chemist.title"
+  },
+  "description": {
+    "translate": "advancements.reagenica.trade_chemist.desc"
+  },
+  "frame": "task",
+  "show_toast": true,
+  "announce_to_chat": true
+  },
+  "criteria": {
+    "trade": {
+      "trigger": "minecraft:villager_trade",
+      "conditions": {
+        "villager": {
+          "nbt": "{VillagerData:{profession:\"reagenica:chemist\"}}"
+        }
+      }
+    }
+  }
+}

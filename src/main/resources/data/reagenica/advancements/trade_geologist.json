@@ -1,0 +1,25 @@
+{
+  "parent": "reagenica:trade_chemist",
+  "display": {
+    "icon": { "item": "reagenica:pink_gold_ingot" },
+  "title": {
+    "translate": "advancements.reagenica.trade_geologist.title"
+  },
+  "description": {
+    "translate": "advancements.reagenica.trade_geologist.desc"
+  },
+  "frame": "task",
+  "show_toast": true,
+  "announce_to_chat": true
+  },
+  "criteria": {
+    "trade": {
+      "trigger": "minecraft:villager_trade",
+      "conditions": {
+        "villager": {
+          "nbt": "{VillagerData:{profession:\"reagenica:geologist\"}}"
+        }
+      }
+    }
+  }
+}
