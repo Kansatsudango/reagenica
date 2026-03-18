@@ -131,6 +131,11 @@ public class ChemiItems {
   public static final RegistryObject<BioReagent> YEAST = registerandlist("yeast", () -> new BioReagent(new BioProperties("yeast",0xfffae58c)));
   public static final RegistryObject<BioReagent> ORYZAE = registerandlist("aspergillus_oryzae", () -> new BioReagent(new BioProperties("Aspergillus oryzae",0xffd6e9ca)));
   public static final RegistryObject<BioReagent> ACETOBACTER = registerandlist("acetobacter", () -> new BioReagent(new BioProperties("acetobacter",0xfffc773f)));
+  static{
+    listCreativeTab.add(new CreativeTabContent(() -> BioReagent.setStats(new ItemStack(ChemiItems.YEAST.get()), 30, true)));
+    listCreativeTab.add(new CreativeTabContent(() -> BioReagent.setStats(new ItemStack(ChemiItems.ORYZAE.get()), 30, true)));
+    listCreativeTab.add(new CreativeTabContent(() -> BioReagent.setStats(new ItemStack(ChemiItems.ACETOBACTER.get()), 30, true)));
+  }
   public static final RegistryObject<BioReagent> CONTAMINATED_PLATE = registerandlist("contaminated_sample", () -> new BioReagent(new BioProperties("Contaminated",0)));
   public static final RegistryObject<LiquidReagent> PLASMID = registerandlist("plasmid", () -> new Plasmid(new ReagentProperties("?",0xFFabced8,0,0,0)));
   
@@ -209,6 +214,7 @@ public class ChemiItems {
   public static final RegistryObject<Item> PLATINUM_ELECTRODE = registerandlist("platinum_electrode", () -> new Item(new Item.Properties().durability(2560).rarity(Rarity.RARE)));
 
   public static final RegistryObject<Item> ORE_BAG = registerandlist("ore_bag", () -> new CommonBag<>(27, 84, ModMenus.ORE_BAG_MENU, stack -> stack.is(ChemiTags.Items.ORE_BAG_ACCEPT)));
+  public static final RegistryObject<Item> CRYSTAL_BAG = registerandlist("crystal_bag", () -> new CommonBag<>(27, 84, ModMenus.CRYSTAL_BAG_MENU, stack -> stack.is(ChemiTags.Items.CRYSTAL_SHARDS)));
   public static final RegistryObject<Item> NYLON_BAG = registerandlist("nylon_bag", () -> new CommonBag<>(18, 66, ModMenus.NYLON_BAG_MENU));
   public static final RegistryObject<Item> PLATINUM_BAG = registerandlist("platinum_bag", () -> new CommonBag<>(27, 84, ModMenus.PLATINUM_BAG_MENU));
   public static final RegistryObject<Item> IRIDIUM_BAG = registerandlist("iridium_bag", () -> new CommonBag<>(54, 140, ModMenus.IRIDIUM_BAG_MENU));

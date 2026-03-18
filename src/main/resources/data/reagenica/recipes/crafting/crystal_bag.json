@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " S ",
+    "CXC"
+  ],
+  "key": {
+    "S": { "item": "minecraft:string" },
+    "X": { "tag": "reagenica:crystal_shards" },
+    "C": { "item": "reagenica:polyethylene" }
+  },
+  "result": {
+    "item": "reagenica:crystal_bag",
+    "count": 1
+  }
+}

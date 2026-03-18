@@ -57,6 +57,9 @@ public class ModMenus {
     public static final RegistryObject<MenuType<SimpleBagMenu>> ORE_BAG_MENU =
         MENU_TYPES.register("ore_bag",
             () -> IForgeMenuType.create((id, inv, buf) -> new SimpleBagMenu(ModMenus.ORE_BAG_MENU.get(), 84, id, inv, buf)));
+    public static final RegistryObject<MenuType<SimpleBagMenu>> CRYSTAL_BAG_MENU =
+        MENU_TYPES.register("crystal_bag",
+            () -> IForgeMenuType.create((id, inv, buf) -> new SimpleBagMenu(ModMenus.CRYSTAL_BAG_MENU.get(), 84, id, inv, buf)));
     public static final RegistryObject<MenuType<SimpleBagMenu>> NYLON_BAG_MENU =
         MENU_TYPES.register("nylon_bag",
             () -> IForgeMenuType.create((id, inv, buf) -> new SimpleBagMenu(ModMenus.PLATINUM_BAG_MENU.get(), 66, id, inv, buf)));

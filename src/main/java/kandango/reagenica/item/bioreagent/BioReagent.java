@@ -41,10 +41,11 @@ public class BioReagent extends Item{
     return (tag != null && tag.contains(key)) ? tag.getInt(key) : def;
   }
 
-  public static void setStats(ItemStack stack, int speed,boolean sterile) {
+  public static ItemStack setStats(ItemStack stack, int speed,boolean sterile) {
     CompoundTag tag = stack.getOrCreateTag();
     tag.putInt(SPEED_KEY, speed);
     tag.putBoolean(STERILE_KEY, sterile);
+    return stack;
   }
   public static void setColor(ItemStack stack, int color) {
     CompoundTag tag = stack.getOrCreateTag();

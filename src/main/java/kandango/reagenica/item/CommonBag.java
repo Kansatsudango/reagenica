@@ -1,5 +1,7 @@
 package kandango.reagenica.item;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 import java.util.OptionalInt;
 import java.util.UUID;
@@ -37,25 +39,39 @@ import net.minecraftforge.network.NetworkHooks;
 import net.minecraftforge.registries.RegistryObject;
 
 public class CommonBag<T extends AbstractContainerMenu> extends Item{
+  public static final List<CommonBag<?>> Bags = new ArrayList<>();
+  public static final String UUIDKey = "BagUUID";
+  private static final Predicate<ItemStack> isAllowed = stack -> !stack.is(ChemiTags.Items.BAGS_DENY) && !stack.getCapability(ForgeCapabilities.ITEM_HANDLER).isPresent();
   private final int slotCount;
   private final int inv_start;
   private final RegistryObject<MenuType<T>> menutype;
-  public static final String UUIDKey = "BagUUID";
-  private final Predicate<ItemStack> isValid;
+  private final Predicate<ItemStack> filter;
+  private final boolean hasSpecialFilter;
 
   public CommonBag(int slots, int inv_start, RegistryObject<MenuType<T>> type){
     super(new Item.Properties().stacksTo(1));
     this.slotCount = slots;
     this.inv_start = inv_start;
     this.menutype = type;
-    this.isValid = stack -> !stack.is(ChemiTags.Items.BAGS_DENY) && !stack.getCapability(ForgeCapabilities.ITEM_HANDLER).isPresent();
+    this.filter = isAllowed;
+    this.hasSpecialFilter = false;
+    Bags.add(this);
   }
   public CommonBag(int slots, int inv_start, RegistryObject<MenuType<T>> type, Predicate<ItemStack> filter){
     super(new Item.Properties().stacksTo(1));
     this.slotCount = slots;
     this.inv_start = inv_start;
     this.menutype = type;
-    this.isValid = filter;
+    this.filter = isAllowed.and(filter);
+    this.hasSpecialFilter = true;
+    Bags.add(this);
+  }
+
+  public boolean isValidItem(ItemStack stack){
+    return this.filter.test(stack);
+  }
+  public boolean canAutoStock(){
+    return this.hasSpecialFilter;
   }
 
   @Override
@@ -104,7 +120,7 @@ public class CommonBag<T extends AbstractContainerMenu> extends Item{
 
   @Override
   public @Nullable ICapabilityProvider initCapabilities(ItemStack stack, @Nullable CompoundTag nbt) {
-    return new CommonBagProvider(stack, slotCount, isValid);
+    return new CommonBagProvider(stack, slotCount, this.filter);
   }
 
   public static Optional<UUID> getBagID(ItemStack stack){

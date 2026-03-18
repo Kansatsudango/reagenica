@@ -1,4 +1,4 @@
-// 1.20.1	2026-03-13T10:31:09.5486173	Item Models: reagenica
+// 1.20.1	2026-03-17T19:30:24.2601501	Item Models: reagenica
 6f0d9872c5f176206015dd5f6420e71fe71f2cb9 assets/reagenica/models/item/acetobacter.json
 54ef03ed6b05d449bef3092145440fb8c97020f5 assets/reagenica/models/item/adipamide.json
 54ef03ed6b05d449bef3092145440fb8c97020f5 assets/reagenica/models/item/adipic_acid.json
@@ -94,6 +94,7 @@ daa7fa73cd486209320681c0dd5f96562d2c7991 assets/reagenica/models/item/cream_stew
 8d233f217b6247ee2f39f40ed80fe81946c14722 assets/reagenica/models/item/crude_oil_bucket.json
 603635f6a4ba10c4a1fd92ab76842f4f005f5f3d assets/reagenica/models/item/crusher.json
 3ac00ef3aec7c940f77dcb0ba3e19c83120c5fc1 assets/reagenica/models/item/cryolite.json
+e651388cab3bbb2b2256fb2e7caefffcd5301af4 assets/reagenica/models/item/crystal_bag.json
 c4bcbc9560b58d632a90b4a508d92af732235ec9 assets/reagenica/models/item/custom_block.json
 1092d42d439734a1a8fadfa5100e73cff3d8b7ae assets/reagenica/models/item/cut_lead_glass.json
 54ef03ed6b05d449bef3092145440fb8c97020f5 assets/reagenica/models/item/cyclohexane.json

@@ -31,6 +31,7 @@ public class ModScreens {
             MenuScreens.register(ModMenus.CRUSHER_MENU.get(), CrusherScreen::new);
             MenuScreens.register(ModMenus.ELECTROLYSIS_MENU.get(), ElectroLysisScreen::new);
             MenuScreens.register(ModMenus.ORE_BAG_MENU.get(), (SimpleBagMenu menu, Inventory inv, Component title) -> new SimpleBagScreen(menu, inv, title, 165, new ResourceLocation("minecraft", "textures/gui/container/shulker_box.png")));
+            MenuScreens.register(ModMenus.CRYSTAL_BAG_MENU.get(), (SimpleBagMenu menu, Inventory inv, Component title) -> new SimpleBagScreen(menu, inv, title, 165, new ResourceLocation("minecraft", "textures/gui/container/shulker_box.png")));
             MenuScreens.register(ModMenus.NYLON_BAG_MENU.get(), (SimpleBagMenu menu, Inventory inv, Component title) -> new SimpleBagScreen(menu, inv, title, 147, new ResourceLocation("reagenica", "textures/gui/container/nylon_bag.png")));
             MenuScreens.register(ModMenus.PLATINUM_BAG_MENU.get(), (SimpleBagMenu menu, Inventory inv, Component title) -> new SimpleBagScreen(menu, inv, title, 165, new ResourceLocation("minecraft", "textures/gui/container/shulker_box.png")));
             MenuScreens.register(ModMenus.IRIDIUM_BAG_MENU.get(), (SimpleBagMenu menu, Inventory inv, Component title) -> new SimpleBagScreen(menu, inv, title, 221, new ResourceLocation("minecraft", "textures/gui/container/generic_54.png")));

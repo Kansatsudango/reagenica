@@ -1,6 +1,11 @@
 {
   "replace": false,
   "values": [
-    "reagenica:nylon_bag"
+    "reagenica:nylon_bag",
+    "reagenica:platinum_bag",
+    "reagenica:iridium_bag",
+    "reagenica:ore_bag",
+    "reagenica:crystal_bag",
+    "minecraft:iridium_bag"
   ]
 }

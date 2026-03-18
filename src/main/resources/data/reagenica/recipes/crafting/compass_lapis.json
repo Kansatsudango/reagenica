@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " + ",
+    "#C#",
+    " # "
+  ],
+  "key": {
+    "#": { "item": "reagenica:pink_gold_ingot" },
+    "+": { "item": "minecraft:lapis_lazuli" },
+    "C": { "item": "minecraft:compass" }
+  },
+  "result": {
+    "item": "reagenica:location_compass_lapis",
+    "count": 1
+  }
+}

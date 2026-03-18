@@ -1,8 +1,7 @@
 package kandango.reagenica.event;
 
-import kandango.reagenica.ChemiItems;
-import kandango.reagenica.ChemiTags;
 import kandango.reagenica.ChemistryMod;
+import kandango.reagenica.item.CommonBag;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.entity.item.ItemEntity;
@@ -13,7 +12,6 @@ import net.minecraftforge.common.capabilities.ForgeCapabilities;
 import net.minecraftforge.event.entity.player.EntityItemPickupEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.ItemStackHandler;
 
 @Mod.EventBusSubscriber(modid = ChemistryMod.MODID)
@@ -23,15 +21,17 @@ public class OreBagItemHandler {
     Player player = event.getEntity();
     ItemEntity itementity = event.getItem();
     ItemStack item = itementity.getItem();
-    if(!item.is(ChemiTags.Items.ORE_BAG_ACCEPT))return;
+    if(CommonBag.Bags.stream().filter(x -> x.canAutoStock()).filter(x -> x.isValidItem(item)).findAny().isEmpty()){
+      return;
+    }
 
     Inventory inv = player.getInventory();
     for(ItemStack stack : inv.items){
-      if(stack.is(ChemiItems.ORE_BAG.get())){
-        if(stack.getCapability(ForgeCapabilities.ITEM_HANDLER).isPresent()){
-          IItemHandler handler = stack.getCapability(ForgeCapabilities.ITEM_HANDLER).orElseThrow(() -> new IllegalStateException());
-          if(handler instanceof ItemStackHandler itemHandler){
-            ItemStack remaining = insertItem(itemHandler, item);
+      if(stack.getItem() instanceof CommonBag bag){
+        if(bag.canAutoStock() && bag.isValidItem(item)){
+          ItemStackHandler handler = stack.getCapability(ForgeCapabilities.ITEM_HANDLER).map(h -> h instanceof ItemStackHandler ? (ItemStackHandler)h : null).orElse(null);
+          if(handler!=null){
+            ItemStack remaining = insertItem(handler, item);
             if(remaining.isEmpty()){
               player.level().playSound(null, player.blockPosition(), SoundEvents.ITEM_PICKUP, SoundSource.PLAYERS, 0.2F, 1.0F);
               itementity.discard();
