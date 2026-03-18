@@ -8,15 +8,15 @@ import java.util.UUID;
 import java.util.function.Predicate;
 
 import javax.annotation.Nonnull;
-
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
+import javax.annotation.Nullable;
 
 import kandango.reagenica.ChemiTags;
 import kandango.reagenica.ChemistryMod;
 import kandango.reagenica.screen.SimpleBagMenu;
+import net.minecraft.ChatFormatting;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
@@ -28,6 +28,7 @@ import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.MenuType;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.common.capabilities.ForgeCapabilities;
@@ -127,6 +128,14 @@ public class CommonBag<T extends AbstractContainerMenu> extends Item{
     return Optional.ofNullable(stack.getTag()).filter(tag -> tag.hasUUID(UUIDKey)).map(tag -> tag.getUUID(UUIDKey));
   }
 
+  @Override
+  public void appendHoverText(@Nonnull ItemStack stack, @Nullable Level level, @Nonnull List<Component> tooltip, @Nonnull TooltipFlag flag) {
+    super.appendHoverText(stack, level, tooltip, flag);
+    if(stack.getItem() instanceof CommonBag<?> bag && bag.canAutoStock()){
+      tooltip.add(Component.translatable("tooltip.reagenica.autostore").withStyle(ChatFormatting.GREEN));
+    }
+  }
+
   public static class CommonBagProvider implements ICapabilityProvider{
     private final ItemStackHandler handler;
     private final LazyOptional<IItemHandler> lazyHandler;
@@ -177,7 +186,7 @@ public class CommonBag<T extends AbstractContainerMenu> extends Item{
     }
 
     @Override
-    public <T> @NotNull LazyOptional<T> getCapability(@NotNull Capability<T> cap, @Nullable Direction side) {
+    public <T> LazyOptional<T> getCapability(Capability<T> cap, @Nullable Direction side) {
       return cap == ForgeCapabilities.ITEM_HANDLER ? lazyHandler.cast() : LazyOptional.empty();
     }
   }

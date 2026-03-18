@@ -602,6 +602,7 @@
   "tooltip.reagenica.minewipe_lore": "Absorbs excess liquid.",
   "tooltip.reagenica.minewipe_lore_warn": "Absorbed liquid will disappear.",
   "tooltip.reagenica.plasmid": "Combining the strain plate with the draft chamber increases the strain's Efficiency by 1.",
+  "tooltip.reagenica.autostore": "Automatically stores the corresponding items.",
   "tooltip.reagenica.crude": "Crude Sample",
   "tooltip.reagenica.yeast": "Yeast Sample",
   "tooltip.reagenica.oryzae": "Aspergillus Oryzae Sample",

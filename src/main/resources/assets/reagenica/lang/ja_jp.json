@@ -602,6 +602,7 @@
   "tooltip.reagenica.minewipe_lore": "余った液体を吸い取ります。",
   "tooltip.reagenica.minewipe_lore_warn": "吸い取った液体は消滅します。",
   "tooltip.reagenica.plasmid": "ドラフトチャンバーで菌株プレートと合成することで、菌株のEfficiencyを1上げます。",
+  "tooltip.reagenica.autostore": "対応するアイテムを自動で収納します",
   "tooltip.reagenica.crude": "環境中サンプル",
   "tooltip.reagenica.yeast": "酵母",
   "tooltip.reagenica.oryzae": "コウジカビ",
