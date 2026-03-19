@@ -11,7 +11,7 @@
     "C": { "item": "minecraft:compass" }
   },
   "result": {
-    "item": "reagenica:location_compass_coal",
+    "item": "reagenica:location_compass_redstone",
     "count": 1
   }
 }

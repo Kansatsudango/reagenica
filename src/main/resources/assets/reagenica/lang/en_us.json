@@ -775,6 +775,7 @@
   "chat.reagenica.compass_biome_success": "Located Biome.",
   "chat.reagenica.compass_biome_not_found": "No biomes were found within the specified range.",
   "chat.reagenica.map_structure_not_found": "The search failed. Either the dimension is incorrect, or there are no results within the range.",
+  "chat.reagenica.too_many_to_vein": "There are too many blocks in the chain, so Chain Mining is not possible.",
   "item.reagenica.smithing_template.iridium_upgrade.additions_slot_description": "Add Iridium Ingot",
   "item.reagenica.smithing_template.iridium_upgrade.applies_to": "Platinum Equipment",
   "item.reagenica.smithing_template.iridium_upgrade.base_slot_description": "Add platinum armor, weapon, or tool",

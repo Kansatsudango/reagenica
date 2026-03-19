@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " P ",
+    "NCN",
+    "NNN"
+  ],
+  "key": {
+    "P": { "item": "reagenica:platinum_ingot" },
+    "N": { "item": "reagenica:nylon_string" },
+    "C": { "item": "minecraft:chest" }
+  },
+  "result": {
+    "item": "reagenica:platinum_bag",
+    "count": 1
+  }
+}
