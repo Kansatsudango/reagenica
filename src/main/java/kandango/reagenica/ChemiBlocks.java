@@ -255,7 +255,7 @@ public class ChemiBlocks {
   public static final RegistryObject<Block> PALEO_SAND = registerBlockandlist("paleo_sand", () -> new SandBlock(0xC9AE6B,BlockBehaviour.Properties.copy(Blocks.SAND)));
   public static final RegistryObject<Item> PALEO_SAND_ITEM = registerItemandlist("paleo_sand",
     () -> new BlockItem(PALEO_SAND.get(), new Item.Properties()));
-  public static final RegistryObject<Block> PALEO_SANDSTONE = registerBlockandlist("paleo_sandstone", () -> new Block(BlockBehaviour.Properties.copy(Blocks.SANDSTONE)));
+  public static final RegistryObject<Block> PALEO_SANDSTONE = registerStoneBlockandlist("paleo_sandstone", () -> new Block(BlockBehaviour.Properties.copy(Blocks.SANDSTONE)));
   public static final RegistryObject<Item> PALEO_SANDSTONE_ITEM = registerItemandlist("paleo_sandstone",
     () -> new BlockItem(PALEO_SANDSTONE.get(), new Item.Properties()));
     
