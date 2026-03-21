@@ -7,7 +7,6 @@ import javax.annotation.Nullable;
 
 import kandango.reagenica.ChemiItems;
 import kandango.reagenica.ChemiTags;
-import kandango.reagenica.ChemistryMod;
 import kandango.reagenica.block.entity.util.ItemStackUtil;
 import kandango.reagenica.item.bioreagent.BioGrowingPlate;
 import kandango.reagenica.item.bioreagent.BioReagent;
@@ -115,7 +114,6 @@ public class DraftChamberBlockEntity extends BlockEntity implements MenuProvider
     container.setItem(2, itemHandler.getStackInSlot(11));
     container.setItem(3, itemHandler.getStackInSlot(12));
     Optional<ReagentMixingRecipe> recipeOpt = ReagentMixingRecipe.getRecipe(container, lv);
-    ChemistryMod.LOGGER.info("Recipe: {}", recipeOpt.map(r -> r.getOutputA()));
     if(itemHandler.getStackInSlot(10).is(ChemiItems.PLASMID.get())){
       ItemStack mainPlate = itemHandler.getStackInSlot(9).copy();
       if(mainPlate.is(ChemiTags.Items.PLATES)){
@@ -135,7 +133,6 @@ public class DraftChamberBlockEntity extends BlockEntity implements MenuProvider
       }
     }
     if(recipeOpt.map(r -> r.getOutputA().getItem() == ChemiItems.GROWING_PLATE.get()).orElse(false)){
-      ChemistryMod.LOGGER.info("Plate Recipe");
       boolean swapped = false;
       ItemStack stackPlate = itemHandler.getStackInSlot(9).copy();
       ItemStack stackParent = itemHandler.getStackInSlot(10).copy();
@@ -146,7 +143,6 @@ public class DraftChamberBlockEntity extends BlockEntity implements MenuProvider
         swapped=true;
       }
       ItemStack platestack = BioGrowingPlate.getPlateFromParent(stackPlate, stackParent);
-      ChemistryMod.LOGGER.info("Result: {}", platestack);
       if(stackParent.getItem() instanceof BioReagent){
         ItemStack after = ItemStackUtil.getDamagedItem(stackParent, 80, () -> ItemStack.EMPTY);
         this.itemHandler.setStackInSlot(swapped?9:10, after);
@@ -156,7 +152,6 @@ public class DraftChamberBlockEntity extends BlockEntity implements MenuProvider
       itemHandler.extractItem(swapped?10:9, 1, false);
       ItemStackUtil.insertOrElseThrow(lv, worldPosition, itemHandler, platestack, 6, 9);
     }else if(recipeOpt.isPresent()){
-      ChemistryMod.LOGGER.info("Other Recipe");
       ReagentMixingRecipe recipe = recipeOpt.orElseThrow();
       ResultInserts ins = getInsertSlot(recipe);
       if(ins.success){

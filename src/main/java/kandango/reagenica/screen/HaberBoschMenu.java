@@ -64,8 +64,8 @@ public class HaberBoschMenu extends ChemistryMenu<HaberBoschBlockEntity> {
   public List<SlotPriorityRule> quickMoveRules() {
     List<SlotPriorityRule> rules = List.of(
       SlotPriorityRule.single(SlotPriorityPredicates.IsFluidcase, 5),
-      SlotPriorityRule.single(stack -> FluidItemConverter.getFluidstackFromItem(stack).getFluid().isSame(ChemiFluids.HYDROGEN.getFluid()), 1),
-      SlotPriorityRule.single(stack -> FluidItemConverter.getFluidstackFromItem(stack).getFluid().isSame(ChemiFluids.OXYGEN.getFluid()), 3)
+      SlotPriorityRule.single(stack -> FluidItemConverter.getFluidstackFromItem(stack).getFluid().isSame(ChemiFluids.NITROGEN.getFluid()), 1),
+      SlotPriorityRule.single(stack -> FluidItemConverter.getFluidstackFromItem(stack).getFluid().isSame(ChemiFluids.HYDROGEN.getFluid()), 3)
     );
     return rules;
   }

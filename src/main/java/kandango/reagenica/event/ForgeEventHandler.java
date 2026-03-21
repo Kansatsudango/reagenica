@@ -12,12 +12,14 @@ import kandango.reagenica.enchantment.BigMinerEnchantment;
 import kandango.reagenica.enchantment.CrystalizedEnchantment;
 import kandango.reagenica.enchantment.LastStandEnchantment;
 import kandango.reagenica.enchantment.VeinMinerEnchantment;
-import kandango.reagenica.event.task.ChainMiningTaskManager;
 import kandango.reagenica.family.ChemiToolTiers;
 import kandango.reagenica.network.CableNetworkManager;
 import kandango.reagenica.villager.ChemiVillagerProfessions;
 import kandango.reagenica.villager.ChemiVillagerTrades;
+import kandango.reagenica.world.ChainMiningProvider;
+import kandango.reagenica.world.ChemiCapabilities;
 import kandango.reagenica.worldgen.ChemiBiomes;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
@@ -32,6 +34,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.SwordItem;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
+import net.minecraftforge.event.AttachCapabilitiesEvent;
 import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.event.entity.living.LivingDropsEvent;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
@@ -46,13 +49,20 @@ import net.minecraftforge.fml.common.Mod;
 
 @Mod.EventBusSubscriber(modid = ChemistryMod.MODID, bus = Mod.EventBusSubscriber.Bus.FORGE)
 public class ForgeEventHandler {
+  @SubscribeEvent
+  public static void attachCapabilities(AttachCapabilitiesEvent<Level> event){
+    if(event.getObject() instanceof ServerLevel level && level.dimension() == Level.OVERWORLD){
+      event.addCapability(new ResourceLocation(ChemistryMod.MODID, "chain_mining"), new ChainMiningProvider());
+    }
+  }
 
   @SubscribeEvent
   public static void onLevelTick(TickEvent.LevelTickEvent event) {
-    if (!event.level.isClientSide && event.phase == TickEvent.Phase.END) {
-      CableNetworkManager.tick((ServerLevel) event.level);
+    Level lv = event.level;
+    if (lv instanceof ServerLevel slv && event.phase == TickEvent.Phase.END) {
+      CableNetworkManager.tick(slv);
       veinMining.set(true);
-      ChainMiningTaskManager.tick((ServerLevel) event.level);
+      slv.getCapability(ChemiCapabilities.CHAIN_MINING_DATA).ifPresent(data -> data.tick(slv));
       veinMining.set(false);
     }
   }

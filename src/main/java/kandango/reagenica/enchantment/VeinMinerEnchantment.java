@@ -2,19 +2,18 @@ package kandango.reagenica.enchantment;
 
 import java.util.ArrayDeque;
 import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.HashSet;
 import java.util.List;
-import java.util.PriorityQueue;
 import java.util.Queue;
 import java.util.Set;
 
 import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 
 import kandango.reagenica.ChemiEnchantments;
 import kandango.reagenica.ChemiUtils;
-import kandango.reagenica.event.task.ChainMiningTask;
-import kandango.reagenica.event.task.ChainMiningTaskManager;
+import kandango.reagenica.world.ChemiCapabilities;
+import kandango.reagenica.world.task.ChainMiningTask;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Vec3i;
 import net.minecraft.network.chat.Component;
@@ -23,6 +22,7 @@ import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.enchantment.Enchantment;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 
 public class VeinMinerEnchantment extends Enchantment{
@@ -45,7 +45,7 @@ public class VeinMinerEnchantment extends Enchantment{
 
   public static void run(ServerLevel slv, ServerPlayer player, BlockPos origin, ItemStack tool, int enchLevel){
     final Block originBlock = slv.getBlockState(origin).getBlock();
-    Queue<BlockPos> resultPos = new PriorityQueue<>(Comparator.comparingInt(pos -> manhattan(pos, origin)));
+    Queue<BlockPos> resultPos = new ArrayDeque<>();
     Queue<BlockPos> searchQueue = new ArrayDeque<>();
     Set<BlockPos> visited = new HashSet<>();
 
@@ -69,9 +69,13 @@ public class VeinMinerEnchantment extends Enchantment{
     if(resultPos.size() == MAX_SEARCH){ // Too many connected
       player.displayClientMessage(Component.translatable("chat.reagenica.too_many_to_vein"), true);
     }else{
+      tool.hurtAndBreak(resultPos.size(), player, p -> p.broadcastBreakEvent(player.getUsedItemHand()));
       ArrayDeque<BlockPos> queue = new ArrayDeque<>();
       ChemiUtils.cutoffQueue(resultPos, queue, canMine(enchLevel));
-      ChainMiningTaskManager.add(new ChainMiningTask(player, queue));
+      @Nullable final ServerLevel overworld = slv.getServer().getLevel(Level.OVERWORLD);
+      if(overworld!=null){
+        overworld.getCapability(ChemiCapabilities.CHAIN_MINING_DATA).ifPresent(data -> data.add(slv, new ChainMiningTask(player, queue)));
+      }
     }
   }
 
@@ -85,9 +89,9 @@ public class VeinMinerEnchantment extends Enchantment{
     };
   }
 
-  private static int manhattan(BlockPos p, BlockPos q){
-    return Math.abs(p.getX()-q.getX()) + Math.abs(p.getY()-q.getY()) + Math.abs(p.getZ()-q.getZ());
-  }
+  // private static int manhattan(BlockPos p, BlockPos q){
+  //   return Math.abs(p.getX()-q.getX()) + Math.abs(p.getY()-q.getY()) + Math.abs(p.getZ()-q.getZ());
+  // }
 
   private static List<Vec3i> relatives(){
     List<Vec3i> list = new ArrayList<>();
