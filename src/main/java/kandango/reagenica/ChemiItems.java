@@ -118,7 +118,7 @@ public class ChemiItems {
   public static final RegistryObject<PowderReagent> IRIDIUM_DIOXIDE = registerandlist("iridium_dioxide", () -> new PowderReagent(new ReagentProperties("IrO2",0xFF26120a,3,0,1), new Item.Properties().rarity(Rarity.UNCOMMON)));
 
   public static final RegistryObject<Item> PLASTIC_DISH = registerandlist("plastic_dish", () -> new Item(new Item.Properties()));
-  public static final RegistryObject<Item> MEDIUM_PLATE = registerandlist("medium_plate", () -> new Item(new Item.Properties()));
+  public static final RegistryObject<Item> MEDIUM_PLATE = registerandlist("medium_plate", () -> new BioPlate());
   public static final RegistryObject<BioGrowingPlate> GROWING_PLATE = registerandlist("growing_plate", () -> new BioGrowingPlate(new BioProperties("",0x00FFFFFF)));
   static{
     listCreativeTab.add(new CreativeTabContent(() -> BioGrowingPlate.getPlate("Crude", 0, false)));

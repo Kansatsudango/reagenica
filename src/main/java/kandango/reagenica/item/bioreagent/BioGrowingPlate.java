@@ -40,8 +40,7 @@ public class BioGrowingPlate extends BioReagent{
   public int getSpeed(ItemStack stack){
     return getOrDefault(stack, PARENT_SPEED_KEY, 0);
   }
-  @Override
-  public boolean isSterile(ItemStack stack){
+  public static boolean isSterileOf(ItemStack stack){
     CompoundTag tag = stack.getTag();
     return tag!=null && tag.contains(STERILE_KEY) && tag.getBoolean(STERILE_KEY);
   }
@@ -95,8 +94,8 @@ public class BioGrowingPlate extends BioReagent{
       int parentSpeed = bio.getSpeed(parent);
       int parentVitality = 320-bio.getDamage(parent);
       BioGrowingPlate.setStats(stack, parentType, parentVitality, parentSpeed, sterile);
-    }else if(plate.getItem() == ChemiItems.MEDIUM_PLATE.get() &&  plate.getItem() instanceof BioReagent bio){
-      boolean sterile = bio.isSterile(plate);
+    }else if(plate.getItem() == ChemiItems.MEDIUM_PLATE.get()){
+      boolean sterile = isSterileOf(plate);
       BioGrowingPlate.setStats(stack, "Crude", 320, 0, sterile);
     }else{
       throw new IllegalArgumentException("Given ItemStacks was not valid plates.");
