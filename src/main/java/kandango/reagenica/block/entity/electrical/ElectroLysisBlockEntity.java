@@ -225,7 +225,7 @@ public class ElectroLysisBlockEntity extends ElectricConsumerAbstract implements
       if(canInsert(cachedRecipe)){
         this.progress++;
         this.consumeEnergy(20);
-        if(this.progress >= 400){
+        if(this.progress >= 300){
           this.progress=0;
           this.inputFluid.drain(influid.getAmount(), FluidAction.EXECUTE);
           ItemStackUtil.addStackToSlot(itemHandler, ANODE_OUTPUT_SLOT, anoderes);

@@ -5,6 +5,7 @@
     "reagenica:copper_electrode",
     "reagenica:gold_electrode",
     "reagenica:refined_copper_electrode",
-    "reagenica:platinum_electrode"
+    "reagenica:platinum_electrode",
+    "reagenica:thin_platinum_electrode"
   ]
 }

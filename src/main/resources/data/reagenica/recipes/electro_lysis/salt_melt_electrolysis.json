@@ -5,10 +5,10 @@
     "amount": 100
   },
   "cathode": {
-    "item": "reagenica:platinum_electrode"
+    "tag": "reagenica:platinum_electrodes"
   },
   "anode": {
-    "item": "reagenica:platinum_electrode"
+    "tag": "reagenica:platinum_electrodes"
   },
   "result_n": {
     "item": "reagenica:sodium_ingot"

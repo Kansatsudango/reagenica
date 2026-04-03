@@ -13,7 +13,7 @@
     "count":2
   },
   "cathode": {
-    "item": "reagenica:platinum_electrode"
+    "tag": "reagenica:platinum_electrodes"
   },
   "anode": {
     "item": "reagenica:carbon_electrode"

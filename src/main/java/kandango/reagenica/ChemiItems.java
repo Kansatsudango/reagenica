@@ -212,6 +212,7 @@ public class ChemiItems {
   public static final RegistryObject<Item> CARBON_ELECTRODE = registerandlist("carbon_electrode", () -> new Item(new Item.Properties().durability(256)));
   public static final RegistryObject<Item> GOLD_ELECTRODE = registerandlist("gold_electrode", () -> new Item(new Item.Properties().durability(128)));
   public static final RegistryObject<Item> PLATINUM_ELECTRODE = registerandlist("platinum_electrode", () -> new Item(new Item.Properties().durability(2560).rarity(Rarity.RARE)));
+  public static final RegistryObject<Item> THIN_PLATINUM_ELECTRODE = registerandlist("thin_platinum_electrode", () -> new Item(new Item.Properties().durability(768).rarity(Rarity.RARE)));
 
   public static final RegistryObject<Item> ORE_BAG = registerandlist("ore_bag", () -> new CommonBag<>(27, 84, ModMenus.ORE_BAG_MENU, stack -> stack.is(ChemiTags.Items.ORE_BAG_ACCEPT)));
   public static final RegistryObject<Item> CRYSTAL_BAG = registerandlist("crystal_bag", () -> new CommonBag<>(27, 84, ModMenus.CRYSTAL_BAG_MENU, stack -> stack.is(ChemiTags.Items.CRYSTAL_SHARDS)));
