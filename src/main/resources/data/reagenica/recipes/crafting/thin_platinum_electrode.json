@@ -6,11 +6,11 @@
     "#"
   ],
   "key": {
-    "#": { "item": "reagenica:refined_copper_ingot" },
+    "#": { "item": "reagenica:platinum_ingot" },
     "C": { "item": "reagenica:copper_cable" }
   },
   "result": {
-    "item": "reagenica:refined_copper_electrode",
+    "item": "reagenica:thin_platinum_electrode",
     "count": 1
   }
 }
