@@ -151,6 +151,9 @@ public class ChemiBlocks {
   public static final RegistryObject<Block> HYDROGEN_REDUCTOR = registerMachineBlockandlist("hydrogen_reductor",HydrogenReductor::new);
   public static final RegistryObject<Item> HYDROGEN_REDUCTOR_ITEM = registerItemandlist("hydrogen_reductor",
     () -> new BlockItem(HYDROGEN_REDUCTOR.get(), new Item.Properties()));
+  public static final RegistryObject<Block> PEM_DEVICE = registerMachineBlockandlist("pem_device",PEMDevice::new);
+  public static final RegistryObject<Item> PEM_DEVICE_ITEM = registerItemandlist("pem_device",
+    () -> new BlockItem(PEM_DEVICE.get(), new Item.Properties()));
     
   public static final RegistryObject<Block> LARGE_TANK_CORE = registerMachineBlockandlist("large_tank_core",LargeTankCore::new);
   public static final RegistryObject<Item> LARGE_TANK_CORE_ITEM = registerItemandlist("large_tank_core",
