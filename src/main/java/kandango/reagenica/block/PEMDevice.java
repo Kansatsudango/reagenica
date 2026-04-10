@@ -11,7 +11,11 @@ import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.EntityBlock;
 import net.minecraft.world.level.block.HorizontalDirectionalBlock;
+import net.minecraft.world.level.block.entity.BlockEntity;
+import net.minecraft.world.level.block.entity.BlockEntityTicker;
+import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
@@ -20,8 +24,12 @@ import net.minecraft.world.phys.BlockHitResult;
 import net.minecraftforge.network.NetworkHooks;
 
 import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 
-public class PEMDevice extends Block{
+import kandango.reagenica.ChemistryMod;
+import kandango.reagenica.block.entity.electrical.PEMDeviceBlockEntity;
+
+public class PEMDevice extends Block implements EntityBlock{
   public static final DirectionProperty FACING = HorizontalDirectionalBlock.FACING;
 
   public PEMDevice() {
@@ -34,18 +42,20 @@ public class PEMDevice extends Block{
                  @Nonnull Player player, @Nonnull InteractionHand hand, @Nonnull BlockHitResult hit) {
     if (!level.isClientSide) {
       var blockEntity = level.getBlockEntity(pos);
+      ChemistryMod.LOGGER.info("Clicked");
       if (blockEntity instanceof MenuProvider provider) {
+      ChemistryMod.LOGGER.info("Hooked");
         NetworkHooks.openScreen((ServerPlayer) player, provider, pos);
       }
     }
     return InteractionResult.SUCCESS;
   }
 
-  // @Nullable
-  // @Override
-  // public PEMDeviceBlockEntity newBlockEntity(@Nonnull BlockPos pos, @Nonnull BlockState state) {
-  //   return new PEMDeviceBlockEntity(pos, state);
-  // }
+  @Nullable
+  @Override
+  public PEMDeviceBlockEntity newBlockEntity(@Nonnull BlockPos pos, @Nonnull BlockState state) {
+    return new PEMDeviceBlockEntity(pos, state);
+  }
 
   @Override
   public BlockState getStateForPlacement(@Nonnull BlockPlaceContext context) {
@@ -61,9 +71,9 @@ public class PEMDevice extends Block{
     return true;
   }
 
-  // @Override
-  // @Nullable
-  // public <T extends BlockEntity> BlockEntityTicker<T> getTicker(@Nonnull Level level, @Nonnull BlockState state, @Nonnull BlockEntityType<T> type) {
-  //   return BlockUtil.getTicker(level, state, type);
-  // }
+  @Override
+  @Nullable
+  public <T extends BlockEntity> BlockEntityTicker<T> getTicker(@Nonnull Level level, @Nonnull BlockState state, @Nonnull BlockEntityType<T> type) {
+    return BlockUtil.getTicker(level, state, type);
+  }
 }
