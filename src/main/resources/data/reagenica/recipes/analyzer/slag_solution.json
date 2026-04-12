@@ -6,24 +6,24 @@
   "results": [
     {
       "item": "minecraft:coal",
-      "count": 1,
-      "chance": 0.8
+      "count": 3,
+      "chance": 1
     },{
       "item": "minecraft:gold_nugget",
-      "count": 1,
-      "chance": 0.4
+      "count": 2,
+      "chance": 0.8
     },{
       "item": "reagenica:trace_silver",
       "count": 1,
-      "chance": 0.08
+      "chance": 0.35
     },{
       "item": "reagenica:uranium_nugget",
       "count": 1,
-      "chance": 0.05
+      "chance": 0.2
     },{
       "item": "reagenica:trace_platinum",
       "count": 1,
-      "chance": 0.03
+      "chance": 0.1
     }
   ],
   "return_item":{

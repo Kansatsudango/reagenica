@@ -2,7 +2,7 @@
   "type": "reagenica:reagent_mixing",
   "inputs":[
     { "tag": "reagenica:strong_acids" },
-    { "item": "reagenica:slag" }
+    { "item": "reagenica:slag" , "count": 4 }
   ],
   "requires_heat": true,
   "result_a": { "item": "reagenica:slag_solution"}

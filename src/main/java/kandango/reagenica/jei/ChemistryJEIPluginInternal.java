@@ -14,11 +14,13 @@ import kandango.reagenica.block.fluid.ChemiFluidBurnMap;
 import kandango.reagenica.block.fluid.ChemiFluidBurnrate;
 import kandango.reagenica.item.reagent.ReagentFluidMap;
 import kandango.reagenica.recipes.AirSeparationRecipe;
+import kandango.reagenica.recipes.FiltrationRecipe;
 import kandango.reagenica.recipes.FluidBurningRecipe;
 import kandango.reagenica.recipes.FluidDrainingRecipe;
 import kandango.reagenica.recipes.FluidFillingRecipe;
 import kandango.reagenica.recipes.HaberBoschRecipe;
 import kandango.reagenica.recipes.IncubatorRecipe;
+import kandango.reagenica.recipes.PEMRecipe;
 import mezz.jei.api.IModPlugin;
 import mezz.jei.api.JeiPlugin;
 import mezz.jei.api.registration.IRecipeCatalystRegistration;
@@ -47,6 +49,8 @@ public class ChemistryJEIPluginInternal implements IModPlugin{
     registration.addRecipeCategories(new HaberBoschCategory(registration.getJeiHelpers()));
     registration.addRecipeCategories(new AirSeparationCategory(registration.getJeiHelpers()));
     registration.addRecipeCategories(new IncubatorCategory(registration.getJeiHelpers()));
+    registration.addRecipeCategories(new PEMCategory(registration.getJeiHelpers()));
+    registration.addRecipeCategories(new FiltrationCategory(registration.getJeiHelpers()));
   }
 
   @Override
@@ -90,6 +94,12 @@ public class ChemistryJEIPluginInternal implements IModPlugin{
     }{
       List<IncubatorRecipe> recipes = IncubatorRecipe.getRecipes();
       registration.addRecipes(IncubatorCategory.TYPE, recipes);
+    }{
+      List<PEMRecipe> recipes = PEMRecipe.getRecipes();
+      registration.addRecipes(PEMCategory.TYPE, recipes);
+    }{
+      List<FiltrationRecipe> recipes = FiltrationRecipe.getRecipes();
+      registration.addRecipes(FiltrationCategory.TYPE, recipes);
     }
   }
 
@@ -101,5 +111,7 @@ public class ChemistryJEIPluginInternal implements IModPlugin{
     reg.addRecipeCatalyst(new ItemStack(ChemiBlocks.HABER_BOSCH.get()), HaberBoschCategory.TYPE);
     reg.addRecipeCatalyst(new ItemStack(ChemiBlocks.AIR_SEPARATOR.get()), AirSeparationCategory.TYPE);
     reg.addRecipeCatalyst(new ItemStack(ChemiBlocks.INCUBATOR.get()), IncubatorCategory.TYPE);
+    reg.addRecipeCatalyst(new ItemStack(ChemiBlocks.PEM_DEVICE.get()), PEMCategory.TYPE);
+    reg.addRecipeCatalyst(new ItemStack(ChemiBlocks.FILTRATION_DEVICE.get()), FiltrationCategory.TYPE);
   }
 }

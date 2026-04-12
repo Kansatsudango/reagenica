@@ -15,6 +15,10 @@
     },{
       "item": "reagenica:plutonium_nugget",
       "count": 1,
+      "chance": 0.75
+    },{
+      "item": "reagenica:plutonium_nugget",
+      "count": 1,
       "chance": 0.5
     },{
       "item": "reagenica:plutonium_nugget",

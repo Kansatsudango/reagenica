@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "G G",
+    "L+C",
+    "IMP"
+  ],
+  "key": {
+    "+": { "item": "reagenica:pvc_block" },
+    "G": { "item": "minecraft:gold_ingot" },
+    "L": { "item": "reagenica:lead_block" },
+    "I": { "item": "reagenica:iridium_ingot" },
+    "M": { "item": "reagenica:powder_cryolite" },
+    "P": { "item": "reagenica:platinum_ingot" },
+    "C": { "item": "minecraft:coal_block" }
+  },
+  "result": {
+    "item": "reagenica:pem_device",
+    "count": 1
+  }
+}
