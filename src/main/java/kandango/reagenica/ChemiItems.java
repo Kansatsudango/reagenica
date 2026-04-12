@@ -160,6 +160,7 @@ public class ChemiItems {
   public static final RegistryObject<Item> SILVER_INGOT = registerandlist("silver_ingot", () -> new Item(new Item.Properties().rarity(Rarity.UNCOMMON)));
   public static final RegistryObject<Item> PLATINUM_INGOT = registerandlist("platinum_ingot", () -> new Item(new Item.Properties().rarity(Rarity.UNCOMMON)));
   public static final RegistryObject<Item> URANIUM_INGOT = registerandlist("uranium_ingot", () -> new Item(new Item.Properties()));
+  public static final RegistryObject<Item> IRRADIATED_URANIUM_INGOT = registerandlist("neutron_irradiated_uranium", () -> new Item(new Item.Properties()));
   public static final RegistryObject<Item> COBALT_INGOT = registerandlist("cobalt_ingot", () -> new Item(new Item.Properties()));
   public static final RegistryObject<Item> PLUTONIUM_INGOT = registerandlist("plutonium_ingot", () -> new Item(new Item.Properties()));
   public static final RegistryObject<Item> REINFORCED_INGOT = registerandlist("reinforced_ingot", () -> new Item(new Item.Properties()));
@@ -203,9 +204,11 @@ public class ChemiItems {
   public static final RegistryObject<Item> IRIDIUM_UPGRADE_STH = registerandlist("iridium_upgrade_smithing_template", () -> ChemiSmithingTemplates.iridium_upgrade());
   
   public static final RegistryObject<Item> URANIUM_FUEL_ROD = registerandlist("uranium_fuel_rod", () -> new Item(new Item.Properties().stacksTo(1).durability(3600).rarity(Rarity.UNCOMMON)));
+  public static final RegistryObject<Item> MOX_FUEL_ROD = registerandlist("mox_fuel_rod", () -> new Item(new Item.Properties().stacksTo(1).durability(1800).rarity(Rarity.UNCOMMON)));
   public static final RegistryObject<Item> DEPLETED_FUEL_ROD = registerandlist("depleted_fuel_rod", () -> new Item(new Item.Properties()));
   public static final RegistryObject<Item> COBALT_CAPSULE = registerandlist("cobalt_capsule", () -> new Item(new Item.Properties().rarity(Rarity.UNCOMMON).durability(256)));
   public static final RegistryObject<Item> PLUTONIUM_PELLET = registerandlist("plutonium_pellet", () -> new Item(new Item.Properties().stacksTo(1)));
+  public static final RegistryObject<Item> MOX_FUEL = registerandlist("mox_fuel", () -> new Item(new Item.Properties().rarity(Rarity.UNCOMMON)));
   public static final RegistryObject<Item> SMOKY_QUARTZ = registerandlist("smoky_quartz", () -> new Item(new Item.Properties()));
 
   public static final RegistryObject<Item> COPPER_ELECTRODE = registerandlist("copper_electrode", () -> new Item(new Item.Properties().durability(60)));

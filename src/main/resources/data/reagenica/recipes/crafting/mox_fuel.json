@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    { "item": "reagenica:uranium_ingot" },
+    { "item": "reagenica:plutonium_nugget" },
+    { "item": "reagenica:plutonium_nugget" }
+  ],
+  "result": {
+    "item": "reagenica:mox_fuel",
+    "count": 2
+  }
+}

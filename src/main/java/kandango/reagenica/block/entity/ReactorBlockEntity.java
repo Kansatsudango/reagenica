@@ -250,7 +250,8 @@ public class ReactorBlockEntity extends BlockEntity implements MenuProvider,ITic
           ReactorSlot type = slotstates[i].getSlotType();
           if(type==ReactorSlot.FUEL){
             decreaseFuel(i);
-            energy+=10+5*slotstates[i].getAmplify();
+            int baseHeat = slotstates[i].getBaseFuelHeat();
+            energy+=baseHeat + (baseHeat/2)*slotstates[i].getAmplify();
           }else if(type==ReactorSlot.RECIPE){
             ReactorRecipe recipe = slotstates[i].getRecipe();
             if(recipe!=null){
@@ -330,24 +331,31 @@ public class ReactorBlockEntity extends BlockEntity implements MenuProvider,ITic
   }
 
   private class ReactorSlotState {
-    private ReactorSlot slot;
+    private ReactorSlot slottype;
     private int amplify;
     private ReactorRecipe recipe;
+    private int baseHeat;
     public ReactorSlotState(){
-      this.slot = ReactorSlot.EMPTY;
+      this.slottype = ReactorSlot.EMPTY;
       this.amplify=1;
       this.recipe=null;
     }
     public void recalc(IItemHandler handler,int slotnum,Level lv){
       int score=0;
-      this.slot=getSlotState(handler.getStackInSlot(slotnum));
+      this.slottype=getSlotState(handler.getStackInSlot(slotnum));
       for(int rel : relatives(slotnum)){
         ItemStack stackrel = handler.getStackInSlot(rel);
         if(getSlotState(stackrel)==ReactorSlot.FUEL){
           score++;
         }
       }
-      if(this.slot==ReactorSlot.RECIPE){
+      if(this.slottype==ReactorSlot.FUEL){
+        ItemStack stack = handler.getStackInSlot(slotnum);
+        if(stack.is(ChemiItems.URANIUM_FUEL_ROD.get()))baseHeat=10;
+        else if(stack.is(ChemiItems.MOX_FUEL_ROD.get()))baseHeat=20;
+        else baseHeat=0;
+      }
+      if(this.slottype==ReactorSlot.RECIPE){
         SimpleContainer container = new SimpleContainer(1);
         container.setItem(0, handler.getStackInSlot(slotnum));
         this.recipe = lv.getRecipeManager().getRecipeFor(ModRecipes.REACTOR_TYPE.get(), container, lv).orElse(null);
@@ -356,9 +364,12 @@ public class ReactorBlockEntity extends BlockEntity implements MenuProvider,ITic
       }
       this.amplify=score;
     }
-    public ReactorSlot getSlotType(){return slot;}
+    public ReactorSlot getSlotType(){return slottype;}
     public int getAmplify(){return amplify;}
     @Nullable public ReactorRecipe getRecipe(){return recipe;}
+    public int getBaseFuelHeat(){
+      return baseHeat;
+    }
     private Set<Integer> relatives(int slot){
       if(slot==0)return new HashSet<>(Set.of(1,3));
       else if(slot==1)return new HashSet<>(Set.of(0,2,4));
@@ -373,7 +384,7 @@ public class ReactorBlockEntity extends BlockEntity implements MenuProvider,ITic
     }
     private ReactorSlot getSlotState(ItemStack stack){
       if(stack.isEmpty())return ReactorSlot.EMPTY;
-      else if(stack.getItem()==ChemiItems.URANIUM_FUEL_ROD.get())return ReactorSlot.FUEL;
+      else if(stack.is(ChemiItems.URANIUM_FUEL_ROD.get()) || stack.is(ChemiItems.MOX_FUEL_ROD.get()))return ReactorSlot.FUEL;
       else return ReactorSlot.RECIPE;
     }
   }

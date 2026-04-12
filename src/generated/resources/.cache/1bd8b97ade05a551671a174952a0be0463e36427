@@ -1,4 +1,4 @@
-// 1.20.1	2026-04-12T11:12:25.2488635	Item Models: reagenica
+// 1.20.1	2026-04-12T15:15:12.4972924	Item Models: reagenica
 6f0d9872c5f176206015dd5f6420e71fe71f2cb9 assets/reagenica/models/item/acetobacter.json
 54ef03ed6b05d449bef3092145440fb8c97020f5 assets/reagenica/models/item/adipamide.json
 54ef03ed6b05d449bef3092145440fb8c97020f5 assets/reagenica/models/item/adipic_acid.json
@@ -220,6 +220,8 @@ a70cfd6ef7d4a2888f15fb1c13413b3ea4093f29 assets/reagenica/models/item/minewipe.j
 5137bf91c4dd10980214b0eb4257f7a71a8e9bdf assets/reagenica/models/item/morion_bud.json
 2e7d20882c180136ef2584bf8cbe1a53f067483f assets/reagenica/models/item/morion_crystal.json
 2f97460d4c86a9a7dc06fae2bc328882068aee80 assets/reagenica/models/item/morion_shard.json
+57dca10878d9689ad2bc480e5d4e7f8a98bb0e8e assets/reagenica/models/item/mox_fuel.json
+5849ecd17927e793987a5242d7416e72b23598f7 assets/reagenica/models/item/mox_fuel_rod.json
 b447958913066024e611554f27524afcf0d6747b assets/reagenica/models/item/mushroom_inside_blue.json
 aeaa059f9f735a9982c2d5b6c5d7433c5e1357a4 assets/reagenica/models/item/mushroom_inside_green.json
 9ed09654b823fafb3241c86ed93509dada1afb37 assets/reagenica/models/item/mushroom_inside_purple.json
@@ -235,6 +237,7 @@ ad322d277b5a493afd1c02d8db701f52668afdfa assets/reagenica/models/item/mushroom_s
 4cc842bded7bbcad9e7c32b5e47050ac05694611 assets/reagenica/models/item/nanbanzuke.json
 54ef03ed6b05d449bef3092145440fb8c97020f5 assets/reagenica/models/item/naphtha.json
 d456d2602f3932a5bb05924c027ea946f28c9cfb assets/reagenica/models/item/naphtha_bucket.json
+166d7a783fe824b39951e615ba91ea24b78c48b2 assets/reagenica/models/item/neutron_irradiated_uranium.json
 4efb819529d3765a13f2fcf1af77b7a052adb7a0 assets/reagenica/models/item/nikujaga.json
 54ef03ed6b05d449bef3092145440fb8c97020f5 assets/reagenica/models/item/nitric_acid.json
 54ef03ed6b05d449bef3092145440fb8c97020f5 assets/reagenica/models/item/nitroaniline.json

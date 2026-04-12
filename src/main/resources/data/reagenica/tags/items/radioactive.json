@@ -1,0 +1,14 @@
+{
+  "replace": false,
+  "values": [
+    "reagenica:uranium_ingot",
+    "reagenica:plutonium_nugget",
+    "reagenica:plutonium_ingot",
+    "reagenica:neutron_irradiated_uranium",
+    "reagenica:mox_fuel",
+    "reagenica:uranium_fuel_rod",
+    "reagenica:mox_fuel_rod",
+    "reagenica:depleted_fuel_rod",
+    "reagenica:plutonium_pellet"
+  ]
+}

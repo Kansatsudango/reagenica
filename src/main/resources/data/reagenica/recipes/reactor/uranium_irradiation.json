@@ -1,0 +1,5 @@
+{
+  "type": "reagenica:reactor",
+  "input": { "item": "reagenica:uranium_ingot" },
+  "result": { "item": "reagenica:neutron_irradiated_uranium"}
+}
