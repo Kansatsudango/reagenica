@@ -50,9 +50,12 @@ public class ChemiBlocks {
     () -> new BlockItem(EXPERIMENT_BLOCK.get(), new Item.Properties()));
   
   public static final RegistryObject<Block> CHEMICAL_FERMENTER = registerMachineBlockandlist("chemical_fermenter", ChemicalFermenter::new);
-
   public static final RegistryObject<Item> CHEMICAL_FERMENTER_ITEM = registerItemandlist("chemical_fermenter",
     () -> new BlockItem(CHEMICAL_FERMENTER.get(), new Item.Properties()));
+
+  public static final RegistryObject<Block> FILTRATION_DEVICE = registerMachineBlockandlist("filtration_device", FiltrationDevice::new);
+  public static final RegistryObject<Item> FILTRATION_DEVICE_ITEM = registerItemandlist("filtration_device",
+    () -> new BlockItem(FILTRATION_DEVICE.get(), new Item.Properties()));
   
   public static final RegistryObject<Block> FRACTIONAL_DISTILLER_TOP = registerMachineBlockandlist("fractional_distiller_top", FractionalDistillerTop::new); 
   public static final RegistryObject<Block> FRACTIONAL_DISTILLER_BOTTOM = registerMachineBlockandlist("fractional_distiller_bottom", FractionalDistillerBottom::new); 
@@ -153,7 +156,7 @@ public class ChemiBlocks {
     () -> new BlockItem(HYDROGEN_REDUCTOR.get(), new Item.Properties()));
   public static final RegistryObject<Block> PEM_DEVICE = registerMachineBlockandlist("pem_device",PEMDevice::new);
   public static final RegistryObject<Item> PEM_DEVICE_ITEM = registerItemandlist("pem_device",
-    () -> new BlockItem(PEM_DEVICE.get(), new Item.Properties()));
+    () -> new BlockItem(PEM_DEVICE.get(), new Item.Properties().rarity(Rarity.UNCOMMON)));
     
   public static final RegistryObject<Block> LARGE_TANK_CORE = registerMachineBlockandlist("large_tank_core",LargeTankCore::new);
   public static final RegistryObject<Item> LARGE_TANK_CORE_ITEM = registerItemandlist("large_tank_core",

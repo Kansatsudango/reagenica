@@ -1,7 +1,6 @@
 package kandango.reagenica.block;
 
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
@@ -12,28 +11,29 @@ import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.EntityBlock;
-import net.minecraft.world.level.block.HorizontalDirectionalBlock;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityTicker;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.block.state.StateDefinition;
-import net.minecraft.world.level.block.state.properties.DirectionProperty;
 import net.minecraft.world.phys.BlockHitResult;
+import net.minecraft.world.phys.shapes.CollisionContext;
+import net.minecraft.world.phys.shapes.VoxelShape;
 import net.minecraftforge.network.NetworkHooks;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
-import kandango.reagenica.block.entity.electrical.PEMDeviceBlockEntity;
+import kandango.reagenica.block.entity.FiltrationDeviceBlockEntity;
 
-public class PEMDevice extends Block implements EntityBlock{
-  public static final DirectionProperty FACING = HorizontalDirectionalBlock.FACING;
+public class FiltrationDevice extends Block implements EntityBlock{
+  private static final VoxelShape SHAPE = ShapeStream.create(2,0,1,14,16,15)
+                                                     .add(1,0,2,15,16,14)
+                                                     .build();
 
-  public PEMDevice() {
+  public FiltrationDevice() {
     super(BlockBehaviour.Properties.of().noOcclusion().strength(2.0f).isRedstoneConductor((state, world, pos) -> false));
-    this.registerDefaultState(this.defaultBlockState().setValue(FACING, Direction.NORTH));
+    this.registerDefaultState(this.defaultBlockState());
   }
 
   @Override
@@ -50,18 +50,13 @@ public class PEMDevice extends Block implements EntityBlock{
 
   @Nullable
   @Override
-  public PEMDeviceBlockEntity newBlockEntity(@Nonnull BlockPos pos, @Nonnull BlockState state) {
-    return new PEMDeviceBlockEntity(pos, state);
+  public FiltrationDeviceBlockEntity newBlockEntity(@Nonnull BlockPos pos, @Nonnull BlockState state) {
+    return new FiltrationDeviceBlockEntity(pos, state);
   }
 
   @Override
   public BlockState getStateForPlacement(@Nonnull BlockPlaceContext context) {
-    return this.defaultBlockState().setValue(FACING, context.getHorizontalDirection().getOpposite());
-  }
-
-  @Override
-  protected void createBlockStateDefinition(@Nonnull StateDefinition.Builder<Block, BlockState> builder) {
-    builder.add(FACING);
+    return this.defaultBlockState();
   }
   @Override
   public boolean propagatesSkylightDown(@Nonnull BlockState state, @Nonnull BlockGetter world, @Nonnull BlockPos pos) {
@@ -72,5 +67,10 @@ public class PEMDevice extends Block implements EntityBlock{
   @Nullable
   public <T extends BlockEntity> BlockEntityTicker<T> getTicker(@Nonnull Level level, @Nonnull BlockState state, @Nonnull BlockEntityType<T> type) {
     return BlockUtil.getTicker(level, state, type);
+  }
+  
+  @Override
+  public VoxelShape getShape(@Nonnull BlockState state, @Nonnull BlockGetter getter, @Nonnull BlockPos pos, @Nonnull CollisionContext context) {
+    return SHAPE;
   }
 }

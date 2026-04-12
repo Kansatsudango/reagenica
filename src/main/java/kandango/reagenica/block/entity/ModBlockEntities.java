@@ -205,6 +205,11 @@ public class ModBlockEntities {
         () -> BlockEntityType.Builder.of((BlockEntityType.BlockEntitySupplier<OnsenFillerBlockEntity>)OnsenFillerBlockEntity::new,ChemiBlocks.ONSEN_FILLER_WOOD.get(),ChemiBlocks.ONSEN_FILLER_STONE.get()).build(null));
 
     @SuppressWarnings("null")
+    public static final RegistryObject<BlockEntityType<FiltrationDeviceBlockEntity>> FILTRATION_DEVICE = 
+        BLOCK_ENTITIES.register("filtration_device", 
+        () -> BlockEntityType.Builder.of((BlockEntityType.BlockEntitySupplier<FiltrationDeviceBlockEntity>)FiltrationDeviceBlockEntity::new,ChemiBlocks.FILTRATION_DEVICE.get()).build(null));
+
+    @SuppressWarnings("null")
     public static final RegistryObject<BlockEntityType<ChemiSignBlockEntity>> SIGN = 
         BLOCK_ENTITIES.register("sign", 
         () -> BlockEntityType.Builder.of((BlockEntityType.BlockEntitySupplier<ChemiSignBlockEntity>)ChemiSignBlockEntity::new,

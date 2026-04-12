@@ -108,6 +108,9 @@ public class ModMenus {
   public static final RegistryObject<MenuType<PEMDeviceMenu>> PEM_DEVICE_MENU =
     MENU_TYPES.register("pem_device",
       () -> IForgeMenuType.create(PEMDeviceMenu::new));
+  public static final RegistryObject<MenuType<FiltrationDeviceMenu>> FILTRAION_DEVICE =
+    MENU_TYPES.register("filtration_device",
+      () -> IForgeMenuType.create(FiltrationDeviceMenu::new));
   public static final RegistryObject<MenuType<OnsenDetecterMenu>> ONSEN_DETECTER_MENU =
     MENU_TYPES.register("onsen_detecter",
       () -> IForgeMenuType.create((id, inv, buf) -> new OnsenDetecterMenu(id, inv.player.level(), inv.player.blockPosition())));

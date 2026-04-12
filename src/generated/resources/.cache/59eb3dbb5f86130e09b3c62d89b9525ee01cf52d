@@ -1,4 +1,4 @@
-// 1.20.1	2026-03-10T21:37:07.0555243	Loot Tables
+// 1.20.1	2026-04-12T11:12:25.240178	Loot Tables
 fd599511177b57b7c4697466e227e89162e2d943 data/reagenica/loot_tables/blocks/advanced_farmland.json
 115802854012234d89e3ba52e3d8b2a271af6530 data/reagenica/loot_tables/blocks/air_separator.json
 af778c6940ed0700e603b9633a246c18de93eb49 data/reagenica/loot_tables/blocks/aluminium_block.json
@@ -73,6 +73,7 @@ e83053e5d6e32da983a047d0620556bfdf320cb0 data/reagenica/loot_tables/blocks/ficus
 9b9207600928617111b8b0482fd829b6859312e0 data/reagenica/loot_tables/blocks/ficus_wall_hanging_sign.json
 916a0ff4f1f0c5e7989feb36395594c7c7503815 data/reagenica/loot_tables/blocks/ficus_wall_sign.json
 a59c41dc52cb0317e0503677683d5851b07d3cb8 data/reagenica/loot_tables/blocks/ficus_wood.json
+cd2e639d9ecbd83fde4d581cbf42f44bcd5e96b1 data/reagenica/loot_tables/blocks/filtration_device.json
 627bafbc07b38e6f00999abdecbe199980e59db8 data/reagenica/loot_tables/blocks/fluid_fuel_generator.json
 0b83216d895ef7bd1c8f058e23e908caabe4360b data/reagenica/loot_tables/blocks/fractional_distiller_bottom.json
 321c1fece4930e096c219c599dc8b02c561e9a5c data/reagenica/loot_tables/blocks/fractional_distiller_top.json
@@ -185,6 +186,7 @@ eb4b94d5cbdd07bb491f71d638877513da9e55a8 data/reagenica/loot_tables/blocks/orang
 7a0fba81d707145ba5e1ec4c7272f73d1b9ecfc3 data/reagenica/loot_tables/blocks/paleo_sand.json
 810db1260eb3a661ba166ca2cd92b7516eee4b2a data/reagenica/loot_tables/blocks/paleo_sandstone.json
 26f9e09ca7e9377d629b4f9eabf4504b99f57a16 data/reagenica/loot_tables/blocks/pargola.json
+af01b5d77b3f21721f5481ca85393e7d5a6ea3b5 data/reagenica/loot_tables/blocks/pem_device.json
 dcb250b21e9c956e5881dd4b7911b7b0afc79cfb data/reagenica/loot_tables/blocks/peridot_block.json
 479cc8b102af1c6b99eb5c50451e8615c7aca906 data/reagenica/loot_tables/blocks/peridot_bud.json
 4305b449544814a94658a3630b4007ac1b8fa427 data/reagenica/loot_tables/blocks/peridot_crystal.json

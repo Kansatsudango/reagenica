@@ -195,9 +195,10 @@ public class ChemiItems {
   public static final RegistryObject<Item> PVC = registerandlist("pvc", () -> new Item(new Item.Properties()));
   public static final RegistryObject<Item> NYLON_PELLET = registerandlist("nylon_pellet", () -> new Item(new Item.Properties()));
   public static final RegistryObject<Item> NYLON_STRING = registerandlist("nylon_string", () -> new Item(new Item.Properties()));
-  public static final RegistryObject<Item> COPPER_FILTER = registerandlist("copper_filter", () -> new Item(new Item.Properties().durability(40)));
-  public static final RegistryObject<Item> SILVER_FILTER = registerandlist("silver_filter", () -> new Item(new Item.Properties().durability(600).rarity(Rarity.UNCOMMON)));
-  public static final RegistryObject<Item> PLATINUM_FILTER = registerandlist("platinum_filter", () -> new Item(new Item.Properties().durability(2400).rarity(Rarity.UNCOMMON)));
+  public static final RegistryObject<Item> COPPER_FILTER = registerandlist("copper_filter", () -> new RoleItem(new Item.Properties().durability(40), ChemiItemRoles::airFilters));
+  public static final RegistryObject<Item> SILVER_FILTER = registerandlist("silver_filter", () -> new RoleItem(new Item.Properties().durability(600).rarity(Rarity.UNCOMMON), ChemiItemRoles::airFilters));
+  public static final RegistryObject<Item> PLATINUM_FILTER = registerandlist("platinum_filter", () -> new RoleItem(new Item.Properties().durability(2400).rarity(Rarity.UNCOMMON), ChemiItemRoles::airFilters));
+  public static final RegistryObject<Item> CARBON_FILTER = registerandlist("carbon_filter", () -> new RoleItem(new Item.Properties().durability(256), ChemiItemRoles::waterFilters));
   public static final RegistryObject<Item> GEOLOGIST_ROD = registerandlist("geologist_rod", () -> new GeologistRod());
   public static final RegistryObject<Item> IRIDIUM_UPGRADE_STH = registerandlist("iridium_upgrade_smithing_template", () -> ChemiSmithingTemplates.iridium_upgrade());
   
@@ -221,7 +222,7 @@ public class ChemiItems {
   public static final RegistryObject<Item> IRIDIUM_BAG = registerandlist("iridium_bag", () -> new CommonBag<>(54, 140, ModMenus.IRIDIUM_BAG_MENU));
   public static final RegistryObject<Item> FERTILIZER = registerandlist("fertilizer", () -> new Fertilizer());
   public static final RegistryObject<Item> PHOSPHO_FERTILIZER = registerandlist("phospho_fertilizer", () -> new PhosphoFertilizer());
-  public static final RegistryObject<Item> MINEWIPE = registerandlist("minewipe", () -> new MineWipe());
+  public static final RegistryObject<Item> MINEWIPE = registerandlist("minewipe", () -> new RoleItem(new Item.Properties(), ChemiItemRoles::mineWipe));
   public static final RegistryObject<Item> SILVER_ARROW = registerandlist("silver_arrow", () -> new SilverArrowItem());
   public static final RegistryObject<Item> SILVER_BOW = registerandlist("silver_bow", () -> new SilverBowItem());
   public static final RegistryObject<Item> LAMP_LINKER = registerandlist("lamp_linker", () -> new LampLinker());

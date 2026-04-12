@@ -4,7 +4,6 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
 import kandango.reagenica.ChemiFluids;
-import kandango.reagenica.ChemistryMod;
 import kandango.reagenica.block.PEMDevice;
 import kandango.reagenica.block.entity.ModBlockEntities;
 import kandango.reagenica.block.entity.fluidhandlers.DrainOnlyFluidHandler;
@@ -187,7 +186,6 @@ public class PEMDeviceBlockEntity extends ElectricConsumerAbstract implements Me
   @Override
   @Nullable
   public AbstractContainerMenu createMenu(int id, @Nonnull Inventory inv, @Nonnull Player player) {
-    ChemistryMod.LOGGER.info("creating Menu");
     return new PEMDeviceMenu(id, inv, this);
   }
 

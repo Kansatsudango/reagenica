@@ -1,4 +1,4 @@
-// 1.20.1	2026-04-03T21:38:20.6282657	Item Models: reagenica
+// 1.20.1	2026-04-12T11:12:25.2488635	Item Models: reagenica
 6f0d9872c5f176206015dd5f6420e71fe71f2cb9 assets/reagenica/models/item/acetobacter.json
 54ef03ed6b05d449bef3092145440fb8c97020f5 assets/reagenica/models/item/adipamide.json
 54ef03ed6b05d449bef3092145440fb8c97020f5 assets/reagenica/models/item/adipic_acid.json
@@ -58,6 +58,7 @@ aab288ec4af604ebe3864123b69a0a52b5a513c0 assets/reagenica/models/item/budding_ro
 9b3001055bb1b5a52819a5ee44924d6677c19605 assets/reagenica/models/item/bugged_block.json
 27cdc16cbad77cc6ed6e2339d9a571325bcca271 assets/reagenica/models/item/calcium_sulfate.json
 25f7a0b48e06ff4c9fa3ab37d1b52a67c69d2ffc assets/reagenica/models/item/carbon_electrode.json
+1ced8f9c17d0b795a3993f211eb722d3be44d93b assets/reagenica/models/item/carbon_filter.json
 bdd27ff864e9ce159ffbdfa7fc33dde5574fe3d3 assets/reagenica/models/item/chalcopyrite_ore.json
 63424936ef67a0a1a09bf1cc49c41ff30627ea2a assets/reagenica/models/item/chemical_fermenter.json
 9c2cdbe5e1fa60b4dc6c060ade38e316f8f07235 assets/reagenica/models/item/chicken_saute.json
@@ -131,6 +132,7 @@ ab0f320001c63d87185c8834ee9157c1db2fca12 assets/reagenica/models/item/ethylene_b
 3daecadfab75853da3a1476ecef84396f5bb2e28 assets/reagenica/models/item/experiment_block.json
 b7f99c0a02d15fde2da73791b527cdc774f07e1d assets/reagenica/models/item/fertilizer.json
 1c95b712e311941da0ee7f8310a02fd76c25197a assets/reagenica/models/item/fig.json
+3dcacbe8e4394b4b712689ccaf69415c5056c922 assets/reagenica/models/item/filtration_device.json
 f197844f34eea34bfd9b68585279c7bba4fa90e6 assets/reagenica/models/item/fluid_fuel_generator.json
 b2ad708cc4f4e72d79fecd5b9caa4c8e67a7536f assets/reagenica/models/item/fluid_jar.json
 1807d4d58388a4e2b1d703a4dc4d9b308b590829 assets/reagenica/models/item/fractional_distiller_bottom.json
@@ -261,6 +263,7 @@ c956363ca811741cd9de5d5a267239fc01e24b50 assets/reagenica/models/item/oxygen_buc
 3eb20d3a624d37f1419170563a816ee996806af4 assets/reagenica/models/item/paleo_sand.json
 a779f56aeefbaf963780822b9672ce81c02cd309 assets/reagenica/models/item/paleo_sandstone.json
 e36c7cdb1a3cf6b9093f722da4496a514ac7f4b1 assets/reagenica/models/item/pargola.json
+23c9d56dfdfc363a3fe64da12ad1fb8108a6fa6d assets/reagenica/models/item/pem_device.json
 8adaa23f8cced475fb38b248a1a43d994ebde951 assets/reagenica/models/item/peridot_block.json
 36f4f0e478472237d894adf4293a018f360642ae assets/reagenica/models/item/peridot_bud.json
 59739e22496db7681f4ce1ff6cb4f18d124920f2 assets/reagenica/models/item/peridot_crystal.json
