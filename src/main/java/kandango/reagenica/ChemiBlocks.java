@@ -11,6 +11,7 @@ import kandango.reagenica.block.farming.grape.*;
 import kandango.reagenica.family.CrystalFamily;
 import kandango.reagenica.family.WoodFamily;
 import kandango.reagenica.generator.BlockLootType;
+import kandango.reagenica.item.ChemiFoodProperties;
 import kandango.reagenica.worldgen.forestry.*;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.block.*;
@@ -320,7 +321,7 @@ public class ChemiBlocks {
     () -> new ItemNameBlockItem(ONION_CROP.get(), new Item.Properties()));
   public static final RegistryObject<Block> TOMATO_CROP = registerPlantBlockandlist("tomato_crop", () -> new AdvancedCropBlock(ChemiBlocks.TOMATO_SEEDS::get),2,() -> ChemiBlocks.TOMATO_SEEDS);
   public static final RegistryObject<Item> TOMATO_SEEDS = registerItemandlist("tomato", 
-    () -> new ItemNameBlockItem(TOMATO_CROP.get(), new Item.Properties()));
+    () -> new ItemNameBlockItem(TOMATO_CROP.get(), new Item.Properties().food(ChemiFoodProperties.RAW_VEGETABLES)));
   public static final RegistryObject<Block> CORN_CROP = registerPlantBlockandlist("corn_crop", () -> new AdvancedCropBlock(ChemiBlocks.CORN_SEEDS::get),2,() -> ChemiBlocks.CORN_SEEDS);
   public static final RegistryObject<Item> CORN_SEEDS = registerItemandlist("corn", 
     () -> new ItemNameBlockItem(CORN_CROP.get(), new Item.Properties()));
@@ -336,7 +337,7 @@ public class ChemiBlocks {
     () -> new BlockItem(GRAPE_PARGOLA.get(), new Item.Properties()));
   public static final RegistryObject<Block> GRAPE_CROP = registerExternalConfigBlockandlist("grape_crop", GrapeBlock::new);
   public static final RegistryObject<Item> GRAPE = registerItemandlist("grape", 
-    () -> new Item(new Item.Properties()));
+    () -> new Item(new Item.Properties().food(ChemiFoodProperties.RAW_VEGETABLES)));
   public static final RegistryObject<Block> GRAPE_SAPLING = registerExternalConfigBlockandlist("grape_sapling", GrapeSapling::new);
   public static final RegistryObject<Item> GRAPE_SAPLING_ITEM = registerItemandlist("grape_sapling", 
     () -> new BlockItem(GRAPE_SAPLING.get(), new Item.Properties()));

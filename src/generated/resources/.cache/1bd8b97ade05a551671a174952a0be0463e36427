@@ -1,4 +1,4 @@
-// 1.20.1	2026-04-12T15:15:12.4972924	Item Models: reagenica
+// 1.20.1	2026-04-14T19:28:51.4798734	Item Models: reagenica
 6f0d9872c5f176206015dd5f6420e71fe71f2cb9 assets/reagenica/models/item/acetobacter.json
 54ef03ed6b05d449bef3092145440fb8c97020f5 assets/reagenica/models/item/adipamide.json
 54ef03ed6b05d449bef3092145440fb8c97020f5 assets/reagenica/models/item/adipic_acid.json
@@ -57,9 +57,11 @@ ff66a67c5d18e147be45d609302c6c7326cf4778 assets/reagenica/models/item/budding_re
 aab288ec4af604ebe3864123b69a0a52b5a513c0 assets/reagenica/models/item/budding_rose_quartz_block.json
 9b3001055bb1b5a52819a5ee44924d6677c19605 assets/reagenica/models/item/bugged_block.json
 27cdc16cbad77cc6ed6e2339d9a571325bcca271 assets/reagenica/models/item/calcium_sulfate.json
+b867f768787bf3aa5100ec0e06c7106f38772681 assets/reagenica/models/item/candied_fig.json
 25f7a0b48e06ff4c9fa3ab37d1b52a67c69d2ffc assets/reagenica/models/item/carbon_electrode.json
 1ced8f9c17d0b795a3993f211eb722d3be44d93b assets/reagenica/models/item/carbon_filter.json
 bdd27ff864e9ce159ffbdfa7fc33dde5574fe3d3 assets/reagenica/models/item/chalcopyrite_ore.json
+9a7e3bba931461dc9844231e17b450a69f1e05d6 assets/reagenica/models/item/chawanmushi.json
 63424936ef67a0a1a09bf1cc49c41ff30627ea2a assets/reagenica/models/item/chemical_fermenter.json
 9c2cdbe5e1fa60b4dc6c060ade38e316f8f07235 assets/reagenica/models/item/chicken_saute.json
 092f2157b29b1bfff1451740d204356c643c330f assets/reagenica/models/item/chicken_saute_with_potato.json
@@ -132,6 +134,7 @@ ab0f320001c63d87185c8834ee9157c1db2fca12 assets/reagenica/models/item/ethylene_b
 3daecadfab75853da3a1476ecef84396f5bb2e28 assets/reagenica/models/item/experiment_block.json
 b7f99c0a02d15fde2da73791b527cdc774f07e1d assets/reagenica/models/item/fertilizer.json
 1c95b712e311941da0ee7f8310a02fd76c25197a assets/reagenica/models/item/fig.json
+d29f6c8e7c3da8e544e99df0ea9e3762615bd3ee assets/reagenica/models/item/fig_and_meat_saute.json
 3dcacbe8e4394b4b712689ccaf69415c5056c922 assets/reagenica/models/item/filtration_device.json
 f197844f34eea34bfd9b68585279c7bba4fa90e6 assets/reagenica/models/item/fluid_fuel_generator.json
 b2ad708cc4f4e72d79fecd5b9caa4c8e67a7536f assets/reagenica/models/item/fluid_jar.json
@@ -143,6 +146,7 @@ e64d8498612dbeb6ae986a5d5897929354b74f5a assets/reagenica/models/item/fractional
 127e7ef934a5a941d014287434d8ba78c084b377 assets/reagenica/models/item/gas_lamp.json
 87beabb52e1644a5ae708ec2f4ec8c8d345228cb assets/reagenica/models/item/geological_surveyor.json
 a2bfc7bcc34e75ecf512e8d7dce0193f305ecc8f assets/reagenica/models/item/geologist_rod.json
+05589fc1440835616a9f6eeb2cdc13c799b2b1b4 assets/reagenica/models/item/ginkgo_gohan.json
 f22fed4e362963d1612d35faf8d201c65ba27b01 assets/reagenica/models/item/ginkgo_nuts.json
 8d6b76413b760b13875bd5dca9a98bf39b17cf6c assets/reagenica/models/item/gohan.json
 e69009349a51078fb635c8c8ea6fa25e69c3af2f assets/reagenica/models/item/gold_electrode.json

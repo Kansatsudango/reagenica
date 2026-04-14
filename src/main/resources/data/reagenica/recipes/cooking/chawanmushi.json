@@ -1,0 +1,12 @@
+{
+  "type": "reagenica:cooking",
+  "inputs": [
+    { "item": "minecraft:egg" },
+    { "tag" : "forge:mushrooms" },
+    { "item": "reagenica:roasted_ginkgo" },
+    { "item": "minecraft:chicken" },
+    { "item": "reagenica:soy_sauce" },
+    { "item": "reagenica:mirin" }
+  ],
+  "result": { "item": "reagenica:chawanmushi", "count": 2 }
+}

@@ -27,14 +27,16 @@ public class ChemiFoodProperties {
             .saturationMod(1.4f)
             .build();
   public static final FoodProperties CORN_BREAD = new FoodProperties.Builder()
-            .nutrition(8)
-            .saturationMod(1.4f)
+            .nutrition(6)
+            .saturationMod(1.2f)
             .effect(() -> new MobEffectInstance(MobEffects.REGENERATION, 200, 0), 1.0f)
+            .fast()
             .build();
   public static final FoodProperties RAISIN_BREAD = new FoodProperties.Builder()
-            .nutrition(8)
-            .saturationMod(1.4f)
+            .nutrition(6)
+            .saturationMod(1.2f)
             .effect(() -> new MobEffectInstance(MobEffects.REGENERATION, 200, 0), 1.0f)
+            .fast()
             .build();
   public static final FoodProperties MINESTRONE = new FoodProperties.Builder()
             .nutrition(8)
@@ -160,5 +162,33 @@ public class ChemiFoodProperties {
             .saturationMod(1.4f)
             .effect(() -> new MobEffectInstance(MobEffects.WATER_BREATHING, 1200, 0), 1.0f)
             .alwaysEat()
+            .build();
+  public static final FoodProperties CHAWANMUSHI = new FoodProperties.Builder()
+            .nutrition(10)
+            .saturationMod(1.4f)
+            .effect(() -> new MobEffectInstance(MobEffects.DIG_SPEED, 600, 1), 1.0f)
+            .alwaysEat()
+            .build();
+  public static final FoodProperties GINKGO_GOHAN = new FoodProperties.Builder()
+            .nutrition(10)
+            .saturationMod(1.4f)
+            .effect(() -> new MobEffectInstance(MobEffects.DIG_SPEED, 1200, 0), 1.0f)
+            .alwaysEat()
+            .build();
+  public static final FoodProperties CANDIED_FIG = new FoodProperties.Builder()
+            .nutrition(8)
+            .saturationMod(1.0f)
+            .effect(() -> new MobEffectInstance(MobEffects.REGENERATION, 1200, 0), 1.0f)
+            .alwaysEat()
+            .build();
+  public static final FoodProperties FIG_AND_MEAT_SAUTE = new FoodProperties.Builder()
+            .nutrition(10)
+            .saturationMod(1.4f)
+            .effect(() -> new MobEffectInstance(MobEffects.DAMAGE_BOOST, 1200, 0), 1.0f)
+            .alwaysEat()
+            .build();
+  public static final FoodProperties RAW_VEGETABLES = new FoodProperties.Builder()
+            .nutrition(3)
+            .saturationMod(0.8f)
             .build();
 }

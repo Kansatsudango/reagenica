@@ -1,0 +1,10 @@
+{
+  "type": "reagenica:cooking",
+  "inputs": [
+    { "item": "reagenica:rice" },
+    { "item": "reagenica:rice" },
+    { "item": "reagenica:soy_sauce" },
+    { "item": "reagenica:roasted_ginkgo" }
+  ],
+  "result": { "item": "reagenica:ginkgo_gohan", "count": 2 }
+}

@@ -1,0 +1,11 @@
+{
+  "type": "reagenica:cooking",
+  "inputs": [
+    { "tag" : "reagenica:meats" },
+    { "item": "reagenica:fig" },
+    { "tag" : "reagenica:vinegars" },
+    { "item": "reagenica:salt" }
+    
+  ],
+  "result": { "item": "reagenica:fig_and_meat_saute", "count": 2 }
+}
