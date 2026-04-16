@@ -142,7 +142,7 @@ public class AnalyzerBlockEntity extends BlockEntity implements MenuProvider{
       double x = this.getBlockPos().getX() + 0.5;
       double y = this.getBlockPos().getY() + 1.1;
       double z = this.getBlockPos().getZ() + 0.5;
-      ItemEntity itemEntity = new ItemEntity(lv, x, y, z, item);
+      ItemEntity itemEntity = new ItemEntity(lv, x, y, z, item.copy());
       lv.addFreshEntity(itemEntity);
     }
   }

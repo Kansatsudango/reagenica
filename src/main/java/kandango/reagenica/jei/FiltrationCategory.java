@@ -56,6 +56,6 @@ public class FiltrationCategory implements IRecipeCategory<FiltrationRecipe>{
     builder.addSlot(RecipeIngredientRole.OUTPUT, 116, 23)
       .addFluidStack(recipe.out().getFluid(), recipe.out().getAmount())
       .setFluidRenderer(400, false, 16, 48);
-    builder.addSlot(RecipeIngredientRole.OUTPUT, 80, 55).addItemStack(new ItemStack(ChemiItems.CARBON_FILTER.get()));
+    builder.addSlot(RecipeIngredientRole.INPUT, 80, 55).addItemStack(new ItemStack(ChemiItems.CARBON_FILTER.get()));
   }
 }

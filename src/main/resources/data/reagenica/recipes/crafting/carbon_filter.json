@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "# #",
+    " + ",
+    "# #"
+  ],
+  "key": {
+    "+": { "tag": "minecraft:coals" },
+    "#": { "item": "minecraft:iron_nugget"}
+  },
+  "result": {
+    "item": "reagenica:carbon_filter",
+    "count": 1
+  }
+}
