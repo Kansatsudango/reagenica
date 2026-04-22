@@ -1,0 +1,164 @@
+{
+  "type": "minecraft:generic",
+  "pools": [
+    {
+      "rolls": 1.0,
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "add": false,
+              "count": {
+                "type": "minecraft:uniform",
+                "max": 3.0,
+                "min": 2.0
+              },
+              "function": "minecraft:set_count"
+            }
+          ],
+          "name": "minecraft:diamond",
+          "weight": 20
+        },
+        {
+          "type": "minecraft:item",
+          "name": "reagenica:platinum_ingot",
+          "weight": 20
+        },
+        {
+          "type": "minecraft:item",
+          "name": "reagenica:platinum_ingot",
+          "weight": 20
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:skeleton_skull",
+          "weight": 1
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:wither_skeleton_skull",
+          "weight": 1
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:zombie_head",
+          "weight": 1
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:creeper_head",
+          "weight": 1
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:piglin_head",
+          "weight": 1
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "enchantments": {
+                "minecraft:mending" : 1
+              },
+              "function": "minecraft:set_enchantments"
+            }
+          ],
+          "name": "minecraft:book",
+          "weight": 3
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "enchantments": {
+                "minecraft:unbreaking" : 3
+              },
+              "function": "minecraft:set_enchantments"
+            }
+          ],
+          "name": "minecraft:book",
+          "weight": 4
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "enchantments": {
+                "minecraft:swift_sneak" : 1
+              },
+              "function": "minecraft:set_enchantments"
+            }
+          ],
+          "name": "minecraft:book",
+          "weight": 2
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "enchantments": {
+                "minecraft:swift_sneak" : 3
+              },
+              "function": "minecraft:set_enchantments"
+            }
+          ],
+          "name": "reagenica:pink_gold_leggings",
+          "weight": 4
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "enchantments": {
+                "minecraft:soul_speed" : 3
+              },
+              "function": "minecraft:set_enchantments"
+            }
+          ],
+          "name": "reagenica:pink_gold_boots",
+          "weight": 4
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "function": "minecraft:enchant_with_levels",
+              "levels": 30.0,
+              "treasure": true
+            }
+          ],
+          "name": "reagenica:pink_gold_axe",
+          "weight": 4
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "function": "minecraft:enchant_with_levels",
+              "levels": 30.0,
+              "treasure": true
+            }
+          ],
+          "name": "reagenica:pink_gold_pickaxe",
+          "weight": 4
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "function": "minecraft:enchant_with_levels",
+              "levels": 30.0,
+              "treasure": true
+            }
+          ],
+          "name": "reagenica:pink_gold_shovel",
+          "weight": 4
+        }
+      ]
+    }
+  ],
+  "random_sequence": "reagenica:gameplay/altar_epic"
+}

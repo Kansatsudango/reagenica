@@ -1,0 +1,86 @@
+{
+  "type": "minecraft:generic",
+  "pools": [
+    {
+      "rolls": 1.0,
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "enchantments": {
+                "reagenica:crystalized" : {
+                  "min": 2,
+                  "max": 3
+                }
+              },
+              "function": "minecraft:set_enchantments"
+            }
+          ],
+          "name": "minecraft:book",
+          "weight": 5
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "enchantments": {
+                "reagenica:last_stand" : 1
+              },
+              "function": "minecraft:set_enchantments"
+            }
+          ],
+          "name": "minecraft:book",
+          "weight": 5
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "enchantments": {
+                "reagenica:big_mining" : 1
+              },
+              "function": "minecraft:set_enchantments"
+            }
+          ],
+          "name": "minecraft:book",
+          "weight": 5
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "enchantments": {
+                "reagenica:chain_mining" : {
+                  "min": 2,
+                  "max": 3
+                }
+              },
+              "function": "minecraft:set_enchantments"
+            }
+          ],
+          "name": "minecraft:book",
+          "weight": 5
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "enchantments": {
+                "reagenica:anti_poison" : {
+                  "min": 1,
+                  "max": 2
+                }
+              },
+              "function": "minecraft:set_enchantments"
+            }
+          ],
+          "name": "minecraft:book",
+          "weight": 5
+        }
+      ]
+    }
+  ],
+  "random_sequence": "reagenica:gameplay/altar_legendary"
+}

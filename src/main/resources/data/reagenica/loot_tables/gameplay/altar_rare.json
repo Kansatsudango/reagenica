@@ -1,0 +1,60 @@
+{
+  "type": "minecraft:generic",
+  "pools": [
+    {
+      "rolls": 1.0,
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "add": false,
+              "count": {
+                "type": "minecraft:uniform",
+                "max": 4.0,
+                "min": 2.0
+              },
+              "function": "minecraft:set_count"
+            }
+          ],
+          "name": "minecraft:experience_bottle",
+          "weight": 40
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:ender_pearl",
+          "weight": 10
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:tall_grass",
+          "weight": 10
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:bell",
+          "weight": 10
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "enchantments": {
+                "minecraft:smite" : 10,
+                "minecraft:fire_aspect" : 1,
+                "minecraft:mending" : 1,
+                "minecraft:unbreaking" : 3,
+                "minecraft:looting" : 3
+              },
+              "function": "minecraft:set_enchantments"
+            }
+          ],
+          "name": "minecraft:wooden_sword",
+          "weight": 5
+        }
+      ]
+    }
+  ],
+  "random_sequence": "reagenica:gameplay/altar_rare"
+}
