@@ -1,0 +1,38 @@
+{
+  "kagura_suzu_light": {
+    "subtitle": "subtitles.reagenica.kagura_1",
+    "sounds": [
+      {
+        "name": "reagenica:kagura_suzu01_1",
+        "stream": false
+      }
+    ]
+  },
+  "kagura_suzu_resonant": {
+    "subtitle": "subtitles.reagenica.kagura_2",
+    "sounds": [
+      {
+        "name": "reagenica:kagura_suzu02_5",
+        "stream": false
+      }
+    ]
+  },
+  "kagura_suzu_solemn": {
+    "subtitle": "subtitles.reagenica.kagura_2",
+    "sounds": [
+      {
+        "name": "reagenica:kagura_suzu02_8",
+        "stream": false
+      }
+    ]
+  },
+  "kagura_suzu_reverberant": {
+    "subtitle": "subtitles.reagenica.kagura_2",
+    "sounds": [
+      {
+        "name": "reagenica:kagura_suzu02_7",
+        "stream": false
+      }
+    ]
+  }
+}

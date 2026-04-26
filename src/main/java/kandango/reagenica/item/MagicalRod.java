@@ -5,8 +5,10 @@ import java.lang.reflect.Field;
 import javax.annotation.Nonnull;
 
 import kandango.reagenica.ChemiBlocks;
+import kandango.reagenica.ChemiSounds;
 import kandango.reagenica.ChemistryMod;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.ai.village.poi.PoiTypes;
 import net.minecraft.world.item.Item;
@@ -22,6 +24,7 @@ public class MagicalRod extends Item{
   @Override
   public InteractionResult useOn(@Nonnull UseOnContext context){
     Level level = context.getLevel();
+    level.playSound(context.getPlayer(), context.getClickedPos(), ChemiSounds.KAGURA_RESONANT.get(), SoundSource.PLAYERS);
     System.out.println("Debug Rod:");
     if(level instanceof ServerLevel slv){
       try{

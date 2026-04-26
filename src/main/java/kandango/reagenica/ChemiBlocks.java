@@ -232,6 +232,9 @@ public class ChemiBlocks {
   public static final RegistryObject<Block> TRADING_STALL = registerMachineBlockandlist("trading_stall", TradingStall::new); 
   public static final RegistryObject<Item> TRADING_STALL_ITEM = registerItemandlist("trading_stall",
     () -> new BlockItem(TRADING_STALL.get(), new Item.Properties()));
+  public static final RegistryObject<Block> OFFERING_ALTAR = registerMachineBlockandlist("offering_altar", OfferingAltar::new); 
+  public static final RegistryObject<Item> OFFERING_ALTAR_ITEM = registerItemandlist("offering_altar",
+    () -> new BlockItem(OFFERING_ALTAR.get(), new Item.Properties()));
 
   public static final RegistryObject<Block> ADVANCED_FARMLAND = registerSilktouchBlockandlist("advanced_farmland", AdvancedFarmland::new);
   public static final RegistryObject<Item> ADVANCED_FARMLAND_ITEM = registerItemandlist("advanced_farmland",

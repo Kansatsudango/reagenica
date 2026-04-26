@@ -35,6 +35,7 @@ public class ChemistryMod {
     ChemiFoliagePlacers.FOLIAGE_PLACERS.register(modEventBus);
     ChemiFoliagePlacers.TRUNK_PLACERS.register(modEventBus);
     ChemiParticles.PARTICLES.register(modEventBus);
+    ChemiSounds.SOUND_EVENTS.register(modEventBus);
     ChemiBiomes.BIOME_SOURCE.register(modEventBus);
     ChemiStructures.STRUCTURE_TYPES.register(modEventBus);
     ChemiStructures.PIECES.register(modEventBus);
