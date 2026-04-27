@@ -4,6 +4,7 @@ import java.util.Optional;
 
 import kandango.reagenica.ChemistryMod;
 import kandango.reagenica.block.entity.TradingStallBlockEntity;
+import kandango.reagenica.utils.CounterLog;
 import kandango.reagenica.villager.StallVisitCooldown;
 import kandango.reagenica.world.ChemiPOIs;
 import net.minecraft.core.BlockPos;
@@ -19,6 +20,8 @@ import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.phys.Vec3;
 
 public class VisitStallGoal extends Goal{
+  private static final CounterLog<Long> missingCapabilityLog =
+    new CounterLog<>(() -> new IllegalStateException("Capability is missing"), () -> Long.MAX_VALUE, 3);
   private final Villager villager;
   private final double speed;
   private BlockPos targetpos;
@@ -31,7 +34,7 @@ public class VisitStallGoal extends Goal{
   @Override
   public boolean canUse(){
     long gameTime = villager.level().getGameTime();
-    long nextVisit = StallVisitCooldown.getStallVisitCooldown(villager).getNextVisitTime();
+    long nextVisit = StallVisitCooldown.getStallVisitCooldown(villager).map(cap -> cap.getNextVisitTime()).orElseGet(() -> missingCapabilityLog.fallback());
     if (gameTime < nextVisit) return false;
     if (!isMorningOrEvening()) return false;
     if(!isMorningOrEvening()){
@@ -82,7 +85,7 @@ public class VisitStallGoal extends Goal{
       BlockEntity be = level.getBlockEntity(targetpos);
       if(be instanceof TradingStallBlockEntity stall){
         long nexttime = stall.trade(villager, level);
-        StallVisitCooldown.getStallVisitCooldown(villager).setNextVisitTime(gameTime + nexttime);
+        StallVisitCooldown.getStallVisitCooldown(villager).ifPresent(cap -> cap.setNextVisitTime(gameTime + nexttime));
       }else{
         ChemistryMod.LOGGER.error("There was no trading stall at pos {}.",targetpos);
       }

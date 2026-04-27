@@ -1,5 +1,7 @@
 package kandango.reagenica.villager;
 
+import java.util.Optional;
+
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.entity.npc.Villager;
 
@@ -24,8 +26,7 @@ public class StallVisitCooldown implements IVisitCooldown{
     this.nextVisitTime = nbt.getLong("nextStallVisitTime");
   }
 
-  public static StallVisitCooldown getStallVisitCooldown(Villager villager){
-    return villager.getCapability(VisitCooldownCapability.STALL_VISIT_COOLDOWN)
-      .orElseThrow(() -> new IllegalStateException("Stall visit cooldown capability missing."));
+  public static Optional<StallVisitCooldown> getStallVisitCooldown(Villager villager){
+    return villager.getCapability(VisitCooldownCapability.STALL_VISIT_COOLDOWN).resolve();
   }
 }
