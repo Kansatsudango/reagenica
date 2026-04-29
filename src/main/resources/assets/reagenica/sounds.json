@@ -18,7 +18,7 @@
     ]
   },
   "kagura_suzu_solemn": {
-    "subtitle": "subtitles.reagenica.kagura_2",
+    "subtitle": "subtitles.reagenica.kagura_3",
     "sounds": [
       {
         "name": "reagenica:kagura_suzu02_8",
@@ -27,7 +27,7 @@
     ]
   },
   "kagura_suzu_reverberant": {
-    "subtitle": "subtitles.reagenica.kagura_2",
+    "subtitle": "subtitles.reagenica.kagura_4",
     "sounds": [
       {
         "name": "reagenica:kagura_suzu02_7",

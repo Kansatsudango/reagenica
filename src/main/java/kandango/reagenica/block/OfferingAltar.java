@@ -16,6 +16,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.EntityBlock;
 import net.minecraft.world.level.block.HorizontalDirectionalBlock;
+import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
@@ -34,6 +35,11 @@ public class OfferingAltar extends Block implements EntityBlock {
   public InteractionResult use(@Nonnull BlockState state, @Nonnull Level level, @Nonnull BlockPos pos,
                  @Nonnull Player player, @Nonnull InteractionHand hand, @Nonnull BlockHitResult hit) {
     if (!level.isClientSide) {
+      BlockEntity be = level.getBlockEntity(pos);
+      if(be instanceof OfferingAltarBlockEntity alter){
+        boolean sneaking = player.isCrouching();
+        alter.onInteract(player, player.getItemInHand(hand), sneaking);
+      }
     }
     return InteractionResult.SUCCESS;
   }

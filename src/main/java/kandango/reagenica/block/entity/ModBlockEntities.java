@@ -210,6 +210,11 @@ public class ModBlockEntities {
         () -> BlockEntityType.Builder.of((BlockEntityType.BlockEntitySupplier<FiltrationDeviceBlockEntity>)FiltrationDeviceBlockEntity::new,ChemiBlocks.FILTRATION_DEVICE.get()).build(null));
 
     @SuppressWarnings("null")
+    public static final RegistryObject<BlockEntityType<OfferingAltarBlockEntity>> OFFERING_ALTAR = 
+        BLOCK_ENTITIES.register("offering_altar", 
+        () -> BlockEntityType.Builder.of((BlockEntityType.BlockEntitySupplier<OfferingAltarBlockEntity>)OfferingAltarBlockEntity::new,ChemiBlocks.OFFERING_ALTAR.get()).build(null));
+
+    @SuppressWarnings("null")
     public static final RegistryObject<BlockEntityType<ChemiSignBlockEntity>> SIGN = 
         BLOCK_ENTITIES.register("sign", 
         () -> BlockEntityType.Builder.of((BlockEntityType.BlockEntitySupplier<ChemiSignBlockEntity>)ChemiSignBlockEntity::new,

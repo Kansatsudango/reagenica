@@ -1,4 +1,4 @@
-// 1.20.1	2026-04-12T11:12:25.240178	Loot Tables
+// 1.20.1	2026-04-29T17:34:32.3994282	Loot Tables
 fd599511177b57b7c4697466e227e89162e2d943 data/reagenica/loot_tables/blocks/advanced_farmland.json
 115802854012234d89e3ba52e3d8b2a271af6530 data/reagenica/loot_tables/blocks/air_separator.json
 af778c6940ed0700e603b9633a246c18de93eb49 data/reagenica/loot_tables/blocks/aluminium_block.json
@@ -174,6 +174,7 @@ ea0759bebeeb8dfc0d6d3fb1a64b9277a73d8e58 data/reagenica/loot_tables/blocks/mushr
 3c301cf24e764299f2dc4beae3cdc13ba0095749 data/reagenica/loot_tables/blocks/mushroom_surface_green.json
 d5bfc31900c45bd28fbc65c390675f473099b4d4 data/reagenica/loot_tables/blocks/mushroom_surface_purple.json
 bcdfc9312a97868d7dd2fb4402c4fc2b4ffc3dc2 data/reagenica/loot_tables/blocks/mushroom_surface_red.json
+e976ac5be4421bde3f3ed70a740c93a24971ab19 data/reagenica/loot_tables/blocks/offering_altar.json
 824930b40cda478b85dae78df891ee246fda4876 data/reagenica/loot_tables/blocks/oilsand_ore.json
 387e2253fa9be2679c8aa2efb5fddc71afcbb9a1 data/reagenica/loot_tables/blocks/oil_lamp.json
 62c10924dcfdd9902ba1040277e26b00d142f1bd data/reagenica/loot_tables/blocks/onion_crop.json

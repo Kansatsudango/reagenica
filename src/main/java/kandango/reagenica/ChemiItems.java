@@ -201,6 +201,7 @@ public class ChemiItems {
   public static final RegistryObject<Item> PLATINUM_FILTER = registerandlist("platinum_filter", () -> new RoleItem(new Item.Properties().durability(2400).rarity(Rarity.UNCOMMON), ChemiItemRoles::airFilters));
   public static final RegistryObject<Item> CARBON_FILTER = registerandlist("carbon_filter", () -> new RoleItem(new Item.Properties().durability(256), ChemiItemRoles::waterFilters));
   public static final RegistryObject<Item> GEOLOGIST_ROD = registerandlist("geologist_rod", () -> new GeologistRod());
+  public static final RegistryObject<Item> KAGURASUZU = registerandlist("kagurasuzu", () -> new KaguraSuzu());
   public static final RegistryObject<Item> IRIDIUM_UPGRADE_STH = registerandlist("iridium_upgrade_smithing_template", () -> ChemiSmithingTemplates.iridium_upgrade());
   
   public static final RegistryObject<Item> URANIUM_FUEL_ROD = registerandlist("uranium_fuel_rod", () -> new Item(new Item.Properties().stacksTo(1).durability(3600).rarity(Rarity.UNCOMMON)));

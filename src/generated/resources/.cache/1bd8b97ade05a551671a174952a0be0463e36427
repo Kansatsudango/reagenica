@@ -1,4 +1,4 @@
-// 1.20.1	2026-04-14T19:28:51.4798734	Item Models: reagenica
+// 1.20.1	2026-04-29T17:34:32.4107971	Item Models: reagenica
 6f0d9872c5f176206015dd5f6420e71fe71f2cb9 assets/reagenica/models/item/acetobacter.json
 54ef03ed6b05d449bef3092145440fb8c97020f5 assets/reagenica/models/item/adipamide.json
 54ef03ed6b05d449bef3092145440fb8c97020f5 assets/reagenica/models/item/adipic_acid.json
@@ -192,6 +192,7 @@ f0d3d7c909bcdc43ae7f5e08e8a135b8e2b641c4 assets/reagenica/models/item/iridium_ch
 7b4b9ebb90b2ff0fc0ad6eadb21033ef7998458d assets/reagenica/models/item/iridium_upgrade_smithing_template.json
 9bf35878edbd67203118cb4eb8d05ddf55dd2f1b assets/reagenica/models/item/iron_hotspring_bucket.json
 27cdc16cbad77cc6ed6e2339d9a571325bcca271 assets/reagenica/models/item/iron_oxide.json
+a7f11dc942c278898ddb2c91468460916ee8fb33 assets/reagenica/models/item/kagurasuzu.json
 e8045e6eb57e90cfe6ada76702637cb4fb6c60e6 assets/reagenica/models/item/kimberlite.json
 935ce8b91a52ce6a33ee47b9df4b71f66257041d assets/reagenica/models/item/koji.json
 368efbdf15f9e557ba5f0c60fd5d5e8bc67c9207 assets/reagenica/models/item/lamp_linker.json
@@ -256,6 +257,7 @@ d456d2602f3932a5bb05924c027ea946f28c9cfb assets/reagenica/models/item/naphtha_bu
 1ce41cc350695a5c3a65b287e3ef15c8be157020 assets/reagenica/models/item/nylon_bag.json
 ba8e69380e268fc753c04fbb620a0c717403de9a assets/reagenica/models/item/nylon_pellet.json
 786bf1913da1d47643642d25c5e7fcc877c32bd9 assets/reagenica/models/item/nylon_string.json
+ec472d81ffe25bf000bb7cb08dfb4e397e4d3cc0 assets/reagenica/models/item/offering_altar.json
 f8bf9dd8cea5e393dfc9d61318ca0080f09932c0 assets/reagenica/models/item/oilsand.json
 334d4ab680698f75ca7a9153344aef7cac17699f assets/reagenica/models/item/oilsand_ore.json
 ea0d8257d1fbde9791c052b323ede3c4f0cdef6e assets/reagenica/models/item/oil_lamp.json
