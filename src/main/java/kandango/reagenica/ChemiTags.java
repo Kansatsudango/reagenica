@@ -35,6 +35,8 @@ public class ChemiTags {
       TagKey.create(Registries.ITEM, new ResourceLocation("reagenica", "nylon_bags"));
     public static final TagKey<Item> PLATES =
       TagKey.create(Registries.ITEM, new ResourceLocation("reagenica", "plates"));
+    public static final TagKey<Item> OFFERABLES =
+      TagKey.create(Registries.ITEM, new ResourceLocation("reagenica", "offerable"));
   }
   public static class Structures {
     public static final TagKey<Structure> CRATER_TARGET = 
