@@ -19,7 +19,7 @@
             }
           ],
           "name": "minecraft:book",
-          "weight": 5
+          "weight": 2
         },
         {
           "type": "minecraft:item",
@@ -32,7 +32,7 @@
             }
           ],
           "name": "minecraft:book",
-          "weight": 5
+          "weight": 2
         },
         {
           "type": "minecraft:item",
@@ -45,7 +45,7 @@
             }
           ],
           "name": "minecraft:book",
-          "weight": 5
+          "weight": 2
         },
         {
           "type": "minecraft:item",
@@ -61,7 +61,7 @@
             }
           ],
           "name": "minecraft:book",
-          "weight": 5
+          "weight": 2
         },
         {
           "type": "minecraft:item",
@@ -77,7 +77,95 @@
             }
           ],
           "name": "minecraft:book",
-          "weight": 5
+          "weight": 2
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "enchantments": {
+                "minecraft:swift_sneak" : 1
+              },
+              "function": "minecraft:set_enchantments"
+            }
+          ],
+          "name": "minecraft:book",
+          "weight": 4
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "enchantments": {
+                "minecraft:soul_speed" : 1
+              },
+              "function": "minecraft:set_enchantments"
+            }
+          ],
+          "name": "minecraft:book",
+          "weight": 4
+        },
+        {
+          "type": "minecraft:item",
+          "name": "reagenica:platinum_ingot",
+          "weight": 10
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:enchanted_golden_apple",
+          "weight": 20
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "add": false,
+              "count": {
+                "type": "minecraft:uniform",
+                "max": 4.0,
+                "min": 3.0
+              },
+              "function": "minecraft:set_count"
+            }
+          ],
+          "name": "minecraft:diamond",
+          "weight": 20
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "function": "minecraft:set_enchantments",
+              "enchantments": {
+                "minecraft:fortune" : 4,
+                "minecraft:vanishing_curse" : 1
+              }
+            },
+            {
+              "function": "minecraft:set_nbt",
+              "tag": "{RepairCost:300}"
+            }
+          ],
+          "name": "reagenica:pink_gold_pickaxe",
+          "weight": 10
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "function": "minecraft:set_enchantments",
+              "enchantments": {
+                "minecraft:looting" : 5,
+                "minecraft:vanishing_curse" : 1
+              }
+            },
+            {
+              "function": "minecraft:set_nbt",
+              "tag": "{RepairCost:300}"
+            }
+          ],
+          "name": "reagenica:pink_gold_sword",
+          "weight": 10
         }
       ]
     }

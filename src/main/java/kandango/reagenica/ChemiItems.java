@@ -4,9 +4,12 @@ import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Rarity;
+import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.level.saveddata.maps.MapDecoration;
+import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
+import net.minecraft.world.level.storage.loot.providers.number.UniformGenerator;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -242,6 +245,14 @@ public class ChemiItems {
   public static final RegistryObject<Item> EMERALD_COMPASS = registerandlist("location_compass_emerald", () -> new LocationCompass(ChemiBiomes.EMERALD_CAVE));
   public static final RegistryObject<Item> DIAMOND_COMPASS = registerandlist("location_compass_diamond", () -> new LocationCompass(ChemiBiomes.DIAMOND_CAVE));
   public static final RegistryObject<Item> LEAD_COMPASS = registerandlist("location_compass_lead", () -> new LocationCompass(ChemiBiomes.LEAD_CAVE));
+  public static final RegistryObject<Amulet> AQUAMARINE_AMULET = registerandlist("aquamarine_amulet", () -> new Amulet(ChemiEnchantments.CHAIN_MINING::get, UniformGenerator.between(1, 2)));
+  public static final RegistryObject<Amulet> EMERALD_AMULET = registerandlist("emerald_amulet", () -> new Amulet(ChemiEnchantments.BIG_MINING::get, ConstantValue.exactly(1)));
+  public static final RegistryObject<Amulet> CITRINE_AMULET = registerandlist("citrine_amulet", () -> new Amulet(ChemiEnchantments.CRYSTALIZED::get, UniformGenerator.between(1, 3)));
+  public static final RegistryObject<Amulet> RED_BERYL_AMULET = registerandlist("red_beryl_amulet", () -> new Amulet(ChemiEnchantments.LAST_STAND::get, UniformGenerator.between(1, 2)));
+  public static final RegistryObject<Amulet> PERIDOT_AMULET = registerandlist("peridot_amulet", () -> new Amulet(ChemiEnchantments.ANTI_POISON::get, ConstantValue.exactly(1)));
+  public static final RegistryObject<Amulet> ROSE_QUARTZ_AMULET = registerandlist("rose_quartz_amulet", () -> new Amulet(() -> Enchantments.MENDING, ConstantValue.exactly(1)));
+  public static final RegistryObject<Amulet> MORION_AMULET = registerandlist("morion_amulet", () -> new Amulet(() -> Enchantments.UNBREAKING, ConstantValue.exactly(2)));
+  public static final RegistryObject<Amulet> LAPISQUARTZ_AMULET = registerandlist("lapisquartz_amulet", () -> new Amulet(() -> Enchantments.BLOCK_EFFICIENCY, ConstantValue.exactly(4)));
   public static final RegistryObject<ExplorerMapKit> CRATER_MAP_KIT = registerandlist("crater_map_book", () -> new ExplorerMapKit(new Item.Properties(), "crater", MapDecoration.Type.TARGET_X, ExplorerMapKit.Crater));
   public static final RegistryObject<ExplorerMapKit> VOLCANO_MAP_KIT = registerandlist("volcano_map_book", () -> new ExplorerMapKit(new Item.Properties(), "volcano", MapDecoration.Type.TARGET_X, ExplorerMapKit.Volcano));
 

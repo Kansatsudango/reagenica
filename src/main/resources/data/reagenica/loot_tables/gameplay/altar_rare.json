@@ -33,8 +33,29 @@
         },
         {
           "type": "minecraft:item",
+          "name": "minecraft:blaze_powder",
+          "weight": 10
+        },
+        {
+          "type": "minecraft:item",
           "name": "minecraft:bell",
           "weight": 10
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "add": false,
+              "count": {
+                "type": "minecraft:uniform",
+                "max": 4.0,
+                "min": 2.0
+              },
+              "function": "minecraft:set_count"
+            }
+          ],
+          "name": "minecraft:emerald",
+          "weight": 20
         },
         {
           "type": "minecraft:item",

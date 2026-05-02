@@ -1,4 +1,4 @@
-// 1.20.1	2026-04-29T17:34:32.4107971	Item Models: reagenica
+// 1.20.1	2026-05-02T11:14:34.295129	Item Models: reagenica
 6f0d9872c5f176206015dd5f6420e71fe71f2cb9 assets/reagenica/models/item/acetobacter.json
 54ef03ed6b05d449bef3092145440fb8c97020f5 assets/reagenica/models/item/adipamide.json
 54ef03ed6b05d449bef3092145440fb8c97020f5 assets/reagenica/models/item/adipic_acid.json
@@ -25,6 +25,7 @@ fa2c1ca31858802d739a0e3ed89bc7de52f7975a assets/reagenica/models/item/analyzer.j
 164b051e7d16bbe305d3081489c3e986ccee00d0 assets/reagenica/models/item/anode_slime.json
 54ef03ed6b05d449bef3092145440fb8c97020f5 assets/reagenica/models/item/anode_solution.json
 76208961ba8480301ea946c304c94fc869587ed5 assets/reagenica/models/item/apatite_ore.json
+fdbe71938ea112664bc750c8722606dfd3134eaf assets/reagenica/models/item/aquamarine_amulet.json
 1029814196bfc9b30ba24febb5a0c311ec7d0013 assets/reagenica/models/item/aquamarine_block.json
 f44cdec6bbb023bfd1adf186ab67613242c201d5 assets/reagenica/models/item/aquamarine_bud.json
 3cc28ceff4a6301c2714c2d2d49047a07a556a34 assets/reagenica/models/item/aquamarine_crystal.json
@@ -69,6 +70,7 @@ bdd27ff864e9ce159ffbdfa7fc33dde5574fe3d3 assets/reagenica/models/item/chalcopyri
 eeb72bae9466b273907f3a586c9a407708a99e5c assets/reagenica/models/item/chloride_hotspring_bucket.json
 55e8fd85879a5d222fe1eba418faeab769d24409 assets/reagenica/models/item/chlorine.json
 55e8fd85879a5d222fe1eba418faeab769d24409 assets/reagenica/models/item/chloroethylene.json
+6cc2c9841fc5f7c18b1b0e5e1222d51d6c513577 assets/reagenica/models/item/citrine_amulet.json
 537e88c5228c5acfc30739dda1be6bcbbb47c68f assets/reagenica/models/item/citrine_block.json
 466fb07b7a10229cae85a82978c95980c9ed3dea assets/reagenica/models/item/citrine_bud.json
 bdcf16887f55bfe1a7ad16f6f9cbca15db9ebdfe assets/reagenica/models/item/citrine_crystal.json
@@ -122,6 +124,7 @@ a712278d648660bb1e2f252027ddbc2e37abf3b4 assets/reagenica/models/item/distilled_
 12916fe9769f4050efdc8a69f1e830108af5a48d assets/reagenica/models/item/drain_pipe.json
 587dc6c7136e1b458f6cdd52dfc3e9c1f8ecf812 assets/reagenica/models/item/easy_torch.json
 8d633feacc3459c22b6e8fc3b0f8a23512ad5a21 assets/reagenica/models/item/electrolysis_device.json
+07a20c67584ccefa189f7c92bc1470a128d98997 assets/reagenica/models/item/emerald_amulet.json
 6ffad3b7a908012a7d90f0d94ab0b990e06b3d95 assets/reagenica/models/item/emerald_block.json
 4e7c19817d9250fced250b7c5995c8007ffffbb9 assets/reagenica/models/item/emerald_bud.json
 91a98b90a6c55f93d2b5b34631b82710ec89d8a4 assets/reagenica/models/item/emerald_crystal.json
@@ -145,7 +148,6 @@ e64d8498612dbeb6ae986a5d5897929354b74f5a assets/reagenica/models/item/fractional
 47c71633bac31f761d9d6833f578f9b0eaeaf526 assets/reagenica/models/item/fuel_generator.json
 127e7ef934a5a941d014287434d8ba78c084b377 assets/reagenica/models/item/gas_lamp.json
 87beabb52e1644a5ae708ec2f4ec8c8d345228cb assets/reagenica/models/item/geological_surveyor.json
-a2bfc7bcc34e75ecf512e8d7dce0193f305ecc8f assets/reagenica/models/item/geologist_rod.json
 05589fc1440835616a9f6eeb2cdc13c799b2b1b4 assets/reagenica/models/item/ginkgo_gohan.json
 f22fed4e362963d1612d35faf8d201c65ba27b01 assets/reagenica/models/item/ginkgo_nuts.json
 8d6b76413b760b13875bd5dca9a98bf39b17cf6c assets/reagenica/models/item/gohan.json
@@ -192,10 +194,10 @@ f0d3d7c909bcdc43ae7f5e08e8a135b8e2b641c4 assets/reagenica/models/item/iridium_ch
 7b4b9ebb90b2ff0fc0ad6eadb21033ef7998458d assets/reagenica/models/item/iridium_upgrade_smithing_template.json
 9bf35878edbd67203118cb4eb8d05ddf55dd2f1b assets/reagenica/models/item/iron_hotspring_bucket.json
 27cdc16cbad77cc6ed6e2339d9a571325bcca271 assets/reagenica/models/item/iron_oxide.json
-a7f11dc942c278898ddb2c91468460916ee8fb33 assets/reagenica/models/item/kagurasuzu.json
 e8045e6eb57e90cfe6ada76702637cb4fb6c60e6 assets/reagenica/models/item/kimberlite.json
 935ce8b91a52ce6a33ee47b9df4b71f66257041d assets/reagenica/models/item/koji.json
 368efbdf15f9e557ba5f0c60fd5d5e8bc67c9207 assets/reagenica/models/item/lamp_linker.json
+32e76022fdc84cc9d94705d3f1571c3f4d7ab55c assets/reagenica/models/item/lapisquartz_amulet.json
 108f3f1f46bb63bfea6e9606221d4b726bc32b91 assets/reagenica/models/item/lapisquartz_block.json
 5f0be13653842f090832a5ff1eb73a80e49bd69b assets/reagenica/models/item/lapisquartz_bud.json
 74d677bf05bd20ede2b1c3fafd725145629899b6 assets/reagenica/models/item/lapisquartz_crystal.json
@@ -221,6 +223,7 @@ a70cfd6ef7d4a2888f15fb1c13413b3ea4093f29 assets/reagenica/models/item/minewipe.j
 90b1354a2b827537b1caeefd80f57095a59543a7 assets/reagenica/models/item/miso.json
 080d7647d909052bf2fb2338d706b65987dad4c5 assets/reagenica/models/item/miso_soup.json
 54ef03ed6b05d449bef3092145440fb8c97020f5 assets/reagenica/models/item/mixed_acid.json
+b135afb3de0c23b1cce78eaf66e883bcc35655fd assets/reagenica/models/item/morion_amulet.json
 0eb006da9e1d7264ba173875c2e35d7f62e59936 assets/reagenica/models/item/morion_block.json
 5137bf91c4dd10980214b0eb4257f7a71a8e9bdf assets/reagenica/models/item/morion_bud.json
 2e7d20882c180136ef2584bf8cbe1a53f067483f assets/reagenica/models/item/morion_crystal.json
@@ -273,6 +276,7 @@ c956363ca811741cd9de5d5a267239fc01e24b50 assets/reagenica/models/item/oxygen_buc
 a779f56aeefbaf963780822b9672ce81c02cd309 assets/reagenica/models/item/paleo_sandstone.json
 e36c7cdb1a3cf6b9093f722da4496a514ac7f4b1 assets/reagenica/models/item/pargola.json
 23c9d56dfdfc363a3fe64da12ad1fb8108a6fa6d assets/reagenica/models/item/pem_device.json
+b213d3f6fe9cb2666793373e44dcc77e4e0cbd0f assets/reagenica/models/item/peridot_amulet.json
 8adaa23f8cced475fb38b248a1a43d994ebde951 assets/reagenica/models/item/peridot_block.json
 36f4f0e478472237d894adf4293a018f360642ae assets/reagenica/models/item/peridot_bud.json
 59739e22496db7681f4ce1ff6cb4f18d124920f2 assets/reagenica/models/item/peridot_crystal.json
@@ -347,6 +351,7 @@ d6f9ce9d9ed2fea5ec5d46ea14310f2f0c5e023a assets/reagenica/models/item/raw_chalco
 1e2930bb03a25d3c9011e710e61294e91e54b0b9 assets/reagenica/models/item/raw_lead.json
 a19cdc50443a9a5d8d33ecbfa9e928671b389e97 assets/reagenica/models/item/reactor.json
 54ef03ed6b05d449bef3092145440fb8c97020f5 assets/reagenica/models/item/red_azo_dye.json
+a88f668d92a9d507436dc1ef8b3b0e9d2c2a028a assets/reagenica/models/item/red_beryl_amulet.json
 7ab37927baed9b2c8b235153a7e3886a7794da27 assets/reagenica/models/item/red_beryl_block.json
 a69191f516bd06e5c69c591dac0af7e629f491ac assets/reagenica/models/item/red_beryl_bud.json
 ddcce72586f759a9e682c9d3ce5006afe1756e89 assets/reagenica/models/item/red_beryl_crystal.json
@@ -363,6 +368,7 @@ b77d5d6059ca6f15ac91b16caa57e8fc11b8b1ec assets/reagenica/models/item/reinforced
 3249374bbf86977eed42a73b066710b4282dbbde assets/reagenica/models/item/rice_vinegar_bucket.json
 0c20d6c0bf137b2e59c1cc56e5a2f3a30d60b087 assets/reagenica/models/item/roasted_ginkgo.json
 b397f0b10115d85358391eb4d437182a023f7c0f assets/reagenica/models/item/roasted_soybeans.json
+cddf1c186a1ccd472181cbb7b7c735f15215cd02 assets/reagenica/models/item/rose_quartz_amulet.json
 3f3c5c17b26436db251c26abb9b572bb2dd3451f assets/reagenica/models/item/rose_quartz_block.json
 23be71fad273bc8253b4b9939862f8059d948406 assets/reagenica/models/item/rose_quartz_bud.json
 fbf3f7e91974f5ad0c386ad71d0c8025edd081bc assets/reagenica/models/item/rose_quartz_crystal.json

@@ -23,13 +23,8 @@
         },
         {
           "type": "minecraft:item",
-          "name": "reagenica:platinum_ingot",
-          "weight": 20
-        },
-        {
-          "type": "minecraft:item",
-          "name": "reagenica:platinum_ingot",
-          "weight": 20
+          "name": "reagenica:platinum_nugget",
+          "weight": 5
         },
         {
           "type": "minecraft:item",
@@ -61,52 +56,13 @@
           "functions": [
             {
               "enchantments": {
-                "minecraft:mending" : 1
-              },
-              "function": "minecraft:set_enchantments"
-            }
-          ],
-          "name": "minecraft:book",
-          "weight": 3
-        },
-        {
-          "type": "minecraft:item",
-          "functions": [
-            {
-              "enchantments": {
-                "minecraft:unbreaking" : 3
-              },
-              "function": "minecraft:set_enchantments"
-            }
-          ],
-          "name": "minecraft:book",
-          "weight": 4
-        },
-        {
-          "type": "minecraft:item",
-          "functions": [
-            {
-              "enchantments": {
-                "minecraft:swift_sneak" : 1
-              },
-              "function": "minecraft:set_enchantments"
-            }
-          ],
-          "name": "minecraft:book",
-          "weight": 2
-        },
-        {
-          "type": "minecraft:item",
-          "functions": [
-            {
-              "enchantments": {
                 "minecraft:swift_sneak" : 3
               },
               "function": "minecraft:set_enchantments"
             }
           ],
           "name": "reagenica:pink_gold_leggings",
-          "weight": 4
+          "weight": 1
         },
         {
           "type": "minecraft:item",
@@ -119,7 +75,7 @@
             }
           ],
           "name": "reagenica:pink_gold_boots",
-          "weight": 4
+          "weight": 1
         },
         {
           "type": "minecraft:item",
