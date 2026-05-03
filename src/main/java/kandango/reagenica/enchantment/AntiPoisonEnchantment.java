@@ -31,6 +31,14 @@ public class AntiPoisonEnchantment extends Enchantment{
   public int getMaxLevel() {
     return 3;
   }
+  @Override
+  public boolean isTreasureOnly() {
+    return true;
+  }
+  @Override
+  public boolean isTradeable() {
+    return false;
+  }
 
   public static MobEffectInstance run(LivingEntity entity, MobEffectInstance effect, int enchLevel){
     if(enchLevel<=0){

@@ -36,6 +36,14 @@ public class CrystalizedEnchantment extends Enchantment{
   public int getMaxLevel() {
     return 5;
   }
+  @Override
+  public boolean isTreasureOnly() {
+    return true;
+  }
+  @Override
+  public boolean isTradeable() {
+    return false;
+  }
 
   public static Optional<ItemEntity> loot(LivingEntity entity, int enchLevel){
     RandomSource random = entity.getRandom();

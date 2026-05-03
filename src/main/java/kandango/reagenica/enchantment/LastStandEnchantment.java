@@ -30,6 +30,14 @@ public class LastStandEnchantment extends Enchantment{
   public int getMaxLevel() {
     return 3;
   }
+  @Override
+  public boolean isTreasureOnly() {
+    return true;
+  }
+  @Override
+  public boolean isTradeable() {
+    return false;
+  }
 
   public static float calc(LivingEntity attacker, float damage, int enchLevel){
     float hpRatio = attacker.getHealth() / attacker.getMaxHealth();

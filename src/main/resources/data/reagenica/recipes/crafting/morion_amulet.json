@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " G ",
+    "GCG",
+    " G "
+  ],
+  "key": {
+    "C": { "item": "reagenica:morion_shard" },
+    "G": { "item": "minecraft:gold_ingot"}
+  },
+  "result": {
+    "item": "reagenica:morion_amulet",
+    "count": 1
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " G ",
+    "GCG",
+    " G "
+  ],
+  "key": {
+    "C": { "item": "reagenica:rose_quartz_shard" },
+    "G": { "item": "minecraft:gold_ingot"}
+  },
+  "result": {
+    "item": "reagenica:rose_quartz_amulet",
+    "count": 1
+  }
+}

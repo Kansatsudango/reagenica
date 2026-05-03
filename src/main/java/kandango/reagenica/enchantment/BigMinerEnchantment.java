@@ -33,6 +33,14 @@ public class BigMinerEnchantment extends Enchantment{
   public int getMaxLevel() {
     return 2;
   }
+  @Override
+  public boolean isTreasureOnly() {
+    return true;
+  }
+  @Override
+  public boolean isTradeable() {
+    return false;
+  }
 
   @Override
   protected boolean checkCompatibility(@Nonnull Enchantment other) {

@@ -36,6 +36,14 @@ public class VeinMinerEnchantment extends Enchantment{
   public int getMaxLevel() {
     return 4;
   }
+  @Override
+  public boolean isTreasureOnly() {
+    return true;
+  }
+  @Override
+  public boolean isTradeable() {
+    return false;
+  }
 
   @Override
   protected boolean checkCompatibility(@Nonnull Enchantment other) {

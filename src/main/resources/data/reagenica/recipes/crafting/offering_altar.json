@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "+++",
+    "#G#",
+    "###"
+  ],
+  "key": {
+    "#": { "tag": "minecraft:planks" },
+    "+": { "item": "minecraft:stick" },
+    "G": { "item": "minecraft:glowstone_dust"}
+  },
+  "result": {
+    "item": "reagenica:offering_altar",
+    "count": 1
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " S ",
+    "CFC"
+  ],
+  "key": {
+    "S": { "item": "minecraft:string" },
+    "F": { "tag": "forge:crops" },
+    "C": { "item": "reagenica:polyethylene" }
+  },
+  "result": {
+    "item": "reagenica:farming_bag",
+    "count": 1
+  }
+}
