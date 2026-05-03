@@ -11,8 +11,5 @@
   "bottomfluid": {
     "fluid": "reagenica:distilled_water",
     "amount": 75
-  },
-  "residual": {
-    "item": "reagenica:fertilizer"
   }
 }

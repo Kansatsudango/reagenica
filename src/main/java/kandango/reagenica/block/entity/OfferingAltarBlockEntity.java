@@ -13,6 +13,7 @@ import kandango.reagenica.ChemiTags;
 import kandango.reagenica.ChemistryMod;
 import kandango.reagenica.block.entity.util.ItemStackUtil;
 import kandango.reagenica.item.Amulet;
+import net.minecraft.advancements.Advancement;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.DustParticleOptions;
 import net.minecraft.core.particles.ParticleTypes;
@@ -21,6 +22,7 @@ import net.minecraft.network.Connection;
 import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
@@ -101,6 +103,14 @@ public class OfferingAltarBlockEntity extends BlockEntity {
           particles,
           1.5, 1.5, 1.5,0.02);
         slv.playSound(null, worldPosition, getSound(faith_point), SoundSource.PLAYERS, 1.0f, 1.0f);
+        if(faith_point>=MAX_FAITH && player instanceof ServerPlayer sp){
+          Advancement advancement = sp.server.getAdvancements().getAdvancement(new ResourceLocation("reagenica", "kaguramai"));
+          if(advancement!=null){
+            sp.getAdvancements().award(advancement, "in_code");
+          }else{
+            ChemistryMod.LOGGER.warn("Advancement kaguramai not found.");
+          }
+        }
       }else if(stack.getItem() instanceof Amulet){
         this.amulet = stack.copy();
         this.faith_point += 40;

@@ -1,0 +1,25 @@
+{
+  "parent": "reagenica:silver",
+  "display": {
+    "icon": { "item": "reagenica:kagurasuzu" },
+  "title": {
+    "translate": "advancements.reagenica.miko.title"
+  },
+  "description": {
+    "translate": "advancements.reagenica.miko.desc"
+  },
+  "frame": "task",
+  "show_toast": true,
+  "announce_to_chat": true
+  },
+  "criteria": {
+    "obtain_item": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          { "items": ["reagenica:kagurasuzu"] }
+        ]
+      }
+    }
+  }
+}

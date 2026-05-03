@@ -1,0 +1,20 @@
+{
+  "parent": "reagenica:miko",
+  "display": {
+    "icon": { "item": "reagenica:offering_altar" },
+  "title": {
+    "translate": "advancements.reagenica.kaguramai.title"
+  },
+  "description": {
+    "translate": "advancements.reagenica.kaguramai.desc"
+  },
+  "frame": "task",
+  "show_toast": true,
+  "announce_to_chat": true
+  },
+  "criteria": {
+    "in_code": {
+      "trigger": "minecraft:impossible"
+    }
+  }
+}
