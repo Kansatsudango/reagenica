@@ -16,6 +16,7 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
+import net.minecraftforge.common.Tags;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -224,6 +225,7 @@ public class ChemiItems {
 
   public static final RegistryObject<Item> ORE_BAG = registerandlist("ore_bag", () -> new CommonBag<>(27, 84, ModMenus.ORE_BAG_MENU, stack -> stack.is(ChemiTags.Items.ORE_BAG_ACCEPT)));
   public static final RegistryObject<Item> CRYSTAL_BAG = registerandlist("crystal_bag", () -> new CommonBag<>(27, 84, ModMenus.CRYSTAL_BAG_MENU, stack -> stack.is(ChemiTags.Items.CRYSTAL_SHARDS)));
+  public static final RegistryObject<Item> FARMING_BAG = registerandlist("farming_bag", () -> new CommonBag<>(27, 84, ModMenus.FARMING_BAG_MENU, stack -> stack.is(Tags.Items.CROPS)));
   public static final RegistryObject<Item> NYLON_BAG = registerandlist("nylon_bag", () -> new CommonBag<>(18, 66, ModMenus.NYLON_BAG_MENU));
   public static final RegistryObject<Item> PLATINUM_BAG = registerandlist("platinum_bag", () -> new CommonBag<>(27, 84, ModMenus.PLATINUM_BAG_MENU));
   public static final RegistryObject<Item> IRIDIUM_BAG = registerandlist("iridium_bag", () -> new CommonBag<>(54, 140, ModMenus.IRIDIUM_BAG_MENU));

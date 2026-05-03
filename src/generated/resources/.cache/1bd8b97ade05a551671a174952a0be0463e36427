@@ -1,4 +1,4 @@
-// 1.20.1	2026-05-02T11:14:34.295129	Item Models: reagenica
+// 1.20.1	2026-05-03T10:55:44.7074274	Item Models: reagenica
 6f0d9872c5f176206015dd5f6420e71fe71f2cb9 assets/reagenica/models/item/acetobacter.json
 54ef03ed6b05d449bef3092145440fb8c97020f5 assets/reagenica/models/item/adipamide.json
 54ef03ed6b05d449bef3092145440fb8c97020f5 assets/reagenica/models/item/adipic_acid.json
@@ -135,6 +135,7 @@ cc34e53e43fb2d47a1627b79073e5eb5c84372ea assets/reagenica/models/item/ethanol_bu
 55e8fd85879a5d222fe1eba418faeab769d24409 assets/reagenica/models/item/ethylene.json
 ab0f320001c63d87185c8834ee9157c1db2fca12 assets/reagenica/models/item/ethylene_bucket.json
 3daecadfab75853da3a1476ecef84396f5bb2e28 assets/reagenica/models/item/experiment_block.json
+fd6fa5352ea3a8a1ecb4f74427799688984a3ad7 assets/reagenica/models/item/farming_bag.json
 b7f99c0a02d15fde2da73791b527cdc774f07e1d assets/reagenica/models/item/fertilizer.json
 1c95b712e311941da0ee7f8310a02fd76c25197a assets/reagenica/models/item/fig.json
 d29f6c8e7c3da8e544e99df0ea9e3762615bd3ee assets/reagenica/models/item/fig_and_meat_saute.json
