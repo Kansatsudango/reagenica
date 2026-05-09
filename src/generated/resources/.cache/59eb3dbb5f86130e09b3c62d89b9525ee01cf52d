@@ -1,4 +1,4 @@
-// 1.20.1	2026-04-29T17:34:32.3994282	Loot Tables
+// 1.20.1	2026-05-09T12:24:58.9419493	Loot Tables
 fd599511177b57b7c4697466e227e89162e2d943 data/reagenica/loot_tables/blocks/advanced_farmland.json
 115802854012234d89e3ba52e3d8b2a271af6530 data/reagenica/loot_tables/blocks/air_separator.json
 af778c6940ed0700e603b9633a246c18de93eb49 data/reagenica/loot_tables/blocks/aluminium_block.json
@@ -10,6 +10,10 @@ cfc650aa31d20afbd85854a38fc6afc3e8ca09f1 data/reagenica/loot_tables/blocks/aquam
 495b5123264b752424c3153489b8cd50a126d8c5 data/reagenica/loot_tables/blocks/aquamarine_bud.json
 5f6a4a866ae2702ea39b19fac7b548e4daca57a5 data/reagenica/loot_tables/blocks/aquamarine_crystal.json
 83968210ff3664a408fab1e2954a3db04af29a3e data/reagenica/loot_tables/blocks/bauxite_ore.json
+1cd6ad3b710235a0ef50112596c699d5b0b17441 data/reagenica/loot_tables/blocks/bioluminescence_blue_mushroom.json
+7022ce1558011651f3866cb655f1ad19c69bfde7 data/reagenica/loot_tables/blocks/bioluminescence_green_mushroom.json
+5f589aac261f40ceb526749111696a99e43d7ec7 data/reagenica/loot_tables/blocks/bioluminescence_purple_mushroom.json
+3ba347efadea127c4aa6f6a9a409b2cf17f8aca3 data/reagenica/loot_tables/blocks/bioluminescence_red_mushroom.json
 7c3be84c80a7bed043cbca3290bb9dadd28101af data/reagenica/loot_tables/blocks/blast_furnace_bottom.json
 041f8e8ea7be4c738702a547be5d265cc6756afe data/reagenica/loot_tables/blocks/blast_furnace_sub.json
 bd67c3594a28846f51c6b0a76c19aae8fc302703 data/reagenica/loot_tables/blocks/blue_gypsum.json
@@ -162,6 +166,7 @@ d4ce24266dc0c80fe2b51200d6a53915002b97b7 data/reagenica/loot_tables/blocks/metas
 1889d02248452c2b2fc501a8feac2c948cbedebb data/reagenica/loot_tables/blocks/morion_block.json
 f620d6df939040533f3903e8aafecb0ba78b48b1 data/reagenica/loot_tables/blocks/morion_bud.json
 8579d0078b79d05e8f9d9df624e371054b2b1668 data/reagenica/loot_tables/blocks/morion_crystal.json
+9719f8e6302016d1dc2fcb9045239b699daa72e1 data/reagenica/loot_tables/blocks/mushroom_bed.json
 36c9f0768749a53a863b540341c7f78baac1719e data/reagenica/loot_tables/blocks/mushroom_inside_blue.json
 5c99fdc1b5dd9753df1865c731048d5a4c3d4704 data/reagenica/loot_tables/blocks/mushroom_inside_green.json
 285557c83919a6fdd04ba08e5ffeae7b7738e002 data/reagenica/loot_tables/blocks/mushroom_inside_purple.json

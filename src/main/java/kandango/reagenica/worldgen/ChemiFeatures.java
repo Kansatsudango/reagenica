@@ -27,4 +27,9 @@ public class ChemiFeatures {
   public static final ResourceKey<ConfiguredFeature<?, ?>> GINKGO = ResourceKey.create(Registries.CONFIGURED_FEATURE, new ResourceLocation(ChemistryMod.MODID, "ginkgo"));
   public static final ResourceKey<ConfiguredFeature<?, ?>> FICUS = ResourceKey.create(Registries.CONFIGURED_FEATURE, new ResourceLocation(ChemistryMod.MODID, "ficus"));
   public static final ResourceKey<ConfiguredFeature<?, ?>> MAGNOLIA = ResourceKey.create(Registries.CONFIGURED_FEATURE, new ResourceLocation(ChemistryMod.MODID, "magnolia"));
+  
+  public static final ResourceKey<ConfiguredFeature<?, ?>> LARGE_MUSHROOM_RED = ResourceKey.create(Registries.CONFIGURED_FEATURE, new ResourceLocation(ChemistryMod.MODID, "mushroom_red"));
+  public static final ResourceKey<ConfiguredFeature<?, ?>> LARGE_MUSHROOM_GREEN = ResourceKey.create(Registries.CONFIGURED_FEATURE, new ResourceLocation(ChemistryMod.MODID, "mushroom_green"));
+  public static final ResourceKey<ConfiguredFeature<?, ?>> LARGE_MUSHROOM_BLUE = ResourceKey.create(Registries.CONFIGURED_FEATURE, new ResourceLocation(ChemistryMod.MODID, "mushroom_blue"));
+  public static final ResourceKey<ConfiguredFeature<?, ?>> LARGE_MUSHROOM_PURPLE = ResourceKey.create(Registries.CONFIGURED_FEATURE, new ResourceLocation(ChemistryMod.MODID, "mushroom_purple"));
 }

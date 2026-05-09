@@ -1,5 +1,6 @@
 package kandango.reagenica.generator;
 
+import kandango.reagenica.ChemiBlocks;
 import kandango.reagenica.ChemistryMod;
 import kandango.reagenica.family.WoodFamily;
 import net.minecraft.data.PackOutput;
@@ -33,6 +34,7 @@ public class ChemiBlockStateProvider extends BlockStateProvider{
   @Override
   protected void registerStatesAndModels() {
     WoodFamily.Woods.forEach(this::processWood);
+    processCrosses();
   }
 
   private void registerStairBlockWithItem(RegistryObject<? extends StairBlock> stairs, RegistryObject<? extends Block> base){
@@ -113,6 +115,14 @@ public class ChemiBlockStateProvider extends BlockStateProvider{
             .addModels(new ConfiguredModel(model));
     itemModels().withExistingParent(name+"_hanging_sign", mcLoc("item/generated")).texture("layer0", modLoc("item/"+name+"_hanging_sign"));
   }
+  private void registerCrossBlock(RegistryObject<Block> block){
+    String name = block.getId().getPath();
+    ModelFile model = models().withExistingParent(name, mcLoc("block/cross")).texture("cross", modLoc("block/"+name)).renderType("cutout");
+    getVariantBuilder(block.get())
+            .partialState()
+            .addModels(new ConfiguredModel(model));
+    itemModels().withExistingParent(name, mcLoc("item/generated")).texture("layer0", modLoc("block/"+name));
+  }
 
   private void processWood(WoodFamily woodFamily){
     registerLogBlockWithItem(woodFamily.LOG);
@@ -132,5 +142,11 @@ public class ChemiBlockStateProvider extends BlockStateProvider{
     registerDoorBlockWithItem(woodFamily.DOOR, woodFamily.name);
     registerButtonBlockWithItem(woodFamily.BUTTON, woodFamily.name);
     registerPressurePlateBlockWithItem(woodFamily.PRESSURE_PLATE, woodFamily.name);
+  }
+  private void processCrosses(){
+    registerCrossBlock(ChemiBlocks.MUSHROOM_RED);
+    registerCrossBlock(ChemiBlocks.MUSHROOM_BLUE);
+    registerCrossBlock(ChemiBlocks.MUSHROOM_GREEN);
+    registerCrossBlock(ChemiBlocks.MUSHROOM_PURPLE);
   }
 }

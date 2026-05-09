@@ -1,13 +1,17 @@
 package kandango.reagenica.worldgen.mushroom;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 import javax.annotation.Nonnull;
 
 import com.mojang.serialization.Codec;
 
+import kandango.reagenica.ChemiTags;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.tags.BlockTags;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.state.BlockState;
@@ -26,14 +30,15 @@ public class LargeMushroomFeature extends Feature<LargeMushroomConfig>{
     BlockPos origin = ctx.origin();
     RandomSource random = ctx.random();
     LargeMushroomConfig config = ctx.config();
+    List<PosAndState> blocks = new ArrayList<>();
 
     final int height = config.height().sample(random);
 
     for(int y=0 ; y<height ; y++){
       BlockPos pos = origin.above(y);
-      setBlock(lv, pos, config.stem().getState(random, pos));
+      blocks.add(new PosAndState(pos, config.stem().getState(random, pos)));
       for(Direction dir : Direction.Plane.HORIZONTAL){
-        setBlock(lv, pos.relative(dir), config.stem().getState(random, pos));
+        blocks.add(new PosAndState(pos.relative(dir), config.stem().getState(random, pos)));
       }
     }
     final int capHeight = height/2+2;
@@ -46,12 +51,18 @@ public class LargeMushroomFeature extends Feature<LargeMushroomConfig>{
         for(int dz=-radius;dz<=radius;dz++){
           final BlockPos pos = center.offset(dx,0,dz);
           getStateForPlace(dx, dz, radius, pos, random, config, isLowest).ifPresent(state -> {
-            setBlock(lv, pos, state);
+            blocks.add(new PosAndState(pos, state));
           });
         }
       }
     }
-    return true;
+    boolean hasObstacle = blocks.stream().map(PosAndState::pos).map(lv::getBlockState).anyMatch(LargeMushroomFeature::isObstacle);
+    if(hasObstacle){
+      return false;
+    }else{
+      blocks.forEach(ps -> setBlock(lv, ps.pos, ps.state));
+      return true;
+    }
   }
   private Optional<BlockState> getStateForPlace(int dx, int dz, int radius, BlockPos pos, RandomSource random, LargeMushroomConfig cfg, boolean isFinalLevel){
     int sqDistance = dx*dx+dz*dz;
@@ -68,5 +79,12 @@ public class LargeMushroomFeature extends Feature<LargeMushroomConfig>{
     }else{
       return Optional.empty();
     }
+  }
+  private static boolean isObstacle(BlockState state){
+    return !state.isAir()
+      && !state.is(BlockTags.REPLACEABLE)
+      && !state.is(ChemiTags.Blocks.LARGE_MUSHROOMS);
+  }
+  private record PosAndState(BlockPos pos,BlockState state) {
   }
 }

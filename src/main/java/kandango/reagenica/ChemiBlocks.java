@@ -12,12 +12,14 @@ import kandango.reagenica.family.CrystalFamily;
 import kandango.reagenica.family.WoodFamily;
 import kandango.reagenica.generator.BlockLootType;
 import kandango.reagenica.item.ChemiFoodProperties;
+import kandango.reagenica.worldgen.ChemiFeatures;
 import kandango.reagenica.worldgen.forestry.*;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockBehaviour.OffsetType;
 import net.minecraft.world.level.material.MapColor;
+import net.minecraft.world.level.material.PushReaction;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -239,6 +241,24 @@ public class ChemiBlocks {
   public static final RegistryObject<Block> ADVANCED_FARMLAND = registerSilktouchBlockandlist("advanced_farmland", AdvancedFarmland::new);
   public static final RegistryObject<Item> ADVANCED_FARMLAND_ITEM = registerItemandlist("advanced_farmland",
     () -> new BlockItem(ADVANCED_FARMLAND.get(), new Item.Properties()));
+  public static final RegistryObject<Block> MUSHROOM_BED = registerSilktouchBlockandlist("mushroom_bed", MushroomBed::new);
+  public static final RegistryObject<Item> MUSHROOM_BED_ITEM = registerItemandlist("mushroom_bed",
+    () -> new BlockItem(MUSHROOM_BED.get(), new Item.Properties()));
+  private static final BlockBehaviour.Properties mushroom_props = BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BROWN).noCollission().randomTicks().instabreak().sound(SoundType.GRASS).lightLevel((p_50892_) -> {
+      return 7;
+   }).hasPostProcess((p,q,r)->true).pushReaction(PushReaction.DESTROY);
+  public static final RegistryObject<Block> MUSHROOM_RED = registerBlockandlist("bioluminescence_red_mushroom", () -> new MushroomBlock(mushroom_props, ChemiFeatures.LARGE_MUSHROOM_RED));
+  public static final RegistryObject<Item> MUSHROOM_RED_ITEM = registerItemandlist("bioluminescence_red_mushroom",
+    () -> new BlockItem(MUSHROOM_RED.get(), new Item.Properties()));
+  public static final RegistryObject<Block> MUSHROOM_GREEN = registerBlockandlist("bioluminescence_green_mushroom", () -> new MushroomBlock(mushroom_props, ChemiFeatures.LARGE_MUSHROOM_GREEN));
+  public static final RegistryObject<Item> MUSHROOM_GREEN_ITEM = registerItemandlist("bioluminescence_green_mushroom",
+    () -> new BlockItem(MUSHROOM_GREEN.get(), new Item.Properties()));
+  public static final RegistryObject<Block> MUSHROOM_BLUE = registerBlockandlist("bioluminescence_blue_mushroom", () -> new MushroomBlock(mushroom_props, ChemiFeatures.LARGE_MUSHROOM_BLUE));
+  public static final RegistryObject<Item> MUSHROOM_BLUE_ITEM = registerItemandlist("bioluminescence_blue_mushroom",
+    () -> new BlockItem(MUSHROOM_BLUE.get(), new Item.Properties()));
+  public static final RegistryObject<Block> MUSHROOM_PURPLE = registerBlockandlist("bioluminescence_purple_mushroom", () -> new MushroomBlock(mushroom_props, ChemiFeatures.LARGE_MUSHROOM_PURPLE));
+  public static final RegistryObject<Item> MUSHROOM_PURPLE_ITEM = registerItemandlist("bioluminescence_purple_mushroom",
+    () -> new BlockItem(MUSHROOM_PURPLE.get(), new Item.Properties()));
 
   public static final WoodFamily METASEQUOIA = new WoodFamily("metasequoia", () -> new MetasequoiaGrower());
   public static final WoodFamily TAXODIUM = new WoodFamily("taxodium", () -> new TaxodiumGrower());

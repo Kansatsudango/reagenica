@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "fertilized=0": {
+      "model": "reagenica:block/mushroom_bed"
+    },
+    "fertilized=1": {
+      "model": "reagenica:block/mushroom_bed_fertilized"
+    },
+    "fertilized=2": {
+      "model": "reagenica:block/mushroom_bed_fertilized"
+    },
+    "fertilized=3": {
+      "model": "reagenica:block/mushroom_bed_fertilized"
+    }
+  }
+}
