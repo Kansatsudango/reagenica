@@ -31,7 +31,7 @@ public class ChemiItemRoles {
     addRole(tooltip, "water_filter");
   }
   public static void mineWipe(@Nonnull List<Component> tooltip){
-    addRole(tooltip, "minewipe_role");
-    addWarn(tooltip, "minewipe_role_warn");
+    addRole(tooltip, "minewipe_lore");
+    addWarn(tooltip, "minewipe_lore_warn");
   }
 }

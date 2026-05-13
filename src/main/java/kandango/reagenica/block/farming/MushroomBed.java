@@ -1,5 +1,8 @@
 package kandango.reagenica.block.farming;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.annotation.Nonnull;
 
 import kandango.reagenica.ChemiBlocks;
@@ -51,6 +54,85 @@ public class MushroomBed extends Block{
   @Override
   public void randomTick(@Nonnull BlockState state, @Nonnull ServerLevel level, @Nonnull BlockPos pos, @Nonnull RandomSource random) {
     super.randomTick(state, level, pos, random);
-    if (!level.isAreaLoaded(pos, 1)) return; // Forge: prevent loading unloaded chunks when checking neighbor's light
+    if (!level.isAreaLoaded(pos, 2)) return; // Forge: prevent loading unloaded chunks when checking neighbor's light
+    if(random.nextInt(300)==0){
+      int fertilized = state.getValue(FERTILIZED);
+      if(fertilized>0){
+        level.setBlock(pos, state.setValue(FERTILIZED, fertilized-1), 3);
+      }
+    }
+    BlockState aboveState = level.getBlockState(pos.above());
+    if(aboveState.isAir()){
+      if(state.getValue(FERTILIZED)>0 || random.nextInt(4)==0){
+        MushroomMutationManager manager = new MushroomMutationManager();
+        for(int x=-2;x<=2;x++){
+          for(int z=-2;z<=2;z++){
+            BlockPos currentpos = pos.offset(x,1,z);
+            if(currentpos.equals(pos))continue;
+            BlockState mushroom = level.getBlockState(currentpos);
+            manager.addMushroom(mushroom, -1<=x && x<=1 && -1<=z && z<=1);
+          }
+        }
+        BlockState result = manager.getMutationResult(random);
+        if (!result.is(Blocks.AIR)) {
+          level.setBlock(pos.above(), result, 3);
+        }
+      }
+    }
+
+  }
+  public static class MushroomMutationManager {
+    private final List<BlockState> relativeMushrooms = new ArrayList<>();
+    private final List<BlockState> effectiveAreaMushrooms = new ArrayList<>();
+    public static final List<MutationCondition> mutationRules = new ArrayList<>();
+    static{
+      mutationRules.add(new MutationCondition(List.of(new BlockCounts(Blocks.BROWN_MUSHROOM, 1)), List.of(), List.of(), Blocks.BROWN_MUSHROOM.defaultBlockState(), 10));
+      mutationRules.add(new MutationCondition(List.of(new BlockCounts(Blocks.RED_MUSHROOM, 1)), List.of(), List.of(), Blocks.RED_MUSHROOM.defaultBlockState(), 10));
+      mutationRules.add(new MutationCondition(List.of(new BlockCounts(ChemiBlocks.MUSHROOM_RED.get(), 1)), List.of(), List.of(), ChemiBlocks.MUSHROOM_RED.get().defaultBlockState(), 10));
+      mutationRules.add(new MutationCondition(List.of(new BlockCounts(ChemiBlocks.MUSHROOM_GREEN.get(), 1)), List.of(), List.of(), ChemiBlocks.MUSHROOM_GREEN.get().defaultBlockState(), 10));
+      mutationRules.add(new MutationCondition(List.of(new BlockCounts(ChemiBlocks.MUSHROOM_BLUE.get(), 1)), List.of(), List.of(), ChemiBlocks.MUSHROOM_BLUE.get().defaultBlockState(), 10));
+      mutationRules.add(new MutationCondition(List.of(new BlockCounts(ChemiBlocks.MUSHROOM_PURPLE.get(), 1)), List.of(), List.of(), ChemiBlocks.MUSHROOM_PURPLE.get().defaultBlockState(), 10));
+      mutationRules.add(new MutationCondition(List.of(new BlockCounts(ChemiBlocks.MUSHROOM_GLOWING.get(), 1)), List.of(), List.of(), ChemiBlocks.MUSHROOM_GLOWING.get().defaultBlockState(), 10));
+      mutationRules.add(new MutationCondition(List.of(new BlockCounts(ChemiBlocks.BROWN_BISPORUS.get(), 1)), List.of(), List.of(), ChemiBlocks.BROWN_BISPORUS.get().defaultBlockState(), 10));
+      mutationRules.add(new MutationCondition(List.of(new BlockCounts(ChemiBlocks.WHITE_BISPORUS.get(), 1)), List.of(), List.of(), ChemiBlocks.WHITE_BISPORUS.get().defaultBlockState(), 10));
+      mutationRules.add(new MutationCondition(List.of(new BlockCounts(ChemiBlocks.GRIFOLA_FRONDOSA.get(), 1)), List.of(), List.of(), ChemiBlocks.GRIFOLA_FRONDOSA.get().defaultBlockState(), 10));
+      mutationRules.add(new MutationCondition(List.of(new BlockCounts(ChemiBlocks.TRICHOLOMA_MATSUTAKE.get(), 1)), List.of(), List.of(), ChemiBlocks.TRICHOLOMA_MATSUTAKE.get().defaultBlockState(), 10));
+      mutationRules.add(new MutationCondition(List.of(new BlockCounts(Blocks.BROWN_MUSHROOM, 2)), List.of(), List.of(), ChemiBlocks.BROWN_BISPORUS.get().defaultBlockState(), 1));
+      mutationRules.add(new MutationCondition(List.of(new BlockCounts(Blocks.BROWN_MUSHROOM, 1), new BlockCounts(ChemiBlocks.BROWN_BISPORUS.get(), 1)), List.of(), List.of(), ChemiBlocks.WHITE_BISPORUS.get().defaultBlockState(), 8));
+      mutationRules.add(new MutationCondition(List.of(new BlockCounts(ChemiBlocks.WHITE_BISPORUS.get(), 2), new BlockCounts(ChemiBlocks.BROWN_BISPORUS.get(), 2)), List.of(), List.of(), ChemiBlocks.GRIFOLA_FRONDOSA.get().defaultBlockState(), 4));
+      mutationRules.add(new MutationCondition(List.of(new BlockCounts(ChemiBlocks.GRIFOLA_FRONDOSA.get(), 2), new BlockCounts(ChemiBlocks.MUSHROOM_GLOWING.get(), 2)), List.of(), List.of(), ChemiBlocks.TRICHOLOMA_MATSUTAKE.get().defaultBlockState(), 4));
+      mutationRules.add(new MutationCondition(List.of(new BlockCounts(Blocks.RED_MUSHROOM, 2)), List.of(), List.of(), ChemiBlocks.MUSHROOM_GLOWING.get().defaultBlockState(), 1));
+      mutationRules.add(new MutationCondition(List.of(new BlockCounts(ChemiBlocks.MUSHROOM_GLOWING.get(), 2), new BlockCounts(Blocks.RED_MUSHROOM, 2)), List.of(), List.of(), ChemiBlocks.MUSHROOM_RED.get().defaultBlockState(), 4));
+      mutationRules.add(new MutationCondition(List.of(new BlockCounts(ChemiBlocks.MUSHROOM_RED.get(), 2), new BlockCounts(ChemiBlocks.TRICHOLOMA_MATSUTAKE.get(), 2)), List.of(), List.of(), ChemiBlocks.MUSHROOM_GREEN.get().defaultBlockState(), 2));
+      mutationRules.add(new MutationCondition(List.of(new BlockCounts(ChemiBlocks.MUSHROOM_RED.get(), 2), new BlockCounts(ChemiBlocks.TRICHOLOMA_MATSUTAKE.get(), 2)), List.of(), List.of(), ChemiBlocks.MUSHROOM_BLUE.get().defaultBlockState(), 2));
+      mutationRules.add(new MutationCondition(List.of(new BlockCounts(ChemiBlocks.MUSHROOM_RED.get(), 2), new BlockCounts(ChemiBlocks.TRICHOLOMA_MATSUTAKE.get(), 2)), List.of(), List.of(), ChemiBlocks.MUSHROOM_PURPLE.get().defaultBlockState(), 2));
+    }
+
+    public void addMushroom(BlockState mushroom, boolean isRelative) {
+      if (isRelative) {
+        relativeMushrooms.add(mushroom);
+      }
+      effectiveAreaMushrooms.add(mushroom);
+    }
+    public BlockState getMutationResult(RandomSource random) {
+      List<BlockState> possibleResults = new ArrayList<>();
+      mutationRules.stream().filter(rule -> rule.conditions.stream().allMatch(bc -> hasMushroomsMoreThan(relativeMushrooms, bc.block(), bc.count())))
+        .forEach(c -> addToList(possibleResults, c.result(), c.weight()));
+      return possibleResults.isEmpty() ? Blocks.AIR.defaultBlockState() : possibleResults.get(random.nextInt(possibleResults.size()));
+    }
+    private static void addToList(List<BlockState> list, BlockState state, int count) {
+      for(int i=0;i<count;i++){
+        list.add(state);
+      }
+    }
+
+    public static boolean hasMushroomsMoreThan(List<BlockState> relative, Block block, int count) {
+      return relative.stream().filter(s -> s.is(block)).count() >= count;
+    }
+    
+    public static record MutationCondition(List<BlockCounts> conditions, List<BlockCounts> areaCondition, List<BlockCounts> areaDeny, BlockState result, int weight) {
+    }
+    public static record BlockCounts(Block block, int count) {
+    }
   }
 }
