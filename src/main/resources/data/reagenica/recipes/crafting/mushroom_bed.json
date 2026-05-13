@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    { "item": "reagenica:wood_chips" },
+    { "item": "minecraft:dirt" }
+  ],
+  "result": {
+    "item": "reagenica:mushroom_bed",
+    "count": 1
+  }
+}

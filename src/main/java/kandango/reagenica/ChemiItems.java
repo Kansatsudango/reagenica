@@ -182,6 +182,7 @@ public class ChemiItems {
   public static final RegistryObject<ReagentPowderIndustrial> SULFUR = registerandlist("sulfur", () -> new ReagentPowderIndustrial(new ReagentProperties("S",0xFFF2EA13,2,2,1),new Item.Properties()));
   public static final RegistryObject<Item> POWDER_CRYOLITE = registerandlist("powder_cryolite", () -> new ReagentPowderIndustrial(new ReagentProperties("Na3AlF6",0xFFFFFFE0,0,0,0),new Item.Properties()));
   public static final RegistryObject<Item> ALUMINA_WITH_CRYOLITE = registerandlist("alumina_with_cryolite", () -> new Item(new Item.Properties()));
+  public static final RegistryObject<Item> WOOD_CHIPS = registerandlist("wood_chips", () -> new Item(new Item.Properties()));
   public static final RegistryObject<Item> URANIUM_NUGGET = registerandlist("uranium_nugget", () -> new Reagent(new ReagentProperties("U",0,4,0,1),new Item.Properties()));
   public static final RegistryObject<Item> COBALT_NUGGET = registerandlist("cobalt_nugget", () -> new Reagent(new ReagentProperties("Co",0,3,0,2),new Item.Properties()));
   public static final RegistryObject<Item> PLUTONIUM_NUGGET = registerandlist("plutonium_nugget", () -> new Reagent(new ReagentProperties("Pu",0,4,0,1),new Item.Properties().rarity(Rarity.UNCOMMON)));
@@ -231,6 +232,7 @@ public class ChemiItems {
   public static final RegistryObject<Item> IRIDIUM_BAG = registerandlist("iridium_bag", () -> new CommonBag<>(54, 140, ModMenus.IRIDIUM_BAG_MENU));
   public static final RegistryObject<Item> FERTILIZER = registerandlist("fertilizer", () -> new Fertilizer());
   public static final RegistryObject<Item> PHOSPHO_FERTILIZER = registerandlist("phospho_fertilizer", () -> new PhosphoFertilizer());
+  public static final RegistryObject<Item> MUSHROOM_FERTILIZER = registerandlist("mushroom_fertilizer", () -> new MushroomFertilizer());
   public static final RegistryObject<Item> MINEWIPE = registerandlist("minewipe", () -> new RoleItem(new Item.Properties(), ChemiItemRoles::mineWipe));
   public static final RegistryObject<Item> SILVER_ARROW = registerandlist("silver_arrow", () -> new SilverArrowItem());
   public static final RegistryObject<Item> SILVER_BOW = registerandlist("silver_bow", () -> new SilverBowItem());

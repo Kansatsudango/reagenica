@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    { "item": "reagenica:wood_chips" },
+    { "item": "reagenica:fertilizer" }
+  ],
+  "result": {
+    "item": "reagenica:mushroom_fertilizer",
+    "count": 1
+  }
+}

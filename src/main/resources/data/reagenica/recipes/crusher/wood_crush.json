@@ -1,0 +1,10 @@
+{
+  "type": "reagenica:crushing",
+  "input": {
+    "tag": "minecraft:planks"
+  },
+  "result": {
+    "item": "reagenica:wood_chips",
+    "count": 1
+  }
+}

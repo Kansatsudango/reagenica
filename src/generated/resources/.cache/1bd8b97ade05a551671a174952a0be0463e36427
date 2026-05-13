@@ -1,4 +1,4 @@
-// 1.20.1	2026-05-09T12:41:35.181923	Item Models: reagenica
+// 1.20.1	2026-05-13T16:35:27.2794138	Item Models: reagenica
 6f0d9872c5f176206015dd5f6420e71fe71f2cb9 assets/reagenica/models/item/acetobacter.json
 54ef03ed6b05d449bef3092145440fb8c97020f5 assets/reagenica/models/item/adipamide.json
 54ef03ed6b05d449bef3092145440fb8c97020f5 assets/reagenica/models/item/adipic_acid.json
@@ -232,6 +232,7 @@ b135afb3de0c23b1cce78eaf66e883bcc35655fd assets/reagenica/models/item/morion_amu
 57dca10878d9689ad2bc480e5d4e7f8a98bb0e8e assets/reagenica/models/item/mox_fuel.json
 5849ecd17927e793987a5242d7416e72b23598f7 assets/reagenica/models/item/mox_fuel_rod.json
 f2f6bcbf7d6374ead7b8c65f37e78c56cea5a439 assets/reagenica/models/item/mushroom_bed.json
+34b45594bc4f1d348dee674ee828e33d10a0a839 assets/reagenica/models/item/mushroom_fertilizer.json
 b447958913066024e611554f27524afcf0d6747b assets/reagenica/models/item/mushroom_inside_blue.json
 aeaa059f9f735a9982c2d5b6c5d7433c5e1357a4 assets/reagenica/models/item/mushroom_inside_green.json
 9ed09654b823fafb3241c86ed93509dada1afb37 assets/reagenica/models/item/mushroom_inside_purple.json
@@ -437,6 +438,7 @@ e0e41f9ae060c1a08d50dbd9d8ebbeadfecd530b assets/reagenica/models/item/wild_corn.
 26ce5abd97267449881bec7cd9a4aa1b8c89f9da assets/reagenica/models/item/wild_tomato.json
 54ef03ed6b05d449bef3092145440fb8c97020f5 assets/reagenica/models/item/wine.json
 3bf6406a57c05d9f4d5a800568057409cdc82320 assets/reagenica/models/item/wine_bucket.json
+c6b74f39cb356e3cd4e6530cd089f9dc34ebec40 assets/reagenica/models/item/wood_chips.json
 6f0d9872c5f176206015dd5f6420e71fe71f2cb9 assets/reagenica/models/item/yeast.json
 54ef03ed6b05d449bef3092145440fb8c97020f5 assets/reagenica/models/item/yellow_azo_dye.json
 e814f69cc7f1c4747548cf03cd0e199bc42e2a2a assets/reagenica/models/item/yellow_gypsum.json

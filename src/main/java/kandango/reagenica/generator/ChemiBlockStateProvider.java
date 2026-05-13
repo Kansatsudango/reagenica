@@ -148,5 +148,10 @@ public class ChemiBlockStateProvider extends BlockStateProvider{
     registerCrossBlock(ChemiBlocks.MUSHROOM_BLUE);
     registerCrossBlock(ChemiBlocks.MUSHROOM_GREEN);
     registerCrossBlock(ChemiBlocks.MUSHROOM_PURPLE);
+    registerCrossBlock(ChemiBlocks.MUSHROOM_GLOWING);
+    registerCrossBlock(ChemiBlocks.BROWN_BISPORUS);
+    registerCrossBlock(ChemiBlocks.WHITE_BISPORUS);
+    registerCrossBlock(ChemiBlocks.GRIFOLA_FRONDOSA);
+    registerCrossBlock(ChemiBlocks.TRICHOLOMA_MATSUTAKE);
   }
 }
