@@ -10,6 +10,7 @@ import kandango.reagenica.ChemiFluids;
 import kandango.reagenica.ChemiItems;
 import kandango.reagenica.block.entity.HaberBoschBlockEntity;
 import kandango.reagenica.block.entity.electrical.AirSeparatorBlockEntity;
+import kandango.reagenica.block.farming.MushroomBed;
 import kandango.reagenica.block.fluid.ChemiFluidBurnMap;
 import kandango.reagenica.block.fluid.ChemiFluidBurnrate;
 import kandango.reagenica.item.reagent.ReagentFluidMap;
@@ -51,6 +52,7 @@ public class ChemistryJEIPluginInternal implements IModPlugin{
     registration.addRecipeCategories(new IncubatorCategory(registration.getJeiHelpers()));
     registration.addRecipeCategories(new PEMCategory(registration.getJeiHelpers()));
     registration.addRecipeCategories(new FiltrationCategory(registration.getJeiHelpers()));
+    registration.addRecipeCategories(new MutationConditionCategory(registration.getJeiHelpers()));
   }
 
   @Override
@@ -100,6 +102,9 @@ public class ChemistryJEIPluginInternal implements IModPlugin{
     }{
       List<FiltrationRecipe> recipes = FiltrationRecipe.getRecipes();
       registration.addRecipes(FiltrationCategory.TYPE, recipes);
+    }{
+      List<MushroomBed.MushroomMutationManager.MutationCondition> recipes = MushroomBed.MushroomMutationManager.mutationRules;
+      registration.addRecipes(MutationConditionCategory.TYPE, recipes);
     }
   }
 
@@ -113,5 +118,6 @@ public class ChemistryJEIPluginInternal implements IModPlugin{
     reg.addRecipeCatalyst(new ItemStack(ChemiBlocks.INCUBATOR.get()), IncubatorCategory.TYPE);
     reg.addRecipeCatalyst(new ItemStack(ChemiBlocks.PEM_DEVICE.get()), PEMCategory.TYPE);
     reg.addRecipeCatalyst(new ItemStack(ChemiBlocks.FILTRATION_DEVICE.get()), FiltrationCategory.TYPE);
+    reg.addRecipeCatalyst(new ItemStack(ChemiBlocks.MUSHROOM_BED.get()), MutationConditionCategory.TYPE);
   }
 }

@@ -845,6 +845,7 @@
   "jei.reagenica.hydrogen_reduction": "水素還元",
   "jei.reagenica.pem": "水の電気分解",
   "jei.reagenica.filtration": "ろ過",
+  "jei.reagenica.mutation_condition": "変異条件",
   "jei.reagenica.contamination_top": "未滅菌のプレートは成長途中で",
   "jei.reagenica.contamination_bottom": "コンタミすることがあります"
 }

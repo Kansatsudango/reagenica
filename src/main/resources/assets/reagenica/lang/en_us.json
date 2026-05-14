@@ -845,6 +845,7 @@
   "jei.reagenica.hydrogen_reduction": "Hydrogen Reduction",
   "jei.reagenica.pem": "Water Electrolysis",
   "jei.reagenica.filtration": "Filtration",
+  "jei.reagenica.mutation_condition": "Mutation Condition",
   "jei.reagenica.contamination_top": "Unsterilized plates may become",
   "jei.reagenica.contamination_bottom": "contaminated during growth."
 }
