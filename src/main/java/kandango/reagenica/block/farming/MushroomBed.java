@@ -63,7 +63,7 @@ public class MushroomBed extends Block{
     }
     BlockState aboveState = level.getBlockState(pos.above());
     if(aboveState.isAir()){
-      if(state.getValue(FERTILIZED)>0 || random.nextInt(4)==0){
+      if((state.getValue(FERTILIZED)>0 && random.nextInt(2)==0) || random.nextInt(6)==0){
         MushroomMutationManager manager = new MushroomMutationManager();
         for(int x=-2;x<=2;x++){
           for(int z=-2;z<=2;z++){
@@ -86,27 +86,27 @@ public class MushroomBed extends Block{
     private final List<BlockState> effectiveAreaMushrooms = new ArrayList<>();
     public static final List<MutationCondition> mutationRules = new ArrayList<>();
     static{
-      mutationRules.add(new MutationCondition(List.of(new BlockCounts(Blocks.BROWN_MUSHROOM, 1)), List.of(), List.of(), Blocks.BROWN_MUSHROOM.defaultBlockState(), 10));
-      mutationRules.add(new MutationCondition(List.of(new BlockCounts(Blocks.RED_MUSHROOM, 1)), List.of(), List.of(), Blocks.RED_MUSHROOM.defaultBlockState(), 10));
-      mutationRules.add(new MutationCondition(List.of(new BlockCounts(ChemiBlocks.MUSHROOM_RED.get(), 1)), List.of(), List.of(), ChemiBlocks.MUSHROOM_RED.get().defaultBlockState(), 10));
-      mutationRules.add(new MutationCondition(List.of(new BlockCounts(ChemiBlocks.MUSHROOM_GREEN.get(), 1)), List.of(), List.of(), ChemiBlocks.MUSHROOM_GREEN.get().defaultBlockState(), 10));
-      mutationRules.add(new MutationCondition(List.of(new BlockCounts(ChemiBlocks.MUSHROOM_BLUE.get(), 1)), List.of(), List.of(), ChemiBlocks.MUSHROOM_BLUE.get().defaultBlockState(), 10));
-      mutationRules.add(new MutationCondition(List.of(new BlockCounts(ChemiBlocks.MUSHROOM_PURPLE.get(), 1)), List.of(), List.of(), ChemiBlocks.MUSHROOM_PURPLE.get().defaultBlockState(), 10));
-      mutationRules.add(new MutationCondition(List.of(new BlockCounts(ChemiBlocks.MUSHROOM_GLOWING.get(), 1)), List.of(), List.of(), ChemiBlocks.MUSHROOM_GLOWING.get().defaultBlockState(), 10));
-      mutationRules.add(new MutationCondition(List.of(new BlockCounts(ChemiBlocks.BROWN_BISPORUS.get(), 1)), List.of(), List.of(), ChemiBlocks.BROWN_BISPORUS.get().defaultBlockState(), 10));
-      mutationRules.add(new MutationCondition(List.of(new BlockCounts(ChemiBlocks.WHITE_BISPORUS.get(), 1)), List.of(), List.of(), ChemiBlocks.WHITE_BISPORUS.get().defaultBlockState(), 10));
-      mutationRules.add(new MutationCondition(List.of(new BlockCounts(ChemiBlocks.GRIFOLA_FRONDOSA.get(), 1)), List.of(), List.of(), ChemiBlocks.GRIFOLA_FRONDOSA.get().defaultBlockState(), 10));
-      mutationRules.add(new MutationCondition(List.of(new BlockCounts(ChemiBlocks.TRICHOLOMA_MATSUTAKE.get(), 1)), List.of(), List.of(), ChemiBlocks.TRICHOLOMA_MATSUTAKE.get().defaultBlockState(), 10));
-      mutationRules.add(new MutationCondition(List.of(new BlockCounts(Blocks.BROWN_MUSHROOM, 2)), List.of(), List.of(), ChemiBlocks.BROWN_BISPORUS.get().defaultBlockState(), 1));
-      mutationRules.add(new MutationCondition(List.of(new BlockCounts(Blocks.BROWN_MUSHROOM, 1), new BlockCounts(ChemiBlocks.BROWN_BISPORUS.get(), 1)), List.of(), List.of(), ChemiBlocks.WHITE_BISPORUS.get().defaultBlockState(), 8));
-      mutationRules.add(new MutationCondition(List.of(new BlockCounts(ChemiBlocks.WHITE_BISPORUS.get(), 2), new BlockCounts(ChemiBlocks.BROWN_BISPORUS.get(), 2)), List.of(), List.of(), ChemiBlocks.GRIFOLA_FRONDOSA.get().defaultBlockState(), 4));
-      mutationRules.add(new MutationCondition(List.of(new BlockCounts(ChemiBlocks.GRIFOLA_FRONDOSA.get(), 2), new BlockCounts(ChemiBlocks.MUSHROOM_GLOWING.get(), 2)), List.of(), List.of(), ChemiBlocks.TRICHOLOMA_MATSUTAKE.get().defaultBlockState(), 4));
-      mutationRules.add(new MutationCondition(List.of(new BlockCounts(Blocks.RED_MUSHROOM, 2)), List.of(), List.of(), ChemiBlocks.MUSHROOM_GLOWING.get().defaultBlockState(), 1));
-      mutationRules.add(new MutationCondition(List.of(new BlockCounts(ChemiBlocks.MUSHROOM_GLOWING.get(), 2), new BlockCounts(Blocks.RED_MUSHROOM, 2)), List.of(), List.of(), ChemiBlocks.MUSHROOM_RED.get().defaultBlockState(), 4));
-      mutationRules.add(new MutationCondition(List.of(new BlockCounts(ChemiBlocks.MUSHROOM_RED.get(), 2), new BlockCounts(ChemiBlocks.TRICHOLOMA_MATSUTAKE.get(), 2)), List.of(), List.of(), ChemiBlocks.MUSHROOM_GREEN.get().defaultBlockState(), 6));
-      mutationRules.add(new MutationCondition(List.of(new BlockCounts(ChemiBlocks.MUSHROOM_GREEN.get(), 2), new BlockCounts(ChemiBlocks.TRICHOLOMA_MATSUTAKE.get(), 2)), List.of(), List.of(), ChemiBlocks.MUSHROOM_BLUE.get().defaultBlockState(), 6));
-      mutationRules.add(new MutationCondition(List.of(new BlockCounts(ChemiBlocks.MUSHROOM_BLUE.get(), 2), new BlockCounts(ChemiBlocks.TRICHOLOMA_MATSUTAKE.get(), 2)), List.of(), List.of(), ChemiBlocks.MUSHROOM_PURPLE.get().defaultBlockState(), 6));
-      mutationRules.add(new MutationCondition(List.of(new BlockCounts(ChemiBlocks.MUSHROOM_PURPLE.get(), 2), new BlockCounts(ChemiBlocks.TRICHOLOMA_MATSUTAKE.get(), 2)), List.of(), List.of(), ChemiBlocks.MUSHROOM_RED.get().defaultBlockState(), 6));
+      mutationRules.add(new MutationCondition(false, List.of(new BlockCounts(Blocks.BROWN_MUSHROOM, 1)), List.of(), List.of(), Blocks.BROWN_MUSHROOM.defaultBlockState(), 10));
+      mutationRules.add(new MutationCondition(false, List.of(new BlockCounts(Blocks.RED_MUSHROOM, 1)), List.of(), List.of(), Blocks.RED_MUSHROOM.defaultBlockState(), 10));
+      mutationRules.add(new MutationCondition(false, List.of(new BlockCounts(ChemiBlocks.MUSHROOM_RED.get(), 1)), List.of(), List.of(), ChemiBlocks.MUSHROOM_RED.get().defaultBlockState(), 10));
+      mutationRules.add(new MutationCondition(false, List.of(new BlockCounts(ChemiBlocks.MUSHROOM_GREEN.get(), 1)), List.of(), List.of(), ChemiBlocks.MUSHROOM_GREEN.get().defaultBlockState(), 10));
+      mutationRules.add(new MutationCondition(false, List.of(new BlockCounts(ChemiBlocks.MUSHROOM_BLUE.get(), 1)), List.of(), List.of(), ChemiBlocks.MUSHROOM_BLUE.get().defaultBlockState(), 10));
+      mutationRules.add(new MutationCondition(false, List.of(new BlockCounts(ChemiBlocks.MUSHROOM_PURPLE.get(), 1)), List.of(), List.of(), ChemiBlocks.MUSHROOM_PURPLE.get().defaultBlockState(), 10));
+      mutationRules.add(new MutationCondition(false, List.of(new BlockCounts(ChemiBlocks.MUSHROOM_GLOWING.get(), 1)), List.of(), List.of(), ChemiBlocks.MUSHROOM_GLOWING.get().defaultBlockState(), 10));
+      mutationRules.add(new MutationCondition(false, List.of(new BlockCounts(ChemiBlocks.BROWN_BISPORUS.get(), 1)), List.of(), List.of(), ChemiBlocks.BROWN_BISPORUS.get().defaultBlockState(), 10));
+      mutationRules.add(new MutationCondition(false, List.of(new BlockCounts(ChemiBlocks.WHITE_BISPORUS.get(), 1)), List.of(), List.of(), ChemiBlocks.WHITE_BISPORUS.get().defaultBlockState(), 10));
+      mutationRules.add(new MutationCondition(false, List.of(new BlockCounts(ChemiBlocks.GRIFOLA_FRONDOSA.get(), 1)), List.of(), List.of(), ChemiBlocks.GRIFOLA_FRONDOSA.get().defaultBlockState(), 10));
+      mutationRules.add(new MutationCondition(false, List.of(new BlockCounts(ChemiBlocks.TRICHOLOMA_MATSUTAKE.get(), 1)), List.of(), List.of(), ChemiBlocks.TRICHOLOMA_MATSUTAKE.get().defaultBlockState(), 10));
+      mutationRules.add(new MutationCondition(true,  List.of(new BlockCounts(Blocks.BROWN_MUSHROOM, 2)), List.of(), List.of(), ChemiBlocks.BROWN_BISPORUS.get().defaultBlockState(), 1));
+      mutationRules.add(new MutationCondition(true,  List.of(new BlockCounts(Blocks.BROWN_MUSHROOM, 1), new BlockCounts(ChemiBlocks.BROWN_BISPORUS.get(), 1)), List.of(), List.of(), ChemiBlocks.WHITE_BISPORUS.get().defaultBlockState(), 8));
+      mutationRules.add(new MutationCondition(true,  List.of(new BlockCounts(ChemiBlocks.WHITE_BISPORUS.get(), 2), new BlockCounts(ChemiBlocks.BROWN_BISPORUS.get(), 2)), List.of(), List.of(), ChemiBlocks.GRIFOLA_FRONDOSA.get().defaultBlockState(), 4));
+      mutationRules.add(new MutationCondition(true,  List.of(new BlockCounts(ChemiBlocks.GRIFOLA_FRONDOSA.get(), 2), new BlockCounts(ChemiBlocks.MUSHROOM_GLOWING.get(), 2)), List.of(), List.of(), ChemiBlocks.TRICHOLOMA_MATSUTAKE.get().defaultBlockState(), 4));
+      mutationRules.add(new MutationCondition(true,  List.of(new BlockCounts(Blocks.RED_MUSHROOM, 2)), List.of(), List.of(), ChemiBlocks.MUSHROOM_GLOWING.get().defaultBlockState(), 1));
+      mutationRules.add(new MutationCondition(true,  List.of(new BlockCounts(ChemiBlocks.MUSHROOM_GLOWING.get(), 2), new BlockCounts(Blocks.RED_MUSHROOM, 2)), List.of(), List.of(), ChemiBlocks.MUSHROOM_RED.get().defaultBlockState(), 4));
+      mutationRules.add(new MutationCondition(true,  List.of(new BlockCounts(ChemiBlocks.MUSHROOM_RED.get(), 2), new BlockCounts(ChemiBlocks.TRICHOLOMA_MATSUTAKE.get(), 2)), List.of(), List.of(), ChemiBlocks.MUSHROOM_GREEN.get().defaultBlockState(), 6));
+      mutationRules.add(new MutationCondition(true,  List.of(new BlockCounts(ChemiBlocks.MUSHROOM_GREEN.get(), 2), new BlockCounts(ChemiBlocks.TRICHOLOMA_MATSUTAKE.get(), 2)), List.of(), List.of(), ChemiBlocks.MUSHROOM_BLUE.get().defaultBlockState(), 6));
+      mutationRules.add(new MutationCondition(true,  List.of(new BlockCounts(ChemiBlocks.MUSHROOM_BLUE.get(), 2), new BlockCounts(ChemiBlocks.TRICHOLOMA_MATSUTAKE.get(), 2)), List.of(), List.of(), ChemiBlocks.MUSHROOM_PURPLE.get().defaultBlockState(), 6));
+      mutationRules.add(new MutationCondition(true,  List.of(new BlockCounts(ChemiBlocks.MUSHROOM_PURPLE.get(), 2), new BlockCounts(ChemiBlocks.TRICHOLOMA_MATSUTAKE.get(), 2)), List.of(), List.of(), ChemiBlocks.MUSHROOM_RED.get().defaultBlockState(), 6));
     }
 
     public void addMushroom(BlockState mushroom, boolean isRelative) {
@@ -130,8 +130,12 @@ public class MushroomBed extends Block{
     public static boolean hasMushroomsMoreThan(List<BlockState> relative, Block block, int count) {
       return relative.stream().filter(s -> s.is(block)).count() >= count;
     }
-    
-    public static record MutationCondition(List<BlockCounts> conditions, List<BlockCounts> areaCondition, List<BlockCounts> areaDeny, BlockState result, int weight) {
+
+    public static List<MutationCondition> getMutationList(){
+      return mutationRules.stream().filter(c -> c.isMutation).toList();
+    }
+
+    public static record MutationCondition(boolean isMutation, List<BlockCounts> conditions, List<BlockCounts> areaCondition, List<BlockCounts> areaDeny, BlockState result, int weight) {
     }
     public static record BlockCounts(Block block, int count) {
     }

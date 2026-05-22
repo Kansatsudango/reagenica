@@ -103,7 +103,7 @@ public class ChemistryJEIPluginInternal implements IModPlugin{
       List<FiltrationRecipe> recipes = FiltrationRecipe.getRecipes();
       registration.addRecipes(FiltrationCategory.TYPE, recipes);
     }{
-      List<MushroomBed.MushroomMutationManager.MutationCondition> recipes = MushroomBed.MushroomMutationManager.mutationRules;
+      List<MushroomBed.MushroomMutationManager.MutationCondition> recipes = MushroomBed.MushroomMutationManager.getMutationList();
       registration.addRecipes(MutationConditionCategory.TYPE, recipes);
     }
   }
