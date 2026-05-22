@@ -1,4 +1,4 @@
-// 1.20.1	2026-05-13T16:35:27.2794138	Item Models: reagenica
+// 1.20.1	2026-05-22T15:51:49.0234955	Item Models: reagenica
 6f0d9872c5f176206015dd5f6420e71fe71f2cb9 assets/reagenica/models/item/acetobacter.json
 54ef03ed6b05d449bef3092145440fb8c97020f5 assets/reagenica/models/item/adipamide.json
 54ef03ed6b05d449bef3092145440fb8c97020f5 assets/reagenica/models/item/adipic_acid.json
@@ -79,6 +79,7 @@ bdcf16887f55bfe1a7ad16f6f9cbca15db9ebdfe assets/reagenica/models/item/citrine_cr
 834f9e76e82129517025bcc86a1cae1b8548fc48 assets/reagenica/models/item/cobalt_ingot.json
 336c076e123d940e6c87d9aaca553759cb59a6aa assets/reagenica/models/item/cobalt_nugget.json
 6f0d9872c5f176206015dd5f6420e71fe71f2cb9 assets/reagenica/models/item/contaminated_sample.json
+0d7fa69cc9cf923fe8e9ab93c09beaa60661bf70 assets/reagenica/models/item/cooked_matsutake.json
 367b0122921a0b531e6ff028c3e27959194f35a1 assets/reagenica/models/item/cooked_onion.json
 394bfb3bd73d50188aa973a14b1bfe3e956b5655 assets/reagenica/models/item/cooking_pot.json
 54ef03ed6b05d449bef3092145440fb8c97020f5 assets/reagenica/models/item/cooking_sake.json
@@ -211,6 +212,8 @@ e8045e6eb57e90cfe6ada76702637cb4fb6c60e6 assets/reagenica/models/item/kimberlite
 b092f46905ade059ca09dcaebe9c065f668783e7 assets/reagenica/models/item/lead_ingot.json
 20484fbc7bce3602a90f49ff9a52c29849bebc4b assets/reagenica/models/item/lead_ore.json
 27cdc16cbad77cc6ed6e2339d9a571325bcca271 assets/reagenica/models/item/lead_oxide.json
+cb007f03b75d10c7d1658dbff99a74a8dc62e049 assets/reagenica/models/item/maitake_salmon_gohan.json
+827df929c2055e895e02eb604cde23ec84df0c44 assets/reagenica/models/item/matsutake_gohan.json
 79aa526b3b3539467c76e325e0df9d6c649d6d75 assets/reagenica/models/item/meatsauce_spaghetti.json
 b3bdd269189787d0d2ffae4c7f57806d28311f31 assets/reagenica/models/item/meat_wine.json
 54ef03ed6b05d449bef3092145440fb8c97020f5 assets/reagenica/models/item/medium_agar.json

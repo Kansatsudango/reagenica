@@ -2,7 +2,7 @@
   "type": "reagenica:cooking",
   "inputs": [
     { "item": "minecraft:egg" },
-    { "tag" : "forge:mushrooms" },
+    { "tag": "reagenica:edible_mushrooms" },
     { "item": "reagenica:roasted_ginkgo" },
     { "item": "minecraft:chicken" },
     { "item": "reagenica:soy_sauce" },

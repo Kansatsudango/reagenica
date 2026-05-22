@@ -3,7 +3,7 @@
   "inputs": [
     { "item": "minecraft:carrot" },
     { "item": "minecraft:potato" },
-    { "tag": "forge:mushrooms" },
+    { "tag": "reagenica:edible_mushrooms" },
     { "item": "minecraft:beef" },
     { "tag": "reagenica:onions" },
     { "item": "reagenica:wine" }

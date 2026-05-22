@@ -1,0 +1,9 @@
+{
+  "type": "reagenica:cooking",
+  "inputs": [
+    { "item": "reagenica:rice" },
+    { "item": "reagenica:soy_sauce" },
+    { "item": "reagenica:tricholoma_matsutake" }
+  ],
+  "result": { "item": "reagenica:matsutake_gohan", "count": 1 }
+}

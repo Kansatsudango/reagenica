@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "minecraft:brown_mushroom",
+    "reagenica:brown_bisporus",
+    "reagenica:white_bisporus",
+    "reagenica:grifola_frondosa",
+    "reagenica:tricholoma_matsutake"
+  ]
+}

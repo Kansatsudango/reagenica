@@ -187,6 +187,26 @@ public class ChemiFoodProperties {
             .effect(() -> new MobEffectInstance(MobEffects.DAMAGE_BOOST, 1200, 0), 1.0f)
             .alwaysEat()
             .build();
+  public static final FoodProperties MAITAKE_SALMON_GOHAN = new FoodProperties.Builder()
+            .nutrition(12)
+            .saturationMod(1.2f)
+            .effect(() -> new MobEffectInstance(MobEffects.DIG_SPEED, 4800, 1), 1.0f)
+            .effect(() -> new MobEffectInstance(MobEffects.FIRE_RESISTANCE, 4800, 0), 1.0f)
+            .alwaysEat()
+            .build();
+  public static final FoodProperties MATSUTAKE_GOHAN = new FoodProperties.Builder()
+            .nutrition(8)
+            .saturationMod(1.2f)
+            .effect(() -> new MobEffectInstance(MobEffects.DIG_SPEED, 3200, 1), 1.0f)
+            .effect(() -> new MobEffectInstance(MobEffects.REGENERATION, 200, 2), 1.0f)
+            .alwaysEat()
+            .build();
+  public static final FoodProperties COOKED_MATSUTAKE = new FoodProperties.Builder()
+            .nutrition(6)
+            .saturationMod(0.9f)
+            .effect(() -> new MobEffectInstance(MobEffects.REGENERATION, 200, 2), 1.0f)
+            .alwaysEat()
+            .build();
   public static final FoodProperties RAW_VEGETABLES = new FoodProperties.Builder()
             .nutrition(3)
             .saturationMod(0.8f)

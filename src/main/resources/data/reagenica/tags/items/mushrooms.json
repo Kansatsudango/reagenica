@@ -1,6 +1,11 @@
 {
   "replace": false,
   "values": [
-    "#forge:mushrooms"
+    "#reagenica:edible_mushrooms",
+    "reagenica:bioluminescence_mushroom",
+    "reagenica:bioluminescence_red_mushroom",
+    "reagenica:bioluminescence_green_mushroom",
+    "reagenica:bioluminescence_blue_mushroom",
+    "reagenica:bioluminescence_purple_mushroom"
   ]
 }
