@@ -103,6 +103,10 @@
       "reagenica:mushrooms",
       "minecraft:brown_mushroom_normal",
       "minecraft:red_mushroom_normal",
+      "reagenica:mushroom_red_island",
+      "reagenica:mushroom_green_island",
+      "reagenica:mushroom_blue_island",
+      "reagenica:mushroom_purple_island",
       "minecraft:patch_sugar_cane",
       "minecraft:seagrass_river"
     ],

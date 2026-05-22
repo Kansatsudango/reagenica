@@ -103,9 +103,10 @@ public class MushroomBed extends Block{
       mutationRules.add(new MutationCondition(List.of(new BlockCounts(ChemiBlocks.GRIFOLA_FRONDOSA.get(), 2), new BlockCounts(ChemiBlocks.MUSHROOM_GLOWING.get(), 2)), List.of(), List.of(), ChemiBlocks.TRICHOLOMA_MATSUTAKE.get().defaultBlockState(), 4));
       mutationRules.add(new MutationCondition(List.of(new BlockCounts(Blocks.RED_MUSHROOM, 2)), List.of(), List.of(), ChemiBlocks.MUSHROOM_GLOWING.get().defaultBlockState(), 1));
       mutationRules.add(new MutationCondition(List.of(new BlockCounts(ChemiBlocks.MUSHROOM_GLOWING.get(), 2), new BlockCounts(Blocks.RED_MUSHROOM, 2)), List.of(), List.of(), ChemiBlocks.MUSHROOM_RED.get().defaultBlockState(), 4));
-      mutationRules.add(new MutationCondition(List.of(new BlockCounts(ChemiBlocks.MUSHROOM_RED.get(), 2), new BlockCounts(ChemiBlocks.TRICHOLOMA_MATSUTAKE.get(), 2)), List.of(), List.of(), ChemiBlocks.MUSHROOM_GREEN.get().defaultBlockState(), 2));
-      mutationRules.add(new MutationCondition(List.of(new BlockCounts(ChemiBlocks.MUSHROOM_RED.get(), 2), new BlockCounts(ChemiBlocks.TRICHOLOMA_MATSUTAKE.get(), 2)), List.of(), List.of(), ChemiBlocks.MUSHROOM_BLUE.get().defaultBlockState(), 2));
-      mutationRules.add(new MutationCondition(List.of(new BlockCounts(ChemiBlocks.MUSHROOM_RED.get(), 2), new BlockCounts(ChemiBlocks.TRICHOLOMA_MATSUTAKE.get(), 2)), List.of(), List.of(), ChemiBlocks.MUSHROOM_PURPLE.get().defaultBlockState(), 2));
+      mutationRules.add(new MutationCondition(List.of(new BlockCounts(ChemiBlocks.MUSHROOM_RED.get(), 2), new BlockCounts(ChemiBlocks.TRICHOLOMA_MATSUTAKE.get(), 2)), List.of(), List.of(), ChemiBlocks.MUSHROOM_GREEN.get().defaultBlockState(), 6));
+      mutationRules.add(new MutationCondition(List.of(new BlockCounts(ChemiBlocks.MUSHROOM_GREEN.get(), 2), new BlockCounts(ChemiBlocks.TRICHOLOMA_MATSUTAKE.get(), 2)), List.of(), List.of(), ChemiBlocks.MUSHROOM_BLUE.get().defaultBlockState(), 6));
+      mutationRules.add(new MutationCondition(List.of(new BlockCounts(ChemiBlocks.MUSHROOM_BLUE.get(), 2), new BlockCounts(ChemiBlocks.TRICHOLOMA_MATSUTAKE.get(), 2)), List.of(), List.of(), ChemiBlocks.MUSHROOM_PURPLE.get().defaultBlockState(), 6));
+      mutationRules.add(new MutationCondition(List.of(new BlockCounts(ChemiBlocks.MUSHROOM_PURPLE.get(), 2), new BlockCounts(ChemiBlocks.TRICHOLOMA_MATSUTAKE.get(), 2)), List.of(), List.of(), ChemiBlocks.MUSHROOM_RED.get().defaultBlockState(), 6));
     }
 
     public void addMushroom(BlockState mushroom, boolean isRelative) {
