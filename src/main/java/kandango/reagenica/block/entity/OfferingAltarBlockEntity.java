@@ -50,6 +50,7 @@ import net.minecraftforge.common.Tags;
 public class OfferingAltarBlockEntity extends BlockEntity {
   private int faith_point;
   private static final int MAX_FAITH = 1280;
+  private static final int MIN_FAITH = 64;
   private ItemStack amulet = ItemStack.EMPTY;
   public static final ResourceLocation COMMON_LOOTS = new ResourceLocation(ChemistryMod.MODID, "gameplay/altar_common");
   public static final ResourceLocation RARE_LOOTS = new ResourceLocation(ChemistryMod.MODID, "gameplay/altar_rare");
@@ -125,7 +126,7 @@ public class OfferingAltarBlockEntity extends BlockEntity {
     }
   }
   private void spawnParticles(ServerLevel slv, int faith){
-    if(faith==0)return;
+    if(faith<MIN_FAITH)return;
     final int common_weight = commonWeight(faith);
     final int rare_weight = rareWeight(faith);
     final int epic_weight = epicWeight(faith);
@@ -161,8 +162,14 @@ public class OfferingAltarBlockEntity extends BlockEntity {
           1.5, 1.5, 1.5,0.02);
   }
   public void signal(ServerLevel slv){
-    ItemStackUtil.drop(slv, worldPosition, roll(slv, this.faith_point));
-    this.faith_point=0;
+    ItemStack stack = roll(slv, this.faith_point);
+    if(!stack.isEmpty()){
+      ItemStackUtil.drop(slv, worldPosition, roll(slv, this.faith_point));
+      this.faith_point=0;
+      slv.playSound(null, worldPosition, SoundEvents.ENCHANTMENT_TABLE_USE, SoundSource.BLOCKS, 4.0f, 1.0f);
+    }else{
+      slv.playSound(null, worldPosition, SoundEvents.DISPENSER_FAIL, SoundSource.BLOCKS, 1.0f, 1.0f);
+    }
   }
   private ItemStack roll(ServerLevel slv, int faith){
     LootTable loottable = getLootTable(slv, faith);
@@ -182,7 +189,7 @@ public class OfferingAltarBlockEntity extends BlockEntity {
     final LootTable rare = slv.getServer().getLootData().getLootTable(RARE_LOOTS);
     final LootTable epic = slv.getServer().getLootData().getLootTable(EPIC_LOOTS);
     final LootTable legendary = slv.getServer().getLootData().getLootTable(LEGENDARY_LOOTS);
-    if(faith==0){
+    if(faith<MIN_FAITH){
       return LootTable.EMPTY;
     }else if(faith<MAX_FAITH){
       final int common_weight = commonWeight(faith);
@@ -224,7 +231,7 @@ public class OfferingAltarBlockEntity extends BlockEntity {
     else return 3;
   }
   private SoundEvent getSound(int faith){
-    if(faith<MAX_FAITH/20)return ChemiSounds.KAGURA_LIGHT.get();
+    if(faith<MIN_FAITH)return ChemiSounds.KAGURA_LIGHT.get();
     else if(faith<MAX_FAITH/3)return ChemiSounds.KAGURA_RESONANT.get();
     else if(faith<MAX_FAITH)return ChemiSounds.KAGURA_SOLEMN.get();
     else return ChemiSounds.KAGURA_BLESSING.get();
