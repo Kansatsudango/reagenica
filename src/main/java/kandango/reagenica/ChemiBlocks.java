@@ -35,6 +35,7 @@ public class ChemiBlocks {
   
   public static List<BlockLootType> listBlocks = new ArrayList<>();
   public static List<RegistryObject<Item>> listBlockItems = new ArrayList<>();
+  public static List<RegistryObject<? extends FlowerPotBlock>> listFlowerPots = new ArrayList<>();
   public static List<RegistryObject<LiquidBlock>> listLiquids = new ArrayList<>();
 
   public static final RegistryObject<Block> CUSTOM_BLOCK = registerBlockandlist("custom_block",
@@ -252,30 +253,48 @@ public class ChemiBlocks {
   public static final RegistryObject<Block> MUSHROOM_RED = registerBlockandlist("bioluminescence_red_mushroom", () -> new MushroomBlock(glowing_mushroom_props.mapColor(MapColor.COLOR_RED), ChemiFeatures.LARGE_MUSHROOM_RED));
   public static final RegistryObject<Item> MUSHROOM_RED_ITEM = registerItemandlist("bioluminescence_red_mushroom",
     () -> new BlockItem(MUSHROOM_RED.get(), new Item.Properties()));
+  public static final RegistryObject<FlowerPotBlock> POTTED_RED_MUSHROOM = registerFlowerPot("potted_red_mushroom", () -> new FlowerPotBlock(
+    () -> (FlowerPotBlock)Blocks.FLOWER_POT, MUSHROOM_RED::get, BlockBehaviour.Properties.copy(Blocks.POTTED_DANDELION).lightLevel(state -> 7)));
   public static final RegistryObject<Block> MUSHROOM_GREEN = registerBlockandlist("bioluminescence_green_mushroom", () -> new MushroomBlock(glowing_mushroom_props.mapColor(MapColor.COLOR_GREEN), ChemiFeatures.LARGE_MUSHROOM_GREEN));
   public static final RegistryObject<Item> MUSHROOM_GREEN_ITEM = registerItemandlist("bioluminescence_green_mushroom",
     () -> new BlockItem(MUSHROOM_GREEN.get(), new Item.Properties()));
+  public static final RegistryObject<FlowerPotBlock> POTTED_GREEN_MUSHROOM = registerFlowerPot("potted_green_mushroom", () -> new FlowerPotBlock(
+    () -> (FlowerPotBlock)Blocks.FLOWER_POT, MUSHROOM_GREEN::get, BlockBehaviour.Properties.copy(Blocks.POTTED_DANDELION).lightLevel(state -> 7)));
   public static final RegistryObject<Block> MUSHROOM_BLUE = registerBlockandlist("bioluminescence_blue_mushroom", () -> new MushroomBlock(glowing_mushroom_props.mapColor(MapColor.COLOR_BLUE), ChemiFeatures.LARGE_MUSHROOM_BLUE));
   public static final RegistryObject<Item> MUSHROOM_BLUE_ITEM = registerItemandlist("bioluminescence_blue_mushroom",
     () -> new BlockItem(MUSHROOM_BLUE.get(), new Item.Properties()));
+  public static final RegistryObject<FlowerPotBlock> POTTED_BLUE_MUSHROOM = registerFlowerPot("potted_blue_mushroom", () -> new FlowerPotBlock(
+    () -> (FlowerPotBlock)Blocks.FLOWER_POT, MUSHROOM_BLUE::get, BlockBehaviour.Properties.copy(Blocks.POTTED_DANDELION).lightLevel(state -> 7)));
   public static final RegistryObject<Block> MUSHROOM_PURPLE = registerBlockandlist("bioluminescence_purple_mushroom", () -> new MushroomBlock(glowing_mushroom_props, ChemiFeatures.LARGE_MUSHROOM_PURPLE));
   public static final RegistryObject<Item> MUSHROOM_PURPLE_ITEM = registerItemandlist("bioluminescence_purple_mushroom",
     () -> new BlockItem(MUSHROOM_PURPLE.get(), new Item.Properties()));
+  public static final RegistryObject<FlowerPotBlock> POTTED_PURPLE_MUSHROOM = registerFlowerPot("potted_purple_mushroom", () -> new FlowerPotBlock(
+    () -> (FlowerPotBlock)Blocks.FLOWER_POT, MUSHROOM_PURPLE::get, BlockBehaviour.Properties.copy(Blocks.POTTED_DANDELION).lightLevel(state -> 7)));
   public static final RegistryObject<Block> MUSHROOM_GLOWING = registerBlockandlist("bioluminescence_mushroom", () -> new SimpleMushroom(glowing_mushroom_props.mapColor(MapColor.COLOR_LIGHT_GREEN)));
   public static final RegistryObject<Item> MUSHROOM_GLOWING_ITEM = registerItemandlist("bioluminescence_mushroom",
     () -> new BlockItem(MUSHROOM_GLOWING.get(), new Item.Properties()));
+  public static final RegistryObject<FlowerPotBlock> POTTED_GLOWING_MUSHROOM = registerFlowerPot("potted_bioluminescence_mushroom", () -> new FlowerPotBlock(
+    () -> (FlowerPotBlock)Blocks.FLOWER_POT, MUSHROOM_GLOWING::get, BlockBehaviour.Properties.copy(Blocks.POTTED_DANDELION).lightLevel(state -> 7)));
   public static final RegistryObject<Block> BROWN_BISPORUS = registerBlockandlist("brown_bisporus", () -> new SimpleMushroom(mushroom_props.mapColor(MapColor.COLOR_BROWN)));
   public static final RegistryObject<Item> BROWN_BISPORUS_ITEM = registerItemandlist("brown_bisporus",
     () -> new BlockItem(BROWN_BISPORUS.get(), new Item.Properties()));
+  public static final RegistryObject<FlowerPotBlock> POTTED_BROWN_BISPORUS = registerFlowerPot("potted_brown_bisporus", () -> new FlowerPotBlock(
+    () -> (FlowerPotBlock)Blocks.FLOWER_POT, BROWN_BISPORUS::get, BlockBehaviour.Properties.copy(Blocks.POTTED_DANDELION)));
   public static final RegistryObject<Block> WHITE_BISPORUS = registerBlockandlist("white_bisporus", () -> new SimpleMushroom(mushroom_props.mapColor(MapColor.SNOW)));
   public static final RegistryObject<Item> WHITE_BISPORUS_ITEM = registerItemandlist("white_bisporus",
     () -> new BlockItem(WHITE_BISPORUS.get(), new Item.Properties()));
+  public static final RegistryObject<FlowerPotBlock> POTTED_WHITE_BISPORUS = registerFlowerPot("potted_white_bisporus", () -> new FlowerPotBlock(
+    () -> (FlowerPotBlock)Blocks.FLOWER_POT, WHITE_BISPORUS::get, BlockBehaviour.Properties.copy(Blocks.POTTED_DANDELION)));
   public static final RegistryObject<Block> GRIFOLA_FRONDOSA = registerBlockandlist("grifola_frondosa", () -> new SimpleMushroom(mushroom_props.mapColor(MapColor.COLOR_BROWN)));
   public static final RegistryObject<Item> GRIFOLA_FRONDOSA_ITEM = registerItemandlist("grifola_frondosa",
     () -> new BlockItem(GRIFOLA_FRONDOSA.get(), new Item.Properties()));
+  public static final RegistryObject<FlowerPotBlock> POTTED_FRONDOSA = registerFlowerPot("potted_frondosa", () -> new FlowerPotBlock(
+    () -> (FlowerPotBlock)Blocks.FLOWER_POT, GRIFOLA_FRONDOSA::get, BlockBehaviour.Properties.copy(Blocks.POTTED_DANDELION)));
   public static final RegistryObject<Block> TRICHOLOMA_MATSUTAKE = registerBlockandlist("tricholoma_matsutake", () -> new SimpleMushroom(mushroom_props.mapColor(MapColor.COLOR_BROWN)));
   public static final RegistryObject<Item> TRICHOLOMA_MATSUTAKE_ITEM = registerItemandlist("tricholoma_matsutake",
     () -> new BlockItem(TRICHOLOMA_MATSUTAKE.get(), new Item.Properties()));
+  public static final RegistryObject<FlowerPotBlock> POTTED_MATSUTAKE = registerFlowerPot("potted_matsutake", () -> new FlowerPotBlock(
+    () -> (FlowerPotBlock)Blocks.FLOWER_POT, TRICHOLOMA_MATSUTAKE::get, BlockBehaviour.Properties.copy(Blocks.POTTED_DANDELION)));
 
   public static final WoodFamily METASEQUOIA = new WoodFamily("metasequoia", () -> new MetasequoiaGrower());
   public static final WoodFamily TAXODIUM = new WoodFamily("taxodium", () -> new TaxodiumGrower());
@@ -713,6 +732,11 @@ public class ChemiBlocks {
   private static <T extends Block> RegistryObject<T> registerExternalConfigBlockandlist(String name, Supplier<T> supplier) {
     RegistryObject<T> block = BLOCKS.register(name, supplier);
     listBlocks.add(BlockLootType.none(block));
+    return block;
+  }
+  private static <T extends FlowerPotBlock> RegistryObject<T> registerFlowerPot(String name, Supplier<T> supplier) {
+    RegistryObject<T> block = BLOCKS.register(name, supplier);
+    listFlowerPots.add(block);
     return block;
   }
 }

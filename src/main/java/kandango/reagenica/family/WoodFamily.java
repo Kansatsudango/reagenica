@@ -28,6 +28,7 @@ public class WoodFamily {
   public final RegistryObject<ChemiLogBlock> WOOD;
   public final RegistryObject<LeavesBlock> LEAVES;
   public final RegistryObject<SaplingBlock> SAPLING;
+  public final RegistryObject<FlowerPotBlock> POTTED_SAPLING;
   public final RegistryObject<Block> PLANKS;
   public final RegistryObject<StairBlock> STAIRS;
   public final RegistryObject<SlabBlock> SLAB;
@@ -79,6 +80,7 @@ public class WoodFamily {
     this.LEAVES_ITEM = ChemiBlocks.ITEMS.register(name+"_leaves", () -> new BlockItem(LEAVES.get(), new Item.Properties()));
     this.SAPLING = ChemiBlocks.BLOCKS.register(name+"_sapling", () -> new SaplingBlock(grower.get(),BlockBehaviour.Properties.copy(Blocks.OAK_SAPLING)));
     this.SAPLING_ITEM = ChemiBlocks.ITEMS.register(name+"_sapling", () -> new BlockItem(SAPLING.get(), new Item.Properties()));
+    this.POTTED_SAPLING = ChemiBlocks.BLOCKS.register("potted_"+name+"_sapling", () -> new FlowerPotBlock(() -> (FlowerPotBlock)Blocks.FLOWER_POT, SAPLING::get, BlockBehaviour.Properties.copy(Blocks.POTTED_DANDELION)));
     this.PLANKS = ChemiBlocks.BLOCKS.register(name+"_planks", () -> new Block(BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS)));
     this.PLANKS_ITEM = ChemiBlocks.ITEMS.register(name+"_planks", () -> new BlockItem(PLANKS.get(), new Item.Properties()));
     this.STAIRS = ChemiBlocks.BLOCKS.register(name+"_stairs", () -> new StairBlock(() -> this.PLANKS.get().defaultBlockState(), BlockBehaviour.Properties.copy(Blocks.OAK_STAIRS)));

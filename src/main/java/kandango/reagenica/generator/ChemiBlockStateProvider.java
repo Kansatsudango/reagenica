@@ -11,6 +11,7 @@ import net.minecraft.world.level.block.CeilingHangingSignBlock;
 import net.minecraft.world.level.block.DoorBlock;
 import net.minecraft.world.level.block.FenceBlock;
 import net.minecraft.world.level.block.FenceGateBlock;
+import net.minecraft.world.level.block.FlowerPotBlock;
 import net.minecraft.world.level.block.PressurePlateBlock;
 import net.minecraft.world.level.block.RotatedPillarBlock;
 import net.minecraft.world.level.block.SlabBlock;
@@ -23,6 +24,7 @@ import net.minecraftforge.client.model.generators.BlockStateProvider;
 import net.minecraftforge.client.model.generators.ConfiguredModel;
 import net.minecraftforge.client.model.generators.ModelFile;
 import net.minecraftforge.common.data.ExistingFileHelper;
+import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 
 public class ChemiBlockStateProvider extends BlockStateProvider{
@@ -35,6 +37,7 @@ public class ChemiBlockStateProvider extends BlockStateProvider{
   protected void registerStatesAndModels() {
     WoodFamily.Woods.forEach(this::processWood);
     processCrosses();
+    ChemiBlocks.listFlowerPots.forEach(rg -> pottedPlant(rg, rg.getId().getPath()));
   }
 
   private void registerStairBlockWithItem(RegistryObject<? extends StairBlock> stairs, RegistryObject<? extends Block> base){
@@ -99,6 +102,15 @@ public class ChemiBlockStateProvider extends BlockStateProvider{
             modLoc("block/" + name + "_fence_gate")
     );
   }
+  private void pottedPlant(RegistryObject<? extends FlowerPotBlock> potted, String name) {
+    simpleBlock(potted.get(),
+      models().singleTexture(
+        name,
+        mcLoc("block/flower_pot_cross"),
+        "plant",
+        modLoc("block/" + ForgeRegistries.BLOCKS.getKey(potted.get().getContent()).getPath())).renderType(mcLoc("cutout"))
+    );
+}
   private void registerSignBlocksWithItem(RegistryObject<? extends StandingSignBlock> sign, RegistryObject<? extends WallSignBlock> wallsign, String name){
     signBlock(sign.get(), wallsign.get(), modLoc("block/"+name+"_planks"));
     itemModels().withExistingParent(name+"_sign", mcLoc("item/generated")).texture("layer0", modLoc("item/"+name+"_sign"));
@@ -142,6 +154,7 @@ public class ChemiBlockStateProvider extends BlockStateProvider{
     registerDoorBlockWithItem(woodFamily.DOOR, woodFamily.name);
     registerButtonBlockWithItem(woodFamily.BUTTON, woodFamily.name);
     registerPressurePlateBlockWithItem(woodFamily.PRESSURE_PLATE, woodFamily.name);
+    pottedPlant(woodFamily.POTTED_SAPLING, "potted_"+woodFamily.name+"_sapling");
   }
   private void processCrosses(){
     registerCrossBlock(ChemiBlocks.MUSHROOM_RED);

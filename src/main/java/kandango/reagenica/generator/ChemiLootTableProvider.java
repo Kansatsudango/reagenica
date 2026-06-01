@@ -16,6 +16,7 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.CropBlock;
+import net.minecraft.world.level.block.FlowerPotBlock;
 import net.minecraft.world.level.storage.loot.entries.LootItem;
 import net.minecraft.world.level.storage.loot.functions.ApplyBonusCount;
 import net.minecraft.world.level.storage.loot.functions.CopyNbtFunction;
@@ -24,6 +25,7 @@ import net.minecraft.world.level.storage.loot.parameters.LootContextParamSets;
 import net.minecraft.world.level.storage.loot.predicates.LootItemBlockStatePropertyCondition;
 import net.minecraft.world.level.storage.loot.providers.nbt.ContextNbtProvider;
 import net.minecraft.world.level.storage.loot.providers.number.UniformGenerator;
+import net.minecraftforge.registries.RegistryObject;
 
 public class ChemiLootTableProvider extends LootTableProvider{
   public ChemiLootTableProvider(PackOutput output) {
@@ -40,6 +42,7 @@ public class ChemiLootTableProvider extends LootTableProvider{
     protected void generate(){
       WoodFamily.Woods.forEach(this::processWood);
       CrystalFamily.Crystals.forEach(this::processCrystal);
+      ChemiBlocks.listFlowerPots.forEach(this::processPot);
       for(BlockLootType block : ChemiBlocks.listBlocks){
         if(block.type()==BlockType.NORMAL){
           dropSelf(block.blockreg().get());
@@ -65,6 +68,9 @@ public class ChemiLootTableProvider extends LootTableProvider{
     protected Iterable<Block> getKnownBlocks(){
       return ChemiBlocks.BLOCKS.getEntries().stream().map(e -> e.get()).toList();
     }
+    private void processPot(RegistryObject<? extends FlowerPotBlock> pot){
+      dropPottedContents(pot.get());
+    }
     private void processWood(WoodFamily family){
       dropSelf(family.LOG.get());
       dropSelf(family.WOOD.get());
@@ -85,6 +91,7 @@ public class ChemiLootTableProvider extends LootTableProvider{
       add(family.DOOR.get(),createDoorTable(family.DOOR.get()));
       dropSelf(family.BUTTON.get());
       dropSelf(family.PRESSURE_PLATE.get());
+      processPot(family.POTTED_SAPLING);
     }
     private void processCrystal(CrystalFamily family){
       dropSelf(family.BLOCK.get());
