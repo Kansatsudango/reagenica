@@ -1,4 +1,4 @@
-// 1.20.1	2026-05-22T15:51:49.0234955	Item Models: reagenica
+// 1.20.1	2026-06-02T03:08:40.8962619	Item Models: reagenica
 6f0d9872c5f176206015dd5f6420e71fe71f2cb9 assets/reagenica/models/item/acetobacter.json
 54ef03ed6b05d449bef3092145440fb8c97020f5 assets/reagenica/models/item/adipamide.json
 54ef03ed6b05d449bef3092145440fb8c97020f5 assets/reagenica/models/item/adipic_acid.json
@@ -439,6 +439,7 @@ e0e41f9ae060c1a08d50dbd9d8ebbeadfecd530b assets/reagenica/models/item/wild_corn.
 496eba648ae6a0f494ae554e5994018cd4491968 assets/reagenica/models/item/wild_rice.json
 4843e21e7e861b3171b1cd15cd101584f2f00532 assets/reagenica/models/item/wild_soybeans.json
 26ce5abd97267449881bec7cd9a4aa1b8c89f9da assets/reagenica/models/item/wild_tomato.json
+0d6ba92d9771f8de85688db20b93d71f303f10b1 assets/reagenica/models/item/wind_chime.json
 54ef03ed6b05d449bef3092145440fb8c97020f5 assets/reagenica/models/item/wine.json
 3bf6406a57c05d9f4d5a800568057409cdc82320 assets/reagenica/models/item/wine_bucket.json
 c6b74f39cb356e3cd4e6530cd089f9dc34ebec40 assets/reagenica/models/item/wood_chips.json

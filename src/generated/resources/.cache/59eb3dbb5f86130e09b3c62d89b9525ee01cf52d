@@ -1,4 +1,4 @@
-// 1.20.1	2026-06-01T18:48:57.4401327	Loot Tables
+// 1.20.1	2026-06-02T03:08:40.8922612	Loot Tables
 fd599511177b57b7c4697466e227e89162e2d943 data/reagenica/loot_tables/blocks/advanced_farmland.json
 115802854012234d89e3ba52e3d8b2a271af6530 data/reagenica/loot_tables/blocks/air_separator.json
 af778c6940ed0700e603b9633a246c18de93eb49 data/reagenica/loot_tables/blocks/aluminium_block.json
@@ -282,6 +282,7 @@ a8b53adedd4c6f1c61f7a5adb01081dd7b070440 data/reagenica/loot_tables/blocks/wild_
 4a302168ee78a5d718c624c90aa39963d47586cf data/reagenica/loot_tables/blocks/wild_rice.json
 c5d9d99adbc632434a2fd0e3e7970af076485bab data/reagenica/loot_tables/blocks/wild_soybeans.json
 f671f4bd3a291da379699ee12006f8398a4e4982 data/reagenica/loot_tables/blocks/wild_tomato.json
+321a704c6daa3ff2172c067d3b08fdef4d81377e data/reagenica/loot_tables/blocks/wind_chime.json
 fabc6c23d7d2abfbaab9b9589e49d83514ee63d6 data/reagenica/loot_tables/blocks/yellow_gypsum.json
 bacc424e747e3d806e01bb4524af6eef20271165 data/reagenica/loot_tables/blocks/yellow_plastic.json
 9e13856bd4cece2934ffc68840fb73e7e207120e data/reagenica/loot_tables/blocks/yellow_plastic_pane.json

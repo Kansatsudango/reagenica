@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "facing=north": { "model": "reagenica:block/wind_chime", "y": 0 },
+    "facing=south": { "model": "reagenica:block/wind_chime", "y": 180 },
+    "facing=west":  { "model": "reagenica:block/wind_chime", "y": 270 },
+    "facing=east":  { "model": "reagenica:block/wind_chime", "y": 90 }
+  }
+}

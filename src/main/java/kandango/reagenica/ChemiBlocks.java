@@ -674,6 +674,11 @@ public class ChemiBlocks {
   public static final RegistryObject<Item> PURPLE_PLASTIC_TILE_PANE_ITEM = registerItemandlist("purple_plastic_tile_pane",
     () -> new BlockItem(PURPLE_PLASTIC_TILE_PANE.get(), new Item.Properties()));
 
+  public static final RegistryObject<Block> WIND_CHIME = registerBlockandlist("wind_chime",
+    () -> new WindChime());
+  public static final RegistryObject<Item> WIND_CHIME_ITEM = registerItemandlist("wind_chime",
+    () -> new BlockItem(WIND_CHIME.get(), new Item.Properties()));
+
   private static RegistryObject<Item> registerItemandlist(String name, Supplier<Item> supplier) {
     RegistryObject<Item> item = ITEMS.register(name, supplier);
     listBlockItems.add(item);

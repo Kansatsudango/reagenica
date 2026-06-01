@@ -30,5 +30,8 @@ run-data
 .vscode
 .git.old
 
+# sounds
+*.ogg
+
 # Files from Forge MDK
 forge*changelog.txt

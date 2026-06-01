@@ -28,4 +28,9 @@ public class ChemiSounds {
     SOUND_EVENTS.register("kagura_suzu_reverberant",
         () -> SoundEvent.createVariableRangeEvent(
             new ResourceLocation(ChemistryMod.MODID, "kagura_suzu_reverberant")));
+  //効果音ラボ
+  public static final RegistryObject<SoundEvent> WIND_CHIME =
+    SOUND_EVENTS.register("wind_chime",
+        () -> SoundEvent.createVariableRangeEvent(
+            new ResourceLocation(ChemistryMod.MODID, "wind_chime")));
 }

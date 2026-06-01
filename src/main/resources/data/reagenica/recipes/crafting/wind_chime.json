@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " S ",
+    "GGG",
+    "GPG"
+  ],
+  "key": {
+    "S": { "item": "minecraft:string" },
+    "G": { "item": "minecraft:glass_pane" },
+    "P": { "item": "minecraft:paper" }
+  },
+  "result": {
+    "item": "reagenica:wind_chime",
+    "count": 2
+  }
+}

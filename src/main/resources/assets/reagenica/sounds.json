@@ -34,5 +34,14 @@
         "stream": false
       }
     ]
+  },
+  "wind_chime": {
+    "subtitle": "subtitles.reagenica.wind_chime",
+    "sounds": [
+      {
+        "name": "reagenica:wind_chime",
+        "stream": false
+      }
+    ]
   }
 }
