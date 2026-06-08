@@ -10,6 +10,7 @@ import kandango.reagenica.ChemistryMod;
 import kandango.reagenica.enchantment.AntiPoisonEnchantment;
 import kandango.reagenica.enchantment.BigMinerEnchantment;
 import kandango.reagenica.enchantment.CrystalizedEnchantment;
+import kandango.reagenica.enchantment.GardenerEnchantment;
 import kandango.reagenica.enchantment.LastStandEnchantment;
 import kandango.reagenica.enchantment.VeinMinerEnchantment;
 import kandango.reagenica.family.ChemiToolTiers;
@@ -18,6 +19,7 @@ import kandango.reagenica.villager.ChemiVillagerProfessions;
 import kandango.reagenica.villager.ChemiVillagerTrades;
 import kandango.reagenica.world.ChainMiningProvider;
 import kandango.reagenica.world.ChemiCapabilities;
+import kandango.reagenica.world.SeedPlacingProvider;
 import kandango.reagenica.worldgen.ChemiBiomes;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.MinecraftServer;
@@ -43,6 +45,7 @@ import net.minecraftforge.event.furnace.FurnaceFuelBurnTimeEvent;
 import net.minecraftforge.event.level.BlockEvent;
 import net.minecraftforge.event.level.SleepFinishedTimeEvent;
 import net.minecraftforge.event.village.VillagerTradesEvent;
+import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.eventbus.api.Event.Result;
 import net.minecraftforge.fml.common.Mod;
@@ -53,6 +56,7 @@ public class ForgeEventHandler {
   public static void attachCapabilities(AttachCapabilitiesEvent<Level> event){
     if(event.getObject() instanceof ServerLevel level && level.dimension() == Level.OVERWORLD){
       event.addCapability(new ResourceLocation(ChemistryMod.MODID, "chain_mining"), new ChainMiningProvider());
+      event.addCapability(new ResourceLocation(ChemistryMod.MODID, "seed_placing"), new SeedPlacingProvider());
     }
   }
 
@@ -64,6 +68,7 @@ public class ForgeEventHandler {
       veinMining.set(true);
       slv.getCapability(ChemiCapabilities.CHAIN_MINING_DATA).ifPresent(data -> data.tick(slv));
       veinMining.set(false);
+      slv.getCapability(ChemiCapabilities.SEED_PLACING_DATA).ifPresent(data -> data.tick(slv));
     }
   }
 
@@ -116,6 +121,20 @@ public class ForgeEventHandler {
     }
   }
   public static final ThreadLocal<Boolean> veinMining = ThreadLocal.withInitial(() -> false);
+
+  @SubscribeEvent(priority = EventPriority.LOWEST)
+  public static void onBreakMonitor(BlockEvent.BreakEvent event){
+    if(event.isCanceled())return;
+    Player player = event.getPlayer();
+    ItemStack stack = player.getMainHandItem();
+    int enchLevel = stack.getEnchantmentLevel(ChemiEnchantments.GARDENER.get());
+    if(enchLevel>=1){
+      LevelAccessor lv = event.getLevel();
+      if(lv instanceof ServerLevel slv && player instanceof ServerPlayer sp){
+        GardenerEnchantment.run(slv, sp, event.getPos(), stack);
+      }
+    }
+  }
 
   @SubscribeEvent
   public static void onEffectAdded(MobEffectEvent.Applicable event){

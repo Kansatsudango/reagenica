@@ -3,12 +3,14 @@ package kandango.reagenica;
 import kandango.reagenica.enchantment.AntiPoisonEnchantment;
 import kandango.reagenica.enchantment.BigMinerEnchantment;
 import kandango.reagenica.enchantment.CrystalizedEnchantment;
+import kandango.reagenica.enchantment.GardenerEnchantment;
 import kandango.reagenica.enchantment.LastStandEnchantment;
 import kandango.reagenica.enchantment.VeinMinerEnchantment;
 import kandango.reagenica.family.ChemiArmorMaterials;
 import kandango.reagenica.family.ChemiToolTiers;
 import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.DiggerItem;
+import net.minecraft.world.item.HoeItem;
 import net.minecraft.world.item.SwordItem;
 import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.item.enchantment.EnchantmentCategory;
@@ -21,17 +23,20 @@ public class ChemiEnchantments {
       DeferredRegister.create(ForgeRegistries.ENCHANTMENTS, ChemistryMod.MODID);
   
   public static final EnchantmentCategory IRIDIUM_DIGGER = 
-    EnchantmentCategory.create("iridium_digger",
+    EnchantmentCategory.create("iridium_digger_reagenica",
       item -> item instanceof DiggerItem digger &&
               digger.getTier() == ChemiToolTiers.IRIDIUM);
   public static final EnchantmentCategory IRIDIUM_ARMOR = 
-    EnchantmentCategory.create("iridium_armor",
+    EnchantmentCategory.create("iridium_armor_reagenica",
       item -> item instanceof ArmorItem armor &&
               armor.getMaterial() == ChemiArmorMaterials.IRIDIUM);
   public static final EnchantmentCategory IRIDIUM_WEAPON = 
-    EnchantmentCategory.create("iridium_weapon",
+    EnchantmentCategory.create("iridium_weapon_reagenica",
       item -> item instanceof SwordItem sword &&
               sword.getTier() == ChemiToolTiers.IRIDIUM);
+  public static final EnchantmentCategory HOES = 
+    EnchantmentCategory.create("hoes_reagenica",
+      item -> item instanceof HoeItem);
   
   public static final RegistryObject<Enchantment> BIG_MINING = 
       ENCHANTMENTS.register("big_mining",BigMinerEnchantment::new);
@@ -43,4 +48,6 @@ public class ChemiEnchantments {
       ENCHANTMENTS.register("last_stand",LastStandEnchantment::new);
   public static final RegistryObject<Enchantment> CRYSTALIZED = 
       ENCHANTMENTS.register("crystalized",CrystalizedEnchantment::new);
+  public static final RegistryObject<Enchantment> GARDENER = 
+      ENCHANTMENTS.register("gardener",GardenerEnchantment::new);
 }
