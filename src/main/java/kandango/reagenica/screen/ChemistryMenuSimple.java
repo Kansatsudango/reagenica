@@ -34,7 +34,7 @@ public abstract class ChemistryMenuSimple extends AbstractContainerMenu {
   protected abstract int slotCount();
 
   @Override
-  public final ItemStack quickMoveStack(@Nonnull Player player, int index) {
+  public ItemStack quickMoveStack(@Nonnull Player player, int index) {
     return quickMoveStackFunc(slotCount(), player, index, quickMoveRules());
   }
 

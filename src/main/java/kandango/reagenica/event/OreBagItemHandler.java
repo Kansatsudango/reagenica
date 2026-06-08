@@ -1,7 +1,7 @@
 package kandango.reagenica.event;
 
 import kandango.reagenica.ChemistryMod;
-import kandango.reagenica.item.CommonBag;
+import kandango.reagenica.item.IBagItem;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.entity.item.ItemEntity;
@@ -12,45 +12,51 @@ import net.minecraftforge.common.capabilities.ForgeCapabilities;
 import net.minecraftforge.event.entity.player.EntityItemPickupEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.items.ItemStackHandler;
+import net.minecraftforge.items.IItemHandler;
 
 @Mod.EventBusSubscriber(modid = ChemistryMod.MODID)
 public class OreBagItemHandler {
   @SubscribeEvent
   public static void onItemPickup(EntityItemPickupEvent event){
-    Player player = event.getEntity();
-    ItemEntity itementity = event.getItem();
-    ItemStack item = itementity.getItem();
-    if(CommonBag.Bags.stream().filter(x -> x.canAutoStock()).filter(x -> x.isValidItem(item)).findAny().isEmpty()){
-      return;
-    }
-
+    final Player player = event.getEntity();
+    final ItemEntity itementity = event.getItem();
+    final ItemStack item = itementity.getItem();
     Inventory inv = player.getInventory();
     for(ItemStack stack : inv.items){
-      if(stack.getItem() instanceof CommonBag bag){
+      if(stack.getItem() instanceof IBagItem bag){
         if(bag.canAutoStock() && bag.isValidItem(item)){
-          ItemStackHandler handler = stack.getCapability(ForgeCapabilities.ITEM_HANDLER).map(h -> h instanceof ItemStackHandler ? (ItemStackHandler)h : null).orElse(null);
-          if(handler!=null){
-            ItemStack remaining = insertItem(handler, item);
-            if(remaining.isEmpty()){
-              player.level().playSound(null, player.blockPosition(), SoundEvents.ITEM_PICKUP, SoundSource.PLAYERS, 0.2F, 1.0F);
-              itementity.discard();
-              event.setCanceled(true);
-              break;
-            }else{
-              item.setCount(remaining.getCount());
-            }
-          }
+          stack.getCapability(ForgeCapabilities.ITEM_HANDLER).ifPresent(handler -> {
+            boolean inserted = putInBag(handler, player, itementity, item);
+            if(inserted) event.setCanceled(true);
+          });
         }
       }
     }
   }
+  private static boolean putInBag(IItemHandler bag, Player player, ItemEntity item, ItemStack stack){
+    ItemStack remaining = insertItem(bag, stack);
+    if(remaining.isEmpty()){
+      player.level().playSound(null, player.blockPosition(), SoundEvents.ITEM_PICKUP, SoundSource.PLAYERS, 0.2F, 1.0F);
+      item.discard();
+      return true;
+    }else{
+      stack.setCount(remaining.getCount());
+      return false;
+    }
+  }
 
-  private static ItemStack insertItem(ItemStackHandler handler, ItemStack stack){
+  private static ItemStack insertItem(IItemHandler handler, ItemStack stack){
     ItemStack remaining = stack.copy();
     for(int i=0;i<handler.getSlots();i++){
-      remaining = handler.insertItem(i, stack, false);
-      if(remaining.isEmpty())break;
+      ItemStack stackInSlot = handler.getStackInSlot(i);
+      if(ItemStack.isSameItemSameTags(remaining, stackInSlot)){
+        remaining = handler.insertItem(i, remaining, false);
+      }
+      if(remaining.isEmpty())return ItemStack.EMPTY;
+    }
+    for(int i=0;i<handler.getSlots();i++){
+      remaining = handler.insertItem(i, remaining, false);
+      if(remaining.isEmpty())return ItemStack.EMPTY;
     }
     return remaining;
   }

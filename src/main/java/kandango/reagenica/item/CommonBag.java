@@ -1,6 +1,5 @@
 package kandango.reagenica.item;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.OptionalInt;
@@ -39,8 +38,7 @@ import net.minecraftforge.items.ItemStackHandler;
 import net.minecraftforge.network.NetworkHooks;
 import net.minecraftforge.registries.RegistryObject;
 
-public class CommonBag<T extends AbstractContainerMenu> extends Item{
-  public static final List<CommonBag<?>> Bags = new ArrayList<>();
+public class CommonBag<T extends AbstractContainerMenu> extends Item implements IBagItem{
   public static final String UUIDKey = "BagUUID";
   private static final Predicate<ItemStack> isAllowed = stack -> !stack.is(ChemiTags.Items.BAGS_DENY) && !stack.getCapability(ForgeCapabilities.ITEM_HANDLER).isPresent();
   private final int slotCount;
@@ -56,7 +54,6 @@ public class CommonBag<T extends AbstractContainerMenu> extends Item{
     this.menutype = type;
     this.filter = isAllowed;
     this.hasSpecialFilter = false;
-    Bags.add(this);
   }
   public CommonBag(int slots, int inv_start, RegistryObject<MenuType<T>> type, Predicate<ItemStack> filter){
     super(new Item.Properties().stacksTo(1));
@@ -65,7 +62,6 @@ public class CommonBag<T extends AbstractContainerMenu> extends Item{
     this.menutype = type;
     this.filter = isAllowed.and(filter);
     this.hasSpecialFilter = true;
-    Bags.add(this);
   }
 
   public boolean isValidItem(ItemStack stack){
@@ -134,6 +130,16 @@ public class CommonBag<T extends AbstractContainerMenu> extends Item{
     if(stack.getItem() instanceof CommonBag<?> bag && bag.canAutoStock()){
       tooltip.add(Component.translatable("tooltip.reagenica.autostore").withStyle(ChatFormatting.GREEN));
     }
+  }
+
+  @Override
+  public void save(ItemStack bag){
+    bag.getCapability(ForgeCapabilities.ITEM_HANDLER).ifPresent(handler -> {
+      if(handler instanceof ItemStackHandler sh){
+        CompoundTag tag = bag.getOrCreateTag();
+        tag.put("Inventory", sh.serializeNBT());
+      }
+    });
   }
 
   public static class CommonBagProvider implements ICapabilityProvider{

@@ -5,7 +5,9 @@ import java.util.UUID;
 import javax.annotation.Nonnull;
 
 import kandango.reagenica.item.CommonBag;
+import kandango.reagenica.item.IBagItem;
 import net.minecraft.network.FriendlyByteBuf;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.MenuType;
@@ -39,6 +41,29 @@ public class SimpleBagMenu extends ChemistryMenuSimple {
 
   public IItemHandler getItemHandler(){
     return handler;
+  }
+
+  @Override
+  public ItemStack quickMoveStack(@Nonnull Player player, int index) {
+    ItemStack answer = super.quickMoveStack(player, index);
+    if(player instanceof ServerPlayer sp){
+      ItemStack stack = sp.getInventory().getItem(slotid);
+      if(stack.getItem() instanceof IBagItem bag){
+        bag.markDirty(stack);
+      }
+    }
+    return answer;
+  }
+
+  @Override
+  public void removed(Player player) {
+    super.removed(player);
+    if(player instanceof ServerPlayer sp){
+      ItemStack stack = sp.getInventory().getItem(slotid);
+      if(stack.getItem() instanceof IBagItem bag){
+        bag.save(stack);
+      }
+    }
   }
 
   @Override
