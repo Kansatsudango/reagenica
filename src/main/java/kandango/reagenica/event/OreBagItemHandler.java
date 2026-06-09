@@ -38,6 +38,7 @@ public class OreBagItemHandler {
     if(remaining.isEmpty()){
       player.level().playSound(null, player.blockPosition(), SoundEvents.ITEM_PICKUP, SoundSource.PLAYERS, 0.2F, 1.0F);
       item.discard();
+      stack.setCount(0);
       return true;
     }else{
       stack.setCount(remaining.getCount());
