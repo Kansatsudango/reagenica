@@ -29,6 +29,7 @@ import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.effect.MobEffectCategory;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
+import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.npc.VillagerTrades;
 import net.minecraft.world.entity.player.Player;
@@ -36,6 +37,8 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.SwordItem;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.world.level.block.CropBlock;
+import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.event.AttachCapabilitiesEvent;
 import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.event.entity.living.LivingDropsEvent;
@@ -98,8 +101,9 @@ public class ForgeEventHandler {
     }
   }
 
-  @SubscribeEvent
+  @SubscribeEvent(priority = EventPriority.NORMAL)
   public static void onBreak(BlockEvent.BreakEvent event){
+    if(event.isCanceled())return;
     if(veinMining.get())return; // Prevent infinite recursion
     Player player = event.getPlayer();
     ItemStack stack = player.getMainHandItem();
@@ -132,6 +136,42 @@ public class ForgeEventHandler {
       LevelAccessor lv = event.getLevel();
       if(lv instanceof ServerLevel slv && player instanceof ServerPlayer sp){
         GardenerEnchantment.run(slv, sp, event.getPos(), stack);
+      }
+    }
+  }
+  @SubscribeEvent(priority = EventPriority.HIGHEST)
+  public static void breakCancel(BlockEvent.BreakEvent event){
+    if(event.isCanceled())return;
+    Player player = event.getPlayer();
+    ItemStack stack = player.getMainHandItem();
+    int enchLevel = stack.getEnchantmentLevel(ChemiEnchantments.GARDENER.get());
+    if(player instanceof ServerPlayer && enchLevel>=1){
+      LevelAccessor lv = event.getLevel();
+      BlockState state = lv.getBlockState(event.getPos());
+      if(state.getBlock() instanceof CropBlock crop){
+        int age=0;
+        try{
+          age = crop.getAge(state);
+        }catch(IllegalArgumentException e){
+          ChemistryMod.LOGGER.warn("Exception caught on getting crop age: {}", e);
+        }
+        final int maxAge = crop.getMaxAge();
+        if(age != maxAge) event.setCanceled(true);
+      }else{
+        event.setCanceled(true); // Cannot break anything other than crops
+      }
+    }
+  }
+  @SubscribeEvent(priority = EventPriority.HIGHEST)
+  public static void farmBreakCancel(BlockEvent.FarmlandTrampleEvent event){
+    if(event.isCanceled())return;
+    Entity entity = event.getEntity();
+    if(entity instanceof LivingEntity lentity){
+      ItemStack stack = lentity.getMainHandItem();
+      int enchLevel = stack.getEnchantmentLevel(ChemiEnchantments.GARDENER.get());
+      LevelAccessor lv = event.getLevel();
+      if(lv instanceof ServerLevel && enchLevel>=1){
+        event.setCanceled(true);
       }
     }
   }

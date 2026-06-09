@@ -28,7 +28,7 @@ import net.minecraftforge.items.IItemHandler;
 
 public class GardenerEnchantment extends Enchantment{
   public GardenerEnchantment() {
-    super(Rarity.RARE, ChemiEnchantments.HOES, new EquipmentSlot[]{EquipmentSlot.MAINHAND});
+    super(Rarity.UNCOMMON, ChemiEnchantments.HOES, new EquipmentSlot[]{EquipmentSlot.MAINHAND});
   }
   
   @Override
