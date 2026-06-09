@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "reagenica:platinum_nugget"
+    }
+  ],
+  "result": {
+    "count": 9,
+    "item": "reagenica:trace_platinum"
+  }
+}

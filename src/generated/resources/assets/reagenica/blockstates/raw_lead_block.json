@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "reagenica:block/raw_lead_block"
+    }
+  }
+}

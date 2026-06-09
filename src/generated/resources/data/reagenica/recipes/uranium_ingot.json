@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "reagenica:uranium_ingot"
+    }
+  ],
+  "result": {
+    "count": 9,
+    "item": "reagenica:uranium_nugget"
+  }
+}

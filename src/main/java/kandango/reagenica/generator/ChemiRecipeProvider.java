@@ -3,7 +3,7 @@ package kandango.reagenica.generator;
 import java.util.function.Consumer;
 
 import javax.annotation.Nonnull;
-
+import kandango.reagenica.ChemiBlocks;
 import kandango.reagenica.ChemiItems;
 import kandango.reagenica.ChemistryMod;
 import kandango.reagenica.family.ArmorFamily;
@@ -24,6 +24,8 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.ItemLike;
+import net.minecraftforge.registries.ForgeRegistries;
+import net.minecraftforge.registries.RegistryObject;
 
 public class ChemiRecipeProvider extends RecipeProvider{
   public ChemiRecipeProvider(PackOutput output){
@@ -39,6 +41,21 @@ public class ChemiRecipeProvider extends RecipeProvider{
     ToolRecipeGenerator.ofPair(ChemiItems.PLATINUM_TOOLS, ChemiItems.PLATINUM_INGOT.get(), Ingredient.of(Items.DIAMOND)).register(consumer);
     ToolSmithingRecipeGenerator.smith(ChemiItems.PLATINUM_TOOLS, ChemiItems.IRIDIUM_TOOLS, ChemiItems.IRIDIUM_INGOT.get(), ChemiItems.IRIDIUM_UPGRADE_STH.get()).register(consumer);
     ToolRecipeGenerator.ofPair(ChemiItems.PINK_GOLD_TOOLS, ChemiItems.PINK_GOLD_INGOT.get(), Ingredient.of(Items.STICK)).register(consumer);
+    CompressingRecipeGenerator.of(ChemiItems.RAW_CHALCOPYRITE, ChemiBlocks.CHALCOPYRITE_BLOCK, true).register(consumer);;
+    CompressingRecipeGenerator.of(ChemiItems.RAW_BAUXITE, ChemiBlocks.BAUXITE_BLOCK, true).register(consumer);
+    CompressingRecipeGenerator.of(ChemiItems.RAW_APATITE, ChemiBlocks.APATITE_BLOCK, true).register(consumer);
+    CompressingRecipeGenerator.of(ChemiItems.OIL_SAND, ChemiBlocks.OILSAND_BLOCK, true).register(consumer);
+    CompressingRecipeGenerator.of(ChemiItems.RAW_LEAD, ChemiBlocks.RAW_LEAD_BLOCK, true).register(consumer);
+    CompressingRecipeGenerator.of(ChemiItems.TRACE_PLATINUM, ChemiItems.PLATINUM_NUGGET, false, "", "_primal").register(consumer);
+    CompressingRecipeGenerator.of(ChemiItems.PLATINUM_NUGGET, ChemiItems.PLATINUM_INGOT, false, "", "_middle").register(consumer);
+    CompressingRecipeGenerator.of(ChemiItems.TRACE_SILVER, ChemiItems.SILVER_NUGGET, false, "", "_primal").register(consumer);
+    CompressingRecipeGenerator.of(ChemiItems.SILVER_NUGGET, ChemiItems.SILVER_INGOT, false, "", "_middle").register(consumer);
+    CompressingRecipeGenerator.of(ChemiItems.URANIUM_NUGGET, ChemiItems.URANIUM_INGOT, false).register(consumer);
+    CompressingRecipeGenerator.of(ChemiItems.PLUTONIUM_NUGGET, ChemiItems.PLUTONIUM_INGOT, false).register(consumer);
+    CompressingRecipeGenerator.of(ChemiItems.COBALT_NUGGET, ChemiItems.COBALT_INGOT, false).register(consumer);
+    CompressingRecipeGenerator.of(ChemiItems.LEAD_INGOT, ChemiBlocks.LEAD_BLOCK, true).register(consumer);
+    CompressingRecipeGenerator.of(ChemiItems.ALUMINIUM_INGOT, ChemiBlocks.ALUMINIUM_BLOCK, true).register(consumer);
+    CompressingRecipeGenerator.of(ChemiItems.REFINED_COPPER_INGOT, ChemiBlocks.REFINED_COPPER_BLOCK, true).register(consumer);
   }
   private static class WoodFamilyRecipeGenerator {
     private final WoodFamily woodFamily;
@@ -350,5 +367,85 @@ public class ChemiRecipeProvider extends RecipeProvider{
         .unlockedBy("has_material", has(family.SHARD_ITEM.get()))
         .save(consumer);
     }
+  }
+  private static class CompressingRecipeGenerator{
+    private final RegistryObject<? extends ItemLike> UNZIPPED;
+    private final RegistryObject<? extends ItemLike> COMPRESSED;
+    private final boolean isCompressedFormBlock;
+    private final String prefix;
+    private final String suffix;
+
+    private CompressingRecipeGenerator(RegistryObject<? extends ItemLike> unzipped, RegistryObject<? extends ItemLike> compressed, boolean isblock, String prefix, String suffix){
+      this.UNZIPPED = unzipped;
+      this.COMPRESSED = compressed;
+      this.isCompressedFormBlock = isblock;
+      this.prefix = prefix;
+      this.suffix = suffix;
+    }
+    public static CompressingRecipeGenerator of(RegistryObject<? extends ItemLike> unzipped, RegistryObject<? extends ItemLike> compressed, boolean isBlock){
+      return new CompressingRecipeGenerator(unzipped, compressed, isBlock, "", "");
+    }
+    public static CompressingRecipeGenerator of(RegistryObject<? extends ItemLike> unzipped, RegistryObject<? extends ItemLike> compressed, boolean isBlock, String prefix, String suffix){
+      return new CompressingRecipeGenerator(unzipped, compressed, isBlock, prefix, suffix);
+    }
+    public void register(Consumer<FinishedRecipe> consumer){
+      ShapedRecipeBuilder.shaped(isCompressedFormBlock?RecipeCategory.BUILDING_BLOCKS:RecipeCategory.MISC, COMPRESSED.get(), 1)
+        .pattern("###")
+        .pattern("###")
+        .pattern("###")
+        .define('#', UNZIPPED.get())
+        .unlockedBy("has_material", has(UNZIPPED.get()))
+        .save(consumer, concat(ForgeRegistries.ITEMS.getKey(UNZIPPED.get().asItem()),prefix,suffix));
+      ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, UNZIPPED.get(), 9)
+        .requires(COMPRESSED.get())
+        .unlockedBy("has_block", has(COMPRESSED.get()))
+        .save(consumer, concat(ForgeRegistries.ITEMS.getKey(COMPRESSED.get().asItem()),prefix,suffix));
+    }
+  }
+  // private static class CompressingTripletRecipeGenerator{
+  //   private final RegistryObject<? extends ItemLike> MIN;
+  //   private final RegistryObject<? extends ItemLike> MIDDLE;
+  //   private final RegistryObject<? extends ItemLike> COMPRESSED;
+  //   private final boolean isCompressedFormBlock;
+
+  //   private CompressingTripletRecipeGenerator(RegistryObject<? extends ItemLike> min, RegistryObject<? extends ItemLike> middle, RegistryObject<? extends ItemLike> compressed, boolean isblock){
+  //     this.MIN = min;
+  //     this.MIDDLE = middle;
+  //     this.COMPRESSED = compressed;
+  //     this.isCompressedFormBlock = isblock;
+  //   }
+  //   public static CompressingTripletRecipeGenerator of(RegistryObject<? extends ItemLike> min, RegistryObject<? extends ItemLike> middle, RegistryObject<? extends ItemLike> compressed, boolean isBlock){
+  //     return new CompressingTripletRecipeGenerator(min, middle, compressed, isBlock);
+  //   }
+  //   public void register(Consumer<FinishedRecipe> consumer){
+  //     ShapedRecipeBuilder.shaped(isCompressedFormBlock?RecipeCategory.BUILDING_BLOCKS:RecipeCategory.MISC, COMPRESSED.get(), 1)
+  //       .pattern("###")
+  //       .pattern("###")
+  //       .pattern("###")
+  //       .define('#', MIDDLE.get())
+  //       .unlockedBy("has_material", has(MIDDLE.get()))
+  //       .save(consumer);
+  //     ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, MIDDLE.get(), 9)
+  //       .requires(COMPRESSED.get())
+  //       .unlockedBy("has_block", has(COMPRESSED.get()))
+  //       .save(consumer, concat(ForgeRegistries.ITEMS.getKey(MIDDLE.get().asItem()),"","_unzip"));
+  //     ShapedRecipeBuilder.shaped(RecipeCategory.MISC, MIDDLE.get(), 1)
+  //       .pattern("###")
+  //       .pattern("###")
+  //       .pattern("###")
+  //       .define('#', MIN.get())
+  //       .unlockedBy("has_material", has(MIN.get()))
+  //       .save(consumer, concat(ForgeRegistries.ITEMS.getKey(MIDDLE.get().asItem()),"","_compress"));
+  //     ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, MIN.get(), 9)
+  //       .requires(MIDDLE.get())
+  //       .unlockedBy("has_material", has(MIDDLE.get()))
+  //       .save(consumer);
+  //   }
+  // }
+
+  private static ResourceLocation concat(ResourceLocation base, String prefix, String suffix){
+    String basePath = base.getPath();
+    String baseNamespace = base.getNamespace();
+    return new ResourceLocation(baseNamespace, prefix+basePath+suffix);
   }
 }

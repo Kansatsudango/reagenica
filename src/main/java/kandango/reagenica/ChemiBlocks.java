@@ -231,6 +231,28 @@ public class ChemiBlocks {
   public static final RegistryObject<Block> SHIMMERING_KIMBERLITE = registerStoneBlockandlist("shimmering_kimberlite", () -> new Block(BlockBehaviour.Properties.of().strength(3.0f, 4.0f).sound(SoundType.DEEPSLATE_BRICKS)));
   public static final RegistryObject<Item> SHIMMERING_KIMBERLITE_ITEM = registerItemandlist("shimmering_kimberlite",
     () -> new BlockItem(SHIMMERING_KIMBERLITE.get(), new Item.Properties()));
+    
+  public static final RegistryObject<Block> RAW_LEAD_BLOCK = registerStoneBlockandlist("raw_lead_block",
+    () -> new Block(BlockBehaviour.Properties.copy(Blocks.RAW_IRON_BLOCK).mapColor(MapColor.STONE)));
+  public static final RegistryObject<Item> RAW_LEAD_BLOCK_ITEM = registerItemandlist("raw_lead_block",
+    () -> new BlockItem(RAW_LEAD_BLOCK.get(), new Item.Properties()));
+  public static final RegistryObject<Block> CHALCOPYRITE_BLOCK = registerStoneBlockandlist("chalcopyrite_block",
+    () -> new Block(BlockBehaviour.Properties.copy(Blocks.RAW_IRON_BLOCK).mapColor(MapColor.STONE)));
+  public static final RegistryObject<Item> CHALCOPYRITE_BLOCK_ITEM = registerItemandlist("chalcopyrite_block",
+    () -> new BlockItem(CHALCOPYRITE_BLOCK.get(), new Item.Properties()));
+  public static final RegistryObject<Block> BAUXITE_BLOCK = registerStoneBlockandlist("bauxite_block",
+    () -> new Block(BlockBehaviour.Properties.copy(Blocks.RAW_IRON_BLOCK).mapColor(MapColor.STONE)));
+  public static final RegistryObject<Item> BAUXITE_BLOCK_ITEM = registerItemandlist("bauxite_block",
+    () -> new BlockItem(BAUXITE_BLOCK.get(), new Item.Properties()));
+  public static final RegistryObject<Block> APATITE_BLOCK = registerStoneBlockandlist("apatite_block",
+    () -> new Block(BlockBehaviour.Properties.copy(Blocks.RAW_IRON_BLOCK).mapColor(MapColor.STONE)));
+  public static final RegistryObject<Item> APATITE_BLOCK_ITEM = registerItemandlist("apatite_block",
+    () -> new BlockItem(APATITE_BLOCK.get(), new Item.Properties()));
+  public static final RegistryObject<Block> OILSAND_BLOCK = registerStoneBlockandlist("oilsand_block",
+    () -> new Block(BlockBehaviour.Properties.copy(Blocks.RAW_IRON_BLOCK).mapColor(MapColor.STONE)));
+  public static final RegistryObject<Item> OILSAND_BLOCK_ITEM = registerItemandlist("oilsand_block",
+    () -> new BlockItem(OILSAND_BLOCK.get(), new Item.Properties()));
+
 
   public static final RegistryObject<Block> TRADING_STALL = registerMachineBlockandlist("trading_stall", TradingStall::new); 
   public static final RegistryObject<Item> TRADING_STALL_ITEM = registerItemandlist("trading_stall",

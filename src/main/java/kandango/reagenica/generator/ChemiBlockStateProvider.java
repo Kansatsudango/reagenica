@@ -37,6 +37,7 @@ public class ChemiBlockStateProvider extends BlockStateProvider{
   protected void registerStatesAndModels() {
     WoodFamily.Woods.forEach(this::processWood);
     processCrosses();
+    processSimples();
     ChemiBlocks.listFlowerPots.forEach(rg -> pottedPlant(rg, rg.getId().getPath()));
   }
 
@@ -166,5 +167,12 @@ public class ChemiBlockStateProvider extends BlockStateProvider{
     registerCrossBlock(ChemiBlocks.WHITE_BISPORUS);
     registerCrossBlock(ChemiBlocks.GRIFOLA_FRONDOSA);
     registerCrossBlock(ChemiBlocks.TRICHOLOMA_MATSUTAKE);
+  }
+  private void processSimples(){
+    registerSimpleBlockWithItem(ChemiBlocks.RAW_LEAD_BLOCK);
+    registerSimpleBlockWithItem(ChemiBlocks.CHALCOPYRITE_BLOCK);
+    registerSimpleBlockWithItem(ChemiBlocks.BAUXITE_BLOCK);
+    registerSimpleBlockWithItem(ChemiBlocks.APATITE_BLOCK);
+    registerSimpleBlockWithItem(ChemiBlocks.OILSAND_BLOCK);
   }
 }
