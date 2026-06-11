@@ -45,6 +45,6 @@ public class HydrangeaCreator extends Item{
   @Override
   public void appendHoverText(@Nonnull ItemStack stack, @Nullable Level level, @Nonnull List<Component> tooltip, @Nonnull TooltipFlag flag) {
     super.appendHoverText(stack, level, tooltip, flag);
-    tooltip.add(Component.translatable("tooltip.reagenica.hydrangea_creator").withStyle(ChatFormatting.AQUA));
+    tooltip.add(Component.translatable("tooltip.reagenica.hydrangea_creator").withStyle(ChatFormatting.GREEN));
   }
 }
