@@ -50,8 +50,8 @@ public class CrystalFamily {
     this.BLOCK_ITEM = ChemiBlocks.ITEMS.register(name+"_block",
       () -> new BlockItem(this.BLOCK.get(), new Item.Properties()));
     this.BUDDING_BLOCK = ChemiBlocks.BLOCKS.register("budding_"+name+"_block", () -> new BuddingCrystalBlock(
-      BlockBehaviour.Properties.of().mapColor(color).strength(1.5F)
-      .sound(SoundType.AMETHYST).requiresCorrectToolForDrops()
+      BlockBehaviour.Properties.of().mapColor(color).strength(45.0F)
+      .sound(SoundType.AMETHYST).requiresCorrectToolForDrops().randomTicks()
       ,this.CRYSTAL_BUD::get,this.CRYSTAL::get));
     this.BUDDING_BLOCK_ITEM = ChemiBlocks.ITEMS.register("budding_"+name+"_block",
       () -> new BlockItem(this.BUDDING_BLOCK.get(), new Item.Properties()));
