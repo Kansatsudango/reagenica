@@ -233,6 +233,7 @@ public class ChemiItems {
   public static final RegistryObject<Item> FERTILIZER = registerandlist("fertilizer", () -> new Fertilizer());
   public static final RegistryObject<Item> PHOSPHO_FERTILIZER = registerandlist("phospho_fertilizer", () -> new PhosphoFertilizer());
   public static final RegistryObject<Item> MUSHROOM_FERTILIZER = registerandlist("mushroom_fertilizer", () -> new MushroomFertilizer());
+  public static final RegistryObject<Item> HYDRANGEA_CREATOR = registerandlist("hydrangea_creator", () -> new HydrangeaCreator());
   public static final RegistryObject<Item> MINEWIPE = registerandlist("minewipe", () -> new RoleItem(new Item.Properties(), ChemiItemRoles::mineWipe));
   public static final RegistryObject<Item> SILVER_ARROW = registerandlist("silver_arrow", () -> new SilverArrowItem());
   public static final RegistryObject<Item> SILVER_BOW = registerandlist("silver_bow", () -> new SilverBowItem());

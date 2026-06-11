@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    { "tag": "reagenica:fertilizers" },
+    { "item": "reagenica:copper_sulfate" }
+  ],
+  "result": {
+    "item": "reagenica:hydrangea_creator",
+    "count": 1
+  }
+}

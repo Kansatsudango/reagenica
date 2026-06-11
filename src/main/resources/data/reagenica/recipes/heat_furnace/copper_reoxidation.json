@@ -1,0 +1,9 @@
+{
+  "type": "reagenica:heat_furnace",
+  "input": {
+    "item": "minecraft:copper_ingot"
+  },
+  "result": {
+    "item": "reagenica:copper_oxide"
+  }
+}
