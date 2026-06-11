@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/template_azalea",
+  "textures": {
+    "side": "reagenica:block/hydrangea_side",
+    "top": "reagenica:block/hydrangea_top"
+  },
+  "render_type": "cutout"
+}
