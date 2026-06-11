@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 1,
+  "ingredient": [
+    {
+      "item": "reagenica:cryolite"
+    },
+    {
+      "item": "reagenica:polished_cryolite"
+    }
+  ],
+  "result": "reagenica:polished_cryolite_stairs"
+}

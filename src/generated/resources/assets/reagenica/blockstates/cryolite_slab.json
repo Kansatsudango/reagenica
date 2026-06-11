@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "reagenica:block/cryolite_slab"
+    },
+    "type=double": {
+      "model": "reagenica:block/cryolite"
+    },
+    "type=top": {
+      "model": "reagenica:block/cryolite_slab_top"
+    }
+  }
+}

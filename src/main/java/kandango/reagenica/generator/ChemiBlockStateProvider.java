@@ -2,6 +2,7 @@ package kandango.reagenica.generator;
 
 import kandango.reagenica.ChemiBlocks;
 import kandango.reagenica.ChemistryMod;
+import kandango.reagenica.family.StoneFamily;
 import kandango.reagenica.family.WoodFamily;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
@@ -18,6 +19,7 @@ import net.minecraft.world.level.block.SlabBlock;
 import net.minecraft.world.level.block.StairBlock;
 import net.minecraft.world.level.block.StandingSignBlock;
 import net.minecraft.world.level.block.TrapDoorBlock;
+import net.minecraft.world.level.block.WallBlock;
 import net.minecraft.world.level.block.WallHangingSignBlock;
 import net.minecraft.world.level.block.WallSignBlock;
 import net.minecraftforge.client.model.generators.BlockStateProvider;
@@ -36,6 +38,7 @@ public class ChemiBlockStateProvider extends BlockStateProvider{
   @Override
   protected void registerStatesAndModels() {
     WoodFamily.Woods.forEach(this::processWood);
+    StoneFamily.Stones.forEach(this::processStone);
     processCrosses();
     processSimples();
     ChemiBlocks.listFlowerPots.forEach(rg -> pottedPlant(rg, rg.getId().getPath()));
@@ -46,7 +49,7 @@ public class ChemiBlockStateProvider extends BlockStateProvider{
     simpleBlockItem(stairs.get(), models().getExistingFile(blockTexture(stairs.get())));
   }
   private void registerSlabBlockWithItem(RegistryObject<? extends SlabBlock> slab, String name){
-    slabBlock(slab.get(), modLoc("block/" + name + "_planks"), modLoc("block/" + name + "_planks"));
+    slabBlock(slab.get(), modLoc("block/" + name), modLoc("block/" + name));
     simpleBlockItem(slab.get(), models().getExistingFile(blockTexture(slab.get())));
   }
   private void registerLogBlockWithItem(RegistryObject<? extends RotatedPillarBlock> log){
@@ -136,6 +139,14 @@ public class ChemiBlockStateProvider extends BlockStateProvider{
             .addModels(new ConfiguredModel(model));
     itemModels().withExistingParent(name, mcLoc("item/generated")).texture("layer0", modLoc("block/"+name));
   }
+  private void registerWallBlockWithItem(RegistryObject<? extends WallBlock> wall, String name){
+    wallBlock(wall.get(), modLoc("block/"+name));
+    models().withExistingParent(name+"_wall_inventory", mcLoc("block/wall_inventory")).texture("wall", modLoc("block/"+name));
+    itemModels().withExistingParent(
+            name + "_wall",
+            modLoc("block/" + name + "_wall_inventory")
+    );
+  }
 
   private void processWood(WoodFamily woodFamily){
     registerLogBlockWithItem(woodFamily.LOG);
@@ -144,7 +155,7 @@ public class ChemiBlockStateProvider extends BlockStateProvider{
     registerCutoutCrossBlockWithItem(woodFamily.SAPLING, woodFamily.name+"_sapling");
     registerSimpleBlockWithItem(woodFamily.PLANKS);
     registerStairBlockWithItem(woodFamily.STAIRS, woodFamily.PLANKS);
-    registerSlabBlockWithItem(woodFamily.SLAB, woodFamily.name);
+    registerSlabBlockWithItem(woodFamily.SLAB, woodFamily.name+"_planks");
     registerLogBlockWithItem(woodFamily.STRIPPED_LOG);
     registerWoodBlockWithItem(woodFamily.STRIPPED_WOOD, "stripped_"+woodFamily.name);
     registerSignBlocksWithItem(woodFamily.STANDING_SIGN, woodFamily.WALL_SIGN, woodFamily.name);
@@ -156,6 +167,15 @@ public class ChemiBlockStateProvider extends BlockStateProvider{
     registerButtonBlockWithItem(woodFamily.BUTTON, woodFamily.name);
     registerPressurePlateBlockWithItem(woodFamily.PRESSURE_PLATE, woodFamily.name);
     pottedPlant(woodFamily.POTTED_SAPLING, "potted_"+woodFamily.name+"_sapling");
+  }
+  private void processStone(StoneFamily stoneFamily){
+    registerSimpleBlockWithItem(stoneFamily.STONE);
+    registerStairBlockWithItem(stoneFamily.STAIRS, stoneFamily.STONE);
+    registerSlabBlockWithItem(stoneFamily.SLAB, stoneFamily.name);
+    registerWallBlockWithItem(stoneFamily.WALL, stoneFamily.name);
+    registerSimpleBlockWithItem(stoneFamily.P_STONE);
+    registerStairBlockWithItem(stoneFamily.P_STAIRS, stoneFamily.P_STONE);
+    registerSlabBlockWithItem(stoneFamily.P_SLAB, "polished_"+stoneFamily.name);
   }
   private void processCrosses(){
     registerCrossBlock(ChemiBlocks.MUSHROOM_RED);

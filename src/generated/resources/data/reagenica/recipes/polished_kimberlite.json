@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "P": {
+      "item": "reagenica:kimberlite"
+    }
+  },
+  "pattern": [
+    "PP",
+    "PP"
+  ],
+  "result": {
+    "count": 4,
+    "item": "reagenica:polished_kimberlite"
+  },
+  "show_notification": true
+}

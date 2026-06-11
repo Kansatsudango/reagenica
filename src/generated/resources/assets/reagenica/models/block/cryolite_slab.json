@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab",
+  "textures": {
+    "bottom": "reagenica:block/cryolite",
+    "side": "reagenica:block/cryolite",
+    "top": "reagenica:block/cryolite"
+  }
+}

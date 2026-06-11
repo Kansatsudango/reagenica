@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "reagenica:block/polished_kimberlite_slab"
+    },
+    "type=double": {
+      "model": "reagenica:block/polished_kimberlite"
+    },
+    "type=top": {
+      "model": "reagenica:block/polished_kimberlite_slab_top"
+    }
+  }
+}

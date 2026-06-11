@@ -11,6 +11,7 @@ import kandango.reagenica.ModCreativeTabs;
 import kandango.reagenica.ChemiItems.CreativeTabContent;
 import kandango.reagenica.family.ArmorFamily;
 import kandango.reagenica.family.CrystalFamily;
+import kandango.reagenica.family.StoneFamily;
 import kandango.reagenica.family.ToolFamily;
 import kandango.reagenica.family.WoodFamily;
 
@@ -30,6 +31,7 @@ public class ModCreativeTabContents {
         }else if(event.getTab() == ModCreativeTabs.PALEO_TAB.get()){
           WoodFamily.Woods.stream().flatMap(WoodFamily::blockItems).forEach(event::accept);
           CrystalFamily.Crystals.stream().flatMap(c -> c.crystalItems()).forEach(event::accept);
+          StoneFamily.Stones.stream().flatMap(StoneFamily::blockItems).forEach(event::accept);
         }else if(event.getTab() == ModCreativeTabs.TOOLS.get()){
           ToolFamily.Tools.stream().flatMap(ToolFamily::toolItems).forEach(event::accept);
           ArmorFamily.Armors.stream().flatMap(ArmorFamily::armorItems).forEach(event::accept);

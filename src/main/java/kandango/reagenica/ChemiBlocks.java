@@ -9,6 +9,7 @@ import kandango.reagenica.block.farming.*;
 import kandango.reagenica.block.farming.crop.*;
 import kandango.reagenica.block.farming.grape.*;
 import kandango.reagenica.family.CrystalFamily;
+import kandango.reagenica.family.StoneFamily;
 import kandango.reagenica.family.WoodFamily;
 import kandango.reagenica.generator.BlockLootType;
 import kandango.reagenica.item.ChemiFoodProperties;
@@ -222,12 +223,8 @@ public class ChemiBlocks {
   public static final RegistryObject<Item> IRIDIUM_ORE_ITEM = registerItemandlist("iridium_ore",
     () -> new BlockItem(IRIDIUM_ORE.get(), new Item.Properties()));
 
-  public static final RegistryObject<Block> CRYOLITE = registerStoneBlockandlist("cryolite", () -> new Block(BlockBehaviour.Properties.of().strength(2.0f, 3.0f).sound(SoundType.CALCITE)));
-  public static final RegistryObject<Item> CRYOLITE_ITEM = registerItemandlist("cryolite",
-    () -> new BlockItem(CRYOLITE.get(), new Item.Properties()));
-  public static final RegistryObject<Block> KIMBERLITE = registerStoneBlockandlist("kimberlite", () -> new Block(BlockBehaviour.Properties.of().strength(3.0f, 4.0f).sound(SoundType.DEEPSLATE_BRICKS)));
-  public static final RegistryObject<Item> KIMBERLITE_ITEM = registerItemandlist("kimberlite",
-    () -> new BlockItem(KIMBERLITE.get(), new Item.Properties()));
+  public static final StoneFamily CRYOLITE = new StoneFamily("cryolite");
+  public static final StoneFamily KIMBERLITE = new StoneFamily("kimberlite");
   public static final RegistryObject<Block> SHIMMERING_KIMBERLITE = registerStoneBlockandlist("shimmering_kimberlite", () -> new Block(BlockBehaviour.Properties.of().strength(3.0f, 4.0f).sound(SoundType.DEEPSLATE_BRICKS)));
   public static final RegistryObject<Item> SHIMMERING_KIMBERLITE_ITEM = registerItemandlist("shimmering_kimberlite",
     () -> new BlockItem(SHIMMERING_KIMBERLITE.get(), new Item.Properties()));

@@ -8,6 +8,7 @@ import kandango.reagenica.ChemiItems;
 import kandango.reagenica.ChemistryMod;
 import kandango.reagenica.family.ArmorFamily;
 import kandango.reagenica.family.CrystalFamily;
+import kandango.reagenica.family.StoneFamily;
 import kandango.reagenica.family.ToolFamily;
 import kandango.reagenica.family.WoodFamily;
 import net.minecraft.core.registries.Registries;
@@ -17,6 +18,7 @@ import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.RecipeProvider;
 import net.minecraft.data.recipes.ShapedRecipeBuilder;
 import net.minecraft.data.recipes.ShapelessRecipeBuilder;
+import net.minecraft.data.recipes.SingleItemRecipeBuilder;
 import net.minecraft.data.recipes.SmithingTransformRecipeBuilder;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
@@ -35,6 +37,7 @@ public class ChemiRecipeProvider extends RecipeProvider{
   protected void buildRecipes(@Nonnull Consumer<FinishedRecipe> consumer) {
     WoodFamily.Woods.forEach(family -> WoodFamilyRecipeGenerator.of(family).register(consumer));
     CrystalFamily.Crystals.forEach(family -> CrystalRecipeGenerator.of(family).register(consumer));
+    StoneFamily.Stones.forEach(family -> StoneFamilyRecipeGenerator.of(family).register(consumer));
     ArmorRecipeGenerator.ofPair(ChemiItems.PLATINUM_ARMOR, ChemiItems.PLATINUM_INGOT.get()).register(consumer);
     ArmorSmithingRecipeGenerator.smith(ChemiItems.PLATINUM_ARMOR, ChemiItems.IRIDIUM_ARMOR, ChemiItems.IRIDIUM_INGOT.get(), ChemiItems.IRIDIUM_UPGRADE_STH.get()).register(consumer);
     ArmorRecipeGenerator.ofPair(ChemiItems.PINK_GOLD_ARMOR, ChemiItems.PINK_GOLD_INGOT.get()).register(consumer);
@@ -187,6 +190,111 @@ public class ChemiRecipeProvider extends RecipeProvider{
             .define('P', woodFamily.PLANKS_ITEM.get())
             .unlockedBy("has_planks", has(woodFamily.PLANKS_ITEM.get()))
             .save(consumer);
+    }
+  }
+  private static class StoneFamilyRecipeGenerator {
+    private final StoneFamily stoneFamily;
+    private StoneFamilyRecipeGenerator(StoneFamily family){
+      this.stoneFamily = family;
+    }
+    public static StoneFamilyRecipeGenerator of(StoneFamily family){
+      return new StoneFamilyRecipeGenerator(family);
+    }
+    public void register(Consumer<FinishedRecipe> consumer){
+      stairs(consumer);
+      slab(consumer);
+      p_stairs(consumer);
+      p_slab(consumer);
+      polish(consumer);
+      wall(consumer);
+      s_polish(consumer);
+      s_stairs(consumer);
+      s_slabs(consumer);
+      s_p_stairs(consumer);
+      s_p_slabs(consumer);
+    }
+    private void stairs(Consumer<FinishedRecipe> consumer){
+      ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, stoneFamily.STAIRS_ITEM.get(), 4)
+            .pattern("P  ")
+            .pattern("PP ")
+            .pattern("PPP")
+            .define('P', stoneFamily.STONE.get())
+            .unlockedBy("has_stone", has(stoneFamily.STONE_ITEM.get()))
+            .save(consumer);
+    }
+    private void slab(Consumer<FinishedRecipe> consumer){
+      ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, stoneFamily.SLAB_ITEM.get(), 6)
+            .pattern("PPP")
+            .define('P', stoneFamily.STONE.get())
+            .unlockedBy("has_stone", has(stoneFamily.STONE_ITEM.get()))
+            .save(consumer);
+    }
+    private void p_stairs(Consumer<FinishedRecipe> consumer){
+      ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, stoneFamily.P_STAIRS_ITEM.get(), 4)
+            .pattern("P  ")
+            .pattern("PP ")
+            .pattern("PPP")
+            .define('P', stoneFamily.P_STONE.get())
+            .unlockedBy("has_stone", has(stoneFamily.P_STONE_ITEM.get()))
+            .save(consumer);
+    }
+    private void p_slab(Consumer<FinishedRecipe> consumer){
+      ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, stoneFamily.P_SLAB_ITEM.get(), 6)
+            .pattern("PPP")
+            .define('P', stoneFamily.P_STONE.get())
+            .unlockedBy("has_stone", has(stoneFamily.P_STONE_ITEM.get()))
+            .save(consumer);
+    }
+    private void polish(Consumer<FinishedRecipe> consumer){
+      ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, stoneFamily.P_STONE.get(), 4)
+            .pattern("PP")
+            .pattern("PP")
+            .define('P', stoneFamily.STONE.get())
+            .unlockedBy("has_stone", has(stoneFamily.STONE_ITEM.get()))
+            .save(consumer);
+    }
+    private void wall(Consumer<FinishedRecipe> consumer){
+      ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, stoneFamily.WALL.get(), 6)
+            .pattern("PPP")
+            .pattern("PPP")
+            .define('P', stoneFamily.STONE.get())
+            .unlockedBy("has_stone", has(stoneFamily.STONE_ITEM.get()))
+            .save(consumer);
+    }
+    private void s_polish(Consumer<FinishedRecipe> consumer){
+      SingleItemRecipeBuilder.stonecutting(Ingredient.of(stoneFamily.STONE_ITEM.get()),
+      RecipeCategory.BUILDING_BLOCKS, 
+      stoneFamily.P_STONE.get(),1)
+      .unlockedBy("has_stone", has(stoneFamily.STONE_ITEM.get()))
+      .save(consumer, new ResourceLocation(ChemistryMod.MODID, "sc_polished_"+stoneFamily.name));
+    }
+    private void s_stairs(Consumer<FinishedRecipe> consumer){
+      SingleItemRecipeBuilder.stonecutting(Ingredient.of(stoneFamily.STONE_ITEM.get()),
+      RecipeCategory.BUILDING_BLOCKS, 
+      stoneFamily.STAIRS.get(),1)
+      .unlockedBy("has_stone", has(stoneFamily.STONE_ITEM.get()))
+      .save(consumer, concat(ForgeRegistries.ITEMS.getKey(stoneFamily.STAIRS.get().asItem()),"sc_",""));
+    }
+    private void s_slabs(Consumer<FinishedRecipe> consumer){
+      SingleItemRecipeBuilder.stonecutting(Ingredient.of(stoneFamily.STONE_ITEM.get()),
+      RecipeCategory.BUILDING_BLOCKS, 
+      stoneFamily.SLAB.get(),2)
+      .unlockedBy("has_stone", has(stoneFamily.STONE_ITEM.get()))
+      .save(consumer, concat(ForgeRegistries.ITEMS.getKey(stoneFamily.SLAB.get().asItem()),"sc_",""));
+    }
+    private void s_p_stairs(Consumer<FinishedRecipe> consumer){
+      SingleItemRecipeBuilder.stonecutting(Ingredient.of(stoneFamily.STONE.get(), stoneFamily.P_STONE.get()),
+      RecipeCategory.BUILDING_BLOCKS, 
+      stoneFamily.P_STAIRS.get(),1)
+      .unlockedBy("has_stone", has(stoneFamily.STONE_ITEM.get()))
+      .save(consumer, concat(ForgeRegistries.ITEMS.getKey(stoneFamily.P_STAIRS.get().asItem()),"sc_",""));
+    }
+    private void s_p_slabs(Consumer<FinishedRecipe> consumer){
+      SingleItemRecipeBuilder.stonecutting(Ingredient.of(stoneFamily.STONE.get(), stoneFamily.P_STONE.get()),
+      RecipeCategory.BUILDING_BLOCKS, 
+      stoneFamily.P_SLAB.get(),2)
+      .unlockedBy("has_stone", has(stoneFamily.STONE_ITEM.get()))
+      .save(consumer, concat(ForgeRegistries.ITEMS.getKey(stoneFamily.P_SLAB.get().asItem()),"sc_",""));
     }
   }
   private static class ArmorRecipeGenerator{
@@ -402,46 +510,6 @@ public class ChemiRecipeProvider extends RecipeProvider{
         .save(consumer, concat(ForgeRegistries.ITEMS.getKey(COMPRESSED.get().asItem()),prefix,suffix));
     }
   }
-  // private static class CompressingTripletRecipeGenerator{
-  //   private final RegistryObject<? extends ItemLike> MIN;
-  //   private final RegistryObject<? extends ItemLike> MIDDLE;
-  //   private final RegistryObject<? extends ItemLike> COMPRESSED;
-  //   private final boolean isCompressedFormBlock;
-
-  //   private CompressingTripletRecipeGenerator(RegistryObject<? extends ItemLike> min, RegistryObject<? extends ItemLike> middle, RegistryObject<? extends ItemLike> compressed, boolean isblock){
-  //     this.MIN = min;
-  //     this.MIDDLE = middle;
-  //     this.COMPRESSED = compressed;
-  //     this.isCompressedFormBlock = isblock;
-  //   }
-  //   public static CompressingTripletRecipeGenerator of(RegistryObject<? extends ItemLike> min, RegistryObject<? extends ItemLike> middle, RegistryObject<? extends ItemLike> compressed, boolean isBlock){
-  //     return new CompressingTripletRecipeGenerator(min, middle, compressed, isBlock);
-  //   }
-  //   public void register(Consumer<FinishedRecipe> consumer){
-  //     ShapedRecipeBuilder.shaped(isCompressedFormBlock?RecipeCategory.BUILDING_BLOCKS:RecipeCategory.MISC, COMPRESSED.get(), 1)
-  //       .pattern("###")
-  //       .pattern("###")
-  //       .pattern("###")
-  //       .define('#', MIDDLE.get())
-  //       .unlockedBy("has_material", has(MIDDLE.get()))
-  //       .save(consumer);
-  //     ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, MIDDLE.get(), 9)
-  //       .requires(COMPRESSED.get())
-  //       .unlockedBy("has_block", has(COMPRESSED.get()))
-  //       .save(consumer, concat(ForgeRegistries.ITEMS.getKey(MIDDLE.get().asItem()),"","_unzip"));
-  //     ShapedRecipeBuilder.shaped(RecipeCategory.MISC, MIDDLE.get(), 1)
-  //       .pattern("###")
-  //       .pattern("###")
-  //       .pattern("###")
-  //       .define('#', MIN.get())
-  //       .unlockedBy("has_material", has(MIN.get()))
-  //       .save(consumer, concat(ForgeRegistries.ITEMS.getKey(MIDDLE.get().asItem()),"","_compress"));
-  //     ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, MIN.get(), 9)
-  //       .requires(MIDDLE.get())
-  //       .unlockedBy("has_material", has(MIDDLE.get()))
-  //       .save(consumer);
-  //   }
-  // }
 
   private static ResourceLocation concat(ResourceLocation base, String prefix, String suffix){
     String basePath = base.getPath();

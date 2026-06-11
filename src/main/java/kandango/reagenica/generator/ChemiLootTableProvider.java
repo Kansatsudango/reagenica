@@ -5,6 +5,7 @@ import java.util.Set;
 
 import kandango.reagenica.ChemiBlocks;
 import kandango.reagenica.family.CrystalFamily;
+import kandango.reagenica.family.StoneFamily;
 import kandango.reagenica.family.WoodFamily;
 import kandango.reagenica.generator.BlockLootType.BlockType;
 import net.minecraft.advancements.critereon.StatePropertiesPredicate;
@@ -42,6 +43,7 @@ public class ChemiLootTableProvider extends LootTableProvider{
     protected void generate(){
       WoodFamily.Woods.forEach(this::processWood);
       CrystalFamily.Crystals.forEach(this::processCrystal);
+      StoneFamily.Stones.forEach(this::processStone);
       ChemiBlocks.listFlowerPots.forEach(this::processPot);
       for(BlockLootType block : ChemiBlocks.listBlocks){
         if(block.type()==BlockType.NORMAL){
@@ -98,6 +100,15 @@ public class ChemiLootTableProvider extends LootTableProvider{
       add(family.BUDDING_BLOCK.get(), noDrop());
       dropOtherWithFortuneUnlessSilktouch(family.CRYSTAL.get(), family.SHARD_ITEM.get());
       dropWhenSilkTouch(family.CRYSTAL_BUD.get());
+    }
+    private void processStone(StoneFamily family){
+      dropSelf(family.STONE.get());
+      dropSelf(family.STAIRS.get());
+      add(family.SLAB.get(),createSlabItemTable(family.SLAB.get()));
+      dropSelf(family.WALL.get());
+      dropSelf(family.P_STONE.get());
+      dropSelf(family.P_STAIRS.get());
+      add(family.P_SLAB.get(),createSlabItemTable(family.P_SLAB.get()));
     }
 
     protected void dropOtherWithFortuneUnlessSilktouch(Block block, Item drop){

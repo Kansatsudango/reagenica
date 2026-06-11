@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/stairs",
+  "textures": {
+    "bottom": "reagenica:block/polished_cryolite",
+    "side": "reagenica:block/polished_cryolite",
+    "top": "reagenica:block/polished_cryolite"
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 1,
+  "ingredient": [
+    {
+      "item": "reagenica:kimberlite"
+    },
+    {
+      "item": "reagenica:polished_kimberlite"
+    }
+  ],
+  "result": "reagenica:polished_kimberlite_stairs"
+}
