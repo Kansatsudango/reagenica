@@ -327,7 +327,7 @@ public class ChemiBlocks {
   public static final RegistryObject<Block> ANCESTOR_ASTERACEAE = registerBlockandlist("ancestor_asteraceae", () -> new FlowerBlock(() -> MobEffects.DIG_SLOWDOWN, 140, BlockBehaviour.Properties.copy(Blocks.POPPY)));
   public static final RegistryObject<Item> ANCESTOR_ASTERACEAE_ITEM = registerItemandlist("ancestor_asteraceae",
     () -> new BlockItem(ANCESTOR_ASTERACEAE.get(), new Item.Properties()));
-  public static final RegistryObject<Block> HYDRANGEA = registerBlockandlist("hydrangea", () -> new Block(BlockBehaviour.Properties.copy(Blocks.AZALEA)));
+  public static final RegistryObject<Block> HYDRANGEA = registerBlockandlist("hydrangea", () -> new Hydrangea(BlockBehaviour.Properties.copy(Blocks.AZALEA)));
   public static final RegistryObject<Item> HYDRANGEA_ITEM = registerItemandlist("hydrangea",
     () -> new BlockItem(HYDRANGEA.get(), new Item.Properties()));
     
