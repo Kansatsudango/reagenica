@@ -7,6 +7,19 @@
     "#forge:gems",
     "#forge:ingots",
     "#forge:raw_materials",
+    "reagenica:oilsand_block",
+    "reagenica:raw_lead_block",
+    "reagenica:chalcopyrite_block",
+    "reagenica:bauxite_block",
+    "reagenica:apatite_block",
+    "minecraft:coal_block",
+    "minecraft:raw_iron_block",
+    "minecraft:raw_gold_block",
+    "minecraft:raw_copper_block",
+    "minecraft:redstone_block",
+    "minecraft:lapis_block",
+    "minecraft:emerald_block",
+    "minecraft:diamond_block",
     "minecraft:coal",
     "minecraft:redstone",
     "minecraft:netherrack",
@@ -14,6 +27,7 @@
     "minecraft:flint",
     "minecraft:gravel",
     "minecraft:dirt",
-    "reagenica:cryolite"
+    "reagenica:cryolite",
+    "reagenica:kimberlite"
   ]
 }
