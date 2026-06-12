@@ -12,6 +12,7 @@ import kandango.reagenica.block.PaleoPortalBlock;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.ai.village.poi.PoiManager;
 import net.minecraft.world.level.block.Blocks;
@@ -78,11 +79,41 @@ public class PaleoTeleporter implements ITeleporter{
   @Nullable
   public PortalInfo getPortalInfo(Entity entity, ServerLevel destLevel, Function<ServerLevel, PortalInfo> defaultPortalInfo) {
     final BlockPos origin = entity.blockPosition();
-    final BlockPos portalPos = findClosestPortal(destLevel, origin).orElseGet(() -> createPortal(destLevel, origin));
-    return new PortalInfo(toVec3(portalPos), entity.getDeltaMovement(), entity.getYRot(), entity.getXRot());
+    if(entity instanceof ServerPlayer){
+      final BlockPos portalPos = findClosestPortal(destLevel, origin).orElseGet(() -> createPortal(destLevel, origin));
+      return new PortalInfo(toVec3(getPortalOrigin(destLevel, portalPos)), entity.getDeltaMovement(), entity.getYRot(), entity.getXRot());
+    }else{
+      return findClosestPortal(destLevel, origin)
+        .map(pos -> getPortalOrigin(destLevel, pos))
+        .map(pos -> new PortalInfo(toVec3(pos), entity.getDeltaMovement(), entity.getYRot(), entity.getXRot()))
+        .orElse(null);
+    }
   }
 
-  private Vec3 toVec3(BlockPos pos){
-    return new Vec3(pos.getX()+0.5, pos.getY(), pos.getZ()+0.5);
+  private Vec3 toVec3(PosAndAxe pa){
+    return new Vec3(pa.pos.getX() + (pa.isXax?1:0.5), pa.pos.getY(), pa.pos.getZ()+ (pa.isXax?0.5:1));
+  }
+  private PosAndAxe getPortalOrigin(ServerLevel destLevel, BlockPos start){
+    BlockPos pos = start;
+    boolean isXAxe = destLevel.getBlockState(start).getOptionalValue(PaleoPortalBlock.AXIS)
+                              .map(ax -> ax == Direction.Axis.X).orElse(this.isXAxe);
+    for(int i=0;i<=2;i++){
+      BlockPos below = start.below(i);
+      if(destLevel.getBlockState(below).is(ChemiBlocks.PALEO_PORTAL.get())){
+        pos = below;
+      }else{
+        break;
+      }
+    }
+    BlockPos bottom = pos;
+    for(int i=0;i<=1;i++){
+      BlockPos younger = isXAxe ? bottom.offset(-i, 0,0) : bottom.offset(0, 0, -i);
+      if(destLevel.getBlockState(younger).is(ChemiBlocks.PALEO_PORTAL.get())){
+        pos = younger;
+      }
+    }
+    return new PosAndAxe(pos, isXAxe);
+  }
+  private record PosAndAxe(BlockPos pos, boolean isXax) {
   }
 }
