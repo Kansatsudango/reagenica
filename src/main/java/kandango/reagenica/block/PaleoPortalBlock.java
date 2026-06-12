@@ -5,6 +5,7 @@ import java.util.Optional;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
+import kandango.reagenica.ChemiGameRules;
 import kandango.reagenica.world.PaleoTeleporter;
 import kandango.reagenica.worldgen.ChemiBiomes;
 import net.minecraft.core.BlockPos;
@@ -13,6 +14,8 @@ import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.item.ItemEntity;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.NetherPortalBlock;
 import net.minecraft.world.level.block.state.BlockState;
@@ -27,6 +30,7 @@ public class PaleoPortalBlock extends NetherPortalBlock{
 
   @Override
   public void entityInside(@Nonnull BlockState state, @Nonnull Level level, @Nonnull BlockPos pos, @Nonnull Entity entity) {
+    if(!allowPass(entity, ChemiGameRules.getTeleportAllowLevel(level)))return;
     if(!entity.canChangeDimensions())return;
     if (!level.isClientSide && !entity.isOnPortalCooldown()) {
       entity.setPortalCooldown(200);
@@ -41,6 +45,12 @@ public class PaleoPortalBlock extends NetherPortalBlock{
         );
       }
     }
+  }
+  private boolean allowPass(@Nonnull Entity e, int allowLevel){
+    if(allowLevel<=0) return false;
+    else if(allowLevel==1) return (e instanceof Player);
+    else if(allowLevel==2) return !(e instanceof ItemEntity);
+    else return true;
   }
 
   @Nullable

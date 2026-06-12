@@ -18,4 +18,9 @@ public class ChemiGameRules {
   public static boolean isCompassAllowed(@Nonnull Level lv){
     return lv.getGameRules().getRule(ALLOW_COMPASS).get();
   }
+  public static final GameRules.Key<GameRules.IntegerValue> PORTAL_TP_LEVEL =
+                GameRules.register("reagenicaPaleoPortalAllowLevel", GameRules.Category.MISC, GameRules.IntegerValue.create(2));
+  public static int getTeleportAllowLevel(@Nonnull Level lv){
+    return lv.getGameRules().getRule(PORTAL_TP_LEVEL).get();
+  }
 }
