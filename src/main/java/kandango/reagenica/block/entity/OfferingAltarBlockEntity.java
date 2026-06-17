@@ -124,6 +124,7 @@ public class OfferingAltarBlockEntity extends BlockEntity {
         stack.setCount(0);
       }
     }
+    setChanged();
   }
   private void spawnParticles(ServerLevel slv, int faith){
     if(faith<MIN_FAITH)return;
@@ -162,22 +163,25 @@ public class OfferingAltarBlockEntity extends BlockEntity {
           1.5, 1.5, 1.5,0.02);
   }
   public void signal(ServerLevel slv){
-    ItemStack stack = roll(slv, this.faith_point);
-    if(!stack.isEmpty()){
-      ItemStackUtil.drop(slv, worldPosition, roll(slv, this.faith_point));
+    List<ItemStack> stacks = roll(slv, this.faith_point);
+    if(stacks.isEmpty()){
+      slv.playSound(null, worldPosition, SoundEvents.DISPENSER_FAIL, SoundSource.BLOCKS, 1.0f, 1.0f);
+    }else{
+      for(ItemStack stack : stacks){
+        ItemStackUtil.drop(slv, worldPosition, stack);
+      }
       this.faith_point=0;
       slv.playSound(null, worldPosition, SoundEvents.ENCHANTMENT_TABLE_USE, SoundSource.BLOCKS, 4.0f, 1.0f);
-    }else{
-      slv.playSound(null, worldPosition, SoundEvents.DISPENSER_FAIL, SoundSource.BLOCKS, 1.0f, 1.0f);
     }
+    setChanged();
   }
-  private ItemStack roll(ServerLevel slv, int faith){
+  private List<ItemStack> roll(ServerLevel slv, int faith){
     LootTable loottable = getLootTable(slv, faith);
     LootParams params = new LootParams.Builder(slv)
             .withParameter(LootContextParams.ORIGIN, Vec3.atCenterOf(worldPosition))
             .create(LootContextParamSets.CHEST);
     List<ItemStack> results = loottable.getRandomItems(params);
-    return results.isEmpty() ? ItemStack.EMPTY : results.get(0).copy();
+    return results;
   }
   private static int commonWeight(int faith){return faith<MAX_FAITH?Math.max(0, 1100-4*faith):0;}
   private static int rareWeight(int faith){return faith<MAX_FAITH?Math.max(0, -(faith-400)*(faith-400)/160 + 1000):0;}
