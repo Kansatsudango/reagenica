@@ -28,7 +28,6 @@ public abstract class ElectricCableAbstract extends ElectricAbstract{
     super.setRemoved();
   }
 
-  public double getResistance(){
-    return 0.1;
-  }
+  abstract public double getResistance();
+  abstract public int getRestriction();
 }

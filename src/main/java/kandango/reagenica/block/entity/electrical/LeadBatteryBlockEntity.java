@@ -79,5 +79,9 @@ public class LeadBatteryBlockEntity extends ElectricGeneratorAbstract implements
   protected ElectricStorage energyStorageProvider() {
     return new ElectricStorage(300000, 1000,1000);
   }
-  
+
+  @Override
+  protected int getOfferUnit(){//Overrideable
+    return 200;
+  }
 }

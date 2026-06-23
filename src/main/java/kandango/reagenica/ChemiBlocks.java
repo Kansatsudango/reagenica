@@ -78,6 +78,12 @@ public class ChemiBlocks {
   public static final RegistryObject<Block> CABLE_COPPER = registerBlockandlist("copper_cable", CableCopper::new); 
   public static final RegistryObject<Item> CABLE_COPPER_ITEM = registerItemandlist("copper_cable",
     () -> new BlockItem(CABLE_COPPER.get(), new Item.Properties()));
+  public static final RegistryObject<Block> CABLE_GOLD = registerBlockandlist("gold_cable", CableGold::new); 
+  public static final RegistryObject<Item> CABLE_GOLD_ITEM = registerItemandlist("gold_cable",
+    () -> new BlockItem(CABLE_GOLD.get(), new Item.Properties()));
+  public static final RegistryObject<Block> CABLE_REFINED_COPPER = registerBlockandlist("refined_copper_cable", CableRefinedCopper::new); 
+  public static final RegistryObject<Item> CABLE_REFINED_COPPER_ITEM = registerItemandlist("refined_copper_cable",
+    () -> new BlockItem(CABLE_REFINED_COPPER.get(), new Item.Properties()));
 
   public static final RegistryObject<Block> FUEL_GENERATOR = registerMachineBlockandlist("fuel_generator", FuelGenerator::new); 
   public static final RegistryObject<Item> FUEL_GENERATOR_ITEM = registerItemandlist("fuel_generator",

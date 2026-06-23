@@ -4,10 +4,10 @@ import kandango.reagenica.block.entity.ModBlockEntities;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.block.state.BlockState;
 
-public class ElectricCableCopperBlockEntity extends ElectricCableAbstract{
+public class ElectricCableGoldBlockEntity extends ElectricCableAbstract{
 
-  public ElectricCableCopperBlockEntity(BlockPos pos, BlockState state) {
-    super(ModBlockEntities.CABLE_COPPER.get(), pos, state);
+  public ElectricCableGoldBlockEntity(BlockPos pos, BlockState state) {
+    super(ModBlockEntities.CABLE_GOLD.get(), pos, state);
   }
 
   @Override
@@ -17,10 +17,10 @@ public class ElectricCableCopperBlockEntity extends ElectricCableAbstract{
 
   @Override
   public double getResistance() {
-    return 0.1;
+    return 0.04;
   }
   @Override
   public int getRestriction() {
-    return 40;
+    return 80;
   }
 }

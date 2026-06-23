@@ -2,8 +2,8 @@
 	"format_version": "1.9.0",
 	"credit": "Made with Blockbench",
 	"textures": {
-		"0": "reagenica:block/cable_arm",
-		"particle": "reagenica:block/cable_arm"
+		"0": "reagenica:block/gold_cable_arm",
+		"particle": "reagenica:block/gold_cable_arm"
 	},
 	"elements": [
 		{

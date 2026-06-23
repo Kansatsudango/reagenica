@@ -2,8 +2,8 @@
 	"format_version": "1.9.0",
 	"credit": "Made with Blockbench",
 	"textures": {
-		"0": "reagenica:block/cable_core",
-		"particle": "reagenica:block/cable_core"
+		"0": "reagenica:block/refined_copper_cable_core",
+		"particle": "reagenica:block/refined_copper_cable_core"
 	},
 	"elements": [
 		{
