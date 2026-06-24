@@ -12,6 +12,7 @@ import kandango.reagenica.family.CrystalFamily;
 import kandango.reagenica.family.StoneFamily;
 import kandango.reagenica.family.WoodFamily;
 import kandango.reagenica.generator.BlockLootType;
+import kandango.reagenica.item.CableItem;
 import kandango.reagenica.item.ChemiFoodProperties;
 import kandango.reagenica.worldgen.ChemiFeatures;
 import kandango.reagenica.worldgen.forestry.*;
@@ -75,15 +76,15 @@ public class ChemiBlocks {
   public static final RegistryObject<Item> DEBUG_CONSUMER_ITEM = registerItemandlist("debug_consumer",
     () -> new BlockItem(DEBUG_CONSUMER.get(), new Item.Properties()));
   
-  public static final RegistryObject<Block> CABLE_COPPER = registerBlockandlist("copper_cable", CableCopper::new); 
+  public static final RegistryObject<CableCopper> CABLE_COPPER = registerBlockandlist("copper_cable", CableCopper::new); 
   public static final RegistryObject<Item> CABLE_COPPER_ITEM = registerItemandlist("copper_cable",
-    () -> new BlockItem(CABLE_COPPER.get(), new Item.Properties()));
-  public static final RegistryObject<Block> CABLE_GOLD = registerBlockandlist("gold_cable", CableGold::new); 
+    () -> new CableItem(CABLE_COPPER.get(), new Item.Properties(), 0.1, 40));
+  public static final RegistryObject<CableGold> CABLE_GOLD = registerBlockandlist("gold_cable", CableGold::new); 
   public static final RegistryObject<Item> CABLE_GOLD_ITEM = registerItemandlist("gold_cable",
-    () -> new BlockItem(CABLE_GOLD.get(), new Item.Properties()));
-  public static final RegistryObject<Block> CABLE_REFINED_COPPER = registerBlockandlist("refined_copper_cable", CableRefinedCopper::new); 
+    () -> new CableItem(CABLE_GOLD.get(), new Item.Properties(), 0.04, 80));
+  public static final RegistryObject<CableRefinedCopper> CABLE_REFINED_COPPER = registerBlockandlist("refined_copper_cable", CableRefinedCopper::new); 
   public static final RegistryObject<Item> CABLE_REFINED_COPPER_ITEM = registerItemandlist("refined_copper_cable",
-    () -> new BlockItem(CABLE_REFINED_COPPER.get(), new Item.Properties()));
+    () -> new CableItem(CABLE_REFINED_COPPER.get(), new Item.Properties(), 0.3, 200));
 
   public static final RegistryObject<Block> FUEL_GENERATOR = registerMachineBlockandlist("fuel_generator", FuelGenerator::new); 
   public static final RegistryObject<Item> FUEL_GENERATOR_ITEM = registerItemandlist("fuel_generator",

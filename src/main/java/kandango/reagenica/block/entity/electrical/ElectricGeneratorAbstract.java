@@ -97,7 +97,7 @@ public abstract class ElectricGeneratorAbstract extends ElectricMachineAbstract{
       for(StorageAndCost customer : customers){
         IEnergyStorage storage = customer.storage;
         double cost = customer.info.cost;
-        int inserted = storage.receiveEnergy((int)(demand(customer, getOfferUnit())-cost), false);
+        int inserted = storage.receiveEnergy(Math.max(0,(int)(demand(customer, getOfferUnit())-cost)), false);
         if(inserted!=0){
           this.energyStorage.extractEnergy(inserted+(int)(0.91d+cost), false);
         }
