@@ -97,6 +97,7 @@ public abstract class ElectricGeneratorAbstract extends ElectricMachineAbstract{
     }
     int maxExtract = this.energyStorage.extractEnergy(Integer.MAX_VALUE, true);
     int demand = customers.stream().mapToInt(s -> demand(s, getOfferUnit())).sum();
+    int energyStored = this.energyStorage.getEnergyStored();
     if(demand>0 && maxExtract >= demand){
       for(StorageAndCost customer : customers){
         IEnergyStorage storage = customer.storage;
@@ -106,24 +107,26 @@ public abstract class ElectricGeneratorAbstract extends ElectricMachineAbstract{
           this.energyStorage.extractEnergy(inserted+(int)(0.91d+cost), false);
         }
       }
-    }
-    int loadRate = maxExtract!=0 ? demand*1000/maxExtract : 0;
-    if(loadRate>1000){
-      DustParticleOptions dust = new DustParticleOptions(new Vector3f(0.9f, 0.2f, 0.0f), 1.0f);
-      slv.sendParticles(dust, 
-          worldPosition.getX() + 0.5,
-          worldPosition.getY() + 0.5,
-          worldPosition.getZ() + 0.5,
-          3,
-          0.5, 0.5, 0.5,0.02);
-    }else if(loadRate>750){
-      DustParticleOptions dust = new DustParticleOptions(new Vector3f(0.9f, 0.7f, 0.0f), 1.0f);
-      slv.sendParticles(dust, 
-          worldPosition.getX() + 0.5,
-          worldPosition.getY() + 0.5,
-          worldPosition.getZ() + 0.5,
-          1,
-          0.5, 0.5, 0.5,0.02);
+    } 
+    if(energyStored > maxExtract){ // Stored Energy was enough for extract
+      int loadRate = maxExtract!=0 ? demand*1000/maxExtract : 0;
+      if(loadRate>1000){
+        DustParticleOptions dust = new DustParticleOptions(new Vector3f(0.9f, 0.2f, 0.0f), 1.0f);
+        slv.sendParticles(dust, 
+            worldPosition.getX() + 0.5,
+            worldPosition.getY() + 0.5,
+            worldPosition.getZ() + 0.5,
+            3,
+            0.5, 0.5, 0.5,0.02);
+      }else if(loadRate>750){
+        DustParticleOptions dust = new DustParticleOptions(new Vector3f(0.9f, 0.7f, 0.0f), 1.0f);
+        slv.sendParticles(dust, 
+            worldPosition.getX() + 0.5,
+            worldPosition.getY() + 0.5,
+            worldPosition.getZ() + 0.5,
+            1,
+            0.5, 0.5, 0.5,0.02);
+      }
     }
   }
   private static int demand(StorageAndCost str, int offer){
