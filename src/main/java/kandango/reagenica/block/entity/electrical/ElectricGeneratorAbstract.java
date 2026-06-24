@@ -10,6 +10,8 @@ import java.util.PriorityQueue;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
+import org.joml.Vector3f;
+
 import kandango.reagenica.ChemistryMod;
 import kandango.reagenica.block.entity.electrical.Handlers.GeneratorEnergyHandler;
 import kandango.reagenica.network.CableNetworkManager;
@@ -17,6 +19,7 @@ import net.minecraft.ChatFormatting;
 import net.minecraft.commands.CommandSourceStack;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.core.particles.DustParticleOptions;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.level.Level;
@@ -75,7 +78,8 @@ public abstract class ElectricGeneratorAbstract extends ElectricMachineAbstract{
 
   protected void provideEnergy(){
     Level lv = this.getLevel();
-    if(lv==null)return;
+    ServerLevel slv = lv instanceof ServerLevel s ? s : null;
+    if(slv==null)return;
     if(networkChanged){
       refleshCustomers();
     }
@@ -102,6 +106,24 @@ public abstract class ElectricGeneratorAbstract extends ElectricMachineAbstract{
           this.energyStorage.extractEnergy(inserted+(int)(0.91d+cost), false);
         }
       }
+    }
+    int loadRate = maxExtract!=0 ? demand*1000/maxExtract : 0;
+    if(loadRate>1000){
+      DustParticleOptions dust = new DustParticleOptions(new Vector3f(0.9f, 0.2f, 0.0f), 1.0f);
+      slv.sendParticles(dust, 
+          worldPosition.getX() + 0.5,
+          worldPosition.getY() + 0.5,
+          worldPosition.getZ() + 0.5,
+          3,
+          0.5, 0.5, 0.5,0.02);
+    }else if(loadRate>750){
+      DustParticleOptions dust = new DustParticleOptions(new Vector3f(0.9f, 0.7f, 0.0f), 1.0f);
+      slv.sendParticles(dust, 
+          worldPosition.getX() + 0.5,
+          worldPosition.getY() + 0.5,
+          worldPosition.getZ() + 0.5,
+          1,
+          0.5, 0.5, 0.5,0.02);
     }
   }
   private static int demand(StorageAndCost str, int offer){
