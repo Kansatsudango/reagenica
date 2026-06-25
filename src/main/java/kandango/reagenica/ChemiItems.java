@@ -208,6 +208,7 @@ public class ChemiItems {
   public static final RegistryObject<Item> GEOLOGIST_ROD = registerandlist("geologist_rod", () -> new GeologistRod());
   public static final RegistryObject<Item> KAGURASUZU = registerandlist("kagurasuzu", () -> new KaguraSuzu());
   public static final RegistryObject<Item> IRIDIUM_UPGRADE_STH = registerandlist("iridium_upgrade_smithing_template", () -> ChemiSmithingTemplates.iridium_upgrade());
+  public static final RegistryObject<Item> CRYSTAL_DETECTOR = registerandlist("crystal_detector", () -> new CrystalDetectorItem(new Item.Properties()));
   
   public static final RegistryObject<Item> URANIUM_FUEL_ROD = registerandlist("uranium_fuel_rod", () -> new Item(new Item.Properties().stacksTo(1).durability(3600).rarity(Rarity.UNCOMMON)));
   public static final RegistryObject<Item> MOX_FUEL_ROD = registerandlist("mox_fuel_rod", () -> new Item(new Item.Properties().stacksTo(1).durability(1800).rarity(Rarity.UNCOMMON)));

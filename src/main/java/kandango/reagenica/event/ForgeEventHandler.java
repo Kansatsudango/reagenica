@@ -19,6 +19,7 @@ import kandango.reagenica.villager.ChemiVillagerProfessions;
 import kandango.reagenica.villager.ChemiVillagerTrades;
 import kandango.reagenica.world.ChainMiningProvider;
 import kandango.reagenica.world.ChemiCapabilities;
+import kandango.reagenica.world.DelayedSoundProvider;
 import kandango.reagenica.world.SeedPlacingProvider;
 import kandango.reagenica.worldgen.ChemiBiomes;
 import net.minecraft.resources.ResourceLocation;
@@ -60,6 +61,7 @@ public class ForgeEventHandler {
     if(event.getObject() instanceof ServerLevel level && level.dimension() == Level.OVERWORLD){
       event.addCapability(new ResourceLocation(ChemistryMod.MODID, "chain_mining"), new ChainMiningProvider());
       event.addCapability(new ResourceLocation(ChemistryMod.MODID, "seed_placing"), new SeedPlacingProvider());
+      event.addCapability(new ResourceLocation(ChemistryMod.MODID, "delayed_sound"), new DelayedSoundProvider());
     }
   }
 
@@ -72,6 +74,7 @@ public class ForgeEventHandler {
       slv.getCapability(ChemiCapabilities.CHAIN_MINING_DATA).ifPresent(data -> data.tick(slv));
       veinMining.set(false);
       slv.getCapability(ChemiCapabilities.SEED_PLACING_DATA).ifPresent(data -> data.tick(slv));
+      slv.getCapability(ChemiCapabilities.DELAYED_SOUND_DATA).ifPresent(data -> data.tick(slv));
     }
   }
 

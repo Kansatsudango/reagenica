@@ -26,6 +26,31 @@ public class ChemiPOIs {
   public static final RegistryObject<PoiType> GEOLOGIST_POI = POI_TYPES.register("geologist_poi", 
     () -> new PoiType(Set.copyOf(ChemiBlocks.ANALYZER.get().getStateDefinition().getPossibleStates()), 1, 1)
   );
+  
+  public static final RegistryObject<PoiType> AQUAMARINE_POI = POI_TYPES.register("aquamarine_budding", 
+    () -> new PoiType(Set.copyOf(ChemiBlocks.AQUAMARINE.BUDDING_BLOCK.get().getStateDefinition().getPossibleStates()), 0, 1)
+  );
+  public static final RegistryObject<PoiType> EMERALD_POI = POI_TYPES.register("emerald_budding", 
+    () -> new PoiType(Set.copyOf(ChemiBlocks.EMERALD.BUDDING_BLOCK.get().getStateDefinition().getPossibleStates()), 0, 1)
+  );
+  public static final RegistryObject<PoiType> RED_BERYL_POI = POI_TYPES.register("red_beryl_budding", 
+    () -> new PoiType(Set.copyOf(ChemiBlocks.RED_BERYL.BUDDING_BLOCK.get().getStateDefinition().getPossibleStates()), 0, 1)
+  );
+  public static final RegistryObject<PoiType> CITRINE_POI = POI_TYPES.register("citrine_budding", 
+    () -> new PoiType(Set.copyOf(ChemiBlocks.CITRINE.BUDDING_BLOCK.get().getStateDefinition().getPossibleStates()), 0, 1)
+  );
+  public static final RegistryObject<PoiType> ROSE_QUARTZ_POI = POI_TYPES.register("rose_quartz_budding", 
+    () -> new PoiType(Set.copyOf(ChemiBlocks.ROSE_QUARTZ.BUDDING_BLOCK.get().getStateDefinition().getPossibleStates()), 0, 1)
+  );
+  public static final RegistryObject<PoiType> MORION_POI = POI_TYPES.register("morion_budding", 
+    () -> new PoiType(Set.copyOf(ChemiBlocks.MORION.BUDDING_BLOCK.get().getStateDefinition().getPossibleStates()), 0, 1)
+  );
+  public static final RegistryObject<PoiType> LAPISQUARTZ_POI = POI_TYPES.register("lapisquartz_budding", 
+    () -> new PoiType(Set.copyOf(ChemiBlocks.LAPISQUARTZ.BUDDING_BLOCK.get().getStateDefinition().getPossibleStates()), 0, 1)
+  );
+  public static final RegistryObject<PoiType> PERIDOT_POI = POI_TYPES.register("peridot_budding", 
+    () -> new PoiType(Set.copyOf(ChemiBlocks.PERIDOT.BUDDING_BLOCK.get().getStateDefinition().getPossibleStates()), 0, 1)
+  );
 
   public static void register(IEventBus modEventbus){
     POI_TYPES.register(modEventbus);

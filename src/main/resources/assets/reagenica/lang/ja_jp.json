@@ -856,6 +856,8 @@
   "chat.reagenica.compass_biome_not_found": "範囲内にバイオームが見つかりませんでした",
   "chat.reagenica.map_structure_not_found": "探索に失敗しました。ディメンションが間違っているか、範囲内に対象がありません",
   "chat.reagenica.too_many_to_vein": "連鎖ブロック数が多すぎるため、連鎖採掘できません",
+  "chat.reagenica.crystal_found": "%sm先からクリスタルの共鳴が聞こえた",
+  "chat.reagenica.no_crystal_found": "クリスタルの共鳴は聞こえなかった",
   "item.reagenica.smithing_template.iridium_upgrade.additions_slot_description": "イリジウムインゴットを置いてください",
   "item.reagenica.smithing_template.iridium_upgrade.applies_to": "プラチナのアイテム",
   "item.reagenica.smithing_template.iridium_upgrade.base_slot_description": "プラチナのアイテムを置いてください",
