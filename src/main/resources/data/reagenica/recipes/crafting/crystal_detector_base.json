@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "  R",
+    "#W#",
+    "#Q#"
+  ],
+  "key": {
+    "R": { "item": "minecraft:lightning_rod" },
+    "#": { "item": "reagenica:pvc" },
+    "W": { "item": "reagenica:polyethylene" },
+    "Q": { "item": "reagenica:smoky_quartz" }
+  },
+  "result": {
+    "item": "reagenica:crystal_detector_base",
+    "count": 1
+  }
+}

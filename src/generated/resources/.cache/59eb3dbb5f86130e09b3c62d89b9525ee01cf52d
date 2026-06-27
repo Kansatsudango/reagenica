@@ -1,4 +1,4 @@
-// 1.20.1	2026-06-12T00:05:30.6325996	Loot Tables
+// 1.20.1	2026-06-27T23:41:52.675407	Loot Tables
 fd599511177b57b7c4697466e227e89162e2d943 data/reagenica/loot_tables/blocks/advanced_farmland.json
 115802854012234d89e3ba52e3d8b2a271af6530 data/reagenica/loot_tables/blocks/air_separator.json
 af778c6940ed0700e603b9633a246c18de93eb49 data/reagenica/loot_tables/blocks/aluminium_block.json
@@ -108,6 +108,7 @@ f99d3763e98faee209ab0f81412770e3cab48785 data/reagenica/loot_tables/blocks/ginkg
 b5e8311e492e1455a0bc51286476da39397e71bd data/reagenica/loot_tables/blocks/ginkgo_wall_hanging_sign.json
 95f137d3404235bdfed544703453b8c694ec2052 data/reagenica/loot_tables/blocks/ginkgo_wall_sign.json
 eec27c56ddba37fc5c274e9707f8fce0a66af242 data/reagenica/loot_tables/blocks/ginkgo_wood.json
+57da68bf57cdf7662a9efb9309004fd2fc2f8bc2 data/reagenica/loot_tables/blocks/gold_cable.json
 6f92c6216747779ad1884c39ca46bc5f57472597 data/reagenica/loot_tables/blocks/gold_pipe.json
 11a9896f334dd85cc11fdf585b202c7bdf53b24c data/reagenica/loot_tables/blocks/grape_crop.json
 835245df04a64e4a6a24839f67bad6191fe4588b data/reagenica/loot_tables/blocks/grape_pargola.json
@@ -252,6 +253,7 @@ d2067c4899c430eaf017819813f2ed566f26b01d data/reagenica/loot_tables/blocks/red_b
 d3183c2169504bb97ecbf4558a21e8cdefd4428a data/reagenica/loot_tables/blocks/red_plastic_tile.json
 2efac53e2126f5e8b6f9d1757119bde3401b7551 data/reagenica/loot_tables/blocks/red_plastic_tile_pane.json
 bdfe5d6c80db24b7e9a5e49cb483d1e27d3aa107 data/reagenica/loot_tables/blocks/refined_copper_block.json
+54964a5bd20f0790b254be17452eca203958c4a7 data/reagenica/loot_tables/blocks/refined_copper_cable.json
 7100be6ef189fd028c00be3435e19120c90fe1aa data/reagenica/loot_tables/blocks/rice_crop.json
 c8493f3e47699fbc5ac05d91c84003edc7a6c56e data/reagenica/loot_tables/blocks/rose_quartz_block.json
 e3596c21649e0bcd806caba85bb7aded667e1bc0 data/reagenica/loot_tables/blocks/rose_quartz_bud.json

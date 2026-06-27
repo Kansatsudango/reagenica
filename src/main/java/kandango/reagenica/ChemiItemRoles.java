@@ -1,6 +1,7 @@
 package kandango.reagenica;
 
 import java.util.List;
+import java.util.function.Consumer;
 
 import javax.annotation.Nonnull;
 
@@ -29,6 +30,9 @@ public class ChemiItemRoles {
   }
   public static void waterFilters(@Nonnull List<Component> tooltip){
     addRole(tooltip, "water_filter");
+  }
+  public static Consumer<List<Component>> singleRole(String name){
+    return tooltip -> addRole(tooltip, name);
   }
   public static void mineWipe(@Nonnull List<Component> tooltip){
     addRole(tooltip, "minewipe_lore");

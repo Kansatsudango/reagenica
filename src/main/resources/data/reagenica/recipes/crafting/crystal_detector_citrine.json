@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    { "tag": "reagenica:crystal_detectors" },
+    { "item": "reagenica:citrine_shard" }
+  ],
+  "result": {
+    "item": "reagenica:crystal_detector_citrine",
+    "count": 1
+  }
+}

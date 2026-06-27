@@ -1,0 +1,14 @@
+{
+  "replace": false,
+  "values": [
+    "reagenica:crystal_detector_base",
+    "reagenica:crystal_detector_aquamarine",
+    "reagenica:crystal_detector_emerald",
+    "reagenica:crystal_detector_rose_quartz",
+    "reagenica:crystal_detector_red_beryl",
+    "reagenica:crystal_detector_citrine",
+    "reagenica:crystal_detector_morion",
+    "reagenica:crystal_detector_lapisquartz",
+    "reagenica:crystal_detector_peridot"
+  ]
+}

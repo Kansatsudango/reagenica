@@ -6,12 +6,12 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
 import kandango.reagenica.world.ChemiCapabilities;
-import kandango.reagenica.world.ChemiPOIs;
 import kandango.reagenica.world.task.DelayedSoundTask;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
 import net.minecraft.network.chat.Component;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
@@ -20,6 +20,7 @@ import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.entity.ai.village.poi.PoiManager;
+import net.minecraft.world.entity.ai.village.poi.PoiType;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
@@ -28,8 +29,11 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.Vec3;
 
 public class CrystalDetectorItem extends Item{
-  public CrystalDetectorItem(Properties props) {
+  private final ResourceKey<PoiType> poi;
+
+  public CrystalDetectorItem(ResourceKey<PoiType> poi, Properties props) {
     super(props);
+    this.poi = poi;
   }
   
   @Override
@@ -56,7 +60,7 @@ public class CrystalDetectorItem extends Item{
     final BlockPos pos = sp.blockPosition();
     final Vec3 eyePos = sp.getEyePosition();
     final PoiManager poiManager = slv.getPoiManager();
-    Optional<BlockPos> mayCrystalPos = poiManager.findClosest(poi -> poi.is(ChemiPOIs.AQUAMARINE_POI.getKey()), pos, 128, PoiManager.Occupancy.ANY);
+    Optional<BlockPos> mayCrystalPos = poiManager.findClosest(poi -> poi.is(this.poi), pos, 128, PoiManager.Occupancy.ANY);
     mayCrystalPos.ifPresentOrElse(crystalPos -> {
       int distance = (int)Math.sqrt(crystalPos.distSqr(pos));
       SoundPoint sound = getSoundPoint(eyePos, crystalPos);

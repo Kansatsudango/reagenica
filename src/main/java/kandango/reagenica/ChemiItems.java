@@ -33,6 +33,7 @@ import kandango.reagenica.item.burnable.*;
 import kandango.reagenica.item.farming.*;
 import kandango.reagenica.item.reagent.*;
 import kandango.reagenica.screen.ModMenus;
+import kandango.reagenica.world.ChemiPOIs;
 import kandango.reagenica.worldgen.ChemiBiomes;
 
 @Mod.EventBusSubscriber(modid = ChemistryMod.MODID, bus = Mod.EventBusSubscriber.Bus.MOD)
@@ -208,7 +209,15 @@ public class ChemiItems {
   public static final RegistryObject<Item> GEOLOGIST_ROD = registerandlist("geologist_rod", () -> new GeologistRod());
   public static final RegistryObject<Item> KAGURASUZU = registerandlist("kagurasuzu", () -> new KaguraSuzu());
   public static final RegistryObject<Item> IRIDIUM_UPGRADE_STH = registerandlist("iridium_upgrade_smithing_template", () -> ChemiSmithingTemplates.iridium_upgrade());
-  public static final RegistryObject<Item> CRYSTAL_DETECTOR = registerandlist("crystal_detector", () -> new CrystalDetectorItem(new Item.Properties()));
+  public static final RegistryObject<Item> CRYSTAL_DETECTOR_BASE = registerandlist("crystal_detector_base", () -> new RoleItem(new Item.Properties(), ChemiItemRoles.singleRole("crystal_detector")));
+  public static final RegistryObject<Item> AQUAMARINE_DETECTOR = registerandlist("crystal_detector_aquamarine", () -> new CrystalDetectorItem(ChemiPOIs.AQUAMARINE_POI.getKey(), new Item.Properties()));
+  public static final RegistryObject<Item> EMERALD_DETECTOR = registerandlist("crystal_detector_emerald", () -> new CrystalDetectorItem(ChemiPOIs.EMERALD_POI.getKey(), new Item.Properties()));
+  public static final RegistryObject<Item> RED_BERYL_DETECTOR = registerandlist("crystal_detector_red_beryl", () -> new CrystalDetectorItem(ChemiPOIs.RED_BERYL_POI.getKey(), new Item.Properties()));
+  public static final RegistryObject<Item> CITRINE_DETECTOR = registerandlist("crystal_detector_citrine", () -> new CrystalDetectorItem(ChemiPOIs.CITRINE_POI.getKey(), new Item.Properties()));
+  public static final RegistryObject<Item> ROSE_QUARTZ_DETECTOR = registerandlist("crystal_detector_rose_quartz", () -> new CrystalDetectorItem(ChemiPOIs.ROSE_QUARTZ_POI.getKey(), new Item.Properties()));
+  public static final RegistryObject<Item> MORION_DETECTOR = registerandlist("crystal_detector_morion", () -> new CrystalDetectorItem(ChemiPOIs.MORION_POI.getKey(), new Item.Properties()));
+  public static final RegistryObject<Item> LAPISQUARTZ_DETECTOR = registerandlist("crystal_detector_lapisquartz", () -> new CrystalDetectorItem(ChemiPOIs.LAPISQUARTZ_POI.getKey(), new Item.Properties()));
+  public static final RegistryObject<Item> PERIDOT_DETECTOR = registerandlist("crystal_detector_peridot", () -> new CrystalDetectorItem(ChemiPOIs.PERIDOT_POI.getKey(), new Item.Properties()));
   
   public static final RegistryObject<Item> URANIUM_FUEL_ROD = registerandlist("uranium_fuel_rod", () -> new Item(new Item.Properties().stacksTo(1).durability(3600).rarity(Rarity.UNCOMMON)));
   public static final RegistryObject<Item> MOX_FUEL_ROD = registerandlist("mox_fuel_rod", () -> new Item(new Item.Properties().stacksTo(1).durability(1800).rarity(Rarity.UNCOMMON)));
