@@ -156,6 +156,7 @@ public abstract class ElectricGeneratorAbstract extends ElectricMachineAbstract{
     this.traceCable(pos, level);
   }
   private void traceCable(BlockPos startpos, @Nonnull Level lv){
+    ChemistryMod.LOGGER.debug("Cable trace started from {}", startpos.toShortString());
     PriorityQueue<Node> queue = new PriorityQueue<>(Comparator.comparingDouble(node -> node.info.cost()));
     Map<BlockPos, CostAndRestriction> costMap = new HashMap<>();
     for(Direction dir : Direction.values()){
