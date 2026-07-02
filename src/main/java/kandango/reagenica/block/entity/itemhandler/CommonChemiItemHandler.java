@@ -114,6 +114,12 @@ public class CommonChemiItemHandler implements IItemHandler{
       internalrules.add(rule);
       return this;
     }
+    public Builder deniedSlots(int... slots){
+      for(int i : slots){
+        internalrules.add(SlotPriorityRule.single(stack -> false, i));
+      }
+      return this;
+    }
     public Builder outputslot(int... slots){
       for(int i : slots){
         internaloutputs.add(i);

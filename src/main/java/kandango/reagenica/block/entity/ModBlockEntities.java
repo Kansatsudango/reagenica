@@ -189,6 +189,10 @@ public class ModBlockEntities {
         BLOCK_ENTITIES.register("pem_device", 
         () -> BlockEntityType.Builder.of((BlockEntityType.BlockEntitySupplier<PEMDeviceBlockEntity>)PEMDeviceBlockEntity::new,ChemiBlocks.PEM_DEVICE.get()).build(null));
 
+    public static final RegistryObject<BlockEntityType<AutoExperimenterBlockEntity>> AUTO_EXPERIMENTER = 
+        BLOCK_ENTITIES.register("auto_experimenter", 
+        () -> BlockEntityType.Builder.of((BlockEntityType.BlockEntitySupplier<AutoExperimenterBlockEntity>)AutoExperimenterBlockEntity::new,ChemiBlocks.AUTO_EXPERIMENTER.get()).build(null));
+
 
     public static final RegistryObject<BlockEntityType<LargeTankCoreBlockEntity>> LARGE_TANK_CORE = 
         BLOCK_ENTITIES.register("large_tank_core", 

@@ -70,6 +70,7 @@
     "reagenica:haber_bosch",
     "reagenica:hydrogen_reductor",
     "reagenica:pem_device",
+    "reagenica:auto_experimenter",
     "reagenica:large_tank_core",
     "reagenica:large_tank_interface",
     "reagenica:computer",

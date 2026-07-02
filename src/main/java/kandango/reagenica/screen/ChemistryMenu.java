@@ -64,7 +64,7 @@ public abstract class ChemistryMenu<T extends BlockEntity> extends AbstractConta
   protected ItemStack quickMoveStackFunc(int slotcount, @Nonnull Player player, int index, List<SlotPriorityRule> rules) {
     ItemStack originalStack = ItemStack.EMPTY;
     Slot slot = this.slots.get(index);
-    if(slot != null && slot.hasItem()){
+    if(slot != null && slot.hasItem() && slot.mayPickup(player)){
       ItemStack currentStack = slot.getItem();
       originalStack = currentStack.copy();
       int containerSlotCount = slotcount;

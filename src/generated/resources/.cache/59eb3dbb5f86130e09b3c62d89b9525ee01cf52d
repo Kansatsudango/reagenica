@@ -1,4 +1,4 @@
-// 1.20.1	2026-06-27T23:41:52.675407	Loot Tables
+// 1.20.1	2026-07-02T01:35:44.2351722	Loot Tables
 fd599511177b57b7c4697466e227e89162e2d943 data/reagenica/loot_tables/blocks/advanced_farmland.json
 115802854012234d89e3ba52e3d8b2a271af6530 data/reagenica/loot_tables/blocks/air_separator.json
 af778c6940ed0700e603b9633a246c18de93eb49 data/reagenica/loot_tables/blocks/aluminium_block.json
@@ -10,6 +10,7 @@ afdbc62ef0517815c65d39a856b41902a94998a8 data/reagenica/loot_tables/blocks/ances
 cfc650aa31d20afbd85854a38fc6afc3e8ca09f1 data/reagenica/loot_tables/blocks/aquamarine_block.json
 495b5123264b752424c3153489b8cd50a126d8c5 data/reagenica/loot_tables/blocks/aquamarine_bud.json
 5f6a4a866ae2702ea39b19fac7b548e4daca57a5 data/reagenica/loot_tables/blocks/aquamarine_crystal.json
+74e88d8c48524e1e26b5c403eadc18ee8ad735ab data/reagenica/loot_tables/blocks/auto_experimenter.json
 667ec47b2c0725b5156b86b59740bb5c2d20215c data/reagenica/loot_tables/blocks/bauxite_block.json
 83968210ff3664a408fab1e2954a3db04af29a3e data/reagenica/loot_tables/blocks/bauxite_ore.json
 1cd6ad3b710235a0ef50112596c699d5b0b17441 data/reagenica/loot_tables/blocks/bioluminescence_blue_mushroom.json

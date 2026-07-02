@@ -169,6 +169,10 @@ public class ChemiBlocks {
   public static final RegistryObject<Block> PEM_DEVICE = registerMachineBlockandlist("pem_device",PEMDevice::new);
   public static final RegistryObject<Item> PEM_DEVICE_ITEM = registerItemandlist("pem_device",
     () -> new BlockItem(PEM_DEVICE.get(), new Item.Properties().rarity(Rarity.UNCOMMON)));
+
+  public static final RegistryObject<Block> AUTO_EXPERIMENTER = registerMachineBlockandlist("auto_experimenter",AutoExperimenter::new);
+  public static final RegistryObject<Item> AUTO_EXPERIMENTER_ITEM = registerItemandlist("auto_experimenter",
+    () -> new BlockItem(AUTO_EXPERIMENTER.get(), new Item.Properties()));
     
   public static final RegistryObject<Block> LARGE_TANK_CORE = registerMachineBlockandlist("large_tank_core",LargeTankCore::new);
   public static final RegistryObject<Item> LARGE_TANK_CORE_ITEM = registerItemandlist("large_tank_core",

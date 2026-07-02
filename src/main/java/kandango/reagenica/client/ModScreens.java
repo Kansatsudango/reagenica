@@ -50,6 +50,7 @@ public class ModScreens {
       MenuScreens.register(ModMenus.HYDROGEN_REDUCTOR_MENU.get(), HydrogenReductorScreen::new);
       MenuScreens.register(ModMenus.PEM_DEVICE_MENU.get(), PEMDeviceScreen::new);
       MenuScreens.register(ModMenus.FILTRAION_DEVICE.get(), FiltrationDeviceScreen::new);
+      MenuScreens.register(ModMenus.AUTO_EXPERIMENTER_MENU.get(), AutoExperimenterScreen::new);
       MenuScreens.register(ModMenus.ONSEN_DETECTER_MENU.get(), OnsenDetecterScreen::new);
       MenuScreens.register(ModMenus.ONSEN_MINER_MENU.get(), OnsenMinerScreen::new);
     });

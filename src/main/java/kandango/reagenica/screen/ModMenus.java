@@ -111,6 +111,9 @@ public class ModMenus {
   public static final RegistryObject<MenuType<PEMDeviceMenu>> PEM_DEVICE_MENU =
     MENU_TYPES.register("pem_device",
       () -> IForgeMenuType.create(PEMDeviceMenu::new));
+  public static final RegistryObject<MenuType<AutoExperimenterMenu>> AUTO_EXPERIMENTER_MENU =
+    MENU_TYPES.register("auto_experimenter",
+      () -> IForgeMenuType.create(AutoExperimenterMenu::new));
   public static final RegistryObject<MenuType<FiltrationDeviceMenu>> FILTRAION_DEVICE =
     MENU_TYPES.register("filtration_device",
       () -> IForgeMenuType.create(FiltrationDeviceMenu::new));
