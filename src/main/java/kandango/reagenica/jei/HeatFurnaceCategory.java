@@ -3,6 +3,7 @@ package kandango.reagenica.jei;
 import javax.annotation.Nonnull;
 
 import kandango.reagenica.ChemiBlocks;
+import kandango.reagenica.jei.util.ReagenicaTank;
 import kandango.reagenica.recipes.HeatFurnaceRecipe;
 import mezz.jei.api.constants.VanillaTypes;
 import mezz.jei.api.gui.builder.IRecipeLayoutBuilder;
@@ -51,12 +52,8 @@ public class HeatFurnaceCategory implements IRecipeCategory<HeatFurnaceRecipe>{
     builder.addSlot(RecipeIngredientRole.INPUT, 56, 23).addIngredients(recipe.getInput());
     builder.addSlot(RecipeIngredientRole.OUTPUT, 109, 24).addItemStack(recipe.getOutput());
     builder.addSlot(RecipeIngredientRole.OUTPUT, 109, 48).addItemStack(recipe.getByproduct());
-    if(!recipe.getInputFluid().isEmpty())builder.addSlot(RecipeIngredientRole.INPUT,26,30)
-      .addFluidStack(recipe.getInputFluid().getFluid(), recipe.getInputFluid().getAmount())
-      .setFluidRenderer(400, false, 16, 48);
-    if(!recipe.getResultFluid().isEmpty())builder.addSlot(RecipeIngredientRole.OUTPUT,135,30)
-      .addFluidStack(recipe.getResultFluid().getFluid(), recipe.getResultFluid().getAmount())
-      .setFluidRenderer(400, false, 16, 48);
+    ReagenicaTank.create(26,30, 5, 30).setFluid(recipe.getInputFluid()).consumeAsInputTank(builder);
+    ReagenicaTank.create(135,30, 155, 62).setFluid(recipe.getResultFluid()).consumeAsOutputTank(builder);
   }
   
 }

@@ -5,6 +5,7 @@ import java.util.List;
 import javax.annotation.Nonnull;
 
 import kandango.reagenica.ChemiBlocks;
+import kandango.reagenica.jei.util.ReagenicaTank;
 import kandango.reagenica.recipes.FermentationRecipe;
 import mezz.jei.api.constants.VanillaTypes;
 import mezz.jei.api.gui.builder.IRecipeLayoutBuilder;
@@ -59,12 +60,8 @@ public class FermentingCategory implements IRecipeCategory<FermentationRecipe>{
       builder.addSlot(RecipeIngredientRole.INPUT, x, y).addIngredients(item);
     }
     builder.addSlot(RecipeIngredientRole.INPUT, 90, 18).addIngredients(recipe.getBioseed());
-    if(!recipe.getInputFluid().isEmpty())builder.addSlot(RecipeIngredientRole.INPUT,26,19)
-      .addFluidStack(recipe.getInputFluid().getFluid(), recipe.getInputFluid().getAmount())
-      .setFluidRenderer(400, false, 16, 48);
-    if(!recipe.getOutput().isEmpty())builder.addSlot(RecipeIngredientRole.OUTPUT,129,19)
-      .addFluidStack(recipe.getOutput().getFluid(), recipe.getOutput().getAmount())
-      .setFluidRenderer(400, false, 16, 48);
+    ReagenicaTank.create(26,19, 5, 23).setFluid(recipe.getInputFluid()).consumeAsInputTank(builder);
+    ReagenicaTank.create(129,19, 150, 46).setFluid(recipe.getResultFluid()).consumeAsOutputTank(builder);
     builder.addSlot(RecipeIngredientRole.OUTPUT, 110, 63).addItemStack(recipe.getOutputItem());
   }
   

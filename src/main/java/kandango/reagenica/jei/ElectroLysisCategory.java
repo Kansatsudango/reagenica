@@ -3,6 +3,7 @@ package kandango.reagenica.jei;
 import javax.annotation.Nonnull;
 
 import kandango.reagenica.ChemiBlocks;
+import kandango.reagenica.jei.util.ReagenicaTank;
 import kandango.reagenica.recipes.ElectroLysisRecipe;
 import mezz.jei.api.constants.VanillaTypes;
 import mezz.jei.api.gui.builder.IRecipeLayoutBuilder;
@@ -53,16 +54,13 @@ public class ElectroLysisCategory implements IRecipeCategory<ElectroLysisRecipe>
   public void setRecipe(@Nonnull IRecipeLayoutBuilder builder, @Nonnull ElectroLysisRecipe recipe, @Nonnull IFocusGroup fg){
     builder.addSlot(RecipeIngredientRole.INPUT, 87, 57).addIngredients(recipe.getElectrodeN());
     builder.addSlot(RecipeIngredientRole.INPUT, 49, 57).addIngredients(recipe.getElectrodeP());
-    if(!recipe.getFluidOut().isEmpty())builder.addSlot(RecipeIngredientRole.OUTPUT,134,51)
-      .addFluidStack(recipe.getFluidOut().getFluid(), recipe.getFluidOut().getAmount())
-      .setFluidRenderer(400, false, 16, 48);
+    ReagenicaTank.create(134,51, 153, 74).setFluid(recipe.getFluidOut()).consumeAsOutputTank(builder);
     builder.addSlot(RecipeIngredientRole.OUTPUT, 49, 81).addItemStack(recipe.getOutputP());
     builder.addSlot(RecipeIngredientRole.OUTPUT, 79, 79).addItemStack(recipe.getOutputN());
     builder.addSlot(RecipeIngredientRole.OUTPUT, 23, 32).addItemStack(recipe.getOutputGasP());
     builder.addSlot(RecipeIngredientRole.OUTPUT, 113, 32).addItemStack(recipe.getOutputGasN());
-    if(!recipe.getFluidIn().isEmpty())builder.addSlot(RecipeIngredientRole.INPUT,44,51)
-      .addFluidStack(recipe.getFluidIn().getFluid(), recipe.getFluidIn().getAmount())
-      .setFluidRenderer(400, false, 64, 48);
+    ReagenicaTank.create(44,51, 4, 62).setFluid(recipe.getFluidIn())
+                 .renderSize(64, 48).consumeAsInputTank(builder);
   }
   @Override
   public void draw(@Nonnull ElectroLysisRecipe recipe, @Nonnull IRecipeSlotsView recipeSlotsView, @Nonnull GuiGraphics guiGraphics, double mouseX, double mouseY) {

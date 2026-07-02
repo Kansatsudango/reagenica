@@ -3,6 +3,7 @@ package kandango.reagenica.jei;
 import javax.annotation.Nonnull;
 
 import kandango.reagenica.ChemiBlocks;
+import kandango.reagenica.jei.util.ReagenicaTank;
 import kandango.reagenica.recipes.DissolverRecipe;
 import mezz.jei.api.constants.VanillaTypes;
 import mezz.jei.api.gui.builder.IRecipeLayoutBuilder;
@@ -50,12 +51,8 @@ public class DissolverCategory implements IRecipeCategory<DissolverRecipe>{
   public void setRecipe(@Nonnull IRecipeLayoutBuilder builder, @Nonnull DissolverRecipe recipe, @Nonnull IFocusGroup fg){
     builder.addSlot(RecipeIngredientRole.INPUT, 70, 29).addIngredients(recipe.getInput());
     builder.addSlot(RecipeIngredientRole.OUTPUT, 95, 63).addItemStack(recipe.getOutputItem());
-    if(!recipe.getInputFluid().isEmpty())builder.addSlot(RecipeIngredientRole.INPUT,44,30)
-      .addFluidStack(recipe.getInputFluid().getFluid(), recipe.getInputFluid().getAmount())
-      .setFluidRenderer(1000, false, 16, 48);
-    if(!recipe.getResultFluid().isEmpty())builder.addSlot(RecipeIngredientRole.OUTPUT,116,30)
-      .addFluidStack(recipe.getResultFluid().getFluid(), recipe.getResultFluid().getAmount())
-      .setFluidRenderer(1000, false, 16, 48);
+    ReagenicaTank.create(44,30, 23, 30).setFluid(recipe.getInputFluid()).consumeAsInputTank(builder);
+    ReagenicaTank.create(116,30, 136, 62).setFluid(recipe.getResultFluid()).consumeAsOutputTank(builder);
   }
   
 }

@@ -3,6 +3,7 @@ package kandango.reagenica.jei;
 import javax.annotation.Nonnull;
 
 import kandango.reagenica.ChemiBlocks;
+import kandango.reagenica.jei.util.ReagenicaTank;
 import kandango.reagenica.recipes.FluidBurningRecipe;
 import mezz.jei.api.constants.VanillaTypes;
 import mezz.jei.api.gui.builder.IRecipeLayoutBuilder;
@@ -10,7 +11,6 @@ import mezz.jei.api.gui.drawable.IDrawable;
 import mezz.jei.api.gui.ingredient.IRecipeSlotsView;
 import mezz.jei.api.helpers.IJeiHelpers;
 import mezz.jei.api.recipe.IFocusGroup;
-import mezz.jei.api.recipe.RecipeIngredientRole;
 import mezz.jei.api.recipe.RecipeType;
 import mezz.jei.api.recipe.category.IRecipeCategory;
 import net.minecraft.client.Minecraft;
@@ -52,9 +52,7 @@ public class FluidBurningCategory implements IRecipeCategory<FluidBurningRecipe>
 
   @Override
   public void setRecipe(@Nonnull IRecipeLayoutBuilder builder, @Nonnull FluidBurningRecipe recipe, @Nonnull IFocusGroup fg){
-    if(!recipe.in().isEmpty())builder.addSlot(RecipeIngredientRole.INPUT,44,23)
-      .addFluidStack(recipe.in().getFluid(), recipe.in().getAmount())
-      .setFluidRenderer(4000, false, 16, 48);
+    ReagenicaTank.create(44,23, 24, 23).setFluid(recipe.in()).consumeAsInputTank(builder);
   }
   @Override
   public void draw(@Nonnull FluidBurningRecipe recipe, @Nonnull IRecipeSlotsView recipeSlotsView, @Nonnull GuiGraphics guiGraphics, double mouseX, double mouseY) {

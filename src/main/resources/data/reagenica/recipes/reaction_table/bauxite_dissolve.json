@@ -1,0 +1,10 @@
+{
+  "type": "reagenica:reagent_mixing",
+  "inputs":[
+    { "item": "reagenica:powder_bauxite" , "count":1},
+    { "item": "reagenica:sodium_hydroxide" , "count":1}
+  ],
+  "requires_heat": false,
+  "result_a": { "item": "reagenica:aluminium_hydroxide","count":1},
+  "result_b": { "item": "reagenica:testtube","count":1}
+}

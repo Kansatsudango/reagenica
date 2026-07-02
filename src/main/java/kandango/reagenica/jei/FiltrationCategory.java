@@ -4,6 +4,7 @@ import javax.annotation.Nonnull;
 
 import kandango.reagenica.ChemiBlocks;
 import kandango.reagenica.ChemiItems;
+import kandango.reagenica.jei.util.ReagenicaTank;
 import kandango.reagenica.recipes.FiltrationRecipe;
 import mezz.jei.api.constants.VanillaTypes;
 import mezz.jei.api.gui.builder.IRecipeLayoutBuilder;
@@ -50,12 +51,8 @@ public class FiltrationCategory implements IRecipeCategory<FiltrationRecipe>{
 
   @Override
   public void setRecipe(@Nonnull IRecipeLayoutBuilder builder, @Nonnull FiltrationRecipe recipe, @Nonnull IFocusGroup fg){
-    builder.addSlot(RecipeIngredientRole.INPUT,44,23)
-      .addFluidStack(recipe.in().getFluid(), recipe.in().getAmount())
-      .setFluidRenderer(4000, false, 16, 48);
-    builder.addSlot(RecipeIngredientRole.OUTPUT, 116, 23)
-      .addFluidStack(recipe.out().getFluid(), recipe.out().getAmount())
-      .setFluidRenderer(400, false, 16, 48);
+    ReagenicaTank.create(44,23, 24, 23).setFluid(recipe.in()).consumeAsInputTank(builder);
+    ReagenicaTank.create(116, 23, 136, 55).setFluid(recipe.out()).consumeAsOutputTank(builder);
     builder.addSlot(RecipeIngredientRole.INPUT, 80, 55).addItemStack(new ItemStack(ChemiItems.CARBON_FILTER.get()));
   }
 }

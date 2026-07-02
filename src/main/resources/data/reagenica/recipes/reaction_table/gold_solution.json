@@ -1,0 +1,9 @@
+{
+  "type": "reagenica:reagent_mixing",
+  "inputs":[
+    { "item": "reagenica:powder_gold_ore" , "count":4},
+    { "item": "reagenica:aqua_regia" , "count":1}
+  ],
+  "requires_heat": false,
+  "result_a": { "item": "reagenica:gold_solution","count":1}
+}

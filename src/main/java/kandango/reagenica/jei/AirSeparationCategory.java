@@ -3,6 +3,7 @@ package kandango.reagenica.jei;
 import javax.annotation.Nonnull;
 
 import kandango.reagenica.ChemiBlocks;
+import kandango.reagenica.jei.util.ReagenicaTank;
 import kandango.reagenica.recipes.AirSeparationRecipe;
 import mezz.jei.api.constants.VanillaTypes;
 import mezz.jei.api.gui.builder.IRecipeLayoutBuilder;
@@ -50,12 +51,8 @@ public class AirSeparationCategory implements IRecipeCategory<AirSeparationRecip
   @Override
   public void setRecipe(@Nonnull IRecipeLayoutBuilder builder, @Nonnull AirSeparationRecipe recipe, @Nonnull IFocusGroup fg){
     builder.addSlot(RecipeIngredientRole.INPUT, 30, 31).addIngredients(recipe.filter());
-    builder.addSlot(RecipeIngredientRole.OUTPUT,74,30)
-      .addFluidStack(recipe.nitro().getFluid(), recipe.nitro().getAmount())
-      .setFluidRenderer(400, false, 16, 48);
-    builder.addSlot(RecipeIngredientRole.OUTPUT,116,30)
-      .addFluidStack(recipe.oxy().getFluid(), recipe.oxy().getAmount())
-      .setFluidRenderer(400, false, 16, 48);
+    ReagenicaTank.create(74,30, 94, 62).setFluid(recipe.nitro()).consumeAsOutputTank(builder);
+    ReagenicaTank.create(116,30, 136, 62).setFluid(recipe.oxy()).consumeAsOutputTank(builder);
     
   }
 }

@@ -3,13 +3,13 @@ package kandango.reagenica.jei;
 import javax.annotation.Nonnull;
 
 import kandango.reagenica.ChemiBlocks;
+import kandango.reagenica.jei.util.ReagenicaTank;
 import kandango.reagenica.recipes.HaberBoschRecipe;
 import mezz.jei.api.constants.VanillaTypes;
 import mezz.jei.api.gui.builder.IRecipeLayoutBuilder;
 import mezz.jei.api.gui.drawable.IDrawable;
 import mezz.jei.api.helpers.IJeiHelpers;
 import mezz.jei.api.recipe.IFocusGroup;
-import mezz.jei.api.recipe.RecipeIngredientRole;
 import mezz.jei.api.recipe.RecipeType;
 import mezz.jei.api.recipe.category.IRecipeCategory;
 import net.minecraft.network.chat.Component;
@@ -49,14 +49,8 @@ public class HaberBoschCategory implements IRecipeCategory<HaberBoschRecipe>{
 
   @Override
   public void setRecipe(@Nonnull IRecipeLayoutBuilder builder, @Nonnull HaberBoschRecipe recipe, @Nonnull IFocusGroup fg){
-    builder.addSlot(RecipeIngredientRole.INPUT,9,30)
-      .addFluidStack(recipe.hydro().getFluid(), recipe.hydro().getAmount())
-      .setFluidRenderer(400, false, 16, 48);
-    builder.addSlot(RecipeIngredientRole.INPUT,51,30)
-      .addFluidStack(recipe.nitro().getFluid(), recipe.nitro().getAmount())
-      .setFluidRenderer(400, false, 16, 48);
-    builder.addSlot(RecipeIngredientRole.OUTPUT,116,30)
-      .addFluidStack(recipe.ammo().getFluid(), recipe.ammo().getAmount())
-      .setFluidRenderer(400, false, 16, 48);
+    ReagenicaTank.create( 9,30, 29, 30).setFluid(recipe.hydro()).consumeAsInputTank(builder);
+    ReagenicaTank.create(51,30, 71, 30).setFluid(recipe.nitro()).consumeAsInputTank(builder);
+    ReagenicaTank.create(116,30, 136, 62).setFluid(recipe.ammo()).consumeAsOutputTank(builder);
   }
 }

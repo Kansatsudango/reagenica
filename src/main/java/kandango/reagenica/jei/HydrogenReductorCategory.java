@@ -4,6 +4,8 @@ import javax.annotation.Nonnull;
 
 import kandango.reagenica.ChemiBlocks;
 import kandango.reagenica.ChemiFluids;
+import kandango.reagenica.block.entity.electrical.HydrogenReductorBlockEntity;
+import kandango.reagenica.jei.util.ReagenicaTank;
 import kandango.reagenica.recipes.HydrogenReductorRecipe;
 import mezz.jei.api.constants.VanillaTypes;
 import mezz.jei.api.gui.builder.IRecipeLayoutBuilder;
@@ -16,6 +18,7 @@ import mezz.jei.api.recipe.category.IRecipeCategory;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
+import net.minecraftforge.fluids.FluidStack;
 
 public class HydrogenReductorCategory implements IRecipeCategory<HydrogenReductorRecipe>{
   public static final ResourceLocation UID = new ResourceLocation("reagenica", "hydrogen_reductor");
@@ -52,9 +55,7 @@ public class HydrogenReductorCategory implements IRecipeCategory<HydrogenReducto
     builder.addSlot(RecipeIngredientRole.INPUT, 55, 34).addIngredients(recipe.getInput());
     builder.addSlot(RecipeIngredientRole.OUTPUT, 108, 34).addItemStack(recipe.getOutput());
     builder.addSlot(RecipeIngredientRole.OUTPUT, 108, 59).addItemStack(recipe.getByProduct());
-    builder.addSlot(RecipeIngredientRole.INPUT,26,30)
-      .addFluidStack(ChemiFluids.HYDROGEN.getFluid(), 50)
-      .setFluidRenderer(400, false, 16, 48);
+    ReagenicaTank.create(26,30, 5, 30).setFluid(new FluidStack(ChemiFluids.HYDROGEN.getFluid(), HydrogenReductorBlockEntity.HydrogenUnit)).consumeAsInputTank(builder);
   }
   
 }
