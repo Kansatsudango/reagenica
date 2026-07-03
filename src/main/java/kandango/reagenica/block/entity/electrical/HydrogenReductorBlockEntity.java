@@ -45,7 +45,7 @@ import net.minecraftforge.items.ItemStackHandler;
 import net.minecraftforge.network.PacketDistributor;
 
 public class HydrogenReductorBlockEntity extends ElectricConsumerAbstract implements MenuProvider,ISingleTankBlock,ILampController{
-  public static final int HydrogenUnit = 50;
+  public static final int HydrogenUnit = 25;
   public static final int EnergyUnit = 20;
   
   private final ItemStackHandler itemHandler = new ItemStackHandler(8) {
@@ -213,7 +213,7 @@ public class HydrogenReductorBlockEntity extends ElectricConsumerAbstract implem
   }
   @Override
   protected ElectricStorage energyStorageProvider() {
-    return new ElectricStorage(10000, 100,100);
+    return new ElectricStorage(10000, 200,200);
   }
   @Override
   public void receivePacket(FluidStack fluid) {

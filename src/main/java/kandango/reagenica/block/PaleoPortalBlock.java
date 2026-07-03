@@ -13,6 +13,7 @@ import net.minecraft.core.Direction;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
@@ -51,6 +52,11 @@ public class PaleoPortalBlock extends NetherPortalBlock{
     else if(allowLevel==1) return (e instanceof Player);
     else if(allowLevel==2) return !(e instanceof ItemEntity);
     else return true;
+  }
+
+  @Override
+  public void randomTick(@Nonnull BlockState state, @Nonnull ServerLevel level, @Nonnull BlockPos pos, @Nonnull RandomSource random) {
+    
   }
 
   @Nullable

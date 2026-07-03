@@ -64,6 +64,6 @@ public class DebugEnergyConsumerBlockEntity extends ElectricConsumerAbstract imp
 
   @Override
   protected ElectricStorage energyStorageProvider() {
-    return new ElectricStorage(10000, 20,1000);
+    return new ElectricStorage(10000, 400,1000);
   }
 }

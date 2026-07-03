@@ -28,6 +28,21 @@ public class FluidBlockEntityRenderer {
     if (fluidStack.isEmpty()) return;
     Fluid fluid = fluidStack.getFluid();
     FluidState fluidState = fluid.defaultFluidState();
+    if(minX>maxX){
+      float tmp = maxX;
+      maxX=minX;
+      minX=tmp;
+    }
+    if(minY>maxY){
+      float tmp = maxY;
+      maxY=minY;
+      minY=tmp;
+    }
+    if(minZ>maxZ){
+      float tmp = maxZ;
+      maxZ=minZ;
+      minZ=tmp;
+    }
 
     // テクスチャ取得
     TextureAtlasSprite[] sprites = ForgeHooksClient.getFluidSprites(level, pos, fluidState);

@@ -194,12 +194,15 @@ public class HeatFurnaceBlockEntity extends ElectricConsumerAbstract implements 
       this.cachedRecipe = HeatFurnaceRecipe.getRecipe(this.inputFluid.getFluid(), this.itemHandler.getStackInSlot(0), lv)
                                             .filter(this::canInsert).orElse(null);
       if(this.fuel==0 && this.cachedRecipe!=null){
-        ItemStack fuelstack = this.itemHandler.getStackInSlot(1);
+        ItemStack fuelstack = this.itemHandler.getStackInSlot(1).copy();
         int burn = ForgeHooks.getBurnTime(fuelstack, RecipeType.SMELTING);
         if(burn>0){
           this.fuel = burn;
           this.fuelmax = burn;
-          itemHandler.getStackInSlot(1).shrink(1);
+          ItemStack remainder = fuelstack.getItem().getCraftingRemainingItem(fuelstack);
+          fuelstack.shrink(1);
+          this.itemHandler.setStackInSlot(1, fuelstack);
+          ItemStackUtil.insertOrElseThrow(lv, worldPosition, itemHandler, remainder, 1, 2);
         }
       }
       if(!this.itemHandler.getStackInSlot(4).isEmpty()){
@@ -269,7 +272,7 @@ public class HeatFurnaceBlockEntity extends ElectricConsumerAbstract implements 
   }
   @Override
   protected ElectricStorage energyStorageProvider() {
-    return new ElectricStorage(3000, 20,20);
+    return new ElectricStorage(3000, 200,200);
   }
   @Override
   public void receivePacket(FluidStack fluid1, FluidStack fluid2) {
