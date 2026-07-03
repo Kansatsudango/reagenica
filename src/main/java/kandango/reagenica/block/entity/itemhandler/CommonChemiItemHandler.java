@@ -56,6 +56,7 @@ public class CommonChemiItemHandler implements IItemHandler{
     }
     for(int i=0;i<handler.getSlots();i++){
       if(ruledSlots.contains(i))continue;
+      if(outputs.contains(i))continue;
       remainedStack = handler.insertItem(i, remainedStack, simulate);
       if(remainedStack.isEmpty())break;
     }

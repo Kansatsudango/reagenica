@@ -140,8 +140,8 @@ public class AutoExperimenterBlockEntity extends ElectricConsumerAbstract implem
       container.setItem(3, itemHandler.getStackInSlot(2));
       this.internalRecipe = ReagentMixingRecipe.getRecipe(container, level).orElse(null);
       if(this.internalRecipe != null){
-        itemHandler.setStackInSlot(3, this.internalRecipe.getOutputA());
-        itemHandler.setStackInSlot(4, this.internalRecipe.getOutputB());
+        itemHandler.setStackInSlot(3, this.internalRecipe.getOutputA().copy());
+        itemHandler.setStackInSlot(4, this.internalRecipe.getOutputB().copy());
       }else{
         itemHandler.setStackInSlot(3, ItemStack.EMPTY);
         itemHandler.setStackInSlot(4, ItemStack.EMPTY);
@@ -163,8 +163,8 @@ public class AutoExperimenterBlockEntity extends ElectricConsumerAbstract implem
         }
         if(this.progress>=200){
           consume(recipe);
-          itemHandler.insertItem(8, recipe.getOutputA(), false);
-          itemHandler.insertItem(9, recipe.getOutputB(), false);
+          itemHandler.insertItem(8, recipe.getOutputA().copy(), false);
+          itemHandler.insertItem(9, recipe.getOutputB().copy(), false);
           this.progress=0;
         }
       }
@@ -215,6 +215,7 @@ public class AutoExperimenterBlockEntity extends ElectricConsumerAbstract implem
             if(itemHandler.getStackInSlot(i).isEmpty()){
               itemHandler.setStackInSlot(i, stackInSlot);
               itemHandler.setStackInSlot(7, ItemStack.EMPTY);
+              break;
             }
           }
         }
