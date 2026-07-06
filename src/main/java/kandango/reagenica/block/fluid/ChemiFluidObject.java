@@ -21,8 +21,10 @@ public class ChemiFluidObject implements ChemiFluidInterface{
   private ForgeFlowingFluid.Properties Properties;
   private RegistryObject<Item> BucketItem;
   private RegistryObject<LiquidBlock> LiquidBlock;
+  public final String name;
 
   public ChemiFluidObject(String name, int color){
+    this.name=name;
     this.FluidType = ChemiFluidTypes.FLUID_TYPES.register(name,() -> new OrganicFluidType(color));
     this.StillFluid = ChemiFluids.FLUIDS.register(name, () -> new ForgeFlowingFluid.Source(this.Properties));
     this.FlowingFluid = ChemiFluids.FLUIDS.register("flowing_"+name, () -> new ForgeFlowingFluid.Flowing(this.Properties));
@@ -42,5 +44,8 @@ public class ChemiFluidObject implements ChemiFluidInterface{
   }
   public LiquidBlock getBlock(){
     return LiquidBlock.get();
+  }
+  public String getName(){
+    return name;
   }
 }

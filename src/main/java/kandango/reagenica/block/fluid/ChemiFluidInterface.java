@@ -9,4 +9,5 @@ public interface ChemiFluidInterface {
   public Fluid getFluid();
   public Fluid getFlowingFluid();
   public LiquidBlock getBlock();
+  public String getName();
 }

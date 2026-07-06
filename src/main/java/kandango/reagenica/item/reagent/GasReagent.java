@@ -31,6 +31,7 @@ public class GasReagent extends Reagent{
     return props.color();
   }
 
+  @Override
   public Optional<Fluid> getRelativeFluid(){
     return Optional.ofNullable(lazyfluid.get());
   }
