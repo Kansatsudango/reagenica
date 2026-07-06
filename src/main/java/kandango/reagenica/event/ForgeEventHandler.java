@@ -14,6 +14,7 @@ import kandango.reagenica.enchantment.GardenerEnchantment;
 import kandango.reagenica.enchantment.LastStandEnchantment;
 import kandango.reagenica.enchantment.VeinMinerEnchantment;
 import kandango.reagenica.family.ChemiToolTiers;
+import kandango.reagenica.item.reagent.ReagentFluidMap;
 import kandango.reagenica.network.CableNetworkManager;
 import kandango.reagenica.villager.ChemiVillagerProfessions;
 import kandango.reagenica.villager.ChemiVillagerTrades;
@@ -47,6 +48,7 @@ import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.event.entity.living.MobEffectEvent;
 import net.minecraftforge.event.furnace.FurnaceFuelBurnTimeEvent;
 import net.minecraftforge.event.level.BlockEvent;
+import net.minecraftforge.event.level.LevelEvent;
 import net.minecraftforge.event.level.SleepFinishedTimeEvent;
 import net.minecraftforge.event.village.VillagerTradesEvent;
 import net.minecraftforge.eventbus.api.EventPriority;
@@ -235,6 +237,14 @@ public class ForgeEventHandler {
     }else if(event.getType() == ChemiVillagerProfessions.GEOLOGIST.get()){
       Int2ObjectMap<List<VillagerTrades.ItemListing>> trades = event.getTrades();
       ChemiVillagerTrades.addGeologistTrades(trades);
+    }
+  }
+
+  @SubscribeEvent
+  public static void onLevelLoad(LevelEvent.Load event) {
+    LevelAccessor accessor = event.getLevel();
+    if(accessor instanceof Level lv){
+      ReagentFluidMap.registerAll(ChemiItems.listItems, lv);
     }
   }
 }

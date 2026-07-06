@@ -8,31 +8,43 @@ import java.util.Optional;
 import javax.annotation.Nonnull;
 
 import kandango.reagenica.ChemistryMod;
+import net.minecraft.core.Holder;
+import net.minecraft.core.Registry;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.level.material.Fluid;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 
 public class ReagentFluidMap {
-  public static Map<Fluid, Item> fluidItemMap = new HashMap<>();
-  public static Map<Item, Fluid> itemFluidMap = new HashMap<>();
-  public static void register(@Nonnull Fluid fluid, @Nonnull Item continerItem){
+  public static final Map<Fluid, Item> fluidItemMap = new HashMap<>();
+  public static final Map<Item, Fluid> itemFluidMap = new HashMap<>();
+  public static void register(@Nonnull Fluid fluid, @Nonnull Item continerItem, Level lv){
     if(fluidItemMap.containsKey(fluid)){
       throw new IllegalArgumentException("dupricate fluid map registry: " + ForgeRegistries.ITEMS.getKey(continerItem));
     }
-    fluidItemMap.put(fluid, continerItem);
+    //fluidItemMap.put(fluid, continerItem);
     itemFluidMap.put(continerItem, fluid);
+    ResourceLocation fluidLocation = ForgeRegistries.FLUIDS.getKey(fluid);
+    TagKey<Fluid> tag = fluidLocation.getNamespace().equals("minecraft")
+                ? TagKey.create(Registries.FLUID, fluidLocation)
+                : TagKey.create(Registries.FLUID, new ResourceLocation("forge", fluidLocation.getPath()));
+    Registry<Fluid> registry = lv.registryAccess().registryOrThrow(Registries.FLUID);
+    registry.getTag(tag).ifPresent(named -> named.stream().map(Holder::value).forEach(f -> fluidItemMap.put(f, continerItem)));
   }
-  public static void registerAll(List<RegistryObject<? extends Item>> itemlist){
+  public static void registerAll(List<RegistryObject<? extends Item>> itemlist, Level lv){
+    itemFluidMap.clear();
+    fluidItemMap.clear();
     for(RegistryObject<? extends Item> itemobj : itemlist){
       Item item = itemobj.get();
-      if(item instanceof LiquidReagent reagent){
-        reagent.getRelativeFluid().ifPresent(x -> ReagentFluidMap.register(x, reagent));
-      }else if(item instanceof GasReagent reagent){
-        reagent.getRelativeFluid().ifPresent(x -> ReagentFluidMap.register(x, reagent));
+      if(item instanceof Reagent reagent){
+        reagent.getRelativeFluid().ifPresent(fluid -> ReagentFluidMap.register(fluid, reagent, lv));
       }
     }
+    ChemistryMod.LOGGER.info("FluidMap initialized.");
   }
   public static void printMap(){
       ChemistryMod.LOGGER.debug("=== Fluid <-> Item Map Contents ===");

@@ -1,11 +1,9 @@
 package kandango.reagenica.event;
 
 import kandango.reagenica.ChemiBlocks;
-import kandango.reagenica.ChemiItems;
 import kandango.reagenica.ChemistryMod;
 import kandango.reagenica.block.fluid.ChemiFluidBurnMap;
 import kandango.reagenica.family.WoodFamily;
-import kandango.reagenica.item.reagent.ReagentFluidMap;
 import kandango.reagenica.packet.ModMessages;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.FlowerPotBlock;
@@ -20,8 +18,6 @@ public class ModEventHandler {
   @SubscribeEvent
   public static void onCommonSetup(FMLCommonSetupEvent event) {
     ModMessages.register();
-    ReagentFluidMap.registerAll(ChemiItems.listItems);
-    ReagentFluidMap.printMap();
     ChemiFluidBurnMap.register();
     event.enqueueWork(() -> {
       try{
