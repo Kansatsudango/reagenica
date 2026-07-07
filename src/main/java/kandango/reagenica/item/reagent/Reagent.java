@@ -13,6 +13,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.material.Fluid;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
+import net.minecraft.resources.ResourceLocation;
 
 public class Reagent extends Item{
   protected final ReagentProperties props;
@@ -34,6 +35,9 @@ public class Reagent extends Item{
   }
 
   public Optional<Fluid> getRelativeFluid(){
+    return Optional.empty();
+  }
+  public Optional<ResourceLocation> getRelativeFluidTag(){
     return Optional.empty();
   }
 }

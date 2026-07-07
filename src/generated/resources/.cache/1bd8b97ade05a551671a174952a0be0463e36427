@@ -1,4 +1,4 @@
-// 1.20.1	2026-07-02T01:35:44.2410866	Item Models: reagenica
+// 1.20.1	2026-07-07T12:56:39.2156967	Item Models: reagenica
 6f0d9872c5f176206015dd5f6420e71fe71f2cb9 assets/reagenica/models/item/acetobacter.json
 54ef03ed6b05d449bef3092145440fb8c97020f5 assets/reagenica/models/item/adipamide.json
 54ef03ed6b05d449bef3092145440fb8c97020f5 assets/reagenica/models/item/adipic_acid.json
@@ -70,6 +70,7 @@ bdd27ff864e9ce159ffbdfa7fc33dde5574fe3d3 assets/reagenica/models/item/chalcopyri
 4731475f7f27d8d312baf5a778cc0c90fa3fd79e assets/reagenica/models/item/chikuzenni.json
 eeb72bae9466b273907f3a586c9a407708a99e5c assets/reagenica/models/item/chloride_hotspring_bucket.json
 55e8fd85879a5d222fe1eba418faeab769d24409 assets/reagenica/models/item/chlorine.json
+bd05ec6424ed6c6276304f9d5198c1b67577fbe9 assets/reagenica/models/item/chlorine_bucket.json
 55e8fd85879a5d222fe1eba418faeab769d24409 assets/reagenica/models/item/chloroethylene.json
 6cc2c9841fc5f7c18b1b0e5e1222d51d6c513577 assets/reagenica/models/item/citrine_amulet.json
 537e88c5228c5acfc30739dda1be6bcbbb47c68f assets/reagenica/models/item/citrine_block.json
@@ -184,9 +185,11 @@ c4f214ea29751ffc94aa181a114980b1d77c095e assets/reagenica/models/item/hotspring_
 44b1173a1343a71deaa859233b8f39752f86b63d assets/reagenica/models/item/hydrangea.json
 650e06b35d7c9f88d02838207a6fb0cd935b66c9 assets/reagenica/models/item/hydrangea_creator.json
 54ef03ed6b05d449bef3092145440fb8c97020f5 assets/reagenica/models/item/hydrochloric_acid.json
+2a296081319043e0be5641ee06a92621e02777a6 assets/reagenica/models/item/hydrochloric_acid_bucket.json
 55e8fd85879a5d222fe1eba418faeab769d24409 assets/reagenica/models/item/hydrogen.json
 fba9a6a6ea1b8efcd0f5d2272b5b69a5617787a1 assets/reagenica/models/item/hydrogen_bucket.json
 55e8fd85879a5d222fe1eba418faeab769d24409 assets/reagenica/models/item/hydrogen_chloride.json
+a4f94f411bb38d2a1fb4483dc59a5b804b484267 assets/reagenica/models/item/hydrogen_chloride_bucket.json
 4efe394115a14a6a8bbee0be69a7f2e0b6ac4d65 assets/reagenica/models/item/hydrogen_reductor.json
 cae000c0064c8c2172bc90092f048eb9964da28d assets/reagenica/models/item/incubator.json
 01f5610b518a95fdbe40e9c95ca3bca1e5a52195 assets/reagenica/models/item/iridium_axe.json

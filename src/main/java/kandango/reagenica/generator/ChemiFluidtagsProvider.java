@@ -22,9 +22,14 @@ public class ChemiFluidtagsProvider extends FluidTagsProvider{
 
   protected void addTags(Provider provider) {
     ChemiFluids.FLUID_SET.forEach(fluid -> addSameNameTag(fluid));
+    addTag(ChemiFluids.ETHYLENE, new ResourceLocation("forge", "ethene"));
   }
   private void addSameNameTag(ChemiFluidInterface fluid){
     TagKey<Fluid> tagKey = FluidTags.create(new ResourceLocation("forge", fluid.getName()));
+    tag(tagKey).add(fluid.getFluid(), fluid.getFlowingFluid());
+  }
+  private void addTag(ChemiFluidInterface fluid, ResourceLocation location){
+    TagKey<Fluid> tagKey = FluidTags.create(location);
     tag(tagKey).add(fluid.getFluid(), fluid.getFlowingFluid());
   }
   

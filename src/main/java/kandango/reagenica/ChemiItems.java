@@ -1,5 +1,6 @@
 package kandango.reagenica;
 
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
@@ -47,9 +48,9 @@ public class ChemiItems {
   public static final RegistryObject<Item> EASY_TORCH = registerandlist("easy_torch", () -> new EasyTorch());
 
   public static final RegistryObject<Item> TESTTUBE = registerandlist("testtube", () -> new Item(new Item.Properties()));
-  public static final RegistryObject<LiquidReagent> WATER_TUBE = registerandlist("water", () -> new LiquidReagent(new ReagentProperties("H2O",0xFF1212A0,0,0,0), () -> Fluids.WATER));
+  public static final RegistryObject<LiquidReagent> WATER_TUBE = registerandlist("water", () -> new LiquidReagent(new ReagentProperties("H2O",0xFF1212A0,0,0,0), () -> Fluids.WATER, new ResourceLocation("minecraft", "water")));
   public static final RegistryObject<LiquidReagent> DISTILLED_WATER_TUBE = registerandlist("distilled_water", () -> new LiquidReagent(new ReagentProperties("H2O",0xFF4848C0,0,0,0), () -> ChemiFluids.DISTILLED_WATER.getFluid()));
-  public static final RegistryObject<LiquidReagent> HYDROCHLORIC_ACID = registerandlist("hydrochloric_acid", () -> new LiquidReagent(new ReagentProperties("HCl",0xFF4CAF50,3,0,1)));
+  public static final RegistryObject<LiquidReagent> HYDROCHLORIC_ACID = registerandlist("hydrochloric_acid", () -> new LiquidReagent(new ReagentProperties("HCl",0xFF4CAF50,3,0,1), () -> ChemiFluids.HYDROCHLORIC_ACID.getFluid()));
   public static final RegistryObject<LiquidReagent> SODIUM_HYDROXIDE = registerandlist("sodium_hydroxide", () -> new LiquidReagent(new ReagentProperties("NaOH",0xFF2196F3,3,0,1), () -> ChemiFluids.SODIUM_HYDROXIDE.getFluid()));
   public static final RegistryObject<LiquidReagent> SALT_WATER = registerandlist("salt_water", () -> new LiquidReagent(new ReagentProperties("NaCl",0xFFb0e0e6,0,0,0), () -> ChemiFluids.SALT_WATER.getFluid()));
   public static final RegistryObject<LiquidReagent> SULFURIC_ACID = registerandlist("sulfuric_acid", () -> new LiquidReagent(new ReagentProperties("H2SO4",0xFFDDAA22,3,0,2), () -> ChemiFluids.SULFURIC_ACID.getFluid()));
@@ -103,15 +104,15 @@ public class ChemiItems {
   public static final RegistryObject<LiquidReagent> PROTEIN_EXTRACT_ACID = registerandlist("protein_extract_acid", () -> new LiquidReagent(new ReagentProperties("Proteins + HCl",0xFFFF7F50,3,0,0)));
   public static final RegistryObject<LiquidReagent> PROTEIN_EXTRACT_NEU = registerandlist("protein_extract_neu", () -> new LiquidReagent(new ReagentProperties("Proteins + NaCl",0xFFFFd710,0,0,0)));
   public static final RegistryObject<LiquidReagent> MEDIUM_AGAR = registerandlist("medium_agar", () -> new LiquidReagent(new ReagentProperties("Proteins + NaCl + Agar",0xFFFFd700,0,0,0)));
-  public static final RegistryObject<GasReagent> CHLORINE = registerandlist("chlorine", () -> new GasReagent(new ReagentProperties("Cl2",0xFFB8D200,3,0,2)));
-  public static final RegistryObject<GasReagent> HYDROGEN_CHLORIDE = registerandlist("hydrogen_chloride", () -> new GasReagent(new ReagentProperties("HCl",0xFF90BC00,3,0,1)));
+  public static final RegistryObject<GasReagent> CHLORINE = registerandlist("chlorine", () -> new GasReagent(new ReagentProperties("Cl2",0xFFB8D200,3,0,2), () -> ChemiFluids.CHLORINE.getFluid()));
+  public static final RegistryObject<GasReagent> HYDROGEN_CHLORIDE = registerandlist("hydrogen_chloride", () -> new GasReagent(new ReagentProperties("HCl",0xFF90BC00,3,0,1), () -> ChemiFluids.HYDROGEN_CHLORIDE.getFluid()));
   public static final RegistryObject<GasReagent> OXYGEN = registerandlist("oxygen", () -> new GasReagent(new ReagentProperties("O2",0xFFfef4f4,1,4,3), () -> ChemiFluids.OXYGEN.getFluid()));
   public static final RegistryObject<GasReagent> HYDROGEN = registerandlist("hydrogen", () -> new GasReagent(new ReagentProperties("H2",0xFFdddddd,0,4,3), () -> ChemiFluids.HYDROGEN.getFluid()));
   public static final RegistryObject<GasReagent> NITROGEN = registerandlist("nitrogen", () -> new GasReagent(new ReagentProperties("N2",0xFFf0faff,0,0,0), () -> ChemiFluids.NITROGEN.getFluid()));
   public static final RegistryObject<GasReagent> NITROGEN_DIOXIDE = registerandlist("nitrogen_dioxide", () -> new GasReagent(new ReagentProperties("NO2",0xFFdb9a20,3,0,0)));
   public static final RegistryObject<GasReagent> NITROGEN_MONOXIDE = registerandlist("nitrogen_monoxide", () -> new GasReagent(new ReagentProperties("NO",0xFFdd6f21,3,0,3)));
   public static final RegistryObject<GasReagent> NITROUS_OXIDE = registerandlist("nitrous_oxide", () -> new GasReagent(new ReagentProperties("N2O",0xFFde8f40,2,0,0)));
-  public static final RegistryObject<GasReagent> ETHYLENE = registerandlist("ethylene", () -> new GasReagent(new ReagentProperties("C2H4",0xFFcccccc,2,3,3), () -> ChemiFluids.ETHYLENE.getFluid()));
+  public static final RegistryObject<GasReagent> ETHYLENE = registerandlist("ethylene", () -> new GasReagent(new ReagentProperties("C2H4",0xFFcccccc,2,3,3), () -> ChemiFluids.ETHYLENE.getFluid(), new ResourceLocation("forge", "ethene")));
   public static final RegistryObject<GasReagent> CHLOROETHYLENE = registerandlist("chloroethylene", () -> new GasReagent(new ReagentProperties("CH2CHCl",0xFFa7bc60,3,4,3)));
   public static final RegistryObject<GasReagent> AMMONIA = registerandlist("ammonia", () -> new GasReagent(new ReagentProperties("NH3",0xFF83ccd2,3,1,0), () -> ChemiFluids.AMMONIA.getFluid()));
   public static final RegistryObject<PowderReagent> COPPER_POWDER = registerandlist("copper_powder", () -> new PowderReagent(new ReagentProperties("Cu",0xFFBB5535,1,0,0), new Item.Properties()));

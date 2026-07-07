@@ -38,6 +38,7 @@ public class ClientSetupEvent {
             fluidTranslucent(ChemiFluids.SULFURIC_ACID);
             fluidTranslucent(ChemiFluids.DILUTE_SULFURIC_ACID);
             fluidTranslucent(ChemiFluids.SODIUM_HYDROXIDE);
+            fluidTranslucent(ChemiFluids.HYDROCHLORIC_ACID);
             fluidTranslucent(ChemiFluids.ETHANOL);
             fluidTranslucent(ChemiFluids.PHOSPHORIC_ACID);
             fluidTranslucent(ChemiFluids.COPPER_SULFATE);
@@ -57,6 +58,8 @@ public class ClientSetupEvent {
             fluidTranslucent(ChemiFluids.ETHYLENE);
             fluidTranslucent(ChemiFluids.BENZENE);
             fluidTranslucent(ChemiFluids.AMMONIA);
+            fluidTranslucent(ChemiFluids.CHLORINE);
+            fluidTranslucent(ChemiFluids.HYDROGEN_CHLORIDE);
             fluidTranslucent(ChemiFluids.SIMPLE_HOTSPRING);
             fluidTranslucent(ChemiFluids.SULFUR_HOTSPRING);
             fluidTranslucent(ChemiFluids.CHLORIDE_HOTSPRING);

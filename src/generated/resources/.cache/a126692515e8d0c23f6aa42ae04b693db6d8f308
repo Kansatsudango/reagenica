@@ -1,10 +1,11 @@
-// 1.20.1	2026-07-06T19:45:51.949726	Tags for minecraft:fluid mod id reagenica
+// 1.20.1	2026-07-07T13:03:07.6901786	Tags for minecraft:fluid mod id reagenica
 5dcbcf9aaf8437c8c8974bb5a6f51e00091e4d9b data/forge/tags/fluids/alumina_melt.json
 f87e5404648ab90c479d7d0a7ed78813258911a0 data/forge/tags/fluids/ammonia.json
 af4a675ee3895c428b19edbeb3bbac0dcdfbfce7 data/forge/tags/fluids/aqua_regia.json
 c71440d7e5b64760a49e091a4deca37af56f6df6 data/forge/tags/fluids/benzene.json
 bbb9a89f306b9941dedd90ae5841b960961c81b2 data/forge/tags/fluids/bioethanol.json
 54925e75e287fa78a8cc45cf0d3d33e2dc0a988e data/forge/tags/fluids/chloride_hotspring.json
+2c212bcbdd06534d17c81a68d7ca6ad21c8d0788 data/forge/tags/fluids/chlorine.json
 ed63e4d31dcf80ea4d49a85b3a4c2b2e9697901a data/forge/tags/fluids/cooking_sake.json
 7c64c499f7e877727745dd6061e645d923a8a33e data/forge/tags/fluids/copper_sulfate.json
 504fd76d1530ae6794737bafa91495baed089daf data/forge/tags/fluids/crude_oil.json
@@ -12,11 +13,14 @@ ed63e4d31dcf80ea4d49a85b3a4c2b2e9697901a data/forge/tags/fluids/cooking_sake.jso
 ae654f3494823d177236de575743be259a129391 data/forge/tags/fluids/dilute_sulfuric_acid.json
 b3fbbe36859d83ad19bd3610913cd346bd050bea data/forge/tags/fluids/distilled_water.json
 db8d441c63553e07917ce1e2c3e8e85dd78f7db1 data/forge/tags/fluids/ethanol.json
+be96595217c4a7e275784e4bf7feb43e36a157f0 data/forge/tags/fluids/ethene.json
 be96595217c4a7e275784e4bf7feb43e36a157f0 data/forge/tags/fluids/ethylene.json
 fec25ad78e551898ed3a884a88126eb2d85ae429 data/forge/tags/fluids/fruit_vinegar.json
 4af081f06ead3b4e7d2fafe4ce25dfd4aafc7e49 data/forge/tags/fluids/gold_solution.json
 93484646c068d43254f55d6787952b692b75c782 data/forge/tags/fluids/heated_water.json
+c35ba4df72357c41a8b8079a183ad4f6b9be5f87 data/forge/tags/fluids/hydrochloric_acid.json
 f3ebfe8198421d0e6a515e83679a31a2cb6fa38c data/forge/tags/fluids/hydrogen.json
+5dd8bf63053d38ddebf39aefe284de73eb0e01a8 data/forge/tags/fluids/hydrogen_chloride.json
 5f39531b41083a192afba78fc1500deb9c6eaf80 data/forge/tags/fluids/iron_hotspring.json
 807e5329dcb4846cc568213a3ec90f80eced8a7f data/forge/tags/fluids/mirin.json
 a4648e8a05c777a14af8f4a1c4aa493342fecd3a data/forge/tags/fluids/naphtha.json

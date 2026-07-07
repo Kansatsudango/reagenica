@@ -22,6 +22,7 @@ public class ChemiFluids {
   public static final ChemiFluidObject SULFURIC_ACID = register(new ChemiFluidObject("sulfuric_acid", 0x99ddaa22));
   public static final ChemiFluidObject DILUTE_SULFURIC_ACID = register(new ChemiFluidObject("dilute_sulfuric_acid", 0x99ddcf7c));
   public static final ChemiFluidObject SODIUM_HYDROXIDE = register(new ChemiFluidObject("sodium_hydroxide", 0x992196F3));
+  public static final ChemiFluidObject HYDROCHLORIC_ACID = register(new ChemiFluidObject("hydrochloric_acid", 0x994CAF50));
   public static final ChemiFluidObject ETHANOL = register(new ChemiFluidObject("ethanol", 0xbbdcdcdc));
   public static final ChemiFluidObject PHOSPHORIC_ACID = register(new ChemiFluidObject("phosphoric_acid", 0x99ffa07a));
   public static final ChemiFluidObject COPPER_SULFATE = register(new ChemiFluidObject("copper_sulfate", 0xcc0099ff));
@@ -49,6 +50,8 @@ public class ChemiFluids {
   public static final ChemiGasObject HYDROGEN = register(new ChemiGasObject("hydrogen", 0xCCdddddd));
   public static final ChemiGasObject OXYGEN = register(new ChemiGasObject("oxygen", 0xCCffe4e1));
   public static final ChemiGasObject NITROGEN = register(new ChemiGasObject("nitrogen", 0xCCf0faff));
+  public static final ChemiGasObject CHLORINE = register(new ChemiGasObject("chlorine", 0xCCB8D200));
+  public static final ChemiGasObject HYDROGEN_CHLORIDE = register(new ChemiGasObject("hydrogen_chloride", 0xCC90BC00));
   public static final ChemiOnsenObject SIMPLE_HOTSPRING = register(new ChemiOnsenObject("simple_hotspring", 0xFFABCED8, new MobEffectInstance(MobEffects.REGENERATION, 60, 0), ChemiBlocks.YUNOHANA_WHITE::get));
   public static final ChemiOnsenObject SULFUR_HOTSPRING = register(new ChemiOnsenObject("sulfur_hotspring", 0xFFDCCB18, new MobEffectInstance(MobEffects.DAMAGE_BOOST, 3600, 0), ChemiBlocks.YUNOHANA_YELLOW::get));
   public static final ChemiOnsenObject CHLORIDE_HOTSPRING = register(new ChemiOnsenObject("chloride_hotspring", 0xFFC89932, new MobEffectInstance(MobEffects.REGENERATION, 60, 0), ChemiBlocks.YUNOHANA_SPOTTED::get));
