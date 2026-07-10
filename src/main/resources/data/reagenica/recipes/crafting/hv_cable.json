@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#W#"
+  ],
+  "key": {
+    "#": { "tag": "reagenica:insulators" },
+    "W": { "item": "reagenica:aluminium_ingot" }
+  },
+  "result": {
+    "item": "reagenica:hv_cable",
+    "count": 8
+  }
+}
