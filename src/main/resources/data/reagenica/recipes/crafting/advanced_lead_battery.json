@@ -1,0 +1,25 @@
+{
+  "type": "reagenica:battery_upgrade",
+  "pattern": [
+    "SSS",
+    "CBC",
+    "XXX"
+  ],
+  "key": {
+    "S": {
+      "item": "reagenica:silver_ingot"
+    },
+    "C": {
+      "item": "reagenica:cobalt_ingot"
+    },
+    "B": {
+      "item": "reagenica:lead_battery"
+    },
+    "X": {
+      "tag": "reagenica:crystal_shards"
+    }
+  },
+  "result": {
+    "item": "reagenica:advanced_lead_battery"
+  }
+}

@@ -154,6 +154,16 @@ public class ModRecipes {
     public static final RegistryObject<RecipeSerializer<ReagenimartRecipe>> REAGENIMART_SERIALIZER = 
         SERIALIZERS.register("reagenimart", ReagenimartRecipeSerializer::new);
 
+    public static final RegistryObject<RecipeType<BatteryUpgradeRecipe>> BATTERY_UPGRADE_TYPE = 
+        TYPES.register("battery_upgrade", () -> new RecipeType<BatteryUpgradeRecipe>() {
+            @Override
+            public String toString(){
+                return "reagenica:battery_upgrade";
+            }
+        });
+    public static final RegistryObject<RecipeSerializer<BatteryUpgradeRecipe>> BATTERY_UPGRADE_SERIALIZER = 
+        SERIALIZERS.register("battery_upgrade", BatteryUpgradeRecipeSerializer::new);
+
     public static void register(IEventBus bus) {
         SERIALIZERS.register(bus);
         TYPES.register(bus);

@@ -84,6 +84,9 @@ public class ModBlockEntities {
     public static final RegistryObject<BlockEntityType<ElectricCableRefinedCopperBlockEntity>> CABLE_REFINED_COPPER = 
         BLOCK_ENTITIES.register("refined_copper_cable", 
         () -> BlockEntityType.Builder.of((BlockEntityType.BlockEntitySupplier<ElectricCableRefinedCopperBlockEntity>)ElectricCableRefinedCopperBlockEntity::new,ChemiBlocks.CABLE_REFINED_COPPER.get()).build(null));
+    public static final RegistryObject<BlockEntityType<ElectricCableHVBlockEntity>> CABLE_ALUMINIUM = 
+        BLOCK_ENTITIES.register("hv_cable", 
+        () -> BlockEntityType.Builder.of((BlockEntityType.BlockEntitySupplier<ElectricCableHVBlockEntity>)ElectricCableHVBlockEntity::new,ChemiBlocks.CABLE_ALUMINIUM.get()).build(null));
 
     public static final RegistryObject<BlockEntityType<FuelGeneratorBlockEntity>> GENERATOR_FUEL = 
         BLOCK_ENTITIES.register("fuel_generator", 
@@ -108,6 +111,10 @@ public class ModBlockEntities {
     public static final RegistryObject<BlockEntityType<LeadBatteryBlockEntity>> LEAD_BATTERY = 
         BLOCK_ENTITIES.register("lead_battery", 
         () -> BlockEntityType.Builder.of((BlockEntityType.BlockEntitySupplier<LeadBatteryBlockEntity>)LeadBatteryBlockEntity::new,ChemiBlocks.LEAD_BATTERY.get()).build(null));
+
+    public static final RegistryObject<BlockEntityType<AdvancedLeadBatteryBlockEntity>> ADVANCED_LEAD_BATTERY = 
+        BLOCK_ENTITIES.register("advanced_lead_battery", 
+        () -> BlockEntityType.Builder.of((BlockEntityType.BlockEntitySupplier<AdvancedLeadBatteryBlockEntity>)AdvancedLeadBatteryBlockEntity::new,ChemiBlocks.ADVANCED_LEAD_BATTERY.get()).build(null));
 
 
     public static final RegistryObject<BlockEntityType<TradingStallBlockEntity>> TRADING_STALL = 

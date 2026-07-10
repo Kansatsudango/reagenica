@@ -1,8 +1,9 @@
-// 1.20.1	2026-07-07T12:56:39.2156967	Item Models: reagenica
+// 1.20.1	2026-07-10T19:29:35.6135056	Item Models: reagenica
 6f0d9872c5f176206015dd5f6420e71fe71f2cb9 assets/reagenica/models/item/acetobacter.json
 54ef03ed6b05d449bef3092145440fb8c97020f5 assets/reagenica/models/item/adipamide.json
 54ef03ed6b05d449bef3092145440fb8c97020f5 assets/reagenica/models/item/adipic_acid.json
 c9d624f7517f70137cb4d7e820f7eb0b133bbaed assets/reagenica/models/item/advanced_farmland.json
+20dcbb9b5a25ea6946b3adffc946404f03085091 assets/reagenica/models/item/advanced_lead_battery.json
 9407bb3bb581b6167431ee2c911cb125eb9aaa19 assets/reagenica/models/item/agar.json
 75d71bfa8a8489a621b0c11339b4abb612b686f3 assets/reagenica/models/item/air_separator.json
 27cdc16cbad77cc6ed6e2339d9a571325bcca271 assets/reagenica/models/item/alumina.json

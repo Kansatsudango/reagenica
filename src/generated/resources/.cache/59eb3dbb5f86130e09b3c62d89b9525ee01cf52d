@@ -1,5 +1,6 @@
-// 1.20.1	2026-07-02T01:35:44.2351722	Loot Tables
+// 1.20.1	2026-07-10T19:29:35.6135056	Loot Tables
 fd599511177b57b7c4697466e227e89162e2d943 data/reagenica/loot_tables/blocks/advanced_farmland.json
+81f631334b4d88836bcea6b819f2263ac0f2ca50 data/reagenica/loot_tables/blocks/advanced_lead_battery.json
 115802854012234d89e3ba52e3d8b2a271af6530 data/reagenica/loot_tables/blocks/air_separator.json
 af778c6940ed0700e603b9633a246c18de93eb49 data/reagenica/loot_tables/blocks/aluminium_block.json
 5ed961b6f10df89fb7b024ee60c0b4d628d0a23d data/reagenica/loot_tables/blocks/analyzer.json
@@ -127,6 +128,7 @@ cb0bb586f150be40053e6639f62e091a4203e411 data/reagenica/loot_tables/blocks/heat_
 b6f238bd470b3ace8554f3ee62a80da95894e2d0 data/reagenica/loot_tables/blocks/heat_generator.json
 5289266463ae627c6c1e171b51327f9339e8552b data/reagenica/loot_tables/blocks/holiday_tree.json
 f5bf940394b5a2cd36d82642c315b512cae3d394 data/reagenica/loot_tables/blocks/hotspring_miner.json
+d8042a4232e72784caf50c638896f2e1d8d5fe89 data/reagenica/loot_tables/blocks/hv_cable.json
 e063e48920fe3c1ba5cd0920bd6bcbda5af230c6 data/reagenica/loot_tables/blocks/hydrangea.json
 e51d75b8726bd6d642b61667fd25d4de1da15f1e data/reagenica/loot_tables/blocks/hydrogen_reductor.json
 007219834da8f779512b2008e87e7b47029de21c data/reagenica/loot_tables/blocks/incubator.json

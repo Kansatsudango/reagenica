@@ -4,11 +4,11 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
 import kandango.reagenica.block.BlockUtil;
-import kandango.reagenica.block.LeadBattery;
+import kandango.reagenica.block.AdvancedLeadBattery;
 import kandango.reagenica.block.entity.ModBlockEntities;
 import kandango.reagenica.block.entity.electrical.Handlers.ConsumerEnergyHandler;
 import kandango.reagenica.block.entity.electrical.Handlers.GeneratorEnergyHandler;
-import kandango.reagenica.screen.LeadBatteryMenu;
+import kandango.reagenica.screen.AdvancedLeadBatteryMenu;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
@@ -23,12 +23,12 @@ import net.minecraftforge.common.capabilities.ForgeCapabilities;
 import net.minecraftforge.common.util.LazyOptional;
 import net.minecraftforge.energy.IEnergyStorage;
 
-public class LeadBatteryBlockEntity extends ElectricGeneratorAbstract implements MenuProvider{
+public class AdvancedLeadBatteryBlockEntity extends ElectricGeneratorAbstract implements MenuProvider{
   private final LazyOptional<IEnergyStorage> energyInLazyOptional = LazyOptional.of(() -> new ConsumerEnergyHandler(energyStorage));
   private final LazyOptional<IEnergyStorage> energyOutLazyOptional = LazyOptional.of(() -> new GeneratorEnergyHandler(energyStorage));
   
-  public LeadBatteryBlockEntity(BlockPos pos, BlockState state){
-    super(ModBlockEntities.LEAD_BATTERY.get(),pos,state);
+  public AdvancedLeadBatteryBlockEntity(BlockPos pos, BlockState state){
+    super(ModBlockEntities.ADVANCED_LEAD_BATTERY.get(),pos,state);
   }
 
   @Override
@@ -46,7 +46,7 @@ public class LeadBatteryBlockEntity extends ElectricGeneratorAbstract implements
   @Override
   public <T> LazyOptional<T> getCapability(Capability<T> cap, @Nullable Direction side) {
     if (cap == ForgeCapabilities.ENERGY) {
-      Direction facing = BlockUtil.getStatus(getBlockState(), LeadBattery.FACING).orElse(Direction.NORTH);
+      Direction facing = BlockUtil.getStatus(getBlockState(), AdvancedLeadBattery.FACING).orElse(Direction.NORTH);
       if(side == facing.getOpposite()) return energyOutLazyOptional.cast();
       else return energyInLazyOptional.cast();
     }
@@ -67,21 +67,21 @@ public class LeadBatteryBlockEntity extends ElectricGeneratorAbstract implements
   @Override
   @Nullable
   public AbstractContainerMenu createMenu(int id, @Nonnull Inventory inv, @Nonnull Player player) {
-    return new LeadBatteryMenu(id, inv, this);
+    return new AdvancedLeadBatteryMenu(id, inv, this);
   }
 
   @Override
   public Component getDisplayName() {
-    return Component.translatable("gui.reagenica.lead_battery");
+    return Component.translatable("gui.reagenica.advanced_lead_battery");
   }
 
   @Override
   protected ElectricStorage energyStorageProvider() {
-    return new ElectricStorage(400000, 2000,2000);
+    return new ElectricStorage(3200000, 20000,20000);
   }
 
   @Override
   protected int getOfferUnit(){//Overrideable
-    return 200;
+    return 10000;
   }
 }

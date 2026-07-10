@@ -5,6 +5,7 @@ import kandango.reagenica.ChemiItems;
 import kandango.reagenica.ChemistryMod;
 import kandango.reagenica.block.entity.ModBlockEntities;
 import kandango.reagenica.block.fluid.ChemiFluidInterface;
+import kandango.reagenica.client.renderer.AdvancedLeadBatteryFluidRenderer;
 import kandango.reagenica.client.renderer.DissolverFluidRenderer;
 import kandango.reagenica.client.renderer.ElectrolysisFluidRenderer;
 import kandango.reagenica.client.renderer.FiltrationDeviceRenderer;
@@ -76,6 +77,7 @@ public class ClientSetupEvent {
             BlockEntityRenderers.register(ModBlockEntities.STACK_LAMP.get(), StackLampRenderer::new);
             BlockEntityRenderers.register(ModBlockEntities.DISSOLVER.get(), DissolverFluidRenderer::new);
             BlockEntityRenderers.register(ModBlockEntities.LEAD_BATTERY.get(), LeadBatteryFluidRenderer::new);
+            BlockEntityRenderers.register(ModBlockEntities.ADVANCED_LEAD_BATTERY.get(), AdvancedLeadBatteryFluidRenderer::new);
             BlockEntityRenderers.register(ModBlockEntities.LARGE_TANK_CORE.get(), LargeTankRenderer::new);
             BlockEntityRenderers.register(ModBlockEntities.ONSEN_FILLER.get(), OnsenFillerFluidRenderer::new);
             BlockEntityRenderers.register(ModBlockEntities.SIGN.get(), SignRenderer::new);

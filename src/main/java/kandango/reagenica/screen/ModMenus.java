@@ -42,6 +42,9 @@ public class ModMenus {
   public static final RegistryObject<MenuType<LeadBatteryMenu>> LEAD_BATTERY_MENU =
     MENU_TYPES.register("lead_battery",
       () -> IForgeMenuType.create(LeadBatteryMenu::new));
+  public static final RegistryObject<MenuType<AdvancedLeadBatteryMenu>> ADVANCED_LEAD_BATTERY_MENU =
+    MENU_TYPES.register("advanced_lead_battery",
+      () -> IForgeMenuType.create(AdvancedLeadBatteryMenu::new));
   public static final RegistryObject<MenuType<BlastFurnaceMenu>> BLAST_FURNACE_MENU =
     MENU_TYPES.register("blast_furnace",
       () -> IForgeMenuType.create(BlastFurnaceMenu::new));

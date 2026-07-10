@@ -26,6 +26,7 @@ public class ModScreens {
       MenuScreens.register(ModMenus.GENERATOR_RI_MENU.get(), RadioIsotopeGeneratorScreen::new);
       MenuScreens.register(ModMenus.GENERATOR_SOLAR_MENU.get(), SolarPowerGeneratorScreen::new);
       MenuScreens.register(ModMenus.LEAD_BATTERY_MENU.get(), LeadBatteryScreen::new);
+      MenuScreens.register(ModMenus.ADVANCED_LEAD_BATTERY_MENU.get(), AdvancedLeadBatteryScreen::new);
       MenuScreens.register(ModMenus.BLAST_FURNACE_MENU.get(), BlastFurnaceScreen::new);
       MenuScreens.register(ModMenus.HEAT_FURNACE_MENU.get(), HeatFurnaceScreen::new);
       MenuScreens.register(ModMenus.CRUSHER_MENU.get(), CrusherScreen::new);

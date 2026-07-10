@@ -14,6 +14,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.EntityBlock;
+import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
@@ -21,6 +22,7 @@ import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
+import net.minecraftforge.common.capabilities.ForgeCapabilities;
 
 public abstract class CableAbstract extends Block implements EntityBlock {
   public static final BooleanProperty NORTH = BlockStateProperties.NORTH;
@@ -59,14 +61,19 @@ public abstract class CableAbstract extends Block implements EntityBlock {
 
       for (Direction dir : Direction.values()) {
         BlockPos neighbor = pos.relative(dir);
-        boolean connectable = shouldConnectTo(level,neighbor);
+        boolean connectable = shouldConnectTo(level,neighbor, dir.getOpposite());
         state = state.setValue(FACING_MAP.get(dir), connectable);
       }
 
       return state;
   }
-  private boolean shouldConnectTo(Level lv, BlockPos pos) {
-    return (lv.getBlockEntity(pos) instanceof ElectricAbstract);
+  private boolean shouldConnectTo(Level lv, BlockPos pos, Direction side) {
+    BlockEntity be = lv.getBlockEntity(pos);
+    if(lv.getBlockEntity(pos) instanceof ElectricAbstract)return true;
+    if(be!=null){
+      return be.getCapability(ForgeCapabilities.ENERGY, side).isPresent();
+    }
+    return false;
   }
 
   @Override
@@ -90,7 +97,7 @@ public abstract class CableAbstract extends Block implements EntityBlock {
   public BlockState updateShape(@Nonnull BlockState state, @Nonnull Direction direction, @Nonnull BlockState neighborState,
                              @Nonnull LevelAccessor level, @Nonnull BlockPos pos, @Nonnull BlockPos neighborPos) {
     if (!level.isClientSide() && level instanceof Level lv) {
-      boolean connected = shouldConnectTo(lv, neighborPos);
+      boolean connected = shouldConnectTo(lv, neighborPos, direction.getOpposite());
       return state.setValue(FACING_MAP.get(direction), connected);
     }
     return state;

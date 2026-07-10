@@ -21,12 +21,11 @@ public class ModCreativeTabContents {
     @SubscribeEvent
     public static void onBuildContents(BuildCreativeModeTabContentsEvent event) {
         if (event.getTab() == ModCreativeTabs.CHEMISTRY_TAB.get()) {
-          for(int i=0;i!=ChemiItems.listCreativeTab.size();i++){
-            CreativeTabContent content = ChemiItems.listCreativeTab.get(i);
+          for(CreativeTabContent content : ChemiItems.listCreativeTab){
             content.supplier().ifPresentOrElse(sup -> event.accept(sup),() -> content.stack().ifPresent(stack -> event.accept(stack.get(), TabVisibility.PARENT_AND_SEARCH_TABS)));
           }
-          for(int i=0;i!=ChemiBlocks.listBlockItems.size();i++){
-            event.accept(ChemiBlocks.listBlockItems.get(i));
+          for(CreativeTabContent content : ChemiBlocks.listBlockItems){
+            content.supplier().ifPresentOrElse(sup -> event.accept(sup),() -> content.stack().ifPresent(stack -> event.accept(stack.get(), TabVisibility.PARENT_AND_SEARCH_TABS)));
           }
         }else if(event.getTab() == ModCreativeTabs.PALEO_TAB.get()){
           WoodFamily.Woods.stream().flatMap(WoodFamily::blockItems).forEach(event::accept);

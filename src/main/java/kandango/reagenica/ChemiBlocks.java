@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Supplier;
 
+import kandango.reagenica.ChemiItems.CreativeTabContent;
 import kandango.reagenica.block.*;
 import kandango.reagenica.block.farming.*;
 import kandango.reagenica.block.farming.crop.*;
@@ -14,6 +15,7 @@ import kandango.reagenica.family.WoodFamily;
 import kandango.reagenica.generator.BlockLootType;
 import kandango.reagenica.item.CableItem;
 import kandango.reagenica.item.ChemiFoodProperties;
+import kandango.reagenica.item.bioreagent.BioGrowingPlate;
 import kandango.reagenica.worldgen.ChemiFeatures;
 import kandango.reagenica.worldgen.forestry.*;
 import net.minecraft.world.item.*;
@@ -36,7 +38,7 @@ public class ChemiBlocks {
     DeferredRegister.create(ForgeRegistries.ITEMS, ChemistryMod.MODID);
   
   public static List<BlockLootType> listBlocks = new ArrayList<>();
-  public static List<RegistryObject<Item>> listBlockItems = new ArrayList<>();
+  public static List<CreativeTabContent> listBlockItems = new ArrayList<>();
   public static List<RegistryObject<? extends FlowerPotBlock>> listFlowerPots = new ArrayList<>();
   public static List<RegistryObject<LiquidBlock>> listLiquids = new ArrayList<>();
 
@@ -85,6 +87,10 @@ public class ChemiBlocks {
   public static final RegistryObject<CableRefinedCopper> CABLE_REFINED_COPPER = registerBlockandlist("refined_copper_cable", CableRefinedCopper::new); 
   public static final RegistryObject<Item> CABLE_REFINED_COPPER_ITEM = registerItemandlist("refined_copper_cable",
     () -> new CableItem(CABLE_REFINED_COPPER.get(), new Item.Properties(), 0.3, 200));
+  public static final RegistryObject<CableHV> CABLE_ALUMINIUM = registerBlockandlist("hv_cable", CableHV::new); 
+  public static final RegistryObject<Item> CABLE_ALUMINIUM_ITEM = registerItemandlist("hv_cable",
+    () -> new CableItem(CABLE_ALUMINIUM.get(), new Item.Properties(), 0.7, 10000));
+
 
   public static final RegistryObject<Block> FUEL_GENERATOR = registerMachineBlockandlist("fuel_generator", FuelGenerator::new); 
   public static final RegistryObject<Item> FUEL_GENERATOR_ITEM = registerItemandlist("fuel_generator",
@@ -142,7 +148,15 @@ public class ChemiBlocks {
   public static final RegistryObject<Block> LEAD_BATTERY = registerBatteryBlockandlist("lead_battery", LeadBattery::new); 
   public static final RegistryObject<Item> LEAD_BATTERY_ITEM = registerItemandlist("lead_battery",
     () -> new ElectricBlockItem(LEAD_BATTERY.get(), new Item.Properties()));
+  public static final RegistryObject<Block> ADVANCED_LEAD_BATTERY = registerBatteryBlockandlist("advanced_lead_battery", AdvancedLeadBattery::new); 
+  public static final RegistryObject<Item> ADVANCED_LEAD_BATTERY_ITEM = registerItemandlist("advanced_lead_battery",
+    () -> new ElectricBlockItem(ADVANCED_LEAD_BATTERY.get(), new Item.Properties()));
+  static{
+    ChemiItems.listCreativeTab.add(new CreativeTabContent(() -> BioGrowingPlate.getPlate("Crude", 0, false)));
+    listBlockItems.add(new CreativeTabContent(() -> AdvancedLeadBattery.getItemWithEnergy(LEAD_BATTERY.get(), 400000)));
+    listBlockItems.add(new CreativeTabContent(() -> AdvancedLeadBattery.getItemWithEnergy(ADVANCED_LEAD_BATTERY.get(), 3200000)));
 
+  }
   public static final RegistryObject<Block> STACK_LAMP = registerBlockandlist("stack_lamp", StackLamp::new); 
   public static final RegistryObject<Item> STACK_LAMP_ITEM = registerItemandlist("stack_lamp",
     () -> new BlockItem(STACK_LAMP.get(), new Item.Properties()));
@@ -714,7 +728,7 @@ public class ChemiBlocks {
 
   private static RegistryObject<Item> registerItemandlist(String name, Supplier<Item> supplier) {
     RegistryObject<Item> item = ITEMS.register(name, supplier);
-    listBlockItems.add(item);
+    listBlockItems.add(new CreativeTabContent(item));
     return item;
   }
   private static <T extends Block> RegistryObject<T> registerBlockandlist(String name, Supplier<T> supplier) {
