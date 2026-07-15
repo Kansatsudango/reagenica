@@ -16,10 +16,7 @@ out
 # gradle
 build
 .gradle
-gradle
 changelog.txt
-gradlew
-gradlew.bat
 
 # other
 eclipse
