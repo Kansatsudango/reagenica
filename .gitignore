@@ -17,9 +17,7 @@ out
 build
 .gradle
 gradle
-build.gradle
 changelog.txt
-gradle.properties
 gradlew
 gradlew.bat
 
