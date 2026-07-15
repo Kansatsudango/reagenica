@@ -17,7 +17,7 @@ import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.level.Level;
 
 public class SolarPowerGeneratorScreen extends AbstractContainerScreen<SolarPowerGeneratorMenu> {
-  private static final ResourceLocation TEXTURE = new ResourceLocation("reagenica", "textures/gui/container/solar_generator.png");
+  private static final ResourceLocation TEXTURE = ResourceLocation.fromNamespaceAndPath("reagenica", "textures/gui/container/solar_generator.png");
 
   public SolarPowerGeneratorScreen(SolarPowerGeneratorMenu menu, Inventory inv, Component title) {
     super(menu, inv, title);

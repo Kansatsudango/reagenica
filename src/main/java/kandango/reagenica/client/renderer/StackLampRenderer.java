@@ -35,7 +35,7 @@ public class StackLampRenderer implements BlockEntityRenderer<StackLampBlockEnti
     }else{
       return;
     }
-    final ResourceLocation TEXTURE = new ResourceLocation("reagenica", "textures/block/stack_lamp_light.png");
+    final ResourceLocation TEXTURE = ResourceLocation.fromNamespaceAndPath("reagenica", "textures/block/stack_lamp_light.png");
     VertexConsumer consumer = bufferSource.getBuffer(RenderType.entityTranslucent(TEXTURE));
     poseStack.pushPose();
     for(int stack=0;stack<=2;stack++){

@@ -2,7 +2,7 @@ package kandango.reagenica.block.fluid;
 
 import net.minecraft.world.level.block.LiquidBlock;
 import net.minecraft.world.level.material.Fluid;
-import net.minecraftforge.fluids.FluidType;
+import net.neoforged.neoforge.fluids.FluidType;
 
 public interface ChemiFluidInterface {
   public FluidType getType();

@@ -18,11 +18,11 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
 
 public class CrusherCategory implements IRecipeCategory<CrusherRecipe>{
-  public static final ResourceLocation UID = new ResourceLocation(ChemistryMod.MODID, "crusher");
+  public static final ResourceLocation UID = ResourceLocation.fromNamespaceAndPath(ChemistryMod.MODID, "crusher");
   private final IDrawable background;
   private final IDrawable icon;
   public CrusherCategory(IJeiHelpers helpers){
-    this.background = helpers.getGuiHelper().createDrawable(new ResourceLocation(ChemistryMod.MODID, "textures/gui/container/crusher.png"), 0, 0, 176, 80);
+    this.background = helpers.getGuiHelper().createDrawable(ResourceLocation.fromNamespaceAndPath(ChemistryMod.MODID, "textures/gui/container/crusher.png"), 0, 0, 176, 80);
     this.icon = helpers.getGuiHelper().createDrawableIngredient(VanillaTypes.ITEM_STACK, new ItemStack(ChemiBlocks.CRUSHER.get()));
   }
 

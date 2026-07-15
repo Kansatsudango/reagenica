@@ -4,10 +4,10 @@ import kandango.reagenica.ChemiUtils;
 import kandango.reagenica.block.entity.OnsenMinerBlockEntity;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.world.entity.player.Inventory;
-import net.minecraftforge.fluids.FluidStack;
-import net.minecraftforge.fluids.capability.templates.FluidTank;
-import net.minecraftforge.items.IItemHandler;
-import net.minecraftforge.items.SlotItemHandler;
+import net.neoforged.neoforge.fluids.FluidStack;
+import net.neoforged.neoforge.fluids.capability.templates.FluidTank;
+import net.neoforged.neoforge.items.IItemHandler;
+import net.neoforged.neoforge.items.SlotItemHandler;
 
 public class OnsenMinerMenu extends ChemistryMenu<OnsenMinerBlockEntity> {
   public OnsenMinerMenu(int id, Inventory inv, FriendlyByteBuf extradata){

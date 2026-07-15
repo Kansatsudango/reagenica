@@ -26,12 +26,12 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
 
 public class ReagentMixingCategory implements IRecipeCategory<ReagentMixingRecipe>{
-  public static final ResourceLocation UID = new ResourceLocation("reagenica", "reagent_mixing");
+  public static final ResourceLocation UID = ResourceLocation.fromNamespaceAndPath("reagenica", "reagent_mixing");
   private final IDrawable background;
   private final IDrawable icon;
 
   public ReagentMixingCategory(IJeiHelpers helpers){
-    this.background = helpers.getGuiHelper().createDrawable(new ResourceLocation("reagenica", "textures/gui/container/experiment_block.png"), 0, 0, 176, 85);
+    this.background = helpers.getGuiHelper().createDrawable(ResourceLocation.fromNamespaceAndPath("reagenica", "textures/gui/container/experiment_block.png"), 0, 0, 176, 85);
     this.icon = helpers.getGuiHelper().createDrawableIngredient(VanillaTypes.ITEM_STACK, new ItemStack(ChemiBlocks.EXPERIMENT_BLOCK.get()));
   }
 
@@ -73,7 +73,7 @@ public class ReagentMixingCategory implements IRecipeCategory<ReagentMixingRecip
   
   @Override
   public void draw(@Nonnull ReagentMixingRecipe recipe, @Nonnull IRecipeSlotsView recipeSlotsView, @Nonnull GuiGraphics guiGraphics, double mouseX, double mouseY) {
-    ResourceLocation TEXTURE = new ResourceLocation("reagenica", "textures/gui/container/experiment_block.png");
+    ResourceLocation TEXTURE = ResourceLocation.fromNamespaceAndPath("reagenica", "textures/gui/container/experiment_block.png");
     if(recipe.isHeatRequired()){
       ClientRenderUtil.renderFireAtDefaultposInGui(TEXTURE, guiGraphics, 0, 0, 1, 1, 79, 39);
       if (mouseX >= 79 && mouseX <= 93 && mouseY >= 40 && mouseY <= 53) {

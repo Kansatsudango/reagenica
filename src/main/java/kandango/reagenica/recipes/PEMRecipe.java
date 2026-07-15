@@ -3,7 +3,7 @@ package kandango.reagenica.recipes;
 import java.util.List;
 
 import kandango.reagenica.ChemiFluids;
-import net.minecraftforge.fluids.FluidStack;
+import net.neoforged.neoforge.fluids.FluidStack;
 
 public record PEMRecipe(FluidStack in, FluidStack hydro, FluidStack oxy) {
   public static List<PEMRecipe> getRecipes(){

@@ -14,7 +14,7 @@ import net.minecraft.world.level.block.CropBlock;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraftforge.common.ForgeHooks;
+import net.neoforged.neoforge.common.CommonHooks;
 
 public class AdvancedCropBlock extends CropBlock{
   private final Supplier<ItemLike> seed;
@@ -28,18 +28,17 @@ public class AdvancedCropBlock extends CropBlock{
   }
 
   // Based on net.minecraft.world.level.block.CropBlock#randomTick
-  @SuppressWarnings("deprecation")
   @Override
   public void randomTick(@Nonnull BlockState state, @Nonnull ServerLevel serverlevel, @Nonnull BlockPos pos, @Nonnull RandomSource rand) {
     if (!serverlevel.isAreaLoaded(pos, 1)) return; // Forge: prevent loading unloaded chunks when checking neighbor's light
     if (serverlevel.getRawBrightness(pos, 0) >= 9) {
       int i = this.getAge(state);
       if (i < this.getMaxAge()) {
-        float f = getGrowthSpeed(this, serverlevel, pos);
+        float f = getGrowthSpeed(state, serverlevel, pos);
         f = modifySpeed(f, pos, serverlevel);
-        if (ForgeHooks.onCropsGrowPre(serverlevel, pos, state, rand.nextInt((int)(25.0F / f) + 1) == 0)) {
+        if (CommonHooks.canCropGrow(serverlevel, pos, state, rand.nextInt((int)(25.0F / f) + 1) == 0)) {
           serverlevel.setBlock(pos, this.getStateForAge(i + 1), 2);
-          ForgeHooks.onCropsGrowPost(serverlevel, pos, state);
+          CommonHooks.fireCropGrowPost(serverlevel, pos, state);
         }
       }
     }

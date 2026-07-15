@@ -45,17 +45,17 @@ import net.minecraft.world.level.storage.loot.parameters.LootContextParams;
 import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
 import net.minecraft.world.level.storage.loot.providers.number.NumberProvider;
 import net.minecraft.world.phys.Vec3;
-import net.minecraftforge.common.Tags;
+import net.neoforged.neoforge.common.Tags;
 
 public class OfferingAltarBlockEntity extends BlockEntity {
   private int faith_point;
   private static final int MAX_FAITH = 1280;
   private static final int MIN_FAITH = 64;
   private ItemStack amulet = ItemStack.EMPTY;
-  public static final ResourceLocation COMMON_LOOTS = new ResourceLocation(ChemistryMod.MODID, "gameplay/altar_common");
-  public static final ResourceLocation RARE_LOOTS = new ResourceLocation(ChemistryMod.MODID, "gameplay/altar_rare");
-  public static final ResourceLocation EPIC_LOOTS = new ResourceLocation(ChemistryMod.MODID, "gameplay/altar_epic");
-  public static final ResourceLocation LEGENDARY_LOOTS = new ResourceLocation(ChemistryMod.MODID, "gameplay/altar_legendary");
+  public static final ResourceLocation COMMON_LOOTS = ResourceLocation.fromNamespaceAndPath(ChemistryMod.MODID, "gameplay/altar_common");
+  public static final ResourceLocation RARE_LOOTS = ResourceLocation.fromNamespaceAndPath(ChemistryMod.MODID, "gameplay/altar_rare");
+  public static final ResourceLocation EPIC_LOOTS = ResourceLocation.fromNamespaceAndPath(ChemistryMod.MODID, "gameplay/altar_epic");
+  public static final ResourceLocation LEGENDARY_LOOTS = ResourceLocation.fromNamespaceAndPath(ChemistryMod.MODID, "gameplay/altar_legendary");
 
   public OfferingAltarBlockEntity(BlockPos pos, BlockState state){
     super(ModBlockEntities.OFFERING_ALTAR.get(),pos,state);
@@ -105,7 +105,7 @@ public class OfferingAltarBlockEntity extends BlockEntity {
           1.5, 1.5, 1.5,0.02);
         slv.playSound(null, worldPosition, getSound(faith_point), SoundSource.PLAYERS, 1.0f, 1.0f);
         if(faith_point>=MAX_FAITH && player instanceof ServerPlayer sp){
-          Advancement advancement = sp.server.getAdvancements().getAdvancement(new ResourceLocation("reagenica", "kaguramai"));
+          Advancement advancement = sp.server.getAdvancements().getAdvancement(ResourceLocation.fromNamespaceAndPath("reagenica", "kaguramai"));
           if(advancement!=null){
             sp.getAdvancements().award(advancement, "in_code");
           }else{

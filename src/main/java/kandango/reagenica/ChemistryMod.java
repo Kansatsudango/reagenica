@@ -1,6 +1,6 @@
 package kandango.reagenica;
 
-import net.minecraftforge.fml.common.Mod;
+import net.neoforged.fml.common.Mod;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -15,8 +15,8 @@ import kandango.reagenica.worldgen.ChemiBiomes;
 import kandango.reagenica.worldgen.ChemiFeatures;
 import kandango.reagenica.worldgen.ChemiFoliagePlacers;
 import kandango.reagenica.worldgen.ChemiStructures;
-import net.minecraftforge.eventbus.api.IEventBus;
-import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+import net.neoforged.bus.api.IEventBus;
+import net.neoforged.fml.javafmlmod.FMLJavaModLoadingContext;
 
 @Mod(ChemistryMod.MODID)
 public class ChemistryMod {

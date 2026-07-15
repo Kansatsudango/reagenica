@@ -18,13 +18,13 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
 
 public class FluidDrainingCategory implements IRecipeCategory<FluidDrainingRecipe>{
-  public static final ResourceLocation UID = new ResourceLocation("reagenica", "fluid_draining");
+  public static final ResourceLocation UID = ResourceLocation.fromNamespaceAndPath("reagenica", "fluid_draining");
   public static final RecipeType<FluidDrainingRecipe> TYPE = RecipeType.create("reagenica", "fluid_draining", FluidDrainingRecipe.class);
   private final IDrawable background;
   private final IDrawable icon;
 
   public FluidDrainingCategory(IJeiHelpers helpers){
-    this.background = helpers.getGuiHelper().createDrawable(new ResourceLocation("reagenica", "textures/gui/container/tank.png"), 0, 0, 176, 82);
+    this.background = helpers.getGuiHelper().createDrawable(ResourceLocation.fromNamespaceAndPath("reagenica", "textures/gui/container/tank.png"), 0, 0, 176, 82);
     this.icon = helpers.getGuiHelper().createDrawableIngredient(VanillaTypes.ITEM_STACK, new ItemStack(ChemiBlocks.COPPER_TANK.get()));
   }
 

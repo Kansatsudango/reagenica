@@ -11,16 +11,16 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Recipe;
 import net.minecraft.world.Container;
 import net.minecraft.world.item.crafting.RecipeManager;
-import net.minecraftforge.registries.RegistryObject;
+import net.neoforged.neoforge.registries.DeferredHolder;
 
 public class JEIPluginRecipes<C extends Container, T extends Recipe<C>>{
   public final String recipeName;
   public final Class<T> recipeclass;
   public final RecipeType<T> jeirecipetype;
-  public final RegistryObject<net.minecraft.world.item.crafting.RecipeType<T>> forgelazyrecipetype;
+  public final DeferredHolder<net.minecraft.world.item.crafting.RecipeType<T>> forgelazyrecipetype;
   public final Supplier<ItemStack> catalyst;
   public final Function<IJeiHelpers,IRecipeCategory<T>> category;
-  public JEIPluginRecipes(String name, Class<T> clazz, RegistryObject<net.minecraft.world.item.crafting.RecipeType<T>> forgetype, Function<IJeiHelpers,IRecipeCategory<T>> cat, Supplier<ItemStack> catalystprovider){
+  public JEIPluginRecipes(String name, Class<T> clazz, DeferredHolder<net.minecraft.world.item.crafting.RecipeType<T>> forgetype, Function<IJeiHelpers,IRecipeCategory<T>> cat, Supplier<ItemStack> catalystprovider){
     recipeName = name;
     recipeclass = clazz;
     jeirecipetype = RecipeType.create("reagenica", name, clazz);

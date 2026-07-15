@@ -18,7 +18,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Inventory;
 
 public class BlastFurnaceScreen extends AbstractContainerScreen<BlastFurnaceMenu> {
-  private static final ResourceLocation TEXTURE = new ResourceLocation("reagenica", "textures/gui/container/blast_furnace.png");
+  private static final ResourceLocation TEXTURE = ResourceLocation.fromNamespaceAndPath("reagenica", "textures/gui/container/blast_furnace.png");
 
   public BlastFurnaceScreen(BlastFurnaceMenu menu, Inventory inv, Component title) {
     super(menu, inv, title);

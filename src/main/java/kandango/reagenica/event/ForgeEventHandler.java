@@ -41,29 +41,29 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.block.CropBlock;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraftforge.event.AttachCapabilitiesEvent;
-import net.minecraftforge.event.TickEvent;
-import net.minecraftforge.event.entity.living.LivingDropsEvent;
-import net.minecraftforge.event.entity.living.LivingHurtEvent;
-import net.minecraftforge.event.entity.living.MobEffectEvent;
-import net.minecraftforge.event.furnace.FurnaceFuelBurnTimeEvent;
-import net.minecraftforge.event.level.BlockEvent;
-import net.minecraftforge.event.level.LevelEvent;
-import net.minecraftforge.event.level.SleepFinishedTimeEvent;
-import net.minecraftforge.event.village.VillagerTradesEvent;
-import net.minecraftforge.eventbus.api.EventPriority;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.eventbus.api.Event.Result;
-import net.minecraftforge.fml.common.Mod;
+import net.neoforged.neoforge.event.AttachCapabilitiesEvent;
+import net.neoforged.neoforge.event.TickEvent;
+import net.neoforged.neoforge.event.entity.living.LivingDropsEvent;
+import net.neoforged.neoforge.event.entity.living.LivingHurtEvent;
+import net.neoforged.neoforge.event.entity.living.MobEffectEvent;
+import net.neoforged.neoforge.event.furnace.FurnaceFuelBurnTimeEvent;
+import net.neoforged.neoforge.event.level.BlockEvent;
+import net.neoforged.neoforge.event.level.LevelEvent;
+import net.neoforged.neoforge.event.level.SleepFinishedTimeEvent;
+import net.neoforged.neoforge.event.village.VillagerTradesEvent;
+import net.neoforged.bus.api.EventPriority;
+import net.neoforged.bus.api.SubscribeEvent;
+import net.neoforged.bus.api.Event.Result;
+import net.neoforged.fml.common.Mod;
 
 @Mod.EventBusSubscriber(modid = ChemistryMod.MODID, bus = Mod.EventBusSubscriber.Bus.FORGE)
 public class ForgeEventHandler {
   @SubscribeEvent
   public static void attachCapabilities(AttachCapabilitiesEvent<Level> event){
     if(event.getObject() instanceof ServerLevel level && level.dimension() == Level.OVERWORLD){
-      event.addCapability(new ResourceLocation(ChemistryMod.MODID, "chain_mining"), new ChainMiningProvider());
-      event.addCapability(new ResourceLocation(ChemistryMod.MODID, "seed_placing"), new SeedPlacingProvider());
-      event.addCapability(new ResourceLocation(ChemistryMod.MODID, "delayed_sound"), new DelayedSoundProvider());
+      event.addCapability(ResourceLocation.fromNamespaceAndPath(ChemistryMod.MODID, "chain_mining"), new ChainMiningProvider());
+      event.addCapability(ResourceLocation.fromNamespaceAndPath(ChemistryMod.MODID, "seed_placing"), new SeedPlacingProvider());
+      event.addCapability(ResourceLocation.fromNamespaceAndPath(ChemistryMod.MODID, "delayed_sound"), new DelayedSoundProvider());
     }
   }
 

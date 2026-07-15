@@ -6,9 +6,9 @@ import org.jetbrains.annotations.Nullable;
 import kandango.reagenica.world.task.SeedPlacingTaskManager;
 import kandango.reagenica.world.task.ISeedPlacingData;
 import net.minecraft.core.Direction;
-import net.minecraftforge.common.capabilities.Capability;
-import net.minecraftforge.common.capabilities.ICapabilityProvider;
-import net.minecraftforge.common.util.LazyOptional;
+import net.neoforged.neoforge.common.capabilities.Capability;
+import net.neoforged.neoforge.common.capabilities.ICapabilityProvider;
+import net.neoforged.neoforge.common.util.LazyOptional;
 
 public class SeedPlacingProvider implements ICapabilityProvider {
   private final ISeedPlacingData instance = new SeedPlacingTaskManager();

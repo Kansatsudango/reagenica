@@ -11,7 +11,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Inventory;
 
 public class NylonBagScreen extends AbstractContainerScreen<NylonBagMenu> {
-    private static final ResourceLocation TEXTURE = new ResourceLocation("reagenica", "textures/gui/container/nylon_bag.png");
+    private static final ResourceLocation TEXTURE = ResourceLocation.fromNamespaceAndPath("reagenica", "textures/gui/container/nylon_bag.png");
 
     public NylonBagScreen(NylonBagMenu menu, Inventory playerInv, Component title) {
         super(menu, playerInv, title);

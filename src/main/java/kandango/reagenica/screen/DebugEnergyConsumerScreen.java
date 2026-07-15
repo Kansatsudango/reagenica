@@ -17,7 +17,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Inventory;
 
 public class DebugEnergyConsumerScreen extends AbstractContainerScreen<DebugEnergyConsumerMenu> {
-    private static final ResourceLocation TEXTURE = new ResourceLocation("reagenica", "textures/gui/container/simple_tank.png");
+    private static final ResourceLocation TEXTURE = ResourceLocation.fromNamespaceAndPath("reagenica", "textures/gui/container/simple_tank.png");
 
     public DebugEnergyConsumerScreen(DebugEnergyConsumerMenu menu, Inventory inv, Component title) {
         super(menu, inv, title);

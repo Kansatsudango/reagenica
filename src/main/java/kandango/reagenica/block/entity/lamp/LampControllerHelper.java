@@ -5,7 +5,7 @@ import kandango.reagenica.packet.SyncLampState;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
-import net.minecraftforge.network.PacketDistributor;
+import net.neoforged.neoforge.network.PacketDistributor;
 
 public class LampControllerHelper<T extends BlockEntity & ILampController> {
   private final T be;

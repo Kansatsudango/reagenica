@@ -2,7 +2,7 @@ package kandango.reagenica.block.entity.itemhandler;
 
 import kandango.reagenica.block.entity.util.ItemStackUtil;
 import net.minecraft.world.item.ItemStack;
-import net.minecraftforge.items.ItemStackHandler;
+import net.neoforged.neoforge.items.ItemStackHandler;
 
 public class ChemiItemHandler extends ItemStackHandler{
   public ChemiItemHandler(int slots){

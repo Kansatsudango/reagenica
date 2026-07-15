@@ -18,13 +18,13 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
 
 public class AirSeparationCategory implements IRecipeCategory<AirSeparationRecipe>{
-  public static final ResourceLocation UID = new ResourceLocation("reagenica", "air_separator");
+  public static final ResourceLocation UID = ResourceLocation.fromNamespaceAndPath("reagenica", "air_separator");
   public static final RecipeType<AirSeparationRecipe> TYPE = RecipeType.create("reagenica", "air_separator", AirSeparationRecipe.class);
   private final IDrawable background;
   private final IDrawable icon;
 
   public AirSeparationCategory(IJeiHelpers helpers){
-    this.background = helpers.getGuiHelper().createDrawable(new ResourceLocation("reagenica", "textures/gui/container/air_separator.png"), 0, 0, 176, 82);
+    this.background = helpers.getGuiHelper().createDrawable(ResourceLocation.fromNamespaceAndPath("reagenica", "textures/gui/container/air_separator.png"), 0, 0, 176, 82);
     this.icon = helpers.getGuiHelper().createDrawableIngredient(VanillaTypes.ITEM_STACK, new ItemStack(ChemiBlocks.AIR_SEPARATOR.get()));
   }
 

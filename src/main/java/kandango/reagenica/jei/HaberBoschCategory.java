@@ -17,13 +17,13 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
 
 public class HaberBoschCategory implements IRecipeCategory<HaberBoschRecipe>{
-  public static final ResourceLocation UID = new ResourceLocation("reagenica", "haber_bosch");
+  public static final ResourceLocation UID = ResourceLocation.fromNamespaceAndPath("reagenica", "haber_bosch");
   public static final RecipeType<HaberBoschRecipe> TYPE = RecipeType.create("reagenica", "haber_bosch", HaberBoschRecipe.class);
   private final IDrawable background;
   private final IDrawable icon;
 
   public HaberBoschCategory(IJeiHelpers helpers){
-    this.background = helpers.getGuiHelper().createDrawable(new ResourceLocation("reagenica", "textures/gui/container/haber_bosch.png"), 0, 0, 176, 82);
+    this.background = helpers.getGuiHelper().createDrawable(ResourceLocation.fromNamespaceAndPath("reagenica", "textures/gui/container/haber_bosch.png"), 0, 0, 176, 82);
     this.icon = helpers.getGuiHelper().createDrawableIngredient(VanillaTypes.ITEM_STACK, new ItemStack(ChemiBlocks.HABER_BOSCH.get()));
   }
 

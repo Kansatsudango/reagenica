@@ -26,7 +26,7 @@ import net.minecraft.world.level.storage.loot.parameters.LootContextParamSets;
 import net.minecraft.world.level.storage.loot.predicates.LootItemBlockStatePropertyCondition;
 import net.minecraft.world.level.storage.loot.providers.nbt.ContextNbtProvider;
 import net.minecraft.world.level.storage.loot.providers.number.UniformGenerator;
-import net.minecraftforge.registries.RegistryObject;
+import net.neoforged.neoforge.registries.DeferredHolder;
 
 public class ChemiLootTableProvider extends LootTableProvider{
   public ChemiLootTableProvider(PackOutput output) {
@@ -70,7 +70,7 @@ public class ChemiLootTableProvider extends LootTableProvider{
     protected Iterable<Block> getKnownBlocks(){
       return ChemiBlocks.BLOCKS.getEntries().stream().map(e -> e.get()).toList();
     }
-    private void processPot(RegistryObject<? extends FlowerPotBlock> pot){
+    private void processPot(DeferredHolder<? extends FlowerPotBlock> pot){
       dropPottedContents(pot.get());
     }
     private void processWood(WoodFamily family){

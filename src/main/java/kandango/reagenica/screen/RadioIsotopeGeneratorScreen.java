@@ -16,7 +16,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Inventory;
 
 public class RadioIsotopeGeneratorScreen extends AbstractContainerScreen<RadioIsotopeGeneratorMenu> {
-    private static final ResourceLocation TEXTURE = new ResourceLocation("reagenica", "textures/gui/container/radioisotope_generator.png");
+    private static final ResourceLocation TEXTURE = ResourceLocation.fromNamespaceAndPath("reagenica", "textures/gui/container/radioisotope_generator.png");
 
     public RadioIsotopeGeneratorScreen(RadioIsotopeGeneratorMenu menu, Inventory inv, Component title) {
         super(menu, inv, title);

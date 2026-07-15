@@ -3,8 +3,8 @@ package kandango.reagenica.block.fluid;
 import java.util.function.Consumer;
 
 import net.minecraft.resources.ResourceLocation;
-import net.minecraftforge.client.extensions.common.IClientFluidTypeExtensions;
-import net.minecraftforge.fluids.FluidType;
+import net.neoforged.neoforge.client.extensions.common.IClientFluidTypeExtensions;
+import net.neoforged.neoforge.fluids.FluidType;
 
 public class OrganicGasType extends FluidType{
   private final int color;
@@ -23,11 +23,11 @@ public class OrganicGasType extends FluidType{
   public void initializeClient(Consumer<IClientFluidTypeExtensions> consumer) {
   consumer.accept(new IClientFluidTypeExtensions() {
       private static final ResourceLocation STILL_TEXTURE =
-        new ResourceLocation("reagenica", "block/gas");
+        ResourceLocation.fromNamespaceAndPath("reagenica", "block/gas");
       private static final ResourceLocation FLOWING_TEXTURE =
-        new ResourceLocation("reagenica", "block/gas");
+        ResourceLocation.fromNamespaceAndPath("reagenica", "block/gas");
       private static final ResourceLocation OVERLAY_TEXTURE =
-        new ResourceLocation("minecraft", "block/water_overlay"); // 任意
+        ResourceLocation.fromNamespaceAndPath("minecraft", "block/water_overlay"); // 任意
 
       @Override
       public ResourceLocation getStillTexture() {

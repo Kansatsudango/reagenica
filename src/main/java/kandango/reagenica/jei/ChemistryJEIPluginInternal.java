@@ -32,11 +32,11 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.material.Fluid;
-import net.minecraftforge.fluids.FluidStack;
+import net.neoforged.neoforge.fluids.FluidStack;
 
 @JeiPlugin
 public class ChemistryJEIPluginInternal implements IModPlugin{
-  private static final ResourceLocation PLUGIN_ID = new ResourceLocation("reagenica","jei_plugin_internal");
+  private static final ResourceLocation PLUGIN_ID = ResourceLocation.fromNamespaceAndPath("reagenica","jei_plugin_internal");
   @Override
   public ResourceLocation getPluginUid() {
     return PLUGIN_ID;

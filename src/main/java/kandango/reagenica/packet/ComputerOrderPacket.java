@@ -6,7 +6,7 @@ import kandango.reagenica.recipes.ReagenimartRecipe.ReagenimartCategory;
 import kandango.reagenica.screen.ComputerMenu;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.server.level.ServerPlayer;
-import net.minecraftforge.network.NetworkEvent;
+import net.neoforged.neoforge.network.NetworkEvent;
 
 public class ComputerOrderPacket {
   private final int tradeid;

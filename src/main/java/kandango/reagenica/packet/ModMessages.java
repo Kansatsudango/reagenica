@@ -1,13 +1,13 @@
 package kandango.reagenica.packet;
 
 import net.minecraft.resources.ResourceLocation;
-import net.minecraftforge.network.NetworkRegistry;
-import net.minecraftforge.network.simple.SimpleChannel;
+import net.neoforged.neoforge.network.NetworkRegistry;
+import net.neoforged.neoforge.network.simple.SimpleChannel;
 
 public class ModMessages {
     private static int id = 0;
     public static final SimpleChannel CHANNEL = NetworkRegistry.newSimpleChannel(
-        new ResourceLocation("reagenica", "main"),
+        ResourceLocation.fromNamespaceAndPath("reagenica", "main"),
         () -> "1.0",
         s -> true, // client version check
         s -> true  // server version check

@@ -11,7 +11,7 @@ import net.minecraft.client.renderer.blockentity.BlockEntityRenderer;
 import net.minecraft.client.renderer.blockentity.BlockEntityRendererProvider;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.Level;
-import net.minecraftforge.fluids.FluidStack;
+import net.neoforged.neoforge.fluids.FluidStack;
 
 public class AdvancedLeadBatteryFluidRenderer implements BlockEntityRenderer<AdvancedLeadBatteryBlockEntity>{
   public AdvancedLeadBatteryFluidRenderer(BlockEntityRendererProvider.Context context){

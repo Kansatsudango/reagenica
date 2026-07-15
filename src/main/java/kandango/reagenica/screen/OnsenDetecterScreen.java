@@ -17,11 +17,11 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.FormattedCharSequence;
 import net.minecraft.world.entity.player.Inventory;
-import net.minecraftforge.fluids.FluidStack;
-import net.minecraftforge.fluids.capability.templates.FluidTank;
+import net.neoforged.neoforge.fluids.FluidStack;
+import net.neoforged.neoforge.fluids.capability.templates.FluidTank;
 
 public class OnsenDetecterScreen extends AbstractContainerScreen<OnsenDetecterMenu> {
-  private static final ResourceLocation TEXTURE = new ResourceLocation("reagenica", "textures/gui/onsen_analyzer.png");
+  private static final ResourceLocation TEXTURE = ResourceLocation.fromNamespaceAndPath("reagenica", "textures/gui/onsen_analyzer.png");
 
   private final List<IScreenComponent> components = new ArrayList<>();
   private final FluidTank virtualTank = new FluidTank(200);

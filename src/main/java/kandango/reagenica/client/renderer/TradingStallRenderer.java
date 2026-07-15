@@ -15,7 +15,7 @@ import net.minecraft.client.renderer.entity.ItemRenderer;
 import net.minecraft.core.Direction;
 import net.minecraft.world.item.ItemDisplayContext;
 import net.minecraft.world.item.ItemStack;
-import net.minecraftforge.items.ItemStackHandler;
+import net.neoforged.neoforge.items.ItemStackHandler;
 
 public class TradingStallRenderer implements BlockEntityRenderer<TradingStallBlockEntity>{
   private final ItemRenderer itemRenderer;

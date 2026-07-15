@@ -15,8 +15,8 @@ import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.DataSlot;
 import net.minecraft.world.item.ItemStack;
-import net.minecraftforge.items.IItemHandler;
-import net.minecraftforge.items.SlotItemHandler;
+import net.neoforged.neoforge.items.IItemHandler;
+import net.neoforged.neoforge.items.SlotItemHandler;
 
 public class BlastFurnaceMenu extends ChemistryMenu<BlastFurnaceBlockEntity> {
   
@@ -83,7 +83,7 @@ public class BlastFurnaceMenu extends ChemistryMenu<BlastFurnaceBlockEntity> {
   @Override
   public List<SlotPriorityRule> quickMoveRules() {
     List<SlotPriorityRule> rules = List.of(
-      SlotPriorityRule.single(stack -> stack.is(ItemTags.create(new ResourceLocation("minecraft", "coals"))), 1)
+      SlotPriorityRule.single(stack -> stack.is(ItemTags.create(ResourceLocation.fromNamespaceAndPath("minecraft", "coals"))), 1)
     );
     return rules;
   }

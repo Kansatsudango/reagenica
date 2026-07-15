@@ -6,7 +6,7 @@ import kandango.reagenica.block.entity.LargeTankCoreBlockEntity;
 import net.minecraft.client.Minecraft;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.FriendlyByteBuf;
-import net.minecraftforge.network.NetworkEvent;
+import net.neoforged.neoforge.network.NetworkEvent;
 
 public class LargeTankPropPacket {
     private final BlockPos pos;

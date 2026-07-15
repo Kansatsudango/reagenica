@@ -1,7 +1,7 @@
 package kandango.reagenica.block.entity.electrical;
 
 import net.minecraft.nbt.CompoundTag;
-import net.minecraftforge.energy.EnergyStorage;
+import net.neoforged.neoforge.energy.EnergyStorage;
 
 public class ElectricStorage extends EnergyStorage{
   protected int energybuffer=0;

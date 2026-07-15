@@ -5,8 +5,8 @@ import kandango.reagenica.worldgen.forestry.*;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.level.levelgen.feature.foliageplacers.FoliagePlacerType;
 import net.minecraft.world.level.levelgen.feature.trunkplacers.TrunkPlacerType;
-import net.minecraftforge.registries.DeferredRegister;
-import net.minecraftforge.registries.RegistryObject;
+import net.neoforged.neoforge.registries.DeferredRegister;
+import net.neoforged.neoforge.registries.DeferredHolder;
 
 public class ChemiFoliagePlacers {
   public static final DeferredRegister<FoliagePlacerType<?>> FOLIAGE_PLACERS = 
@@ -14,15 +14,15 @@ public class ChemiFoliagePlacers {
   public static final DeferredRegister<TrunkPlacerType<?>> TRUNK_PLACERS = 
                                   DeferredRegister.create(Registries.TRUNK_PLACER_TYPE, ChemistryMod.MODID);
   
-  public static final RegistryObject<FoliagePlacerType<MetasequoiaFoliagePlacer>> METASEQUOIA = 
+  public static final DeferredHolder<FoliagePlacerType<MetasequoiaFoliagePlacer>> METASEQUOIA = 
           FOLIAGE_PLACERS.register("metasequoia", () -> new FoliagePlacerType<>(MetasequoiaFoliagePlacer.CODEC));
-  public static final RegistryObject<FoliagePlacerType<MegaMetasequoiaFoliagePlacer>> MEGA_METASEQUOIA = 
+  public static final DeferredHolder<FoliagePlacerType<MegaMetasequoiaFoliagePlacer>> MEGA_METASEQUOIA = 
           FOLIAGE_PLACERS.register("mega_metasequoia", () -> new FoliagePlacerType<>(MegaMetasequoiaFoliagePlacer.CODEC));
-  public static final RegistryObject<FoliagePlacerType<TaxodiumFoliagePlacer>> TAXODIUM = 
+  public static final DeferredHolder<FoliagePlacerType<TaxodiumFoliagePlacer>> TAXODIUM = 
           FOLIAGE_PLACERS.register("taxodium", () -> new FoliagePlacerType<>(TaxodiumFoliagePlacer.CODEC));
-  public static final RegistryObject<FoliagePlacerType<GinkgoFoliagePlacer>> GINKGO = 
+  public static final DeferredHolder<FoliagePlacerType<GinkgoFoliagePlacer>> GINKGO = 
           FOLIAGE_PLACERS.register("ginkgo", () -> new FoliagePlacerType<>(GinkgoFoliagePlacer.CODEC));
   
-          public static final RegistryObject<TrunkPlacerType<TaxodiumTrunkPlacer>> TAXODIUM_TRUNK = 
+          public static final DeferredHolder<TrunkPlacerType<TaxodiumTrunkPlacer>> TAXODIUM_TRUNK = 
           TRUNK_PLACERS.register("taxodium", () -> new TrunkPlacerType<>(TaxodiumTrunkPlacer.CODEC));
 }

@@ -4,7 +4,7 @@ import java.util.List;
 
 import kandango.reagenica.ChemiFluids;
 import net.minecraft.world.level.material.Fluids;
-import net.minecraftforge.fluids.FluidStack;
+import net.neoforged.neoforge.fluids.FluidStack;
 
 public record FiltrationRecipe(FluidStack in, FluidStack out) {
   public static List<FiltrationRecipe> getRecipes(){

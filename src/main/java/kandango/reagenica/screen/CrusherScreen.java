@@ -15,7 +15,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Inventory;
 
 public class CrusherScreen extends AbstractContainerScreen<CrusherMenu> {
-    private static final ResourceLocation TEXTURE = new ResourceLocation("reagenica", "textures/gui/container/crusher.png");
+    private static final ResourceLocation TEXTURE = ResourceLocation.fromNamespaceAndPath("reagenica", "textures/gui/container/crusher.png");
 
     public CrusherScreen(CrusherMenu menu, Inventory inv, Component title) {
         super(menu, inv, title);

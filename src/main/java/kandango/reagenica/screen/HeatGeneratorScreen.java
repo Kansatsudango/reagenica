@@ -15,10 +15,10 @@ import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Inventory;
-import net.minecraftforge.fluids.FluidStack;
+import net.neoforged.neoforge.fluids.FluidStack;
 
 public class HeatGeneratorScreen extends AbstractContainerScreen<HeatGeneratorMenu> {
-    private static final ResourceLocation TEXTURE = new ResourceLocation("reagenica", "textures/gui/container/heat_generator.png");
+    private static final ResourceLocation TEXTURE = ResourceLocation.fromNamespaceAndPath("reagenica", "textures/gui/container/heat_generator.png");
 
     public HeatGeneratorScreen(HeatGeneratorMenu menu, Inventory inv, Component title) {
         super(menu, inv, title);

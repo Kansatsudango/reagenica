@@ -24,13 +24,13 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
 
 public class IncubatorCategory implements IRecipeCategory<IncubatorRecipe>{
-  public static final ResourceLocation UID = new ResourceLocation("reagenica", "incubator");
+  public static final ResourceLocation UID = ResourceLocation.fromNamespaceAndPath("reagenica", "incubator");
   public static final RecipeType<IncubatorRecipe> TYPE = RecipeType.create("reagenica", "incubator", IncubatorRecipe.class);
   private final IDrawable background;
   private final IDrawable icon;
 
   public IncubatorCategory(IJeiHelpers helpers){
-    this.background = helpers.getGuiHelper().createDrawable(new ResourceLocation("reagenica", "textures/gui/container/incubator_jei.png"), 0, 0, 176, 90);
+    this.background = helpers.getGuiHelper().createDrawable(ResourceLocation.fromNamespaceAndPath("reagenica", "textures/gui/container/incubator_jei.png"), 0, 0, 176, 90);
     this.icon = helpers.getGuiHelper().createDrawableIngredient(VanillaTypes.ITEM_STACK, new ItemStack(ChemiBlocks.INCUBATOR.get()));
   }
 

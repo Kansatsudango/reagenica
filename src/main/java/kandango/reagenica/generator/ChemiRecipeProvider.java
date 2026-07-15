@@ -26,8 +26,8 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.ItemLike;
-import net.minecraftforge.registries.ForgeRegistries;
-import net.minecraftforge.registries.RegistryObject;
+import net.neoforged.neoforge.registries.ForgeRegistries;
+import net.neoforged.neoforge.registries.DeferredHolder;
 
 public class ChemiRecipeProvider extends RecipeProvider{
   public ChemiRecipeProvider(PackOutput output){
@@ -65,7 +65,7 @@ public class ChemiRecipeProvider extends RecipeProvider{
     private final TagKey<Item> logTag;
     private WoodFamilyRecipeGenerator(WoodFamily woodFamily){
       this.woodFamily = woodFamily;
-      this.logTag = TagKey.create(Registries.ITEM, new ResourceLocation(ChemistryMod.MODID, woodFamily.name+"_logs"));
+      this.logTag = TagKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath(ChemistryMod.MODID, woodFamily.name+"_logs"));
     }
     public static WoodFamilyRecipeGenerator of(WoodFamily family){
       return new WoodFamilyRecipeGenerator(family);
@@ -266,7 +266,7 @@ public class ChemiRecipeProvider extends RecipeProvider{
       RecipeCategory.BUILDING_BLOCKS, 
       stoneFamily.P_STONE.get(),1)
       .unlockedBy("has_stone", has(stoneFamily.STONE_ITEM.get()))
-      .save(consumer, new ResourceLocation(ChemistryMod.MODID, "sc_polished_"+stoneFamily.name));
+      .save(consumer, ResourceLocation.fromNamespaceAndPath(ChemistryMod.MODID, "sc_polished_"+stoneFamily.name));
     }
     private void s_stairs(Consumer<FinishedRecipe> consumer){
       SingleItemRecipeBuilder.stonecutting(Ingredient.of(stoneFamily.STONE_ITEM.get()),
@@ -477,23 +477,23 @@ public class ChemiRecipeProvider extends RecipeProvider{
     }
   }
   private static class CompressingRecipeGenerator{
-    private final RegistryObject<? extends ItemLike> UNZIPPED;
-    private final RegistryObject<? extends ItemLike> COMPRESSED;
+    private final DeferredHolder<? extends ItemLike> UNZIPPED;
+    private final DeferredHolder<? extends ItemLike> COMPRESSED;
     private final boolean isCompressedFormBlock;
     private final String prefix;
     private final String suffix;
 
-    private CompressingRecipeGenerator(RegistryObject<? extends ItemLike> unzipped, RegistryObject<? extends ItemLike> compressed, boolean isblock, String prefix, String suffix){
+    private CompressingRecipeGenerator(DeferredHolder<? extends ItemLike> unzipped, DeferredHolder<? extends ItemLike> compressed, boolean isblock, String prefix, String suffix){
       this.UNZIPPED = unzipped;
       this.COMPRESSED = compressed;
       this.isCompressedFormBlock = isblock;
       this.prefix = prefix;
       this.suffix = suffix;
     }
-    public static CompressingRecipeGenerator of(RegistryObject<? extends ItemLike> unzipped, RegistryObject<? extends ItemLike> compressed, boolean isBlock){
+    public static CompressingRecipeGenerator of(DeferredHolder<? extends ItemLike> unzipped, DeferredHolder<? extends ItemLike> compressed, boolean isBlock){
       return new CompressingRecipeGenerator(unzipped, compressed, isBlock, "", "");
     }
-    public static CompressingRecipeGenerator of(RegistryObject<? extends ItemLike> unzipped, RegistryObject<? extends ItemLike> compressed, boolean isBlock, String prefix, String suffix){
+    public static CompressingRecipeGenerator of(DeferredHolder<? extends ItemLike> unzipped, DeferredHolder<? extends ItemLike> compressed, boolean isBlock, String prefix, String suffix){
       return new CompressingRecipeGenerator(unzipped, compressed, isBlock, prefix, suffix);
     }
     public void register(Consumer<FinishedRecipe> consumer){
@@ -514,6 +514,6 @@ public class ChemiRecipeProvider extends RecipeProvider{
   private static ResourceLocation concat(ResourceLocation base, String prefix, String suffix){
     String basePath = base.getPath();
     String baseNamespace = base.getNamespace();
-    return new ResourceLocation(baseNamespace, prefix+basePath+suffix);
+    return ResourceLocation.fromNamespaceAndPath(baseNamespace, prefix+basePath+suffix);
   }
 }

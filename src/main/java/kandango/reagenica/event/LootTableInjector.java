@@ -10,16 +10,16 @@ import net.minecraft.world.level.storage.loot.entries.LootItem;
 import net.minecraft.world.level.storage.loot.functions.SetItemCountFunction;
 import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
 import net.minecraft.world.level.storage.loot.providers.number.UniformGenerator;
-import net.minecraftforge.event.LootTableLoadEvent;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.common.Mod;
+import net.neoforged.neoforge.event.LootTableLoadEvent;
+import net.neoforged.bus.api.SubscribeEvent;
+import net.neoforged.fml.common.Mod;
 
 @Mod.EventBusSubscriber(modid = ChemistryMod.MODID)
 public class LootTableInjector {
   @SubscribeEvent
   public static void onLootTableLoad(LootTableLoadEvent event){
     ResourceLocation name = event.getName();
-    if(name.equals(new ResourceLocation("minecraft", "chests/stronghold_corridor"))){
+    if(name.equals(ResourceLocation.fromNamespaceAndPath("minecraft", "chests/stronghold_corridor"))){
       LootTable table = event.getTable();
       LootPool pool = LootPool.lootPool()
       .setRolls(ConstantValue.exactly(1))
@@ -28,7 +28,7 @@ public class LootTableInjector {
       .name("reagenica_grape_sapling").build();
       table.addPool(pool);
     }
-    if(name.equals(new ResourceLocation("minecraft", "chests/abandoned_mineshaft"))){
+    if(name.equals(ResourceLocation.fromNamespaceAndPath("minecraft", "chests/abandoned_mineshaft"))){
       LootTable table = event.getTable();
       LootPool pool = LootPool.lootPool()
       .setRolls(ConstantValue.exactly(1))
@@ -38,7 +38,7 @@ public class LootTableInjector {
       .name("reagenica_grape_sapling").build();
       table.addPool(pool);
     }
-    if(name.equals(new ResourceLocation("minecraft", "chests/simple_dungeon"))){
+    if(name.equals(ResourceLocation.fromNamespaceAndPath("minecraft", "chests/simple_dungeon"))){
       LootTable table = event.getTable();
       LootPool pool = LootPool.lootPool()
       .setRolls(ConstantValue.exactly(1))

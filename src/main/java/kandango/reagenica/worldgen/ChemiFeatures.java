@@ -9,27 +9,27 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
-import net.minecraftforge.registries.DeferredRegister;
-import net.minecraftforge.registries.RegistryObject;
+import net.neoforged.neoforge.registries.DeferredRegister;
+import net.neoforged.neoforge.registries.DeferredHolder;
 
 public class ChemiFeatures {
   public static final DeferredRegister<Feature<?>> FEATURES = DeferredRegister.create(Registries.FEATURE, ChemistryMod.MODID);
 
-  public static final RegistryObject<Feature<NoneFeatureConfiguration>> OIL_RESERVOIR = FEATURES.register("oil_reservoir",() -> new OilReservoirFeature(NoneFeatureConfiguration.CODEC));
-  public static final RegistryObject<Feature<LargeMushroomConfig>> LARGE_MUSHROOM = FEATURES.register("large_mushroom",() -> new LargeMushroomFeature(LargeMushroomConfig.CODEC));
-  public static final RegistryObject<Feature<SmallMushroomConfig>> SMALL_MUSHROOM = FEATURES.register("small_mushroom",() -> new SmallMushroomFeature(SmallMushroomConfig.CODEC));
-  public static final RegistryObject<Feature<CaveStreamConfig>> CAVE_STREAM = FEATURES.register("cave_stream",() -> new CaveStreamFeature(CaveStreamConfig.CODEC));
-  public static final RegistryObject<Feature<CaveCrystalPatchConfig>> CAVE_CRYSTAL = FEATURES.register("cave_crystal_patch",() -> new CaveCrystalPatchFeature(CaveCrystalPatchConfig.CODEC));
+  public static final DeferredHolder<Feature<NoneFeatureConfiguration>> OIL_RESERVOIR = FEATURES.register("oil_reservoir",() -> new OilReservoirFeature(NoneFeatureConfiguration.CODEC));
+  public static final DeferredHolder<Feature<LargeMushroomConfig>> LARGE_MUSHROOM = FEATURES.register("large_mushroom",() -> new LargeMushroomFeature(LargeMushroomConfig.CODEC));
+  public static final DeferredHolder<Feature<SmallMushroomConfig>> SMALL_MUSHROOM = FEATURES.register("small_mushroom",() -> new SmallMushroomFeature(SmallMushroomConfig.CODEC));
+  public static final DeferredHolder<Feature<CaveStreamConfig>> CAVE_STREAM = FEATURES.register("cave_stream",() -> new CaveStreamFeature(CaveStreamConfig.CODEC));
+  public static final DeferredHolder<Feature<CaveCrystalPatchConfig>> CAVE_CRYSTAL = FEATURES.register("cave_crystal_patch",() -> new CaveCrystalPatchFeature(CaveCrystalPatchConfig.CODEC));
 
-  public static final ResourceKey<ConfiguredFeature<?, ?>> METASEQUOIA = ResourceKey.create(Registries.CONFIGURED_FEATURE, new ResourceLocation(ChemistryMod.MODID, "metasequoia"));
-  public static final ResourceKey<ConfiguredFeature<?, ?>> MEGA_METASEQUOIA = ResourceKey.create(Registries.CONFIGURED_FEATURE, new ResourceLocation(ChemistryMod.MODID, "mega_metasequoia"));
-  public static final ResourceKey<ConfiguredFeature<?, ?>> TAXODIUM = ResourceKey.create(Registries.CONFIGURED_FEATURE, new ResourceLocation(ChemistryMod.MODID, "taxodium"));
-  public static final ResourceKey<ConfiguredFeature<?, ?>> GINKGO = ResourceKey.create(Registries.CONFIGURED_FEATURE, new ResourceLocation(ChemistryMod.MODID, "ginkgo"));
-  public static final ResourceKey<ConfiguredFeature<?, ?>> FICUS = ResourceKey.create(Registries.CONFIGURED_FEATURE, new ResourceLocation(ChemistryMod.MODID, "ficus"));
-  public static final ResourceKey<ConfiguredFeature<?, ?>> MAGNOLIA = ResourceKey.create(Registries.CONFIGURED_FEATURE, new ResourceLocation(ChemistryMod.MODID, "magnolia"));
+  public static final ResourceKey<ConfiguredFeature<?, ?>> METASEQUOIA = ResourceKey.create(Registries.CONFIGURED_FEATURE, ResourceLocation.fromNamespaceAndPath(ChemistryMod.MODID, "metasequoia"));
+  public static final ResourceKey<ConfiguredFeature<?, ?>> MEGA_METASEQUOIA = ResourceKey.create(Registries.CONFIGURED_FEATURE, ResourceLocation.fromNamespaceAndPath(ChemistryMod.MODID, "mega_metasequoia"));
+  public static final ResourceKey<ConfiguredFeature<?, ?>> TAXODIUM = ResourceKey.create(Registries.CONFIGURED_FEATURE, ResourceLocation.fromNamespaceAndPath(ChemistryMod.MODID, "taxodium"));
+  public static final ResourceKey<ConfiguredFeature<?, ?>> GINKGO = ResourceKey.create(Registries.CONFIGURED_FEATURE, ResourceLocation.fromNamespaceAndPath(ChemistryMod.MODID, "ginkgo"));
+  public static final ResourceKey<ConfiguredFeature<?, ?>> FICUS = ResourceKey.create(Registries.CONFIGURED_FEATURE, ResourceLocation.fromNamespaceAndPath(ChemistryMod.MODID, "ficus"));
+  public static final ResourceKey<ConfiguredFeature<?, ?>> MAGNOLIA = ResourceKey.create(Registries.CONFIGURED_FEATURE, ResourceLocation.fromNamespaceAndPath(ChemistryMod.MODID, "magnolia"));
   
-  public static final ResourceKey<ConfiguredFeature<?, ?>> LARGE_MUSHROOM_RED = ResourceKey.create(Registries.CONFIGURED_FEATURE, new ResourceLocation(ChemistryMod.MODID, "mushroom_red"));
-  public static final ResourceKey<ConfiguredFeature<?, ?>> LARGE_MUSHROOM_GREEN = ResourceKey.create(Registries.CONFIGURED_FEATURE, new ResourceLocation(ChemistryMod.MODID, "mushroom_green"));
-  public static final ResourceKey<ConfiguredFeature<?, ?>> LARGE_MUSHROOM_BLUE = ResourceKey.create(Registries.CONFIGURED_FEATURE, new ResourceLocation(ChemistryMod.MODID, "mushroom_blue"));
-  public static final ResourceKey<ConfiguredFeature<?, ?>> LARGE_MUSHROOM_PURPLE = ResourceKey.create(Registries.CONFIGURED_FEATURE, new ResourceLocation(ChemistryMod.MODID, "mushroom_purple"));
+  public static final ResourceKey<ConfiguredFeature<?, ?>> LARGE_MUSHROOM_RED = ResourceKey.create(Registries.CONFIGURED_FEATURE, ResourceLocation.fromNamespaceAndPath(ChemistryMod.MODID, "mushroom_red"));
+  public static final ResourceKey<ConfiguredFeature<?, ?>> LARGE_MUSHROOM_GREEN = ResourceKey.create(Registries.CONFIGURED_FEATURE, ResourceLocation.fromNamespaceAndPath(ChemistryMod.MODID, "mushroom_green"));
+  public static final ResourceKey<ConfiguredFeature<?, ?>> LARGE_MUSHROOM_BLUE = ResourceKey.create(Registries.CONFIGURED_FEATURE, ResourceLocation.fromNamespaceAndPath(ChemistryMod.MODID, "mushroom_blue"));
+  public static final ResourceKey<ConfiguredFeature<?, ?>> LARGE_MUSHROOM_PURPLE = ResourceKey.create(Registries.CONFIGURED_FEATURE, ResourceLocation.fromNamespaceAndPath(ChemistryMod.MODID, "mushroom_purple"));
 }

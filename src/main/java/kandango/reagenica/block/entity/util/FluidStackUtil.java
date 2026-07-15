@@ -1,8 +1,8 @@
 package kandango.reagenica.block.entity.util;
 
 import net.minecraft.nbt.CompoundTag;
-import net.minecraftforge.fluids.FluidStack;
-import net.minecraftforge.fluids.capability.templates.FluidTank;
+import net.neoforged.neoforge.fluids.FluidStack;
+import net.neoforged.neoforge.fluids.capability.templates.FluidTank;
 
 public class FluidStackUtil {
   public static boolean isEnoughFluid(FluidStack is, FluidStack forthisfluid){

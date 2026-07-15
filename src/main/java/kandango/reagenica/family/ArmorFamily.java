@@ -10,14 +10,14 @@ import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.ArmorMaterial;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Rarity;
-import net.minecraftforge.registries.RegistryObject;
+import net.neoforged.neoforge.registries.DeferredItem;
 
 public class ArmorFamily {
   public static final List<ArmorFamily> Armors = Collections.synchronizedList(new ArrayList<>());
-  public final RegistryObject<ArmorItem> HELMET;
-  public final RegistryObject<ArmorItem> CHESTPLATE;
-  public final RegistryObject<ArmorItem> LEGGINGS;
-  public final RegistryObject<ArmorItem> BOOTS;
+  public final DeferredItem<ArmorItem> HELMET;
+  public final DeferredItem<ArmorItem> CHESTPLATE;
+  public final DeferredItem<ArmorItem> LEGGINGS;
+  public final DeferredItem<ArmorItem> BOOTS;
   public final String name;
   public final ArmorMaterial material;
   public ArmorFamily(String name, ArmorMaterial material, Rarity rarity){
@@ -37,7 +37,7 @@ public class ArmorFamily {
     );
     Armors.add(this);
   }
-  public Stream<RegistryObject<ArmorItem>> armorItems(){
+  public Stream<DeferredItem<ArmorItem>> armorItems(){
     return Stream.of(HELMET, CHESTPLATE, LEGGINGS, BOOTS);
   }
 }

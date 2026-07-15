@@ -58,7 +58,7 @@ public class SushiFoodItem extends Item {
         });
         player.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 400, 0));
         if(player instanceof ServerPlayer sp){
-          Advancement advancement = sp.server.getAdvancements().getAdvancement(new ResourceLocation("reagenica", "sushi_soysauce"));
+          Advancement advancement = sp.server.getAdvancements().getAdvancement(ResourceLocation.fromNamespaceAndPath("reagenica", "sushi_soysauce"));
           if(advancement!=null){
             sp.getAdvancements().award(advancement, "in_code");
           }else{

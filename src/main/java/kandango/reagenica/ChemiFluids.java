@@ -7,14 +7,14 @@ import kandango.reagenica.block.fluid.ChemiFluidInterface;
 import kandango.reagenica.block.fluid.ChemiFluidObject;
 import kandango.reagenica.block.fluid.ChemiGasObject;
 import kandango.reagenica.block.fluid.ChemiOnsenObject;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.level.material.Fluid;
-import net.minecraftforge.registries.DeferredRegister;
-import net.minecraftforge.registries.ForgeRegistries;
+import net.neoforged.neoforge.registries.DeferredRegister;
 
 public class ChemiFluids {
-  public static final DeferredRegister<Fluid> FLUIDS = DeferredRegister.create(ForgeRegistries.Keys.FLUIDS, ChemistryMod.MODID);
+  public static final DeferredRegister<Fluid> FLUIDS = DeferredRegister.create(Registries.FLUID, ChemistryMod.MODID);
 
   public static final Set<ChemiFluidInterface> FLUID_SET = new HashSet<>();
 

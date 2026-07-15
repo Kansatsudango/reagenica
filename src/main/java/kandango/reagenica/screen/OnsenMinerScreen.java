@@ -14,7 +14,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Inventory;
 
 public class OnsenMinerScreen extends AbstractContainerScreen<OnsenMinerMenu> {
-  private static final ResourceLocation TEXTURE = new ResourceLocation("reagenica", "textures/gui/container/tank.png");
+  private static final ResourceLocation TEXTURE = ResourceLocation.fromNamespaceAndPath("reagenica", "textures/gui/container/tank.png");
 
   private final List<IScreenComponent> components = new ArrayList<>();
 

@@ -15,10 +15,10 @@ import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Inventory;
-import net.minecraftforge.fluids.FluidStack;
+import net.neoforged.neoforge.fluids.FluidStack;
 
 public class FluidFuelGeneratorScreen extends AbstractContainerScreen<FluidFuelGeneratorMenu> {
-    private static final ResourceLocation TEXTURE = new ResourceLocation("reagenica", "textures/gui/container/fluid_fuel_generator.png");
+    private static final ResourceLocation TEXTURE = ResourceLocation.fromNamespaceAndPath("reagenica", "textures/gui/container/fluid_fuel_generator.png");
 
     public FluidFuelGeneratorScreen(FluidFuelGeneratorMenu menu, Inventory inv, Component title) {
         super(menu, inv, title);

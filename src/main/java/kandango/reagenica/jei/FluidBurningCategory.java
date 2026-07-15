@@ -20,13 +20,13 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
 
 public class FluidBurningCategory implements IRecipeCategory<FluidBurningRecipe>{
-  public static final ResourceLocation UID = new ResourceLocation("reagenica", "fluid_burning");
+  public static final ResourceLocation UID = ResourceLocation.fromNamespaceAndPath("reagenica", "fluid_burning");
   public static final RecipeType<FluidBurningRecipe> TYPE = RecipeType.create("reagenica", "fluid_burning", FluidBurningRecipe.class);
   private final IDrawable background;
   private final IDrawable icon;
 
   public FluidBurningCategory(IJeiHelpers helpers){
-    this.background = helpers.getGuiHelper().createDrawable(new ResourceLocation("reagenica", "textures/gui/container/fluid_fuel_generator.png"), 0, 0, 176, 82);
+    this.background = helpers.getGuiHelper().createDrawable(ResourceLocation.fromNamespaceAndPath("reagenica", "textures/gui/container/fluid_fuel_generator.png"), 0, 0, 176, 82);
     this.icon = helpers.getGuiHelper().createDrawableIngredient(VanillaTypes.ITEM_STACK, new ItemStack(ChemiBlocks.FLUID_FUEL_GENERATOR.get()));
   }
 

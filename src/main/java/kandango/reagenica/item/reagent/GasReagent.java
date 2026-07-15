@@ -7,7 +7,7 @@ import kandango.reagenica.ChemiItems;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.material.Fluid;
-import net.minecraftforge.registries.ForgeRegistries;
+import net.neoforged.neoforge.registries.ForgeRegistries;
 
 public class GasReagent extends Reagent{
   private final Supplier<Fluid> lazyfluid;
@@ -48,7 +48,7 @@ public class GasReagent extends Reagent{
       return Optional.of(this.fluidTagName);
     }else{
       return getRelativeFluid().map(ForgeRegistries.FLUIDS::getKey).map(ResourceLocation::getPath)
-                        .map(path -> new ResourceLocation("forge", path));
+                        .map(path -> ResourceLocation.fromNamespaceAndPath("forge", path));
     }
   }
 }

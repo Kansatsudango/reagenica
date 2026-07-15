@@ -24,11 +24,11 @@ import net.minecraft.client.renderer.blockentity.HangingSignRenderer;
 import net.minecraft.client.renderer.blockentity.SignRenderer;
 import net.minecraft.client.renderer.item.ItemProperties;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
-import net.minecraftforge.fml.common.Mod.EventBusSubscriber.Bus;
-import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
+import net.neoforged.neoforge.api.distmarker.Dist;
+import net.neoforged.bus.api.SubscribeEvent;
+import net.neoforged.fml.common.Mod.EventBusSubscriber;
+import net.neoforged.fml.common.Mod.EventBusSubscriber.Bus;
+import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 
 @EventBusSubscriber(modid = ChemistryMod.MODID, bus = Bus.MOD, value = Dist.CLIENT)
 public class ClientSetupEvent {
@@ -84,7 +84,7 @@ public class ClientSetupEvent {
             BlockEntityRenderers.register(ModBlockEntities.HANGING_SIGN.get(), HangingSignRenderer::new);
             BlockEntityRenderers.register(ModBlockEntities.FILTRATION_DEVICE.get(), FiltrationDeviceRenderer::new);
 
-            ItemProperties.register(ChemiItems.ALCHOHOL_LAMP.get(), new ResourceLocation("empty"), (stack, level, entity, seed) -> stack.getDamageValue() >= stack.getMaxDamage() ? 1.0F : 0.0F);
+            ItemProperties.register(ChemiItems.ALCHOHOL_LAMP.get(), ResourceLocation.fromNamespaceAndPath("empty"), (stack, level, entity, seed) -> stack.getDamageValue() >= stack.getMaxDamage() ? 1.0F : 0.0F);
         });
     }
 

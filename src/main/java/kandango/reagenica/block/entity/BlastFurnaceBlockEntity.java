@@ -32,12 +32,12 @@ import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraftforge.common.ForgeHooks;
-import net.minecraftforge.common.capabilities.Capability;
-import net.minecraftforge.common.capabilities.ForgeCapabilities;
-import net.minecraftforge.common.util.LazyOptional;
-import net.minecraftforge.items.IItemHandler;
-import net.minecraftforge.items.ItemStackHandler;
+import net.neoforged.neoforge.common.ForgeHooks;
+import net.neoforged.neoforge.common.capabilities.Capability;
+import net.neoforged.neoforge.common.capabilities.ForgeCapabilities;
+import net.neoforged.neoforge.common.util.LazyOptional;
+import net.neoforged.neoforge.items.IItemHandler;
+import net.neoforged.neoforge.items.ItemStackHandler;
 
 public class BlastFurnaceBlockEntity extends BlockEntity implements MenuProvider,IBlockEntityWithSlider,ITickableBlockEntity{
   private final ItemStackHandler itemHandler = new ItemStackHandler(4) {
@@ -157,7 +157,7 @@ public class BlastFurnaceBlockEntity extends BlockEntity implements MenuProvider
       this.cachedRecipe = lv.getRecipeManager().getRecipeFor(ModRecipes.BLAST_FURNACE_TYPE.get(), container, lv);
       if(this.fuel==0){
         ItemStack fuelstack = this.itemHandler.getStackInSlot(1);
-        if(fuelstack.is(ItemTags.create(new ResourceLocation("minecraft", "coals")))){
+        if(fuelstack.is(ItemTags.create(ResourceLocation.fromNamespaceAndPath("minecraft", "coals")))){
           this.fuel = ForgeHooks.getBurnTime(fuelstack, RecipeType.SMELTING);
           this.fuelmax = this.fuel;
           itemHandler.getStackInSlot(1).shrink(1);

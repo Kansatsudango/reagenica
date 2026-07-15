@@ -7,10 +7,10 @@ import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.ai.attributes.AttributeInstance;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.npc.Villager;
-import net.minecraftforge.event.AttachCapabilitiesEvent;
-import net.minecraftforge.event.entity.EntityJoinLevelEvent;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.common.Mod;
+import net.neoforged.neoforge.event.AttachCapabilitiesEvent;
+import net.neoforged.neoforge.event.entity.EntityJoinLevelEvent;
+import net.neoforged.bus.api.SubscribeEvent;
+import net.neoforged.fml.common.Mod;
 
 @Mod.EventBusSubscriber(modid = ChemistryMod.MODID, bus = Mod.EventBusSubscriber.Bus.FORGE)
 public class VillagerInitEvent {
@@ -31,7 +31,7 @@ public class VillagerInitEvent {
   @SubscribeEvent
   public static void attachCapabilities(AttachCapabilitiesEvent<Entity> event){
     if(event.getObject() instanceof Villager){
-      event.addCapability(new ResourceLocation(ChemistryMod.MODID, "stall_visit_cooldown"), new VisitCooldownCapability());
+      event.addCapability(ResourceLocation.fromNamespaceAndPath(ChemistryMod.MODID, "stall_visit_cooldown"), new VisitCooldownCapability());
     }
   }
 }

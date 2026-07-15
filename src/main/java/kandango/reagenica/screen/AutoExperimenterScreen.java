@@ -18,7 +18,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Inventory;
 
 public class AutoExperimenterScreen extends AbstractContainerScreen<AutoExperimenterMenu>{
-  private static final ResourceLocation TEXTURE = new ResourceLocation("reagenica", "textures/gui/container/auto_experimenter.png");
+  private static final ResourceLocation TEXTURE = ResourceLocation.fromNamespaceAndPath("reagenica", "textures/gui/container/auto_experimenter.png");
 
   private final List<IScreenComponent> components = new ArrayList<>();
 

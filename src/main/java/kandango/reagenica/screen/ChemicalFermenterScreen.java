@@ -16,10 +16,10 @@ import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Inventory;
-import net.minecraftforge.fluids.FluidStack;
+import net.neoforged.neoforge.fluids.FluidStack;
 
 public class ChemicalFermenterScreen extends AbstractContainerScreen<ChemicalFermenterMenu> {
-    private static final ResourceLocation TEXTURE = new ResourceLocation("reagenica", "textures/gui/container/chemical_fermenter.png");
+    private static final ResourceLocation TEXTURE = ResourceLocation.fromNamespaceAndPath("reagenica", "textures/gui/container/chemical_fermenter.png");
 
     public ChemicalFermenterScreen(ChemicalFermenterMenu menu, Inventory inv, Component title) {
         super(menu, inv, title);

@@ -7,10 +7,10 @@ import kandango.reagenica.family.WoodFamily;
 import kandango.reagenica.packet.ModMessages;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.FlowerPotBlock;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
-import net.minecraftforge.registries.ForgeRegistries;
+import net.neoforged.bus.api.SubscribeEvent;
+import net.neoforged.fml.common.Mod;
+import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
+import net.neoforged.neoforge.registries.ForgeRegistries;
 
 @Mod.EventBusSubscriber(modid = "reagenica", bus = Mod.EventBusSubscriber.Bus.MOD)
 public class ModEventHandler {

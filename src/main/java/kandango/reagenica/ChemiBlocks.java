@@ -24,132 +24,135 @@ import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockBehaviour.OffsetType;
 import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.level.material.PushReaction;
+import net.minecraft.util.ColorRGBA;
 import net.minecraft.world.effect.MobEffects;
-import net.minecraftforge.registries.DeferredRegister;
-import net.minecraftforge.registries.ForgeRegistries;
-import net.minecraftforge.registries.RegistryObject;
+import net.neoforged.neoforge.registries.DeferredRegister;
+import net.neoforged.neoforge.registries.ForgeRegistries;
+import net.neoforged.neoforge.registries.DeferredBlock;
+import net.neoforged.neoforge.registries.DeferredBlock;
+import net.neoforged.neoforge.registries.DeferredItem;
 
 public class ChemiBlocks {
 
-  public static final DeferredRegister<Block> BLOCKS =
-    DeferredRegister.create(ForgeRegistries.BLOCKS, ChemistryMod.MODID);
+  public static final DeferredRegister.Blocks BLOCKS =
+    DeferredRegister.createBlocks(ChemistryMod.MODID);
 
-  public static final DeferredRegister<Item> ITEMS =
-    DeferredRegister.create(ForgeRegistries.ITEMS, ChemistryMod.MODID);
+  public static final DeferredRegister.Items ITEMS =
+    DeferredRegister.createItems(ChemistryMod.MODID);
   
   public static List<BlockLootType> listBlocks = new ArrayList<>();
   public static List<CreativeTabContent> listBlockItems = new ArrayList<>();
-  public static List<RegistryObject<? extends FlowerPotBlock>> listFlowerPots = new ArrayList<>();
-  public static List<RegistryObject<LiquidBlock>> listLiquids = new ArrayList<>();
+  public static List<DeferredBlock<? extends FlowerPotBlock>> listFlowerPots = new ArrayList<>();
+  public static List<DeferredBlock<LiquidBlock>> listLiquids = new ArrayList<>();
 
-  public static final RegistryObject<Block> CUSTOM_BLOCK = registerBlockandlist("custom_block",
+  public static final DeferredBlock<Block> CUSTOM_BLOCK = registerBlockandlist("custom_block",
     () -> new Block(BlockBehaviour.Properties.of().strength(2.0f, 3.0f).sound(SoundType.STONE)));
-  public static final RegistryObject<Item> CUSTOM_BLOCK_ITEM = registerItemandlist("custom_block",
+  public static final DeferredItem<Item> CUSTOM_BLOCK_ITEM = registerItemandlist("custom_block",
     () -> new BlockItem(CUSTOM_BLOCK.get(), new Item.Properties()));
 
-  public static final RegistryObject<Block> BUGGED_BLOCK = registerBlockandlist("bugged_block",
+  public static final DeferredBlock<Block> BUGGED_BLOCK = registerBlockandlist("bugged_block",
     () -> new Block(BlockBehaviour.Properties.of().strength(0.05f, 1000.0f).sound(SoundType.SCULK)));
-  public static final RegistryObject<Item> BUGGED_BLOCK_ITEM = registerItemandlist("bugged_block",
+  public static final DeferredItem<Item> BUGGED_BLOCK_ITEM = registerItemandlist("bugged_block",
     () -> new BlockItem(BUGGED_BLOCK.get(), new Item.Properties()));
 
-  public static final RegistryObject<Block> EXPERIMENT_BLOCK = registerMachineBlockandlist("experiment_block", ExperimentBlock::new);
+  public static final DeferredBlock<Block> EXPERIMENT_BLOCK = registerMachineBlockandlist("experiment_block", ExperimentBlock::new);
 
-  public static final RegistryObject<Item> EXPERIMENT_BLOCK_ITEM = registerItemandlist("experiment_block",
+  public static final DeferredItem<Item> EXPERIMENT_BLOCK_ITEM = registerItemandlist("experiment_block",
     () -> new BlockItem(EXPERIMENT_BLOCK.get(), new Item.Properties()));
   
-  public static final RegistryObject<Block> CHEMICAL_FERMENTER = registerMachineBlockandlist("chemical_fermenter", ChemicalFermenter::new);
-  public static final RegistryObject<Item> CHEMICAL_FERMENTER_ITEM = registerItemandlist("chemical_fermenter",
+  public static final DeferredBlock<Block> CHEMICAL_FERMENTER = registerMachineBlockandlist("chemical_fermenter", ChemicalFermenter::new);
+  public static final DeferredItem<Item> CHEMICAL_FERMENTER_ITEM = registerItemandlist("chemical_fermenter",
     () -> new BlockItem(CHEMICAL_FERMENTER.get(), new Item.Properties()));
 
-  public static final RegistryObject<Block> FILTRATION_DEVICE = registerMachineBlockandlist("filtration_device", FiltrationDevice::new);
-  public static final RegistryObject<Item> FILTRATION_DEVICE_ITEM = registerItemandlist("filtration_device",
+  public static final DeferredBlock<Block> FILTRATION_DEVICE = registerMachineBlockandlist("filtration_device", FiltrationDevice::new);
+  public static final DeferredItem<Item> FILTRATION_DEVICE_ITEM = registerItemandlist("filtration_device",
     () -> new BlockItem(FILTRATION_DEVICE.get(), new Item.Properties()));
   
-  public static final RegistryObject<Block> FRACTIONAL_DISTILLER_TOP = registerMachineBlockandlist("fractional_distiller_top", FractionalDistillerTop::new); 
-  public static final RegistryObject<Block> FRACTIONAL_DISTILLER_BOTTOM = registerMachineBlockandlist("fractional_distiller_bottom", FractionalDistillerBottom::new); 
-  public static final RegistryObject<Item> FRACTIONAL_DISTILLER_ITEM = registerItemandlist("fractional_distiller",
+  public static final DeferredBlock<Block> FRACTIONAL_DISTILLER_TOP = registerMachineBlockandlist("fractional_distiller_top", FractionalDistillerTop::new); 
+  public static final DeferredBlock<Block> FRACTIONAL_DISTILLER_BOTTOM = registerMachineBlockandlist("fractional_distiller_bottom", FractionalDistillerBottom::new); 
+  public static final DeferredItem<Item> FRACTIONAL_DISTILLER_ITEM = registerItemandlist("fractional_distiller",
     () -> new FractionalDistillerBlockItem(FRACTIONAL_DISTILLER_BOTTOM.get(), new Item.Properties()));
   
-  public static final RegistryObject<Block> DEBUG_GENERTOR = registerBlockandlist("debug_generator", DebugGenerator::new); 
-  public static final RegistryObject<Item> DEBUG_GENERATOR_ITEM = registerItemandlist("debug_generator",
+  public static final DeferredBlock<Block> DEBUG_GENERTOR = registerBlockandlist("debug_generator", DebugGenerator::new); 
+  public static final DeferredItem<Item> DEBUG_GENERATOR_ITEM = registerItemandlist("debug_generator",
     () -> new BlockItem(DEBUG_GENERTOR.get(), new Item.Properties()));
 
-  public static final RegistryObject<Block> DEBUG_CONSUMER = registerBlockandlist("debug_consumer", DebugEnergyConsumer::new); 
-  public static final RegistryObject<Item> DEBUG_CONSUMER_ITEM = registerItemandlist("debug_consumer",
+  public static final DeferredBlock<Block> DEBUG_CONSUMER = registerBlockandlist("debug_consumer", DebugEnergyConsumer::new); 
+  public static final DeferredItem<Item> DEBUG_CONSUMER_ITEM = registerItemandlist("debug_consumer",
     () -> new BlockItem(DEBUG_CONSUMER.get(), new Item.Properties()));
   
-  public static final RegistryObject<CableCopper> CABLE_COPPER = registerBlockandlist("copper_cable", CableCopper::new); 
-  public static final RegistryObject<Item> CABLE_COPPER_ITEM = registerItemandlist("copper_cable",
+  public static final DeferredBlock<CableCopper> CABLE_COPPER = registerBlockandlist("copper_cable", CableCopper::new); 
+  public static final DeferredItem<Item> CABLE_COPPER_ITEM = registerItemandlist("copper_cable",
     () -> new CableItem(CABLE_COPPER.get(), new Item.Properties(), 0.1, 40));
-  public static final RegistryObject<CableGold> CABLE_GOLD = registerBlockandlist("gold_cable", CableGold::new); 
-  public static final RegistryObject<Item> CABLE_GOLD_ITEM = registerItemandlist("gold_cable",
+  public static final DeferredBlock<CableGold> CABLE_GOLD = registerBlockandlist("gold_cable", CableGold::new); 
+  public static final DeferredItem<Item> CABLE_GOLD_ITEM = registerItemandlist("gold_cable",
     () -> new CableItem(CABLE_GOLD.get(), new Item.Properties(), 0.04, 80));
-  public static final RegistryObject<CableRefinedCopper> CABLE_REFINED_COPPER = registerBlockandlist("refined_copper_cable", CableRefinedCopper::new); 
-  public static final RegistryObject<Item> CABLE_REFINED_COPPER_ITEM = registerItemandlist("refined_copper_cable",
+  public static final DeferredBlock<CableRefinedCopper> CABLE_REFINED_COPPER = registerBlockandlist("refined_copper_cable", CableRefinedCopper::new); 
+  public static final DeferredItem<Item> CABLE_REFINED_COPPER_ITEM = registerItemandlist("refined_copper_cable",
     () -> new CableItem(CABLE_REFINED_COPPER.get(), new Item.Properties(), 0.3, 200));
-  public static final RegistryObject<CableHV> CABLE_ALUMINIUM = registerBlockandlist("hv_cable", CableHV::new); 
-  public static final RegistryObject<Item> CABLE_ALUMINIUM_ITEM = registerItemandlist("hv_cable",
+  public static final DeferredBlock<CableHV> CABLE_ALUMINIUM = registerBlockandlist("hv_cable", CableHV::new); 
+  public static final DeferredItem<Item> CABLE_ALUMINIUM_ITEM = registerItemandlist("hv_cable",
     () -> new CableItem(CABLE_ALUMINIUM.get(), new Item.Properties(), 0.7, 10000));
 
 
-  public static final RegistryObject<Block> FUEL_GENERATOR = registerMachineBlockandlist("fuel_generator", FuelGenerator::new); 
-  public static final RegistryObject<Item> FUEL_GENERATOR_ITEM = registerItemandlist("fuel_generator",
+  public static final DeferredBlock<Block> FUEL_GENERATOR = registerMachineBlockandlist("fuel_generator", FuelGenerator::new); 
+  public static final DeferredItem<Item> FUEL_GENERATOR_ITEM = registerItemandlist("fuel_generator",
     () -> new BlockItem(FUEL_GENERATOR.get(), new Item.Properties()));
     
-  public static final RegistryObject<Block> FLUID_FUEL_GENERATOR = registerMachineBlockandlist("fluid_fuel_generator", FluidFuelGenerator::new); 
-  public static final RegistryObject<Item> FLUID_FUEL_GENERATOR_ITEM = registerItemandlist("fluid_fuel_generator",
+  public static final DeferredBlock<Block> FLUID_FUEL_GENERATOR = registerMachineBlockandlist("fluid_fuel_generator", FluidFuelGenerator::new); 
+  public static final DeferredItem<Item> FLUID_FUEL_GENERATOR_ITEM = registerItemandlist("fluid_fuel_generator",
     () -> new BlockItem(FLUID_FUEL_GENERATOR.get(), new Item.Properties()));
 
-  public static final RegistryObject<Block> HEAT_GENERATOR = registerBlockandlist("heat_generator", HeatGenerator::new); 
-  public static final RegistryObject<Item> HEAT_GENERATOR_ITEM = registerItemandlist("heat_generator",
+  public static final DeferredBlock<Block> HEAT_GENERATOR = registerBlockandlist("heat_generator", HeatGenerator::new); 
+  public static final DeferredItem<Item> HEAT_GENERATOR_ITEM = registerItemandlist("heat_generator",
     () -> new BlockItem(HEAT_GENERATOR.get(), new Item.Properties()));
     
-  public static final RegistryObject<Block> RADIOISOTOPE_GENERATOR = registerBlockandlist("radioisotope_generator", RadioIsotopeGenerator::new);
-  public static final RegistryObject<Item> RADIOISOTOPE_GENERATOR_ITEM = registerItemandlist("radioisotope_generator",
+  public static final DeferredBlock<Block> RADIOISOTOPE_GENERATOR = registerBlockandlist("radioisotope_generator", RadioIsotopeGenerator::new);
+  public static final DeferredItem<Item> RADIOISOTOPE_GENERATOR_ITEM = registerItemandlist("radioisotope_generator",
     () -> new BlockItem(RADIOISOTOPE_GENERATOR.get(), new Item.Properties()));
     
-  public static final RegistryObject<Block> SOLAR_POWER_GENERATOR = registerMachineBlockandlist("solar_power_generator", SolarPowerGenerator::new); 
-  public static final RegistryObject<Item> SOLAR_POWER_GENERATOR_ITEM = registerItemandlist("solar_power_generator",
+  public static final DeferredBlock<Block> SOLAR_POWER_GENERATOR = registerMachineBlockandlist("solar_power_generator", SolarPowerGenerator::new); 
+  public static final DeferredItem<Item> SOLAR_POWER_GENERATOR_ITEM = registerItemandlist("solar_power_generator",
     () -> new BlockItem(SOLAR_POWER_GENERATOR.get(), new Item.Properties()));
 
-  public static final RegistryObject<Block> BLASTFURNACE_BOTTOM = registerMachineBlockandlist("blast_furnace_bottom", BlastFurnaceBottom::new); 
-  public static final RegistryObject<Block> BLASTFURNACE_SUB = registerMachineBlockandlist("blast_furnace_sub", BlastFurnaceSub::new);
-  public static final RegistryObject<Item> BLASTFURNACE_ITEM = registerItemandlist("large_blast_furnace",
+  public static final DeferredBlock<Block> BLASTFURNACE_BOTTOM = registerMachineBlockandlist("blast_furnace_bottom", BlastFurnaceBottom::new); 
+  public static final DeferredBlock<Block> BLASTFURNACE_SUB = registerMachineBlockandlist("blast_furnace_sub", BlastFurnaceSub::new);
+  public static final DeferredItem<Item> BLASTFURNACE_ITEM = registerItemandlist("large_blast_furnace",
     () -> new BlastFurnaceBlockItem(BLASTFURNACE_BOTTOM.get(), new Item.Properties()));
     
-  public static final RegistryObject<Block> HEAT_FURNACE = registerMachineBlockandlist("heat_furnace", HeatFurnace::new); 
-  public static final RegistryObject<Item> HEAT_FURNACE_ITEM = registerItemandlist("heat_furnace",
+  public static final DeferredBlock<Block> HEAT_FURNACE = registerMachineBlockandlist("heat_furnace", HeatFurnace::new); 
+  public static final DeferredItem<Item> HEAT_FURNACE_ITEM = registerItemandlist("heat_furnace",
     () -> new BlockItem(HEAT_FURNACE.get(), new Item.Properties()));
     
-  public static final RegistryObject<Block> CRUSHER = registerMachineBlockandlist("crusher", Crusher::new); 
-  public static final RegistryObject<Item> CRUSHER_ITEM = registerItemandlist("crusher",
+  public static final DeferredBlock<Block> CRUSHER = registerMachineBlockandlist("crusher", Crusher::new); 
+  public static final DeferredItem<Item> CRUSHER_ITEM = registerItemandlist("crusher",
     () -> new BlockItem(CRUSHER.get(), new Item.Properties()));
     
-  public static final RegistryObject<Block> REACTOR = registerMachineBlockandlist("reactor", Reactor::new); 
-  public static final RegistryObject<Item> REACTOR_ITEM = registerItemandlist("reactor",
+  public static final DeferredBlock<Block> REACTOR = registerMachineBlockandlist("reactor", Reactor::new); 
+  public static final DeferredItem<Item> REACTOR_ITEM = registerItemandlist("reactor",
     () -> new BlockItem(REACTOR.get(), new Item.Properties()));
     
-  public static final RegistryObject<Block> ANALYZER = registerMachineBlockandlist("analyzer", Analyzer::new); 
-  public static final RegistryObject<Item> ANALYZER_ITEM = registerItemandlist("analyzer",
+  public static final DeferredBlock<Block> ANALYZER = registerMachineBlockandlist("analyzer", Analyzer::new); 
+  public static final DeferredItem<Item> ANALYZER_ITEM = registerItemandlist("analyzer",
     () -> new BlockItem(ANALYZER.get(), new Item.Properties()));
 
-  public static final RegistryObject<Block> ELECTROLYSIS_DEVICE = registerMachineBlockandlist("electrolysis_device", ElectroLysisDevice::new); 
-  public static final RegistryObject<Item> ELECTROLYSIS_DEVICE_ITEM = registerItemandlist("electrolysis_device",
+  public static final DeferredBlock<Block> ELECTROLYSIS_DEVICE = registerMachineBlockandlist("electrolysis_device", ElectroLysisDevice::new); 
+  public static final DeferredItem<Item> ELECTROLYSIS_DEVICE_ITEM = registerItemandlist("electrolysis_device",
     () -> new BlockItem(ELECTROLYSIS_DEVICE.get(), new Item.Properties()));
 
-  public static final RegistryObject<Block> COPPER_TANK = registerMachineBlockandlist("copper_tank",CopperTank::new);
-  public static final RegistryObject<Item> COPPER_TANK_ITEM = registerItemandlist("copper_tank",
+  public static final DeferredBlock<Block> COPPER_TANK = registerMachineBlockandlist("copper_tank",CopperTank::new);
+  public static final DeferredItem<Item> COPPER_TANK_ITEM = registerItemandlist("copper_tank",
     () -> new BlockItem(COPPER_TANK.get(), new Item.Properties()));
   
-  public static final RegistryObject<Block> DISSOLVER = registerMachineBlockandlist("dissolver",Dissolver::new);
-  public static final RegistryObject<Item> DISSOLVER_ITEM = registerItemandlist("dissolver",
+  public static final DeferredBlock<Block> DISSOLVER = registerMachineBlockandlist("dissolver",Dissolver::new);
+  public static final DeferredItem<Item> DISSOLVER_ITEM = registerItemandlist("dissolver",
     () -> new BlockItem(DISSOLVER.get(), new Item.Properties()));
 
-  public static final RegistryObject<Block> LEAD_BATTERY = registerBatteryBlockandlist("lead_battery", LeadBattery::new); 
-  public static final RegistryObject<Item> LEAD_BATTERY_ITEM = registerItemandlist("lead_battery",
+  public static final DeferredBlock<Block> LEAD_BATTERY = registerBatteryBlockandlist("lead_battery", LeadBattery::new); 
+  public static final DeferredItem<Item> LEAD_BATTERY_ITEM = registerItemandlist("lead_battery",
     () -> new ElectricBlockItem(LEAD_BATTERY.get(), new Item.Properties()));
-  public static final RegistryObject<Block> ADVANCED_LEAD_BATTERY = registerBatteryBlockandlist("advanced_lead_battery", AdvancedLeadBattery::new); 
-  public static final RegistryObject<Item> ADVANCED_LEAD_BATTERY_ITEM = registerItemandlist("advanced_lead_battery",
+  public static final DeferredBlock<Block> ADVANCED_LEAD_BATTERY = registerBatteryBlockandlist("advanced_lead_battery", AdvancedLeadBattery::new); 
+  public static final DeferredItem<Item> ADVANCED_LEAD_BATTERY_ITEM = registerItemandlist("advanced_lead_battery",
     () -> new ElectricBlockItem(ADVANCED_LEAD_BATTERY.get(), new Item.Properties()));
   static{
     ChemiItems.listCreativeTab.add(new CreativeTabContent(() -> BioGrowingPlate.getPlate("Crude", 0, false)));
@@ -157,203 +160,203 @@ public class ChemiBlocks {
     listBlockItems.add(new CreativeTabContent(() -> AdvancedLeadBattery.getItemWithEnergy(ADVANCED_LEAD_BATTERY.get(), 3200000)));
 
   }
-  public static final RegistryObject<Block> STACK_LAMP = registerBlockandlist("stack_lamp", StackLamp::new); 
-  public static final RegistryObject<Item> STACK_LAMP_ITEM = registerItemandlist("stack_lamp",
+  public static final DeferredBlock<Block> STACK_LAMP = registerBlockandlist("stack_lamp", StackLamp::new); 
+  public static final DeferredItem<Item> STACK_LAMP_ITEM = registerItemandlist("stack_lamp",
     () -> new BlockItem(STACK_LAMP.get(), new Item.Properties()));
       
-  public static final RegistryObject<Block> COOKING_POT = registerMachineBlockandlist("cooking_pot",CookingPot::new);
-  public static final RegistryObject<Item> COOKING_POT_ITEM = registerItemandlist("cooking_pot",
+  public static final DeferredBlock<Block> COOKING_POT = registerMachineBlockandlist("cooking_pot",CookingPot::new);
+  public static final DeferredItem<Item> COOKING_POT_ITEM = registerItemandlist("cooking_pot",
     () -> new BlockItem(COOKING_POT.get(), new Item.Properties()));
       
-  public static final RegistryObject<Block> INCUBATOR = registerMachineBlockandlist("incubator",Incubator::new);
-  public static final RegistryObject<Item> INCUBATOR_ITEM = registerItemandlist("incubator",
+  public static final DeferredBlock<Block> INCUBATOR = registerMachineBlockandlist("incubator",Incubator::new);
+  public static final DeferredItem<Item> INCUBATOR_ITEM = registerItemandlist("incubator",
     () -> new BlockItem(INCUBATOR.get(), new Item.Properties()));
     
-  public static final RegistryObject<Block> AIR_SEPARATOR = registerMachineBlockandlist("air_separator",AirSeparator::new);
-  public static final RegistryObject<Item> AIR_SEPARATOR_ITEM = registerItemandlist("air_separator",
+  public static final DeferredBlock<Block> AIR_SEPARATOR = registerMachineBlockandlist("air_separator",AirSeparator::new);
+  public static final DeferredItem<Item> AIR_SEPARATOR_ITEM = registerItemandlist("air_separator",
     () -> new BlockItem(AIR_SEPARATOR.get(), new Item.Properties()));
     
-  public static final RegistryObject<Block> HABER_BOSCH = registerMachineBlockandlist("haber_bosch",HaberBosch::new);
-  public static final RegistryObject<Item> HABER_BOSCH_ITEM = registerItemandlist("haber_bosch",
+  public static final DeferredBlock<Block> HABER_BOSCH = registerMachineBlockandlist("haber_bosch",HaberBosch::new);
+  public static final DeferredItem<Item> HABER_BOSCH_ITEM = registerItemandlist("haber_bosch",
     () -> new BlockItem(HABER_BOSCH.get(), new Item.Properties()));
     
-  public static final RegistryObject<Block> HYDROGEN_REDUCTOR = registerMachineBlockandlist("hydrogen_reductor",HydrogenReductor::new);
-  public static final RegistryObject<Item> HYDROGEN_REDUCTOR_ITEM = registerItemandlist("hydrogen_reductor",
+  public static final DeferredBlock<Block> HYDROGEN_REDUCTOR = registerMachineBlockandlist("hydrogen_reductor",HydrogenReductor::new);
+  public static final DeferredItem<Item> HYDROGEN_REDUCTOR_ITEM = registerItemandlist("hydrogen_reductor",
     () -> new BlockItem(HYDROGEN_REDUCTOR.get(), new Item.Properties()));
-  public static final RegistryObject<Block> PEM_DEVICE = registerMachineBlockandlist("pem_device",PEMDevice::new);
-  public static final RegistryObject<Item> PEM_DEVICE_ITEM = registerItemandlist("pem_device",
+  public static final DeferredBlock<Block> PEM_DEVICE = registerMachineBlockandlist("pem_device",PEMDevice::new);
+  public static final DeferredItem<Item> PEM_DEVICE_ITEM = registerItemandlist("pem_device",
     () -> new BlockItem(PEM_DEVICE.get(), new Item.Properties().rarity(Rarity.UNCOMMON)));
 
-  public static final RegistryObject<Block> AUTO_EXPERIMENTER = registerMachineBlockandlist("auto_experimenter",AutoExperimenter::new);
-  public static final RegistryObject<Item> AUTO_EXPERIMENTER_ITEM = registerItemandlist("auto_experimenter",
+  public static final DeferredBlock<Block> AUTO_EXPERIMENTER = registerMachineBlockandlist("auto_experimenter",AutoExperimenter::new);
+  public static final DeferredItem<Item> AUTO_EXPERIMENTER_ITEM = registerItemandlist("auto_experimenter",
     () -> new BlockItem(AUTO_EXPERIMENTER.get(), new Item.Properties()));
     
-  public static final RegistryObject<Block> LARGE_TANK_CORE = registerMachineBlockandlist("large_tank_core",LargeTankCore::new);
-  public static final RegistryObject<Item> LARGE_TANK_CORE_ITEM = registerItemandlist("large_tank_core",
+  public static final DeferredBlock<Block> LARGE_TANK_CORE = registerMachineBlockandlist("large_tank_core",LargeTankCore::new);
+  public static final DeferredItem<Item> LARGE_TANK_CORE_ITEM = registerItemandlist("large_tank_core",
     () -> new BlockItem(LARGE_TANK_CORE.get(), new Item.Properties()));
-  public static final RegistryObject<Block> LARGE_TANK_INTERFACE = registerMachineBlockandlist("large_tank_interface",LargeTankInterface::new);
-  public static final RegistryObject<Item> LARGE_TANK_INTERFACE_ITEM = registerItemandlist("large_tank_interface",
+  public static final DeferredBlock<Block> LARGE_TANK_INTERFACE = registerMachineBlockandlist("large_tank_interface",LargeTankInterface::new);
+  public static final DeferredItem<Item> LARGE_TANK_INTERFACE_ITEM = registerItemandlist("large_tank_interface",
     () -> new BlockItem(LARGE_TANK_INTERFACE.get(), new Item.Properties()));
     
-  public static final RegistryObject<Block> COMPUTER = registerMachineBlockandlist("computer",Computer::new);
-  public static final RegistryObject<Item> COMPUTER_ITEM = registerItemandlist("computer",
+  public static final DeferredBlock<Block> COMPUTER = registerMachineBlockandlist("computer",Computer::new);
+  public static final DeferredItem<Item> COMPUTER_ITEM = registerItemandlist("computer",
     () -> new BlockItem(COMPUTER.get(), new Item.Properties()));
 
-  public static final RegistryObject<Block> ONSEN_MINER = registerMachineBlockandlist("hotspring_miner",OnsenMiner::new);
-  public static final RegistryObject<Item> ONSEN_MINER_ITEM = registerItemandlist("hotspring_miner",
+  public static final DeferredBlock<Block> ONSEN_MINER = registerMachineBlockandlist("hotspring_miner",OnsenMiner::new);
+  public static final DeferredItem<Item> ONSEN_MINER_ITEM = registerItemandlist("hotspring_miner",
     () -> new BlockItem(ONSEN_MINER.get(), new Item.Properties()));
-  public static final RegistryObject<Block> ONSEN_FILLER_WOOD = registerWoodBlockandlist("spring_outlet_wood",OnsenFillerWood::new);
-  public static final RegistryObject<Item> ONSEN_FILLER_WOOD_ITEM = registerItemandlist("spring_outlet_wood",
+  public static final DeferredBlock<Block> ONSEN_FILLER_WOOD = registerWoodBlockandlist("spring_outlet_wood",OnsenFillerWood::new);
+  public static final DeferredItem<Item> ONSEN_FILLER_WOOD_ITEM = registerItemandlist("spring_outlet_wood",
     () -> new BlockItem(ONSEN_FILLER_WOOD.get(), new Item.Properties()));
-  public static final RegistryObject<Block> ONSEN_FILLER_STONE = registerStoneBlockandlist("spring_outlet_stone",OnsenFillerStone::new);
-  public static final RegistryObject<Item> ONSEN_FILLER_STONE_ITEM = registerItemandlist("spring_outlet_stone",
+  public static final DeferredBlock<Block> ONSEN_FILLER_STONE = registerStoneBlockandlist("spring_outlet_stone",OnsenFillerStone::new);
+  public static final DeferredItem<Item> ONSEN_FILLER_STONE_ITEM = registerItemandlist("spring_outlet_stone",
     () -> new BlockItem(ONSEN_FILLER_STONE.get(), new Item.Properties()));
 
-  public static final RegistryObject<Block> LEAD_ORE = registerOreBlockandlist("lead_ore", OresConfig::stoneOres, 1, () -> ChemiItems.RAW_LEAD, 2); 
-  public static final RegistryObject<Item> LEAD_ORE_ITEM = registerItemandlist("lead_ore",
+  public static final DeferredBlock<Block> LEAD_ORE = registerOreBlockandlist("lead_ore", OresConfig::stoneOres, 1, () -> ChemiItems.RAW_LEAD, 2); 
+  public static final DeferredItem<Item> LEAD_ORE_ITEM = registerItemandlist("lead_ore",
     () -> new BlockItem(LEAD_ORE.get(), new Item.Properties()));
-  public static final RegistryObject<Block> LEAD_DEEPSLATE_ORE = registerOreBlockandlist("deepslate_lead_ore", OresConfig::deepslateOres, 1, () -> ChemiItems.RAW_LEAD, 2); 
-  public static final RegistryObject<Item> LEAD_DEEPSLATE_ORE_ITEM = registerItemandlist("deepslate_lead_ore",
+  public static final DeferredBlock<Block> LEAD_DEEPSLATE_ORE = registerOreBlockandlist("deepslate_lead_ore", OresConfig::deepslateOres, 1, () -> ChemiItems.RAW_LEAD, 2); 
+  public static final DeferredItem<Item> LEAD_DEEPSLATE_ORE_ITEM = registerItemandlist("deepslate_lead_ore",
     () -> new BlockItem(LEAD_DEEPSLATE_ORE.get(), new Item.Properties()));
 
-  public static final RegistryObject<Block> CHALCOPYRITE_ORE = registerOreBlockandlist("chalcopyrite_ore", OresConfig::stoneOres, 3, () -> ChemiItems.RAW_CHALCOPYRITE, 1);
-  public static final RegistryObject<Item> CHALCOPYRITE_ORE_ITEM = registerItemandlist("chalcopyrite_ore",
+  public static final DeferredBlock<Block> CHALCOPYRITE_ORE = registerOreBlockandlist("chalcopyrite_ore", OresConfig::stoneOres, 3, () -> ChemiItems.RAW_CHALCOPYRITE, 1);
+  public static final DeferredItem<Item> CHALCOPYRITE_ORE_ITEM = registerItemandlist("chalcopyrite_ore",
     () -> new BlockItem(CHALCOPYRITE_ORE.get(), new Item.Properties()));
-  public static final RegistryObject<Block> CHALCOPYRITE_DEEPSLATE_ORE = registerOreBlockandlist("deepslate_chalcopyrite_ore", OresConfig::deepslateOres, 3, () -> ChemiItems.RAW_CHALCOPYRITE, 1);
-  public static final RegistryObject<Item> CHALCOPYRITE_DEEPSLATE_ORE_ITEM = registerItemandlist("deepslate_chalcopyrite_ore",
+  public static final DeferredBlock<Block> CHALCOPYRITE_DEEPSLATE_ORE = registerOreBlockandlist("deepslate_chalcopyrite_ore", OresConfig::deepslateOres, 3, () -> ChemiItems.RAW_CHALCOPYRITE, 1);
+  public static final DeferredItem<Item> CHALCOPYRITE_DEEPSLATE_ORE_ITEM = registerItemandlist("deepslate_chalcopyrite_ore",
     () -> new BlockItem(CHALCOPYRITE_DEEPSLATE_ORE.get(), new Item.Properties()));
     
-  public static final RegistryObject<Block> BAUXITE_ORE = registerOreBlockandlist("bauxite_ore", OresConfig::stoneOres, 1, () -> ChemiItems.RAW_BAUXITE, 2);
-  public static final RegistryObject<Item> BAUXITE_ORE_ITEM = registerItemandlist("bauxite_ore",
+  public static final DeferredBlock<Block> BAUXITE_ORE = registerOreBlockandlist("bauxite_ore", OresConfig::stoneOres, 1, () -> ChemiItems.RAW_BAUXITE, 2);
+  public static final DeferredItem<Item> BAUXITE_ORE_ITEM = registerItemandlist("bauxite_ore",
     () -> new BlockItem(BAUXITE_ORE.get(), new Item.Properties()));
-  public static final RegistryObject<Block> BAUXITE_DEEPSLATE_ORE = registerOreBlockandlist("deepslate_bauxite_ore", OresConfig::deepslateOres, 1, () -> ChemiItems.RAW_BAUXITE, 2);
-  public static final RegistryObject<Item> BAUXITE_DEEPSLATE_ORE_ITEM = registerItemandlist("deepslate_bauxite_ore",
+  public static final DeferredBlock<Block> BAUXITE_DEEPSLATE_ORE = registerOreBlockandlist("deepslate_bauxite_ore", OresConfig::deepslateOres, 1, () -> ChemiItems.RAW_BAUXITE, 2);
+  public static final DeferredItem<Item> BAUXITE_DEEPSLATE_ORE_ITEM = registerItemandlist("deepslate_bauxite_ore",
     () -> new BlockItem(BAUXITE_DEEPSLATE_ORE.get(), new Item.Properties()));
     
-  public static final RegistryObject<Block> APATITE_ORE = registerOreBlockandlist("apatite_ore", OresConfig::stoneOres, 3, () -> ChemiItems.RAW_APATITE, 1);
-  public static final RegistryObject<Item> APATITE_ORE_ITEM = registerItemandlist("apatite_ore",
+  public static final DeferredBlock<Block> APATITE_ORE = registerOreBlockandlist("apatite_ore", OresConfig::stoneOres, 3, () -> ChemiItems.RAW_APATITE, 1);
+  public static final DeferredItem<Item> APATITE_ORE_ITEM = registerItemandlist("apatite_ore",
     () -> new BlockItem(APATITE_ORE.get(), new Item.Properties()));
-  public static final RegistryObject<Block> APATITE_DEEPSLATE_ORE = registerOreBlockandlist("deepslate_apatite_ore", OresConfig::deepslateOres, 3, () -> ChemiItems.RAW_APATITE, 1);
-  public static final RegistryObject<Item> APATITE_DEEPSLATE_ORE_ITEM = registerItemandlist("deepslate_apatite_ore",
+  public static final DeferredBlock<Block> APATITE_DEEPSLATE_ORE = registerOreBlockandlist("deepslate_apatite_ore", OresConfig::deepslateOres, 3, () -> ChemiItems.RAW_APATITE, 1);
+  public static final DeferredItem<Item> APATITE_DEEPSLATE_ORE_ITEM = registerItemandlist("deepslate_apatite_ore",
     () -> new BlockItem(APATITE_DEEPSLATE_ORE.get(), new Item.Properties()));
     
-  public static final RegistryObject<Block> OILSAND_ORE = registerOreBlockandlist("oilsand_ore", OresConfig::stoneOres, 1, () -> ChemiItems.OIL_SAND, 1);
-  public static final RegistryObject<Item> OILSAND_ORE_ITEM = registerItemandlist("oilsand_ore",
+  public static final DeferredBlock<Block> OILSAND_ORE = registerOreBlockandlist("oilsand_ore", OresConfig::stoneOres, 1, () -> ChemiItems.OIL_SAND, 1);
+  public static final DeferredItem<Item> OILSAND_ORE_ITEM = registerItemandlist("oilsand_ore",
     () -> new BlockItem(OILSAND_ORE.get(), new Item.Properties()));
-  public static final RegistryObject<Block> OILSAND_DEEPSLATE_ORE = registerOreBlockandlist("deepslate_oilsand_ore", OresConfig::deepslateOres, 1, () -> ChemiItems.OIL_SAND, 1);
-  public static final RegistryObject<Item> OILSAND_DEEPSLATE_ORE_ITEM = registerItemandlist("deepslate_oilsand_ore",
+  public static final DeferredBlock<Block> OILSAND_DEEPSLATE_ORE = registerOreBlockandlist("deepslate_oilsand_ore", OresConfig::deepslateOres, 1, () -> ChemiItems.OIL_SAND, 1);
+  public static final DeferredItem<Item> OILSAND_DEEPSLATE_ORE_ITEM = registerItemandlist("deepslate_oilsand_ore",
     () -> new BlockItem(OILSAND_DEEPSLATE_ORE.get(), new Item.Properties()));
     
-  public static final RegistryObject<Block> IRIDIUM_ORE = registerOreBlockandlist("iridium_ore", OresConfig::stoneOres, 1, () -> ChemiItems.RAW_IRIDIUM, 1);
-  public static final RegistryObject<Item> IRIDIUM_ORE_ITEM = registerItemandlist("iridium_ore",
+  public static final DeferredBlock<Block> IRIDIUM_ORE = registerOreBlockandlist("iridium_ore", OresConfig::stoneOres, 1, () -> ChemiItems.RAW_IRIDIUM, 1);
+  public static final DeferredItem<Item> IRIDIUM_ORE_ITEM = registerItemandlist("iridium_ore",
     () -> new BlockItem(IRIDIUM_ORE.get(), new Item.Properties()));
 
   public static final StoneFamily CRYOLITE = new StoneFamily("cryolite");
   public static final StoneFamily KIMBERLITE = new StoneFamily("kimberlite");
-  public static final RegistryObject<Block> SHIMMERING_KIMBERLITE = registerStoneBlockandlist("shimmering_kimberlite", () -> new Block(BlockBehaviour.Properties.of().strength(3.0f, 4.0f).sound(SoundType.DEEPSLATE_BRICKS)));
-  public static final RegistryObject<Item> SHIMMERING_KIMBERLITE_ITEM = registerItemandlist("shimmering_kimberlite",
+  public static final DeferredBlock<Block> SHIMMERING_KIMBERLITE = registerStoneBlockandlist("shimmering_kimberlite", () -> new Block(BlockBehaviour.Properties.of().strength(3.0f, 4.0f).sound(SoundType.DEEPSLATE_BRICKS)));
+  public static final DeferredItem<Item> SHIMMERING_KIMBERLITE_ITEM = registerItemandlist("shimmering_kimberlite",
     () -> new BlockItem(SHIMMERING_KIMBERLITE.get(), new Item.Properties()));
     
-  public static final RegistryObject<Block> RAW_LEAD_BLOCK = registerStoneBlockandlist("raw_lead_block",
-    () -> new Block(BlockBehaviour.Properties.copy(Blocks.RAW_IRON_BLOCK).mapColor(MapColor.STONE)));
-  public static final RegistryObject<Item> RAW_LEAD_BLOCK_ITEM = registerItemandlist("raw_lead_block",
+  public static final DeferredBlock<Block> RAW_LEAD_BLOCK = registerStoneBlockandlist("raw_lead_block",
+    () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.RAW_IRON_BLOCK).mapColor(MapColor.STONE)));
+  public static final DeferredItem<Item> RAW_LEAD_BLOCK_ITEM = registerItemandlist("raw_lead_block",
     () -> new BlockItem(RAW_LEAD_BLOCK.get(), new Item.Properties()));
-  public static final RegistryObject<Block> CHALCOPYRITE_BLOCK = registerStoneBlockandlist("chalcopyrite_block",
-    () -> new Block(BlockBehaviour.Properties.copy(Blocks.RAW_IRON_BLOCK).mapColor(MapColor.STONE)));
-  public static final RegistryObject<Item> CHALCOPYRITE_BLOCK_ITEM = registerItemandlist("chalcopyrite_block",
+  public static final DeferredBlock<Block> CHALCOPYRITE_BLOCK = registerStoneBlockandlist("chalcopyrite_block",
+    () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.RAW_IRON_BLOCK).mapColor(MapColor.STONE)));
+  public static final DeferredItem<Item> CHALCOPYRITE_BLOCK_ITEM = registerItemandlist("chalcopyrite_block",
     () -> new BlockItem(CHALCOPYRITE_BLOCK.get(), new Item.Properties()));
-  public static final RegistryObject<Block> BAUXITE_BLOCK = registerStoneBlockandlist("bauxite_block",
-    () -> new Block(BlockBehaviour.Properties.copy(Blocks.RAW_IRON_BLOCK).mapColor(MapColor.STONE)));
-  public static final RegistryObject<Item> BAUXITE_BLOCK_ITEM = registerItemandlist("bauxite_block",
+  public static final DeferredBlock<Block> BAUXITE_BLOCK = registerStoneBlockandlist("bauxite_block",
+    () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.RAW_IRON_BLOCK).mapColor(MapColor.STONE)));
+  public static final DeferredItem<Item> BAUXITE_BLOCK_ITEM = registerItemandlist("bauxite_block",
     () -> new BlockItem(BAUXITE_BLOCK.get(), new Item.Properties()));
-  public static final RegistryObject<Block> APATITE_BLOCK = registerStoneBlockandlist("apatite_block",
-    () -> new Block(BlockBehaviour.Properties.copy(Blocks.RAW_IRON_BLOCK).mapColor(MapColor.STONE)));
-  public static final RegistryObject<Item> APATITE_BLOCK_ITEM = registerItemandlist("apatite_block",
+  public static final DeferredBlock<Block> APATITE_BLOCK = registerStoneBlockandlist("apatite_block",
+    () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.RAW_IRON_BLOCK).mapColor(MapColor.STONE)));
+  public static final DeferredItem<Item> APATITE_BLOCK_ITEM = registerItemandlist("apatite_block",
     () -> new BlockItem(APATITE_BLOCK.get(), new Item.Properties()));
-  public static final RegistryObject<Block> OILSAND_BLOCK = registerStoneBlockandlist("oilsand_block",
-    () -> new Block(BlockBehaviour.Properties.copy(Blocks.RAW_IRON_BLOCK).mapColor(MapColor.STONE)));
-  public static final RegistryObject<Item> OILSAND_BLOCK_ITEM = registerItemandlist("oilsand_block",
+  public static final DeferredBlock<Block> OILSAND_BLOCK = registerStoneBlockandlist("oilsand_block",
+    () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.RAW_IRON_BLOCK).mapColor(MapColor.STONE)));
+  public static final DeferredItem<Item> OILSAND_BLOCK_ITEM = registerItemandlist("oilsand_block",
     () -> new BlockItem(OILSAND_BLOCK.get(), new Item.Properties()));
 
 
-  public static final RegistryObject<Block> TRADING_STALL = registerMachineBlockandlist("trading_stall", TradingStall::new); 
-  public static final RegistryObject<Item> TRADING_STALL_ITEM = registerItemandlist("trading_stall",
+  public static final DeferredBlock<Block> TRADING_STALL = registerMachineBlockandlist("trading_stall", TradingStall::new); 
+  public static final DeferredItem<Item> TRADING_STALL_ITEM = registerItemandlist("trading_stall",
     () -> new BlockItem(TRADING_STALL.get(), new Item.Properties()));
-  public static final RegistryObject<Block> OFFERING_ALTAR = registerMachineBlockandlist("offering_altar", OfferingAltar::new); 
-  public static final RegistryObject<Item> OFFERING_ALTAR_ITEM = registerItemandlist("offering_altar",
+  public static final DeferredBlock<Block> OFFERING_ALTAR = registerMachineBlockandlist("offering_altar", OfferingAltar::new); 
+  public static final DeferredItem<Item> OFFERING_ALTAR_ITEM = registerItemandlist("offering_altar",
     () -> new BlockItem(OFFERING_ALTAR.get(), new Item.Properties()));
 
-  public static final RegistryObject<Block> ADVANCED_FARMLAND = registerSilktouchBlockandlist("advanced_farmland", AdvancedFarmland::new);
-  public static final RegistryObject<Item> ADVANCED_FARMLAND_ITEM = registerItemandlist("advanced_farmland",
+  public static final DeferredBlock<Block> ADVANCED_FARMLAND = registerSilktouchBlockandlist("advanced_farmland", AdvancedFarmland::new);
+  public static final DeferredItem<Item> ADVANCED_FARMLAND_ITEM = registerItemandlist("advanced_farmland",
     () -> new BlockItem(ADVANCED_FARMLAND.get(), new Item.Properties()));
-  public static final RegistryObject<Block> MUSHROOM_BED = registerSilktouchBlockandlist("mushroom_bed", MushroomBed::new);
-  public static final RegistryObject<Item> MUSHROOM_BED_ITEM = registerItemandlist("mushroom_bed",
+  public static final DeferredBlock<Block> MUSHROOM_BED = registerSilktouchBlockandlist("mushroom_bed", MushroomBed::new);
+  public static final DeferredItem<Item> MUSHROOM_BED_ITEM = registerItemandlist("mushroom_bed",
     () -> new BlockItem(MUSHROOM_BED.get(), new Item.Properties()));
   private static final BlockBehaviour.Properties glowing_mushroom_props = BlockBehaviour.Properties.of().noCollission().randomTicks().instabreak().sound(SoundType.GRASS).lightLevel((p_50892_) -> {
       return 7;
    }).hasPostProcess((p,q,r)->true).pushReaction(PushReaction.DESTROY);
   private static final BlockBehaviour.Properties mushroom_props = BlockBehaviour.Properties.of().noCollission().randomTicks().instabreak().sound(SoundType.GRASS)
     .hasPostProcess((p,q,r)->true).pushReaction(PushReaction.DESTROY);
-  public static final RegistryObject<Block> MUSHROOM_RED = registerBlockandlist("bioluminescence_red_mushroom", () -> new MushroomBlock(glowing_mushroom_props.mapColor(MapColor.COLOR_RED), ChemiFeatures.LARGE_MUSHROOM_RED));
-  public static final RegistryObject<Item> MUSHROOM_RED_ITEM = registerItemandlist("bioluminescence_red_mushroom",
+  public static final DeferredBlock<Block> MUSHROOM_RED = registerBlockandlist("bioluminescence_red_mushroom", () -> new MushroomBlock(glowing_mushroom_props.mapColor(MapColor.COLOR_RED), ChemiFeatures.LARGE_MUSHROOM_RED));
+  public static final DeferredItem<Item> MUSHROOM_RED_ITEM = registerItemandlist("bioluminescence_red_mushroom",
     () -> new BlockItem(MUSHROOM_RED.get(), new Item.Properties()));
-  public static final RegistryObject<FlowerPotBlock> POTTED_RED_MUSHROOM = registerFlowerPot("potted_red_mushroom", () -> new FlowerPotBlock(
-    () -> (FlowerPotBlock)Blocks.FLOWER_POT, MUSHROOM_RED::get, BlockBehaviour.Properties.copy(Blocks.POTTED_DANDELION).lightLevel(state -> 7)));
-  public static final RegistryObject<Block> MUSHROOM_GREEN = registerBlockandlist("bioluminescence_green_mushroom", () -> new MushroomBlock(glowing_mushroom_props.mapColor(MapColor.COLOR_GREEN), ChemiFeatures.LARGE_MUSHROOM_GREEN));
-  public static final RegistryObject<Item> MUSHROOM_GREEN_ITEM = registerItemandlist("bioluminescence_green_mushroom",
+  public static final DeferredBlock<FlowerPotBlock> POTTED_RED_MUSHROOM = registerFlowerPot("potted_red_mushroom", () -> new FlowerPotBlock(
+    () -> (FlowerPotBlock)Blocks.FLOWER_POT, MUSHROOM_RED::get, BlockBehaviour.Properties.ofFullCopy(Blocks.POTTED_DANDELION).lightLevel(state -> 7)));
+  public static final DeferredBlock<Block> MUSHROOM_GREEN = registerBlockandlist("bioluminescence_green_mushroom", () -> new MushroomBlock(glowing_mushroom_props.mapColor(MapColor.COLOR_GREEN), ChemiFeatures.LARGE_MUSHROOM_GREEN));
+  public static final DeferredItem<Item> MUSHROOM_GREEN_ITEM = registerItemandlist("bioluminescence_green_mushroom",
     () -> new BlockItem(MUSHROOM_GREEN.get(), new Item.Properties()));
-  public static final RegistryObject<FlowerPotBlock> POTTED_GREEN_MUSHROOM = registerFlowerPot("potted_green_mushroom", () -> new FlowerPotBlock(
-    () -> (FlowerPotBlock)Blocks.FLOWER_POT, MUSHROOM_GREEN::get, BlockBehaviour.Properties.copy(Blocks.POTTED_DANDELION).lightLevel(state -> 7)));
-  public static final RegistryObject<Block> MUSHROOM_BLUE = registerBlockandlist("bioluminescence_blue_mushroom", () -> new MushroomBlock(glowing_mushroom_props.mapColor(MapColor.COLOR_BLUE), ChemiFeatures.LARGE_MUSHROOM_BLUE));
-  public static final RegistryObject<Item> MUSHROOM_BLUE_ITEM = registerItemandlist("bioluminescence_blue_mushroom",
+  public static final DeferredBlock<FlowerPotBlock> POTTED_GREEN_MUSHROOM = registerFlowerPot("potted_green_mushroom", () -> new FlowerPotBlock(
+    () -> (FlowerPotBlock)Blocks.FLOWER_POT, MUSHROOM_GREEN::get, BlockBehaviour.Properties.ofFullCopy(Blocks.POTTED_DANDELION).lightLevel(state -> 7)));
+  public static final DeferredBlock<Block> MUSHROOM_BLUE = registerBlockandlist("bioluminescence_blue_mushroom", () -> new MushroomBlock(glowing_mushroom_props.mapColor(MapColor.COLOR_BLUE), ChemiFeatures.LARGE_MUSHROOM_BLUE));
+  public static final DeferredItem<Item> MUSHROOM_BLUE_ITEM = registerItemandlist("bioluminescence_blue_mushroom",
     () -> new BlockItem(MUSHROOM_BLUE.get(), new Item.Properties()));
-  public static final RegistryObject<FlowerPotBlock> POTTED_BLUE_MUSHROOM = registerFlowerPot("potted_blue_mushroom", () -> new FlowerPotBlock(
-    () -> (FlowerPotBlock)Blocks.FLOWER_POT, MUSHROOM_BLUE::get, BlockBehaviour.Properties.copy(Blocks.POTTED_DANDELION).lightLevel(state -> 7)));
-  public static final RegistryObject<Block> MUSHROOM_PURPLE = registerBlockandlist("bioluminescence_purple_mushroom", () -> new MushroomBlock(glowing_mushroom_props, ChemiFeatures.LARGE_MUSHROOM_PURPLE));
-  public static final RegistryObject<Item> MUSHROOM_PURPLE_ITEM = registerItemandlist("bioluminescence_purple_mushroom",
+  public static final DeferredBlock<FlowerPotBlock> POTTED_BLUE_MUSHROOM = registerFlowerPot("potted_blue_mushroom", () -> new FlowerPotBlock(
+    () -> (FlowerPotBlock)Blocks.FLOWER_POT, MUSHROOM_BLUE::get, BlockBehaviour.Properties.ofFullCopy(Blocks.POTTED_DANDELION).lightLevel(state -> 7)));
+  public static final DeferredBlock<Block> MUSHROOM_PURPLE = registerBlockandlist("bioluminescence_purple_mushroom", () -> new MushroomBlock(glowing_mushroom_props, ChemiFeatures.LARGE_MUSHROOM_PURPLE));
+  public static final DeferredItem<Item> MUSHROOM_PURPLE_ITEM = registerItemandlist("bioluminescence_purple_mushroom",
     () -> new BlockItem(MUSHROOM_PURPLE.get(), new Item.Properties()));
-  public static final RegistryObject<FlowerPotBlock> POTTED_PURPLE_MUSHROOM = registerFlowerPot("potted_purple_mushroom", () -> new FlowerPotBlock(
-    () -> (FlowerPotBlock)Blocks.FLOWER_POT, MUSHROOM_PURPLE::get, BlockBehaviour.Properties.copy(Blocks.POTTED_DANDELION).lightLevel(state -> 7)));
-  public static final RegistryObject<Block> MUSHROOM_GLOWING = registerBlockandlist("bioluminescence_mushroom", () -> new SimpleMushroom(glowing_mushroom_props.mapColor(MapColor.COLOR_LIGHT_GREEN)));
-  public static final RegistryObject<Item> MUSHROOM_GLOWING_ITEM = registerItemandlist("bioluminescence_mushroom",
+  public static final DeferredBlock<FlowerPotBlock> POTTED_PURPLE_MUSHROOM = registerFlowerPot("potted_purple_mushroom", () -> new FlowerPotBlock(
+    () -> (FlowerPotBlock)Blocks.FLOWER_POT, MUSHROOM_PURPLE::get, BlockBehaviour.Properties.ofFullCopy(Blocks.POTTED_DANDELION).lightLevel(state -> 7)));
+  public static final DeferredBlock<Block> MUSHROOM_GLOWING = registerBlockandlist("bioluminescence_mushroom", () -> new SimpleMushroom(glowing_mushroom_props.mapColor(MapColor.COLOR_LIGHT_GREEN)));
+  public static final DeferredItem<Item> MUSHROOM_GLOWING_ITEM = registerItemandlist("bioluminescence_mushroom",
     () -> new BlockItem(MUSHROOM_GLOWING.get(), new Item.Properties()));
-  public static final RegistryObject<FlowerPotBlock> POTTED_GLOWING_MUSHROOM = registerFlowerPot("potted_bioluminescence_mushroom", () -> new FlowerPotBlock(
-    () -> (FlowerPotBlock)Blocks.FLOWER_POT, MUSHROOM_GLOWING::get, BlockBehaviour.Properties.copy(Blocks.POTTED_DANDELION).lightLevel(state -> 7)));
-  public static final RegistryObject<Block> BROWN_BISPORUS = registerBlockandlist("brown_bisporus", () -> new SimpleMushroom(mushroom_props.mapColor(MapColor.COLOR_BROWN)));
-  public static final RegistryObject<Item> BROWN_BISPORUS_ITEM = registerItemandlist("brown_bisporus",
+  public static final DeferredBlock<FlowerPotBlock> POTTED_GLOWING_MUSHROOM = registerFlowerPot("potted_bioluminescence_mushroom", () -> new FlowerPotBlock(
+    () -> (FlowerPotBlock)Blocks.FLOWER_POT, MUSHROOM_GLOWING::get, BlockBehaviour.Properties.ofFullCopy(Blocks.POTTED_DANDELION).lightLevel(state -> 7)));
+  public static final DeferredBlock<Block> BROWN_BISPORUS = registerBlockandlist("brown_bisporus", () -> new SimpleMushroom(mushroom_props.mapColor(MapColor.COLOR_BROWN)));
+  public static final DeferredItem<Item> BROWN_BISPORUS_ITEM = registerItemandlist("brown_bisporus",
     () -> new BlockItem(BROWN_BISPORUS.get(), new Item.Properties()));
-  public static final RegistryObject<FlowerPotBlock> POTTED_BROWN_BISPORUS = registerFlowerPot("potted_brown_bisporus", () -> new FlowerPotBlock(
-    () -> (FlowerPotBlock)Blocks.FLOWER_POT, BROWN_BISPORUS::get, BlockBehaviour.Properties.copy(Blocks.POTTED_DANDELION)));
-  public static final RegistryObject<Block> WHITE_BISPORUS = registerBlockandlist("white_bisporus", () -> new SimpleMushroom(mushroom_props.mapColor(MapColor.SNOW)));
-  public static final RegistryObject<Item> WHITE_BISPORUS_ITEM = registerItemandlist("white_bisporus",
+  public static final DeferredBlock<FlowerPotBlock> POTTED_BROWN_BISPORUS = registerFlowerPot("potted_brown_bisporus", () -> new FlowerPotBlock(
+    () -> (FlowerPotBlock)Blocks.FLOWER_POT, BROWN_BISPORUS::get, BlockBehaviour.Properties.ofFullCopy(Blocks.POTTED_DANDELION)));
+  public static final DeferredBlock<Block> WHITE_BISPORUS = registerBlockandlist("white_bisporus", () -> new SimpleMushroom(mushroom_props.mapColor(MapColor.SNOW)));
+  public static final DeferredItem<Item> WHITE_BISPORUS_ITEM = registerItemandlist("white_bisporus",
     () -> new BlockItem(WHITE_BISPORUS.get(), new Item.Properties()));
-  public static final RegistryObject<FlowerPotBlock> POTTED_WHITE_BISPORUS = registerFlowerPot("potted_white_bisporus", () -> new FlowerPotBlock(
-    () -> (FlowerPotBlock)Blocks.FLOWER_POT, WHITE_BISPORUS::get, BlockBehaviour.Properties.copy(Blocks.POTTED_DANDELION)));
-  public static final RegistryObject<Block> GRIFOLA_FRONDOSA = registerBlockandlist("grifola_frondosa", () -> new SimpleMushroom(mushroom_props.mapColor(MapColor.COLOR_BROWN)));
-  public static final RegistryObject<Item> GRIFOLA_FRONDOSA_ITEM = registerItemandlist("grifola_frondosa",
+  public static final DeferredBlock<FlowerPotBlock> POTTED_WHITE_BISPORUS = registerFlowerPot("potted_white_bisporus", () -> new FlowerPotBlock(
+    () -> (FlowerPotBlock)Blocks.FLOWER_POT, WHITE_BISPORUS::get, BlockBehaviour.Properties.ofFullCopy(Blocks.POTTED_DANDELION)));
+  public static final DeferredBlock<Block> GRIFOLA_FRONDOSA = registerBlockandlist("grifola_frondosa", () -> new SimpleMushroom(mushroom_props.mapColor(MapColor.COLOR_BROWN)));
+  public static final DeferredItem<Item> GRIFOLA_FRONDOSA_ITEM = registerItemandlist("grifola_frondosa",
     () -> new BlockItem(GRIFOLA_FRONDOSA.get(), new Item.Properties()));
-  public static final RegistryObject<FlowerPotBlock> POTTED_FRONDOSA = registerFlowerPot("potted_frondosa", () -> new FlowerPotBlock(
-    () -> (FlowerPotBlock)Blocks.FLOWER_POT, GRIFOLA_FRONDOSA::get, BlockBehaviour.Properties.copy(Blocks.POTTED_DANDELION)));
-  public static final RegistryObject<Block> TRICHOLOMA_MATSUTAKE = registerBlockandlist("tricholoma_matsutake", () -> new SimpleMushroom(mushroom_props.mapColor(MapColor.COLOR_BROWN)));
-  public static final RegistryObject<Item> TRICHOLOMA_MATSUTAKE_ITEM = registerItemandlist("tricholoma_matsutake",
+  public static final DeferredBlock<FlowerPotBlock> POTTED_FRONDOSA = registerFlowerPot("potted_frondosa", () -> new FlowerPotBlock(
+    () -> (FlowerPotBlock)Blocks.FLOWER_POT, GRIFOLA_FRONDOSA::get, BlockBehaviour.Properties.ofFullCopy(Blocks.POTTED_DANDELION)));
+  public static final DeferredBlock<Block> TRICHOLOMA_MATSUTAKE = registerBlockandlist("tricholoma_matsutake", () -> new SimpleMushroom(mushroom_props.mapColor(MapColor.COLOR_BROWN)));
+  public static final DeferredItem<Item> TRICHOLOMA_MATSUTAKE_ITEM = registerItemandlist("tricholoma_matsutake",
     () -> new BlockItem(TRICHOLOMA_MATSUTAKE.get(), new Item.Properties()));
-  public static final RegistryObject<FlowerPotBlock> POTTED_MATSUTAKE = registerFlowerPot("potted_matsutake", () -> new FlowerPotBlock(
-    () -> (FlowerPotBlock)Blocks.FLOWER_POT, TRICHOLOMA_MATSUTAKE::get, BlockBehaviour.Properties.copy(Blocks.POTTED_DANDELION)));
+  public static final DeferredBlock<FlowerPotBlock> POTTED_MATSUTAKE = registerFlowerPot("potted_matsutake", () -> new FlowerPotBlock(
+    () -> (FlowerPotBlock)Blocks.FLOWER_POT, TRICHOLOMA_MATSUTAKE::get, BlockBehaviour.Properties.ofFullCopy(Blocks.POTTED_DANDELION)));
 
   public static final WoodFamily METASEQUOIA = new WoodFamily("metasequoia", () -> new MetasequoiaGrower());
   public static final WoodFamily TAXODIUM = new WoodFamily("taxodium", () -> new TaxodiumGrower());
   public static final WoodFamily GINKGO = new WoodFamily("ginkgo", () -> new GinkgoGrower());
   public static final WoodFamily MAGNOLIA = new WoodFamily("magnolia", () -> new MagnoliaGrower());
   public static final WoodFamily FICUS = new WoodFamily("ficus", () -> new FicusGrower());
-  public static final RegistryObject<Block> TAXODIUM_ROOT = registerWoodBlockandlist("taxodium_root", () -> new TaxodiumRoot());
-  public static final RegistryObject<Item> TAXODIUM_ROOT_ITEM = registerItemandlist("taxodium_root",
+  public static final DeferredBlock<Block> TAXODIUM_ROOT = registerWoodBlockandlist("taxodium_root", () -> new TaxodiumRoot());
+  public static final DeferredItem<Item> TAXODIUM_ROOT_ITEM = registerItemandlist("taxodium_root",
     () -> new BlockItem(TAXODIUM_ROOT.get(), new Item.Properties()));
     
-  public static final RegistryObject<Block> ANCESTOR_ASTERACEAE = registerBlockandlist("ancestor_asteraceae", () -> new FlowerBlock(() -> MobEffects.DIG_SLOWDOWN, 140, BlockBehaviour.Properties.copy(Blocks.POPPY)));
-  public static final RegistryObject<Item> ANCESTOR_ASTERACEAE_ITEM = registerItemandlist("ancestor_asteraceae",
+  public static final DeferredBlock<Block> ANCESTOR_ASTERACEAE = registerBlockandlist("ancestor_asteraceae", () -> new FlowerBlock(() -> MobEffects.DIG_SLOWDOWN, 140, BlockBehaviour.Properties.ofFullCopy(Blocks.POPPY)));
+  public static final DeferredItem<Item> ANCESTOR_ASTERACEAE_ITEM = registerItemandlist("ancestor_asteraceae",
     () -> new BlockItem(ANCESTOR_ASTERACEAE.get(), new Item.Properties()));
-  public static final RegistryObject<Block> HYDRANGEA = registerBlockandlist("hydrangea", () -> new Hydrangea(BlockBehaviour.Properties.copy(Blocks.AZALEA)));
-  public static final RegistryObject<Item> HYDRANGEA_ITEM = registerItemandlist("hydrangea",
+  public static final DeferredBlock<Block> HYDRANGEA = registerBlockandlist("hydrangea", () -> new Hydrangea(BlockBehaviour.Properties.ofFullCopy(Blocks.AZALEA)));
+  public static final DeferredItem<Item> HYDRANGEA_ITEM = registerItemandlist("hydrangea",
     () -> new BlockItem(HYDRANGEA.get(), new Item.Properties()));
     
   public static final CrystalFamily AQUAMARINE = new CrystalFamily("aquamarine", MapColor.COLOR_LIGHT_BLUE);
@@ -365,429 +368,429 @@ public class ChemiBlocks {
   public static final CrystalFamily LAPISQUARTZ = new CrystalFamily("lapisquartz", MapColor.COLOR_BLUE);
   public static final CrystalFamily PERIDOT = new CrystalFamily("peridot", MapColor.COLOR_LIGHT_GREEN);
     
-  public static final RegistryObject<Block> PALEO_SAND = registerBlockandlist("paleo_sand", () -> new SandBlock(0xC9AE6B,BlockBehaviour.Properties.copy(Blocks.SAND)));
-  public static final RegistryObject<Item> PALEO_SAND_ITEM = registerItemandlist("paleo_sand",
+  public static final DeferredBlock<Block> PALEO_SAND = registerBlockandlist("paleo_sand", () -> new ColoredFallingBlock(new ColorRGBA(14406560),BlockBehaviour.Properties.ofFullCopy(Blocks.SAND)));
+  public static final DeferredItem<Item> PALEO_SAND_ITEM = registerItemandlist("paleo_sand",
     () -> new BlockItem(PALEO_SAND.get(), new Item.Properties()));
-  public static final RegistryObject<Block> PALEO_SANDSTONE = registerStoneBlockandlist("paleo_sandstone", () -> new Block(BlockBehaviour.Properties.copy(Blocks.SANDSTONE)));
-  public static final RegistryObject<Item> PALEO_SANDSTONE_ITEM = registerItemandlist("paleo_sandstone",
+  public static final DeferredBlock<Block> PALEO_SANDSTONE = registerStoneBlockandlist("paleo_sandstone", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.SANDSTONE)));
+  public static final DeferredItem<Item> PALEO_SANDSTONE_ITEM = registerItemandlist("paleo_sandstone",
     () -> new BlockItem(PALEO_SANDSTONE.get(), new Item.Properties()));
     
-  public static final RegistryObject<Block> MUSHROOM_STEM_RED = registerCustomHoeBlockandlist("mushroom_stem_red", () -> new RotatedPillarBlock(BlockBehaviour.Properties.copy(Blocks.MUSHROOM_STEM).lightLevel(state -> 14)));
-  public static final RegistryObject<Item> MUSHROOM_STEM_RED_ITEM = registerItemandlist("mushroom_stem_red",
+  public static final DeferredBlock<Block> MUSHROOM_STEM_RED = registerCustomHoeBlockandlist("mushroom_stem_red", () -> new RotatedPillarBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.MUSHROOM_STEM).lightLevel(state -> 14)));
+  public static final DeferredItem<Item> MUSHROOM_STEM_RED_ITEM = registerItemandlist("mushroom_stem_red",
     () -> new BlockItem(MUSHROOM_STEM_RED.get(), new Item.Properties()));
-  public static final RegistryObject<Block> MUSHROOM_INSIDE_RED = registerCustomHoeBlockandlist("mushroom_inside_red", () -> new Mushrooms(BlockBehaviour.Properties.copy(Blocks.MUSHROOM_STEM).lightLevel(state -> 7),1.0f,0.0f,0.0f));
-  public static final RegistryObject<Item> MUSHROOM_INSIDE_RED_ITEM = registerItemandlist("mushroom_inside_red",
+  public static final DeferredBlock<Block> MUSHROOM_INSIDE_RED = registerCustomHoeBlockandlist("mushroom_inside_red", () -> new Mushrooms(BlockBehaviour.Properties.ofFullCopy(Blocks.MUSHROOM_STEM).lightLevel(state -> 7),1.0f,0.0f,0.0f));
+  public static final DeferredItem<Item> MUSHROOM_INSIDE_RED_ITEM = registerItemandlist("mushroom_inside_red",
     () -> new BlockItem(MUSHROOM_INSIDE_RED.get(), new Item.Properties()));
-  public static final RegistryObject<Block> MUSHROOM_SURFACE_RED = registerCustomHoeBlockandlist("mushroom_surface_red", () -> new Block(BlockBehaviour.Properties.copy(Blocks.MUSHROOM_STEM).lightLevel(state -> 3)));
-  public static final RegistryObject<Item> MUSHROOM_SURFACE_RED_ITEM = registerItemandlist("mushroom_surface_red",
+  public static final DeferredBlock<Block> MUSHROOM_SURFACE_RED = registerCustomHoeBlockandlist("mushroom_surface_red", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.MUSHROOM_STEM).lightLevel(state -> 3)));
+  public static final DeferredItem<Item> MUSHROOM_SURFACE_RED_ITEM = registerItemandlist("mushroom_surface_red",
     () -> new BlockItem(MUSHROOM_SURFACE_RED.get(), new Item.Properties()));
-  public static final RegistryObject<Block> MUSHROOM_STEM_GREEN = registerCustomHoeBlockandlist("mushroom_stem_green", () -> new RotatedPillarBlock(BlockBehaviour.Properties.copy(Blocks.MUSHROOM_STEM).lightLevel(state -> 14)));
-  public static final RegistryObject<Item> MUSHROOM_STEM_GREEN_ITEM = registerItemandlist("mushroom_stem_green",
+  public static final DeferredBlock<Block> MUSHROOM_STEM_GREEN = registerCustomHoeBlockandlist("mushroom_stem_green", () -> new RotatedPillarBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.MUSHROOM_STEM).lightLevel(state -> 14)));
+  public static final DeferredItem<Item> MUSHROOM_STEM_GREEN_ITEM = registerItemandlist("mushroom_stem_green",
     () -> new BlockItem(MUSHROOM_STEM_GREEN.get(), new Item.Properties()));
-  public static final RegistryObject<Block> MUSHROOM_INSIDE_GREEN = registerCustomHoeBlockandlist("mushroom_inside_green", () -> new Mushrooms(BlockBehaviour.Properties.copy(Blocks.MUSHROOM_STEM).lightLevel(state -> 7),0.0f,1.0f,0.0f));
-  public static final RegistryObject<Item> MUSHROOM_INSIDE_GREEN_ITEM = registerItemandlist("mushroom_inside_green",
+  public static final DeferredBlock<Block> MUSHROOM_INSIDE_GREEN = registerCustomHoeBlockandlist("mushroom_inside_green", () -> new Mushrooms(BlockBehaviour.Properties.ofFullCopy(Blocks.MUSHROOM_STEM).lightLevel(state -> 7),0.0f,1.0f,0.0f));
+  public static final DeferredItem<Item> MUSHROOM_INSIDE_GREEN_ITEM = registerItemandlist("mushroom_inside_green",
     () -> new BlockItem(MUSHROOM_INSIDE_GREEN.get(), new Item.Properties()));
-  public static final RegistryObject<Block> MUSHROOM_SURFACE_GREEN = registerCustomHoeBlockandlist("mushroom_surface_green", () -> new Block(BlockBehaviour.Properties.copy(Blocks.MUSHROOM_STEM).lightLevel(state -> 3)));
-  public static final RegistryObject<Item> MUSHROOM_SURFACE_GREEN_ITEM = registerItemandlist("mushroom_surface_green",
+  public static final DeferredBlock<Block> MUSHROOM_SURFACE_GREEN = registerCustomHoeBlockandlist("mushroom_surface_green", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.MUSHROOM_STEM).lightLevel(state -> 3)));
+  public static final DeferredItem<Item> MUSHROOM_SURFACE_GREEN_ITEM = registerItemandlist("mushroom_surface_green",
     () -> new BlockItem(MUSHROOM_SURFACE_GREEN.get(), new Item.Properties()));
-  public static final RegistryObject<Block> MUSHROOM_STEM_PURPLE = registerCustomHoeBlockandlist("mushroom_stem_purple", () -> new RotatedPillarBlock(BlockBehaviour.Properties.copy(Blocks.MUSHROOM_STEM).lightLevel(state -> 14)));
-  public static final RegistryObject<Item> MUSHROOM_STEM_PURPLE_ITEM = registerItemandlist("mushroom_stem_purple",
+  public static final DeferredBlock<Block> MUSHROOM_STEM_PURPLE = registerCustomHoeBlockandlist("mushroom_stem_purple", () -> new RotatedPillarBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.MUSHROOM_STEM).lightLevel(state -> 14)));
+  public static final DeferredItem<Item> MUSHROOM_STEM_PURPLE_ITEM = registerItemandlist("mushroom_stem_purple",
     () -> new BlockItem(MUSHROOM_STEM_PURPLE.get(), new Item.Properties()));
-  public static final RegistryObject<Block> MUSHROOM_INSIDE_PURPLE = registerCustomHoeBlockandlist("mushroom_inside_purple", () -> new Mushrooms(BlockBehaviour.Properties.copy(Blocks.MUSHROOM_STEM).lightLevel(state -> 7),0.7f,0.0f,1.0f));
-  public static final RegistryObject<Item> MUSHROOM_INSIDE_PURPLE_ITEM = registerItemandlist("mushroom_inside_purple",
+  public static final DeferredBlock<Block> MUSHROOM_INSIDE_PURPLE = registerCustomHoeBlockandlist("mushroom_inside_purple", () -> new Mushrooms(BlockBehaviour.Properties.ofFullCopy(Blocks.MUSHROOM_STEM).lightLevel(state -> 7),0.7f,0.0f,1.0f));
+  public static final DeferredItem<Item> MUSHROOM_INSIDE_PURPLE_ITEM = registerItemandlist("mushroom_inside_purple",
     () -> new BlockItem(MUSHROOM_INSIDE_PURPLE.get(), new Item.Properties()));
-  public static final RegistryObject<Block> MUSHROOM_SURFACE_PURPLE = registerCustomHoeBlockandlist("mushroom_surface_purple", () -> new Block(BlockBehaviour.Properties.copy(Blocks.MUSHROOM_STEM).lightLevel(state -> 3)));
-  public static final RegistryObject<Item> MUSHROOM_SURFACE_PURPLE_ITEM = registerItemandlist("mushroom_surface_purple",
+  public static final DeferredBlock<Block> MUSHROOM_SURFACE_PURPLE = registerCustomHoeBlockandlist("mushroom_surface_purple", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.MUSHROOM_STEM).lightLevel(state -> 3)));
+  public static final DeferredItem<Item> MUSHROOM_SURFACE_PURPLE_ITEM = registerItemandlist("mushroom_surface_purple",
     () -> new BlockItem(MUSHROOM_SURFACE_PURPLE.get(), new Item.Properties()));
-  public static final RegistryObject<Block> MUSHROOM_STEM_BLUE = registerCustomHoeBlockandlist("mushroom_stem_blue", () -> new RotatedPillarBlock(BlockBehaviour.Properties.copy(Blocks.MUSHROOM_STEM).lightLevel(state -> 14)));
-  public static final RegistryObject<Item> MUSHROOM_STEM_BLUE_ITEM = registerItemandlist("mushroom_stem_blue",
+  public static final DeferredBlock<Block> MUSHROOM_STEM_BLUE = registerCustomHoeBlockandlist("mushroom_stem_blue", () -> new RotatedPillarBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.MUSHROOM_STEM).lightLevel(state -> 14)));
+  public static final DeferredItem<Item> MUSHROOM_STEM_BLUE_ITEM = registerItemandlist("mushroom_stem_blue",
     () -> new BlockItem(MUSHROOM_STEM_BLUE.get(), new Item.Properties()));
-  public static final RegistryObject<Block> MUSHROOM_INSIDE_BLUE = registerCustomHoeBlockandlist("mushroom_inside_blue", () -> new Mushrooms(BlockBehaviour.Properties.copy(Blocks.MUSHROOM_STEM).lightLevel(state -> 7),0.0f,0.7f,0.7f));
-  public static final RegistryObject<Item> MUSHROOM_INSIDE_BLUE_ITEM = registerItemandlist("mushroom_inside_blue",
+  public static final DeferredBlock<Block> MUSHROOM_INSIDE_BLUE = registerCustomHoeBlockandlist("mushroom_inside_blue", () -> new Mushrooms(BlockBehaviour.Properties.ofFullCopy(Blocks.MUSHROOM_STEM).lightLevel(state -> 7),0.0f,0.7f,0.7f));
+  public static final DeferredItem<Item> MUSHROOM_INSIDE_BLUE_ITEM = registerItemandlist("mushroom_inside_blue",
     () -> new BlockItem(MUSHROOM_INSIDE_BLUE.get(), new Item.Properties()));
-  public static final RegistryObject<Block> MUSHROOM_SURFACE_BLUE = registerCustomHoeBlockandlist("mushroom_surface_blue", () -> new Block(BlockBehaviour.Properties.copy(Blocks.MUSHROOM_STEM).lightLevel(state -> 3)));
-  public static final RegistryObject<Item> MUSHROOM_SURFACE_BLUE_ITEM = registerItemandlist("mushroom_surface_blue",
+  public static final DeferredBlock<Block> MUSHROOM_SURFACE_BLUE = registerCustomHoeBlockandlist("mushroom_surface_blue", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.MUSHROOM_STEM).lightLevel(state -> 3)));
+  public static final DeferredItem<Item> MUSHROOM_SURFACE_BLUE_ITEM = registerItemandlist("mushroom_surface_blue",
     () -> new BlockItem(MUSHROOM_SURFACE_BLUE.get(), new Item.Properties()));
     
-  public static final RegistryObject<Block> PALEO_PORTAL = registerBlockandlist("paleo_portal", () -> new PaleoPortalBlock(BlockBehaviour.Properties.copy(Blocks.NETHER_PORTAL)));
+  public static final DeferredBlock<Block> PALEO_PORTAL = registerBlockandlist("paleo_portal", () -> new PaleoPortalBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.NETHER_PORTAL)));
 
-  public static final RegistryObject<Block> DEBUG_CROP = registerPlantBlockandlist("debug_crop", () -> new AdvancedCropBlock(ChemiBlocks.DEBUG_CROP_SEEDS::get),2,() -> ChemiBlocks.DEBUG_CROP_SEEDS);
-  public static final RegistryObject<Item> DEBUG_CROP_SEEDS = registerItemandlist("debug_seeds", 
+  public static final DeferredBlock<Block> DEBUG_CROP = registerPlantBlockandlist("debug_crop", () -> new AdvancedCropBlock(ChemiBlocks.DEBUG_CROP_SEEDS::get),2,() -> ChemiBlocks.DEBUG_CROP_SEEDS);
+  public static final DeferredItem<Item> DEBUG_CROP_SEEDS = registerItemandlist("debug_seeds", 
     () -> new ItemNameBlockItem(DEBUG_CROP.get(), new Item.Properties()));
-  public static final RegistryObject<Block> SOYBEAN_CROP = registerPlantBlockandlist("soybeans_crop", () -> new AdvancedCropBlock(ChemiBlocks.SOYBEAN_SEEDS::get),2,() -> ChemiBlocks.SOYBEAN_SEEDS);
-  public static final RegistryObject<Item> SOYBEAN_SEEDS = registerItemandlist("soybeans", 
+  public static final DeferredBlock<Block> SOYBEAN_CROP = registerPlantBlockandlist("soybeans_crop", () -> new AdvancedCropBlock(ChemiBlocks.SOYBEAN_SEEDS::get),2,() -> ChemiBlocks.SOYBEAN_SEEDS);
+  public static final DeferredItem<Item> SOYBEAN_SEEDS = registerItemandlist("soybeans", 
     () -> new ItemNameBlockItem(SOYBEAN_CROP.get(), new Item.Properties()));
-  public static final RegistryObject<Block> RICE_CROP = registerPlantBlockandlist("rice_crop", () -> new AdvancedCropBlock(ChemiBlocks.RICE_SEEDS::get),2,() -> ChemiBlocks.RICE_SEEDS);
-  public static final RegistryObject<Item> RICE_SEEDS = registerItemandlist("rice", 
+  public static final DeferredBlock<Block> RICE_CROP = registerPlantBlockandlist("rice_crop", () -> new AdvancedCropBlock(ChemiBlocks.RICE_SEEDS::get),2,() -> ChemiBlocks.RICE_SEEDS);
+  public static final DeferredItem<Item> RICE_SEEDS = registerItemandlist("rice", 
     () -> new ItemNameBlockItem(RICE_CROP.get(), new Item.Properties()));
-  public static final RegistryObject<Block> ONION_CROP = registerExternalConfigBlockandlist("onion_crop", () -> new AdvancedCropBlock(ChemiBlocks.ONION_SEEDS::get));//Using manually provided loottable
-  public static final RegistryObject<Item> ONION_SEEDS = registerItemandlist("onion", 
+  public static final DeferredBlock<Block> ONION_CROP = registerExternalConfigBlockandlist("onion_crop", () -> new AdvancedCropBlock(ChemiBlocks.ONION_SEEDS::get));//Using manually provided loottable
+  public static final DeferredItem<Item> ONION_SEEDS = registerItemandlist("onion", 
     () -> new ItemNameBlockItem(ONION_CROP.get(), new Item.Properties()));
-  public static final RegistryObject<Item> ONION_SEEDS_PURPLE = registerItemandlist("purple_onion", 
+  public static final DeferredItem<Item> ONION_SEEDS_PURPLE = registerItemandlist("purple_onion", 
     () -> new ItemNameBlockItem(ONION_CROP.get(), new Item.Properties()));
-  public static final RegistryObject<Block> TOMATO_CROP = registerPlantBlockandlist("tomato_crop", () -> new AdvancedCropBlock(ChemiBlocks.TOMATO_SEEDS::get),2,() -> ChemiBlocks.TOMATO_SEEDS);
-  public static final RegistryObject<Item> TOMATO_SEEDS = registerItemandlist("tomato", 
+  public static final DeferredBlock<Block> TOMATO_CROP = registerPlantBlockandlist("tomato_crop", () -> new AdvancedCropBlock(ChemiBlocks.TOMATO_SEEDS::get),2,() -> ChemiBlocks.TOMATO_SEEDS);
+  public static final DeferredItem<Item> TOMATO_SEEDS = registerItemandlist("tomato", 
     () -> new ItemNameBlockItem(TOMATO_CROP.get(), new Item.Properties().food(ChemiFoodProperties.RAW_VEGETABLES)));
-  public static final RegistryObject<Block> CORN_CROP = registerPlantBlockandlist("corn_crop", () -> new AdvancedCropBlock(ChemiBlocks.CORN_SEEDS::get),2,() -> ChemiBlocks.CORN_SEEDS);
-  public static final RegistryObject<Item> CORN_SEEDS = registerItemandlist("corn", 
+  public static final DeferredBlock<Block> CORN_CROP = registerPlantBlockandlist("corn_crop", () -> new AdvancedCropBlock(ChemiBlocks.CORN_SEEDS::get),2,() -> ChemiBlocks.CORN_SEEDS);
+  public static final DeferredItem<Item> CORN_SEEDS = registerItemandlist("corn", 
     () -> new ItemNameBlockItem(CORN_CROP.get(), new Item.Properties()));
 
-  public static final RegistryObject<Block> GRAPE_STEM = registerSilktouchBlockandlist("grape_stem", GrapeStem::new);
-  public static final RegistryObject<Item> GRAPE_STEM_ITEM = registerItemandlist("grape_stem",
+  public static final DeferredBlock<Block> GRAPE_STEM = registerSilktouchBlockandlist("grape_stem", GrapeStem::new);
+  public static final DeferredItem<Item> GRAPE_STEM_ITEM = registerItemandlist("grape_stem",
     () -> new BlockItem(GRAPE_STEM.get(), new Item.Properties()));
-  public static final RegistryObject<Block> PARGOLA = registerWoodBlockandlist("pargola", Pargola::new);
-  public static final RegistryObject<Item> PARGOLA_ITEM = registerItemandlist("pargola",
+  public static final DeferredBlock<Block> PARGOLA = registerWoodBlockandlist("pargola", Pargola::new);
+  public static final DeferredItem<Item> PARGOLA_ITEM = registerItemandlist("pargola",
     () -> new BlockItem(PARGOLA.get(), new Item.Properties()));
-  public static final RegistryObject<Block> GRAPE_PARGOLA = registerHoeBlockandlist("grape_pargola", GrapePargola::new);
-  public static final RegistryObject<Item> GRAPE_PARGOLA_ITEM = registerItemandlist("grape_pargola",
+  public static final DeferredBlock<Block> GRAPE_PARGOLA = registerHoeBlockandlist("grape_pargola", GrapePargola::new);
+  public static final DeferredItem<Item> GRAPE_PARGOLA_ITEM = registerItemandlist("grape_pargola",
     () -> new BlockItem(GRAPE_PARGOLA.get(), new Item.Properties()));
-  public static final RegistryObject<Block> GRAPE_CROP = registerExternalConfigBlockandlist("grape_crop", GrapeBlock::new);
-  public static final RegistryObject<Item> GRAPE = registerItemandlist("grape", 
+  public static final DeferredBlock<Block> GRAPE_CROP = registerExternalConfigBlockandlist("grape_crop", GrapeBlock::new);
+  public static final DeferredItem<Item> GRAPE = registerItemandlist("grape", 
     () -> new Item(new Item.Properties().food(ChemiFoodProperties.RAW_VEGETABLES)));
-  public static final RegistryObject<Block> GRAPE_SAPLING = registerExternalConfigBlockandlist("grape_sapling", GrapeSapling::new);
-  public static final RegistryObject<Item> GRAPE_SAPLING_ITEM = registerItemandlist("grape_sapling", 
+  public static final DeferredBlock<Block> GRAPE_SAPLING = registerExternalConfigBlockandlist("grape_sapling", GrapeSapling::new);
+  public static final DeferredItem<Item> GRAPE_SAPLING_ITEM = registerItemandlist("grape_sapling", 
     () -> new BlockItem(GRAPE_SAPLING.get(), new Item.Properties()));
     
-  public static final RegistryObject<Block> PIPE_COPPER = registerBlockandlist("copper_pipe", PipeCopper::new); 
-  public static final RegistryObject<Item> PIPE_COPPER_ITEM = registerItemandlist("copper_pipe",
+  public static final DeferredBlock<Block> PIPE_COPPER = registerBlockandlist("copper_pipe", PipeCopper::new); 
+  public static final DeferredItem<Item> PIPE_COPPER_ITEM = registerItemandlist("copper_pipe",
     () -> new BlockItem(PIPE_COPPER.get(), new Item.Properties()));
-  public static final RegistryObject<Block> PIPE_GOLD = registerBlockandlist("gold_pipe", PipeGold::new); 
-  public static final RegistryObject<Item> PIPE_GOLD_ITEM = registerItemandlist("gold_pipe",
+  public static final DeferredBlock<Block> PIPE_GOLD = registerBlockandlist("gold_pipe", PipeGold::new); 
+  public static final DeferredItem<Item> PIPE_GOLD_ITEM = registerItemandlist("gold_pipe",
     () -> new BlockItem(PIPE_GOLD.get(), new Item.Properties()));
-  public static final RegistryObject<Block> PIPE_PVC = registerBlockandlist("pvc_pipe", PipePVC::new); 
-  public static final RegistryObject<Item> PIPE_PVC_ITEM = registerItemandlist("pvc_pipe",
+  public static final DeferredBlock<Block> PIPE_PVC = registerBlockandlist("pvc_pipe", PipePVC::new); 
+  public static final DeferredItem<Item> PIPE_PVC_ITEM = registerItemandlist("pvc_pipe",
     () -> new BlockItem(PIPE_PVC.get(), new Item.Properties()));
-  public static final RegistryObject<Block> PUMP = registerBlockandlist("drain_pipe", PumpChemistry::new); 
-  public static final RegistryObject<Item> PUMP_ITEM = registerItemandlist("drain_pipe",
+  public static final DeferredBlock<Block> PUMP = registerBlockandlist("drain_pipe", PumpChemistry::new); 
+  public static final DeferredItem<Item> PUMP_ITEM = registerItemandlist("drain_pipe",
     () -> new BlockItem(PUMP.get(), new Item.Properties()));
     
-  public static final RegistryObject<Block> WILD_ONION = registerExternalConfigBlockandlist("wild_onion", () -> new BushBlock(BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).noCollission().instabreak().sound(SoundType.CROP).offsetType(OffsetType.XZ)));
-  public static final RegistryObject<Item> WILD_ONION_ITEM = registerItemandlist("wild_onion", 
+  public static final DeferredBlock<Block> WILD_ONION = registerExternalConfigBlockandlist("wild_onion", () -> new BushBlock(BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).noCollission().instabreak().sound(SoundType.CROP).offsetType(OffsetType.XZ)));
+  public static final DeferredItem<Item> WILD_ONION_ITEM = registerItemandlist("wild_onion", 
     () -> new ItemNameBlockItem(WILD_ONION.get(), new Item.Properties()));
-  public static final RegistryObject<Block> WILD_RICE = registerExternalConfigBlockandlist("wild_rice", () -> new BushBlock(BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).noCollission().instabreak().sound(SoundType.CROP).offsetType(OffsetType.XZ)));
-  public static final RegistryObject<Item> WILD_RICE_ITEM = registerItemandlist("wild_rice", 
+  public static final DeferredBlock<Block> WILD_RICE = registerExternalConfigBlockandlist("wild_rice", () -> new BushBlock(BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).noCollission().instabreak().sound(SoundType.CROP).offsetType(OffsetType.XZ)));
+  public static final DeferredItem<Item> WILD_RICE_ITEM = registerItemandlist("wild_rice", 
     () -> new ItemNameBlockItem(WILD_RICE.get(), new Item.Properties()));
-  public static final RegistryObject<Block> WILD_SOYBEAN = registerExternalConfigBlockandlist("wild_soybeans", () -> new BushBlock(BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).noCollission().instabreak().sound(SoundType.CROP).offsetType(OffsetType.XZ)));
-  public static final RegistryObject<Item> WILD_SOYBEAN_ITEM = registerItemandlist("wild_soybeans", 
+  public static final DeferredBlock<Block> WILD_SOYBEAN = registerExternalConfigBlockandlist("wild_soybeans", () -> new BushBlock(BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).noCollission().instabreak().sound(SoundType.CROP).offsetType(OffsetType.XZ)));
+  public static final DeferredItem<Item> WILD_SOYBEAN_ITEM = registerItemandlist("wild_soybeans", 
     () -> new ItemNameBlockItem(WILD_SOYBEAN.get(), new Item.Properties()));
-  public static final RegistryObject<Block> WILD_TOMATO = registerExternalConfigBlockandlist("wild_tomato", () -> new BushBlock(BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).noCollission().instabreak().sound(SoundType.CROP).offsetType(OffsetType.XZ)));
-  public static final RegistryObject<Item> WILD_TOMATO_ITEM = registerItemandlist("wild_tomato", 
+  public static final DeferredBlock<Block> WILD_TOMATO = registerExternalConfigBlockandlist("wild_tomato", () -> new BushBlock(BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).noCollission().instabreak().sound(SoundType.CROP).offsetType(OffsetType.XZ)));
+  public static final DeferredItem<Item> WILD_TOMATO_ITEM = registerItemandlist("wild_tomato", 
     () -> new ItemNameBlockItem(WILD_TOMATO.get(), new Item.Properties()));
-  public static final RegistryObject<Block> WILD_CORN = registerExternalConfigBlockandlist("wild_corn", () -> new BushBlock(BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).noCollission().instabreak().sound(SoundType.CROP).offsetType(OffsetType.XZ)));
-  public static final RegistryObject<Item> WILD_CORN_ITEM = registerItemandlist("wild_corn", 
+  public static final DeferredBlock<Block> WILD_CORN = registerExternalConfigBlockandlist("wild_corn", () -> new BushBlock(BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).noCollission().instabreak().sound(SoundType.CROP).offsetType(OffsetType.XZ)));
+  public static final DeferredItem<Item> WILD_CORN_ITEM = registerItemandlist("wild_corn", 
     () -> new ItemNameBlockItem(WILD_CORN.get(), new Item.Properties()));
 
-  public static final RegistryObject<Yunohana> YUNOHANA_WHITE = registerBlockandlist("yunohana_white", Yunohana::new); 
-  public static final RegistryObject<Item> YUNOHANA_WHITE_ITEM = registerItemandlist("yunohana_white",
+  public static final DeferredBlock<Yunohana> YUNOHANA_WHITE = registerBlockandlist("yunohana_white", Yunohana::new); 
+  public static final DeferredItem<Item> YUNOHANA_WHITE_ITEM = registerItemandlist("yunohana_white",
     () -> new BlockItem(YUNOHANA_WHITE.get(), new Item.Properties()));
-  public static final RegistryObject<Yunohana> YUNOHANA_YELLOW = registerBlockandlist("yunohana_yellow", Yunohana::new); 
-  public static final RegistryObject<Item> YUNOHANA_YELLOW_ITEM = registerItemandlist("yunohana_yellow",
+  public static final DeferredBlock<Yunohana> YUNOHANA_YELLOW = registerBlockandlist("yunohana_yellow", Yunohana::new); 
+  public static final DeferredItem<Item> YUNOHANA_YELLOW_ITEM = registerItemandlist("yunohana_yellow",
     () -> new BlockItem(YUNOHANA_YELLOW.get(), new Item.Properties()));
-  public static final RegistryObject<Yunohana> YUNOHANA_RED = registerBlockandlist("yunohana_red", Yunohana::new); 
-  public static final RegistryObject<Item> YUNOHANA_RED_ITEM = registerItemandlist("yunohana_red",
+  public static final DeferredBlock<Yunohana> YUNOHANA_RED = registerBlockandlist("yunohana_red", Yunohana::new); 
+  public static final DeferredItem<Item> YUNOHANA_RED_ITEM = registerItemandlist("yunohana_red",
     () -> new BlockItem(YUNOHANA_RED.get(), new Item.Properties()));
-  public static final RegistryObject<Yunohana> YUNOHANA_SPOTTED = registerBlockandlist("yunohana_spotted", Yunohana::new); 
-  public static final RegistryObject<Item> YUNOHANA_SPOTTED_ITEM = registerItemandlist("yunohana_spotted",
+  public static final DeferredBlock<Yunohana> YUNOHANA_SPOTTED = registerBlockandlist("yunohana_spotted", Yunohana::new); 
+  public static final DeferredItem<Item> YUNOHANA_SPOTTED_ITEM = registerItemandlist("yunohana_spotted",
     () -> new BlockItem(YUNOHANA_SPOTTED.get(), new Item.Properties()));
-  public static final RegistryObject<Yunohana> YUNOHANA_DARK_YELLOW = registerBlockandlist("yunohana_dark_yellow", Yunohana::new); 
-  public static final RegistryObject<Item> YUNOHANA_DARK_YELLOW_ITEM = registerItemandlist("yunohana_dark_yellow",
+  public static final DeferredBlock<Yunohana> YUNOHANA_DARK_YELLOW = registerBlockandlist("yunohana_dark_yellow", Yunohana::new); 
+  public static final DeferredItem<Item> YUNOHANA_DARK_YELLOW_ITEM = registerItemandlist("yunohana_dark_yellow",
     () -> new BlockItem(YUNOHANA_DARK_YELLOW.get(), new Item.Properties()));
-  public static final RegistryObject<Block> ANDON = registerWoodBlockandlist("andon",Andon::new);
-  public static final RegistryObject<Item> ANDON_ITEM = registerItemandlist("andon",
+  public static final DeferredBlock<Block> ANDON = registerWoodBlockandlist("andon",Andon::new);
+  public static final DeferredItem<Item> ANDON_ITEM = registerItemandlist("andon",
     () -> new BlockItem(ANDON.get(), new Item.Properties()));
-  public static final RegistryObject<Block> HOLIDAY_TREE = registerWoodBlockandlist("holiday_tree",HolidayTree::new);
-  public static final RegistryObject<Item> HOLIDAY_TREE_ITEM = registerItemandlist("holiday_tree",
+  public static final DeferredBlock<Block> HOLIDAY_TREE = registerWoodBlockandlist("holiday_tree",HolidayTree::new);
+  public static final DeferredItem<Item> HOLIDAY_TREE_ITEM = registerItemandlist("holiday_tree",
     () -> new BlockItem(HOLIDAY_TREE.get(), new Item.Properties()));
 
-  public static final RegistryObject<Block> URANIUM_GLASS = registerSilktouchBlockandlist("uranium_glass",
+  public static final DeferredBlock<Block> URANIUM_GLASS = registerSilktouchBlockandlist("uranium_glass",
     () -> new GlassLikeBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_LIGHT_GREEN)
                 .strength(0.3F).sound(SoundType.GLASS).lightLevel(state -> 7).noOcclusion()));
-  public static final RegistryObject<Item> URANIUM_GLASS_ITEM = registerItemandlist("uranium_glass",
+  public static final DeferredItem<Item> URANIUM_GLASS_ITEM = registerItemandlist("uranium_glass",
     () -> new BlockItem(URANIUM_GLASS.get(), new Item.Properties()));
-  public static final RegistryObject<Block> LEAD_GLASS = registerSilktouchBlockandlist("lead_glass",
+  public static final DeferredBlock<Block> LEAD_GLASS = registerSilktouchBlockandlist("lead_glass",
     () -> new GlassLikeBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_LIGHT_BLUE)
                 .strength(0.3F).sound(SoundType.GLASS).noOcclusion()));
-  public static final RegistryObject<Item> LEAD_GLASS_ITEM = registerItemandlist("lead_glass",
+  public static final DeferredItem<Item> LEAD_GLASS_ITEM = registerItemandlist("lead_glass",
     () -> new BlockItem(LEAD_GLASS.get(), new Item.Properties()));
-  public static final RegistryObject<Block> CUT_LEAD_GLASS = registerSilktouchBlockandlist("cut_lead_glass",
+  public static final DeferredBlock<Block> CUT_LEAD_GLASS = registerSilktouchBlockandlist("cut_lead_glass",
     () -> new GlassLikeBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_LIGHT_BLUE)
                 .strength(0.3F).sound(SoundType.GLASS).noOcclusion()));
-  public static final RegistryObject<Item> CUT_LEAD_GLASS_ITEM = registerItemandlist("cut_lead_glass",
+  public static final DeferredItem<Item> CUT_LEAD_GLASS_ITEM = registerItemandlist("cut_lead_glass",
     () -> new BlockItem(CUT_LEAD_GLASS.get(), new Item.Properties()));
 
-  public static final RegistryObject<Block> GAS_LAMP = registerStoneBlockandlist("gas_lamp",GasLamp::new);
-  public static final RegistryObject<Item> GAS_LAMP_ITEM = registerItemandlist("gas_lamp",
+  public static final DeferredBlock<Block> GAS_LAMP = registerStoneBlockandlist("gas_lamp",GasLamp::new);
+  public static final DeferredItem<Item> GAS_LAMP_ITEM = registerItemandlist("gas_lamp",
     () -> new BlockItem(GAS_LAMP.get(), new Item.Properties()));
-  public static final RegistryObject<Block> OIL_LAMP = registerStoneBlockandlist("oil_lamp",OilLamp::new);
-  public static final RegistryObject<Item> OIL_LAMP_ITEM = registerItemandlist("oil_lamp",
+  public static final DeferredBlock<Block> OIL_LAMP = registerStoneBlockandlist("oil_lamp",OilLamp::new);
+  public static final DeferredItem<Item> OIL_LAMP_ITEM = registerItemandlist("oil_lamp",
     () -> new BlockItem(OIL_LAMP.get(), new Item.Properties()));
 
-  public static final RegistryObject<Block> LEAD_BLOCK = registerStoneBlockandlist("lead_block",
+  public static final DeferredBlock<Block> LEAD_BLOCK = registerStoneBlockandlist("lead_block",
     () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_GRAY)
                 .strength(4.0F).sound(SoundType.STONE)));
-  public static final RegistryObject<Item> LEAD_BLOCK_ITEM = registerItemandlist("lead_block",
+  public static final DeferredItem<Item> LEAD_BLOCK_ITEM = registerItemandlist("lead_block",
     () -> new BlockItem(LEAD_BLOCK.get(), new Item.Properties()));
-  public static final RegistryObject<Block> REFINED_COPPER_BLOCK = registerStoneBlockandlist("refined_copper_block",
+  public static final DeferredBlock<Block> REFINED_COPPER_BLOCK = registerStoneBlockandlist("refined_copper_block",
     () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_ORANGE)
                 .strength(4.0F).sound(SoundType.COPPER)));
-  public static final RegistryObject<Item> REFINED_COPPER_BLOCK_ITEM = registerItemandlist("refined_copper_block",
+  public static final DeferredItem<Item> REFINED_COPPER_BLOCK_ITEM = registerItemandlist("refined_copper_block",
     () -> new BlockItem(REFINED_COPPER_BLOCK.get(), new Item.Properties()));
-  public static final RegistryObject<Block> ALUMINIUM_BLOCK = registerStoneBlockandlist("aluminium_block",
+  public static final DeferredBlock<Block> ALUMINIUM_BLOCK = registerStoneBlockandlist("aluminium_block",
     () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_LIGHT_GRAY)
                 .strength(4.0F).sound(SoundType.STONE)));
-  public static final RegistryObject<Item> ALUMINIUM_BLOCK_ITEM = registerItemandlist("aluminium_block",
+  public static final DeferredItem<Item> ALUMINIUM_BLOCK_ITEM = registerItemandlist("aluminium_block",
     () -> new BlockItem(ALUMINIUM_BLOCK.get(), new Item.Properties()));
 
-  public static final RegistryObject<Block> GYPSUM = registerStoneBlockandlist("gypsum",
+  public static final DeferredBlock<Block> GYPSUM = registerStoneBlockandlist("gypsum",
     () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_GRAY)
                 .strength(2.0F).sound(SoundType.STONE)));
-  public static final RegistryObject<Item> GYPSUM_ITEM = registerItemandlist("gypsum",
+  public static final DeferredItem<Item> GYPSUM_ITEM = registerItemandlist("gypsum",
     () -> new BlockItem(GYPSUM.get(), new Item.Properties()));
-  public static final RegistryObject<Block> RED_GYPSUM = registerStoneBlockandlist("red_gypsum",
+  public static final DeferredBlock<Block> RED_GYPSUM = registerStoneBlockandlist("red_gypsum",
     () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_RED)
                 .strength(2.0F).sound(SoundType.STONE)));
-  public static final RegistryObject<Item> RED_GYPSUM_ITEM = registerItemandlist("red_gypsum",
+  public static final DeferredItem<Item> RED_GYPSUM_ITEM = registerItemandlist("red_gypsum",
     () -> new BlockItem(RED_GYPSUM.get(), new Item.Properties()));
-  public static final RegistryObject<Block> ORANGE_GYPSUM = registerStoneBlockandlist("orange_gypsum",
+  public static final DeferredBlock<Block> ORANGE_GYPSUM = registerStoneBlockandlist("orange_gypsum",
     () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_ORANGE)
                 .strength(2.0F).sound(SoundType.STONE)));
-  public static final RegistryObject<Item> ORANGE_GYPSUM_ITEM = registerItemandlist("orange_gypsum",
+  public static final DeferredItem<Item> ORANGE_GYPSUM_ITEM = registerItemandlist("orange_gypsum",
     () -> new BlockItem(ORANGE_GYPSUM.get(), new Item.Properties()));
-  public static final RegistryObject<Block> YELLOW_GYPSUM = registerStoneBlockandlist("yellow_gypsum",
+  public static final DeferredBlock<Block> YELLOW_GYPSUM = registerStoneBlockandlist("yellow_gypsum",
     () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_YELLOW)
                 .strength(2.0F).sound(SoundType.STONE)));
-  public static final RegistryObject<Item> YELLOW_GYPSUM_ITEM = registerItemandlist("yellow_gypsum",
+  public static final DeferredItem<Item> YELLOW_GYPSUM_ITEM = registerItemandlist("yellow_gypsum",
     () -> new BlockItem(YELLOW_GYPSUM.get(), new Item.Properties()));
-  public static final RegistryObject<Block> GREEN_GYPSUM = registerStoneBlockandlist("green_gypsum",
+  public static final DeferredBlock<Block> GREEN_GYPSUM = registerStoneBlockandlist("green_gypsum",
     () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_LIGHT_GREEN)
                 .strength(2.0F).sound(SoundType.STONE)));
-  public static final RegistryObject<Item> GREEN_GYPSUM_ITEM = registerItemandlist("green_gypsum",
+  public static final DeferredItem<Item> GREEN_GYPSUM_ITEM = registerItemandlist("green_gypsum",
     () -> new BlockItem(GREEN_GYPSUM.get(), new Item.Properties()));
-  public static final RegistryObject<Block> BLUE_GYPSUM = registerStoneBlockandlist("blue_gypsum",
+  public static final DeferredBlock<Block> BLUE_GYPSUM = registerStoneBlockandlist("blue_gypsum",
     () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_LIGHT_BLUE)
                 .strength(2.0F).sound(SoundType.STONE)));
-  public static final RegistryObject<Item> BLUE_GYPSUM_ITEM = registerItemandlist("blue_gypsum",
+  public static final DeferredItem<Item> BLUE_GYPSUM_ITEM = registerItemandlist("blue_gypsum",
     () -> new BlockItem(BLUE_GYPSUM.get(), new Item.Properties()));
-  public static final RegistryObject<Block> PURPLE_GYPSUM = registerStoneBlockandlist("purple_gypsum",
+  public static final DeferredBlock<Block> PURPLE_GYPSUM = registerStoneBlockandlist("purple_gypsum",
     () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_PURPLE)
                 .strength(2.0F).sound(SoundType.STONE)));
-  public static final RegistryObject<Item> PURPLE_GYPSUM_ITEM = registerItemandlist("purple_gypsum",
+  public static final DeferredItem<Item> PURPLE_GYPSUM_ITEM = registerItemandlist("purple_gypsum",
     () -> new BlockItem(PURPLE_GYPSUM.get(), new Item.Properties()));
 
-  public static final RegistryObject<Block> POLYETHYLENE_BLOCK = registerBlockandlist("polyethylene_block",
+  public static final DeferredBlock<Block> POLYETHYLENE_BLOCK = registerBlockandlist("polyethylene_block",
     () -> new GlassLikeBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BROWN)
                 .strength(0.3F).sound(SoundType.CHERRY_WOOD).noOcclusion()));
-  public static final RegistryObject<Item> POLYETHYLENE_BLOCK_ITEM = registerItemandlist("polyethylene_block",
+  public static final DeferredItem<Item> POLYETHYLENE_BLOCK_ITEM = registerItemandlist("polyethylene_block",
     () -> new BlockItem(POLYETHYLENE_BLOCK.get(), new Item.Properties()));
-  public static final RegistryObject<Block> POLYETHYLENE_PANE = registerBlockandlist("polyethylene_pane",
+  public static final DeferredBlock<Block> POLYETHYLENE_PANE = registerBlockandlist("polyethylene_pane",
     () -> new IronBarsBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BROWN)
                 .strength(0.3F).sound(SoundType.CHERRY_WOOD).noOcclusion()));
-  public static final RegistryObject<Item> POLYETHYLENE_PANE_ITEM = registerItemandlist("polyethylene_pane",
+  public static final DeferredItem<Item> POLYETHYLENE_PANE_ITEM = registerItemandlist("polyethylene_pane",
     () -> new BlockItem(POLYETHYLENE_PANE.get(), new Item.Properties()));
 
-  public static final RegistryObject<Block> PVC_BLOCK = registerBlockandlist("pvc_block",
+  public static final DeferredBlock<Block> PVC_BLOCK = registerBlockandlist("pvc_block",
     () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_GRAY)
                 .strength(0.3F).sound(SoundType.CHERRY_WOOD).noOcclusion()));
-  public static final RegistryObject<Item> PVC_BLOCK_ITEM = registerItemandlist("pvc_block",
+  public static final DeferredItem<Item> PVC_BLOCK_ITEM = registerItemandlist("pvc_block",
     () -> new BlockItem(PVC_BLOCK.get(), new Item.Properties()));
 
-  public static final RegistryObject<Block> PVC_PANE = registerBlockandlist("pvc_pane",
+  public static final DeferredBlock<Block> PVC_PANE = registerBlockandlist("pvc_pane",
     () -> new IronBarsBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_GRAY)
                 .strength(0.3F).sound(SoundType.CHERRY_WOOD).noOcclusion()));
-  public static final RegistryObject<Item> PVC_PANE_ITEM = registerItemandlist("pvc_pane",
+  public static final DeferredItem<Item> PVC_PANE_ITEM = registerItemandlist("pvc_pane",
     () -> new BlockItem(PVC_PANE.get(), new Item.Properties()));
 
-  public static final RegistryObject<Block> RED_PLASTIC = registerBlockandlist("red_plastic",
+  public static final DeferredBlock<Block> RED_PLASTIC = registerBlockandlist("red_plastic",
     () -> new GlassLikeBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_RED)
                 .strength(0.3F).sound(SoundType.CHERRY_WOOD).noOcclusion()));
-  public static final RegistryObject<Item> RED_PLASTIC_ITEM = registerItemandlist("red_plastic",
+  public static final DeferredItem<Item> RED_PLASTIC_ITEM = registerItemandlist("red_plastic",
     () -> new BlockItem(RED_PLASTIC.get(), new Item.Properties()));
-  public static final RegistryObject<Block> ORANGE_PLASTIC = registerBlockandlist("orange_plastic",
+  public static final DeferredBlock<Block> ORANGE_PLASTIC = registerBlockandlist("orange_plastic",
     () -> new GlassLikeBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_ORANGE)
                 .strength(0.3F).sound(SoundType.CHERRY_WOOD).noOcclusion()));
-  public static final RegistryObject<Item> ORANGE_PLASTIC_ITEM = registerItemandlist("orange_plastic",
+  public static final DeferredItem<Item> ORANGE_PLASTIC_ITEM = registerItemandlist("orange_plastic",
     () -> new BlockItem(ORANGE_PLASTIC.get(), new Item.Properties()));
-  public static final RegistryObject<Block> YELLOW_PLASTIC = registerBlockandlist("yellow_plastic",
+  public static final DeferredBlock<Block> YELLOW_PLASTIC = registerBlockandlist("yellow_plastic",
     () -> new GlassLikeBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_YELLOW)
                 .strength(0.3F).sound(SoundType.CHERRY_WOOD).noOcclusion()));
-  public static final RegistryObject<Item> YELLOW_PLASTIC_ITEM = registerItemandlist("yellow_plastic",
+  public static final DeferredItem<Item> YELLOW_PLASTIC_ITEM = registerItemandlist("yellow_plastic",
     () -> new BlockItem(YELLOW_PLASTIC.get(), new Item.Properties()));
-  public static final RegistryObject<Block> GREEN_PLASTIC = registerBlockandlist("green_plastic",
+  public static final DeferredBlock<Block> GREEN_PLASTIC = registerBlockandlist("green_plastic",
     () -> new GlassLikeBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_GREEN)
                 .strength(0.3F).sound(SoundType.CHERRY_WOOD).noOcclusion()));
-  public static final RegistryObject<Item> GREEN_PLASTIC_ITEM = registerItemandlist("green_plastic",
+  public static final DeferredItem<Item> GREEN_PLASTIC_ITEM = registerItemandlist("green_plastic",
     () -> new BlockItem(GREEN_PLASTIC.get(), new Item.Properties()));
-  public static final RegistryObject<Block> BLUE_PLASTIC = registerBlockandlist("blue_plastic",
+  public static final DeferredBlock<Block> BLUE_PLASTIC = registerBlockandlist("blue_plastic",
     () -> new GlassLikeBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_CYAN)
                 .strength(0.3F).sound(SoundType.CHERRY_WOOD).noOcclusion()));
-  public static final RegistryObject<Item> BLUE_PLASTIC_ITEM = registerItemandlist("blue_plastic",
+  public static final DeferredItem<Item> BLUE_PLASTIC_ITEM = registerItemandlist("blue_plastic",
     () -> new BlockItem(BLUE_PLASTIC.get(), new Item.Properties()));
-  public static final RegistryObject<Block> PURPLE_PLASTIC = registerBlockandlist("purple_plastic",
+  public static final DeferredBlock<Block> PURPLE_PLASTIC = registerBlockandlist("purple_plastic",
     () -> new GlassLikeBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_PURPLE)
                 .strength(0.3F).sound(SoundType.CHERRY_WOOD).noOcclusion()));
-  public static final RegistryObject<Item> PURPLE_PLASTIC_ITEM = registerItemandlist("purple_plastic",
+  public static final DeferredItem<Item> PURPLE_PLASTIC_ITEM = registerItemandlist("purple_plastic",
     () -> new BlockItem(PURPLE_PLASTIC.get(), new Item.Properties()));
 
-  public static final RegistryObject<Block> RED_PLASTIC_TILE = registerBlockandlist("red_plastic_tile",
+  public static final DeferredBlock<Block> RED_PLASTIC_TILE = registerBlockandlist("red_plastic_tile",
     () -> new GlassLikeBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_RED)
                 .strength(0.3F).sound(SoundType.CHERRY_WOOD).noOcclusion()));
-  public static final RegistryObject<Item> RED_PLASTIC_TILE_ITEM = registerItemandlist("red_plastic_tile",
+  public static final DeferredItem<Item> RED_PLASTIC_TILE_ITEM = registerItemandlist("red_plastic_tile",
     () -> new BlockItem(RED_PLASTIC_TILE.get(), new Item.Properties()));
-  public static final RegistryObject<Block> ORANGE_PLASTIC_TILE = registerBlockandlist("orange_plastic_tile",
+  public static final DeferredBlock<Block> ORANGE_PLASTIC_TILE = registerBlockandlist("orange_plastic_tile",
     () -> new GlassLikeBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_ORANGE)
                 .strength(0.3F).sound(SoundType.CHERRY_WOOD).noOcclusion()));
-  public static final RegistryObject<Item> ORANGE_PLASTIC_TILE_ITEM = registerItemandlist("orange_plastic_tile",
+  public static final DeferredItem<Item> ORANGE_PLASTIC_TILE_ITEM = registerItemandlist("orange_plastic_tile",
     () -> new BlockItem(ORANGE_PLASTIC_TILE.get(), new Item.Properties()));
-  public static final RegistryObject<Block> YELLOW_PLASTIC_TILE = registerBlockandlist("yellow_plastic_tile",
+  public static final DeferredBlock<Block> YELLOW_PLASTIC_TILE = registerBlockandlist("yellow_plastic_tile",
     () -> new GlassLikeBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_YELLOW)
                 .strength(0.3F).sound(SoundType.CHERRY_WOOD).noOcclusion()));
-  public static final RegistryObject<Item> YELLOW_PLASTIC_TILE_ITEM = registerItemandlist("yellow_plastic_tile",
+  public static final DeferredItem<Item> YELLOW_PLASTIC_TILE_ITEM = registerItemandlist("yellow_plastic_tile",
     () -> new BlockItem(YELLOW_PLASTIC_TILE.get(), new Item.Properties()));
-  public static final RegistryObject<Block> GREEN_PLASTIC_TILE = registerBlockandlist("green_plastic_tile",
+  public static final DeferredBlock<Block> GREEN_PLASTIC_TILE = registerBlockandlist("green_plastic_tile",
     () -> new GlassLikeBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_GREEN)
                 .strength(0.3F).sound(SoundType.CHERRY_WOOD).noOcclusion()));
-  public static final RegistryObject<Item> GREEN_PLASTIC_TILE_ITEM = registerItemandlist("green_plastic_tile",
+  public static final DeferredItem<Item> GREEN_PLASTIC_TILE_ITEM = registerItemandlist("green_plastic_tile",
     () -> new BlockItem(GREEN_PLASTIC_TILE.get(), new Item.Properties()));
-  public static final RegistryObject<Block> BLUE_PLASTIC_TILE = registerBlockandlist("blue_plastic_tile",
+  public static final DeferredBlock<Block> BLUE_PLASTIC_TILE = registerBlockandlist("blue_plastic_tile",
     () -> new GlassLikeBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_CYAN)
                 .strength(0.3F).sound(SoundType.CHERRY_WOOD).noOcclusion()));
-  public static final RegistryObject<Item> BLUE_PLASTIC_TILE_ITEM = registerItemandlist("blue_plastic_tile",
+  public static final DeferredItem<Item> BLUE_PLASTIC_TILE_ITEM = registerItemandlist("blue_plastic_tile",
     () -> new BlockItem(BLUE_PLASTIC_TILE.get(), new Item.Properties()));
-  public static final RegistryObject<Block> PURPLE_PLASTIC_TILE = registerBlockandlist("purple_plastic_tile",
+  public static final DeferredBlock<Block> PURPLE_PLASTIC_TILE = registerBlockandlist("purple_plastic_tile",
     () -> new GlassLikeBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_PURPLE)
                 .strength(0.3F).sound(SoundType.CHERRY_WOOD).noOcclusion()));
-  public static final RegistryObject<Item> PURPLE_PLASTIC_TILE_ITEM = registerItemandlist("purple_plastic_tile",
+  public static final DeferredItem<Item> PURPLE_PLASTIC_TILE_ITEM = registerItemandlist("purple_plastic_tile",
     () -> new BlockItem(PURPLE_PLASTIC_TILE.get(), new Item.Properties()));
 
-  public static final RegistryObject<Block> RED_PLASTIC_PANE = registerBlockandlist("red_plastic_pane",
+  public static final DeferredBlock<Block> RED_PLASTIC_PANE = registerBlockandlist("red_plastic_pane",
     () -> new IronBarsBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_RED)
                 .strength(0.3F).sound(SoundType.CHERRY_WOOD).noOcclusion()));
-  public static final RegistryObject<Item> RED_PLASTIC_PANE_ITEM = registerItemandlist("red_plastic_pane",
+  public static final DeferredItem<Item> RED_PLASTIC_PANE_ITEM = registerItemandlist("red_plastic_pane",
     () -> new BlockItem(RED_PLASTIC_PANE.get(), new Item.Properties()));
-  public static final RegistryObject<Block> ORANGE_PLASTIC_PANE = registerBlockandlist("orange_plastic_pane",
+  public static final DeferredBlock<Block> ORANGE_PLASTIC_PANE = registerBlockandlist("orange_plastic_pane",
     () -> new IronBarsBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_ORANGE)
                 .strength(0.3F).sound(SoundType.CHERRY_WOOD).noOcclusion()));
-  public static final RegistryObject<Item> ORANGE_PLASTIC_PANE_ITEM = registerItemandlist("orange_plastic_pane",
+  public static final DeferredItem<Item> ORANGE_PLASTIC_PANE_ITEM = registerItemandlist("orange_plastic_pane",
     () -> new BlockItem(ORANGE_PLASTIC_PANE.get(), new Item.Properties()));
-  public static final RegistryObject<Block> YELLOW_PLASTIC_PANE = registerBlockandlist("yellow_plastic_pane",
+  public static final DeferredBlock<Block> YELLOW_PLASTIC_PANE = registerBlockandlist("yellow_plastic_pane",
     () -> new IronBarsBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_YELLOW)
                 .strength(0.3F).sound(SoundType.CHERRY_WOOD).noOcclusion()));
-  public static final RegistryObject<Item> YELLOW_PLASTIC_PANE_ITEM = registerItemandlist("yellow_plastic_pane",
+  public static final DeferredItem<Item> YELLOW_PLASTIC_PANE_ITEM = registerItemandlist("yellow_plastic_pane",
     () -> new BlockItem(YELLOW_PLASTIC_PANE.get(), new Item.Properties()));
-  public static final RegistryObject<Block> GREEN_PLASTIC_PANE = registerBlockandlist("green_plastic_pane",
+  public static final DeferredBlock<Block> GREEN_PLASTIC_PANE = registerBlockandlist("green_plastic_pane",
     () -> new IronBarsBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_GREEN)
                 .strength(0.3F).sound(SoundType.CHERRY_WOOD).noOcclusion()));
-  public static final RegistryObject<Item> GREEN_PLASTIC_PANE_ITEM = registerItemandlist("green_plastic_pane",
+  public static final DeferredItem<Item> GREEN_PLASTIC_PANE_ITEM = registerItemandlist("green_plastic_pane",
     () -> new BlockItem(GREEN_PLASTIC_PANE.get(), new Item.Properties()));
-  public static final RegistryObject<Block> BLUE_PLASTIC_PANE = registerBlockandlist("blue_plastic_pane",
+  public static final DeferredBlock<Block> BLUE_PLASTIC_PANE = registerBlockandlist("blue_plastic_pane",
     () -> new IronBarsBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_CYAN)
                 .strength(0.3F).sound(SoundType.CHERRY_WOOD).noOcclusion()));
-  public static final RegistryObject<Item> BLUE_PLASTIC_PANE_ITEM = registerItemandlist("blue_plastic_pane",
+  public static final DeferredItem<Item> BLUE_PLASTIC_PANE_ITEM = registerItemandlist("blue_plastic_pane",
     () -> new BlockItem(BLUE_PLASTIC_PANE.get(), new Item.Properties()));
-  public static final RegistryObject<Block> PURPLE_PLASTIC_PANE = registerBlockandlist("purple_plastic_pane",
+  public static final DeferredBlock<Block> PURPLE_PLASTIC_PANE = registerBlockandlist("purple_plastic_pane",
     () -> new IronBarsBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_PURPLE)
                 .strength(0.3F).sound(SoundType.CHERRY_WOOD).noOcclusion()));
-  public static final RegistryObject<Item> PURPLE_PLASTIC_PANE_ITEM = registerItemandlist("purple_plastic_pane",
+  public static final DeferredItem<Item> PURPLE_PLASTIC_PANE_ITEM = registerItemandlist("purple_plastic_pane",
     () -> new BlockItem(PURPLE_PLASTIC_PANE.get(), new Item.Properties()));
 
-  public static final RegistryObject<Block> RED_PLASTIC_TILE_PANE = registerBlockandlist("red_plastic_tile_pane",
+  public static final DeferredBlock<Block> RED_PLASTIC_TILE_PANE = registerBlockandlist("red_plastic_tile_pane",
     () -> new IronBarsBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_RED)
                 .strength(0.3F).sound(SoundType.CHERRY_WOOD).noOcclusion()));
-  public static final RegistryObject<Item> RED_PLASTIC_TILE_PANE_ITEM = registerItemandlist("red_plastic_tile_pane",
+  public static final DeferredItem<Item> RED_PLASTIC_TILE_PANE_ITEM = registerItemandlist("red_plastic_tile_pane",
     () -> new BlockItem(RED_PLASTIC_TILE_PANE.get(), new Item.Properties()));
-  public static final RegistryObject<Block> ORANGE_PLASTIC_TILE_PANE = registerBlockandlist("orange_plastic_tile_pane",
+  public static final DeferredBlock<Block> ORANGE_PLASTIC_TILE_PANE = registerBlockandlist("orange_plastic_tile_pane",
     () -> new IronBarsBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_ORANGE)
                 .strength(0.3F).sound(SoundType.CHERRY_WOOD).noOcclusion()));
-  public static final RegistryObject<Item> ORANGE_PLASTIC_TILE_PANE_ITEM = registerItemandlist("orange_plastic_tile_pane",
+  public static final DeferredItem<Item> ORANGE_PLASTIC_TILE_PANE_ITEM = registerItemandlist("orange_plastic_tile_pane",
     () -> new BlockItem(ORANGE_PLASTIC_TILE_PANE.get(), new Item.Properties()));
-  public static final RegistryObject<Block> YELLOW_PLASTIC_TILE_PANE = registerBlockandlist("yellow_plastic_tile_pane",
+  public static final DeferredBlock<Block> YELLOW_PLASTIC_TILE_PANE = registerBlockandlist("yellow_plastic_tile_pane",
     () -> new IronBarsBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_YELLOW)
                 .strength(0.3F).sound(SoundType.CHERRY_WOOD).noOcclusion()));
-  public static final RegistryObject<Item> YELLOW_PLASTIC_TILE_PANE_ITEM = registerItemandlist("yellow_plastic_tile_pane",
+  public static final DeferredItem<Item> YELLOW_PLASTIC_TILE_PANE_ITEM = registerItemandlist("yellow_plastic_tile_pane",
     () -> new BlockItem(YELLOW_PLASTIC_TILE_PANE.get(), new Item.Properties()));
-  public static final RegistryObject<Block> GREEN_PLASTIC_TILE_PANE = registerBlockandlist("green_plastic_tile_pane",
+  public static final DeferredBlock<Block> GREEN_PLASTIC_TILE_PANE = registerBlockandlist("green_plastic_tile_pane",
     () -> new IronBarsBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_GREEN)
                 .strength(0.3F).sound(SoundType.CHERRY_WOOD).noOcclusion()));
-  public static final RegistryObject<Item> GREEN_PLASTIC_TILE_PANE_ITEM = registerItemandlist("green_plastic_tile_pane",
+  public static final DeferredItem<Item> GREEN_PLASTIC_TILE_PANE_ITEM = registerItemandlist("green_plastic_tile_pane",
     () -> new BlockItem(GREEN_PLASTIC_TILE_PANE.get(), new Item.Properties()));
-  public static final RegistryObject<Block> BLUE_PLASTIC_TILE_PANE = registerBlockandlist("blue_plastic_tile_pane",
+  public static final DeferredBlock<Block> BLUE_PLASTIC_TILE_PANE = registerBlockandlist("blue_plastic_tile_pane",
     () -> new IronBarsBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_CYAN)
                 .strength(0.3F).sound(SoundType.CHERRY_WOOD).noOcclusion()));
-  public static final RegistryObject<Item> BLUE_PLASTIC_TILE_PANE_ITEM = registerItemandlist("blue_plastic_tile_pane",
+  public static final DeferredItem<Item> BLUE_PLASTIC_TILE_PANE_ITEM = registerItemandlist("blue_plastic_tile_pane",
     () -> new BlockItem(BLUE_PLASTIC_TILE_PANE.get(), new Item.Properties()));
-  public static final RegistryObject<Block> PURPLE_PLASTIC_TILE_PANE = registerBlockandlist("purple_plastic_tile_pane",
+  public static final DeferredBlock<Block> PURPLE_PLASTIC_TILE_PANE = registerBlockandlist("purple_plastic_tile_pane",
     () -> new IronBarsBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_PURPLE)
                 .strength(0.3F).sound(SoundType.CHERRY_WOOD).noOcclusion()));
-  public static final RegistryObject<Item> PURPLE_PLASTIC_TILE_PANE_ITEM = registerItemandlist("purple_plastic_tile_pane",
+  public static final DeferredItem<Item> PURPLE_PLASTIC_TILE_PANE_ITEM = registerItemandlist("purple_plastic_tile_pane",
     () -> new BlockItem(PURPLE_PLASTIC_TILE_PANE.get(), new Item.Properties()));
 
-  public static final RegistryObject<Block> WIND_CHIME = registerBlockandlist("wind_chime",
+  public static final DeferredBlock<Block> WIND_CHIME = registerBlockandlist("wind_chime",
     () -> new WindChime());
-  public static final RegistryObject<Item> WIND_CHIME_ITEM = registerItemandlist("wind_chime",
+  public static final DeferredItem<Item> WIND_CHIME_ITEM = registerItemandlist("wind_chime",
     () -> new BlockItem(WIND_CHIME.get(), new Item.Properties()));
 
-  private static RegistryObject<Item> registerItemandlist(String name, Supplier<Item> supplier) {
-    RegistryObject<Item> item = ITEMS.register(name, supplier);
+  private static DeferredItem<Item> registerItemandlist(String name, Supplier<Item> supplier) {
+    DeferredItem<Item> item = ITEMS.register(name, supplier);
     listBlockItems.add(new CreativeTabContent(item));
     return item;
   }
-  private static <T extends Block> RegistryObject<T> registerBlockandlist(String name, Supplier<T> supplier) {
-    RegistryObject<T> block = BLOCKS.register(name, supplier);
+  private static <T extends Block> DeferredBlock<T> registerBlockandlist(String name, Supplier<T> supplier) {
+    DeferredBlock<T> block = BLOCKS.register(name, supplier);
     listBlocks.add(BlockLootType.normal(block));
     return block;
   }
-  private static <T extends Block> RegistryObject<T> registerStoneBlockandlist(String name, Supplier<T> supplier) {
-    RegistryObject<T> block = BLOCKS.register(name, supplier);
+  private static <T extends Block> DeferredBlock<T> registerStoneBlockandlist(String name, Supplier<T> supplier) {
+    DeferredBlock<T> block = BLOCKS.register(name, supplier);
     listBlocks.add(BlockLootType.stone(block));
     return block;
   }
-  private static <T extends Block> RegistryObject<T> registerWoodBlockandlist(String name, Supplier<T> supplier) {
-    RegistryObject<T> block = BLOCKS.register(name, supplier);
+  private static <T extends Block> DeferredBlock<T> registerWoodBlockandlist(String name, Supplier<T> supplier) {
+    DeferredBlock<T> block = BLOCKS.register(name, supplier);
     listBlocks.add(BlockLootType.wood(block));
     return block;
   }
-  private static <T extends Block> RegistryObject<T> registerHoeBlockandlist(String name, Supplier<T> supplier) {
-    RegistryObject<T> block = BLOCKS.register(name, supplier);
+  private static <T extends Block> DeferredBlock<T> registerHoeBlockandlist(String name, Supplier<T> supplier) {
+    DeferredBlock<T> block = BLOCKS.register(name, supplier);
     listBlocks.add(BlockLootType.hoe(block));
     return block;
   }
-  private static <T extends Block> RegistryObject<T> registerMachineBlockandlist(String name, Supplier<T> supplier) {
-    RegistryObject<T> block = BLOCKS.register(name, supplier);
+  private static <T extends Block> DeferredBlock<T> registerMachineBlockandlist(String name, Supplier<T> supplier) {
+    DeferredBlock<T> block = BLOCKS.register(name, supplier);
     listBlocks.add(BlockLootType.machine(block));
     return block;
   }
-  private static <T extends Block> RegistryObject<T> registerBatteryBlockandlist(String name, Supplier<T> supplier) {
-    RegistryObject<T> block = BLOCKS.register(name, supplier);
+  private static <T extends Block> DeferredBlock<T> registerBatteryBlockandlist(String name, Supplier<T> supplier) {
+    DeferredBlock<T> block = BLOCKS.register(name, supplier);
     listBlocks.add(BlockLootType.battery(block));
     return block;
   }
-  private static <T extends Block> RegistryObject<T> registerSilktouchBlockandlist(String name, Supplier<T> supplier) {
-    RegistryObject<T> block = BLOCKS.register(name, supplier);
+  private static <T extends Block> DeferredBlock<T> registerSilktouchBlockandlist(String name, Supplier<T> supplier) {
+    DeferredBlock<T> block = BLOCKS.register(name, supplier);
     listBlocks.add(BlockLootType.silktouch(block));
     return block;
   }
-  private static <T extends Block> RegistryObject<T> registerOreBlockandlist(String name, Supplier<T> supplier,int count, Supplier<RegistryObject<? extends Item>> item, int lev) {
-    RegistryObject<T> block = BLOCKS.register(name, supplier);
+  private static <T extends Block> DeferredBlock<T> registerOreBlockandlist(String name, Supplier<T> supplier,int count, Supplier<DeferredItem<? extends Item>> item, int lev) {
+    DeferredBlock<T> block = BLOCKS.register(name, supplier);
     listBlocks.add(BlockLootType.ore(block, count, item, lev));
     return block;
   }
-  private static <T extends Block> RegistryObject<T> registerPlantBlockandlist(String name, Supplier<T> supplier,int count, Supplier<RegistryObject<? extends Item>> veggies) {
-    RegistryObject<T> block = BLOCKS.register(name, supplier);
+  private static <T extends Block> DeferredBlock<T> registerPlantBlockandlist(String name, Supplier<T> supplier,int count, Supplier<DeferredItem<? extends Item>> veggies) {
+    DeferredBlock<T> block = BLOCKS.register(name, supplier);
     listBlocks.add(BlockLootType.plants(block, count, veggies));
     return block;
   }
-  private static <T extends Block> RegistryObject<T> registerCustomHoeBlockandlist(String name, Supplier<T> supplier) {
-    RegistryObject<T> block = BLOCKS.register(name, supplier);
+  private static <T extends Block> DeferredBlock<T> registerCustomHoeBlockandlist(String name, Supplier<T> supplier) {
+    DeferredBlock<T> block = BLOCKS.register(name, supplier);
     listBlocks.add(BlockLootType.silkhoes(block));
     return block;
   }
-  private static <T extends Block> RegistryObject<T> registerExternalConfigBlockandlist(String name, Supplier<T> supplier) {
-    RegistryObject<T> block = BLOCKS.register(name, supplier);
+  private static <T extends Block> DeferredBlock<T> registerExternalConfigBlockandlist(String name, Supplier<T> supplier) {
+    DeferredBlock<T> block = BLOCKS.register(name, supplier);
     listBlocks.add(BlockLootType.none(block));
     return block;
   }
-  private static <T extends FlowerPotBlock> RegistryObject<T> registerFlowerPot(String name, Supplier<T> supplier) {
-    RegistryObject<T> block = BLOCKS.register(name, supplier);
+  private static <T extends FlowerPotBlock> DeferredBlock<T> registerFlowerPot(String name, Supplier<T> supplier) {
+    DeferredBlock<T> block = BLOCKS.register(name, supplier);
     listFlowerPots.add(block);
     return block;
   }

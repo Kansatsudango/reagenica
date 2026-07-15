@@ -14,8 +14,8 @@ import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.material.Fluid;
-import net.minecraftforge.registries.ForgeRegistries;
-import net.minecraftforge.registries.RegistryObject;
+import net.neoforged.neoforge.registries.ForgeRegistries;
+import net.neoforged.neoforge.registries.DeferredHolder;
 
 public class ReagentFluidMap {
   public static final Map<Fluid, Item> fluidItemMap = new HashMap<>();
@@ -24,14 +24,14 @@ public class ReagentFluidMap {
     Fluid fluid = reagent.getRelativeFluid().orElse(null);
     if(fluid==null)return;
     itemFluidMap.put(reagent, fluid);
-    TagKey<Fluid> tag = TagKey.create(Registries.FLUID, reagent.getRelativeFluidTag().orElse(new ResourceLocation("minecraft", "empty")));
+    TagKey<Fluid> tag = TagKey.create(Registries.FLUID, reagent.getRelativeFluidTag().orElse(ResourceLocation.fromNamespaceAndPath("minecraft", "empty")));
     Registry<Fluid> registry = lv.registryAccess().registryOrThrow(Registries.FLUID);
     registry.getTag(tag).ifPresent(named -> named.stream().map(Holder::value).forEach(f -> fluidItemMap.put(f, reagent)));
   }
-  public static void registerAll(List<RegistryObject<? extends Item>> itemlist, Level lv){
+  public static void registerAll(List<DeferredHolder<? extends Item>> itemlist, Level lv){
     itemFluidMap.clear();
     fluidItemMap.clear();
-    for(RegistryObject<? extends Item> itemobj : itemlist){
+    for(DeferredHolder<? extends Item> itemobj : itemlist){
       Item item = itemobj.get();
       if(item instanceof Reagent reagent){
         ReagentFluidMap.register(reagent, lv);

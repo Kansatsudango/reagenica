@@ -7,8 +7,8 @@ import kandango.reagenica.block.entity.util.FluidItemConverter;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.RecipeType;
-import net.minecraftforge.common.ForgeHooks;
-import net.minecraftforge.fluids.FluidStack;
+import net.neoforged.neoforge.common.ForgeHooks;
+import net.neoforged.neoforge.fluids.FluidStack;
 
 public class SlotPriorityPredicates {
   public static final Predicate<ItemStack> IsFuel = stack -> ForgeHooks.getBurnTime(stack, RecipeType.SMELTING) != 0;

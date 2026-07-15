@@ -8,19 +8,20 @@ import kandango.reagenica.enchantment.LastStandEnchantment;
 import kandango.reagenica.enchantment.VeinMinerEnchantment;
 import kandango.reagenica.family.ChemiArmorMaterials;
 import kandango.reagenica.family.ChemiToolTiers;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.DiggerItem;
 import net.minecraft.world.item.HoeItem;
 import net.minecraft.world.item.SwordItem;
 import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.item.enchantment.EnchantmentCategory;
-import net.minecraftforge.registries.DeferredRegister;
-import net.minecraftforge.registries.ForgeRegistries;
-import net.minecraftforge.registries.RegistryObject;
+import net.neoforged.neoforge.registries.DeferredRegister;
+import net.neoforged.neoforge.registries.ForgeRegistries;
+import net.neoforged.neoforge.registries.DeferredHolder;
 
 public class ChemiEnchantments {
   public static final DeferredRegister<Enchantment> ENCHANTMENTS = 
-      DeferredRegister.create(ForgeRegistries.ENCHANTMENTS, ChemistryMod.MODID);
+      DeferredRegister.create(Registries.ENCHANTMENT, ChemistryMod.MODID);
   
   public static final EnchantmentCategory IRIDIUM_DIGGER = 
     EnchantmentCategory.create("iridium_digger_reagenica",
@@ -38,16 +39,16 @@ public class ChemiEnchantments {
     EnchantmentCategory.create("hoes_reagenica",
       item -> item instanceof HoeItem);
   
-  public static final RegistryObject<Enchantment> BIG_MINING = 
+  public static final DeferredHolder<Enchantment> BIG_MINING = 
       ENCHANTMENTS.register("big_mining",BigMinerEnchantment::new);
-  public static final RegistryObject<Enchantment> CHAIN_MINING = 
+  public static final DeferredHolder<Enchantment> CHAIN_MINING = 
       ENCHANTMENTS.register("chain_mining",VeinMinerEnchantment::new);
-  public static final RegistryObject<Enchantment> ANTI_POISON = 
+  public static final DeferredHolder<Enchantment> ANTI_POISON = 
       ENCHANTMENTS.register("anti_poison",AntiPoisonEnchantment::new);
-  public static final RegistryObject<Enchantment> LAST_STAND = 
+  public static final DeferredHolder<Enchantment> LAST_STAND = 
       ENCHANTMENTS.register("last_stand",LastStandEnchantment::new);
-  public static final RegistryObject<Enchantment> CRYSTALIZED = 
+  public static final DeferredHolder<Enchantment> CRYSTALIZED = 
       ENCHANTMENTS.register("crystalized",CrystalizedEnchantment::new);
-  public static final RegistryObject<Enchantment> GARDENER = 
+  public static final DeferredHolder<Enchantment> GARDENER = 
       ENCHANTMENTS.register("gardener",GardenerEnchantment::new);
 }

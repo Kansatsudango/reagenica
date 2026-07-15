@@ -17,7 +17,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Inventory;
 
 public class DebugGeneratorScreen extends AbstractContainerScreen<DebugGeneratorMenu> {
-    private static final ResourceLocation TEXTURE = new ResourceLocation("reagenica", "textures/gui/container/chemical_fermenter.png");
+    private static final ResourceLocation TEXTURE = ResourceLocation.fromNamespaceAndPath("reagenica", "textures/gui/container/chemical_fermenter.png");
 
     public DebugGeneratorScreen(DebugGeneratorMenu menu, Inventory inv, Component title) {
         super(menu, inv, title);

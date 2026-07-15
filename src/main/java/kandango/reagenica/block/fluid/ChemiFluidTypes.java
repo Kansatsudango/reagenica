@@ -1,9 +1,8 @@
 package kandango.reagenica.block.fluid;
 
 import kandango.reagenica.ChemistryMod;
-import net.minecraftforge.fluids.FluidType;
-import net.minecraftforge.registries.DeferredRegister;
-import net.minecraftforge.registries.ForgeRegistries;
+import net.neoforged.neoforge.fluids.FluidType;
+import net.neoforged.neoforge.registries.DeferredRegister;
 
 public class ChemiFluidTypes {
   public static final DeferredRegister<FluidType> FLUID_TYPES =

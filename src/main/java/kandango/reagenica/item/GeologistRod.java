@@ -15,7 +15,7 @@ import net.minecraft.world.item.Rarity;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraftforge.common.Tags.Blocks;
+import net.neoforged.neoforge.common.Tags.Blocks;
 
 public class GeologistRod extends Item{
   public GeologistRod(){

@@ -19,8 +19,8 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.ShapedRecipe;
 import net.minecraft.world.level.material.Fluid;
-import net.minecraftforge.fluids.FluidStack;
-import net.minecraftforge.registries.ForgeRegistries;
+import net.neoforged.neoforge.fluids.FluidStack;
+import net.neoforged.neoforge.registries.ForgeRegistries;
 
 public class RecipeJsonHelper {
   public static FluidStack fluidStackFromJson(@Nonnull JsonObject json, String name){
@@ -28,7 +28,7 @@ public class RecipeJsonHelper {
     int amount = resultfluidObj.get("amount").getAsInt();
     if(amount==0)return FluidStack.EMPTY;
     String fluidId = resultfluidObj.get("fluid").getAsString();
-    Fluid fluid = ForgeRegistries.FLUIDS.getValue(new ResourceLocation(fluidId));
+    Fluid fluid = ForgeRegistries.FLUIDS.getValue(ResourceLocation.fromNamespaceAndPath(fluidId));
     if (fluid == null) {
       throw new JsonSyntaxException("Invalid fluid id: '" + fluidId + "' in '" + name + "'");
     }
@@ -98,7 +98,7 @@ public class RecipeJsonHelper {
   }
 
   public static FluidStack fluidStackFromFriendlyBuf(@Nonnull FriendlyByteBuf buf){
-    ResourceLocation fluidId = new ResourceLocation(buf.readUtf());
+    ResourceLocation fluidId = ResourceLocation.fromNamespaceAndPath(buf.readUtf());
     int amount = buf.readInt();
     Fluid fluid = ForgeRegistries.FLUIDS.getValue(fluidId);
     return new FluidStack(fluid, amount);

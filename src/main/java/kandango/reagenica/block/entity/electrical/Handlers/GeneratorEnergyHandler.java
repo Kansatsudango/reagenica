@@ -1,7 +1,7 @@
 package kandango.reagenica.block.entity.electrical.Handlers;
 
-import net.minecraftforge.energy.EnergyStorage;
-import net.minecraftforge.energy.IEnergyStorage;
+import net.neoforged.neoforge.energy.EnergyStorage;
+import net.neoforged.neoforge.energy.IEnergyStorage;
 
 public class GeneratorEnergyHandler implements IEnergyStorage{
   private final EnergyStorage storage;

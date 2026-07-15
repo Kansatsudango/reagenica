@@ -17,13 +17,13 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
 
 public class PEMCategory implements IRecipeCategory<PEMRecipe>{
-  public static final ResourceLocation UID = new ResourceLocation("reagenica", "pem");
+  public static final ResourceLocation UID = ResourceLocation.fromNamespaceAndPath("reagenica", "pem");
   public static final RecipeType<PEMRecipe> TYPE = RecipeType.create("reagenica", "pem", PEMRecipe.class);
   private final IDrawable background;
   private final IDrawable icon;
 
   public PEMCategory(IJeiHelpers helpers){
-    this.background = helpers.getGuiHelper().createDrawable(new ResourceLocation("reagenica", "textures/gui/container/pem_device.png"), 0, 0, 176, 82);
+    this.background = helpers.getGuiHelper().createDrawable(ResourceLocation.fromNamespaceAndPath("reagenica", "textures/gui/container/pem_device.png"), 0, 0, 176, 82);
     this.icon = helpers.getGuiHelper().createDrawableIngredient(VanillaTypes.ITEM_STACK, new ItemStack(ChemiBlocks.PEM_DEVICE.get()));
   }
 

@@ -11,7 +11,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Inventory;
 
 public class CookingPotScreen extends AbstractContainerScreen<CookingPotMenu> {
-    private static final ResourceLocation TEXTURE = new ResourceLocation("reagenica", "textures/gui/container/cooking_pot.png");
+    private static final ResourceLocation TEXTURE = ResourceLocation.fromNamespaceAndPath("reagenica", "textures/gui/container/cooking_pot.png");
 
     public CookingPotScreen(CookingPotMenu menu, Inventory inv, Component title) {
         super(menu, inv, title);

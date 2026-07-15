@@ -21,12 +21,12 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
 
 public class AnalyzerCategory implements IRecipeCategory<AnalyzerRecipe>{
-  public static final ResourceLocation UID = new ResourceLocation("reagenica", "analyzer");
+  public static final ResourceLocation UID = ResourceLocation.fromNamespaceAndPath("reagenica", "analyzer");
   private final IDrawable background;
   private final IDrawable icon;
 
   public AnalyzerCategory(IJeiHelpers helpers){
-    this.background = helpers.getGuiHelper().createDrawable(new ResourceLocation("reagenica", "textures/gui/container/analyzer.png"), 0, 0, 176, 85);
+    this.background = helpers.getGuiHelper().createDrawable(ResourceLocation.fromNamespaceAndPath("reagenica", "textures/gui/container/analyzer.png"), 0, 0, 176, 85);
     this.icon = helpers.getGuiHelper().createDrawableIngredient(VanillaTypes.ITEM_STACK, new ItemStack(ChemiBlocks.ANALYZER.get()));
   }
 

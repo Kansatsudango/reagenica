@@ -18,13 +18,13 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
 
 public class MutationConditionCategory implements IRecipeCategory<MutationCondition>{
-  public static final ResourceLocation UID = new ResourceLocation("reagenica", "mutation_condition");
+  public static final ResourceLocation UID = ResourceLocation.fromNamespaceAndPath("reagenica", "mutation_condition");
   public static final RecipeType<MutationCondition> TYPE = RecipeType.create("reagenica", "mutation_condition", MutationCondition.class);
   private final IDrawable background;
   private final IDrawable icon;
 
   public MutationConditionCategory(IJeiHelpers helpers){
-    this.background = helpers.getGuiHelper().createDrawable(new ResourceLocation("reagenica", "textures/gui/container/mutation_jei.png"), 0, 0, 176, 82);
+    this.background = helpers.getGuiHelper().createDrawable(ResourceLocation.fromNamespaceAndPath("reagenica", "textures/gui/container/mutation_jei.png"), 0, 0, 176, 82);
     this.icon = helpers.getGuiHelper().createDrawableIngredient(VanillaTypes.ITEM_STACK, new ItemStack(ChemiBlocks.MUSHROOM_BED.get()));
   }
 

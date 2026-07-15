@@ -7,15 +7,15 @@ import java.util.stream.Stream;
 
 import kandango.reagenica.ChemiItems;
 import net.minecraft.world.item.*;
-import net.minecraftforge.registries.RegistryObject;
+import net.neoforged.neoforge.registries.DeferredHolder;
 
 public class ToolFamily {
   public static final List<ToolFamily> Tools = Collections.synchronizedList(new ArrayList<>());
-  public final RegistryObject<SwordItem> SWORD;
-  public final RegistryObject<PickaxeItem> PICKAXE;
-  public final RegistryObject<AxeItem> AXE;
-  public final RegistryObject<ShovelItem> SHOVEL;
-  public final RegistryObject<HoeItem> HOE;
+  public final DeferredHolder<SwordItem> SWORD;
+  public final DeferredHolder<PickaxeItem> PICKAXE;
+  public final DeferredHolder<AxeItem> AXE;
+  public final DeferredHolder<ShovelItem> SHOVEL;
+  public final DeferredHolder<HoeItem> HOE;
   public final String name;
   public final Tier material;
   public ToolFamily(String name, Tier material, Rarity rarity){
@@ -33,7 +33,7 @@ public class ToolFamily {
       new Item.Properties().rarity(rarity)));
     Tools.add(this); 
   }
-  public Stream<RegistryObject<? extends TieredItem>> toolItems(){
+  public Stream<DeferredHolder<? extends TieredItem>> toolItems(){
     return Stream.of(SWORD, PICKAXE, AXE, SHOVEL, HOE);
   }
 }

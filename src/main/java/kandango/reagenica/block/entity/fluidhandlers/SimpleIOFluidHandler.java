@@ -2,9 +2,9 @@ package kandango.reagenica.block.entity.fluidhandlers;
 
 import javax.annotation.Nonnull;
 
-import net.minecraftforge.fluids.FluidStack;
-import net.minecraftforge.fluids.capability.IFluidHandler;
-import net.minecraftforge.fluids.capability.templates.FluidTank;
+import net.neoforged.neoforge.fluids.FluidStack;
+import net.neoforged.neoforge.fluids.capability.IFluidHandler;
+import net.neoforged.neoforge.fluids.capability.templates.FluidTank;
 
 public class SimpleIOFluidHandler implements IFluidHandler{
   private final FluidTank tankin;

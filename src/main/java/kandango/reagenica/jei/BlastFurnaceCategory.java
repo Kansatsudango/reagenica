@@ -22,11 +22,11 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
 
 public class BlastFurnaceCategory implements IRecipeCategory<BlastFurnaceRecipe>{
-  public static final ResourceLocation UID = new ResourceLocation(ChemistryMod.MODID, "blast_furnace");
+  public static final ResourceLocation UID = ResourceLocation.fromNamespaceAndPath(ChemistryMod.MODID, "blast_furnace");
   private final IDrawable background;
   private final IDrawable icon;
   public BlastFurnaceCategory(IJeiHelpers helpers){
-    this.background = helpers.getGuiHelper().createDrawable(new ResourceLocation(ChemistryMod.MODID, "textures/gui/container/blast_furnace.png"), 0, 0, 176, 80);
+    this.background = helpers.getGuiHelper().createDrawable(ResourceLocation.fromNamespaceAndPath(ChemistryMod.MODID, "textures/gui/container/blast_furnace.png"), 0, 0, 176, 80);
     this.icon = helpers.getGuiHelper().createDrawableIngredient(VanillaTypes.ITEM_STACK, new ItemStack(ChemiBlocks.BLASTFURNACE_BOTTOM.get()));
   }
 
@@ -58,7 +58,7 @@ public class BlastFurnaceCategory implements IRecipeCategory<BlastFurnaceRecipe>
   }
 
   public void draw(@Nonnull BlastFurnaceRecipe recipe, @Nonnull IRecipeSlotsView recipeSlotsView, @Nonnull GuiGraphics guiGraphics, double mouseX, double mouseY) {
-    ResourceLocation TEXTURE = new ResourceLocation("reagenica", "textures/gui/container/blast_furnace.png");
+    ResourceLocation TEXTURE = ResourceLocation.fromNamespaceAndPath("reagenica", "textures/gui/container/blast_furnace.png");
     int temp_min = recipe.getMinTemp()/10;
     int temp_max = recipe.getMaxTemp()/10;
     ClientRenderUtil.renderEnergyInGui(TEXTURE, guiGraphics, 0, 0, temp_max, 1600, 148, 18, 176, 31, 4, 48);

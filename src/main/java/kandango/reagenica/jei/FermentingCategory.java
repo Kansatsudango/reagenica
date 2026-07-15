@@ -21,12 +21,12 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;
 
 public class FermentingCategory implements IRecipeCategory<FermentationRecipe>{
-  public static final ResourceLocation UID = new ResourceLocation("reagenica", "fermentation");
+  public static final ResourceLocation UID = ResourceLocation.fromNamespaceAndPath("reagenica", "fermentation");
   private final IDrawable background;
   private final IDrawable icon;
 
   public FermentingCategory(IJeiHelpers helpers){
-    this.background = helpers.getGuiHelper().createDrawable(new ResourceLocation("reagenica", "textures/gui/container/chemical_fermenter.png"), 0, 0, 176, 82);
+    this.background = helpers.getGuiHelper().createDrawable(ResourceLocation.fromNamespaceAndPath("reagenica", "textures/gui/container/chemical_fermenter.png"), 0, 0, 176, 82);
     this.icon = helpers.getGuiHelper().createDrawableIngredient(VanillaTypes.ITEM_STACK, new ItemStack(ChemiBlocks.CHEMICAL_FERMENTER.get()));
   }
 

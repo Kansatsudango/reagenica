@@ -19,12 +19,12 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
 
 public class ReactorCategory implements IRecipeCategory<ReactorRecipe>{
-  public static final ResourceLocation UID = new ResourceLocation("reagenica", "reactor");
+  public static final ResourceLocation UID = ResourceLocation.fromNamespaceAndPath("reagenica", "reactor");
   private final IDrawable background;
   private final IDrawable icon;
 
   public ReactorCategory(IJeiHelpers helpers){
-    this.background = helpers.getGuiHelper().createDrawable(new ResourceLocation("reagenica", "textures/gui/container/reactor_jei.png"), 0, 0, 176, 120);
+    this.background = helpers.getGuiHelper().createDrawable(ResourceLocation.fromNamespaceAndPath("reagenica", "textures/gui/container/reactor_jei.png"), 0, 0, 176, 120);
     this.icon = helpers.getGuiHelper().createDrawableIngredient(VanillaTypes.ITEM_STACK, new ItemStack(ChemiBlocks.ELECTROLYSIS_DEVICE.get()));
   }
 

@@ -10,8 +10,8 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraft.world.level.Level;
-import net.minecraftforge.common.ForgeHooks;
-import net.minecraftforge.items.ItemStackHandler;
+import net.neoforged.neoforge.common.ForgeHooks;
+import net.neoforged.neoforge.items.ItemStackHandler;
 
 public class ItemStackUtil {
   public static boolean canAddStack(ItemStack origin, ItemStack insert){

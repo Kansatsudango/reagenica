@@ -22,11 +22,11 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 
 public class CookingCategory implements IRecipeCategory<CookingRecipe>{
-  public static final ResourceLocation UID = new ResourceLocation(ChemistryMod.MODID, "blast_furnace");
+  public static final ResourceLocation UID = ResourceLocation.fromNamespaceAndPath(ChemistryMod.MODID, "blast_furnace");
   private final IDrawable background;
   private final IDrawable icon;
   public CookingCategory(IJeiHelpers helpers){
-    this.background = helpers.getGuiHelper().createDrawable(new ResourceLocation(ChemistryMod.MODID, "textures/gui/container/cooking_pot.png"), 0, 0, 176, 80);
+    this.background = helpers.getGuiHelper().createDrawable(ResourceLocation.fromNamespaceAndPath(ChemistryMod.MODID, "textures/gui/container/cooking_pot.png"), 0, 0, 176, 80);
     this.icon = helpers.getGuiHelper().createDrawableIngredient(VanillaTypes.ITEM_STACK, new ItemStack(ChemiBlocks.COOKING_POT.get()));
   }
 

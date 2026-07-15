@@ -3,8 +3,8 @@ package kandango.reagenica.screen;
 import kandango.reagenica.block.entity.TradingStallBlockEntity;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.world.entity.player.Inventory;
-import net.minecraftforge.items.IItemHandler;
-import net.minecraftforge.items.SlotItemHandler;
+import net.neoforged.neoforge.items.IItemHandler;
+import net.neoforged.neoforge.items.SlotItemHandler;
 
 public class TradingStallMenu extends ChemistryMenu<TradingStallBlockEntity> {
   public TradingStallMenu(int id, Inventory inv, FriendlyByteBuf extradata){

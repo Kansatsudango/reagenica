@@ -14,24 +14,24 @@ import net.minecraft.world.level.block.SlabBlock;
 import net.minecraft.world.level.block.StairBlock;
 import net.minecraft.world.level.block.WallBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
-import net.minecraftforge.registries.RegistryObject;
+import net.neoforged.neoforge.registries.DeferredHolder;
 
 public class StoneFamily {
   public static final List<StoneFamily> Stones = Collections.synchronizedList(new ArrayList<>());
-  public final RegistryObject<Block> STONE;
-  public final RegistryObject<StairBlock> STAIRS;
-  public final RegistryObject<SlabBlock> SLAB;
-  public final RegistryObject<WallBlock> WALL;
-  public final RegistryObject<Block> P_STONE;
-  public final RegistryObject<StairBlock> P_STAIRS;
-  public final RegistryObject<SlabBlock> P_SLAB;
-  public final RegistryObject<BlockItem> STONE_ITEM;
-  public final RegistryObject<BlockItem> STAIRS_ITEM;
-  public final RegistryObject<BlockItem> SLAB_ITEM;
-  public final RegistryObject<BlockItem> WALL_ITEM;
-  public final RegistryObject<BlockItem> P_STONE_ITEM;
-  public final RegistryObject<BlockItem> P_STAIRS_ITEM;
-  public final RegistryObject<BlockItem> P_SLAB_ITEM;
+  public final DeferredHolder<Block> STONE;
+  public final DeferredHolder<StairBlock> STAIRS;
+  public final DeferredHolder<SlabBlock> SLAB;
+  public final DeferredHolder<WallBlock> WALL;
+  public final DeferredHolder<Block> P_STONE;
+  public final DeferredHolder<StairBlock> P_STAIRS;
+  public final DeferredHolder<SlabBlock> P_SLAB;
+  public final DeferredHolder<BlockItem> STONE_ITEM;
+  public final DeferredHolder<BlockItem> STAIRS_ITEM;
+  public final DeferredHolder<BlockItem> SLAB_ITEM;
+  public final DeferredHolder<BlockItem> WALL_ITEM;
+  public final DeferredHolder<BlockItem> P_STONE_ITEM;
+  public final DeferredHolder<BlockItem> P_STAIRS_ITEM;
+  public final DeferredHolder<BlockItem> P_SLAB_ITEM;
   public final String name;
   public StoneFamily(String name){
     final BlockBehaviour.Properties props = BlockBehaviour.Properties.copy(Blocks.DIORITE);
@@ -52,10 +52,10 @@ public class StoneFamily {
     this.P_SLAB_ITEM = ChemiBlocks.ITEMS.register("polished_"+name+"_slab", () -> new BlockItem(P_SLAB.get(), new Item.Properties()));
     Stones.add(this);
   }
-  public Stream<RegistryObject<? extends BlockItem>> blockItems(){
+  public Stream<DeferredHolder<? extends BlockItem>> blockItems(){
     return Stream.of(STONE_ITEM, STAIRS_ITEM, SLAB_ITEM, WALL_ITEM, P_STONE_ITEM, P_STAIRS_ITEM, P_SLAB_ITEM);
   }
-  public Stream<RegistryObject<? extends Block>> blocks(){
+  public Stream<DeferredHolder<? extends Block>> blocks(){
     return Stream.of(STONE, STAIRS, SLAB, WALL, P_STONE, P_STAIRS, P_SLAB);
   }
 }

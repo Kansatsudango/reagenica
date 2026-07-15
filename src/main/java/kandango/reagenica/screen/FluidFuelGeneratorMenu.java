@@ -5,9 +5,9 @@ import kandango.reagenica.block.entity.electrical.FluidFuelGeneratorBlockEntity;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.inventory.DataSlot;
-import net.minecraftforge.fluids.FluidStack;
-import net.minecraftforge.items.IItemHandler;
-import net.minecraftforge.items.SlotItemHandler;
+import net.neoforged.neoforge.fluids.FluidStack;
+import net.neoforged.neoforge.items.IItemHandler;
+import net.neoforged.neoforge.items.SlotItemHandler;
 
 public class FluidFuelGeneratorMenu extends ChemistryMenu<FluidFuelGeneratorBlockEntity> {
   public FluidFuelGeneratorMenu(int id, Inventory inv, FriendlyByteBuf extradata){

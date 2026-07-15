@@ -18,12 +18,12 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
 
 public class HeatFurnaceCategory implements IRecipeCategory<HeatFurnaceRecipe>{
-  public static final ResourceLocation UID = new ResourceLocation("reagenica", "heat_furnace");
+  public static final ResourceLocation UID = ResourceLocation.fromNamespaceAndPath("reagenica", "heat_furnace");
   private final IDrawable background;
   private final IDrawable icon;
 
   public HeatFurnaceCategory(IJeiHelpers helpers){
-    this.background = helpers.getGuiHelper().createDrawable(new ResourceLocation("reagenica", "textures/gui/container/heat_furnace.png"), 0, 0, 176, 80);
+    this.background = helpers.getGuiHelper().createDrawable(ResourceLocation.fromNamespaceAndPath("reagenica", "textures/gui/container/heat_furnace.png"), 0, 0, 176, 80);
     this.icon = helpers.getGuiHelper().createDrawableIngredient(VanillaTypes.ITEM_STACK, new ItemStack(ChemiBlocks.HEAT_FURNACE.get()));
   }
 

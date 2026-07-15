@@ -17,15 +17,15 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.material.Fluids;
-import net.minecraftforge.fluids.FluidStack;
+import net.neoforged.neoforge.fluids.FluidStack;
 
 public class FractionalDistillerCategory implements IRecipeCategory<FractionalDistillerRecipe>{
-  public static final ResourceLocation UID = new ResourceLocation("reagenica", "distilling");
+  public static final ResourceLocation UID = ResourceLocation.fromNamespaceAndPath("reagenica", "distilling");
   private final IDrawable background;
   private final IDrawable icon;
 
   public FractionalDistillerCategory(IJeiHelpers helpers){
-    this.background = helpers.getGuiHelper().createDrawable(new ResourceLocation("reagenica", "textures/gui/container/fractional_distiller.png"), 0, 0, 176, 122);
+    this.background = helpers.getGuiHelper().createDrawable(ResourceLocation.fromNamespaceAndPath("reagenica", "textures/gui/container/fractional_distiller.png"), 0, 0, 176, 122);
     this.icon = helpers.getGuiHelper().createDrawableIngredient(VanillaTypes.ITEM_STACK, new ItemStack(ChemiBlocks.FRACTIONAL_DISTILLER_BOTTOM.get()));
   }
 

@@ -29,25 +29,25 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
-import net.minecraftforge.common.capabilities.Capability;
-import net.minecraftforge.common.capabilities.ForgeCapabilities;
-import net.minecraftforge.common.capabilities.ICapabilityProvider;
-import net.minecraftforge.common.util.LazyOptional;
-import net.minecraftforge.items.IItemHandler;
-import net.minecraftforge.items.ItemStackHandler;
-import net.minecraftforge.network.NetworkHooks;
-import net.minecraftforge.registries.RegistryObject;
+import net.neoforged.neoforge.common.capabilities.Capability;
+import net.neoforged.neoforge.common.capabilities.ForgeCapabilities;
+import net.neoforged.neoforge.common.capabilities.ICapabilityProvider;
+import net.neoforged.neoforge.common.util.LazyOptional;
+import net.neoforged.neoforge.items.IItemHandler;
+import net.neoforged.neoforge.items.ItemStackHandler;
+import net.neoforged.neoforge.network.NetworkHooks;
+import net.neoforged.neoforge.registries.DeferredHolder;
 
 public class CommonBag<T extends AbstractContainerMenu> extends Item implements IBagItem{
   public static final String UUIDKey = "BagUUID";
   private static final Predicate<ItemStack> isAllowed = stack -> !stack.is(ChemiTags.Items.BAGS_DENY) && !stack.getCapability(ForgeCapabilities.ITEM_HANDLER).isPresent();
   private final int slotCount;
   private final int inv_start;
-  private final RegistryObject<MenuType<T>> menutype;
+  private final DeferredHolder<MenuType<T>> menutype;
   private final Predicate<ItemStack> filter;
   private final boolean hasSpecialFilter;
 
-  public CommonBag(int slots, int inv_start, RegistryObject<MenuType<T>> type){
+  public CommonBag(int slots, int inv_start, DeferredHolder<MenuType<T>> type){
     super(new Item.Properties().stacksTo(1));
     this.slotCount = slots;
     this.inv_start = inv_start;
@@ -55,7 +55,7 @@ public class CommonBag<T extends AbstractContainerMenu> extends Item implements 
     this.filter = isAllowed;
     this.hasSpecialFilter = false;
   }
-  public CommonBag(int slots, int inv_start, RegistryObject<MenuType<T>> type, Predicate<ItemStack> filter){
+  public CommonBag(int slots, int inv_start, DeferredHolder<MenuType<T>> type, Predicate<ItemStack> filter){
     super(new Item.Properties().stacksTo(1));
     this.slotCount = slots;
     this.inv_start = inv_start;

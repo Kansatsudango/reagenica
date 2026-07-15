@@ -4,7 +4,7 @@ import kandango.reagenica.ChemiItems;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.item.Tier;
 import net.minecraft.world.item.crafting.Ingredient;
-import net.minecraftforge.common.ForgeTier;
+import net.neoforged.neoforge.common.ForgeTier;
 
 public class ChemiToolTiers {
   public static final Tier PLATINUM = new ForgeTier(4, 1600, 10.0f, 4.0f, 12, 

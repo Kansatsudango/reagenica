@@ -12,7 +12,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.FluidTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.level.material.Fluid;
-import net.minecraftforge.common.data.ExistingFileHelper;
+import net.neoforged.neoforge.common.data.ExistingFileHelper;
 
 public class ChemiFluidtagsProvider extends FluidTagsProvider{
 
@@ -22,10 +22,10 @@ public class ChemiFluidtagsProvider extends FluidTagsProvider{
 
   protected void addTags(Provider provider) {
     ChemiFluids.FLUID_SET.forEach(fluid -> addSameNameTag(fluid));
-    addTag(ChemiFluids.ETHYLENE, new ResourceLocation("forge", "ethene"));
+    addTag(ChemiFluids.ETHYLENE, ResourceLocation.fromNamespaceAndPath("forge", "ethene"));
   }
   private void addSameNameTag(ChemiFluidInterface fluid){
-    TagKey<Fluid> tagKey = FluidTags.create(new ResourceLocation("forge", fluid.getName()));
+    TagKey<Fluid> tagKey = FluidTags.create(ResourceLocation.fromNamespaceAndPath("forge", fluid.getName()));
     tag(tagKey).add(fluid.getFluid(), fluid.getFlowingFluid());
   }
   private void addTag(ChemiFluidInterface fluid, ResourceLocation location){

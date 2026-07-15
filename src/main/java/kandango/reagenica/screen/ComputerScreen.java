@@ -24,7 +24,7 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Blocks;
 
 public class ComputerScreen extends AbstractContainerScreen<ComputerMenu> {
-  private static final ResourceLocation TEXTURE = new ResourceLocation("reagenica", "textures/gui/container/computer.png");
+  private static final ResourceLocation TEXTURE = ResourceLocation.fromNamespaceAndPath("reagenica", "textures/gui/container/computer.png");
 
   private ReagenimartCategory currentcat = ReagenimartCategory.BUILDING;
   private final Map<ReagenimartCategory,ItemStack> catItemMap = Map.of(

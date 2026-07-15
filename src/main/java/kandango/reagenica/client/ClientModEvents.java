@@ -13,14 +13,14 @@ import net.minecraft.client.color.item.ItemColors;
 import net.minecraft.client.renderer.BiomeColors;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.FoliageColor;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.api.distmarker.OnlyIn;
-import net.minecraftforge.client.event.RegisterColorHandlersEvent;
-import net.minecraftforge.client.event.RegisterParticleProvidersEvent;
-import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
-import net.minecraftforge.fml.common.Mod.EventBusSubscriber.Bus;
-import net.minecraftforge.registries.RegistryObject;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.neoforged.neoforge.api.distmarker.Dist;
+import net.neoforged.neoforge.api.distmarker.OnlyIn;
+import net.neoforged.neoforge.client.event.RegisterColorHandlersEvent;
+import net.neoforged.neoforge.client.event.RegisterParticleProvidersEvent;
+import net.neoforged.fml.common.Mod.EventBusSubscriber;
+import net.neoforged.fml.common.Mod.EventBusSubscriber.Bus;
+import net.neoforged.neoforge.registries.DeferredHolder;
+import net.neoforged.bus.api.SubscribeEvent;
 
 @EventBusSubscriber(modid = ChemistryMod.MODID, bus = Bus.MOD, value = Dist.CLIENT)
 @OnlyIn(Dist.CLIENT)
@@ -55,11 +55,11 @@ public class ClientModEvents {
   @SubscribeEvent
   public static void registerItemColors(RegisterColorHandlersEvent.Item event) {
     ItemColors colors = event.getItemColors();
-    colors.register(REAGENT_ITEM_COLOR, ChemiItems.listItems.stream().filter(x -> x.get() instanceof LiquidReagent).map(RegistryObject::get).toArray(Item[]::new));
-    colors.register(REAGENT_ITEM_COLOR, ChemiItems.listItems.stream().filter(x -> x.get() instanceof PowderReagent).map(RegistryObject::get).toArray(Item[]::new));
-    colors.register(REAGENT_ITEM_COLOR, ChemiItems.listItems.stream().filter(x -> x.get() instanceof GasReagent).map(RegistryObject::get).toArray(Item[]::new));
-    colors.register(REAGENT_ITEM_COLOR_0, ChemiItems.listItems.stream().filter(x -> x.get() instanceof ReagentPowderIndustrial).map(RegistryObject::get).toArray(Item[]::new));
-    colors.register(BIO_ITEM_COLOR, ChemiItems.listItems.stream().filter(x -> x.get() instanceof BioReagent).filter(x -> x!=ChemiItems.MEDIUM_PLATE).map(RegistryObject::get).toArray(Item[]::new));
+    colors.register(REAGENT_ITEM_COLOR, ChemiItems.listItems.stream().filter(x -> x.get() instanceof LiquidReagent).map(DeferredHolder::get).toArray(Item[]::new));
+    colors.register(REAGENT_ITEM_COLOR, ChemiItems.listItems.stream().filter(x -> x.get() instanceof PowderReagent).map(DeferredHolder::get).toArray(Item[]::new));
+    colors.register(REAGENT_ITEM_COLOR, ChemiItems.listItems.stream().filter(x -> x.get() instanceof GasReagent).map(DeferredHolder::get).toArray(Item[]::new));
+    colors.register(REAGENT_ITEM_COLOR_0, ChemiItems.listItems.stream().filter(x -> x.get() instanceof ReagentPowderIndustrial).map(DeferredHolder::get).toArray(Item[]::new));
+    colors.register(BIO_ITEM_COLOR, ChemiItems.listItems.stream().filter(x -> x.get() instanceof BioReagent).filter(x -> x!=ChemiItems.MEDIUM_PLATE).map(DeferredHolder::get).toArray(Item[]::new));
     event.register(LEAVES_ITEM_COLOR, ChemiBlocks.METASEQUOIA.LEAVES_ITEM.get());
     event.register(LEAVES_ITEM_COLOR, ChemiBlocks.TAXODIUM.LEAVES_ITEM.get());
     event.register(LEAVES_ITEM_COLOR, ChemiBlocks.FICUS.LEAVES_ITEM.get());

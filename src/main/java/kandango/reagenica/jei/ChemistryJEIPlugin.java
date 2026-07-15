@@ -33,7 +33,7 @@ import net.minecraft.world.item.crafting.RecipeManager;
 
 @JeiPlugin
 public class ChemistryJEIPlugin implements IModPlugin{
-  private static final ResourceLocation PLUGIN_ID = new ResourceLocation("reagenica","jei_plugin");
+  private static final ResourceLocation PLUGIN_ID = ResourceLocation.fromNamespaceAndPath("reagenica","jei_plugin");
   private static List<JEIPluginRecipes<? extends Container, ? extends Recipe<?>>> pluginrecipes = List.of(
     new JEIPluginRecipes<>(
       "reagent_mixing",

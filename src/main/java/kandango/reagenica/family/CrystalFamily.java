@@ -16,19 +16,19 @@ import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.level.material.PushReaction;
-import net.minecraftforge.registries.RegistryObject;
+import net.neoforged.neoforge.registries.DeferredHolder;
 
 public class CrystalFamily {
   public static final List<CrystalFamily> Crystals = Collections.synchronizedList(new ArrayList<>());
-  public final RegistryObject<AmethystBlock> BLOCK;
-  public final RegistryObject<Block> BUDDING_BLOCK;
-  public final RegistryObject<AmethystClusterBlock> CRYSTAL;
-  public final RegistryObject<AmethystClusterBlock> CRYSTAL_BUD;
-  public final RegistryObject<BlockItem> BLOCK_ITEM;
-  public final RegistryObject<BlockItem> BUDDING_BLOCK_ITEM;
-  public final RegistryObject<BlockItem> CRYSTAL_ITEM;
-  public final RegistryObject<BlockItem> CRYSTAL_BUD_ITEM;
-  public final RegistryObject<Item> SHARD_ITEM;
+  public final DeferredHolder<AmethystBlock> BLOCK;
+  public final DeferredHolder<Block> BUDDING_BLOCK;
+  public final DeferredHolder<AmethystClusterBlock> CRYSTAL;
+  public final DeferredHolder<AmethystClusterBlock> CRYSTAL_BUD;
+  public final DeferredHolder<BlockItem> BLOCK_ITEM;
+  public final DeferredHolder<BlockItem> BUDDING_BLOCK_ITEM;
+  public final DeferredHolder<BlockItem> CRYSTAL_ITEM;
+  public final DeferredHolder<BlockItem> CRYSTAL_BUD_ITEM;
+  public final DeferredHolder<Item> SHARD_ITEM;
   public final String name;
 
   public CrystalFamily(String name, MapColor color){
@@ -59,10 +59,10 @@ public class CrystalFamily {
     Crystals.add(this);
   }
 
-  public Stream<RegistryObject<? extends Item>> crystalItems(){
+  public Stream<DeferredHolder<? extends Item>> crystalItems(){
     return Stream.of(BLOCK_ITEM, BUDDING_BLOCK_ITEM, CRYSTAL_ITEM, CRYSTAL_BUD_ITEM, SHARD_ITEM);
   }
-  public Stream<RegistryObject<? extends Block>> crystalBlocks(){
+  public Stream<DeferredHolder<? extends Block>> crystalBlocks(){
     return Stream.of(BLOCK, BUDDING_BLOCK, CRYSTAL, CRYSTAL_BUD);
   }
 }

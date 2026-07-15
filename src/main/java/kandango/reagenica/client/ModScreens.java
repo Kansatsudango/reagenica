@@ -6,10 +6,10 @@ import net.minecraft.client.gui.screens.MenuScreens;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Inventory;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.neoforged.neoforge.api.distmarker.Dist;
+import net.neoforged.fml.common.Mod;
+import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
+import net.neoforged.bus.api.SubscribeEvent;
 
 @Mod.EventBusSubscriber(modid = ChemistryMod.MODID, value = Dist.CLIENT, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class ModScreens {
@@ -31,12 +31,12 @@ public class ModScreens {
       MenuScreens.register(ModMenus.HEAT_FURNACE_MENU.get(), HeatFurnaceScreen::new);
       MenuScreens.register(ModMenus.CRUSHER_MENU.get(), CrusherScreen::new);
       MenuScreens.register(ModMenus.ELECTROLYSIS_MENU.get(), ElectroLysisScreen::new);
-      MenuScreens.register(ModMenus.ORE_BAG_MENU.get(), (SimpleBagMenu menu, Inventory inv, Component title) -> new SimpleBagScreen(menu, inv, title, 165, new ResourceLocation("minecraft", "textures/gui/container/shulker_box.png")));
-      MenuScreens.register(ModMenus.CRYSTAL_BAG_MENU.get(), (SimpleBagMenu menu, Inventory inv, Component title) -> new SimpleBagScreen(menu, inv, title, 165, new ResourceLocation("minecraft", "textures/gui/container/shulker_box.png")));
-      MenuScreens.register(ModMenus.FARMING_BAG_MENU.get(), (SimpleBagMenu menu, Inventory inv, Component title) -> new SimpleBagScreen(menu, inv, title, 165, new ResourceLocation("minecraft", "textures/gui/container/shulker_box.png")));
-      MenuScreens.register(ModMenus.NYLON_BAG_MENU.get(), (SimpleBagMenu menu, Inventory inv, Component title) -> new SimpleBagScreen(menu, inv, title, 147, new ResourceLocation("reagenica", "textures/gui/container/nylon_bag.png")));
-      MenuScreens.register(ModMenus.PLATINUM_BAG_MENU.get(), (SimpleBagMenu menu, Inventory inv, Component title) -> new SimpleBagScreen(menu, inv, title, 165, new ResourceLocation("minecraft", "textures/gui/container/shulker_box.png")));
-      MenuScreens.register(ModMenus.IRIDIUM_BAG_MENU.get(), (SimpleBagMenu menu, Inventory inv, Component title) -> new SimpleBagScreen(menu, inv, title, 221, new ResourceLocation("minecraft", "textures/gui/container/generic_54.png")));
+      MenuScreens.register(ModMenus.ORE_BAG_MENU.get(), (SimpleBagMenu menu, Inventory inv, Component title) -> new SimpleBagScreen(menu, inv, title, 165, ResourceLocation.fromNamespaceAndPath("minecraft", "textures/gui/container/shulker_box.png")));
+      MenuScreens.register(ModMenus.CRYSTAL_BAG_MENU.get(), (SimpleBagMenu menu, Inventory inv, Component title) -> new SimpleBagScreen(menu, inv, title, 165, ResourceLocation.fromNamespaceAndPath("minecraft", "textures/gui/container/shulker_box.png")));
+      MenuScreens.register(ModMenus.FARMING_BAG_MENU.get(), (SimpleBagMenu menu, Inventory inv, Component title) -> new SimpleBagScreen(menu, inv, title, 165, ResourceLocation.fromNamespaceAndPath("minecraft", "textures/gui/container/shulker_box.png")));
+      MenuScreens.register(ModMenus.NYLON_BAG_MENU.get(), (SimpleBagMenu menu, Inventory inv, Component title) -> new SimpleBagScreen(menu, inv, title, 147, ResourceLocation.fromNamespaceAndPath("reagenica", "textures/gui/container/nylon_bag.png")));
+      MenuScreens.register(ModMenus.PLATINUM_BAG_MENU.get(), (SimpleBagMenu menu, Inventory inv, Component title) -> new SimpleBagScreen(menu, inv, title, 165, ResourceLocation.fromNamespaceAndPath("minecraft", "textures/gui/container/shulker_box.png")));
+      MenuScreens.register(ModMenus.IRIDIUM_BAG_MENU.get(), (SimpleBagMenu menu, Inventory inv, Component title) -> new SimpleBagScreen(menu, inv, title, 221, ResourceLocation.fromNamespaceAndPath("minecraft", "textures/gui/container/generic_54.png")));
       MenuScreens.register(ModMenus.TRADING_STALL_MENU.get(), TradingStallScreen::new);
       MenuScreens.register(ModMenus.TANK_MENU.get(), TankScreen::new);
       MenuScreens.register(ModMenus.ANALYZER_MENU.get(), AnalyzerScreen::new);

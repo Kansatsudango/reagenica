@@ -1,6 +1,6 @@
 package kandango.reagenica.packet;
 
-import net.minecraftforge.fluids.FluidStack;
+import net.neoforged.neoforge.fluids.FluidStack;
 
 public interface ISingleTankBlock {
   public void receivePacket(FluidStack fluid);

@@ -12,8 +12,8 @@ import kandango.reagenica.screen.slots.SlotPriorityPredicates;
 import kandango.reagenica.screen.slots.SlotPriorityRule;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.material.Fluid;
-import net.minecraftforge.items.IItemHandler;
-import net.minecraftforge.items.ItemStackHandler;
+import net.neoforged.neoforge.items.IItemHandler;
+import net.neoforged.neoforge.items.ItemStackHandler;
 
 public class CommonChemiItemHandler implements IItemHandler{
   private final ItemStackHandler handler;

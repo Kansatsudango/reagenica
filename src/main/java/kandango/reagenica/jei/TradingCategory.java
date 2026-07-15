@@ -18,11 +18,11 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
 
 public class TradingCategory implements IRecipeCategory<StallTradingRecipe>{
-  public static final ResourceLocation UID = new ResourceLocation(ChemistryMod.MODID, "trading");
+  public static final ResourceLocation UID = ResourceLocation.fromNamespaceAndPath(ChemistryMod.MODID, "trading");
   private final IDrawable background;
   private final IDrawable icon;
   public TradingCategory(IJeiHelpers helpers){
-    this.background = helpers.getGuiHelper().createDrawable(new ResourceLocation(ChemistryMod.MODID, "textures/gui/container/stall_jei.png"), 0, 0, 176, 80);
+    this.background = helpers.getGuiHelper().createDrawable(ResourceLocation.fromNamespaceAndPath(ChemistryMod.MODID, "textures/gui/container/stall_jei.png"), 0, 0, 176, 80);
     this.icon = helpers.getGuiHelper().createDrawableIngredient(VanillaTypes.ITEM_STACK, new ItemStack(ChemiBlocks.TRADING_STALL.get()));
   }
 

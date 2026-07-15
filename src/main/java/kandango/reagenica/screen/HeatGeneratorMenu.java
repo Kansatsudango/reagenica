@@ -5,7 +5,7 @@ import kandango.reagenica.block.entity.electrical.HeatGeneratorBlockEntity;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.inventory.DataSlot;
-import net.minecraftforge.fluids.FluidStack;
+import net.neoforged.neoforge.fluids.FluidStack;
 
 public class HeatGeneratorMenu extends ChemistryMenu<HeatGeneratorBlockEntity> {
   public HeatGeneratorMenu(int id, Inventory inv, FriendlyByteBuf extradata){
