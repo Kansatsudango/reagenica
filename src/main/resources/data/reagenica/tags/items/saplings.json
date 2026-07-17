@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "reagenica:metasequoia_sapling",
+    "reagenica:taxodium_sapling",
+    "reagenica:ginkgo_sapling",
+    "reagenica:magnolia_sapling",
+    "reagenica:ficus_sapling"
+  ]
+}
