@@ -2,7 +2,6 @@ package kandango.reagenica.block;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerPlayer;
-import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.MenuProvider;
 import net.minecraft.world.entity.player.Player;
@@ -16,7 +15,7 @@ import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.BlockHitResult;
-import net.neoforged.neoforge.network.NetworkHooks;
+
 
 import javax.annotation.Nonnull;
 
@@ -31,12 +30,11 @@ public class SolarPowerGenerator extends Block implements EntityBlock {
   }
 
   @Override
-  public InteractionResult use(@Nonnull BlockState state, @Nonnull Level level, @Nonnull BlockPos pos,
-                 @Nonnull Player player, @Nonnull InteractionHand hand, @Nonnull BlockHitResult hit) {
+  public InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult hitResult) {
     if (!level.isClientSide) {
       var blockEntity = level.getBlockEntity(pos);
       if (blockEntity instanceof MenuProvider provider) {
-        NetworkHooks.openScreen((ServerPlayer) player, provider, pos);
+        if(player instanceof ServerPlayer sp) sp.openMenu(provider, pos);
       }
     }
     return InteractionResult.SUCCESS;

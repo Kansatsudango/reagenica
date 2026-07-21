@@ -10,6 +10,7 @@ import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.ArmorMaterial;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Rarity;
+import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredItem;
 
 public class ArmorFamily {
@@ -19,8 +20,8 @@ public class ArmorFamily {
   public final DeferredItem<ArmorItem> LEGGINGS;
   public final DeferredItem<ArmorItem> BOOTS;
   public final String name;
-  public final ArmorMaterial material;
-  public ArmorFamily(String name, ArmorMaterial material, Rarity rarity){
+  public final DeferredHolder<ArmorMaterial, ArmorMaterial> material;
+  public ArmorFamily(String name, DeferredHolder<ArmorMaterial, ArmorMaterial> material, Rarity rarity){
     this.name = name;
     this.material = material;
     this.HELMET = ChemiItems.ITEMS.register(name+"_helmet", () -> new ArmorItem(

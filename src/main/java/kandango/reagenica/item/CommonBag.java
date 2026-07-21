@@ -35,7 +35,7 @@ import net.neoforged.neoforge.common.capabilities.ICapabilityProvider;
 import net.neoforged.neoforge.common.util.LazyOptional;
 import net.neoforged.neoforge.items.IItemHandler;
 import net.neoforged.neoforge.items.ItemStackHandler;
-import net.neoforged.neoforge.network.NetworkHooks;
+
 import net.neoforged.neoforge.registries.DeferredHolder;
 
 public class CommonBag<T extends AbstractContainerMenu> extends Item implements IBagItem{

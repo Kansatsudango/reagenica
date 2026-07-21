@@ -3,7 +3,6 @@ package kandango.reagenica.block;
 import javax.annotation.Nonnull;
 
 import net.minecraft.core.BlockPos;
-import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.context.BlockPlaceContext;
@@ -43,8 +42,7 @@ public class Andon extends Block{
   }
 
   @Override
-  public InteractionResult use(@Nonnull BlockState state, @Nonnull Level level, @Nonnull BlockPos pos,
-                 @Nonnull Player player, @Nonnull InteractionHand hand, @Nonnull BlockHitResult hit) {
+  public InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult hitResult) {
     if(!level.isClientSide){
       int light = state.getValue(LIGHT);
       light--;

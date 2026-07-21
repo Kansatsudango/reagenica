@@ -16,19 +16,20 @@ import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.level.material.PushReaction;
-import net.neoforged.neoforge.registries.DeferredHolder;
+import net.neoforged.neoforge.registries.DeferredBlock;
+import net.neoforged.neoforge.registries.DeferredItem;
 
 public class CrystalFamily {
   public static final List<CrystalFamily> Crystals = Collections.synchronizedList(new ArrayList<>());
-  public final DeferredHolder<AmethystBlock> BLOCK;
-  public final DeferredHolder<Block> BUDDING_BLOCK;
-  public final DeferredHolder<AmethystClusterBlock> CRYSTAL;
-  public final DeferredHolder<AmethystClusterBlock> CRYSTAL_BUD;
-  public final DeferredHolder<BlockItem> BLOCK_ITEM;
-  public final DeferredHolder<BlockItem> BUDDING_BLOCK_ITEM;
-  public final DeferredHolder<BlockItem> CRYSTAL_ITEM;
-  public final DeferredHolder<BlockItem> CRYSTAL_BUD_ITEM;
-  public final DeferredHolder<Item> SHARD_ITEM;
+  public final DeferredBlock<AmethystBlock> BLOCK;
+  public final DeferredBlock<Block> BUDDING_BLOCK;
+  public final DeferredBlock<AmethystClusterBlock> CRYSTAL;
+  public final DeferredBlock<AmethystClusterBlock> CRYSTAL_BUD;
+  public final DeferredItem<BlockItem> BLOCK_ITEM;
+  public final DeferredItem<BlockItem> BUDDING_BLOCK_ITEM;
+  public final DeferredItem<BlockItem> CRYSTAL_ITEM;
+  public final DeferredItem<BlockItem> CRYSTAL_BUD_ITEM;
+  public final DeferredItem<Item> SHARD_ITEM;
   public final String name;
 
   public CrystalFamily(String name, MapColor color){
@@ -59,10 +60,10 @@ public class CrystalFamily {
     Crystals.add(this);
   }
 
-  public Stream<DeferredHolder<? extends Item>> crystalItems(){
+  public Stream<DeferredItem<? extends Item>> crystalItems(){
     return Stream.of(BLOCK_ITEM, BUDDING_BLOCK_ITEM, CRYSTAL_ITEM, CRYSTAL_BUD_ITEM, SHARD_ITEM);
   }
-  public Stream<DeferredHolder<? extends Block>> crystalBlocks(){
+  public Stream<DeferredBlock<? extends Block>> crystalBlocks(){
     return Stream.of(BLOCK, BUDDING_BLOCK, CRYSTAL, CRYSTAL_BUD);
   }
 }

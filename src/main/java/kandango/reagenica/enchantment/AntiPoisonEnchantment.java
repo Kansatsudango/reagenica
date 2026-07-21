@@ -49,6 +49,4 @@ public class AntiPoisonEnchantment extends Enchantment{
                   effect.isAmbient(), effect.isVisible(), effect.showIcon());
     }
   }
-
-
 }

@@ -28,7 +28,7 @@ import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.block.state.properties.DirectionProperty;
 import net.minecraft.world.phys.BlockHitResult;
-import net.neoforged.neoforge.network.NetworkHooks;
+
 
 public class BlastFurnaceBottom extends Block implements EntityBlock{
   public static final DirectionProperty FACING = HorizontalDirectionalBlock.FACING;
@@ -55,7 +55,7 @@ public class BlastFurnaceBottom extends Block implements EntityBlock{
         if (!level.isClientSide) {
           var blockEntity = level.getBlockEntity(pos);
           if (blockEntity instanceof MenuProvider provider) {
-            NetworkHooks.openScreen((ServerPlayer) player, provider, pos);
+            if(player instanceof ServerPlayer sp) sp.openMenu(provider, pos);
           }
         }
         return InteractionResult.SUCCESS;

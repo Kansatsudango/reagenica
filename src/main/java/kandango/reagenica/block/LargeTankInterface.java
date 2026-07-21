@@ -16,7 +16,7 @@ import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.BlockHitResult;
-import net.neoforged.neoforge.network.NetworkHooks;
+
 
 import javax.annotation.Nonnull;
 
@@ -30,8 +30,7 @@ public class LargeTankInterface extends Block implements EntityBlock {
   }
 
   @Override
-  public InteractionResult use(@Nonnull BlockState state, @Nonnull Level level, @Nonnull BlockPos pos,
-                 @Nonnull Player player, @Nonnull InteractionHand hand, @Nonnull BlockHitResult hit) {
+  public InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult hitResult) {
     if (!level.isClientSide) {
       BlockEntity blockEntity = level.getBlockEntity(pos);
       if(blockEntity instanceof LargeTankInterfaceBlockEntity ltibe){

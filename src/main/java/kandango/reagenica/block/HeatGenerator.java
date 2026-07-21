@@ -8,7 +8,6 @@ import kandango.reagenica.block.entity.electrical.HeatGeneratorBlockEntity;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerPlayer;
-import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.MenuProvider;
 import net.minecraft.world.entity.player.Player;
@@ -28,7 +27,7 @@ import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.block.state.properties.DirectionProperty;
 import net.minecraft.world.phys.BlockHitResult;
-import net.neoforged.neoforge.network.NetworkHooks;
+
 
 public class HeatGenerator extends Block implements EntityBlock {
   public static final DirectionProperty FACING = HorizontalDirectionalBlock.FACING;
@@ -40,12 +39,11 @@ public class HeatGenerator extends Block implements EntityBlock {
   }
 
   @Override
-  public InteractionResult use(@Nonnull BlockState state, @Nonnull Level level, @Nonnull BlockPos pos,
-                 @Nonnull Player player, @Nonnull InteractionHand hand, @Nonnull BlockHitResult hit) {
+  public InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult hitResult) {
     if (!level.isClientSide) {
       var blockEntity = level.getBlockEntity(pos);
       if (blockEntity instanceof MenuProvider provider) {
-        NetworkHooks.openScreen((ServerPlayer) player, provider, pos);
+        if(player instanceof ServerPlayer sp) sp.openMenu(provider, pos);
       }
     }
     return InteractionResult.SUCCESS;

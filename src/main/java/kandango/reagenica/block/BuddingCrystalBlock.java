@@ -23,7 +23,6 @@ public class BuddingCrystalBlock extends Block{
     this.crystal = crystal;
   }
 
-  @SuppressWarnings("deprecation")
   @Override
   public void randomTick(@Nonnull BlockState state, @Nonnull ServerLevel level, @Nonnull BlockPos pos, @Nonnull RandomSource random) {
     super.randomTick(state, level, pos, random);

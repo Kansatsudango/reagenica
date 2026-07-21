@@ -20,7 +20,7 @@ import net.minecraft.world.level.block.state.properties.DirectionProperty;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import net.neoforged.neoforge.network.NetworkHooks;
+
 
 import java.util.Map;
 
@@ -42,8 +42,7 @@ public class Computer extends Block {
   }
 
   @Override
-  public InteractionResult use(@Nonnull BlockState state, @Nonnull Level level, @Nonnull BlockPos pos,
-                 @Nonnull Player player, @Nonnull InteractionHand hand, @Nonnull BlockHitResult hit) {
+  public InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult hitResult) {
     if (!level.isClientSide) {
       NetworkHooks.openScreen((ServerPlayer) player, new SimpleMenuProvider(
                   (windowId, inventory, plyer) -> new ComputerMenu(windowId, inventory),

@@ -10,8 +10,9 @@ import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionHand;
-import net.minecraft.world.InteractionResult;
+import net.minecraft.world.ItemInteractionResult;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
@@ -41,18 +42,17 @@ public class OfferingAltar extends Block implements EntityBlock {
   }
 
   @Override
-  public InteractionResult use(@Nonnull BlockState state, @Nonnull Level level, @Nonnull BlockPos pos,
-                 @Nonnull Player player, @Nonnull InteractionHand hand, @Nonnull BlockHitResult hit) {
+  public ItemInteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hitResult) {
     if (!level.isClientSide) {
       if(player.getCooldowns().isOnCooldown(player.getItemInHand(hand).getItem())){
-        return InteractionResult.PASS;
+        return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
       }
       BlockEntity be = level.getBlockEntity(pos);
       if(be instanceof OfferingAltarBlockEntity alter){
         alter.onInteract(player, player.getItemInHand(hand));
       }
     }
-    return InteractionResult.SUCCESS;
+    return ItemInteractionResult.SUCCESS;
   }
 
   @Override

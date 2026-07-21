@@ -27,8 +27,6 @@ import net.minecraft.world.level.material.PushReaction;
 import net.minecraft.util.ColorRGBA;
 import net.minecraft.world.effect.MobEffects;
 import net.neoforged.neoforge.registries.DeferredRegister;
-import net.neoforged.neoforge.registries.ForgeRegistries;
-import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredItem;
 
@@ -297,22 +295,22 @@ public class ChemiBlocks {
    }).hasPostProcess((p,q,r)->true).pushReaction(PushReaction.DESTROY);
   private static final BlockBehaviour.Properties mushroom_props = BlockBehaviour.Properties.of().noCollission().randomTicks().instabreak().sound(SoundType.GRASS)
     .hasPostProcess((p,q,r)->true).pushReaction(PushReaction.DESTROY);
-  public static final DeferredBlock<Block> MUSHROOM_RED = registerBlockandlist("bioluminescence_red_mushroom", () -> new MushroomBlock(glowing_mushroom_props.mapColor(MapColor.COLOR_RED), ChemiFeatures.LARGE_MUSHROOM_RED));
+  public static final DeferredBlock<Block> MUSHROOM_RED = registerBlockandlist("bioluminescence_red_mushroom", () -> new MushroomBlock(ChemiFeatures.LARGE_MUSHROOM_RED, glowing_mushroom_props.mapColor(MapColor.COLOR_RED)));
   public static final DeferredItem<Item> MUSHROOM_RED_ITEM = registerItemandlist("bioluminescence_red_mushroom",
     () -> new BlockItem(MUSHROOM_RED.get(), new Item.Properties()));
   public static final DeferredBlock<FlowerPotBlock> POTTED_RED_MUSHROOM = registerFlowerPot("potted_red_mushroom", () -> new FlowerPotBlock(
     () -> (FlowerPotBlock)Blocks.FLOWER_POT, MUSHROOM_RED::get, BlockBehaviour.Properties.ofFullCopy(Blocks.POTTED_DANDELION).lightLevel(state -> 7)));
-  public static final DeferredBlock<Block> MUSHROOM_GREEN = registerBlockandlist("bioluminescence_green_mushroom", () -> new MushroomBlock(glowing_mushroom_props.mapColor(MapColor.COLOR_GREEN), ChemiFeatures.LARGE_MUSHROOM_GREEN));
+  public static final DeferredBlock<Block> MUSHROOM_GREEN = registerBlockandlist("bioluminescence_green_mushroom", () -> new MushroomBlock(ChemiFeatures.LARGE_MUSHROOM_GREEN, glowing_mushroom_props.mapColor(MapColor.COLOR_GREEN)));
   public static final DeferredItem<Item> MUSHROOM_GREEN_ITEM = registerItemandlist("bioluminescence_green_mushroom",
     () -> new BlockItem(MUSHROOM_GREEN.get(), new Item.Properties()));
   public static final DeferredBlock<FlowerPotBlock> POTTED_GREEN_MUSHROOM = registerFlowerPot("potted_green_mushroom", () -> new FlowerPotBlock(
     () -> (FlowerPotBlock)Blocks.FLOWER_POT, MUSHROOM_GREEN::get, BlockBehaviour.Properties.ofFullCopy(Blocks.POTTED_DANDELION).lightLevel(state -> 7)));
-  public static final DeferredBlock<Block> MUSHROOM_BLUE = registerBlockandlist("bioluminescence_blue_mushroom", () -> new MushroomBlock(glowing_mushroom_props.mapColor(MapColor.COLOR_BLUE), ChemiFeatures.LARGE_MUSHROOM_BLUE));
+  public static final DeferredBlock<Block> MUSHROOM_BLUE = registerBlockandlist("bioluminescence_blue_mushroom", () -> new MushroomBlock(ChemiFeatures.LARGE_MUSHROOM_BLUE, glowing_mushroom_props.mapColor(MapColor.COLOR_BLUE)));
   public static final DeferredItem<Item> MUSHROOM_BLUE_ITEM = registerItemandlist("bioluminescence_blue_mushroom",
     () -> new BlockItem(MUSHROOM_BLUE.get(), new Item.Properties()));
   public static final DeferredBlock<FlowerPotBlock> POTTED_BLUE_MUSHROOM = registerFlowerPot("potted_blue_mushroom", () -> new FlowerPotBlock(
     () -> (FlowerPotBlock)Blocks.FLOWER_POT, MUSHROOM_BLUE::get, BlockBehaviour.Properties.ofFullCopy(Blocks.POTTED_DANDELION).lightLevel(state -> 7)));
-  public static final DeferredBlock<Block> MUSHROOM_PURPLE = registerBlockandlist("bioluminescence_purple_mushroom", () -> new MushroomBlock(glowing_mushroom_props, ChemiFeatures.LARGE_MUSHROOM_PURPLE));
+  public static final DeferredBlock<Block> MUSHROOM_PURPLE = registerBlockandlist("bioluminescence_purple_mushroom", () -> new MushroomBlock(ChemiFeatures.LARGE_MUSHROOM_PURPLE, glowing_mushroom_props));
   public static final DeferredItem<Item> MUSHROOM_PURPLE_ITEM = registerItemandlist("bioluminescence_purple_mushroom",
     () -> new BlockItem(MUSHROOM_PURPLE.get(), new Item.Properties()));
   public static final DeferredBlock<FlowerPotBlock> POTTED_PURPLE_MUSHROOM = registerFlowerPot("potted_purple_mushroom", () -> new FlowerPotBlock(
@@ -343,16 +341,16 @@ public class ChemiBlocks {
   public static final DeferredBlock<FlowerPotBlock> POTTED_MATSUTAKE = registerFlowerPot("potted_matsutake", () -> new FlowerPotBlock(
     () -> (FlowerPotBlock)Blocks.FLOWER_POT, TRICHOLOMA_MATSUTAKE::get, BlockBehaviour.Properties.ofFullCopy(Blocks.POTTED_DANDELION)));
 
-  public static final WoodFamily METASEQUOIA = new WoodFamily("metasequoia", () -> new MetasequoiaGrower());
-  public static final WoodFamily TAXODIUM = new WoodFamily("taxodium", () -> new TaxodiumGrower());
-  public static final WoodFamily GINKGO = new WoodFamily("ginkgo", () -> new GinkgoGrower());
-  public static final WoodFamily MAGNOLIA = new WoodFamily("magnolia", () -> new MagnoliaGrower());
-  public static final WoodFamily FICUS = new WoodFamily("ficus", () -> new FicusGrower());
+  public static final WoodFamily METASEQUOIA = new WoodFamily("metasequoia", ReagenicaTreeGrowers.METASEQUOIA);
+  public static final WoodFamily TAXODIUM = new WoodFamily("taxodium", ReagenicaTreeGrowers.TAXODIUM);
+  public static final WoodFamily GINKGO = new WoodFamily("ginkgo", ReagenicaTreeGrowers.GINKGO);
+  public static final WoodFamily MAGNOLIA = new WoodFamily("magnolia", ReagenicaTreeGrowers.MAGNOLIA);
+  public static final WoodFamily FICUS = new WoodFamily("ficus", ReagenicaTreeGrowers.FICUS);
   public static final DeferredBlock<Block> TAXODIUM_ROOT = registerWoodBlockandlist("taxodium_root", () -> new TaxodiumRoot());
   public static final DeferredItem<Item> TAXODIUM_ROOT_ITEM = registerItemandlist("taxodium_root",
     () -> new BlockItem(TAXODIUM_ROOT.get(), new Item.Properties()));
     
-  public static final DeferredBlock<Block> ANCESTOR_ASTERACEAE = registerBlockandlist("ancestor_asteraceae", () -> new FlowerBlock(() -> MobEffects.DIG_SLOWDOWN, 140, BlockBehaviour.Properties.ofFullCopy(Blocks.POPPY)));
+  public static final DeferredBlock<Block> ANCESTOR_ASTERACEAE = registerBlockandlist("ancestor_asteraceae", () -> new FlowerBlock(MobEffects.DIG_SLOWDOWN, 140.0f, BlockBehaviour.Properties.ofFullCopy(Blocks.POPPY)));
   public static final DeferredItem<Item> ANCESTOR_ASTERACEAE_ITEM = registerItemandlist("ancestor_asteraceae",
     () -> new BlockItem(ANCESTOR_ASTERACEAE.get(), new Item.Properties()));
   public static final DeferredBlock<Block> HYDRANGEA = registerBlockandlist("hydrangea", () -> new Hydrangea(BlockBehaviour.Properties.ofFullCopy(Blocks.AZALEA)));
@@ -464,19 +462,19 @@ public class ChemiBlocks {
   public static final DeferredItem<Item> PUMP_ITEM = registerItemandlist("drain_pipe",
     () -> new BlockItem(PUMP.get(), new Item.Properties()));
     
-  public static final DeferredBlock<Block> WILD_ONION = registerExternalConfigBlockandlist("wild_onion", () -> new BushBlock(BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).noCollission().instabreak().sound(SoundType.CROP).offsetType(OffsetType.XZ)));
+  public static final DeferredBlock<Block> WILD_ONION = registerExternalConfigBlockandlist("wild_onion", () -> new WildCrops(BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).noCollission().instabreak().sound(SoundType.CROP).offsetType(OffsetType.XZ)));
   public static final DeferredItem<Item> WILD_ONION_ITEM = registerItemandlist("wild_onion", 
     () -> new ItemNameBlockItem(WILD_ONION.get(), new Item.Properties()));
-  public static final DeferredBlock<Block> WILD_RICE = registerExternalConfigBlockandlist("wild_rice", () -> new BushBlock(BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).noCollission().instabreak().sound(SoundType.CROP).offsetType(OffsetType.XZ)));
+  public static final DeferredBlock<Block> WILD_RICE = registerExternalConfigBlockandlist("wild_rice", () -> new WildCrops(BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).noCollission().instabreak().sound(SoundType.CROP).offsetType(OffsetType.XZ)));
   public static final DeferredItem<Item> WILD_RICE_ITEM = registerItemandlist("wild_rice", 
     () -> new ItemNameBlockItem(WILD_RICE.get(), new Item.Properties()));
-  public static final DeferredBlock<Block> WILD_SOYBEAN = registerExternalConfigBlockandlist("wild_soybeans", () -> new BushBlock(BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).noCollission().instabreak().sound(SoundType.CROP).offsetType(OffsetType.XZ)));
+  public static final DeferredBlock<Block> WILD_SOYBEAN = registerExternalConfigBlockandlist("wild_soybeans", () -> new WildCrops(BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).noCollission().instabreak().sound(SoundType.CROP).offsetType(OffsetType.XZ)));
   public static final DeferredItem<Item> WILD_SOYBEAN_ITEM = registerItemandlist("wild_soybeans", 
     () -> new ItemNameBlockItem(WILD_SOYBEAN.get(), new Item.Properties()));
-  public static final DeferredBlock<Block> WILD_TOMATO = registerExternalConfigBlockandlist("wild_tomato", () -> new BushBlock(BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).noCollission().instabreak().sound(SoundType.CROP).offsetType(OffsetType.XZ)));
+  public static final DeferredBlock<Block> WILD_TOMATO = registerExternalConfigBlockandlist("wild_tomato", () -> new WildCrops(BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).noCollission().instabreak().sound(SoundType.CROP).offsetType(OffsetType.XZ)));
   public static final DeferredItem<Item> WILD_TOMATO_ITEM = registerItemandlist("wild_tomato", 
     () -> new ItemNameBlockItem(WILD_TOMATO.get(), new Item.Properties()));
-  public static final DeferredBlock<Block> WILD_CORN = registerExternalConfigBlockandlist("wild_corn", () -> new BushBlock(BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).noCollission().instabreak().sound(SoundType.CROP).offsetType(OffsetType.XZ)));
+  public static final DeferredBlock<Block> WILD_CORN = registerExternalConfigBlockandlist("wild_corn", () -> new WildCrops(BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).noCollission().instabreak().sound(SoundType.CROP).offsetType(OffsetType.XZ)));
   public static final DeferredItem<Item> WILD_CORN_ITEM = registerItemandlist("wild_corn", 
     () -> new ItemNameBlockItem(WILD_CORN.get(), new Item.Properties()));
 

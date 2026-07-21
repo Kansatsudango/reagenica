@@ -8,7 +8,6 @@ import kandango.reagenica.block.entity.FractionalDistillerBlockEntity;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerPlayer;
-import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.MenuProvider;
 import net.minecraft.world.entity.player.Player;
@@ -25,7 +24,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.DirectionProperty;
 import net.minecraft.world.phys.BlockHitResult;
-import net.neoforged.neoforge.network.NetworkHooks;
+
 
 public class FractionalDistillerBottom extends Block implements EntityBlock{
   public static final DirectionProperty FACING = HorizontalDirectionalBlock.FACING;
@@ -46,18 +45,16 @@ public class FractionalDistillerBottom extends Block implements EntityBlock{
   }
 
   @Override
-    public InteractionResult use(@Nonnull BlockState state, @Nonnull Level level, @Nonnull BlockPos pos,
-                                 @Nonnull Player player, @Nonnull InteractionHand hand, @Nonnull BlockHitResult hit) {
+  public InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult hitResult) {
         if (!level.isClientSide) {
           var blockEntity = level.getBlockEntity(pos);
           if (blockEntity instanceof MenuProvider provider) {
-            NetworkHooks.openScreen((ServerPlayer) player, provider, pos);
+            if(player instanceof ServerPlayer sp) sp.openMenu(provider, pos);
           }
         }
         return InteractionResult.SUCCESS;
   }
 
-  @SuppressWarnings("deprecation")
   @Override
   public void onRemove(@Nonnull BlockState state, @Nonnull Level level, @Nonnull BlockPos pos, @Nonnull BlockState newState, boolean isMoving) {
     if (!state.is(newState.getBlock())) {
@@ -69,7 +66,6 @@ public class FractionalDistillerBottom extends Block implements EntityBlock{
       super.onRemove(state, level, pos, newState, isMoving);
     }
   }
-  @SuppressWarnings("deprecation")
   @Override
   public void onPlace(@Nonnull BlockState state, @Nonnull Level level, @Nonnull BlockPos pos, @Nonnull BlockState oldState, boolean isMoving) {
     super.onPlace(state, level, pos, oldState, isMoving);

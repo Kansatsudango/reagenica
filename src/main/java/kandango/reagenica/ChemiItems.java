@@ -27,6 +27,7 @@ import java.util.function.Supplier;
 import kandango.reagenica.family.ArmorFamily;
 import kandango.reagenica.family.ChemiArmorMaterials;
 import kandango.reagenica.family.ChemiToolTiers;
+import kandango.reagenica.family.ReagenicaArmorMaterials;
 import kandango.reagenica.family.ToolFamily;
 import kandango.reagenica.item.*;
 import kandango.reagenica.item.bioreagent.*;
@@ -327,9 +328,9 @@ public class ChemiItems {
   public static final DeferredItem<Item> FLUIDJAR = registerandlist("fluid_jar", () -> new FluidJar());
   public static final DeferredItem<Item> DEBUG_ROD = registerandlist("debug_rod", () -> new MagicalRod());
 
-  public static final ArmorFamily PLATINUM_ARMOR = new ArmorFamily("platinum", ChemiArmorMaterials.PLATINUM, Rarity.UNCOMMON);
-  public static final ArmorFamily IRIDIUM_ARMOR = new ArmorFamily("iridium", ChemiArmorMaterials.IRIDIUM, Rarity.RARE);
-  public static final ArmorFamily PINK_GOLD_ARMOR = new ArmorFamily("pink_gold", ChemiArmorMaterials.PINK_GOLD, Rarity.COMMON);
+  public static final ArmorFamily PLATINUM_ARMOR = new ArmorFamily("platinum", ReagenicaArmorMaterials.PLATINUM, Rarity.UNCOMMON);
+  public static final ArmorFamily IRIDIUM_ARMOR = new ArmorFamily("iridium", ReagenicaArmorMaterials.IRIDIUM, Rarity.RARE);
+  public static final ArmorFamily PINK_GOLD_ARMOR = new ArmorFamily("pink_gold", ReagenicaArmorMaterials.PINK_GOLD, Rarity.COMMON);
   public static final ToolFamily PLATINUM_TOOLS = new ToolFamily("platinum", ChemiToolTiers.PLATINUM, Rarity.UNCOMMON);
   public static final ToolFamily IRIDIUM_TOOLS = new ToolFamily("iridium", ChemiToolTiers.IRIDIUM, Rarity.RARE);
   public static final ToolFamily PINK_GOLD_TOOLS = new ToolFamily("pink_gold", ChemiToolTiers.PINK_GOLD, Rarity.COMMON);

@@ -4,20 +4,21 @@ import javax.annotation.Nonnull;
 
 import org.jetbrains.annotations.Nullable;
 
+import com.mojang.serialization.MapCodec;
+
 import kandango.reagenica.block.entity.ReactorBlockEntity;
 import kandango.reagenica.block.entity.util.DestroyHelper;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerPlayer;
-import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.MenuProvider;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.BaseEntityBlock;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.EntityBlock;
 import net.minecraft.world.level.block.HorizontalDirectionalBlock;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityTicker;
@@ -29,9 +30,9 @@ import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.block.state.properties.DirectionProperty;
 import net.minecraft.world.phys.BlockHitResult;
-import net.neoforged.neoforge.network.NetworkHooks;
 
-public class Reactor extends Block implements EntityBlock {
+
+public class Reactor extends BaseEntityBlock {
   public static final DirectionProperty FACING = HorizontalDirectionalBlock.FACING;
   public static final BooleanProperty LIT = BlockStateProperties.LIT;
 
@@ -41,12 +42,11 @@ public class Reactor extends Block implements EntityBlock {
   }
 
   @Override
-  public InteractionResult use(@Nonnull BlockState state, @Nonnull Level level, @Nonnull BlockPos pos,
-                 @Nonnull Player player, @Nonnull InteractionHand hand, @Nonnull BlockHitResult hit) {
+  public InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult hitResult) {
     if (!level.isClientSide) {
       var blockEntity = level.getBlockEntity(pos);
       if (blockEntity instanceof MenuProvider provider) {
-        NetworkHooks.openScreen((ServerPlayer) player, provider, pos);
+        if(player instanceof ServerPlayer sp) sp.openMenu(provider, pos);
       }
     }
     return InteractionResult.SUCCESS;
@@ -89,7 +89,6 @@ public class Reactor extends Block implements EntityBlock {
   public <T extends BlockEntity> BlockEntityTicker<T> getTicker(@Nonnull Level level, @Nonnull BlockState state, @Nonnull BlockEntityType<T> type) {
     return BlockUtil.getTicker(level, state, type);
   }
-  @SuppressWarnings("deprecation")
   @Override
   public void onRemove(@Nonnull BlockState state, @Nonnull Level level, @Nonnull BlockPos pos, @Nonnull BlockState newState, boolean isMoving) {
     if(!state.is(newState.getBlock())){
@@ -100,5 +99,11 @@ public class Reactor extends Block implements EntityBlock {
       }
     }
     super.onRemove(state, level, pos, newState, isMoving);
+  }
+
+  @Override
+  protected MapCodec<? extends BaseEntityBlock> codec() {
+    // TODO Auto-generated method stub
+    throw new UnsupportedOperationException("Unimplemented method 'codec'");
   }
 }

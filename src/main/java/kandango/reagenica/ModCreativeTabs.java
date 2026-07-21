@@ -13,17 +13,17 @@ public class ModCreativeTabs {
   public static final DeferredRegister<CreativeModeTab> TABS =
     DeferredRegister.create(Registries.CREATIVE_MODE_TAB, ChemistryMod.MODID);
 
-  public static final DeferredHolder<CreativeModeTab> CHEMISTRY_TAB =
+  public static final DeferredHolder<CreativeModeTab, CreativeModeTab> CHEMISTRY_TAB =
     TABS.register("chemistry", () -> CreativeModeTab.builder()
       .title(Component.translatable("itemGroup.reagenica.chemistry"))
       .icon(() -> new ItemStack(ChemiItems.HYDROCHLORIC_ACID.get()))
       .build());
-  public static final DeferredHolder<CreativeModeTab> PALEO_TAB =
+  public static final DeferredHolder<CreativeModeTab, CreativeModeTab> PALEO_TAB =
     TABS.register("paleo_world", () -> CreativeModeTab.builder()
       .title(Component.translatable("itemGroup.reagenica.paleo"))
       .icon(() -> new ItemStack(ChemiBlocks.METASEQUOIA.LOG.get()))
       .build());
-  public static final DeferredHolder<CreativeModeTab> TOOLS =
+  public static final DeferredHolder<CreativeModeTab, CreativeModeTab> TOOLS =
     TABS.register("tools", () -> CreativeModeTab.builder()
       .title(Component.translatable("itemGroup.reagenica.tools"))
       .icon(() -> new ItemStack(ChemiItems.IRIDIUM_TOOLS.AXE.get()))

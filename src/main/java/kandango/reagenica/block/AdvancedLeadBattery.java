@@ -29,7 +29,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.DirectionProperty;
 import net.minecraft.world.phys.BlockHitResult;
-import net.neoforged.neoforge.network.NetworkHooks;
+
 
 public class AdvancedLeadBattery extends Block implements EntityBlock {
   public static final DirectionProperty FACING = HorizontalDirectionalBlock.FACING;
@@ -40,12 +40,11 @@ public class AdvancedLeadBattery extends Block implements EntityBlock {
   }
 
   @Override
-  public InteractionResult use(@Nonnull BlockState state, @Nonnull Level level, @Nonnull BlockPos pos,
-                 @Nonnull Player player, @Nonnull InteractionHand hand, @Nonnull BlockHitResult hit) {
+  public InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult hitResult) {
     if (!level.isClientSide) {
       var blockEntity = level.getBlockEntity(pos);
       if (blockEntity instanceof MenuProvider provider) {
-        NetworkHooks.openScreen((ServerPlayer) player, provider, pos);
+        if(player instanceof ServerPlayer sp) sp.openMenu(provider, pos);
       }
     }
     return InteractionResult.SUCCESS;
