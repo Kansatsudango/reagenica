@@ -81,8 +81,8 @@ public class HaberBoschScreen extends AbstractContainerScreen<HaberBoschMenu> {
       FluidStack fluid = menu.getNitroInputFluid();
       if (!fluid.isEmpty()) {
         List<Component> tooltip = new ArrayList<>();
-        tooltip.add(Component.translatable(fluid.getTranslationKey()));
-        tooltip.add(Component.literal(fluid.getAmount() + " mB"));
+        tooltipComponents.add(Component.translatable(fluid.getTranslationKey()));
+        tooltipComponents.add(Component.literal(fluid.getAmount() + " mB"));
         graphics.renderTooltip(font, tooltip, Optional.empty(), mouseX, mouseY);
       } else {
         graphics.renderTooltip(font, List.of(Component.literal("Empty")), Optional.empty(), mouseX, mouseY);
@@ -91,8 +91,8 @@ public class HaberBoschScreen extends AbstractContainerScreen<HaberBoschMenu> {
       FluidStack fluid = menu.getHydroInputFluid();
       if (!fluid.isEmpty()) {
         List<Component> tooltip = new ArrayList<>();
-        tooltip.add(Component.translatable(fluid.getTranslationKey()));
-        tooltip.add(Component.literal(fluid.getAmount() + " mB"));
+        tooltipComponents.add(Component.translatable(fluid.getTranslationKey()));
+        tooltipComponents.add(Component.literal(fluid.getAmount() + " mB"));
         graphics.renderTooltip(font, tooltip, Optional.empty(), mouseX, mouseY);
       } else {
         graphics.renderTooltip(font, List.of(Component.literal("Empty")), Optional.empty(), mouseX, mouseY);
@@ -101,8 +101,8 @@ public class HaberBoschScreen extends AbstractContainerScreen<HaberBoschMenu> {
       FluidStack fluid = menu.getOutputFluid();
       if (!fluid.isEmpty()) {
         List<Component> tooltip = new ArrayList<>();
-        tooltip.add(Component.translatable(fluid.getTranslationKey()));
-        tooltip.add(Component.literal(fluid.getAmount() + " mB"));
+        tooltipComponents.add(Component.translatable(fluid.getTranslationKey()));
+        tooltipComponents.add(Component.literal(fluid.getAmount() + " mB"));
         graphics.renderTooltip(font, tooltip, Optional.empty(), mouseX, mouseY);
       } else {
         graphics.renderTooltip(font, List.of(Component.literal("Empty")), Optional.empty(), mouseX, mouseY);

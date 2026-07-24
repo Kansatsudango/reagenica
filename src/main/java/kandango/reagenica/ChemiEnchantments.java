@@ -9,6 +9,8 @@ import kandango.reagenica.enchantment.VeinMinerEnchantment;
 import kandango.reagenica.family.ChemiArmorMaterials;
 import kandango.reagenica.family.ChemiToolTiers;
 import net.minecraft.core.registries.Registries;
+import net.minecraft.resources.ResourceKey;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.DiggerItem;
 import net.minecraft.world.item.HoeItem;
@@ -20,8 +22,6 @@ import net.neoforged.neoforge.registries.ForgeRegistries;
 import net.neoforged.neoforge.registries.DeferredHolder;
 
 public class ChemiEnchantments {
-  public static final DeferredRegister<Enchantment> ENCHANTMENTS = 
-      DeferredRegister.create(Registries.ENCHANTMENT, ChemistryMod.MODID);
   
   public static final EnchantmentCategory IRIDIUM_DIGGER = 
     EnchantmentCategory.create("iridium_digger_reagenica",
@@ -39,16 +39,20 @@ public class ChemiEnchantments {
     EnchantmentCategory.create("hoes_reagenica",
       item -> item instanceof HoeItem);
   
-  public static final DeferredHolder<Enchantment> BIG_MINING = 
-      ENCHANTMENTS.register("big_mining",BigMinerEnchantment::new);
-  public static final DeferredHolder<Enchantment> CHAIN_MINING = 
-      ENCHANTMENTS.register("chain_mining",VeinMinerEnchantment::new);
-  public static final DeferredHolder<Enchantment> ANTI_POISON = 
-      ENCHANTMENTS.register("anti_poison",AntiPoisonEnchantment::new);
-  public static final DeferredHolder<Enchantment> LAST_STAND = 
-      ENCHANTMENTS.register("last_stand",LastStandEnchantment::new);
-  public static final DeferredHolder<Enchantment> CRYSTALIZED = 
-      ENCHANTMENTS.register("crystalized",CrystalizedEnchantment::new);
-  public static final DeferredHolder<Enchantment> GARDENER = 
-      ENCHANTMENTS.register("gardener",GardenerEnchantment::new);
+  public static final ResourceKey<Enchantment> BIG_MINING = 
+      create("big_mining");
+  public static final ResourceKey<Enchantment> CHAIN_MINING = 
+      create("chain_mining");
+  public static final ResourceKey<Enchantment> ANTI_POISON = 
+      create("anti_poison");
+  public static final ResourceKey<Enchantment> LAST_STAND = 
+      create("last_stand");
+  public static final ResourceKey<Enchantment> CRYSTALIZED = 
+      create("crystalized");
+  public static final ResourceKey<Enchantment> GARDENER = 
+      create("gardener");
+
+  private static ResourceKey<Enchantment> create(String id) {
+    return ResourceKey.create(Registries.ENCHANTMENT, ResourceLocation.fromNamespaceAndPath(ChemistryMod.MODID,id));
+  }
 }

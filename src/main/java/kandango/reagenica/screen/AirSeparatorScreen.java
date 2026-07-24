@@ -69,15 +69,15 @@ public class AirSeparatorScreen extends AbstractContainerScreen<AirSeparatorMenu
     if (isMouseOver(mouseX, mouseY, leftPos + 34, topPos + 61, 5, 18)) {
       int energy = menu.getEnergy();
       List<Component> tooltip = new ArrayList<>();
-      tooltip.add(Component.literal("Energy"));
-      tooltip.add(Component.literal(energy + " EU"));
+      tooltipComponents.add(Component.literal("Energy"));
+      tooltipComponents.add(Component.literal(energy + " EU"));
       graphics.renderTooltip(font, tooltip, Optional.empty(), mouseX, mouseY);
     }else if(isMouseOver(mouseX, mouseY, leftPos + 74, topPos + 30, 16, 48)){
       FluidStack fluid = menu.getOxygen();
       if (!fluid.isEmpty()) {
         List<Component> tooltip = new ArrayList<>();
-        tooltip.add(Component.translatable(fluid.getTranslationKey()));
-        tooltip.add(Component.literal(fluid.getAmount() + " mB"));
+        tooltipComponents.add(Component.translatable(fluid.getTranslationKey()));
+        tooltipComponents.add(Component.literal(fluid.getAmount() + " mB"));
         graphics.renderTooltip(font, tooltip, Optional.empty(), mouseX, mouseY);
       } else {
         graphics.renderTooltip(font, List.of(Component.literal("Empty")), Optional.empty(), mouseX, mouseY);
@@ -86,8 +86,8 @@ public class AirSeparatorScreen extends AbstractContainerScreen<AirSeparatorMenu
       FluidStack fluid = menu.getNitrogen();
       if (!fluid.isEmpty()) {
         List<Component> tooltip = new ArrayList<>();
-        tooltip.add(Component.translatable(fluid.getTranslationKey()));
-        tooltip.add(Component.literal(fluid.getAmount() + " mB"));
+        tooltipComponents.add(Component.translatable(fluid.getTranslationKey()));
+        tooltipComponents.add(Component.literal(fluid.getAmount() + " mB"));
         graphics.renderTooltip(font, tooltip, Optional.empty(), mouseX, mouseY);
       } else {
         graphics.renderTooltip(font, List.of(Component.literal("Empty")), Optional.empty(), mouseX, mouseY);

@@ -67,8 +67,8 @@ public class ReactorScreen extends AbstractContainerScreen<ReactorMenu> {
             FluidStack fluid = menu.getFluidMain();
             if (!fluid.isEmpty()) {
                 List<Component> tooltip = new ArrayList<>();
-                tooltip.add(Component.translatable(fluid.getTranslationKey()));
-                tooltip.add(Component.literal(fluid.getAmount() + " mB"));
+                tooltipComponents.add(Component.translatable(fluid.getTranslationKey()));
+                tooltipComponents.add(Component.literal(fluid.getAmount() + " mB"));
 
                 graphics.renderTooltip(font, tooltip, Optional.empty(), mouseX, mouseY);
             } else {
@@ -78,8 +78,8 @@ public class ReactorScreen extends AbstractContainerScreen<ReactorMenu> {
             FluidStack fluid = menu.getFluidHeat();
             if (!fluid.isEmpty()) {
                 List<Component> tooltip = new ArrayList<>();
-                tooltip.add(Component.translatable(fluid.getTranslationKey()));
-                tooltip.add(Component.literal(fluid.getAmount() + " mB"));
+                tooltipComponents.add(Component.translatable(fluid.getTranslationKey()));
+                tooltipComponents.add(Component.literal(fluid.getAmount() + " mB"));
 
                 graphics.renderTooltip(font, tooltip, Optional.empty(), mouseX, mouseY);
             } else {

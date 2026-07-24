@@ -3,8 +3,6 @@ package kandango.reagenica.item.farming;
 import java.util.List;
 
 import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-
 import kandango.reagenica.ChemiBlocks;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
@@ -43,8 +41,8 @@ public class HydrangeaCreator extends Item{
   }
 
   @Override
-  public void appendHoverText(@Nonnull ItemStack stack, @Nullable Level level, @Nonnull List<Component> tooltip, @Nonnull TooltipFlag flag) {
-    super.appendHoverText(stack, level, tooltip, flag);
-    tooltip.add(Component.translatable("tooltip.reagenica.hydrangea_creator").withStyle(ChatFormatting.GREEN));
+  public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltipComponents, TooltipFlag tooltipFlag) {
+    super.appendHoverText(stack, context, tooltipComponents, tooltipFlag);
+    tooltipComponents.add(Component.translatable("tooltip.reagenica.hydrangea_creator").withStyle(ChatFormatting.GREEN));
   }
 }

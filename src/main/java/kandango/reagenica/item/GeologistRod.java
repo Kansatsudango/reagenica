@@ -115,6 +115,6 @@ public class GeologistRod extends Item{
     }
   }
   private boolean isFrame(BlockState state){
-    return state.is(Blocks.OBSIDIAN);
+    return state.is(Blocks.OBSIDIANS);
   }
 }

@@ -20,13 +20,13 @@ public class FluidJar extends Item{
   }
 
   @Override
-  public void appendHoverText(@Nonnull ItemStack stack, @Nullable Level level, @Nonnull List<Component> tooltip, @Nonnull TooltipFlag flag) {
+  public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltipComponents, TooltipFlag tooltipFlag) {
     CompoundTag tag = stack.getTag();
     if (tag != null && tag.contains("Fluid")) {
       FluidStack fluid = FluidStack.loadFluidStackFromNBT(tag.getCompound("Fluid"));
-      tooltip.add(Component.literal(fluid.getAmount() + "mb of " + fluid.getDisplayName().getString()));
+      tooltipComponents.add(Component.literal(fluid.getAmount() + "mb of " + fluid.getDisplayName().getString()));
     } else {
-      tooltip.add(Component.literal("Empty"));
+      tooltipComponents.add(Component.literal("Empty"));
     }
   }
 

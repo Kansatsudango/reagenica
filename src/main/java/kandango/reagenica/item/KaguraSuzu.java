@@ -3,8 +3,6 @@ package kandango.reagenica.item;
 import java.util.List;
 
 import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-
 import kandango.reagenica.ChemiSounds;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
@@ -43,8 +41,8 @@ public class KaguraSuzu extends Item{
   }
   
   @Override
-  public void appendHoverText(@Nonnull ItemStack stack, @Nullable Level level, @Nonnull List<Component> tooltip, @Nonnull TooltipFlag flag) {
-    super.appendHoverText(stack, level, tooltip, flag);
-    tooltip.add(Component.translatable("tooltip.reagenica.kagurasuzu").withStyle(ChatFormatting.GOLD));
+  public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltipComponents, TooltipFlag tooltipFlag) {
+    super.appendHoverText(stack, context, tooltipComponents, tooltipFlag);
+    tooltipComponents.add(Component.translatable("tooltip.reagenica.kagurasuzu").withStyle(ChatFormatting.GOLD));
   }
 }

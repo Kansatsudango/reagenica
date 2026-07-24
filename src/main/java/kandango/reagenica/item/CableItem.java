@@ -2,16 +2,12 @@ package kandango.reagenica.item;
 
 import java.util.List;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-
 import kandango.reagenica.block.CableAbstract;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
-import net.minecraft.world.level.Level;
 
 public class CableItem extends BlockItem{
   private final double resistance;
@@ -24,9 +20,9 @@ public class CableItem extends BlockItem{
   }
   
   @Override
-  public void appendHoverText(@Nonnull ItemStack stack, @Nullable Level level, @Nonnull List<Component> tooltip, @Nonnull TooltipFlag flag) {
-    super.appendHoverText(stack, level, tooltip, flag);
-    tooltip.add(Component.translatable("tooltip.reagenica.resistance", resistance).withStyle(ChatFormatting.GRAY));
-    tooltip.add(Component.translatable("tooltip.reagenica.restriction", restriction).withStyle(ChatFormatting.GRAY));
+  public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltipComponents, TooltipFlag tooltipFlag) {
+    super.appendHoverText(stack, context, tooltipComponents, tooltipFlag);
+    tooltipComponents.add(Component.translatable("tooltip.reagenica.resistance", resistance).withStyle(ChatFormatting.GRAY));
+    tooltipComponents.add(Component.translatable("tooltip.reagenica.restriction", restriction).withStyle(ChatFormatting.GRAY));
   }
 }

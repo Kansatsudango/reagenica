@@ -46,8 +46,8 @@ public class RadioIsotopeGeneratorScreen extends AbstractContainerScreen<RadioIs
         if (isMouseOver(mouseX, mouseY, leftPos+146, topPos+36, 5, 18)) {
             int energy = menu.getEnergy();
             List<Component> tooltip = new ArrayList<>();
-            tooltip.add(Component.literal("Energy"));
-            tooltip.add(Component.literal(energy + " EU"));
+            tooltipComponents.add(Component.literal("Energy"));
+            tooltipComponents.add(Component.literal(energy + " EU"));
 
             graphics.renderTooltip(font, tooltip, Optional.empty(), mouseX, mouseY);
         }

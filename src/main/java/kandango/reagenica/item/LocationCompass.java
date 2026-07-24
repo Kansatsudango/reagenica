@@ -78,12 +78,12 @@ public class LocationCompass extends Item{
   }
 
   @Override
-  public void appendHoverText(@Nonnull ItemStack stack, @Nullable Level level, @Nonnull List<Component> tooltip, @Nonnull TooltipFlag flag) {
-    super.appendHoverText(stack, level, tooltip, flag);
+  public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltipComponents, TooltipFlag tooltipFlag) {
+    super.appendHoverText(stack, context, tooltipComponents, tooltipFlag);
     CompoundTag tag = stack.getTag();
     if(tag==null || !tag.contains(XKey)){
-      tooltip.add(Component.translatable("tooltip.reagenica.compass_lore").withStyle(ChatFormatting.GRAY));
-      tooltip.add(Component.translatable("tooltip.reagenica.compass_lore_warn").withStyle(ChatFormatting.RED));
+      tooltipComponents.add(Component.translatable("tooltip.reagenica.compass_lore").withStyle(ChatFormatting.GRAY));
+      tooltipComponents.add(Component.translatable("tooltip.reagenica.compass_lore_warn").withStyle(ChatFormatting.RED));
     }
   }
 

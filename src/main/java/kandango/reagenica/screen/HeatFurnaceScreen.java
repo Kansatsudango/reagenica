@@ -75,8 +75,8 @@ public class HeatFurnaceScreen extends AbstractContainerScreen<HeatFurnaceMenu> 
             FluidStack fluid = menu.getFluidInput();
             if (!fluid.isEmpty()) {
                 List<Component> tooltip = new ArrayList<>();
-                tooltip.add(Component.translatable(fluid.getTranslationKey()));
-                tooltip.add(Component.literal(fluid.getAmount() + " mB"));
+                tooltipComponents.add(Component.translatable(fluid.getTranslationKey()));
+                tooltipComponents.add(Component.literal(fluid.getAmount() + " mB"));
 
                 graphics.renderTooltip(font, tooltip, Optional.empty(), mouseX, mouseY);
             } else {
@@ -86,8 +86,8 @@ public class HeatFurnaceScreen extends AbstractContainerScreen<HeatFurnaceMenu> 
             FluidStack fluid = menu.getFluidOutput();
             if (!fluid.isEmpty()) {
                 List<Component> tooltip = new ArrayList<>();
-                tooltip.add(Component.translatable(fluid.getTranslationKey()));
-                tooltip.add(Component.literal(fluid.getAmount() + " mB"));
+                tooltipComponents.add(Component.translatable(fluid.getTranslationKey()));
+                tooltipComponents.add(Component.literal(fluid.getAmount() + " mB"));
 
                 graphics.renderTooltip(font, tooltip, Optional.empty(), mouseX, mouseY);
             } else {
@@ -96,8 +96,8 @@ public class HeatFurnaceScreen extends AbstractContainerScreen<HeatFurnaceMenu> 
         }else if (isMouseOver(mouseX, mouseY, leftPos+84, topPos+59, 13, 16)) {
             int energy = menu.getEnergy();
             List<Component> tooltip = new ArrayList<>();
-            tooltip.add(Component.literal("Energy"));
-            tooltip.add(Component.literal(energy + " EU"));
+            tooltipComponents.add(Component.literal("Energy"));
+            tooltipComponents.add(Component.literal(energy + " EU"));
 
             graphics.renderTooltip(font, tooltip, Optional.empty(), mouseX, mouseY);
         }

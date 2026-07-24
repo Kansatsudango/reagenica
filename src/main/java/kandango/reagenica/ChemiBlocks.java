@@ -15,7 +15,6 @@ import kandango.reagenica.family.WoodFamily;
 import kandango.reagenica.generator.BlockLootType;
 import kandango.reagenica.item.CableItem;
 import kandango.reagenica.item.ChemiFoodProperties;
-import kandango.reagenica.item.bioreagent.BioGrowingPlate;
 import kandango.reagenica.worldgen.ChemiFeatures;
 import kandango.reagenica.worldgen.forestry.*;
 import net.minecraft.world.item.*;
@@ -153,7 +152,6 @@ public class ChemiBlocks {
   public static final DeferredItem<Item> ADVANCED_LEAD_BATTERY_ITEM = registerItemandlist("advanced_lead_battery",
     () -> new ElectricBlockItem(ADVANCED_LEAD_BATTERY.get(), new Item.Properties()));
   static{
-    ChemiItems.listCreativeTab.add(new CreativeTabContent(() -> BioGrowingPlate.getPlate("Crude", 0, false)));
     listBlockItems.add(new CreativeTabContent(() -> AdvancedLeadBattery.getItemWithEnergy(LEAD_BATTERY.get(), 400000)));
     listBlockItems.add(new CreativeTabContent(() -> AdvancedLeadBattery.getItemWithEnergy(ADVANCED_LEAD_BATTERY.get(), 3200000)));
 

@@ -47,8 +47,8 @@ public class CrusherScreen extends AbstractContainerScreen<CrusherMenu> {
         if (isMouseOver(mouseX, mouseY, leftPos+148, topPos+59, 3, 16)) {
             int energy = menu.getEnergy();
             List<Component> tooltip = new ArrayList<>();
-            tooltip.add(Component.literal("Energy"));
-            tooltip.add(Component.literal(energy + " EU"));
+            tooltipComponents.add(Component.literal("Energy"));
+            tooltipComponents.add(Component.literal(energy + " EU"));
 
             graphics.renderTooltip(font, tooltip, Optional.empty(), mouseX, mouseY);
         }

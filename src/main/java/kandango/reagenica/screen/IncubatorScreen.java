@@ -44,8 +44,8 @@ public class IncubatorScreen extends AbstractContainerScreen<IncubatorMenu> {
         if (isMouseOver(mouseX, mouseY, leftPos+155, topPos+57, 12, 16)) {
             int energy = menu.getEnergy();
             List<Component> tooltip = new ArrayList<>();
-            tooltip.add(Component.literal("Energy"));
-            tooltip.add(Component.literal(energy + " EU"));
+            tooltipComponents.add(Component.literal("Energy"));
+            tooltipComponents.add(Component.literal(energy + " EU"));
 
             graphics.renderTooltip(font, tooltip, Optional.empty(), mouseX, mouseY);
         }

@@ -77,11 +77,11 @@ public class ExplorerMapKit extends Item{
   }
 
   @Override
-  public void appendHoverText(@Nonnull ItemStack stack, @Nullable Level level, @Nonnull List<Component> tooltip, @Nonnull TooltipFlag flag) {
-    super.appendHoverText(stack, level, tooltip, flag);
-    tooltip.add(Component.translatable("tooltip.reagenica.map_lore").withStyle(ChatFormatting.GRAY));
-    tooltip.add(Component.translatable("tooltip.reagenica.map_lore_2").withStyle(ChatFormatting.GRAY));
-    tooltip.add(Component.translatable("tooltip.reagenica.map_lore_warn").withStyle(ChatFormatting.RED));
+  public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltipComponents, TooltipFlag tooltipFlag) {
+    super.appendHoverText(stack, context, tooltipComponents, tooltipFlag);
+    tooltipComponents.add(Component.translatable("tooltip.reagenica.map_lore").withStyle(ChatFormatting.GRAY));
+    tooltipComponents.add(Component.translatable("tooltip.reagenica.map_lore_2").withStyle(ChatFormatting.GRAY));
+    tooltipComponents.add(Component.translatable("tooltip.reagenica.map_lore_warn").withStyle(ChatFormatting.RED));
   }
 
   public static final Function<ServerPlayer, Optional<BlockPos>> Crater = sp -> {

@@ -73,8 +73,8 @@ public class ChemicalFermenterScreen extends AbstractContainerScreen<ChemicalFer
             FluidStack fluid = menu.getFluid();
             if (!fluid.isEmpty()) {
                 List<Component> tooltip = new ArrayList<>();
-                tooltip.add(Component.translatable(fluid.getTranslationKey()));
-                tooltip.add(Component.literal(fluid.getAmount() + " mB"));
+                tooltipComponents.add(Component.translatable(fluid.getTranslationKey()));
+                tooltipComponents.add(Component.literal(fluid.getAmount() + " mB"));
 
                 graphics.renderTooltip(font, tooltip, Optional.empty(), mouseX, mouseY);
             } else {
@@ -84,8 +84,8 @@ public class ChemicalFermenterScreen extends AbstractContainerScreen<ChemicalFer
             FluidStack fluid = menu.getInputFluid();
             if (!fluid.isEmpty()) {
                 List<Component> tooltip = new ArrayList<>();
-                tooltip.add(Component.translatable(fluid.getTranslationKey()));
-                tooltip.add(Component.literal(fluid.getAmount() + " mB"));
+                tooltipComponents.add(Component.translatable(fluid.getTranslationKey()));
+                tooltipComponents.add(Component.literal(fluid.getAmount() + " mB"));
 
                 graphics.renderTooltip(font, tooltip, Optional.empty(), mouseX, mouseY);
             } else {

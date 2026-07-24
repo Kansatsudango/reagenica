@@ -2,87 +2,41 @@ package kandango.reagenica.item.bioreagent;
 
 import java.util.List;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-
+import kandango.reagenica.ChemiComponents;
 import kandango.reagenica.ChemiItems;
 import kandango.reagenica.utils.ComponentUtil;
 import net.minecraft.ChatFormatting;
-import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
-import net.minecraft.world.level.Level;
 
-public class BioReagent extends Item{
-  private static final String SPEED_KEY = "Efficiency";
-  private static final String STERILE_KEY = "Sterile";
-  protected static final String COLOR_KEY = "Color";
-
-  protected final BioProperties props;
-  public BioReagent(BioProperties prop){
-    super(new Item.Properties().stacksTo(1).durability(320));
-    this.props=prop;
-  }
-  public BioReagent(BioProperties prop, int stackcount){
-    super(new Item.Properties().stacksTo(stackcount));
-    this.props=prop;
-  }
-  public int getColor(ItemStack stack){
-    if(props.color()==0){
-      return getOrDefault(stack, COLOR_KEY, 0xFFFFFFFF);
-    }
-    return props.color();
+public class BioReagent extends BioPlate{
+  public final BioReagentTypes type;
+  public BioReagent(BioReagentTypes type, int color){
+    super(color);
+    this.type=type;
   }
 
-  protected int getOrDefault(ItemStack stack, String key, int def) {
-    CompoundTag tag = stack.getTag();
-    return (tag != null && tag.contains(key)) ? tag.getInt(key) : def;
+  public static void setStats(ItemStack stack, int speed, boolean sterile) {
+    stack.set(ChemiComponents.EFFICIENCY, (byte)speed);
+    stack.set(ChemiComponents.STERILE, sterile);
   }
-
-  public static ItemStack setStats(ItemStack stack, int speed,boolean sterile) {
-    CompoundTag tag = stack.getOrCreateTag();
-    tag.putInt(SPEED_KEY, speed);
-    tag.putBoolean(STERILE_KEY, sterile);
+  public static ItemStack getPlate(ItemStack stack, int speed, boolean sterile) {
+    setStats(stack, speed, sterile);
     return stack;
-  }
-  public static void setColor(ItemStack stack, int color) {
-    CompoundTag tag = stack.getOrCreateTag();
-    tag.putInt(COLOR_KEY, color);
-  }
-  public static int getSpeedOf(ItemStack stack){
-    CompoundTag tag = stack.getTag();
-    return (tag != null && tag.contains(SPEED_KEY)) ? tag.getInt(SPEED_KEY) : 0;
-  }
-  public static boolean isSterileOf(ItemStack stack){
-    CompoundTag tag = stack.getTag();
-    return tag!=null && tag.contains(STERILE_KEY) && tag.getBoolean(STERILE_KEY);
-  }
-  public int getSpeed(ItemStack stack){
-    return getOrDefault(stack, SPEED_KEY, 0);
-  }
-  public boolean isSterile(ItemStack stack){
-    CompoundTag tag = stack.getTag();
-    return tag!=null && tag.contains(STERILE_KEY) && tag.getBoolean(STERILE_KEY);
   }
 
   @Override
-  public void appendHoverText(@Nonnull ItemStack stack, @Nullable Level level, @Nonnull List<Component> tooltip, @Nonnull TooltipFlag flag) {
-    super.appendHoverText(stack, level, tooltip, flag);
-    if(!props.scientific_name().isEmpty())tooltip.add(Component.literal(props.scientific_name()).withStyle(ChatFormatting.ITALIC).withStyle(ChatFormatting.GRAY));
+  public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltipComponents, TooltipFlag tooltipFlag) {
+    super.appendHoverText(stack, context, tooltipComponents, tooltipFlag);
+    tooltipComponents.add(Component.translatable("tooltip.reagenica.scientific."+type.name()).withStyle(ChatFormatting.ITALIC).withStyle(ChatFormatting.GRAY));
     final int speed = getSpeed(stack);
     if(!(stack.getItem() == ChemiItems.CONTAMINATED_PLATE.get())){
       if(speed<30){
-        tooltip.add(Component.literal("Efficiency: " + speed).withStyle(ChatFormatting.GRAY));
+        tooltipComponents.add(Component.literal("Efficiency: " + speed).withStyle(ChatFormatting.GRAY));
       }else{
-        tooltip.add(ComponentUtil.rainbowLine("Efficiency: MAX", level, 15, 80));
+        tooltipComponents.add(ComponentUtil.rainbowLine("Efficiency: MAX", context.level(), 15, 80));
       }
     }
-    if(isSterile(stack))tooltip.add(Component.translatable("tooltip.reagenica.sterile").withStyle(ChatFormatting.GREEN));
-  }
-
-  protected void superAppendHoverText(@Nonnull ItemStack stack, @Nullable Level level, @Nonnull List<Component> tooltip, @Nonnull TooltipFlag flag){
-    super.appendHoverText(stack, level, tooltip, flag);
   }
 }

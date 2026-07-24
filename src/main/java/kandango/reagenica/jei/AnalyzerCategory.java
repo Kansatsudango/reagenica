@@ -62,7 +62,7 @@ public class AnalyzerCategory implements IRecipeCategory<AnalyzerRecipe>{
     }
   }
   private void addTooltip(IRecipeSlotView view, List<Component> tooltip, float chance){
-    tooltip.add(Component.literal((int)(chance*100) + "% chance"));
+    tooltipComponents.add(Component.literal((int)(chance*100) + "% chance"));
   }
   
 }

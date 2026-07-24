@@ -66,7 +66,7 @@ public class IncubatorCategory implements IRecipeCategory<IncubatorRecipe>{
     }
   }
   private void addTooltip(IRecipeSlotView view, List<Component> tooltip, float chance){
-    tooltip.add(Component.literal((int)(chance*100) + "% chance"));
+    tooltipComponents.add(Component.literal((int)(chance*100) + "% chance"));
   }
   @Override
   public void draw(@Nonnull IncubatorRecipe recipe, @Nonnull IRecipeSlotsView recipeSlotsView, @Nonnull GuiGraphics guiGraphics, double mouseX, double mouseY) {

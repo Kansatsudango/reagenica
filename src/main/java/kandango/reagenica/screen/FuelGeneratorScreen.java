@@ -57,8 +57,8 @@ public class FuelGeneratorScreen extends AbstractContainerScreen<FuelGeneratorMe
         if (isMouseOver(mouseX, mouseY, tankX, tankY, tankWidth, tankHeight)) {
             int energy = menu.getEnergy();
             List<Component> tooltip = new ArrayList<>();
-            tooltip.add(Component.literal("Energy"));
-            tooltip.add(Component.literal(energy + " EU"));
+            tooltipComponents.add(Component.literal("Energy"));
+            tooltipComponents.add(Component.literal(energy + " EU"));
 
             graphics.renderTooltip(font, tooltip, Optional.empty(), mouseX, mouseY);
         }

@@ -64,16 +64,16 @@ public class FluidFuelGeneratorScreen extends AbstractContainerScreen<FluidFuelG
         if (isMouseOver(mouseX, mouseY, leftPos+142, topPos+37, 13, 16)) {
             int energy = menu.getEnergy();
             List<Component> tooltip = new ArrayList<>();
-            tooltip.add(Component.literal("Energy"));
-            tooltip.add(Component.literal(energy + " EU"));
+            tooltipComponents.add(Component.literal("Energy"));
+            tooltipComponents.add(Component.literal(energy + " EU"));
 
             graphics.renderTooltip(font, tooltip, Optional.empty(), mouseX, mouseY);
         }else if (isMouseOver(mouseX, mouseY, leftPos + 44, topPos + 23, 16, 48)) {
             FluidStack fluid = menu.getFuelFluid();
             if (!fluid.isEmpty()) {
                 List<Component> tooltip = new ArrayList<>();
-                tooltip.add(Component.translatable(fluid.getTranslationKey()));
-                tooltip.add(Component.literal(fluid.getAmount() + " mB"));
+                tooltipComponents.add(Component.translatable(fluid.getTranslationKey()));
+                tooltipComponents.add(Component.literal(fluid.getAmount() + " mB"));
 
                 graphics.renderTooltip(font, tooltip, Optional.empty(), mouseX, mouseY);
             } else {

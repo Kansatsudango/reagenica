@@ -53,8 +53,8 @@ public class TankComponent implements IScreenComponent{
       FluidStack fluid = tank.getFluid();
       if (!fluid.isEmpty()) {
         List<Component> tooltip = new ArrayList<>();
-        tooltip.add(Component.translatable(fluid.getTranslationKey()));
-        tooltip.add(Component.literal(fluid.getAmount() + " mB"));
+        tooltipComponents.add(Component.translatable(fluid.getTranslationKey()));
+        tooltipComponents.add(Component.literal(fluid.getAmount() + " mB"));
 
         graphics.renderTooltip(font, tooltip, Optional.empty(), mouseX, mouseY);
       } else {

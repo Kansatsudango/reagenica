@@ -59,8 +59,8 @@ public class BlastFurnaceScreen extends AbstractContainerScreen<BlastFurnaceMenu
     if (isMouseOver(mouseX, mouseY, tankX, tankY, tankWidth, tankHeight)) {
       int temperature = menu.getTemp();
       List<Component> tooltip = new ArrayList<>();
-      tooltip.add(Component.literal("Temperature"));
-      tooltip.add(Component.literal(temperature/10 + " ℃"));
+      tooltipComponents.add(Component.literal("Temperature"));
+      tooltipComponents.add(Component.literal(temperature/10 + " ℃"));
 
       graphics.renderTooltip(font, tooltip, Optional.empty(), mouseX, mouseY);
     }

@@ -42,8 +42,8 @@ public class EnergyComponent implements IScreenComponent{
   public void tooltip(@Nonnull GuiGraphics graphics, int mouseX, int mouseY, int topPos, int leftPos, Font font) {
     if (isMouseOver(leftPos+x, topPos+y, width, height,mouseX, mouseY)) {
       List<Component> tooltip = new ArrayList<>();
-      tooltip.add(Component.literal("Energy"));
-      tooltip.add(Component.literal(storage.getEnergyStored() + " EU"));
+      tooltipComponents.add(Component.literal("Energy"));
+      tooltipComponents.add(Component.literal(storage.getEnergyStored() + " EU"));
 
       graphics.renderTooltip(font, tooltip, Optional.empty(), mouseX, mouseY);
     }

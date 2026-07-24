@@ -125,25 +125,25 @@ public class ChemiItems {
   public static final DeferredItem<PowderReagent> IRIDIUM_DIOXIDE = registerandlist("iridium_dioxide", () -> new PowderReagent(new ReagentProperties("IrO2",0xFF26120a,3,0,1), new Item.Properties().rarity(Rarity.UNCOMMON)));
 
   public static final DeferredItem<Item> PLASTIC_DISH = registerandlist("plastic_dish", () -> new Item(new Item.Properties()));
-  public static final DeferredItem<Item> MEDIUM_PLATE = registerandlist("medium_plate", () -> new BioPlate());
-  public static final DeferredItem<BioGrowingPlate> GROWING_PLATE = registerandlist("growing_plate", () -> new BioGrowingPlate(new BioProperties("",0x00FFFFFF)));
+  public static final DeferredItem<Item> MEDIUM_PLATE = registerandlist("medium_plate", () -> new BioPlate(0));
+  public static final DeferredItem<BioGrowingPlate> GROWING_PLATE = registerandlist("growing_plate", () -> new BioGrowingPlate(0));
   static{
-    listCreativeTab.add(new CreativeTabContent(() -> BioGrowingPlate.getPlate("Crude", 0, false)));
-    listCreativeTab.add(new CreativeTabContent(() -> BioGrowingPlate.getPlate("Crude", 0, true)));
-    listCreativeTab.add(new CreativeTabContent(() -> BioGrowingPlate.getPlate("Yeast", 0, false)));
-    listCreativeTab.add(new CreativeTabContent(() -> BioGrowingPlate.getPlate("Yeast", 0, true)));
-    listCreativeTab.add(new CreativeTabContent(() -> BioGrowingPlate.getPlate("Oryzae", 0, false)));
-    listCreativeTab.add(new CreativeTabContent(() -> BioGrowingPlate.getPlate("Oryzae", 0, true)));
+    listCreativeTab.add(new CreativeTabContent(() -> BioGrowingPlate.getPlate(BioReagentTypes.CRUDE, 0, false)));
+    listCreativeTab.add(new CreativeTabContent(() -> BioGrowingPlate.getPlate(BioReagentTypes.CRUDE, 0, true)));
+    listCreativeTab.add(new CreativeTabContent(() -> BioGrowingPlate.getPlate(BioReagentTypes.YEAST, 0, false)));
+    listCreativeTab.add(new CreativeTabContent(() -> BioGrowingPlate.getPlate(BioReagentTypes.YEAST, 0, true)));
+    listCreativeTab.add(new CreativeTabContent(() -> BioGrowingPlate.getPlate(BioReagentTypes.ORYZAE, 0, false)));
+    listCreativeTab.add(new CreativeTabContent(() -> BioGrowingPlate.getPlate(BioReagentTypes.ORYZAE, 0, true)));
   }
-  public static final DeferredItem<BioReagent> YEAST = registerandlist("yeast", () -> new BioReagent(new BioProperties("yeast",0xfffae58c)));
-  public static final DeferredItem<BioReagent> ORYZAE = registerandlist("aspergillus_oryzae", () -> new BioReagent(new BioProperties("Aspergillus oryzae",0xffd6e9ca)));
-  public static final DeferredItem<BioReagent> ACETOBACTER = registerandlist("acetobacter", () -> new BioReagent(new BioProperties("acetobacter",0xfffc773f)));
+  public static final DeferredItem<BioReagent> YEAST = registerandlist("yeast", () -> new BioReagent(BioReagentTypes.YEAST, 0xfffae58c));
+  public static final DeferredItem<BioReagent> ORYZAE = registerandlist("aspergillus_oryzae", () -> new BioReagent(BioReagentTypes.ORYZAE,0xffd6e9ca));
+  public static final DeferredItem<BioReagent> ACETOBACTER = registerandlist("acetobacter", () -> new BioReagent(BioReagentTypes.ACETOBACTER,0xfffc773f));
   static{
-    listCreativeTab.add(new CreativeTabContent(() -> BioReagent.setStats(new ItemStack(ChemiItems.YEAST.get()), 30, true)));
-    listCreativeTab.add(new CreativeTabContent(() -> BioReagent.setStats(new ItemStack(ChemiItems.ORYZAE.get()), 30, true)));
-    listCreativeTab.add(new CreativeTabContent(() -> BioReagent.setStats(new ItemStack(ChemiItems.ACETOBACTER.get()), 30, true)));
+    listCreativeTab.add(new CreativeTabContent(() -> BioReagent.getPlate(new ItemStack(ChemiItems.YEAST.get()), 30, true)));
+    listCreativeTab.add(new CreativeTabContent(() -> BioReagent.getPlate(new ItemStack(ChemiItems.ORYZAE.get()), 30, true)));
+    listCreativeTab.add(new CreativeTabContent(() -> BioReagent.getPlate(new ItemStack(ChemiItems.ACETOBACTER.get()), 30, true)));
   }
-  public static final DeferredItem<BioReagent> CONTAMINATED_PLATE = registerandlist("contaminated_sample", () -> new BioReagent(new BioProperties("Contaminated",0)));
+  public static final DeferredItem<BioReagent> CONTAMINATED_PLATE = registerandlist("contaminated_sample", () -> new BioReagent(BioReagentTypes.CONTAMINATED ,0));
   public static final DeferredItem<LiquidReagent> PLASMID = registerandlist("plasmid", () -> new Plasmid(new ReagentProperties("?",0xFFabced8,0,0,0)));
   
   public static final DeferredItem<Item> RAW_LEAD = registerandlist("raw_lead", () -> new Item(new Item.Properties()));
@@ -262,14 +262,14 @@ public class ChemiItems {
   public static final DeferredItem<Item> EMERALD_COMPASS = registerandlist("location_compass_emerald", () -> new LocationCompass(ChemiBiomes.EMERALD_CAVE));
   public static final DeferredItem<Item> DIAMOND_COMPASS = registerandlist("location_compass_diamond", () -> new LocationCompass(ChemiBiomes.DIAMOND_CAVE));
   public static final DeferredItem<Item> LEAD_COMPASS = registerandlist("location_compass_lead", () -> new LocationCompass(ChemiBiomes.LEAD_CAVE));
-  public static final DeferredItem<Amulet> AQUAMARINE_AMULET = registerandlist("aquamarine_amulet", () -> new Amulet(ChemiEnchantments.CHAIN_MINING::get, UniformGenerator.between(1, 2)));
-  public static final DeferredItem<Amulet> EMERALD_AMULET = registerandlist("emerald_amulet", () -> new Amulet(ChemiEnchantments.BIG_MINING::get, ConstantValue.exactly(1)));
-  public static final DeferredItem<Amulet> CITRINE_AMULET = registerandlist("citrine_amulet", () -> new Amulet(ChemiEnchantments.CRYSTALIZED::get, UniformGenerator.between(1, 3)));
-  public static final DeferredItem<Amulet> RED_BERYL_AMULET = registerandlist("red_beryl_amulet", () -> new Amulet(ChemiEnchantments.LAST_STAND::get, UniformGenerator.between(1, 2)));
-  public static final DeferredItem<Amulet> PERIDOT_AMULET = registerandlist("peridot_amulet", () -> new Amulet(ChemiEnchantments.ANTI_POISON::get, ConstantValue.exactly(1)));
-  public static final DeferredItem<Amulet> ROSE_QUARTZ_AMULET = registerandlist("rose_quartz_amulet", () -> new Amulet(() -> Enchantments.MENDING, ConstantValue.exactly(1)));
-  public static final DeferredItem<Amulet> MORION_AMULET = registerandlist("morion_amulet", () -> new Amulet(() -> Enchantments.UNBREAKING, ConstantValue.exactly(2)));
-  public static final DeferredItem<Amulet> LAPISQUARTZ_AMULET = registerandlist("lapisquartz_amulet", () -> new Amulet(() -> Enchantments.BLOCK_EFFICIENCY, ConstantValue.exactly(4)));
+  public static final DeferredItem<Amulet> AQUAMARINE_AMULET = registerandlist("aquamarine_amulet", () -> new EnchantmentBookAmulet(ChemiEnchantments.CHAIN_MINING, UniformGenerator.between(1, 2)));
+  public static final DeferredItem<Amulet> EMERALD_AMULET = registerandlist("emerald_amulet", () -> new EnchantmentBookAmulet(ChemiEnchantments.BIG_MINING, ConstantValue.exactly(1)));
+  public static final DeferredItem<Amulet> CITRINE_AMULET = registerandlist("citrine_amulet", () -> new EnchantmentBookAmulet(ChemiEnchantments.CRYSTALIZED, UniformGenerator.between(1, 3)));
+  public static final DeferredItem<Amulet> RED_BERYL_AMULET = registerandlist("red_beryl_amulet", () -> new EnchantmentBookAmulet(ChemiEnchantments.LAST_STAND, UniformGenerator.between(1, 2)));
+  public static final DeferredItem<Amulet> PERIDOT_AMULET = registerandlist("peridot_amulet", () -> new EnchantmentBookAmulet(ChemiEnchantments.ANTI_POISON, ConstantValue.exactly(1)));
+  public static final DeferredItem<Amulet> ROSE_QUARTZ_AMULET = registerandlist("rose_quartz_amulet", () -> new EnchantmentBookAmulet(Enchantments.MENDING, ConstantValue.exactly(1)));
+  public static final DeferredItem<Amulet> MORION_AMULET = registerandlist("morion_amulet", () -> new EnchantmentBookAmulet(Enchantments.UNBREAKING, ConstantValue.exactly(2)));
+  public static final DeferredItem<Amulet> LAPISQUARTZ_AMULET = registerandlist("lapisquartz_amulet", () -> new EnchantmentBookAmulet(Enchantments.EFFICIENCY, ConstantValue.exactly(4)));
   public static final DeferredItem<ExplorerMapKit> CRATER_MAP_KIT = registerandlist("crater_map_book", () -> new ExplorerMapKit(new Item.Properties(), "crater", MapDecoration.Type.TARGET_X, ExplorerMapKit.Crater));
   public static final DeferredItem<ExplorerMapKit> VOLCANO_MAP_KIT = registerandlist("volcano_map_book", () -> new ExplorerMapKit(new Item.Properties(), "volcano", MapDecoration.Type.TARGET_X, ExplorerMapKit.Volcano));
 

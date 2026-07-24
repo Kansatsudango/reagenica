@@ -125,10 +125,10 @@ public class CommonBag<T extends AbstractContainerMenu> extends Item implements 
   }
 
   @Override
-  public void appendHoverText(@Nonnull ItemStack stack, @Nullable Level level, @Nonnull List<Component> tooltip, @Nonnull TooltipFlag flag) {
-    super.appendHoverText(stack, level, tooltip, flag);
+  public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltipComponents, TooltipFlag tooltipFlag) {
+    super.appendHoverText(stack, context, tooltipComponents, tooltipFlag);
     if(stack.getItem() instanceof CommonBag<?> bag && bag.canAutoStock()){
-      tooltip.add(Component.translatable("tooltip.reagenica.autostore").withStyle(ChatFormatting.GREEN));
+      tooltipComponents.add(Component.translatable("tooltip.reagenica.autostore").withStyle(ChatFormatting.GREEN));
     }
   }
 

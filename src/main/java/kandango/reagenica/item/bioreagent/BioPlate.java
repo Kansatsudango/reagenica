@@ -2,40 +2,39 @@ package kandango.reagenica.item.bioreagent;
 
 import java.util.List;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-
+import kandango.reagenica.ChemiComponents;
 import net.minecraft.ChatFormatting;
-import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
-import net.minecraft.world.level.Level;
 
 public class BioPlate extends Item{
-  private static final String STERILE_KEY = "Sterile";
-
-  public BioPlate(){
+  protected final int default_color;
+  public BioPlate(int color){
     super(new Item.Properties().stacksTo(64));
+    this.default_color = color;
   }
 
-  protected int getOrDefault(ItemStack stack, String key, int def) {
-    CompoundTag tag = stack.getTag();
-    return (tag != null && tag.contains(key)) ? tag.getInt(key) : def;
+  public static boolean isSterile(ItemStack stack){
+    return stack.getOrDefault(ChemiComponents.STERILE, false);
   }
-  public static boolean isSterileOf(ItemStack stack){
-    CompoundTag tag = stack.getTag();
-    return tag!=null && tag.contains(STERILE_KEY) && tag.getBoolean(STERILE_KEY);
+  public void setSterile(ItemStack stack){
+    stack.set(ChemiComponents.STERILE, true);
   }
-  public boolean isSterile(ItemStack stack){
-    CompoundTag tag = stack.getTag();
-    return tag!=null && tag.contains(STERILE_KEY) && tag.getBoolean(STERILE_KEY);
+  public int getColor(ItemStack stack){
+    return stack.getOrDefault(ChemiComponents.COLOR, default_color);
+  }
+  public static void setColor(ItemStack stack, int color) {
+    stack.set(ChemiComponents.COLOR, color);
+  }
+  public static int getSpeed(ItemStack stack){
+    return (int)stack.getOrDefault(ChemiComponents.EFFICIENCY, 0);
   }
 
   @Override
-  public void appendHoverText(@Nonnull ItemStack stack, @Nullable Level level, @Nonnull List<Component> tooltip, @Nonnull TooltipFlag flag) {
-    super.appendHoverText(stack, level, tooltip, flag);
-    if(isSterile(stack))tooltip.add(Component.translatable("tooltip.reagenica.sterile").withStyle(ChatFormatting.GREEN));
+  public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltipComponents, TooltipFlag tooltipFlag) {
+    super.appendHoverText(stack, context, tooltipComponents, tooltipFlag);
+    if(isSterile(stack))tooltipComponents.add(Component.translatable("tooltip.reagenica.sterile").withStyle(ChatFormatting.GREEN));
   }
 }

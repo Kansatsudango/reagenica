@@ -51,7 +51,7 @@ public class ReactorCategory implements IRecipeCategory<ReactorRecipe>{
   @Override
   public void setRecipe(@Nonnull IRecipeLayoutBuilder builder, @Nonnull ReactorRecipe recipe, @Nonnull IFocusGroup fg){
     builder.addSlot(RecipeIngredientRole.INPUT, 63, 76).addIngredients(recipe.getInput());
-    builder.addSlot(RecipeIngredientRole.INPUT, 63, 58).addItemStack(new ItemStack(ChemiItems.URANIUM_FUEL_ROD.get())).addTooltipCallback((view, tooltip) -> tooltip.add(Component.translatable("tooltip.reagenica.jei_fuelrod")));
+    builder.addSlot(RecipeIngredientRole.INPUT, 63, 58).addItemStack(new ItemStack(ChemiItems.URANIUM_FUEL_ROD.get())).addTooltipCallback((view, tooltip) -> tooltipComponents.add(Component.translatable("tooltip.reagenica.jei_fuelrod")));
     builder.addSlot(RecipeIngredientRole.OUTPUT, 98, 76).addItemStack(recipe.getOutput());
     builder.addSlot(RecipeIngredientRole.INPUT,56,40)
       .addFluidStack(ChemiFluids.DISTILLED_WATER.getFluid(), 30000)

@@ -61,8 +61,8 @@ public class TankScreen extends AbstractContainerScreen<TankMenu> {
             FluidStack fluid = menu.getFluid();
             if (!fluid.isEmpty()) {
                 List<Component> tooltip = new ArrayList<>();
-                tooltip.add(Component.translatable(fluid.getTranslationKey()));
-                tooltip.add(Component.literal(fluid.getAmount() + " mB"));
+                tooltipComponents.add(Component.translatable(fluid.getTranslationKey()));
+                tooltipComponents.add(Component.literal(fluid.getAmount() + " mB"));
 
                 graphics.renderTooltip(font, tooltip, Optional.empty(), mouseX, mouseY);
             } else {
