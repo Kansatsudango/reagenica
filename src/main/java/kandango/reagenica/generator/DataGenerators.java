@@ -17,7 +17,7 @@ public class DataGenerators {
     ExistingFileHelper existingFileHelper = event.getExistingFileHelper();
     CompletableFuture<HolderLookup.Provider> lookupProvider = event.getLookupProvider();
 
-    generator.addProvider(event.includeServer(), new ChemiLootTableProvider(packOutput));
+    generator.addProvider(event.includeServer(), new ChemiLootTableProvider(packOutput, lookupProvider));
     generator.addProvider(event.includeServer(), new ChemiBlocktagsProvider(packOutput, lookupProvider, existingFileHelper));
     generator.addProvider(event.includeServer(), new ChemiFluidtagsProvider(packOutput, lookupProvider, existingFileHelper));
     generator.addProvider(event.includeClient(), new ChemiItemModelProvider(packOutput, existingFileHelper));

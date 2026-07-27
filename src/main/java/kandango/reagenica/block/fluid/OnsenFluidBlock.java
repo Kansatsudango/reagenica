@@ -27,7 +27,7 @@ public class OnsenFluidBlock extends LiquidBlock{
   private final MobEffectInstance effect;
   private final Supplier<? extends Yunohana> yunohana;
 
-  public OnsenFluidBlock(Supplier<? extends FlowingFluid> fluid, Properties props, MobEffectInstance effect, Supplier<? extends Yunohana> yunohana){
+  public OnsenFluidBlock(FlowingFluid fluid, Properties props, MobEffectInstance effect, Supplier<? extends Yunohana> yunohana){
     super(fluid,props);
     this.effect = effect;
     this.yunohana = yunohana;

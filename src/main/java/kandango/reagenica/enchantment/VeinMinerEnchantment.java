@@ -25,32 +25,8 @@ import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 
-public class VeinMinerEnchantment extends Enchantment{
+public class VeinMinerEnchantment{
   public static final int MAX_SEARCH = 257;
-
-  public VeinMinerEnchantment() {
-    super(Rarity.RARE, ChemiEnchantments.IRIDIUM_DIGGER, new EquipmentSlot[]{EquipmentSlot.MAINHAND});
-  }
-
-  @Override
-  public int getMaxLevel() {
-    return 4;
-  }
-  @Override
-  public boolean isTreasureOnly() {
-    return true;
-  }
-  @Override
-  public boolean isTradeable() {
-    return false;
-  }
-
-  @Override
-  protected boolean checkCompatibility(@Nonnull Enchantment other) {
-    return super.checkCompatibility(other)
-            && other != ChemiEnchantments.BIG_MINING.get();
-  }
-
   public static void run(ServerLevel slv, ServerPlayer player, BlockPos origin, ItemStack tool, int enchLevel){
     final Block originBlock = slv.getBlockState(origin).getBlock();
     Queue<BlockPos> resultPos = new ArrayDeque<>();
@@ -96,10 +72,6 @@ public class VeinMinerEnchantment extends Enchantment{
       default -> 256;
     };
   }
-
-  // private static int manhattan(BlockPos p, BlockPos q){
-  //   return Math.abs(p.getX()-q.getX()) + Math.abs(p.getY()-q.getY()) + Math.abs(p.getZ()-q.getZ());
-  // }
 
   private static List<Vec3i> relatives(){
     List<Vec3i> list = new ArrayList<>();

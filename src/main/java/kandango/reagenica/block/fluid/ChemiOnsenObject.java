@@ -36,7 +36,7 @@ public class ChemiOnsenObject implements ChemiFluidInterface {
     this.FlowingFluid = ChemiFluids.FLUIDS.register("flowing_"+name, () -> new BaseFlowingFluid.Flowing(this.Properties));
     this.Properties = new BaseFlowingFluid.Properties(this.FluidType, this.StillFluid::get, this.FlowingFluid::get).bucket(()->this.BucketItem.get()).block(()->this.LiquidBlock.get());
     this.BucketItem = ChemiItems.registerandlist(name+"_bucket", () -> new BucketItem(this.StillFluid.get(), new Item.Properties().stacksTo(1).craftRemainder(Items.BUCKET)));
-    this.LiquidBlock = ChemiBlocks.BLOCKS.register(name+"_block", () -> new OnsenFluidBlock(() -> this.StillFluid.get(),BlockBehaviour.Properties.of().noLootTable().noCollission().strength(100).randomTicks(), effect, yunohana));
+    this.LiquidBlock = ChemiBlocks.BLOCKS.register(name+"_block", () -> new OnsenFluidBlock(this.StillFluid.get(),BlockBehaviour.Properties.of().noLootTable().noCollission().strength(100).randomTicks(), effect, yunohana));
   }
 
   public FluidType getType(){

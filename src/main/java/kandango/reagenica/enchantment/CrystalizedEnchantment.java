@@ -2,49 +2,14 @@ package kandango.reagenica.enchantment;
 
 import java.util.Optional;
 
-import javax.annotation.Nonnull;
-
-import kandango.reagenica.ChemiEnchantments;
-import kandango.reagenica.family.ChemiToolTiers;
 import kandango.reagenica.family.CrystalFamily;
 import net.minecraft.util.RandomSource;
-import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.SwordItem;
-import net.minecraft.world.item.Tier;
-import net.minecraft.world.item.enchantment.Enchantment;
 
-public class CrystalizedEnchantment extends Enchantment{
-  public CrystalizedEnchantment() {
-    super(Rarity.RARE, ChemiEnchantments.IRIDIUM_WEAPON, new EquipmentSlot[]{EquipmentSlot.MAINHAND});
-  }
-  
-  @Override
-  public boolean canApplyAtEnchantingTable(@Nonnull ItemStack stack) {
-    if(stack.getItem() instanceof SwordItem sword){
-      Tier tier = sword.getTier();
-      return tier == ChemiToolTiers.IRIDIUM;
-    }else{
-      return false;
-    }
-  }
-
-  @Override
-  public int getMaxLevel() {
-    return 5;
-  }
-  @Override
-  public boolean isTreasureOnly() {
-    return true;
-  }
-  @Override
-  public boolean isTradeable() {
-    return false;
-  }
-
+public class CrystalizedEnchantment{
   public static Optional<ItemEntity> loot(LivingEntity entity, int enchLevel){
     RandomSource random = entity.getRandom();
     if(random.nextInt(100) < enchLevel+1){

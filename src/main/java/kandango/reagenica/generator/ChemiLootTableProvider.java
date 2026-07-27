@@ -2,6 +2,7 @@ package kandango.reagenica.generator;
 
 import java.util.List;
 import java.util.Set;
+import java.util.concurrent.CompletableFuture;
 
 import kandango.reagenica.ChemiBlocks;
 import kandango.reagenica.family.CrystalFamily;
@@ -9,6 +10,8 @@ import kandango.reagenica.family.StoneFamily;
 import kandango.reagenica.family.WoodFamily;
 import kandango.reagenica.generator.BlockLootType.BlockType;
 import net.minecraft.advancements.critereon.StatePropertiesPredicate;
+import net.minecraft.core.HolderLookup;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.loot.BlockLootSubProvider;
 import net.minecraft.data.loot.LootTableProvider;
@@ -20,25 +23,26 @@ import net.minecraft.world.level.block.CropBlock;
 import net.minecraft.world.level.block.FlowerPotBlock;
 import net.minecraft.world.level.storage.loot.entries.LootItem;
 import net.minecraft.world.level.storage.loot.functions.ApplyBonusCount;
-import net.minecraft.world.level.storage.loot.functions.CopyNbtFunction;
+import net.minecraft.world.level.storage.loot.functions.CopyCustomDataFunction;
 import net.minecraft.world.level.storage.loot.functions.SetItemCountFunction;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParamSets;
 import net.minecraft.world.level.storage.loot.predicates.LootItemBlockStatePropertyCondition;
 import net.minecraft.world.level.storage.loot.providers.nbt.ContextNbtProvider;
 import net.minecraft.world.level.storage.loot.providers.number.UniformGenerator;
-import net.neoforged.neoforge.registries.DeferredHolder;
+import net.neoforged.neoforge.registries.DeferredBlock;
 
 public class ChemiLootTableProvider extends LootTableProvider{
-  public ChemiLootTableProvider(PackOutput output) {
+  public ChemiLootTableProvider(PackOutput output, CompletableFuture<HolderLookup.Provider> registries) {
     super(output, Set.of(), List.of(
             new SubProviderEntry(ChemiBlockLootTables::new, LootContextParamSets.BLOCK)
-    ));
+    ), registries);
   }
   private static class ChemiBlockLootTables extends BlockLootSubProvider{
-    protected ChemiBlockLootTables(){
-      super(Set.of(), FeatureFlags.REGISTRY.allFlags());
+    public ChemiBlockLootTables(HolderLookup.Provider registries){
+      super(Set.of(), FeatureFlags.REGISTRY.allFlags(), registries);
     }
 
+    @SuppressWarnings("deprecation")
     @Override
     protected void generate(){
       WoodFamily.Woods.forEach(this::processWood);
@@ -49,11 +53,11 @@ public class ChemiLootTableProvider extends LootTableProvider{
         if(block.type()==BlockType.NORMAL){
           dropSelf(block.blockreg().get());
         }else if(block.type()==BlockType.ORES){
-          add(block.blockreg().get(), ore -> createOreDrop(ore, block.item().get()).apply(SetItemCountFunction.setCount(UniformGenerator.between(1, block.count()))).apply(ApplyBonusCount.addOreBonusCount(Enchantments.BLOCK_FORTUNE)));
+          add(block.blockreg().get(), ore -> createOreDrop(ore, block.item().get()).apply(SetItemCountFunction.setCount(UniformGenerator.between(1, block.count()))).apply(ApplyBonusCount.addOreBonusCount(registries.lookupOrThrow(Registries.ENCHANTMENT).getOrThrow(Enchantments.FORTUNE))));
         }else if(block.type()==BlockType.MACHINE){
           add(block.blockreg().get(), machine -> createNameableBlockEntityTable(machine));
         }else if(block.type()==BlockType.MACHINE_SAVEENERGY){
-          add(block.blockreg().get(), machine -> createNameableBlockEntityTable(machine).apply(CopyNbtFunction.copyData(ContextNbtProvider.BLOCK_ENTITY).copy("Electric", "BlockEntityTag.Electric")));
+          add(block.blockreg().get(), machine -> createNameableBlockEntityTable(machine).apply(CopyCustomDataFunction.copyData(ContextNbtProvider.BLOCK_ENTITY).copy("Electric", "BlockEntityTag.Electric")));
         }else if(block.type()==BlockType.SILKTOUCH){
           add(block.blockreg().get(), glass -> createSilkTouchOnlyTable(glass));
         }else if(block.type()==BlockType.PLANTS){
@@ -68,9 +72,9 @@ public class ChemiLootTableProvider extends LootTableProvider{
 
     @Override
     protected Iterable<Block> getKnownBlocks(){
-      return ChemiBlocks.BLOCKS.getEntries().stream().map(e -> e.get()).toList();
+      return ChemiBlocks.BLOCKS.getEntries().stream().map(e -> (Block)e.get()).toList();
     }
-    private void processPot(DeferredHolder<? extends FlowerPotBlock> pot){
+    private void processPot(DeferredBlock<? extends FlowerPotBlock> pot){
       dropPottedContents(pot.get());
     }
     private void processWood(WoodFamily family){
@@ -120,7 +124,7 @@ public class ChemiLootTableProvider extends LootTableProvider{
                 LootItem.lootTableItem(drop)
                   .apply(SetItemCountFunction.setCount(UniformGenerator.between(2, 4)))
                   .apply(ApplyBonusCount.addOreBonusCount(
-                        Enchantments.BLOCK_FORTUNE
+                        registries.lookupOrThrow(Registries.ENCHANTMENT).getOrThrow(Enchantments.FORTUNE)
                 ))
             )
         )

@@ -21,7 +21,8 @@ import net.minecraft.world.item.TieredItem;
 import net.minecraft.world.level.block.Block;
 import net.neoforged.neoforge.client.model.generators.ItemModelProvider;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
-import net.neoforged.neoforge.registries.DeferredHolder;
+import net.neoforged.neoforge.registries.DeferredBlock;
+import net.neoforged.neoforge.registries.DeferredItem;
 
 public class ChemiItemModelProvider extends ItemModelProvider{
   public ChemiItemModelProvider(PackOutput output, ExistingFileHelper helper){
@@ -36,10 +37,10 @@ public class ChemiItemModelProvider extends ItemModelProvider{
     ChemiBlocks.listBlocks.stream().map(b -> b.blockreg()).forEach(this::blockItemSafe);
     CrystalFamily.Crystals.stream().forEach(this::crystalFamily);
   }
-  private void registerTools(DeferredHolder<? extends TieredItem> item){
+  private void registerTools(DeferredItem<? extends TieredItem> item){
     handheldItem(item);
   }
-  private void register(DeferredHolder<? extends Item> item){
+  private void register(DeferredItem<? extends Item> item){
     Item instance = item.get();
     if(instance instanceof LiquidReagent){
       liquidTesttubeItem(item);
@@ -57,34 +58,34 @@ public class ChemiItemModelProvider extends ItemModelProvider{
       simpleItem(item);
     }
   }
-  private void simpleItem(DeferredHolder<? extends Item> item) {
+  private void simpleItem(DeferredItem<? extends Item> item) {
     withExistingParent(item.getId().getPath(), mcLoc("item/generated"))
             .texture("layer0", modLoc("item/" + item.getId().getPath()));
   }
-  private void simpleItemInBlock(DeferredHolder<? extends Item> item) {
+  private void simpleItemInBlock(DeferredItem<? extends Item> item) {
     withExistingParent(item.getId().getPath(), mcLoc("item/generated"))
             .texture("layer0", modLoc("block/" + item.getId().getPath()));
   }
-  private void handheldItem(DeferredHolder<? extends Item> item) {
+  private void handheldItem(DeferredItem<? extends Item> item) {
     withExistingParent(item.getId().getPath(), mcLoc("item/handheld"))
             .texture("layer0", modLoc("item/" + item.getId().getPath()));
   }
-  private void liquidTesttubeItem(DeferredHolder<? extends Item> item) {
+  private void liquidTesttubeItem(DeferredItem<? extends Item> item) {
     withExistingParent(item.getId().getPath(), modLoc("item/liquid_reagent"));
   }
-  private void gasTesttubeItem(DeferredHolder<? extends Item> item) {
+  private void gasTesttubeItem(DeferredItem<? extends Item> item) {
     withExistingParent(item.getId().getPath(), modLoc("item/gas_reagent"));
   }
-  private void powderReagentItem(DeferredHolder<? extends Item> item) {
+  private void powderReagentItem(DeferredItem<? extends Item> item) {
     withExistingParent(item.getId().getPath(), modLoc("item/powder_reagent"));
   }
-  private void powderIndustrialItem(DeferredHolder<? extends Item> item) {
+  private void powderIndustrialItem(DeferredItem<? extends Item> item) {
     withExistingParent(item.getId().getPath(), modLoc("item/industrial_powder"));
   }
-  private void bioPlateItem(DeferredHolder<? extends Item> item) {
+  private void bioPlateItem(DeferredItem<? extends Item> item) {
     withExistingParent(item.getId().getPath(), modLoc("item/microorganism"));
   }
-  private void blockItemSafe(DeferredHolder<? extends Block> block) {
+  private void blockItemSafe(DeferredBlock<? extends Block> block) {
     ResourceLocation model = modLoc("block/" + block.getId().getPath());
     if (existingFileHelper.exists(model, PackType.CLIENT_RESOURCES, ".json", "models")) {
       withExistingParent(block.getId().getPath(), model);

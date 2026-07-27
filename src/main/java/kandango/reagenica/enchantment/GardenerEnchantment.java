@@ -22,38 +22,9 @@ import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.CropBlock;
 import net.minecraft.world.level.block.state.BlockState;
-import net.neoforged.neoforge.common.capabilities.ForgeCapabilities;
-import net.neoforged.neoforge.common.util.LazyOptional;
 import net.neoforged.neoforge.items.IItemHandler;
 
-public class GardenerEnchantment extends Enchantment{
-  public GardenerEnchantment() {
-    super(Rarity.UNCOMMON, ChemiEnchantments.HOES, new EquipmentSlot[]{EquipmentSlot.MAINHAND});
-  }
-  
-  @Override
-  public boolean canApplyAtEnchantingTable(@Nonnull ItemStack stack) {
-    return stack.getItem() instanceof HoeItem;
-  }
-
-  @Override
-  public int getMaxLevel() {
-    return 1;
-  }
-  @Override
-  public boolean isTreasureOnly() {
-    return false;
-  }
-  @Override
-  public boolean isTradeable() {
-    return true;
-  }
-
-  @Override
-  protected boolean checkCompatibility(@Nonnull Enchantment other) {
-    return true;
-  }
-
+public class GardenerEnchantment{
   public static void run(ServerLevel slv, ServerPlayer player, BlockPos pos, ItemStack tool){
     BlockState state = slv.getBlockState(pos);
     BlockState defaultState = state.getBlock().defaultBlockState();

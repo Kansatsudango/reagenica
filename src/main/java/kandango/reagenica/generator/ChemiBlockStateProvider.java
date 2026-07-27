@@ -4,6 +4,7 @@ import kandango.reagenica.ChemiBlocks;
 import kandango.reagenica.ChemistryMod;
 import kandango.reagenica.family.StoneFamily;
 import kandango.reagenica.family.WoodFamily;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Block;
@@ -26,8 +27,7 @@ import net.neoforged.neoforge.client.model.generators.BlockStateProvider;
 import net.neoforged.neoforge.client.model.generators.ConfiguredModel;
 import net.neoforged.neoforge.client.model.generators.ModelFile;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
-import net.neoforged.neoforge.registries.ForgeRegistries;
-import net.neoforged.neoforge.registries.DeferredHolder;
+import net.neoforged.neoforge.registries.DeferredBlock;
 
 public class ChemiBlockStateProvider extends BlockStateProvider{
 
@@ -44,54 +44,54 @@ public class ChemiBlockStateProvider extends BlockStateProvider{
     ChemiBlocks.listFlowerPots.forEach(rg -> pottedPlant(rg, rg.getId().getPath()));
   }
 
-  private void registerStairBlockWithItem(DeferredHolder<? extends StairBlock> stairs, DeferredHolder<? extends Block> base){
+  private void registerStairBlockWithItem(DeferredBlock<? extends StairBlock> stairs, DeferredBlock<? extends Block> base){
     stairsBlock(stairs.get(), blockTexture(base.get()));
     simpleBlockItem(stairs.get(), models().getExistingFile(blockTexture(stairs.get())));
   }
-  private void registerSlabBlockWithItem(DeferredHolder<? extends SlabBlock> slab, String name){
+  private void registerSlabBlockWithItem(DeferredBlock<? extends SlabBlock> slab, String name){
     slabBlock(slab.get(), modLoc("block/" + name), modLoc("block/" + name));
     simpleBlockItem(slab.get(), models().getExistingFile(blockTexture(slab.get())));
   }
-  private void registerLogBlockWithItem(DeferredHolder<? extends RotatedPillarBlock> log){
+  private void registerLogBlockWithItem(DeferredBlock<? extends RotatedPillarBlock> log){
     logBlock(log.get());
     simpleBlockItem(log.get(), models().getExistingFile(blockTexture(log.get())));
   }
-  private void registerWoodBlockWithItem(DeferredHolder<? extends RotatedPillarBlock> wood, String name){
+  private void registerWoodBlockWithItem(DeferredBlock<? extends RotatedPillarBlock> wood, String name){
     axisBlock(wood.get(), modLoc("block/"+name+"_log"), modLoc("block/"+name+"_log"));
     simpleBlockItem(wood.get(), models().getExistingFile(blockTexture(wood.get())));
   }
-  private void registerTrapdoorBlockWithItem(DeferredHolder<? extends TrapDoorBlock> trapdoor, String name){
+  private void registerTrapdoorBlockWithItem(DeferredBlock<? extends TrapDoorBlock> trapdoor, String name){
     trapdoorBlockWithRenderType(trapdoor.get(), modLoc("block/"+name+"_trapdoor"), true, "cutout");
     itemModels().withExistingParent(name+"_trapdoor", modLoc("block/"+name+"_trapdoor_bottom"));
   }
-  private void registerDoorBlockWithItem(DeferredHolder<? extends DoorBlock> door, String name){
+  private void registerDoorBlockWithItem(DeferredBlock<? extends DoorBlock> door, String name){
     doorBlockWithRenderType(door.get(), modLoc("block/"+name+"_door_bottom"), modLoc("block/"+name+"_door_top"), "cutout");
     itemModels().withExistingParent(name+"_door", mcLoc("item/generated")).texture("layer0", modLoc("item/"+name+"_door"));
   }
-  private void registerSimpleBlockWithItem(DeferredHolder<? extends Block> block){
+  private void registerSimpleBlockWithItem(DeferredBlock<? extends Block> block){
     simpleBlockWithItem(block.get(), cubeAll(block.get()));
   }
-  private void registerLeavesBlockWithItem(DeferredHolder<? extends Block> leaves, String name){
+  private void registerLeavesBlockWithItem(DeferredBlock<? extends Block> leaves, String name){
     ModelFile model = models().withExistingParent(name+"_leaves", mcLoc("block/leaves")).texture("all", modLoc("block/"+name+"_leaves")).renderType("cutout");
     getVariantBuilder(leaves.get())
             .partialState()
             .addModels(new ConfiguredModel(model));
     simpleBlockItem(leaves.get(), models().getExistingFile(blockTexture(leaves.get())));
   }
-  private void registerCutoutCrossBlockWithItem(DeferredHolder<? extends Block> block, String name){
+  private void registerCutoutCrossBlockWithItem(DeferredBlock<? extends Block> block, String name){
     simpleBlock(block.get(), models().cross(name, modLoc("block/"+name)).renderType("cutout"));
     itemModels().withExistingParent(name, mcLoc("item/generated")).texture("layer0", modLoc("block/"+name));
   }
-  private void registerButtonBlockWithItem(DeferredHolder<? extends ButtonBlock> button, String name){
+  private void registerButtonBlockWithItem(DeferredBlock<? extends ButtonBlock> button, String name){
     buttonBlock(button.get(), modLoc("block/"+name+"_planks"));
     models().withExistingParent(name+"_button_inventory", mcLoc("block/button_inventory")).texture("texture", modLoc("block/"+name+"_planks"));
     itemModels().withExistingParent(name + "_button",modLoc("block/" + name + "_button_inventory"));
   }
-  private void registerPressurePlateBlockWithItem(DeferredHolder<? extends PressurePlateBlock> plate, String name){
+  private void registerPressurePlateBlockWithItem(DeferredBlock<? extends PressurePlateBlock> plate, String name){
     pressurePlateBlock(plate.get(), modLoc("block/"+name+"_planks"));
     simpleBlockItem(plate.get(), models().getExistingFile(blockTexture(plate.get())));
   }
-  private void registerFenceBlockWithItem(DeferredHolder<? extends FenceBlock> fence, String name){
+  private void registerFenceBlockWithItem(DeferredBlock<? extends FenceBlock> fence, String name){
     fenceBlock(fence.get(), modLoc("block/"+name+"_planks"));
     models().withExistingParent(name+"_fence_inventory", mcLoc("block/fence_inventory")).texture("texture", modLoc("block/"+name+"_planks"));
     itemModels().withExistingParent(
@@ -99,27 +99,27 @@ public class ChemiBlockStateProvider extends BlockStateProvider{
             modLoc("block/" + name + "_fence_inventory")
     );
   }
-  private void registerFenceGateBlockWithItem(DeferredHolder<? extends FenceGateBlock> gate, String name){
+  private void registerFenceGateBlockWithItem(DeferredBlock<? extends FenceGateBlock> gate, String name){
     fenceGateBlock(gate.get(), modLoc("block/"+name+"_planks"));
     itemModels().withExistingParent(
             name + "_fence_gate",
             modLoc("block/" + name + "_fence_gate")
     );
   }
-  private void pottedPlant(DeferredHolder<? extends FlowerPotBlock> potted, String name) {
+  private void pottedPlant(DeferredBlock<? extends FlowerPotBlock> potted, String name) {
     simpleBlock(potted.get(),
       models().singleTexture(
         name,
         mcLoc("block/flower_pot_cross"),
         "plant",
-        modLoc("block/" + ForgeRegistries.BLOCKS.getKey(potted.get().getContent()).getPath())).renderType(mcLoc("cutout"))
+        modLoc("block/" + BuiltInRegistries.BLOCK.getKey(potted.get().getPotted()).getPath())).renderType(mcLoc("cutout"))
     );
 }
-  private void registerSignBlocksWithItem(DeferredHolder<? extends StandingSignBlock> sign, DeferredHolder<? extends WallSignBlock> wallsign, String name){
+  private void registerSignBlocksWithItem(DeferredBlock<? extends StandingSignBlock> sign, DeferredBlock<? extends WallSignBlock> wallsign, String name){
     signBlock(sign.get(), wallsign.get(), modLoc("block/"+name+"_planks"));
     itemModels().withExistingParent(name+"_sign", mcLoc("item/generated")).texture("layer0", modLoc("item/"+name+"_sign"));
   }
-  private void registerHangingSign(DeferredHolder<? extends CeilingHangingSignBlock> hanging, DeferredHolder<? extends WallHangingSignBlock> wall, String name) {
+  private void registerHangingSign(DeferredBlock<? extends CeilingHangingSignBlock> hanging, DeferredBlock<? extends WallHangingSignBlock> wall, String name) {
     ResourceLocation particle = modLoc("block/stripped_" + name + "_log");
     ModelFile model = models().getBuilder(name + "_hanging_sign")
             .texture("particle", particle);
@@ -131,7 +131,7 @@ public class ChemiBlockStateProvider extends BlockStateProvider{
             .addModels(new ConfiguredModel(model));
     itemModels().withExistingParent(name+"_hanging_sign", mcLoc("item/generated")).texture("layer0", modLoc("item/"+name+"_hanging_sign"));
   }
-  private void registerCrossBlock(DeferredHolder<Block> block){
+  private void registerCrossBlock(DeferredBlock<Block> block){
     String name = block.getId().getPath();
     ModelFile model = models().withExistingParent(name, mcLoc("block/cross")).texture("cross", modLoc("block/"+name)).renderType("cutout");
     getVariantBuilder(block.get())
@@ -139,7 +139,7 @@ public class ChemiBlockStateProvider extends BlockStateProvider{
             .addModels(new ConfiguredModel(model));
     itemModels().withExistingParent(name, mcLoc("item/generated")).texture("layer0", modLoc("block/"+name));
   }
-  private void registerWallBlockWithItem(DeferredHolder<? extends WallBlock> wall, String name){
+  private void registerWallBlockWithItem(DeferredBlock<? extends WallBlock> wall, String name){
     wallBlock(wall.get(), modLoc("block/"+name));
     models().withExistingParent(name+"_wall_inventory", mcLoc("block/wall_inventory")).texture("wall", modLoc("block/"+name));
     itemModels().withExistingParent(

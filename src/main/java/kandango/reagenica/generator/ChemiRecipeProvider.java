@@ -1,8 +1,8 @@
 package kandango.reagenica.generator;
 
-import java.util.function.Consumer;
+import java.util.concurrent.CompletableFuture;
+import java.util.function.Supplier;
 
-import javax.annotation.Nonnull;
 import kandango.reagenica.ChemiBlocks;
 import kandango.reagenica.ChemiItems;
 import kandango.reagenica.ChemistryMod;
@@ -11,10 +11,12 @@ import kandango.reagenica.family.CrystalFamily;
 import kandango.reagenica.family.StoneFamily;
 import kandango.reagenica.family.ToolFamily;
 import kandango.reagenica.family.WoodFamily;
+import net.minecraft.core.HolderLookup;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.PackOutput;
-import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.data.recipes.RecipeCategory;
+import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.data.recipes.RecipeProvider;
 import net.minecraft.data.recipes.ShapedRecipeBuilder;
 import net.minecraft.data.recipes.ShapelessRecipeBuilder;
@@ -26,15 +28,13 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.ItemLike;
-import net.neoforged.neoforge.registries.ForgeRegistries;
-import net.neoforged.neoforge.registries.DeferredHolder;
 
 public class ChemiRecipeProvider extends RecipeProvider{
-  public ChemiRecipeProvider(PackOutput output){
-    super(output);
+  public ChemiRecipeProvider(PackOutput output, CompletableFuture<HolderLookup.Provider> registry){
+    super(output, registry);
   }
   @Override
-  protected void buildRecipes(@Nonnull Consumer<FinishedRecipe> consumer) {
+  protected void buildRecipes(RecipeOutput consumer, HolderLookup.Provider holderLookup) {
     WoodFamily.Woods.forEach(family -> WoodFamilyRecipeGenerator.of(family).register(consumer));
     CrystalFamily.Crystals.forEach(family -> CrystalRecipeGenerator.of(family).register(consumer));
     StoneFamily.Stones.forEach(family -> StoneFamilyRecipeGenerator.of(family).register(consumer));
@@ -70,7 +70,7 @@ public class ChemiRecipeProvider extends RecipeProvider{
     public static WoodFamilyRecipeGenerator of(WoodFamily family){
       return new WoodFamilyRecipeGenerator(family);
     }
-    public void register(Consumer<FinishedRecipe> consumer){
+    public void register(RecipeOutput consumer){
       wood(consumer);
       strippedwood(consumer);
       planks(consumer);
@@ -85,7 +85,7 @@ public class ChemiRecipeProvider extends RecipeProvider{
       button(consumer);
       pressureplate(consumer);
     }
-    private void wood(Consumer<FinishedRecipe> consumer){
+    private void wood(RecipeOutput consumer){
       ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, woodFamily.WOOD.get(), 3)
             .pattern("LL")
             .pattern("LL")
@@ -93,7 +93,7 @@ public class ChemiRecipeProvider extends RecipeProvider{
             .unlockedBy("has_log", has(woodFamily.LOG.get()))
             .save(consumer);
     }
-    private void strippedwood(Consumer<FinishedRecipe> consumer){
+    private void strippedwood(RecipeOutput consumer){
       ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, woodFamily.STRIPPED_WOOD.get(), 3)
             .pattern("LL")
             .pattern("LL")
@@ -101,13 +101,13 @@ public class ChemiRecipeProvider extends RecipeProvider{
             .unlockedBy("has_stripped_log", has(woodFamily.STRIPPED_LOG.get()))
             .save(consumer);
     }
-    private void planks(Consumer<FinishedRecipe> consumer){
+    private void planks(RecipeOutput consumer){
       ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS, woodFamily.PLANKS.get(), 4)
             .requires(logTag)
             .unlockedBy("has_planks", has(logTag))
             .save(consumer);
     }
-    private void stairs(Consumer<FinishedRecipe> consumer){
+    private void stairs(RecipeOutput consumer){
       ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, woodFamily.STAIRS_ITEM.get(), 4)
             .pattern("P  ")
             .pattern("PP ")
@@ -116,14 +116,14 @@ public class ChemiRecipeProvider extends RecipeProvider{
             .unlockedBy("has_planks", has(woodFamily.PLANKS_ITEM.get()))
             .save(consumer);
     }
-    private void slab(Consumer<FinishedRecipe> consumer){
+    private void slab(RecipeOutput consumer){
       ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, woodFamily.SLAB_ITEM.get(), 6)
             .pattern("PPP")
             .define('P', woodFamily.PLANKS_ITEM.get())
             .unlockedBy("has_planks", has(woodFamily.PLANKS_ITEM.get()))
             .save(consumer);
     }
-    private void sign(Consumer<FinishedRecipe> consumer){
+    private void sign(RecipeOutput consumer){
       ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, woodFamily.SIGN_ITEM.get(), 3)
             .pattern("PPP")
             .pattern("PPP")
@@ -133,7 +133,7 @@ public class ChemiRecipeProvider extends RecipeProvider{
             .unlockedBy("has_planks", has(woodFamily.PLANKS_ITEM.get()))
             .save(consumer);
     }
-    private void hangingsign(Consumer<FinishedRecipe> consumer){
+    private void hangingsign(RecipeOutput consumer){
       ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, woodFamily.HANGING_SIGN_ITEM.get(), 6)
             .pattern("C C")
             .pattern("PPP")
@@ -143,7 +143,7 @@ public class ChemiRecipeProvider extends RecipeProvider{
             .unlockedBy("has_stripped_log", has(woodFamily.STRIPPED_LOG.get()))
             .save(consumer);
     }
-    private void fence(Consumer<FinishedRecipe> consumer){
+    private void fence(RecipeOutput consumer){
       ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, woodFamily.FENCE_ITEM.get(), 3)
             .pattern("PSP")
             .pattern("PSP")
@@ -152,7 +152,7 @@ public class ChemiRecipeProvider extends RecipeProvider{
             .unlockedBy("has_planks", has(woodFamily.PLANKS_ITEM.get()))
             .save(consumer);
     }
-    private void fencegate(Consumer<FinishedRecipe> consumer){
+    private void fencegate(RecipeOutput consumer){
       ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, woodFamily.FENCE_GATE_ITEM.get(), 1)
             .pattern("SPS")
             .pattern("SPS")
@@ -161,7 +161,7 @@ public class ChemiRecipeProvider extends RecipeProvider{
             .unlockedBy("has_planks", has(woodFamily.PLANKS_ITEM.get()))
             .save(consumer);
     }
-    private void trapdoor(Consumer<FinishedRecipe> consumer){
+    private void trapdoor(RecipeOutput consumer){
       ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, woodFamily.TRAPDOOR_ITEM.get(), 2)
             .pattern("PPP")
             .pattern("PPP")
@@ -169,7 +169,7 @@ public class ChemiRecipeProvider extends RecipeProvider{
             .unlockedBy("has_planks", has(woodFamily.PLANKS_ITEM.get()))
             .save(consumer);
     }
-    private void door(Consumer<FinishedRecipe> consumer){
+    private void door(RecipeOutput consumer){
       ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, woodFamily.DOOR_ITEM.get(), 3)
             .pattern("PP")
             .pattern("PP")
@@ -178,13 +178,13 @@ public class ChemiRecipeProvider extends RecipeProvider{
             .unlockedBy("has_planks", has(woodFamily.PLANKS_ITEM.get()))
             .save(consumer);
     }
-    private void button(Consumer<FinishedRecipe> consumer){
+    private void button(RecipeOutput consumer){
       ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS, woodFamily.BUTTON_ITEM.get(), 1)
             .requires(woodFamily.PLANKS_ITEM.get())
             .unlockedBy("has_planks", has(woodFamily.PLANKS_ITEM.get()))
             .save(consumer);
     }
-    private void pressureplate(Consumer<FinishedRecipe> consumer){
+    private void pressureplate(RecipeOutput consumer){
       ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, woodFamily.PRESSURE_PLATE_ITEM.get(), 1)
             .pattern("PP")
             .define('P', woodFamily.PLANKS_ITEM.get())
@@ -200,7 +200,7 @@ public class ChemiRecipeProvider extends RecipeProvider{
     public static StoneFamilyRecipeGenerator of(StoneFamily family){
       return new StoneFamilyRecipeGenerator(family);
     }
-    public void register(Consumer<FinishedRecipe> consumer){
+    public void register(RecipeOutput consumer){
       stairs(consumer);
       slab(consumer);
       p_stairs(consumer);
@@ -213,7 +213,7 @@ public class ChemiRecipeProvider extends RecipeProvider{
       s_p_stairs(consumer);
       s_p_slabs(consumer);
     }
-    private void stairs(Consumer<FinishedRecipe> consumer){
+    private void stairs(RecipeOutput consumer){
       ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, stoneFamily.STAIRS_ITEM.get(), 4)
             .pattern("P  ")
             .pattern("PP ")
@@ -222,14 +222,14 @@ public class ChemiRecipeProvider extends RecipeProvider{
             .unlockedBy("has_stone", has(stoneFamily.STONE_ITEM.get()))
             .save(consumer);
     }
-    private void slab(Consumer<FinishedRecipe> consumer){
+    private void slab(RecipeOutput consumer){
       ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, stoneFamily.SLAB_ITEM.get(), 6)
             .pattern("PPP")
             .define('P', stoneFamily.STONE.get())
             .unlockedBy("has_stone", has(stoneFamily.STONE_ITEM.get()))
             .save(consumer);
     }
-    private void p_stairs(Consumer<FinishedRecipe> consumer){
+    private void p_stairs(RecipeOutput consumer){
       ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, stoneFamily.P_STAIRS_ITEM.get(), 4)
             .pattern("P  ")
             .pattern("PP ")
@@ -238,14 +238,14 @@ public class ChemiRecipeProvider extends RecipeProvider{
             .unlockedBy("has_stone", has(stoneFamily.P_STONE_ITEM.get()))
             .save(consumer);
     }
-    private void p_slab(Consumer<FinishedRecipe> consumer){
+    private void p_slab(RecipeOutput consumer){
       ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, stoneFamily.P_SLAB_ITEM.get(), 6)
             .pattern("PPP")
             .define('P', stoneFamily.P_STONE.get())
             .unlockedBy("has_stone", has(stoneFamily.P_STONE_ITEM.get()))
             .save(consumer);
     }
-    private void polish(Consumer<FinishedRecipe> consumer){
+    private void polish(RecipeOutput consumer){
       ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, stoneFamily.P_STONE.get(), 4)
             .pattern("PP")
             .pattern("PP")
@@ -253,7 +253,7 @@ public class ChemiRecipeProvider extends RecipeProvider{
             .unlockedBy("has_stone", has(stoneFamily.STONE_ITEM.get()))
             .save(consumer);
     }
-    private void wall(Consumer<FinishedRecipe> consumer){
+    private void wall(RecipeOutput consumer){
       ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, stoneFamily.WALL.get(), 6)
             .pattern("PPP")
             .pattern("PPP")
@@ -261,40 +261,40 @@ public class ChemiRecipeProvider extends RecipeProvider{
             .unlockedBy("has_stone", has(stoneFamily.STONE_ITEM.get()))
             .save(consumer);
     }
-    private void s_polish(Consumer<FinishedRecipe> consumer){
+    private void s_polish(RecipeOutput consumer){
       SingleItemRecipeBuilder.stonecutting(Ingredient.of(stoneFamily.STONE_ITEM.get()),
       RecipeCategory.BUILDING_BLOCKS, 
       stoneFamily.P_STONE.get(),1)
       .unlockedBy("has_stone", has(stoneFamily.STONE_ITEM.get()))
       .save(consumer, ResourceLocation.fromNamespaceAndPath(ChemistryMod.MODID, "sc_polished_"+stoneFamily.name));
     }
-    private void s_stairs(Consumer<FinishedRecipe> consumer){
+    private void s_stairs(RecipeOutput consumer){
       SingleItemRecipeBuilder.stonecutting(Ingredient.of(stoneFamily.STONE_ITEM.get()),
       RecipeCategory.BUILDING_BLOCKS, 
       stoneFamily.STAIRS.get(),1)
       .unlockedBy("has_stone", has(stoneFamily.STONE_ITEM.get()))
-      .save(consumer, concat(ForgeRegistries.ITEMS.getKey(stoneFamily.STAIRS.get().asItem()),"sc_",""));
+      .save(consumer, concat(BuiltInRegistries.ITEM.getKey(stoneFamily.STAIRS.get().asItem()),"sc_",""));
     }
-    private void s_slabs(Consumer<FinishedRecipe> consumer){
+    private void s_slabs(RecipeOutput consumer){
       SingleItemRecipeBuilder.stonecutting(Ingredient.of(stoneFamily.STONE_ITEM.get()),
       RecipeCategory.BUILDING_BLOCKS, 
       stoneFamily.SLAB.get(),2)
       .unlockedBy("has_stone", has(stoneFamily.STONE_ITEM.get()))
-      .save(consumer, concat(ForgeRegistries.ITEMS.getKey(stoneFamily.SLAB.get().asItem()),"sc_",""));
+      .save(consumer, concat(BuiltInRegistries.ITEM.getKey(stoneFamily.SLAB.get().asItem()),"sc_",""));
     }
-    private void s_p_stairs(Consumer<FinishedRecipe> consumer){
+    private void s_p_stairs(RecipeOutput consumer){
       SingleItemRecipeBuilder.stonecutting(Ingredient.of(stoneFamily.STONE.get(), stoneFamily.P_STONE.get()),
       RecipeCategory.BUILDING_BLOCKS, 
       stoneFamily.P_STAIRS.get(),1)
       .unlockedBy("has_stone", has(stoneFamily.STONE_ITEM.get()))
-      .save(consumer, concat(ForgeRegistries.ITEMS.getKey(stoneFamily.P_STAIRS.get().asItem()),"sc_",""));
+      .save(consumer, concat(BuiltInRegistries.ITEM.getKey(stoneFamily.P_STAIRS.get().asItem()),"sc_",""));
     }
-    private void s_p_slabs(Consumer<FinishedRecipe> consumer){
+    private void s_p_slabs(RecipeOutput consumer){
       SingleItemRecipeBuilder.stonecutting(Ingredient.of(stoneFamily.STONE.get(), stoneFamily.P_STONE.get()),
       RecipeCategory.BUILDING_BLOCKS, 
       stoneFamily.P_SLAB.get(),2)
       .unlockedBy("has_stone", has(stoneFamily.STONE_ITEM.get()))
-      .save(consumer, concat(ForgeRegistries.ITEMS.getKey(stoneFamily.P_SLAB.get().asItem()),"sc_",""));
+      .save(consumer, concat(BuiltInRegistries.ITEM.getKey(stoneFamily.P_SLAB.get().asItem()),"sc_",""));
     }
   }
   private static class ArmorRecipeGenerator{
@@ -308,7 +308,7 @@ public class ChemiRecipeProvider extends RecipeProvider{
     public static ArmorRecipeGenerator ofPair(ArmorFamily family, Item ing){
       return new ArmorRecipeGenerator(family, ing);
     }
-    public void register(Consumer<FinishedRecipe> consumer){
+    public void register(RecipeOutput consumer){
       ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, family.HELMET.get(), 1)
         .pattern("###")
         .pattern("# #")
@@ -350,7 +350,7 @@ public class ChemiRecipeProvider extends RecipeProvider{
     public static ToolRecipeGenerator ofPair(ToolFamily family, Item ing, Ingredient sub){
       return new ToolRecipeGenerator(family, ing, sub);
     }
-    public void register(Consumer<FinishedRecipe> consumer){
+    public void register(RecipeOutput consumer){
       ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, family.SWORD.get(), 1)
         .pattern("#")
         .pattern("#")
@@ -411,7 +411,7 @@ public class ChemiRecipeProvider extends RecipeProvider{
     public static ArmorSmithingRecipeGenerator smith(ArmorFamily base, ArmorFamily upgraded, Item material, ItemLike template){
       return new ArmorSmithingRecipeGenerator(base, upgraded, material, Ingredient.of(template));
     }
-    public void register(Consumer<FinishedRecipe> consumer){
+    public void register(RecipeOutput consumer){
       SmithingTransformRecipeBuilder.smithing(template, Ingredient.of(baseFamily.HELMET.get()),
                 Ingredient.of(material), RecipeCategory.COMBAT, upgradedFamily.HELMET.get())
                 .unlocks("has_material", has(material)).save(consumer, upgradedFamily.HELMET.getId());
@@ -440,7 +440,7 @@ public class ChemiRecipeProvider extends RecipeProvider{
     public static ToolSmithingRecipeGenerator smith(ToolFamily base, ToolFamily upgraded, Item material, ItemLike template){
       return new ToolSmithingRecipeGenerator(base, upgraded, material, Ingredient.of(template));
     }
-    public void register(Consumer<FinishedRecipe> consumer){
+    public void register(RecipeOutput consumer){
       SmithingTransformRecipeBuilder.smithing(template, Ingredient.of(baseFamily.SWORD.get()),
                 Ingredient.of(material), RecipeCategory.COMBAT, upgradedFamily.SWORD.get())
                 .unlocks("has_material", has(material)).save(consumer, upgradedFamily.SWORD.getId());
@@ -467,7 +467,7 @@ public class ChemiRecipeProvider extends RecipeProvider{
     public static CrystalRecipeGenerator of(CrystalFamily family){
       return new CrystalRecipeGenerator(family);
     }
-    public void register(Consumer<FinishedRecipe> consumer){
+    public void register(RecipeOutput consumer){
       ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, family.BLOCK_ITEM.get(), 1)
         .pattern("##")
         .pattern("##")
@@ -477,37 +477,37 @@ public class ChemiRecipeProvider extends RecipeProvider{
     }
   }
   private static class CompressingRecipeGenerator{
-    private final DeferredHolder<? extends ItemLike> UNZIPPED;
-    private final DeferredHolder<? extends ItemLike> COMPRESSED;
+    private final Supplier<? extends ItemLike> UNZIPPED;
+    private final Supplier<? extends ItemLike> COMPRESSED;
     private final boolean isCompressedFormBlock;
     private final String prefix;
     private final String suffix;
 
-    private CompressingRecipeGenerator(DeferredHolder<? extends ItemLike> unzipped, DeferredHolder<? extends ItemLike> compressed, boolean isblock, String prefix, String suffix){
+    private CompressingRecipeGenerator(Supplier<? extends ItemLike> unzipped, Supplier<? extends ItemLike> compressed, boolean isblock, String prefix, String suffix){
       this.UNZIPPED = unzipped;
       this.COMPRESSED = compressed;
       this.isCompressedFormBlock = isblock;
       this.prefix = prefix;
       this.suffix = suffix;
     }
-    public static CompressingRecipeGenerator of(DeferredHolder<? extends ItemLike> unzipped, DeferredHolder<? extends ItemLike> compressed, boolean isBlock){
+    public static CompressingRecipeGenerator of(Supplier<? extends ItemLike> unzipped, Supplier<? extends ItemLike> compressed, boolean isBlock){
       return new CompressingRecipeGenerator(unzipped, compressed, isBlock, "", "");
     }
-    public static CompressingRecipeGenerator of(DeferredHolder<? extends ItemLike> unzipped, DeferredHolder<? extends ItemLike> compressed, boolean isBlock, String prefix, String suffix){
+    public static CompressingRecipeGenerator of(Supplier<? extends ItemLike> unzipped, Supplier<? extends ItemLike> compressed, boolean isBlock, String prefix, String suffix){
       return new CompressingRecipeGenerator(unzipped, compressed, isBlock, prefix, suffix);
     }
-    public void register(Consumer<FinishedRecipe> consumer){
+    public void register(RecipeOutput consumer){
       ShapedRecipeBuilder.shaped(isCompressedFormBlock?RecipeCategory.BUILDING_BLOCKS:RecipeCategory.MISC, COMPRESSED.get(), 1)
         .pattern("###")
         .pattern("###")
         .pattern("###")
         .define('#', UNZIPPED.get())
         .unlockedBy("has_material", has(UNZIPPED.get()))
-        .save(consumer, concat(ForgeRegistries.ITEMS.getKey(UNZIPPED.get().asItem()),prefix,suffix));
+        .save(consumer, concat(BuiltInRegistries.ITEM.getKey(UNZIPPED.get().asItem()),prefix,suffix));
       ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, UNZIPPED.get(), 9)
         .requires(COMPRESSED.get())
         .unlockedBy("has_block", has(COMPRESSED.get()))
-        .save(consumer, concat(ForgeRegistries.ITEMS.getKey(COMPRESSED.get().asItem()),prefix,suffix));
+        .save(consumer, concat(BuiltInRegistries.ITEM.getKey(COMPRESSED.get().asItem()),prefix,suffix));
     }
   }
 
