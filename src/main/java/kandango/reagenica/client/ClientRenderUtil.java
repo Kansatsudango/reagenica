@@ -15,6 +15,7 @@ import net.minecraft.client.renderer.GameRenderer;
 import net.minecraft.client.renderer.texture.TextureAtlasSprite;
 import net.minecraft.core.BlockPos;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.util.Mth;
 import net.minecraft.world.inventory.InventoryMenu;
 import net.minecraft.world.level.BlockAndTintGetter;
 import net.minecraft.world.level.material.FluidState;
@@ -132,11 +133,10 @@ public class ClientRenderUtil {
     graphics.blit(texture, leftPos+x, topPos+y, ax, ay, arrowlength,16);
   }
   public static void renderArrowInGui(ResourceLocation texture, GuiGraphics graphics, int leftPos, int topPos, int progress, int maxprogress, int x, int y, int ax, int ay){
-    int arrowlength = 24*progress/maxprogress;
-    graphics.blit(texture, leftPos+x, topPos+y, ax, ay, arrowlength,16);
+    int arrowlength = Mth.clamp(24*progress/(maxprogress!=0 ? maxprogress : 1), 0, 24);
+    renderArrowInGui(texture, graphics, leftPos, topPos, arrowlength, x, y, ax, ay);
   }
   public static void renderArrowAtDefaultposInGui(ResourceLocation texture, GuiGraphics graphics, int leftPos, int topPos, int progress, int maxprogress, int x, int y){
-    int arrowlength = 24*progress/maxprogress;
-    graphics.blit(texture, leftPos+x, topPos+y, 176, 14, arrowlength,16);
+    renderArrowInGui(texture, graphics, leftPos, topPos, progress, maxprogress, x, y, 176, 14);
   }
 }

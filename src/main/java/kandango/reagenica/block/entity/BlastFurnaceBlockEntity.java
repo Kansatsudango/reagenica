@@ -18,9 +18,7 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.Connection;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
-import net.minecraft.tags.ItemTags;
 import net.minecraft.world.MenuProvider;
 import net.minecraft.world.SimpleContainer;
 import net.minecraft.world.entity.ExperienceOrb;
@@ -157,7 +155,7 @@ public class BlastFurnaceBlockEntity extends BlockEntity implements MenuProvider
       this.cachedRecipe = lv.getRecipeManager().getRecipeFor(ModRecipes.BLAST_FURNACE_TYPE.get(), container, lv);
       if(this.fuel==0){
         ItemStack fuelstack = this.itemHandler.getStackInSlot(1);
-        if(fuelstack.is(ItemTags.create(new ResourceLocation("minecraft", "coals")))){
+        if(fuelstack.is(ChemiTags.Items.BLAST_FURNACE_FUEL)){
           this.fuel = ForgeHooks.getBurnTime(fuelstack, RecipeType.SMELTING);
           this.fuelmax = this.fuel;
           itemHandler.getStackInSlot(1).shrink(1);
