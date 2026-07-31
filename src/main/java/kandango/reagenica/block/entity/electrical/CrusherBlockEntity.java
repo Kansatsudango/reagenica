@@ -8,6 +8,10 @@ import javax.annotation.Nullable;
 import kandango.reagenica.ChemistryMod;
 import kandango.reagenica.block.entity.ModBlockEntities;
 import kandango.reagenica.block.entity.itemhandler.CommonChemiItemHandler;
+import kandango.reagenica.block.entity.lamp.ILampController;
+import kandango.reagenica.block.entity.lamp.LampControllerHelper;
+import kandango.reagenica.block.entity.lamp.LampState;
+import kandango.reagenica.block.entity.lamp.LampStates;
 import kandango.reagenica.block.entity.util.ItemStackUtil;
 import kandango.reagenica.block.entity.util.LitUtil;
 import kandango.reagenica.recipes.CrusherRecipe;
@@ -33,7 +37,7 @@ import net.minecraftforge.common.util.LazyOptional;
 import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.ItemStackHandler;
 
-public class CrusherBlockEntity extends ElectricConsumerAbstract implements MenuProvider{
+public class CrusherBlockEntity extends ElectricConsumerAbstract implements MenuProvider, ILampController{
   private final ItemStackHandler itemHandler = new ItemStackHandler(2) {
       @Override
       protected void onContentsChanged(int slot) {
@@ -57,6 +61,8 @@ public class CrusherBlockEntity extends ElectricConsumerAbstract implements Menu
   private Optional<CrusherRecipe> cachedRecipe;
 
   private final LazyOptional<IItemHandler> itemHandlerLazyOptional = LazyOptional.of(() -> CommonChemiItemHandler.Builder.of(itemHandler).outputslot(1).build());
+
+  private final LampControllerHelper<CrusherBlockEntity> lamphelper = new LampControllerHelper<>(this);
 
   public CrusherBlockEntity(BlockPos pos, BlockState state){
     super(ModBlockEntities.CRUSHER.get(),pos,state);
@@ -139,7 +145,9 @@ public class CrusherBlockEntity extends ElectricConsumerAbstract implements Menu
         if(!ItemStackUtil.canAddStack(outslot, output))this.cachedRecipe = Optional.empty();
       }
     }
+    boolean isProcessing = false;
     if(cachedRecipe.isPresent() && this.getEnergy() >= 16){
+      isProcessing=true;
       this.progress++;
       isLit=true;
       this.consumeEnergy(16);
@@ -159,6 +167,15 @@ public class CrusherBlockEntity extends ElectricConsumerAbstract implements Menu
     }
     dirty=dirtyflag;
     LitUtil.setLit(isLit, lv, worldPosition);
+    if(isProcessing){
+      if(energyStorage.getEnergyStored() > 1000)lamphelper.changeLampState(LampStates.GREEN);
+      else lamphelper.changeLampState(LampStates.SLOW);
+    }else{
+      if(itemHandler.getStackInSlot(0).isEmpty())lamphelper.changeLampState(LampStates.YELLOW);
+      else if(energyStorage.getEnergyStored()<16) lamphelper.changeLampState(LampStates.WARN);
+      else lamphelper.changeLampState(new LampStates(LampState.ON, LampState.BLINK, LampState.OFF));
+    }
+    lamphelper.lampSyncer();
   }
 
   @Override
@@ -170,5 +187,13 @@ public class CrusherBlockEntity extends ElectricConsumerAbstract implements Menu
   public void invalidateCaps() {
     super.invalidateCaps();
     itemHandlerLazyOptional.invalidate();
+  }
+  @Override
+  public LampStates getLampStates() {
+    return lamphelper.getLampStates();
+  }
+  @Override
+  public void receivePacket(LampStates states) {
+    lamphelper.receivePacket(states);
   }
 }

@@ -20,12 +20,12 @@ public class SyncLampState {
 
     public static void encode(SyncLampState msg, FriendlyByteBuf buf) {
         buf.writeBlockPos(msg.pos);
-        buf.writeInt(msg.states.toInt());
+        buf.writeByte(msg.states.toInt());
     }
 
     public static SyncLampState decode(FriendlyByteBuf buf) {
         BlockPos pos = buf.readBlockPos();
-        LampStates states = LampStates.fromInt(buf.readInt());
+        LampStates states = LampStates.fromInt(buf.readByte());
         return new SyncLampState(pos, states);
     }
 

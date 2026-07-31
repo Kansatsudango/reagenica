@@ -8,6 +8,10 @@ import kandango.reagenica.ChemiTags;
 import kandango.reagenica.block.entity.ModBlockEntities;
 import kandango.reagenica.block.entity.fluidhandlers.SimpleIOFluidHandler;
 import kandango.reagenica.block.entity.itemhandler.CommonChemiItemHandler;
+import kandango.reagenica.block.entity.lamp.ILampController;
+import kandango.reagenica.block.entity.lamp.LampControllerHelper;
+import kandango.reagenica.block.entity.lamp.LampState;
+import kandango.reagenica.block.entity.lamp.LampStates;
 import kandango.reagenica.block.entity.util.FluidItemConverter;
 import kandango.reagenica.block.entity.util.FluidStackUtil;
 import kandango.reagenica.block.entity.util.ItemStackUtil;
@@ -41,7 +45,7 @@ import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.ItemStackHandler;
 import net.minecraftforge.network.PacketDistributor;
 
-public class ElectroLysisBlockEntity extends ElectricConsumerAbstract implements MenuProvider,IDualTankBlock{
+public class ElectroLysisBlockEntity extends ElectricConsumerAbstract implements MenuProvider,IDualTankBlock,ILampController{
   private final ItemStackHandler itemHandler = new ItemStackHandler(12) {
       @Override
       protected void onContentsChanged(int slot) {
@@ -100,6 +104,8 @@ public class ElectroLysisBlockEntity extends ElectricConsumerAbstract implements
                 .anyfluidOutputslot(OUTPUT_FLUID_SLOT)
                 .outputslot(CATHODE_OUTPUT_SLOT,ANODE_OUTPUT_SLOT,ANODE_GAS_TESTTUBE_SLOT+1,CATHODE_GAS_TESTTUBE_SLOT+1).build());
   private final LazyOptional<IFluidHandler> fluidHandlerLazyOptional = LazyOptional.of(() -> new SimpleIOFluidHandler(inputFluid,outputFluid));
+
+  private final LampControllerHelper<ElectroLysisBlockEntity> lamphelper = new LampControllerHelper<>(this);
 
   public ElectroLysisBlockEntity(BlockPos pos, BlockState state){
     super(ModBlockEntities.ELECTROLYSIS_DEVICE.get(),pos,state);
@@ -215,6 +221,7 @@ public class ElectroLysisBlockEntity extends ElectricConsumerAbstract implements
                                             .filter(r -> canInsert(r))
                                             .orElse(null);
     }
+    boolean isProcessing=false;
     if(cachedRecipe!=null && this.getEnergy()>=20){
       ItemStack anoderes = cachedRecipe.getOutputP();
       ItemStack cathoderes = cachedRecipe.getOutputN();
@@ -223,6 +230,7 @@ public class ElectroLysisBlockEntity extends ElectricConsumerAbstract implements
       ItemStack cathodegas = cachedRecipe.getOutputGasN();
       FluidStack influid = cachedRecipe.getFluidIn();
       if(canInsert(cachedRecipe)){
+        isProcessing=true;
         this.progress++;
         this.consumeEnergy(20);
         if(this.progress >= 300){
@@ -250,6 +258,15 @@ public class ElectroLysisBlockEntity extends ElectricConsumerAbstract implements
       }
     }
     this.dirty=dirtyflag;
+    if(isProcessing){
+      if(energyStorage.getEnergyStored() > 1000)lamphelper.changeLampState(LampStates.GREEN);
+      else lamphelper.changeLampState(LampStates.SLOW);
+    }else{
+      if(inputFluid.isEmpty())lamphelper.changeLampState(LampStates.YELLOW);
+      else if(energyStorage.getEnergyStored()<16) lamphelper.changeLampState(LampStates.WARN);
+      else lamphelper.changeLampState(new LampStates(LampState.ON, LampState.BLINK, LampState.OFF));
+    }
+    lamphelper.lampSyncer();
   }
   private boolean canInsert(ElectroLysisRecipe recipe){
     ItemStack anode = recipe.getOutputP();
@@ -276,5 +293,13 @@ public class ElectroLysisBlockEntity extends ElectricConsumerAbstract implements
     super.invalidateCaps();
     itemHandlerLazyOptional.invalidate();
     fluidHandlerLazyOptional.invalidate();
+  }
+  @Override
+  public LampStates getLampStates() {
+    return lamphelper.getLampStates();
+  }
+  @Override
+  public void receivePacket(LampStates states) {
+    lamphelper.receivePacket(states);
   }
 }

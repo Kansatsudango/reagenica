@@ -17,10 +17,10 @@ public record LampStates(LampState red,LampState yellow,LampState green) {
     else throw new IndexOutOfBoundsException();
   }
   public int toInt(){
-    return sti(green) | sti(yellow)<<8 | sti(red)<<16;
+    return sti(green) | sti(yellow)<<2 | sti(red)<<4;
   }
   public static LampStates fromInt(int id){
-    return new LampStates(its(id>>16 & 15),its(id>>8 & 15),its(id & 15));
+    return new LampStates(its(id>>4 & 3),its(id>>2 & 3),its(id & 3));
   }
   private int sti(LampState s){
     if(s == LampState.OFF)return 0;
