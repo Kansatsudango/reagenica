@@ -116,6 +116,7 @@ public class HeatGeneratorBlockEntity extends ElectricGeneratorAbstract implemen
 
   @Override
   public void serverTick(){
+    super.serverTick();
     Level lv = this.level;
     if(lv==null)return;
     boolean flag=false;

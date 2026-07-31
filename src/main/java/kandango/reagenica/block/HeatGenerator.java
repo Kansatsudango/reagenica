@@ -4,6 +4,7 @@ import javax.annotation.Nonnull;
 
 import org.jetbrains.annotations.Nullable;
 
+import kandango.reagenica.block.entity.electrical.ElectricGeneratorAbstract;
 import kandango.reagenica.block.entity.electrical.HeatGeneratorBlockEntity;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -70,6 +71,14 @@ public class HeatGenerator extends Block implements EntityBlock {
   @Override
   public boolean propagatesSkylightDown(@Nonnull BlockState state, @Nonnull BlockGetter world, @Nonnull BlockPos pos) {
     return true;
+  }
+  @Override
+  public boolean hasAnalogOutputSignal(BlockState state) {
+    return true;
+  }
+  @Override
+  public int getAnalogOutputSignal(BlockState state, Level level, BlockPos pos) {
+    return level.getBlockEntity(pos) instanceof ElectricGeneratorAbstract machine ? machine.getAnalogSignal() : 0;
   }
 
   @Override

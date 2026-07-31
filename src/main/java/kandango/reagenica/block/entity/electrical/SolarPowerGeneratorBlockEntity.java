@@ -43,6 +43,7 @@ public class SolarPowerGeneratorBlockEntity extends ElectricGeneratorAbstract im
 
   @Override
   public void serverTick(){
+    super.serverTick();
     Level lv = this.level;
     if(lv==null)return;
     if(this.powerTick<10){

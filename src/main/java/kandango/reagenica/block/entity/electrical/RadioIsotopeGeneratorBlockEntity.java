@@ -67,6 +67,7 @@ public class RadioIsotopeGeneratorBlockEntity extends ElectricGeneratorAbstract 
 
   @Override
   public void serverTick(){
+    super.serverTick();
     Level lv = this.level;
     if(lv==null)return;
     if(dirty){

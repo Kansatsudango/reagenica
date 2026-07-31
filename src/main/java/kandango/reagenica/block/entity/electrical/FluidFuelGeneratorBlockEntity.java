@@ -137,6 +137,7 @@ public class FluidFuelGeneratorBlockEntity extends ElectricGeneratorAbstract imp
 
   @Override
   public void serverTick(){
+    super.serverTick();
     Level lv = this.level;
     if(lv==null)return;
     if(dirty){

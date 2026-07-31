@@ -61,6 +61,7 @@ public class LeadBatteryBlockEntity extends ElectricGeneratorAbstract implements
 
   @Override
   public void serverTick(){
+    super.serverTick();
     this.provideEnergy();
   }
 

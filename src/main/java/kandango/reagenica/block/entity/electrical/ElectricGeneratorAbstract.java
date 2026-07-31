@@ -22,6 +22,7 @@ import net.minecraft.core.Direction;
 import net.minecraft.core.particles.DustParticleOptions;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.util.Mth;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
@@ -34,6 +35,7 @@ import net.minecraftforge.energy.IEnergyStorage;
 public abstract class ElectricGeneratorAbstract extends ElectricMachineAbstract{
   private Map<BlockPos,ElectroTerminal> customerCostMap = new HashMap<>();
   private boolean networkChanged = true;
+  private int analogCache = -1;
   public void notifyChange(){
     this.networkChanged=true;
   }
@@ -58,6 +60,9 @@ public abstract class ElectricGeneratorAbstract extends ElectricMachineAbstract{
 
   @Override
   public void serverTick(){
+    if(level instanceof ServerLevel slv && getAnalogSignal() != analogCache){
+      slv.updateNeighbourForOutputSignal(worldPosition, getBlockState().getBlock());
+    }
   }
 
   @Override
@@ -66,6 +71,13 @@ public abstract class ElectricGeneratorAbstract extends ElectricMachineAbstract{
       CableNetworkManager.requestUpdate(slv, worldPosition);
     }
     super.onLoad();
+  }
+
+  public int getAnalogSignal(){
+    int max = energyStorage.getMaxEnergyStored();
+    int current = energyStorage.getEnergyStored();
+    int ans = (15*current+max-1)/(max!=0 ? max : Integer.MAX_VALUE);
+    return Mth.clamp(ans, 0, 15);
   }
 
   @Override

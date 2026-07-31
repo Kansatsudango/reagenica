@@ -41,6 +41,7 @@ public class DebugGeneratorBlockEntity extends ElectricGeneratorAbstract impleme
 
   @Override
   public void serverTick(){
+    super.serverTick();
     this.giveEnergy(100);
     this.provideEnergy();
   }
