@@ -5,7 +5,8 @@
     "amount": 100
   },
   "result_n": {
-    "item": "reagenica:aluminium_ingot"
+    "item": "reagenica:aluminium_ingot",
+    "count": 2
   },
   "result_p": {
     "item": "reagenica:powder_cryolite"

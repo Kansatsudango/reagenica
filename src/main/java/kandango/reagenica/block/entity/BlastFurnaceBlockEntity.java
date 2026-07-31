@@ -5,6 +5,7 @@ import java.util.Optional;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
+import kandango.reagenica.ChemiTags;
 import kandango.reagenica.block.entity.itemhandler.CommonChemiItemHandler;
 import kandango.reagenica.block.entity.util.ItemStackUtil;
 import kandango.reagenica.block.entity.util.LitUtil;
@@ -27,7 +28,6 @@ import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
@@ -50,8 +50,8 @@ public class BlastFurnaceBlockEntity extends BlockEntity implements MenuProvider
       @Override
       public boolean isItemValid(int slot, @Nullable ItemStack stack) {
         if(stack==null)return false;
-        else if(slot==0)return true;
-        else if(slot==1)return stack.is(Items.COAL) || stack.is(Items.CHARCOAL);
+        else if(slot==0)return !stack.is(ChemiTags.Items.BLAST_FURNACE_FUEL);
+        else if(slot==1)return stack.is(ChemiTags.Items.BLAST_FURNACE_FUEL);
         else return false;
       }
     };
@@ -67,7 +67,7 @@ public class BlastFurnaceBlockEntity extends BlockEntity implements MenuProvider
   private int fuel = 0;
   public int getFuel(){return fuel;}
   public void setFuel(int p){this.fuel=p;}
-  private int fuelmax = 1600;//炭ならどうせ1600
+  private int fuelmax = 1600;
   public int getFuelMax(){return fuelmax;}
   public void setFuelMax(int p){this.fuelmax=p;}
   private int maxtemp=16000;
