@@ -27,7 +27,7 @@ public class HydrogenReductorScreen extends AbstractContainerScreen<HydrogenRedu
     this.inventoryLabelY = this.imageHeight - 94;
     components.add(new TankComponent(menu.getHydrogenTank(), 26, 30, menu.getBlockEntity().getBlockPos()));
     components.add(new EnergyComponent(menu.getEnergyStorage(), 158, 60, TEXTURE));
-    components.add(new ArrowComponent(() -> menu.getProgress(), () -> 200, 76, 34, TEXTURE));
+    components.add(new ArrowComponent(() -> menu.getProgress(), () -> 100, 76, 34, TEXTURE));
   }
 
   @Override

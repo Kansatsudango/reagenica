@@ -190,7 +190,7 @@ public class HydrogenReductorBlockEntity extends ElectricConsumerAbstract implem
       progress++;
       isRunning=true;
       this.consumeEnergy(EnergyUnit);
-      if(progress>=200){
+      if(progress>=100){
         progress=0;
         ItemStackUtil.shrinkSlot(itemHandler, 0, 1);
         ItemStackUtil.addStackToSlot(itemHandler, 1, recipe.getOutput().copy());
