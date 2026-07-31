@@ -85,12 +85,12 @@ public class RadioIsotopeGeneratorBlockEntity extends ElectricGeneratorAbstract 
     }
     cache = switch(pellets){
       case 0 -> 0;
-      case 1 -> 1;
-      case 2 -> 2;
-      case 3 -> 4;
-      case 4 -> 7;
-      case 5 -> 10;
-      case 6 -> 14;
+      case 1 -> 2;
+      case 2 -> 4;
+      case 3 -> 7;
+      case 4 -> 13;
+      case 5 -> 25;
+      case 6 -> 49;
       default -> 0;
     };
   }

@@ -59,14 +59,14 @@ public class SolarPowerGeneratorBlockEntity extends ElectricGeneratorAbstract im
     int energyRate = 0;
     boolean isClear = !lv.isRaining() && !lv.isThundering();
     int dayTime = (int)(lv.getDayTime() % 24000);
-    if(dayTime<12000){//Day
-      energyRate = 10;
+    if(dayTime<11500){//Day
+      energyRate = 15;
     }else if(dayTime<13000){//Evening
       energyRate = (13000-dayTime)/100;
-    }else if(dayTime<23000){//Night
+    }else if(dayTime<22500){//Night
       energyRate = 0;
     }else{//Dawn
-      energyRate = (dayTime-23000)/100;
+      energyRate = (dayTime-22500)/100;
     }
     if(!isClear)energyRate/=2;
     this.energyStorage.receiveEnergy(energyRate, false);

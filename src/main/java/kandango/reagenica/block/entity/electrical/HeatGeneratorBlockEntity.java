@@ -147,8 +147,8 @@ public class HeatGeneratorBlockEntity extends ElectricGeneratorAbstract implemen
   }
 
   private void generateEnergy(){
-    if (energyStorage.receiveEnergy(48, true) > 0) {
-      energyStorage.receiveEnergy(48, false);
+    if (energyStorage.receiveEnergy(80, true) > 0) {
+      energyStorage.receiveEnergy(80, false);
     }
   }
 
@@ -178,5 +178,10 @@ public class HeatGeneratorBlockEntity extends ElectricGeneratorAbstract implemen
   public void invalidateCaps() {
     super.invalidateCaps();
     fluidHandlerLazyOptional.invalidate();
+  }
+
+  @Override
+  protected int getOfferUnit(){
+    return 200;
   }
 }

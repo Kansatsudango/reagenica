@@ -200,4 +200,9 @@ public class FluidFuelGeneratorBlockEntity extends ElectricGeneratorAbstract imp
     itemHandlerLazyOptional.invalidate();
     fluidHandlerLazyOptional.invalidate();
   }
+
+  @Override
+  protected int getOfferUnit(){
+    return 80;
+  }
 }

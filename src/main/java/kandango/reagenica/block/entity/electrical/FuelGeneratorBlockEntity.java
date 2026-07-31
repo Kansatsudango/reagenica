@@ -112,8 +112,8 @@ public class FuelGeneratorBlockEntity extends ElectricGeneratorAbstract implemen
   }
 
   private void generateEnergy(){
-    if (energyStorage.receiveEnergy(8, true) > 0) {
-      energyStorage.receiveEnergy(8, false);
+    if (energyStorage.receiveEnergy(12, true) > 0) {
+      energyStorage.receiveEnergy(12, false);
     }
   }
   
