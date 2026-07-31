@@ -70,8 +70,8 @@ public class DissolverScreen extends AbstractContainerScreen<DissolverMenu> {
             FluidStack fluid = menu.getFluidInput();
             if (!fluid.isEmpty()) {
                 List<Component> tooltip = new ArrayList<>();
-                tooltipComponents.add(Component.translatable(fluid.getTranslationKey()));
-                tooltipComponents.add(Component.literal(fluid.getAmount() + " mB"));
+                tooltip.add(Component.translatable(fluid.getTranslationKey()));
+                tooltip.add(Component.literal(fluid.getAmount() + " mB"));
 
                 graphics.renderTooltip(font, tooltip, Optional.empty(), mouseX, mouseY);
             } else {
@@ -81,8 +81,8 @@ public class DissolverScreen extends AbstractContainerScreen<DissolverMenu> {
             FluidStack fluid = menu.getFluidOutput();
             if (!fluid.isEmpty()) {
                 List<Component> tooltip = new ArrayList<>();
-                tooltipComponents.add(Component.translatable(fluid.getTranslationKey()));
-                tooltipComponents.add(Component.literal(fluid.getAmount() + " mB"));
+                tooltip.add(Component.translatable(fluid.getTranslationKey()));
+                tooltip.add(Component.literal(fluid.getAmount() + " mB"));
 
                 graphics.renderTooltip(font, tooltip, Optional.empty(), mouseX, mouseY);
             } else {
@@ -91,8 +91,8 @@ public class DissolverScreen extends AbstractContainerScreen<DissolverMenu> {
         }else if (isMouseOver(mouseX, mouseY, leftPos+67, topPos+62, 3, 16)) {
             int energy = menu.getEnergy();
             List<Component> tooltip = new ArrayList<>();
-            tooltipComponents.add(Component.literal("Energy"));
-            tooltipComponents.add(Component.literal(energy + " EU"));
+            tooltip.add(Component.literal("Energy"));
+            tooltip.add(Component.literal(energy + " EU"));
 
             graphics.renderTooltip(font, tooltip, Optional.empty(), mouseX, mouseY);
         }
@@ -109,7 +109,7 @@ public class DissolverScreen extends AbstractContainerScreen<DissolverMenu> {
 
     @Override
     public void render(@Nonnull GuiGraphics graphics, int mouseX, int mouseY, float delta) {
-        this.renderBackground(graphics);
+        this.renderBackground(graphics, mouseX, mouseY, delta);
         super.render(graphics, mouseX, mouseY, delta);
         this.renderTooltip(graphics, mouseX, mouseY);
     }

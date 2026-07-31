@@ -61,8 +61,8 @@ public class TankScreen extends AbstractContainerScreen<TankMenu> {
             FluidStack fluid = menu.getFluid();
             if (!fluid.isEmpty()) {
                 List<Component> tooltip = new ArrayList<>();
-                tooltipComponents.add(Component.translatable(fluid.getTranslationKey()));
-                tooltipComponents.add(Component.literal(fluid.getAmount() + " mB"));
+                tooltip.add(Component.translatable(fluid.getTranslationKey()));
+                tooltip.add(Component.literal(fluid.getAmount() + " mB"));
 
                 graphics.renderTooltip(font, tooltip, Optional.empty(), mouseX, mouseY);
             } else {
@@ -82,7 +82,7 @@ public class TankScreen extends AbstractContainerScreen<TankMenu> {
 
     @Override
     public void render(@Nonnull GuiGraphics graphics, int mouseX, int mouseY, float delta) {
-        this.renderBackground(graphics);
+        this.renderBackground(graphics, mouseX, mouseY, delta);
         super.render(graphics, mouseX, mouseY, delta);
         this.renderTooltip(graphics, mouseX, mouseY);
     }

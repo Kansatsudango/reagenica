@@ -88,8 +88,8 @@ public class FractionalDistillerScreen extends AbstractContainerScreen<Fractiona
             FluidStack fluid = menu.getFluidInput();
             if (!fluid.isEmpty()) {
                 List<Component> tooltip = new ArrayList<>();
-                tooltipComponents.add(Component.translatable(fluid.getTranslationKey()));
-                tooltipComponents.add(Component.literal(fluid.getAmount() + " mB"));
+                tooltip.add(Component.translatable(fluid.getTranslationKey()));
+                tooltip.add(Component.literal(fluid.getAmount() + " mB"));
 
                 graphics.renderTooltip(font, tooltip, Optional.empty(), mouseX, mouseY);
             } else {
@@ -99,8 +99,8 @@ public class FractionalDistillerScreen extends AbstractContainerScreen<Fractiona
             FluidStack fluid = menu.getFluidTop();
             if (!fluid.isEmpty()) {
                 List<Component> tooltip = new ArrayList<>();
-                tooltipComponents.add(Component.translatable(fluid.getTranslationKey()));
-                tooltipComponents.add(Component.literal(fluid.getAmount() + " mB"));
+                tooltip.add(Component.translatable(fluid.getTranslationKey()));
+                tooltip.add(Component.literal(fluid.getAmount() + " mB"));
 
                 graphics.renderTooltip(font, tooltip, Optional.empty(), mouseX, mouseY);
             } else {
@@ -110,8 +110,8 @@ public class FractionalDistillerScreen extends AbstractContainerScreen<Fractiona
             FluidStack fluid = menu.getFluidBottom();
             if (!fluid.isEmpty()) {
                 List<Component> tooltip = new ArrayList<>();
-                tooltipComponents.add(Component.translatable(fluid.getTranslationKey()));
-                tooltipComponents.add(Component.literal(fluid.getAmount() + " mB"));
+                tooltip.add(Component.translatable(fluid.getTranslationKey()));
+                tooltip.add(Component.literal(fluid.getAmount() + " mB"));
 
                 graphics.renderTooltip(font, tooltip, Optional.empty(), mouseX, mouseY);
             } else {
@@ -121,8 +121,8 @@ public class FractionalDistillerScreen extends AbstractContainerScreen<Fractiona
             FluidStack fluid = menu.getFluidWater();
             if (!fluid.isEmpty()) {
                 List<Component> tooltip = new ArrayList<>();
-                tooltipComponents.add(Component.translatable(fluid.getTranslationKey()));
-                tooltipComponents.add(Component.literal(fluid.getAmount() + " mB"));
+                tooltip.add(Component.translatable(fluid.getTranslationKey()));
+                tooltip.add(Component.literal(fluid.getAmount() + " mB"));
 
                 graphics.renderTooltip(font, tooltip, Optional.empty(), mouseX, mouseY);
             } else {
@@ -142,7 +142,7 @@ public class FractionalDistillerScreen extends AbstractContainerScreen<Fractiona
 
     @Override
     public void render(@Nonnull GuiGraphics graphics, int mouseX, int mouseY, float delta) {
-        this.renderBackground(graphics);
+        this.renderBackground(graphics, mouseX, mouseY, delta);
         super.render(graphics, mouseX, mouseY, delta);
         this.renderTooltip(graphics, mouseX, mouseY);
     }

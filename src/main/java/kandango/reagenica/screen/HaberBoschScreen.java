@@ -81,8 +81,8 @@ public class HaberBoschScreen extends AbstractContainerScreen<HaberBoschMenu> {
       FluidStack fluid = menu.getNitroInputFluid();
       if (!fluid.isEmpty()) {
         List<Component> tooltip = new ArrayList<>();
-        tooltipComponents.add(Component.translatable(fluid.getTranslationKey()));
-        tooltipComponents.add(Component.literal(fluid.getAmount() + " mB"));
+        tooltip.add(Component.translatable(fluid.getTranslationKey()));
+        tooltip.add(Component.literal(fluid.getAmount() + " mB"));
         graphics.renderTooltip(font, tooltip, Optional.empty(), mouseX, mouseY);
       } else {
         graphics.renderTooltip(font, List.of(Component.literal("Empty")), Optional.empty(), mouseX, mouseY);
@@ -91,8 +91,8 @@ public class HaberBoschScreen extends AbstractContainerScreen<HaberBoschMenu> {
       FluidStack fluid = menu.getHydroInputFluid();
       if (!fluid.isEmpty()) {
         List<Component> tooltip = new ArrayList<>();
-        tooltipComponents.add(Component.translatable(fluid.getTranslationKey()));
-        tooltipComponents.add(Component.literal(fluid.getAmount() + " mB"));
+        tooltip.add(Component.translatable(fluid.getTranslationKey()));
+        tooltip.add(Component.literal(fluid.getAmount() + " mB"));
         graphics.renderTooltip(font, tooltip, Optional.empty(), mouseX, mouseY);
       } else {
         graphics.renderTooltip(font, List.of(Component.literal("Empty")), Optional.empty(), mouseX, mouseY);
@@ -101,8 +101,8 @@ public class HaberBoschScreen extends AbstractContainerScreen<HaberBoschMenu> {
       FluidStack fluid = menu.getOutputFluid();
       if (!fluid.isEmpty()) {
         List<Component> tooltip = new ArrayList<>();
-        tooltipComponents.add(Component.translatable(fluid.getTranslationKey()));
-        tooltipComponents.add(Component.literal(fluid.getAmount() + " mB"));
+        tooltip.add(Component.translatable(fluid.getTranslationKey()));
+        tooltip.add(Component.literal(fluid.getAmount() + " mB"));
         graphics.renderTooltip(font, tooltip, Optional.empty(), mouseX, mouseY);
       } else {
         graphics.renderTooltip(font, List.of(Component.literal("Empty")), Optional.empty(), mouseX, mouseY);
@@ -121,7 +121,7 @@ public class HaberBoschScreen extends AbstractContainerScreen<HaberBoschMenu> {
 
   @Override
   public void render(@Nonnull GuiGraphics graphics, int mouseX, int mouseY, float delta) {
-    this.renderBackground(graphics);
+    this.renderBackground(graphics, mouseX, mouseY, delta);
     super.render(graphics, mouseX, mouseY, delta);
     this.renderTooltip(graphics, mouseX, mouseY);
   }

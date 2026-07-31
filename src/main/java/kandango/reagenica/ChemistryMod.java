@@ -6,6 +6,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import kandango.reagenica.block.entity.ModBlockEntities;
+import kandango.reagenica.block.entity.capability.ChemiCapabilities;
 import kandango.reagenica.block.fluid.ChemiFluidTypes;
 import kandango.reagenica.recipes.ModRecipes;
 import kandango.reagenica.screen.ModMenus;
@@ -15,16 +16,15 @@ import kandango.reagenica.worldgen.ChemiBiomes;
 import kandango.reagenica.worldgen.ChemiFeatures;
 import kandango.reagenica.worldgen.ChemiFoliagePlacers;
 import kandango.reagenica.worldgen.ChemiStructures;
+import net.neoforged.bus.api.EventPriority;
 import net.neoforged.bus.api.IEventBus;
-import net.neoforged.fml.javafmlmod.FMLJavaModLoadingContext;
 
 @Mod(ChemistryMod.MODID)
 public class ChemistryMod {
   public static final String MODID = "reagenica";
   public static final Logger LOGGER = LoggerFactory.getLogger(MODID);
   
-  public ChemistryMod() {
-    IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
+  public ChemistryMod(IEventBus modEventBus) {
     ChemiFluidTypes.FLUID_TYPES.register(modEventBus);
     ChemiFluids.FLUIDS.register(modEventBus);
     ChemiItems.ITEMS.register(modEventBus);
@@ -40,7 +40,6 @@ public class ChemistryMod {
     ChemiBiomes.BIOME_SOURCE.register(modEventBus);
     ChemiStructures.STRUCTURE_TYPES.register(modEventBus);
     ChemiStructures.PIECES.register(modEventBus);
-    ChemiEnchantments.ENCHANTMENTS.register(modEventBus);
     ChemiVillagerProfessions.PROFESSIONS.register(modEventBus);
     ModBlockEntities.register(modEventBus);
     ModMenus.register(modEventBus);
@@ -48,5 +47,10 @@ public class ChemistryMod {
     ModCreativeTabs.register(modEventBus);
     ChemiPOIs.register(modEventBus);
     ChemiGameRules.init();
+    attachEvent(modEventBus);
+  }
+
+  public void attachEvent(IEventBus modEventBus){
+    modEventBus.addListener(EventPriority.NORMAL, ChemiCapabilities::registerCapabilities);
   }
 }

@@ -2,7 +2,6 @@ package kandango.reagenica.block;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerPlayer;
-import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.BlockGetter;
@@ -31,11 +30,11 @@ public class LargeTankInterface extends Block implements EntityBlock {
 
   @Override
   public InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult hitResult) {
-    if (!level.isClientSide) {
+    if (!level.isClientSide && player instanceof ServerPlayer sp) {
       BlockEntity blockEntity = level.getBlockEntity(pos);
       if(blockEntity instanceof LargeTankInterfaceBlockEntity ltibe){
         ltibe.getMasterBlockEntity().ifPresent(tank -> {
-          NetworkHooks.openScreen((ServerPlayer)player, tank, tank.getBlockPos());
+          sp.openMenu(tank, tank.getBlockPos());
         });
       }
     }

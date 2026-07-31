@@ -7,7 +7,6 @@ import kandango.reagenica.ChemiBlocks;
 import kandango.reagenica.block.entity.BlastFurnaceSubBlockEntity;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerPlayer;
-import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.MenuProvider;
 import net.minecraft.world.entity.player.Player;
@@ -36,19 +35,17 @@ public class BlastFurnaceSub extends Block implements EntityBlock{
   }
 
   @Override
-  public InteractionResult use(@Nonnull BlockState state, @Nonnull Level level, @Nonnull BlockPos pos,
-                             @Nonnull Player player, @Nonnull InteractionHand hand, @Nonnull BlockHitResult hit) {
+  public InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult hitResult) {
     if (!level.isClientSide) {
       BlockPos basePos = getbasepos(pos, state.getValue(LEVEL));
       var blockEntity = level.getBlockEntity(basePos);
       if (blockEntity instanceof MenuProvider provider) {
-        NetworkHooks.openScreen((ServerPlayer) player, provider, basePos);
+        if(player instanceof ServerPlayer sp) sp.openMenu(provider, basePos);
       }
     }
     return InteractionResult.SUCCESS;
   }
 
-  @SuppressWarnings("deprecation")
   @Override
   public void onRemove(@Nonnull BlockState state, @Nonnull Level level, @Nonnull BlockPos pos, @Nonnull BlockState newState, boolean isMoving) {
     if (!state.is(newState.getBlock())) {

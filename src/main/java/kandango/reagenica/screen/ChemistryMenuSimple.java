@@ -24,14 +24,18 @@ public abstract class ChemistryMenuSimple extends AbstractContainerMenu {
   protected void initSlots(Inventory inv) {
     for (int row = 0; row < 3; ++row) {
         for (int col = 0; col < 9; ++col) {
-            this.addSlot(new Slot(inv, col + row * 9 + 9, 8 + col * 18, inv_start() + row * 18));
+            this.addSlot(createPlayerSlot(inv, col + row * 9 + 9, 8 + col * 18, inv_start() + row * 18));
         }
     }
     for (int col = 0; col < 9; ++col) {
-        this.addSlot(new Slot(inv, col, 8 + col * 18, hotbar_start()));
+        this.addSlot(createPlayerSlot(inv, col, 8 + col * 18, hotbar_start()));
     }
   }
   protected abstract int slotCount();
+
+  protected Slot createPlayerSlot(Inventory inventory, int inventorySlot, int x, int y) {
+        return new Slot(inventory, inventorySlot, x, y);
+    }
 
   @Override
   public ItemStack quickMoveStack(@Nonnull Player player, int index) {

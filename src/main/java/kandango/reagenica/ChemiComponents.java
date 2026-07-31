@@ -1,11 +1,15 @@
 package kandango.reagenica;
 
+import java.util.UUID;
+
 import com.mojang.serialization.Codec;
 
 import kandango.reagenica.item.bioreagent.BioReagentTypes;
+import net.minecraft.core.UUIDUtil;
 import net.minecraft.core.component.DataComponentType;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.codec.ByteBufCodecs;
+import net.minecraft.world.item.component.ItemContainerContents;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
@@ -37,5 +41,15 @@ public class ChemiComponents {
             DATA_COMPONENTS.register("growth", () -> 
               DataComponentType.<Byte>builder()
               .persistent(Codec.BYTE).build()
+            );
+  public static final DeferredHolder<DataComponentType<?>,DataComponentType<ItemContainerContents>> BAG_CONTENTS =
+            DATA_COMPONENTS.register("bag_contents", () ->
+              DataComponentType.<ItemContainerContents>builder()
+                .persistent(ItemContainerContents.CODEC)
+                .networkSynchronized(ItemContainerContents.STREAM_CODEC).build()
+            );
+  public static final DeferredHolder<DataComponentType<?>,DataComponentType<UUID>> BAG_UUID =
+            DATA_COMPONENTS.register("bag_uuid", () -> 
+              DataComponentType.<UUID>builder().persistent(UUIDUtil.CODEC).build()
             );
 }

@@ -12,7 +12,7 @@ import net.minecraft.world.level.block.state.properties.WoodType;
 
 public class ChemiWallHangingSignBlock extends WallHangingSignBlock{
   public ChemiWallHangingSignBlock(Block.Properties p, WoodType type){
-    super(p, type);
+    super(type, p);
   }
   
 	@Override

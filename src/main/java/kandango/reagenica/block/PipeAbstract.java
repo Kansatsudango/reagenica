@@ -26,7 +26,7 @@ import net.minecraft.world.level.pathfinder.PathComputationType;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import net.neoforged.neoforge.common.capabilities.ForgeCapabilities;
+import net.neoforged.neoforge.capabilities.Capabilities;
 
 public abstract class PipeAbstract extends Block implements EntityBlock {
   public static final BooleanProperty NORTH = BlockStateProperties.NORTH;
@@ -76,10 +76,10 @@ public abstract class PipeAbstract extends Block implements EntityBlock {
     if(be != null){
       if(be instanceof PipeAbstractBlockEntity){
         boolean samePipeType = (neighborState.getBlock() == thisState.getBlock());
-        boolean isOpenSide = be.getCapability(ForgeCapabilities.FLUID_HANDLER, dir.getOpposite()).isPresent();
+        boolean isOpenSide = lv.getCapability(Capabilities.FluidHandler.BLOCK, relative, neighborState, be, dir.getOpposite())!=null;
         return samePipeType && isOpenSide;
       }
-      return be.getCapability(ForgeCapabilities.FLUID_HANDLER, dir.getOpposite()).isPresent();
+      return lv.getCapability(Capabilities.FluidHandler.BLOCK, relative, neighborState, be, dir.getOpposite())!=null;
     }
     return false;
   }
@@ -107,7 +107,7 @@ public abstract class PipeAbstract extends Block implements EntityBlock {
     return Fluids.EMPTY.defaultFluidState();
   }
   @Override
-  public boolean isPathfindable(@Nonnull BlockState state, @Nonnull BlockGetter level, @Nonnull BlockPos pos, @Nonnull PathComputationType type) {
+  public boolean isPathfindable(BlockState state, PathComputationType type) {
     return false;
   }
   @Override

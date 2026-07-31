@@ -76,14 +76,14 @@ public class SolarPowerGeneratorScreen extends AbstractContainerScreen<SolarPowe
     if (isMouseOver(mouseX, mouseY, tankX, tankY, tankWidth, tankHeight)) {
       int energy = menu.getEnergy();
       List<Component> tooltip = new ArrayList<>();
-      tooltipComponents.add(Component.literal("Energy"));
-      tooltipComponents.add(Component.literal(energy + " EU"));
+      tooltip.add(Component.literal("Energy"));
+      tooltip.add(Component.literal(energy + " EU"));
       graphics.renderTooltip(font, tooltip, Optional.empty(), mouseX, mouseY);
     }
     if(menu.isBlocked()){
       if(isMouseOver(mouseX, mouseY, leftPos+38, topPos+37, 11, 11)){
         List<Component> tooltip = new ArrayList<>();
-        tooltipComponents.add(Component.translatable("gui.reagenica.solar_panel_blocked"));
+        tooltip.add(Component.translatable("gui.reagenica.solar_panel_blocked"));
         graphics.renderTooltip(font, tooltip, Optional.empty(), mouseX, mouseY);
       }
     }
@@ -100,7 +100,7 @@ public class SolarPowerGeneratorScreen extends AbstractContainerScreen<SolarPowe
 
   @Override
   public void render(@Nonnull GuiGraphics graphics, int mouseX, int mouseY, float delta) {
-    this.renderBackground(graphics);
+    this.renderBackground(graphics, mouseX, mouseY, delta);
     super.render(graphics, mouseX, mouseY, delta);
     this.renderTooltip(graphics, mouseX, mouseY);
   }

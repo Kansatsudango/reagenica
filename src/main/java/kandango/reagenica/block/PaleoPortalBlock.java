@@ -12,7 +12,6 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.level.ServerLevel;
-import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.item.ItemEntity;
@@ -32,19 +31,12 @@ public class PaleoPortalBlock extends NetherPortalBlock{
   @Override
   public void entityInside(@Nonnull BlockState state, @Nonnull Level level, @Nonnull BlockPos pos, @Nonnull Entity entity) {
     if(!allowPass(entity, ChemiGameRules.getTeleportAllowLevel(level)))return;
-    if(!entity.canChangeDimensions())return;
     if (!level.isClientSide && !entity.isOnPortalCooldown()) {
       entity.setPortalCooldown(200);
       final boolean isXAxe = state.getOptionalValue(NetherPortalBlock.AXIS).map(ax -> ax == Direction.Axis.X).orElse(true);
-      if (entity instanceof ServerPlayer player) {
-        Optional.ofNullable(level.getServer()).map(server -> getDestinationLevel(server, level)).ifPresent(
-          slv -> player.changeDimension(slv, new PaleoTeleporter(isXAxe))
-        );
-      }else{
-        Optional.ofNullable(level.getServer()).map(server -> getDestinationLevel(server, level)).ifPresent(
-          slv -> entity.changeDimension(slv, new PaleoTeleporter(isXAxe))
-        );
-      }
+      Optional.ofNullable(level.getServer()).map(server -> getDestinationLevel(server, level)).filter(slv -> entity.canChangeDimensions(level, slv)).ifPresent(
+        slv -> PaleoTeleporter.createTransition(entity, slv, isXAxe).ifPresent(tp -> entity.changeDimension(tp))
+      );
     }
   }
   private boolean allowPass(@Nonnull Entity e, int allowLevel){

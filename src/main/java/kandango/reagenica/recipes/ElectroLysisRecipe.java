@@ -6,58 +6,40 @@ import java.util.Optional;
 import javax.annotation.Nonnull;
 
 import kandango.reagenica.block.entity.util.FluidStackUtil;
+import net.minecraft.core.HolderLookup.Provider;
 import net.minecraft.core.RegistryAccess;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.Container;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.Recipe;
+import net.minecraft.world.item.crafting.RecipeInput;
 import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraft.world.level.Level;
 import net.neoforged.neoforge.fluids.FluidStack;
 
-public class ElectroLysisRecipe implements Recipe<Container> {
-  private final ResourceLocation id;
+public class ElectroLysisRecipe implements Recipe<ElectroLysisRecipe.Input> {
   private final FluidStack fluid;
-  public FluidStack getFluidIn() {
-    return fluid;
-  }
   private final Ingredient electrodeN;
-  public Ingredient getElectrodeN() {
-    return electrodeN;
-  }
   private final Ingredient electrodeP;
   public Ingredient getElectrodeP() {
     return electrodeP;
   }
   private final FluidStack generatedfluid;
-  public FluidStack getFluidOut() {
-    return generatedfluid;
-  }
   private final ItemStack outputn;
-  public ItemStack getOutputN() {
-    return outputn;
-  }
   private final ItemStack outputp;
-  public ItemStack getOutputP() {
-    return outputp;
-  }
   private final ItemStack outputgasn;
-  public ItemStack getOutputGasN() {
-    return outputgasn;
-  }
   private final ItemStack outputgasp;
-  public ItemStack getOutputGasP() {
-    return outputgasp;
+  public Output getOutputs(){
+    return new Output(generatedfluid, outputn, outputp, outputgasn, outputgasp);
   }
   private final boolean anodeMelt;
   public boolean anodeMelts(){
     return anodeMelt;
   }
   
-  public ElectroLysisRecipe(ResourceLocation id, FluidStack in, Ingredient en, Ingredient ep, FluidStack gen, ItemStack on, ItemStack op, ItemStack ogn, ItemStack ogp,boolean am){
-    this.id=id;
+  public ElectroLysisRecipe(FluidStack in, Ingredient en, Ingredient ep, FluidStack gen, ItemStack on, ItemStack op, ItemStack ogn, ItemStack ogp,boolean am){
     this.fluid = in;
     this.electrodeN = en;
     this.electrodeP = ep;
@@ -69,15 +51,9 @@ public class ElectroLysisRecipe implements Recipe<Container> {
     this.anodeMelt = am;
   }
 
-  @Override
-  public boolean matches(@Nonnull Container container, @Nonnull Level level){
-    ItemStack en = container.getItem(1);
-    ItemStack ep = container.getItem(2);
-    return isValidElectrode(this.electrodeN, en, true) && isValidElectrode(this.electrodeP, ep, true);
-  }
-  public boolean matchest(@Nonnull FluidStack fluid , ItemStack en, ItemStack ep, boolean strict){
+  public boolean matchesInput(Input in, boolean strict){
     boolean fl = FluidStackUtil.isEnoughFluid(fluid, this.fluid);
-    boolean ers = isValidElectrode(this.electrodeN, en, strict) && isValidElectrode(this.electrodeP, ep, strict);
+    boolean ers = isValidElectrode(this.electrodeN, in.cathode, strict) && isValidElectrode(this.electrodeP, in.anode, strict);
     return fl && ers;
   }
   public static Optional<ElectroLysisRecipe> getRecipe(@Nonnull FluidStack fluidstack, ItemStack en, ItemStack ep, @Nonnull Level level){
@@ -92,13 +68,41 @@ public class ElectroLysisRecipe implements Recipe<Container> {
   }
 
   @Override public boolean canCraftInDimensions(int width, int height) { return true; }
-  @Override public ItemStack getResultItem(@Nonnull RegistryAccess access) { return outputn; }
-  @Override public ResourceLocation getId() { return id; }
   @Override public RecipeSerializer<?> getSerializer() { return ModRecipes.ELECTROLYSIS_SERIALIZER.get(); }
   @Override public RecipeType<?> getType() { return ModRecipes.ELECTROLYSIS_TYPE.get(); }
 
   @Override
-  public ItemStack assemble(@Nonnull Container p_44001_, @Nonnull RegistryAccess p_267165_) {
-    return outputn.copy();
+  public ItemStack assemble(Input arg0, Provider arg1) {
+    // TODO Auto-generated method stub
+    throw new UnsupportedOperationException("Unimplemented method 'assemble'");
+  }
+
+  @Override
+  public ItemStack getResultItem(Provider arg0) {
+    // TODO Auto-generated method stub
+    throw new UnsupportedOperationException("Unimplemented method 'getResultItem'");
+  }
+
+  @Override
+  public boolean matches(Input input, Level lv) {
+    return matchesInput(input, false);
+  }
+
+  public static record Input(FluidStack fluid, ItemStack cathode, ItemStack anode) implements RecipeInput{
+    @Override
+    public ItemStack getItem(int index) {
+      return switch (index) {
+        case 0 -> cathode;
+        case 1 -> anode;
+        default -> throw new IndexOutOfBoundsException();
+      };
+    }
+
+    @Override
+    public int size() {
+      return 2;
+    }
+  }
+  public static record Output(FluidStack fluid, ItemStack cathode, ItemStack anode, ItemStack cathodeGas, ItemStack anodeGas) {
   }
 }

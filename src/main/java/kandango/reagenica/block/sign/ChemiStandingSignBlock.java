@@ -12,7 +12,7 @@ import net.minecraft.world.level.block.state.properties.WoodType;
 
 public class ChemiStandingSignBlock extends StandingSignBlock{
   public ChemiStandingSignBlock(Block.Properties p, WoodType type){
-    super(p, type);
+    super(type, p);
   }
   
 	@Override

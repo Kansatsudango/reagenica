@@ -69,15 +69,15 @@ public class AirSeparatorScreen extends AbstractContainerScreen<AirSeparatorMenu
     if (isMouseOver(mouseX, mouseY, leftPos + 34, topPos + 61, 5, 18)) {
       int energy = menu.getEnergy();
       List<Component> tooltip = new ArrayList<>();
-      tooltipComponents.add(Component.literal("Energy"));
-      tooltipComponents.add(Component.literal(energy + " EU"));
+      tooltip.add(Component.literal("Energy"));
+      tooltip.add(Component.literal(energy + " EU"));
       graphics.renderTooltip(font, tooltip, Optional.empty(), mouseX, mouseY);
     }else if(isMouseOver(mouseX, mouseY, leftPos + 74, topPos + 30, 16, 48)){
       FluidStack fluid = menu.getOxygen();
       if (!fluid.isEmpty()) {
         List<Component> tooltip = new ArrayList<>();
-        tooltipComponents.add(Component.translatable(fluid.getTranslationKey()));
-        tooltipComponents.add(Component.literal(fluid.getAmount() + " mB"));
+        tooltip.add(Component.translatable(fluid.getTranslationKey()));
+        tooltip.add(Component.literal(fluid.getAmount() + " mB"));
         graphics.renderTooltip(font, tooltip, Optional.empty(), mouseX, mouseY);
       } else {
         graphics.renderTooltip(font, List.of(Component.literal("Empty")), Optional.empty(), mouseX, mouseY);
@@ -86,8 +86,8 @@ public class AirSeparatorScreen extends AbstractContainerScreen<AirSeparatorMenu
       FluidStack fluid = menu.getNitrogen();
       if (!fluid.isEmpty()) {
         List<Component> tooltip = new ArrayList<>();
-        tooltipComponents.add(Component.translatable(fluid.getTranslationKey()));
-        tooltipComponents.add(Component.literal(fluid.getAmount() + " mB"));
+        tooltip.add(Component.translatable(fluid.getTranslationKey()));
+        tooltip.add(Component.literal(fluid.getAmount() + " mB"));
         graphics.renderTooltip(font, tooltip, Optional.empty(), mouseX, mouseY);
       } else {
         graphics.renderTooltip(font, List.of(Component.literal("Empty")), Optional.empty(), mouseX, mouseY);
@@ -106,7 +106,7 @@ public class AirSeparatorScreen extends AbstractContainerScreen<AirSeparatorMenu
 
   @Override
   public void render(@Nonnull GuiGraphics graphics, int mouseX, int mouseY, float delta) {
-    this.renderBackground(graphics);
+    this.renderBackground(graphics, mouseX, mouseY, delta);
     super.render(graphics, mouseX, mouseY, delta);
     this.renderTooltip(graphics, mouseX, mouseY);
   }

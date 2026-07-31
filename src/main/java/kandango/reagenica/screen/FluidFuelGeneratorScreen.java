@@ -64,16 +64,16 @@ public class FluidFuelGeneratorScreen extends AbstractContainerScreen<FluidFuelG
         if (isMouseOver(mouseX, mouseY, leftPos+142, topPos+37, 13, 16)) {
             int energy = menu.getEnergy();
             List<Component> tooltip = new ArrayList<>();
-            tooltipComponents.add(Component.literal("Energy"));
-            tooltipComponents.add(Component.literal(energy + " EU"));
+            tooltip.add(Component.literal("Energy"));
+            tooltip.add(Component.literal(energy + " EU"));
 
             graphics.renderTooltip(font, tooltip, Optional.empty(), mouseX, mouseY);
         }else if (isMouseOver(mouseX, mouseY, leftPos + 44, topPos + 23, 16, 48)) {
             FluidStack fluid = menu.getFuelFluid();
             if (!fluid.isEmpty()) {
                 List<Component> tooltip = new ArrayList<>();
-                tooltipComponents.add(Component.translatable(fluid.getTranslationKey()));
-                tooltipComponents.add(Component.literal(fluid.getAmount() + " mB"));
+                tooltip.add(Component.translatable(fluid.getTranslationKey()));
+                tooltip.add(Component.literal(fluid.getAmount() + " mB"));
 
                 graphics.renderTooltip(font, tooltip, Optional.empty(), mouseX, mouseY);
             } else {
@@ -93,7 +93,7 @@ public class FluidFuelGeneratorScreen extends AbstractContainerScreen<FluidFuelG
 
     @Override
     public void render(@Nonnull GuiGraphics graphics, int mouseX, int mouseY, float delta) {
-        this.renderBackground(graphics);
+        this.renderBackground(graphics, mouseX, mouseY, delta);
         super.render(graphics, mouseX, mouseY, delta);
         this.renderTooltip(graphics, mouseX, mouseY);
     }

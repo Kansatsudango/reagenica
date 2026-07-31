@@ -1,10 +1,7 @@
 package kandango.reagenica.world;
 
 import java.util.Optional;
-import java.util.function.Function;
 import java.util.function.Supplier;
-
-import javax.annotation.Nullable;
 
 import kandango.reagenica.ChemiBlocks;
 import kandango.reagenica.ChemistryMod;
@@ -18,11 +15,10 @@ import net.minecraft.world.entity.ai.village.poi.PoiManager;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.Heightmap;
-import net.minecraft.world.level.portal.PortalInfo;
+import net.minecraft.world.level.portal.DimensionTransition;
 import net.minecraft.world.phys.Vec3;
-import net.neoforged.neoforge.common.util.ITeleporter;
 
-public class PaleoTeleporter implements ITeleporter{
+public class PaleoTeleporter{
   private static final Supplier<BlockState> PORTAL_FRAME = () -> Blocks.OBSIDIAN.defaultBlockState();
   private static final Supplier<BlockState> PORTAL_INSIDE = () -> ChemiBlocks.PALEO_PORTAL.get().defaultBlockState();
   private final boolean isXAxe;
@@ -75,19 +71,21 @@ public class PaleoTeleporter implements ITeleporter{
     return base.offset(1, 1, 0);
   }
 
-  @Override
-  @Nullable
-  public PortalInfo getPortalInfo(Entity entity, ServerLevel destLevel, Function<ServerLevel, PortalInfo> defaultPortalInfo) {
+  public Optional<DimensionTransition> getPortalInfo(Entity entity, ServerLevel destLevel) {
     final BlockPos origin = entity.blockPosition();
     if(entity instanceof ServerPlayer){
       final BlockPos portalPos = findClosestPortal(destLevel, origin).orElseGet(() -> createPortal(destLevel, origin));
-      return new PortalInfo(toVec3(getPortalOrigin(destLevel, portalPos)), entity.getDeltaMovement(), entity.getYRot(), entity.getXRot());
+      return Optional.of(new DimensionTransition(destLevel, toVec3(getPortalOrigin(destLevel, portalPos)), entity.getDeltaMovement(), entity.getYRot(), entity.getXRot(), false, DimensionTransition.PLAY_PORTAL_SOUND.then(DimensionTransition.PLACE_PORTAL_TICKET)));
     }else{
       return findClosestPortal(destLevel, origin)
         .map(pos -> getPortalOrigin(destLevel, pos))
-        .map(pos -> new PortalInfo(toVec3(pos), entity.getDeltaMovement(), entity.getYRot(), entity.getXRot()))
-        .orElse(null);
+        .map(pos -> new DimensionTransition(destLevel, toVec3(pos), entity.getDeltaMovement(), entity.getYRot(), entity.getXRot(), false, DimensionTransition.DO_NOTHING));
     }
+  }
+
+  public static Optional<DimensionTransition> createTransition(Entity entity, ServerLevel destLevel, boolean isXAxis){
+    PaleoTeleporter teleporter = new PaleoTeleporter(isXAxis);
+    return teleporter.getPortalInfo(entity, destLevel);
   }
 
   private Vec3 toVec3(PosAndAxe pa){

@@ -7,14 +7,11 @@ import java.util.UUID;
 import java.util.function.Predicate;
 
 import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-
+import kandango.reagenica.ChemiComponents;
 import kandango.reagenica.ChemiTags;
 import kandango.reagenica.ChemistryMod;
 import kandango.reagenica.screen.SimpleBagMenu;
 import net.minecraft.ChatFormatting;
-import net.minecraft.core.Direction;
-import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.InteractionHand;
@@ -29,25 +26,21 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
-import net.neoforged.neoforge.common.capabilities.Capability;
-import net.neoforged.neoforge.common.capabilities.ForgeCapabilities;
-import net.neoforged.neoforge.common.capabilities.ICapabilityProvider;
-import net.neoforged.neoforge.common.util.LazyOptional;
-import net.neoforged.neoforge.items.IItemHandler;
-import net.neoforged.neoforge.items.ItemStackHandler;
-
+import net.neoforged.neoforge.capabilities.Capabilities;
+import net.neoforged.neoforge.items.ComponentItemHandler;
+import net.neoforged.neoforge.items.IItemHandlerModifiable;
 import net.neoforged.neoforge.registries.DeferredHolder;
 
 public class CommonBag<T extends AbstractContainerMenu> extends Item implements IBagItem{
   public static final String UUIDKey = "BagUUID";
-  private static final Predicate<ItemStack> isAllowed = stack -> !stack.is(ChemiTags.Items.BAGS_DENY) && !stack.getCapability(ForgeCapabilities.ITEM_HANDLER).isPresent();
+  private static final Predicate<ItemStack> isAllowed = stack -> !stack.is(ChemiTags.Items.BAGS_DENY) && stack.getCapability(Capabilities.ItemHandler.ITEM)==null;
   private final int slotCount;
   private final int inv_start;
-  private final DeferredHolder<MenuType<T>> menutype;
+  private final DeferredHolder<MenuType<?>, MenuType<T>> menutype;
   private final Predicate<ItemStack> filter;
   private final boolean hasSpecialFilter;
 
-  public CommonBag(int slots, int inv_start, DeferredHolder<MenuType<T>> type){
+  public CommonBag(int slots, int inv_start, DeferredHolder<MenuType<?>, MenuType<T>> type){
     super(new Item.Properties().stacksTo(1));
     this.slotCount = slots;
     this.inv_start = inv_start;
@@ -55,7 +48,7 @@ public class CommonBag<T extends AbstractContainerMenu> extends Item implements 
     this.filter = isAllowed;
     this.hasSpecialFilter = false;
   }
-  public CommonBag(int slots, int inv_start, DeferredHolder<MenuType<T>> type, Predicate<ItemStack> filter){
+  public CommonBag(int slots, int inv_start, DeferredHolder<MenuType<?>, MenuType<T>> type, Predicate<ItemStack> filter){
     super(new Item.Properties().stacksTo(1));
     this.slotCount = slots;
     this.inv_start = inv_start;
@@ -70,28 +63,41 @@ public class CommonBag<T extends AbstractContainerMenu> extends Item implements 
   public boolean canAutoStock(){
     return this.hasSpecialFilter;
   }
+  public int getSlotCount(){
+    return this.slotCount;
+  }
+
+  public IItemHandlerModifiable createItemHandler(ItemStack owner){
+    return new ComponentItemHandler(owner, ChemiComponents.BAG_CONTENTS.get(), this.slotCount){
+      @Override
+      public boolean isItemValid(int slot, ItemStack inserted){
+        return inserted.isEmpty() || CommonBag.this.isValidItem(inserted);
+      }
+    };
+  }
 
   @Override
   public void inventoryTick(@Nonnull ItemStack stack, @Nonnull Level level, @Nonnull Entity entity, int slot, boolean selected) {
+    super.inventoryTick(stack, level, entity, slot, selected);
     if (!level.isClientSide) {
-      CompoundTag tag = stack.getOrCreateTag();
-      if (!tag.hasUUID(UUIDKey)) {
+      if(stack.get(ChemiComponents.BAG_UUID.get())==null){
         UUID id = UUID.randomUUID();
-        tag.putUUID(UUIDKey, id);
-        ChemistryMod.LOGGER.debug("Issued new UUID for a bag. UUID:{}, Holder:{}", id, entity);
+        stack.set(ChemiComponents.BAG_UUID.get(), id);
+        ChemistryMod.LOGGER.debug( "Issued new UUID for a bag. UUID:{}, Holder:{}",id,entity);
       }
     }
   }
 
   @Override
   public InteractionResultHolder<ItemStack> use(@Nonnull Level level, @Nonnull Player player, @Nonnull InteractionHand hand) {
-    if (!level.isClientSide) {
+    if (player instanceof ServerPlayer sp) {
       ItemStack stack = player.getItemInHand(hand);
-      OptionalInt mayslot = findSlot(player, stack);
+      UUID id = getOrCreateBagID(stack);
+      OptionalInt mayslot = findSlot(player, stack, id);
       if (mayslot.isEmpty()) return InteractionResultHolder.fail(stack);
       int slot = mayslot.getAsInt();
       getBagID(stack).ifPresentOrElse(uuid -> {
-        NetworkHooks.openScreen((ServerPlayer) player, new SimpleMenuProvider(
+        sp.openMenu(new SimpleMenuProvider(
               (windowId, inventory, p) -> new SimpleBagMenu(menutype.get(), inv_start, windowId, inventory, slot, uuid),
               this.getName(stack)
           ), buf -> {
@@ -105,95 +111,44 @@ public class CommonBag<T extends AbstractContainerMenu> extends Item implements 
     return InteractionResultHolder.success(player.getItemInHand(hand));
   }
 
-  private OptionalInt findSlot(Player player, ItemStack target) {
-    Inventory inv = player.getInventory();
-    for (int i = 0; i < inv.getContainerSize(); i++) {
-        if (ItemStack.isSameItemSameTags(inv.getItem(i), target)) {
+  private OptionalInt findSlot(Player player, ItemStack target, UUID uuid) {
+    Inventory inventory = player.getInventory();
+    for (int i = 0; i < inventory.getContainerSize(); i++) {
+        if (inventory.getItem(i) == target) {
             return OptionalInt.of(i);
         }
     }
+    for (int i = 0; i < inventory.getContainerSize(); i++) {
+        ItemStack candidate = inventory.getItem(i);
+
+        if (getBagID(candidate)
+                .filter(uuid::equals)
+                .isPresent()) {
+            return OptionalInt.of(i);
+        }
+    }
+
     return OptionalInt.empty();
   }
 
-  @Override
-  public @Nullable ICapabilityProvider initCapabilities(ItemStack stack, @Nullable CompoundTag nbt) {
-    return new CommonBagProvider(stack, slotCount, this.filter);
-  }
+    public static Optional<UUID> getBagID(ItemStack stack) {
+      return Optional.ofNullable(stack.get(ChemiComponents.BAG_UUID.get()));
+    }
 
-  public static Optional<UUID> getBagID(ItemStack stack){
-    return Optional.ofNullable(stack.getTag()).filter(tag -> tag.hasUUID(UUIDKey)).map(tag -> tag.getUUID(UUIDKey));
-  }
+    private static UUID getOrCreateBagID(ItemStack stack) {
+      UUID uuid = stack.get(ChemiComponents.BAG_UUID.get());
+      if (uuid == null) {
+        uuid = UUID.randomUUID();
+        stack.set(ChemiComponents.BAG_UUID.get(), uuid);
+      }
+      return uuid;
+    }
 
   @Override
   public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltipComponents, TooltipFlag tooltipFlag) {
     super.appendHoverText(stack, context, tooltipComponents, tooltipFlag);
     if(stack.getItem() instanceof CommonBag<?> bag && bag.canAutoStock()){
       tooltipComponents.add(Component.translatable("tooltip.reagenica.autostore").withStyle(ChatFormatting.GREEN));
-    }
-  }
-
-  @Override
-  public void save(ItemStack bag){
-    bag.getCapability(ForgeCapabilities.ITEM_HANDLER).ifPresent(handler -> {
-      if(handler instanceof ItemStackHandler sh){
-        CompoundTag tag = bag.getOrCreateTag();
-        tag.put("Inventory", sh.serializeNBT());
-      }
-    });
-  }
-
-  public static class CommonBagProvider implements ICapabilityProvider{
-    private final ItemStackHandler handler;
-    private final LazyOptional<IItemHandler> lazyHandler;
-    private final ItemStack stack;
-    private final int slotsCount;
-
-    public CommonBagProvider(ItemStack stack, int count, Predicate<ItemStack> isValid) {
-      this.stack = stack;
-      this.slotsCount = count;
-      this.handler = new ItemStackHandler(count){
-        @Override
-        public boolean isItemValid(int slot, @Nullable ItemStack stack) {
-          return isValid.test(stack);
-        }
-        @Override
-        protected void onContentsChanged(int slot) {
-          save();
-        }
-      };
-      load();
-      this.lazyHandler = LazyOptional.of(() -> handler);
-    }
-    private void save(){
-      CompoundTag tag = stack.getOrCreateTag();
-      tag.put("Inventory", handler.serializeNBT());
-    }
-    private void load(){
-      CompoundTag tag = stack.getTag();
-      if(tag!=null && tag.contains("Inventory")){
-        CompoundTag inventoryTag = tag.getCompound("Inventory");
-        int slotCount = inventoryTag.getInt("Size");
-        if(slotCount != this.slotsCount){
-          ChemistryMod.LOGGER.debug("Common Bag Inventory size changed.");
-          inventoryTag.putInt("Size", this.slotsCount);
-        }
-        handler.deserializeNBT(inventoryTag);
-      }
-      CompoundTag fullTag = stack.save(new CompoundTag());
-      if(fullTag.contains("ForgeCaps")){
-        CompoundTag forgeCaps = fullTag.getCompound("ForgeCaps");
-        if(forgeCaps.contains("Parent")){
-          CompoundTag oldInv = forgeCaps.getCompound("Parent");
-          ChemistryMod.LOGGER.info("Migrating old bag inventory...");
-          handler.deserializeNBT(oldInv);
-          save();
-        }
-      }
-    }
-
-    @Override
-    public <T> LazyOptional<T> getCapability(Capability<T> cap, @Nullable Direction side) {
-      return cap == ForgeCapabilities.ITEM_HANDLER ? lazyHandler.cast() : LazyOptional.empty();
     }
   }
 }

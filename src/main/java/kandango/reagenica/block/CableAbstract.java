@@ -22,7 +22,7 @@ import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import net.neoforged.neoforge.common.capabilities.ForgeCapabilities;
+import net.neoforged.neoforge.capabilities.Capabilities;
 
 public abstract class CableAbstract extends Block implements EntityBlock {
   public static final BooleanProperty NORTH = BlockStateProperties.NORTH;
@@ -69,9 +69,9 @@ public abstract class CableAbstract extends Block implements EntityBlock {
   }
   private boolean shouldConnectTo(Level lv, BlockPos pos, Direction side) {
     BlockEntity be = lv.getBlockEntity(pos);
-    if(lv.getBlockEntity(pos) instanceof ElectricAbstract)return true;
+    if(be instanceof ElectricAbstract)return true;
     if(be!=null){
-      return be.getCapability(ForgeCapabilities.ENERGY, side).isPresent();
+      return lv.getCapability(Capabilities.EnergyStorage.BLOCK, pos, null, be, side.getOpposite()) != null;
     }
     return false;
   }

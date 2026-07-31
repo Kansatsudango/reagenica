@@ -14,23 +14,23 @@ public class ChemiSmithingTemplates{
   //code from net.minecraft.world.item.SmithingTemplateItem
   private static final ChatFormatting TITLE_FORMAT = ChatFormatting.GRAY;
   private static final ChatFormatting DESCRIPTION_FORMAT = ChatFormatting.BLUE;
-  private static final ResourceLocation EMPTY_SLOT_HELMET = ResourceLocation.fromNamespaceAndPath("item/empty_armor_slot_helmet");
-  private static final ResourceLocation EMPTY_SLOT_CHESTPLATE = ResourceLocation.fromNamespaceAndPath("item/empty_armor_slot_chestplate");
-  private static final ResourceLocation EMPTY_SLOT_LEGGINGS = ResourceLocation.fromNamespaceAndPath("item/empty_armor_slot_leggings");
-  private static final ResourceLocation EMPTY_SLOT_BOOTS = ResourceLocation.fromNamespaceAndPath("item/empty_armor_slot_boots");
-  private static final ResourceLocation EMPTY_SLOT_HOE = ResourceLocation.fromNamespaceAndPath("item/empty_slot_hoe");
-  private static final ResourceLocation EMPTY_SLOT_AXE = ResourceLocation.fromNamespaceAndPath("item/empty_slot_axe");
-  private static final ResourceLocation EMPTY_SLOT_SWORD = ResourceLocation.fromNamespaceAndPath("item/empty_slot_sword");
-  private static final ResourceLocation EMPTY_SLOT_SHOVEL = ResourceLocation.fromNamespaceAndPath("item/empty_slot_shovel");
-  private static final ResourceLocation EMPTY_SLOT_PICKAXE = ResourceLocation.fromNamespaceAndPath("item/empty_slot_pickaxe");
-  private static final ResourceLocation EMPTY_SLOT_INGOT = ResourceLocation.fromNamespaceAndPath("item/empty_slot_ingot");
-  private static final ResourceLocation EMPTY_SLOT_REDSTONE_DUST = ResourceLocation.fromNamespaceAndPath("item/empty_slot_redstone_dust");
-  private static final ResourceLocation EMPTY_SLOT_QUARTZ = ResourceLocation.fromNamespaceAndPath("item/empty_slot_quartz");
-  private static final ResourceLocation EMPTY_SLOT_EMERALD = ResourceLocation.fromNamespaceAndPath("item/empty_slot_emerald");
-  private static final ResourceLocation EMPTY_SLOT_DIAMOND = ResourceLocation.fromNamespaceAndPath("item/empty_slot_diamond");
-  private static final ResourceLocation EMPTY_SLOT_LAPIS_LAZULI = ResourceLocation.fromNamespaceAndPath("item/empty_slot_lapis_lazuli");
-  private static final ResourceLocation EMPTY_SLOT_AMETHYST_SHARD = ResourceLocation.fromNamespaceAndPath("item/empty_slot_amethyst_shard");
-  private static final String DESCRIPTION_ID = Util.makeDescriptionId("item", ResourceLocation.fromNamespaceAndPath("smithing_template"));
+  private static final ResourceLocation EMPTY_SLOT_HELMET = ResourceLocation.withDefaultNamespace("item/empty_armor_slot_helmet");
+  private static final ResourceLocation EMPTY_SLOT_CHESTPLATE = ResourceLocation.withDefaultNamespace("item/empty_armor_slot_chestplate");
+  private static final ResourceLocation EMPTY_SLOT_LEGGINGS = ResourceLocation.withDefaultNamespace("item/empty_armor_slot_leggings");
+  private static final ResourceLocation EMPTY_SLOT_BOOTS = ResourceLocation.withDefaultNamespace("item/empty_armor_slot_boots");
+  private static final ResourceLocation EMPTY_SLOT_HOE = ResourceLocation.withDefaultNamespace("item/empty_slot_hoe");
+  private static final ResourceLocation EMPTY_SLOT_AXE = ResourceLocation.withDefaultNamespace("item/empty_slot_axe");
+  private static final ResourceLocation EMPTY_SLOT_SWORD = ResourceLocation.withDefaultNamespace("item/empty_slot_sword");
+  private static final ResourceLocation EMPTY_SLOT_SHOVEL = ResourceLocation.withDefaultNamespace("item/empty_slot_shovel");
+  private static final ResourceLocation EMPTY_SLOT_PICKAXE = ResourceLocation.withDefaultNamespace("item/empty_slot_pickaxe");
+  private static final ResourceLocation EMPTY_SLOT_INGOT = ResourceLocation.withDefaultNamespace("item/empty_slot_ingot");
+  private static final ResourceLocation EMPTY_SLOT_REDSTONE_DUST = ResourceLocation.withDefaultNamespace("item/empty_slot_redstone_dust");
+  private static final ResourceLocation EMPTY_SLOT_QUARTZ = ResourceLocation.withDefaultNamespace("item/empty_slot_quartz");
+  private static final ResourceLocation EMPTY_SLOT_EMERALD = ResourceLocation.withDefaultNamespace("item/empty_slot_emerald");
+  private static final ResourceLocation EMPTY_SLOT_DIAMOND = ResourceLocation.withDefaultNamespace("item/empty_slot_diamond");
+  private static final ResourceLocation EMPTY_SLOT_LAPIS_LAZULI = ResourceLocation.withDefaultNamespace("item/empty_slot_lapis_lazuli");
+  private static final ResourceLocation EMPTY_SLOT_AMETHYST_SHARD = ResourceLocation.withDefaultNamespace("item/empty_slot_amethyst_shard");
+  private static final String DESCRIPTION_ID = Util.makeDescriptionId("item", ResourceLocation.withDefaultNamespace("smithing_template"));
   
   public static SmithingTemplateItem iridium_upgrade(){
     return new SmithingTemplateItem(

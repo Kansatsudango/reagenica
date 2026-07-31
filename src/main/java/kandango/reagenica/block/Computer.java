@@ -4,7 +4,6 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
-import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.SimpleMenuProvider;
 import net.minecraft.world.entity.player.Player;
@@ -43,8 +42,8 @@ public class Computer extends Block {
 
   @Override
   public InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult hitResult) {
-    if (!level.isClientSide) {
-      NetworkHooks.openScreen((ServerPlayer) player, new SimpleMenuProvider(
+    if (!level.isClientSide && player instanceof ServerPlayer sp) {
+      sp.openMenu(new SimpleMenuProvider(
                   (windowId, inventory, plyer) -> new ComputerMenu(windowId, inventory),
                   Component.translatable("MineMarket")
           ), pos);

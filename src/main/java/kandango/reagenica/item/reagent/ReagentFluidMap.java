@@ -8,14 +8,14 @@ import java.util.Optional;
 import kandango.reagenica.ChemistryMod;
 import net.minecraft.core.Holder;
 import net.minecraft.core.Registry;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.material.Fluid;
-import net.neoforged.neoforge.registries.ForgeRegistries;
-import net.neoforged.neoforge.registries.DeferredHolder;
+import net.neoforged.neoforge.registries.DeferredItem;
 
 public class ReagentFluidMap {
   public static final Map<Fluid, Item> fluidItemMap = new HashMap<>();
@@ -28,10 +28,10 @@ public class ReagentFluidMap {
     Registry<Fluid> registry = lv.registryAccess().registryOrThrow(Registries.FLUID);
     registry.getTag(tag).ifPresent(named -> named.stream().map(Holder::value).forEach(f -> fluidItemMap.put(f, reagent)));
   }
-  public static void registerAll(List<DeferredHolder<? extends Item>> itemlist, Level lv){
+  public static void registerAll(List<DeferredItem<? extends Item>> itemlist, Level lv){
     itemFluidMap.clear();
     fluidItemMap.clear();
-    for(DeferredHolder<? extends Item> itemobj : itemlist){
+    for(DeferredItem<? extends Item> itemobj : itemlist){
       Item item = itemobj.get();
       if(item instanceof Reagent reagent){
         ReagentFluidMap.register(reagent, lv);
@@ -46,8 +46,8 @@ public class ReagentFluidMap {
         Fluid fluid = entry.getKey();
         Item item = entry.getValue();
 
-        ResourceLocation fluidId = ForgeRegistries.FLUIDS.getKey(fluid);
-        ResourceLocation itemId = ForgeRegistries.ITEMS.getKey(item);
+        ResourceLocation fluidId = BuiltInRegistries.FLUID.getKey(fluid);
+        ResourceLocation itemId = BuiltInRegistries.ITEM.getKey(item);
 
         String fluidName = fluidId != null ? fluidId.toString() : "unknown_fluid";
         String itemName = itemId != null ? itemId.toString() : "unknown_item";
