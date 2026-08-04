@@ -411,24 +411,24 @@ public class ChemiBlocks {
     
   public static final RegistryObject<Block> PALEO_PORTAL = registerBlockandlist("paleo_portal", () -> new PaleoPortalBlock(BlockBehaviour.Properties.copy(Blocks.NETHER_PORTAL)));
 
-  public static final RegistryObject<Block> DEBUG_CROP = registerPlantBlockandlist("debug_crop", () -> new AdvancedCropBlock(ChemiBlocks.DEBUG_CROP_SEEDS::get),2,() -> ChemiBlocks.DEBUG_CROP_SEEDS);
+  public static final RegistryObject<Block> DEBUG_CROP = registerPlantBlockandlist("debug_crop", () -> new AdvancedCropBlock(ChemiBlocks.DEBUG_CROP_SEEDS::get, AdvancedCropBlock.ClimateModifications.None),2,() -> ChemiBlocks.DEBUG_CROP_SEEDS);
   public static final RegistryObject<Item> DEBUG_CROP_SEEDS = registerItemandlist("debug_seeds", 
     () -> new ItemNameBlockItem(DEBUG_CROP.get(), new Item.Properties()));
-  public static final RegistryObject<Block> SOYBEAN_CROP = registerPlantBlockandlist("soybeans_crop", () -> new AdvancedCropBlock(ChemiBlocks.SOYBEAN_SEEDS::get),2,() -> ChemiBlocks.SOYBEAN_SEEDS);
+  public static final RegistryObject<Block> SOYBEAN_CROP = registerPlantBlockandlist("soybeans_crop", () -> new AdvancedCropBlock(ChemiBlocks.SOYBEAN_SEEDS::get, AdvancedCropBlock.ClimateModifications.Temperate),2,() -> ChemiBlocks.SOYBEAN_SEEDS);
   public static final RegistryObject<Item> SOYBEAN_SEEDS = registerItemandlist("soybeans", 
     () -> new ItemNameBlockItem(SOYBEAN_CROP.get(), new Item.Properties()));
-  public static final RegistryObject<Block> RICE_CROP = registerPlantBlockandlist("rice_crop", () -> new AdvancedCropBlock(ChemiBlocks.RICE_SEEDS::get),2,() -> ChemiBlocks.RICE_SEEDS);
+  public static final RegistryObject<Block> RICE_CROP = registerPlantBlockandlist("rice_crop", () -> new AdvancedCropBlock(ChemiBlocks.RICE_SEEDS::get, AdvancedCropBlock.ClimateModifications.Temperate),2,() -> ChemiBlocks.RICE_SEEDS);
   public static final RegistryObject<Item> RICE_SEEDS = registerItemandlist("rice", 
     () -> new ItemNameBlockItem(RICE_CROP.get(), new Item.Properties()));
-  public static final RegistryObject<Block> ONION_CROP = registerExternalConfigBlockandlist("onion_crop", () -> new AdvancedCropBlock(ChemiBlocks.ONION_SEEDS::get));//Using manually provided loottable
+  public static final RegistryObject<Block> ONION_CROP = registerExternalConfigBlockandlist("onion_crop", () -> new AdvancedCropBlock(ChemiBlocks.ONION_SEEDS::get, AdvancedCropBlock.ClimateModifications.SubArctic));//Using manually provided loottable
   public static final RegistryObject<Item> ONION_SEEDS = registerItemandlist("onion", 
     () -> new ItemNameBlockItem(ONION_CROP.get(), new Item.Properties()));
   public static final RegistryObject<Item> ONION_SEEDS_PURPLE = registerItemandlist("purple_onion", 
     () -> new ItemNameBlockItem(ONION_CROP.get(), new Item.Properties()));
-  public static final RegistryObject<Block> TOMATO_CROP = registerPlantBlockandlist("tomato_crop", () -> new AdvancedCropBlock(ChemiBlocks.TOMATO_SEEDS::get),2,() -> ChemiBlocks.TOMATO_SEEDS);
+  public static final RegistryObject<Block> TOMATO_CROP = registerPlantBlockandlist("tomato_crop", () -> new AdvancedCropBlock(ChemiBlocks.TOMATO_SEEDS::get, AdvancedCropBlock.ClimateModifications.Arid),2,() -> ChemiBlocks.TOMATO_SEEDS);
   public static final RegistryObject<Item> TOMATO_SEEDS = registerItemandlist("tomato", 
     () -> new ItemNameBlockItem(TOMATO_CROP.get(), new Item.Properties().food(ChemiFoodProperties.RAW_VEGETABLES)));
-  public static final RegistryObject<Block> CORN_CROP = registerPlantBlockandlist("corn_crop", () -> new AdvancedCropBlock(ChemiBlocks.CORN_SEEDS::get),2,() -> ChemiBlocks.CORN_SEEDS);
+  public static final RegistryObject<Block> CORN_CROP = registerPlantBlockandlist("corn_crop", () -> new AdvancedCropBlock(ChemiBlocks.CORN_SEEDS::get, AdvancedCropBlock.ClimateModifications.Arid),2,() -> ChemiBlocks.CORN_SEEDS);
   public static final RegistryObject<Item> CORN_SEEDS = registerItemandlist("corn", 
     () -> new ItemNameBlockItem(CORN_CROP.get(), new Item.Properties()));
 
