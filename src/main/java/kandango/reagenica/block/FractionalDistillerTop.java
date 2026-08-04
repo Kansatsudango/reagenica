@@ -61,7 +61,7 @@ public class FractionalDistillerTop extends Block implements EntityBlock{
     if (!state.is(newState.getBlock())) {
       BlockPos bottomPos = pos.below();
       if (level.getBlockState(bottomPos).getBlock() == ChemiBlocks.FRACTIONAL_DISTILLER_BOTTOM.get()) {
-            level.destroyBlock(bottomPos, false);
+            level.destroyBlock(bottomPos, true);
         }
       super.onRemove(state, level, pos, newState, isMoving);
     }

@@ -60,7 +60,7 @@ public class BlastFurnaceSub extends Block implements EntityBlock{
       }
       
       if (level.getBlockState(bottompos).getBlock() == ChemiBlocks.BLASTFURNACE_BOTTOM.get()) {
-        level.destroyBlock(bottompos, false);
+        level.destroyBlock(bottompos, true);
       }
       super.onRemove(state, level, pos, newState, isMoving);
     }
