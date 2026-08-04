@@ -18,22 +18,24 @@ import kandango.reagenica.family.WoodFamily;
 @Mod.EventBusSubscriber(modid = ChemistryMod.MODID, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class ModCreativeTabContents {
 
-    @SubscribeEvent
-    public static void onBuildContents(BuildCreativeModeTabContentsEvent event) {
-        if (event.getTab() == ModCreativeTabs.CHEMISTRY_TAB.get()) {
-          for(CreativeTabContent content : ChemiItems.listCreativeTab){
-            content.supplier().ifPresentOrElse(sup -> event.accept(sup),() -> content.stack().ifPresent(stack -> event.accept(stack.get(), TabVisibility.PARENT_AND_SEARCH_TABS)));
-          }
-          for(CreativeTabContent content : ChemiBlocks.listBlockItems){
-            content.supplier().ifPresentOrElse(sup -> event.accept(sup),() -> content.stack().ifPresent(stack -> event.accept(stack.get(), TabVisibility.PARENT_AND_SEARCH_TABS)));
-          }
-        }else if(event.getTab() == ModCreativeTabs.PALEO_TAB.get()){
-          WoodFamily.Woods.stream().flatMap(WoodFamily::blockItems).forEach(event::accept);
-          CrystalFamily.Crystals.stream().flatMap(c -> c.crystalItems()).forEach(event::accept);
-          StoneFamily.Stones.stream().flatMap(StoneFamily::blockItems).forEach(event::accept);
-        }else if(event.getTab() == ModCreativeTabs.TOOLS.get()){
-          ToolFamily.Tools.stream().flatMap(ToolFamily::toolItems).forEach(event::accept);
-          ArmorFamily.Armors.stream().flatMap(ArmorFamily::armorItems).forEach(event::accept);
-        }
+  @SubscribeEvent
+  public static void onBuildContents(BuildCreativeModeTabContentsEvent event) {
+    if (event.getTab() == ModCreativeTabs.CHEMISTRY_TAB.get()) {
+      ChemiItems.listCreativeTab.stream().filter(c -> c.tab().get() == ModCreativeTabs.CHEMISTRY_TAB.get())
+      .forEach(c -> c.supplier().ifPresentOrElse(sup -> event.accept(sup), () -> c.stack().ifPresent(stack -> event.accept(stack.get(), TabVisibility.PARENT_AND_SEARCH_TABS))));
+      for(CreativeTabContent content : ChemiBlocks.listBlockItems){
+      content.supplier().ifPresentOrElse(sup -> event.accept(sup),() -> content.stack().ifPresent(stack -> event.accept(stack.get(), TabVisibility.PARENT_AND_SEARCH_TABS)));
+      }
+    }else if(event.getTab() == ModCreativeTabs.PALEO_TAB.get()){
+      WoodFamily.Woods.stream().flatMap(WoodFamily::blockItems).forEach(event::accept);
+      CrystalFamily.Crystals.stream().flatMap(c -> c.crystalItems()).forEach(event::accept);
+      StoneFamily.Stones.stream().flatMap(StoneFamily::blockItems).forEach(event::accept);
+    }else if(event.getTab() == ModCreativeTabs.TOOLS.get()){
+      ToolFamily.Tools.stream().flatMap(ToolFamily::toolItems).forEach(event::accept);
+      ArmorFamily.Armors.stream().flatMap(ArmorFamily::armorItems).forEach(event::accept);
+    }else if (event.getTab() == ModCreativeTabs.FOODS.get()) {
+      ChemiItems.listCreativeTab.stream().filter(c -> c.tab().get() == ModCreativeTabs.FOODS.get())
+      .forEach(c -> c.supplier().ifPresentOrElse(sup -> event.accept(sup), () -> c.stack().ifPresent(stack -> event.accept(stack.get(), TabVisibility.PARENT_AND_SEARCH_TABS))));
     }
+  }
 }

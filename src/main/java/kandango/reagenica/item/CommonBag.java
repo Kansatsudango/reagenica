@@ -55,6 +55,14 @@ public class CommonBag<T extends AbstractContainerMenu> extends Item implements 
     this.filter = isAllowed;
     this.hasSpecialFilter = false;
   }
+  public CommonBag(int slots, int inv_start, RegistryObject<MenuType<T>> type, Item.Properties props){
+    super(props);
+    this.slotCount = slots;
+    this.inv_start = inv_start;
+    this.menutype = type;
+    this.filter = isAllowed;
+    this.hasSpecialFilter = false;
+  }
   public CommonBag(int slots, int inv_start, RegistryObject<MenuType<T>> type, Predicate<ItemStack> filter){
     super(new Item.Properties().stacksTo(1));
     this.slotCount = slots;

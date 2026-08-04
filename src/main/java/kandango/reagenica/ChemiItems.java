@@ -1,19 +1,18 @@
 package kandango.reagenica;
 
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.item.CreativeModeTabs;
+import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Rarity;
+import net.minecraft.world.item.SwordItem;
+import net.minecraft.world.item.Tiers;
 import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.level.saveddata.maps.MapDecoration;
 import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
 import net.minecraft.world.level.storage.loot.providers.number.UniformGenerator;
-import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
@@ -36,10 +35,10 @@ import kandango.reagenica.screen.ModMenus;
 import kandango.reagenica.world.ChemiPOIs;
 import kandango.reagenica.worldgen.ChemiBiomes;
 
-@Mod.EventBusSubscriber(modid = ChemistryMod.MODID, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class ChemiItems {
   public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, ChemistryMod.MODID);
   public static List<RegistryObject<? extends Item>> listItems = new ArrayList<>();
+  public static List<RegistryObject<? extends Item>> listNormalItems = new ArrayList<>();
   public static List<CreativeTabContent> listCreativeTab = new ArrayList<>();
 
   public static final RegistryObject<Item> SAPPHIRE = registerandlist("sapphire", () -> new Item(new Item.Properties()));
@@ -239,7 +238,7 @@ public class ChemiItems {
   public static final RegistryObject<Item> FARMING_BAG = registerandlist("farming_bag", () -> new CommonBag<>(27, 84, ModMenus.FARMING_BAG_MENU, stack -> stack.is(ChemiTags.Items.FARMING_BAG_ACCEPT)));
   public static final RegistryObject<Item> NYLON_BAG = registerandlist("nylon_bag", () -> new CommonBag<>(18, 66, ModMenus.NYLON_BAG_MENU));
   public static final RegistryObject<Item> PLATINUM_BAG = registerandlist("platinum_bag", () -> new CommonBag<>(27, 84, ModMenus.PLATINUM_BAG_MENU));
-  public static final RegistryObject<Item> IRIDIUM_BAG = registerandlist("iridium_bag", () -> new CommonBag<>(54, 140, ModMenus.IRIDIUM_BAG_MENU));
+  public static final RegistryObject<Item> IRIDIUM_BAG = registerandlist("iridium_bag", () -> new CommonBag<>(54, 140, ModMenus.IRIDIUM_BAG_MENU, new Item.Properties().stacksTo(1).rarity(Rarity.RARE)));
   public static final RegistryObject<Item> FERTILIZER = registerandlist("fertilizer", () -> new Fertilizer());
   public static final RegistryObject<Item> PHOSPHO_FERTILIZER = registerandlist("phospho_fertilizer", () -> new PhosphoFertilizer());
   public static final RegistryObject<Item> MUSHROOM_FERTILIZER = registerandlist("mushroom_fertilizer", () -> new MushroomFertilizer());
@@ -271,57 +270,89 @@ public class ChemiItems {
   public static final RegistryObject<ExplorerMapKit> CRATER_MAP_KIT = registerandlist("crater_map_book", () -> new ExplorerMapKit(new Item.Properties(), "crater", MapDecoration.Type.TARGET_X, ExplorerMapKit.Crater));
   public static final RegistryObject<ExplorerMapKit> VOLCANO_MAP_KIT = registerandlist("volcano_map_book", () -> new ExplorerMapKit(new Item.Properties(), "volcano", MapDecoration.Type.TARGET_X, ExplorerMapKit.Volcano));
 
-  public static final RegistryObject<Item> MISO = registerandlist("miso", () -> new Item(new Item.Properties()));
-  public static final RegistryObject<Item> KOJI = registerandlist("koji", () -> new Item(new Item.Properties()));
-  public static final RegistryObject<LiquidReagent> SOY_SAUCE = registerandlist("soy_sauce", () -> new LiquidKitchen(new ReagentProperties("seasoning",0xFF431606,0,0,0), new Item.Properties(), () -> ChemiFluids.SOY_SAUCE.getFluid()));
-  public static final RegistryObject<LiquidReagent> COOKING_SAKE = registerandlist("cooking_sake", () -> new LiquidKitchen(new ReagentProperties("seasoning_alchohol",0xFFFFFFE0,2,3,0), new Item.Properties(), () -> ChemiFluids.COOKING_SAKE.getFluid()));
-  public static final RegistryObject<LiquidReagent> MIRIN = registerandlist("mirin", () -> new LiquidKitchen(new ReagentProperties("seasoning_alchohol",0xFFF8E58C,2,3,0), new Item.Properties(), () -> ChemiFluids.MIRIN.getFluid()));
-  public static final RegistryObject<LiquidReagent> WINE = registerandlist("wine", () -> new LiquidKitchen(new ReagentProperties("seasoning_alchohol",0xFF59006b,2,3,0), new Item.Properties(), () -> ChemiFluids.WINE.getFluid()));
-  public static final RegistryObject<LiquidReagent> RICE_VINEGAR = registerandlist("rice_vinegar", () -> new LiquidKitchen(new ReagentProperties("seasoning",0xFFe0bc67,1,0,0), new Item.Properties(), () -> ChemiFluids.RICE_VINEGAR.getFluid()));
-  public static final RegistryObject<LiquidReagent> FRUIT_VINEGAR = registerandlist("fruit_vinegar", () -> new LiquidKitchen(new ReagentProperties("seasoning",0xFFc93264,1,0,0), new Item.Properties(), () -> ChemiFluids.FRUIT_VINEGAR.getFluid()));
-  public static final RegistryObject<LiquidReagent> MILK = registerandlist("milk", () -> new LiquidKitchen(new ReagentProperties("cooking_ingredient",0xFFFFFFFF,0,0,0), new Item.Properties()));
-  public static final RegistryObject<Item> GINKGO_NUTS = registerandlist("ginkgo_nuts", () -> new Item(new Item.Properties()));
-  public static final RegistryObject<Item> FIG = registerandlist("fig", () -> new Item(new Item.Properties().food(ChemiFoodProperties.RAW_VEGETABLES)));
+  public static final RegistryObject<Item> MISO = registerFoodandlist("miso", () -> new Item(new Item.Properties()));
+  public static final RegistryObject<Item> KOJI = registerFoodandlist("koji", () -> new Item(new Item.Properties()));
+  static{listCreativeTab.add(CreativeTabContent.foodContent(SALT));}
+  public static final RegistryObject<Item> IKURA = registerFoodandlist("ikura", () -> new Item(new Item.Properties().stacksTo(64).food(ChemiFoodProperties.TARAKO)));
+  public static final RegistryObject<Item> TARAKO = registerFoodandlist("tarako", () -> new Item(new Item.Properties().stacksTo(64).food(ChemiFoodProperties.TARAKO)));
+  public static final RegistryObject<Item> MENTAIKO = registerFoodandlist("mentaiko", () -> new Item(new Item.Properties().stacksTo(64).food(ChemiFoodProperties.MENTAIKO)));
+  public static final RegistryObject<Item> SODIUM_NITRITE_FOOD = registerFoodandlist("sodium_nitrite_food_additive", () -> new Item(new Item.Properties()));
+  public static final RegistryObject<Item> SALMON_FLAKE = registerFoodandlist("salmon_flake", () -> new Item(new Item.Properties()));
+  public static final RegistryObject<LiquidReagent> SOY_SAUCE = registerFoodandlist("soy_sauce", () -> new LiquidKitchen(new ReagentProperties("seasoning",0xFF431606,0,0,0), new Item.Properties(), () -> ChemiFluids.SOY_SAUCE.getFluid()));
+  public static final RegistryObject<LiquidReagent> COOKING_SAKE = registerFoodandlist("cooking_sake", () -> new LiquidKitchen(new ReagentProperties("seasoning_alchohol",0xFFFFFFE0,2,3,0), new Item.Properties(), () -> ChemiFluids.COOKING_SAKE.getFluid()));
+  public static final RegistryObject<LiquidReagent> MIRIN = registerFoodandlist("mirin", () -> new LiquidKitchen(new ReagentProperties("seasoning_alchohol",0xFFF8E58C,2,3,0), new Item.Properties(), () -> ChemiFluids.MIRIN.getFluid()));
+  public static final RegistryObject<LiquidReagent> WINE = registerFoodandlist("wine", () -> new LiquidKitchen(new ReagentProperties("seasoning_alchohol",0xFF59006b,2,3,0), new Item.Properties(), () -> ChemiFluids.WINE.getFluid()));
+  public static final RegistryObject<LiquidReagent> RICE_VINEGAR = registerFoodandlist("rice_vinegar", () -> new LiquidKitchen(new ReagentProperties("seasoning",0xFFe0bc67,1,0,0), new Item.Properties(), () -> ChemiFluids.RICE_VINEGAR.getFluid()));
+  public static final RegistryObject<LiquidReagent> FRUIT_VINEGAR = registerFoodandlist("fruit_vinegar", () -> new LiquidKitchen(new ReagentProperties("seasoning",0xFFc93264,1,0,0), new Item.Properties(), () -> ChemiFluids.FRUIT_VINEGAR.getFluid()));
+  public static final RegistryObject<LiquidReagent> MILK = registerFoodandlist("milk", () -> new LiquidKitchen(new ReagentProperties("cooking_ingredient",0xFFFFFFFF,0,0,0), new Item.Properties()));
+  public static final RegistryObject<Item> GINKGO_NUTS = registerFoodandlist("ginkgo_nuts", () -> new Item(new Item.Properties()));
+  public static final RegistryObject<Item> FIG = registerFoodandlist("fig", () -> new Item(new Item.Properties().food(ChemiFoodProperties.RAW_VEGETABLES)));
+  public static final RegistryObject<Item> DOUGH = registerFoodandlist("dough", () -> new Item(new Item.Properties().stacksTo(64)));
+  public static final RegistryObject<Item> NOODLE = registerFoodandlist("noodle", () -> new Item(new Item.Properties().stacksTo(64)));
+  public static final RegistryObject<Item> MAYONNAISE = registerFoodandlist("mayonnaise", () -> new Item(new Item.Properties().stacksTo(64)));
+  public static final RegistryObject<Item> APPLE_JAM = registerFoodandlist("apple_jam", () -> new Item(new Item.Properties().stacksTo(64)));
+  public static final RegistryObject<Item> BERRY_JAM = registerFoodandlist("berry_jam", () -> new Item(new Item.Properties().stacksTo(64)));
+  public static final RegistryObject<Item> FIG_JAM = registerFoodandlist("fig_jam", () -> new Item(new Item.Properties().stacksTo(64)));
 
-  public static final RegistryObject<Item> GOHAN = registerandlist("gohan", () -> new StackableBowlFoodItem(new Item.Properties().stacksTo(64).food(ChemiFoodProperties.GOHAN)));
-  public static final RegistryObject<Item> ONION_SOUP = registerandlist("onion_soup", () -> new StackableBowlFoodItem(new Item.Properties().stacksTo(64).food(ChemiFoodProperties.ONION_SOUP)));
-  public static final RegistryObject<Item> BEANS_SOUP = registerandlist("beans_soup", () -> new StackableBowlFoodItem(new Item.Properties().stacksTo(64).food(ChemiFoodProperties.BEANS_SOUP)));
-  public static final RegistryObject<Item> TOMATO_SOUP = registerandlist("tomato_soup", () -> new StackableBowlFoodItem(new Item.Properties().stacksTo(64).food(ChemiFoodProperties.TOMATO_SOUP)));
-  public static final RegistryObject<Item> CORN_SOUP = registerandlist("corn_soup", () -> new StackableBowlFoodItem(new Item.Properties().stacksTo(64).food(ChemiFoodProperties.CORN_SOUP)));
-  public static final RegistryObject<Item> POT_AU_FEU = registerandlist("pot_au_feu", () -> new StackableBowlFoodItem(new Item.Properties().stacksTo(64).food(ChemiFoodProperties.POT_AU_FEU)));
-  public static final RegistryObject<Item> SEASONED_GOHAN = registerandlist("seasoned_gohan", () -> new StackableBowlFoodItem(new Item.Properties().stacksTo(64).food(ChemiFoodProperties.SEASONED_GOHAN)));
-  public static final RegistryObject<Item> MAITAKE_SALMON_GOHAN = registerandlist("maitake_salmon_gohan", () -> new StackableBowlFoodItem(new Item.Properties().stacksTo(64).food(ChemiFoodProperties.MAITAKE_SALMON_GOHAN)));
-  public static final RegistryObject<Item> MATSUTAKE_GOHAN = registerandlist("matsutake_gohan", () -> new StackableBowlFoodItem(new Item.Properties().stacksTo(64).food(ChemiFoodProperties.MATSUTAKE_GOHAN)));
-  public static final RegistryObject<Item> NIKUJAGA = registerandlist("nikujaga", () -> new StackableBowlFoodItem(new Item.Properties().stacksTo(64).food(ChemiFoodProperties.NIKUJAGA)));
-  public static final RegistryObject<Item> CHIKUZENNI = registerandlist("chikuzenni", () -> new StackableBowlFoodItem(new Item.Properties().stacksTo(64).food(ChemiFoodProperties.CHIKUZENNI)));
-  public static final RegistryObject<Item> MISO_SOUP = registerandlist("miso_soup", () -> new StackableBowlFoodItem(new Item.Properties().stacksTo(64).food(ChemiFoodProperties.MISO_SOUP)));
-  public static final RegistryObject<Item> OYAKODON = registerandlist("oyakodon", () -> new StackableBowlFoodItem(new Item.Properties().stacksTo(64).food(ChemiFoodProperties.OYAKODON)));
-  public static final RegistryObject<Item> CREAM_STEW = registerandlist("cream_stew", () -> new StackableBowlFoodItem(new Item.Properties().stacksTo(64).food(ChemiFoodProperties.CREAM_STEW)));
-  public static final RegistryObject<Item> PORK_ONION = registerandlist("pork_onion", () -> new StackableBowlFoodItem(new Item.Properties().stacksTo(64).food(ChemiFoodProperties.PORK_ONION)));
-  public static final RegistryObject<Item> CHICKEN_SAUTE = registerandlist("chicken_saute", () -> new StackableBowlFoodItem(new Item.Properties().stacksTo(64).food(ChemiFoodProperties.CHICKEN_SAUTE)));
-  public static final RegistryObject<Item> CHICKEN_POTATO = registerandlist("chicken_saute_with_potato", () -> new StackableBowlFoodItem(new Item.Properties().stacksTo(64).food(ChemiFoodProperties.CHICKEN_SAUTE_POTATO)));
-  public static final RegistryObject<Item> BEEF_STEW = registerandlist("beef_stew", () -> new StackableBowlFoodItem(new Item.Properties().stacksTo(64).food(ChemiFoodProperties.BEEF_STEW)));
-  public static final RegistryObject<Item> MEAT_WINE = registerandlist("meat_wine", () -> new StackableBowlFoodItem(new Item.Properties().stacksTo(64).food(ChemiFoodProperties.MEAT_WINE)));
-  public static final RegistryObject<Item> MEATSAUCE_PASTA = registerandlist("meatsauce_spaghetti", () -> new StackableBowlFoodItem(new Item.Properties().stacksTo(64).food(ChemiFoodProperties.MEATSAUCE_PASTA)));
-  public static final RegistryObject<Item> MINESTRONE = registerandlist("minestrone", () -> new StackableBowlFoodItem(new Item.Properties().stacksTo(64).food(ChemiFoodProperties.MINESTRONE)));
-  public static final RegistryObject<Item> SALMON_MARINADE = registerandlist("salmon_marinade", () -> new StackableBowlFoodItem(new Item.Properties().stacksTo(64).food(ChemiFoodProperties.SALMON_MARINADE)));
-  public static final RegistryObject<Item> NANBANZUKE = registerandlist("nanbanzuke", () -> new StackableBowlFoodItem(new Item.Properties().stacksTo(64).food(ChemiFoodProperties.NANBANZUKE)));
-  public static final RegistryObject<Item> CANDIED_FIG = registerandlist("candied_fig", () -> new StackableBowlFoodItem(new Item.Properties().stacksTo(64).food(ChemiFoodProperties.CANDIED_FIG)));
-  public static final RegistryObject<Item> CHAWANMUSHI = registerandlist("chawanmushi", () -> new StackableBowlFoodItem(new Item.Properties().stacksTo(64).food(ChemiFoodProperties.CHAWANMUSHI)));
-  public static final RegistryObject<Item> FIG_AND_MEAT_SAUTE = registerandlist("fig_and_meat_saute", () -> new StackableBowlFoodItem(new Item.Properties().stacksTo(64).food(ChemiFoodProperties.FIG_AND_MEAT_SAUTE)));
-  public static final RegistryObject<Item> GINKGO_GOHAN = registerandlist("ginkgo_gohan", () -> new StackableBowlFoodItem(new Item.Properties().stacksTo(64).food(ChemiFoodProperties.GINKGO_GOHAN)));
-  public static final RegistryObject<Item> ROASTED_SOYBEANS = registerandlist("roasted_soybeans", () -> new Item(new Item.Properties().stacksTo(64).food(ChemiFoodProperties.ROASTED_SOYBEANS)));
-  public static final RegistryObject<Item> ROASTED_GINKGO = registerandlist("roasted_ginkgo", () -> new Item(new Item.Properties().stacksTo(64).food(ChemiFoodProperties.ROASTED_GINKGO)));
-  public static final RegistryObject<Item> COOKED_ONION = registerandlist("cooked_onion", () -> new Item(new Item.Properties().stacksTo(64).food(ChemiFoodProperties.COOKED_ONION)));
-  public static final RegistryObject<Item> POPCORN = registerandlist("popcorn", () -> new Item(new Item.Properties().stacksTo(64).food(ChemiFoodProperties.POPCORN)));
-  public static final RegistryObject<Item> COOKED_MATSUTAKE = registerandlist("cooked_matsutake", () -> new Item(new Item.Properties().stacksTo(64).food(ChemiFoodProperties.COOKED_MATSUTAKE)));
-  public static final RegistryObject<Item> CORN_BREAD = registerandlist("corn_bread", () -> new Item(new Item.Properties().stacksTo(64).food(ChemiFoodProperties.CORN_BREAD)));
-  public static final RegistryObject<Item> RAISIN_BREAD = registerandlist("raisin_bread", () -> new Item(new Item.Properties().stacksTo(64).food(ChemiFoodProperties.RAISIN_BREAD)));
-  public static final RegistryObject<Item> SUMESHI = registerandlist("sumeshi", () -> new Item(new Item.Properties().stacksTo(64).food(ChemiFoodProperties.SUMESHI)));
-  public static final RegistryObject<Item> SUSHI = registerandlist("sushi", () -> new SushiFoodItem(new Item.Properties().stacksTo(64).food(ChemiFoodProperties.SUSHI)));
-  public static final RegistryObject<Item> SUSHI_SALMON = registerandlist("sushi_salmon", () -> new SushiFoodItem(new Item.Properties().stacksTo(64).food(ChemiFoodProperties.SUSHI_SALMON)));
-  public static final RegistryObject<Item> SUSHI_SEABREAM = registerandlist("sushi_seabream", () -> new SushiFoodItem(new Item.Properties().stacksTo(64).food(ChemiFoodProperties.SUSHI_SEABREAM)));
-  public static final RegistryObject<Item> SOYSAUCE_BOWL = registerandlist("soysauce_bowl", () -> new Item(new Item.Properties().durability(32)));
+  public static final RegistryObject<Item> GOHAN = registerFoodandlist("gohan", () -> new StackableBowlFoodItem(new Item.Properties().stacksTo(64).food(ChemiFoodProperties.GOHAN)));
+  public static final RegistryObject<Item> ONION_SOUP = registerFoodandlist("onion_soup", () -> new StackableBowlFoodItem(new Item.Properties().stacksTo(64).food(ChemiFoodProperties.ONION_SOUP)));
+  public static final RegistryObject<Item> BEANS_SOUP = registerFoodandlist("beans_soup", () -> new StackableBowlFoodItem(new Item.Properties().stacksTo(64).food(ChemiFoodProperties.BEANS_SOUP)));
+  public static final RegistryObject<Item> TOMATO_SOUP = registerFoodandlist("tomato_soup", () -> new StackableBowlFoodItem(new Item.Properties().stacksTo(64).food(ChemiFoodProperties.TOMATO_SOUP)));
+  public static final RegistryObject<Item> CORN_SOUP = registerFoodandlist("corn_soup", () -> new StackableBowlFoodItem(new Item.Properties().stacksTo(64).food(ChemiFoodProperties.CORN_SOUP)));
+  public static final RegistryObject<Item> POT_AU_FEU = registerFoodandlist("pot_au_feu", () -> new StackableBowlFoodItem(new Item.Properties().stacksTo(64).food(ChemiFoodProperties.POT_AU_FEU)));
+  public static final RegistryObject<Item> SEASONED_GOHAN = registerFoodandlist("seasoned_gohan", () -> new StackableBowlFoodItem(new Item.Properties().stacksTo(64).food(ChemiFoodProperties.SEASONED_GOHAN)));
+  public static final RegistryObject<Item> MAITAKE_SALMON_GOHAN = registerFoodandlist("maitake_salmon_gohan", () -> new StackableBowlFoodItem(new Item.Properties().stacksTo(64).food(ChemiFoodProperties.MAITAKE_SALMON_GOHAN)));
+  public static final RegistryObject<Item> MATSUTAKE_GOHAN = registerFoodandlist("matsutake_gohan", () -> new StackableBowlFoodItem(new Item.Properties().stacksTo(64).food(ChemiFoodProperties.MATSUTAKE_GOHAN)));
+  public static final RegistryObject<Item> NIKUJAGA = registerFoodandlist("nikujaga", () -> new StackableBowlFoodItem(new Item.Properties().stacksTo(64).food(ChemiFoodProperties.NIKUJAGA)));
+  public static final RegistryObject<Item> CHIKUZENNI = registerFoodandlist("chikuzenni", () -> new StackableBowlFoodItem(new Item.Properties().stacksTo(64).food(ChemiFoodProperties.CHIKUZENNI)));
+  public static final RegistryObject<Item> MISO_SOUP = registerFoodandlist("miso_soup", () -> new StackableBowlFoodItem(new Item.Properties().stacksTo(64).food(ChemiFoodProperties.MISO_SOUP)));
+  public static final RegistryObject<Item> OYAKODON = registerFoodandlist("oyakodon", () -> new StackableBowlFoodItem(new Item.Properties().stacksTo(64).food(ChemiFoodProperties.OYAKODON)));
+  public static final RegistryObject<Item> CREAM_STEW = registerFoodandlist("cream_stew", () -> new StackableBowlFoodItem(new Item.Properties().stacksTo(64).food(ChemiFoodProperties.CREAM_STEW)));
+  public static final RegistryObject<Item> PORK_ONION = registerFoodandlist("pork_onion", () -> new StackableBowlFoodItem(new Item.Properties().stacksTo(64).food(ChemiFoodProperties.PORK_ONION)));
+  public static final RegistryObject<Item> PORK_MISO = registerFoodandlist("pork_miso_grill", () -> new StackableBowlFoodItem(new Item.Properties().stacksTo(64).food(ChemiFoodProperties.PORK_ONION)));
+  public static final RegistryObject<Item> CHICKEN_SAUTE = registerFoodandlist("chicken_saute", () -> new StackableBowlFoodItem(new Item.Properties().stacksTo(64).food(ChemiFoodProperties.CHICKEN_SAUTE)));
+  public static final RegistryObject<Item> CHICKEN_POTATO = registerFoodandlist("chicken_saute_with_potato", () -> new StackableBowlFoodItem(new Item.Properties().stacksTo(64).food(ChemiFoodProperties.CHICKEN_SAUTE_POTATO)));
+  public static final RegistryObject<Item> BEEF_STEW = registerFoodandlist("beef_stew", () -> new StackableBowlFoodItem(new Item.Properties().stacksTo(64).food(ChemiFoodProperties.BEEF_STEW)));
+  public static final RegistryObject<Item> MEAT_WINE = registerFoodandlist("meat_wine", () -> new StackableBowlFoodItem(new Item.Properties().stacksTo(64).food(ChemiFoodProperties.MEAT_WINE)));
+  public static final RegistryObject<Item> MEATSAUCE_PASTA = registerFoodandlist("meatsauce_spaghetti", () -> new StackableBowlFoodItem(new Item.Properties().stacksTo(64).food(ChemiFoodProperties.MEATSAUCE_PASTA)));
+  public static final RegistryObject<Item> MINESTRONE = registerFoodandlist("minestrone", () -> new StackableBowlFoodItem(new Item.Properties().stacksTo(64).food(ChemiFoodProperties.MINESTRONE)));
+  public static final RegistryObject<Item> SALMON_MARINADE = registerFoodandlist("salmon_marinade", () -> new StackableBowlFoodItem(new Item.Properties().stacksTo(64).food(ChemiFoodProperties.SALMON_MARINADE)));
+  public static final RegistryObject<Item> NANBANZUKE = registerFoodandlist("nanbanzuke", () -> new StackableBowlFoodItem(new Item.Properties().stacksTo(64).food(ChemiFoodProperties.NANBANZUKE)));
+  public static final RegistryObject<Item> CANDIED_FIG = registerFoodandlist("candied_fig", () -> new StackableBowlFoodItem(new Item.Properties().stacksTo(64).food(ChemiFoodProperties.CANDIED_FIG)));
+  public static final RegistryObject<Item> CHAWANMUSHI = registerFoodandlist("chawanmushi", () -> new StackableBowlFoodItem(new Item.Properties().stacksTo(64).food(ChemiFoodProperties.CHAWANMUSHI)));
+  public static final RegistryObject<Item> FIG_AND_MEAT_SAUTE = registerFoodandlist("fig_and_meat_saute", () -> new StackableBowlFoodItem(new Item.Properties().stacksTo(64).food(ChemiFoodProperties.FIG_AND_MEAT_SAUTE)));
+  public static final RegistryObject<Item> GINKGO_GOHAN = registerFoodandlist("ginkgo_gohan", () -> new StackableBowlFoodItem(new Item.Properties().stacksTo(64).food(ChemiFoodProperties.GINKGO_GOHAN)));
+  public static final RegistryObject<Item> ROASTED_SOYBEANS = registerFoodandlist("roasted_soybeans", () -> new Item(new Item.Properties().stacksTo(64).food(ChemiFoodProperties.ROASTED_SOYBEANS)));
+  public static final RegistryObject<Item> ROASTED_GINKGO = registerFoodandlist("roasted_ginkgo", () -> new Item(new Item.Properties().stacksTo(64).food(ChemiFoodProperties.ROASTED_GINKGO)));
+  public static final RegistryObject<Item> COOKED_ONION = registerFoodandlist("cooked_onion", () -> new Item(new Item.Properties().stacksTo(64).food(ChemiFoodProperties.COOKED_ONION)));
+  public static final RegistryObject<Item> POPCORN = registerFoodandlist("popcorn", () -> new Item(new Item.Properties().stacksTo(64).food(ChemiFoodProperties.POPCORN)));
+  public static final RegistryObject<Item> COOKED_MATSUTAKE = registerFoodandlist("cooked_matsutake", () -> new Item(new Item.Properties().stacksTo(64).food(ChemiFoodProperties.COOKED_MATSUTAKE)));
+  public static final RegistryObject<Item> CORN_BREAD = registerFoodandlist("corn_bread", () -> new Item(new Item.Properties().stacksTo(64).food(ChemiFoodProperties.CORN_BREAD)));
+  public static final RegistryObject<Item> RAISIN_BREAD = registerFoodandlist("raisin_bread", () -> new Item(new Item.Properties().stacksTo(64).food(ChemiFoodProperties.RAISIN_BREAD)));
+  public static final RegistryObject<Item> NORI = registerFoodandlist("nori", () -> new Item(new Item.Properties().stacksTo(64).food(ChemiFoodProperties.NORI)));
+  public static final RegistryObject<Item> ONIGIRI_SALT = registerFoodandlist("onigiri_salt", () -> new Item(new Item.Properties().stacksTo(64).food(ChemiFoodProperties.ONIGIRI_SALT)));
+  public static final RegistryObject<Item> ONIGIRI_SALMON = registerFoodandlist("onigiri_salmon", () -> new Item(new Item.Properties().stacksTo(64).food(ChemiFoodProperties.ONIGIRI_SALMON)));
+  public static final RegistryObject<Item> ONIGIRI_MENTAI = registerFoodandlist("onigiri_mentai", () -> new Item(new Item.Properties().stacksTo(64).food(ChemiFoodProperties.ONIGIRI_MENTAI)));
+  public static final RegistryObject<Item> ONIGIRI_SOYSAUCE = registerFoodandlist("onigiri_soysauce", () -> new Item(new Item.Properties().stacksTo(64).food(ChemiFoodProperties.ONIGIRI_SOYSAUCE)));
+  public static final RegistryObject<Item> ONIGIRI_MISO = registerFoodandlist("onigiri_miso", () -> new Item(new Item.Properties().stacksTo(64).food(ChemiFoodProperties.ONIGIRI_MISO)));
+  public static final RegistryObject<Item> FUGUSASHI = registerFoodandlist("fugusashi", () -> new SushiFoodItem(new Item.Properties().stacksTo(64).food(ChemiFoodProperties.FUGUSASHI)));
+  public static final RegistryObject<Item> SUMESHI = registerFoodandlist("sumeshi", () -> new Item(new Item.Properties().stacksTo(64).food(ChemiFoodProperties.SUMESHI)));
+  public static final RegistryObject<Item> SUSHI = registerFoodandlist("sushi", () -> new SushiFoodItem(new Item.Properties().stacksTo(64).food(ChemiFoodProperties.SUSHI)));
+  public static final RegistryObject<Item> SUSHI_SALMON = registerFoodandlist("sushi_salmon", () -> new SushiFoodItem(new Item.Properties().stacksTo(64).food(ChemiFoodProperties.SUSHI_SALMON)));
+  public static final RegistryObject<Item> SUSHI_SEABREAM = registerFoodandlist("sushi_seabream", () -> new SushiFoodItem(new Item.Properties().stacksTo(64).food(ChemiFoodProperties.SUSHI_SEABREAM)));
+  public static final RegistryObject<Item> SUSHI_PUFFERFISH = registerFoodandlist("sushi_fugu", () -> new SushiFoodItem(new Item.Properties().stacksTo(64).food(ChemiFoodProperties.SUSHI_SEABREAM)));
+  public static final RegistryObject<Item> SUSHI_IKURA = registerFoodandlist("ikura_gunkan", () -> new SushiFoodItem(new Item.Properties().stacksTo(64).food(ChemiFoodProperties.SUSHI_SEABREAM)));
+  public static final RegistryObject<Item> SUSHI_CORN = registerFoodandlist("mayocorn_gunkan", () -> new SushiFoodItem(new Item.Properties().stacksTo(64).food(ChemiFoodProperties.SUSHI_SALMON)));
+  public static final RegistryObject<Item> SOYSAUCE_BOWL = registerFoodandlist("soysauce_bowl", () -> new Item(new Item.Properties().durability(32)));
+  public static final RegistryObject<Item> PIZZA_MARGHERITA = registerFoodandlist("pizza_margherita", () -> new SushiFoodItem(new Item.Properties().stacksTo(64).food(ChemiFoodProperties.PIZZA)));
+  public static final RegistryObject<Item> PIZZA_CORN = registerFoodandlist("pizza_corn", () -> new SushiFoodItem(new Item.Properties().stacksTo(64).food(ChemiFoodProperties.PIZZA)));
+  public static final RegistryObject<Item> SAUSAGE = registerFoodandlist("sausage", () -> new SushiFoodItem(new Item.Properties().stacksTo(64).food(ChemiFoodProperties.SAUSAGE)));
+  public static final RegistryObject<Item> CARROT_STICK_WITH_MISOMAYO = registerFoodandlist("carrot_stick_with_misomayo", () -> new SushiFoodItem(new Item.Properties().stacksTo(64).food(ChemiFoodProperties.CWMISOMAYO)));
+  public static final RegistryObject<Item> APPLE_DRINK = registerFoodandlist("apple_vinegar_drink", () -> new Item(new Item.Properties().stacksTo(64).food(ChemiFoodProperties.DRINKS)));
+  public static final RegistryObject<Item> BERRY_DRINK = registerFoodandlist("berry_vinegar_drink", () -> new Item(new Item.Properties().stacksTo(64).food(ChemiFoodProperties.DRINKS)));
+  public static final RegistryObject<Item> FIG_DRINK = registerFoodandlist("fig_vinegar_drink", () -> new Item(new Item.Properties().stacksTo(64).food(ChemiFoodProperties.DRINKS)));
+
+  public static final RegistryObject<SwordItem> FILLET_KNIFE = registerFoodandlist("fillet_knife", () -> new FilletKnifeItem(Tiers.IRON, 3, -2.4f, new Item.Properties().durability(1024)));
 
   public static final RegistryObject<Item> FLUIDJAR = registerandlist("fluid_jar", () -> new FluidJar());
   public static final RegistryObject<Item> DEBUG_ROD = registerandlist("debug_rod", () -> new MagicalRod());
@@ -339,18 +370,21 @@ public class ChemiItems {
     listCreativeTab.add(new CreativeTabContent(item));
     return item;
   }
-
-  @SubscribeEvent
-  public static void onCreativeTabBuild(BuildCreativeModeTabContentsEvent event) {
-    if (event.getTabKey() == CreativeModeTabs.INGREDIENTS) {
-    }
+  public static <T extends Item> RegistryObject<T> registerFoodandlist(String name, Supplier<T> supplier) {
+    RegistryObject<T> item = ITEMS.register(name, supplier);
+    listItems.add(item);
+    listCreativeTab.add(CreativeTabContent.foodContent(item));
+    return item;
   }
-  public record CreativeTabContent(Optional<Supplier<ItemStack>> stack, Optional<Supplier<ItemLike>> supplier) {
+  public record CreativeTabContent(Optional<Supplier<ItemStack>> stack, Optional<Supplier<ItemLike>> supplier, RegistryObject<CreativeModeTab> tab) {
     public CreativeTabContent(RegistryObject<? extends Item> obj){
-      this(Optional.empty(), Optional.of(() -> obj.get()));
+      this(Optional.empty(), Optional.of(() -> obj.get()), ModCreativeTabs.CHEMISTRY_TAB);
     }
     public CreativeTabContent(Supplier<ItemStack> stacksupplier){
-      this(Optional.of(stacksupplier), Optional.empty());
+      this(Optional.of(stacksupplier), Optional.empty(), ModCreativeTabs.CHEMISTRY_TAB);
+    }
+    public static CreativeTabContent foodContent(RegistryObject<? extends Item> obj){
+      return new CreativeTabContent(Optional.empty(), Optional.of(obj::get), ModCreativeTabs.FOODS);
     }
   }
 }

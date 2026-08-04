@@ -28,6 +28,11 @@ public class ModCreativeTabs {
       .title(Component.translatable("itemGroup.reagenica.tools"))
       .icon(() -> new ItemStack(ChemiItems.IRIDIUM_TOOLS.AXE.get()))
       .build());
+  public static final RegistryObject<CreativeModeTab> FOODS =
+    TABS.register("foods", () -> CreativeModeTab.builder()
+      .title(Component.translatable("itemGroup.reagenica.foods"))
+      .icon(() -> new ItemStack(ChemiItems.NIKUJAGA.get()))
+      .build());
 
   public static void register(IEventBus bus) {
     TABS.register(bus);

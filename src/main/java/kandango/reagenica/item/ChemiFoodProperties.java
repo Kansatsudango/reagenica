@@ -8,7 +8,6 @@ public class ChemiFoodProperties {
   public static final FoodProperties GOHAN = new FoodProperties.Builder()
             .nutrition(5)
             .saturationMod(1.2f)
-            .fast()
             .build();
   public static final FoodProperties ONION_SOUP = new FoodProperties.Builder()
             .nutrition(6)
@@ -131,6 +130,42 @@ public class ChemiFoodProperties {
             .alwaysEat()
             .fast()
             .build();
+  public static final FoodProperties NORI = new FoodProperties.Builder()
+            .nutrition(2)
+            .saturationMod(1.0f)
+            .fast()
+            .build();
+  public static final FoodProperties ONIGIRI_SALT = new FoodProperties.Builder()
+            .nutrition(6)
+            .saturationMod(1.0f)
+            .fast()
+            .build();
+  public static final FoodProperties ONIGIRI_SALMON = new FoodProperties.Builder()
+            .nutrition(8)
+            .saturationMod(1.1f)
+            .fast()
+            .build();
+  public static final FoodProperties ONIGIRI_SOYSAUCE = new FoodProperties.Builder()
+            .nutrition(8)
+            .saturationMod(1.1f)
+            .fast()
+            .build();
+  public static final FoodProperties ONIGIRI_MISO = new FoodProperties.Builder()
+            .nutrition(8)
+            .saturationMod(1.1f)
+            .fast()
+            .build();
+  public static final FoodProperties ONIGIRI_MENTAI = new FoodProperties.Builder()
+            .nutrition(8)
+            .saturationMod(1.1f)
+            .effect(() -> new MobEffectInstance(MobEffects.DAMAGE_BOOST, 600, 1), 1.0f)
+            .alwaysEat()
+            .fast()
+            .build();
+  public static final FoodProperties FUGUSASHI = new FoodProperties.Builder()
+            .nutrition(6)
+            .saturationMod(1.0f)
+            .build();
   public static final FoodProperties SUMESHI = new FoodProperties.Builder()
             .nutrition(6)
             .saturationMod(1.2f)
@@ -149,6 +184,21 @@ public class ChemiFoodProperties {
   public static final FoodProperties SUSHI_SEABREAM = new FoodProperties.Builder()
             .nutrition(8)
             .saturationMod(1.2f)
+            .fast()
+            .build();
+  public static final FoodProperties PIZZA = new FoodProperties.Builder()
+            .nutrition(10)
+            .saturationMod(1.1f)
+            .fast()
+            .build();
+  public static final FoodProperties SAUSAGE = new FoodProperties.Builder()
+            .nutrition(7)
+            .saturationMod(1.2f)
+            .fast()
+            .build();
+  public static final FoodProperties CWMISOMAYO = new FoodProperties.Builder()
+            .nutrition(6)
+            .saturationMod(1.0f)
             .fast()
             .build();
   public static final FoodProperties NANBANZUKE = new FoodProperties.Builder()
@@ -207,8 +257,25 @@ public class ChemiFoodProperties {
             .effect(() -> new MobEffectInstance(MobEffects.REGENERATION, 200, 2), 1.0f)
             .alwaysEat()
             .build();
+  public static final FoodProperties TARAKO = new FoodProperties.Builder()
+            .nutrition(6)
+            .saturationMod(1.0f)
+            .build();
+  public static final FoodProperties MENTAIKO = new FoodProperties.Builder()
+            .nutrition(6)
+            .saturationMod(1.0f)
+            .effect(() -> new MobEffectInstance(MobEffects.DAMAGE_BOOST, 600, 1), 1.0f)
+            .alwaysEat()
+            .build();
   public static final FoodProperties RAW_VEGETABLES = new FoodProperties.Builder()
             .nutrition(3)
             .saturationMod(0.8f)
+            .build();
+  public static final FoodProperties DRINKS = new FoodProperties.Builder()
+            .nutrition(4)
+            .saturationMod(0.8f)
+            .fast()
+            .effect(() -> new MobEffectInstance(MobEffects.REGENERATION, 160, 2), 1.0f)
+            .alwaysEat()
             .build();
 }

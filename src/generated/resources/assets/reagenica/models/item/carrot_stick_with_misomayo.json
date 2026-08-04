@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "reagenica:item/carrot_stick_with_misomayo"
+  }
+}
