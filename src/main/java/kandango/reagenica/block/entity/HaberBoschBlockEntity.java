@@ -119,7 +119,11 @@ public class HaberBoschBlockEntity extends BlockEntity implements MenuProvider,I
   private boolean dirty=true;//Always dirty when loaded newly
 
   private final LazyOptional<IItemHandler> itemHandlerLazyOptional = LazyOptional.of(() -> CommonChemiItemHandler.Builder.of(itemHandler)
-                                                                    .fuelslot(0).outputslot(2,4,6).build());
+                                                                    .fuelslot(0)
+                                                                    .specificFluidInputSlot(ChemiFluids.NITROGEN.getFluid(), 1)
+                                                                    .specificFluidInputSlot(ChemiFluids.HYDROGEN.getFluid(), 3)
+                                                                    .anyfluidOutputslot(5)
+                                                                    .outputslot(2,4,6).build());
   private final LazyOptional<IFluidHandler> fluidTankLazyOptional = LazyOptional.of(() -> new HaberBoschFluidHandler(hydrogenTank,nitrogenTank,outputTank));
 
   public HaberBoschBlockEntity(BlockPos pos, BlockState state){

@@ -101,7 +101,13 @@ public class FractionalDistillerBlockEntity extends BlockEntity implements MenuP
   public int getFuelMax(){return fuelmax;}
   public void setFuelMax(int p){this.fuelmax=p;}
 
-  private final LazyOptional<IItemHandler> itemHandlerLazyOptional = LazyOptional.of(() -> CommonChemiItemHandler.Builder.of(itemHandler).fuelslot(0).outputslot(1).build());
+  private final LazyOptional<IItemHandler> itemHandlerLazyOptional = 
+    LazyOptional.of(() -> CommonChemiItemHandler.Builder.of(itemHandler)
+                          .fuelslot(0)
+                          .outputslot(1)
+                          .anyfluidInputslot(2)
+                          .specificFluidInputSlot(Fluids.WATER, 8)
+                          .anyfluidOutputslot(4).anyfluidInputslot(6).build());
   private final LazyOptional<IFluidHandler> topTankLazyOptional = LazyOptional.of(() -> fluidTank_top);
   private final LazyOptional<IFluidHandler> lowerLazyOptional = LazyOptional.of(() -> new LowerFluidHandler());
   private final LazyOptional<IFluidHandler> waterTankLazyOptional = LazyOptional.of(() -> fluidTank_water);
