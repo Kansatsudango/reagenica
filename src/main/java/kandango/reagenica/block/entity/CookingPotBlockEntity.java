@@ -184,7 +184,7 @@ public class CookingPotBlockEntity extends BlockEntity implements MenuProvider,I
         ItemStack dinner = recipecache.getOutput();
         ItemStackUtil.addStackToSlot(itemHandler, 9, dinner);
         ItemStackUtil.addStackToSlot(itemHandler, 8, new ItemStack(ChemiItems.TESTTUBE.get(), testtubes));
-        itemHandler.extractItem(7, recipecache.getOutputCount(), false);
+        if(!recipecache.isNotRequireBowl()) itemHandler.extractItem(7, recipecache.getOutputCount(), false);
         this.changed=true;
       }
     }
@@ -210,7 +210,7 @@ public class CookingPotBlockEntity extends BlockEntity implements MenuProvider,I
     boolean canOutput = ItemStackUtil.canAddStack(itemHandler.getStackInSlot(9), out);
     boolean canReturn = ItemStackUtil.canAddStack(itemHandler.getStackInSlot(8), new ItemStack(ChemiItems.TESTTUBE.get(), testtubes));
     boolean hasBowls = (bowls.getItem() == Items.BOWL) && bowls.getCount()>=recipe.getOutputCount();
-    return canOutput && canReturn && hasBowls;
+    return canOutput && canReturn && (hasBowls || recipe.isNotRequireBowl());
   }
   @Override
   public void invalidateCaps(){

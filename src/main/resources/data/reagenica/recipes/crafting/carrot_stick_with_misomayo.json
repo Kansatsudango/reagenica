@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    { "item": "reagenica:miso" },
+    { "item": "reagenica:mayonnaise" },
+    { "item": "minecraft:carrot" }
+  ],
+  "result": {
+    "item": "reagenica:carrot_stick_with_misomayo",
+    "count": 1
+  }
+}

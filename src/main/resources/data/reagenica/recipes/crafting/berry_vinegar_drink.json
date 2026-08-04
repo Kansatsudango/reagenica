@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    { "item": "reagenica:fruit_vinegar" },
+    { "item": "reagenica:berry_jam" }
+  ],
+  "result": {
+    "item": "reagenica:berry_vinegar_drink",
+    "count": 2
+  }
+}

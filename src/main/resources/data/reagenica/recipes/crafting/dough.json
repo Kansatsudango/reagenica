@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    { "item": "reagenica:water" },
+    { "item": "minecraft:wheat" }
+  ],
+  "result": {
+    "item": "reagenica:dough",
+    "count": 2
+  }
+}

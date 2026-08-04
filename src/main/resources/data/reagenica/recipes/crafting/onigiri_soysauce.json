@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    { "item": "reagenica:gohan" },
+    { "item": "reagenica:soy_sauce" },
+    { "item": "reagenica:nori" }
+  ],
+  "result": {
+    "item": "reagenica:onigiri_soysauce",
+    "count": 2
+  }
+}

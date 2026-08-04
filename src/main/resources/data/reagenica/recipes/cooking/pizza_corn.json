@@ -1,0 +1,10 @@
+{
+  "type": "reagenica:cooking",
+  "inputs": [
+    { "item": "reagenica:dough" },
+    { "item": "reagenica:corn" },
+    { "item": "reagenica:milk" }
+  ],
+  "result": { "item": "reagenica:pizza_corn", "count": 2 },
+  "no_bowl": true
+}

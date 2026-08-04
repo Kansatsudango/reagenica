@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    { "item": "reagenica:sumeshi" },
+    { "item": "reagenica:ikura"},
+    { "item": "reagenica:nori"}
+  ],
+  "result": {
+    "item": "reagenica:ikura_gunkan",
+    "count": 4
+  }
+}

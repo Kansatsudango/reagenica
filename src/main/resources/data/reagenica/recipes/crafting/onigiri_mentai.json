@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    { "item": "reagenica:gohan" },
+    { "item": "reagenica:mentaiko" },
+    { "item": "reagenica:nori" }
+  ],
+  "result": {
+    "item": "reagenica:onigiri_mentai",
+    "count": 2
+  }
+}

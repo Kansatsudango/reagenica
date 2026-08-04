@@ -1,0 +1,9 @@
+{
+  "type": "reagenica:cooking",
+  "inputs": [
+    { "item": "reagenica:fig" },
+    { "item": "minecraft:sugar" }
+  ],
+  "result": { "item": "reagenica:fig_jam", "count": 1 },
+  "no_bowl": true
+}

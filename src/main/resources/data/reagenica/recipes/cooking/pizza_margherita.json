@@ -1,0 +1,10 @@
+{
+  "type": "reagenica:cooking",
+  "inputs": [
+    { "item": "reagenica:dough" },
+    { "item": "reagenica:tomato" },
+    { "item": "reagenica:milk" }
+  ],
+  "result": { "item": "reagenica:pizza_margherita", "count": 2 },
+  "no_bowl": true
+}

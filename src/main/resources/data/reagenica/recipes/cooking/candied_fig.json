@@ -2,7 +2,8 @@
   "type": "reagenica:cooking",
   "inputs": [
     { "item": "minecraft:sugar" },
-    { "item": "reagenica:fig" }
+    { "item": "reagenica:fig" },
+    { "item": "reagenica:fruit_vinegar" }
   ],
   "result": { "item": "reagenica:candied_fig", "count": 2 }
 }

@@ -28,11 +28,16 @@ public class CookingRecipe implements Recipe<Container> {
   public int getOutputCount(){
     return output.getCount();
   }
+  private final boolean noBowl;
+  public boolean isNotRequireBowl(){
+    return noBowl;
+  }
   
-  public CookingRecipe(ResourceLocation id, List<Ingredient> i, ItemStack o){
+  public CookingRecipe(ResourceLocation id, List<Ingredient> i, ItemStack o, boolean nb){
     this.id=id;
     this.inputs=i;
     this.output = o;
+    this.noBowl = nb;
   }
 
   @Override

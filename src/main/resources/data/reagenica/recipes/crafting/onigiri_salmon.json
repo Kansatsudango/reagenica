@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    { "item": "reagenica:gohan" },
+    { "item": "reagenica:salmon_flake" },
+    { "item": "reagenica:nori" }
+  ],
+  "result": {
+    "item": "reagenica:onigiri_salmon",
+    "count": 2
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "type": "reagenica:fermentation",
+  "inputs": [
+    {"item": "reagenica:tarako"},
+    {"item": "reagenica:salt"},
+    {"item": "reagenica:soy_sauce"},
+    {"item": "reagenica:sodium_nitrite_food_additive"}
+  ],
+  "result_item": {
+    "item": "reagenica:mentaiko"
+  }
+}

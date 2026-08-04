@@ -1,0 +1,9 @@
+{
+  "type": "reagenica:cooking",
+  "inputs": [
+    { "item": "minecraft:apple" },
+    { "item": "minecraft:sugar" }
+  ],
+  "result": { "item": "reagenica:apple_jam", "count": 1 },
+  "no_bowl": true
+}

@@ -83,6 +83,9 @@ public class RecipeJsonHelper {
     }
     return json.get(name).getAsFloat();
   }
+  public static Optional<Boolean> boolFromJsonOptional(@Nonnull JsonObject json, String name){
+    return json.has(name) ? Optional.ofNullable(json.get(name).getAsBoolean()) : Optional.empty();
+  }
 
   public static <T> List<T> listFromJson(@Nonnull JsonObject json, String name, Function<JsonObject,T> reader){
     if(!json.has(name)){

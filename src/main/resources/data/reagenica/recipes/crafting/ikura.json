@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    { "item": "reagenica:fillet_knife" },
+    { "item": "minecraft:salmon" }
+  ],
+  "result": {
+    "item": "reagenica:ikura",
+    "count": 1
+  }
+}

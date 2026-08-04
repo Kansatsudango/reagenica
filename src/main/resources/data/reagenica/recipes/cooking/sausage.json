@@ -1,0 +1,10 @@
+{
+  "type": "reagenica:cooking",
+  "inputs": [
+    { "tag": "reagenica:meats" },
+    { "item": "reagenica:sodium_nitrite_food_additive" },
+    { "item": "reagenica:salt" }
+  ],
+  "result": { "item": "reagenica:sausage", "count": 4 },
+  "no_bowl": true
+}

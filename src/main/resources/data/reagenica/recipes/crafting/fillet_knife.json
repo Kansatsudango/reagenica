@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "A",
+    "I",
+    "S"
+  ],
+  "key": {
+    "A": { "item": "reagenica:aluminium_ingot" },
+    "I": { "item": "minecraft:iron_ingot" },
+    "S": { "item": "minecraft:stick" }
+  },
+  "result": {
+    "item": "reagenica:fillet_knife",
+    "count": 1
+  }
+}

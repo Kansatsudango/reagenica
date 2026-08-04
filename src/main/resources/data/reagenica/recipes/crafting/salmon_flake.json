@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    { "item": "reagenica:salt" },
+    { "item": "minecraft:cooked_salmon" }
+  ],
+  "result": {
+    "item": "reagenica:salmon_flake",
+    "count": 4
+  }
+}

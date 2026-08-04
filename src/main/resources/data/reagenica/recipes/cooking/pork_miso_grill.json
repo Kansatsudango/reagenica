@@ -1,0 +1,10 @@
+{
+  "type": "reagenica:cooking",
+  "inputs": [
+    { "item": "minecraft:porkchop" },
+    { "tag": "reagenica:onions" },
+    { "item": "reagenica:miso" },
+    { "item": "reagenica:mirin" }
+  ],
+  "result": { "item": "reagenica:pork_miso_grill", "count": 2 }
+}

@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    { "item": "reagenica:fillet_knife" },
+    { "item": "minecraft:cod" }
+  ],
+  "result": {
+    "item": "reagenica:tarako",
+    "count": 1
+  }
+}

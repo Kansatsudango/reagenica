@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    { "item": "reagenica:sumeshi" },
+    { "item": "reagenica:corn"},
+    { "item": "reagenica:mayonnaise"},
+    { "item": "reagenica:nori"}
+  ],
+  "result": {
+    "item": "reagenica:mayocorn_gunkan",
+    "count": 4
+  }
+}

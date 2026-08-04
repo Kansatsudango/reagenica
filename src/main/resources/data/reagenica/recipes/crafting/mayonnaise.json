@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    { "tag": "reagenica:vinegars" },
+    { "item": "minecraft:egg" }
+  ],
+  "result": {
+    "item": "reagenica:mayonnaise",
+    "count": 4
+  }
+}

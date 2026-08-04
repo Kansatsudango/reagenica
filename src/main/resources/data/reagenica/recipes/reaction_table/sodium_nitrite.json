@@ -1,0 +1,10 @@
+{
+  "type": "reagenica:reagent_mixing",
+  "inputs":[
+    { "item": "reagenica:nitrous_acid" },
+    { "item": "reagenica:sodium_hydroxide" }
+  ],
+  "requires_heat": true,
+  "result_a": { "item": "reagenica:sodium_nitrite", "count":1},
+  "result_b": { "item": "reagenica:testtube", "count":2}
+}
