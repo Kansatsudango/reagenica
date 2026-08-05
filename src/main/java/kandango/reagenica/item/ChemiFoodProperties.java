@@ -271,6 +271,13 @@ public class ChemiFoodProperties {
             .nutrition(3)
             .saturationMod(0.8f)
             .build();
+  public static final FoodProperties DANGO = new FoodProperties.Builder()
+            .nutrition(6)
+            .saturationMod(1.0f)
+            .fast()
+            .effect(() -> new MobEffectInstance(MobEffects.ABSORPTION, 400, 0), 1.0f)
+            .alwaysEat()
+            .build();
   public static final FoodProperties DRINKS = new FoodProperties.Builder()
             .nutrition(4)
             .saturationMod(0.8f)

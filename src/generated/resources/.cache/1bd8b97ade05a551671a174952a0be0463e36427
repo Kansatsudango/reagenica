@@ -1,4 +1,4 @@
-// 1.20.1	2026-08-04T19:01:53.9455194	Item Models: reagenica
+// 1.20.1	2026-08-05T21:55:51.0204388	Item Models: reagenica
 6f0d9872c5f176206015dd5f6420e71fe71f2cb9 assets/reagenica/models/item/acetobacter.json
 54ef03ed6b05d449bef3092145440fb8c97020f5 assets/reagenica/models/item/adipamide.json
 54ef03ed6b05d449bef3092145440fb8c97020f5 assets/reagenica/models/item/adipic_acid.json
@@ -120,6 +120,9 @@ eb706b4fbb599e6a92e00110b06a5ed9117a4aff assets/reagenica/models/item/crystal_de
 c4bcbc9560b58d632a90b4a508d92af732235ec9 assets/reagenica/models/item/custom_block.json
 1092d42d439734a1a8fadfa5100e73cff3d8b7ae assets/reagenica/models/item/cut_lead_glass.json
 54ef03ed6b05d449bef3092145440fb8c97020f5 assets/reagenica/models/item/cyclohexane.json
+cb47b7aeb4732136f89dd198a604c972a7333f67 assets/reagenica/models/item/dango_kinako.json
+07cadd6278d04ddaf61c6aaf3601979b5c43f47d assets/reagenica/models/item/dango_mitarashi.json
+b0105796d3e0d58313ab7a1c6fa17a11847258dd assets/reagenica/models/item/dango_sanshoku.json
 8b8565225973056c97f4dad1bb321003973a76a3 assets/reagenica/models/item/debug_consumer.json
 fa43f2d589b2a876ffb364a578bd211361b25b24 assets/reagenica/models/item/debug_generator.json
 1118bfdc1f61fd6318cc646575bbde1f720b540a assets/reagenica/models/item/debug_rod.json
@@ -409,6 +412,7 @@ fbb376d112441ff708ad08297cdbb2c7f478d2e6 assets/reagenica/models/item/refined_co
 22f8b13bc8153c24bc0d4e15039aa8c5a24a35e1 assets/reagenica/models/item/refined_copper_ingot.json
 b77d5d6059ca6f15ac91b16caa57e8fc11b8b1ec assets/reagenica/models/item/reinforced_ingot.json
 54ef03ed6b05d449bef3092145440fb8c97020f5 assets/reagenica/models/item/resorcinol.json
+9bdde356d07300462decbb0106eb1f51bc6e8e04 assets/reagenica/models/item/rice_dough.json
 54ef03ed6b05d449bef3092145440fb8c97020f5 assets/reagenica/models/item/rice_vinegar.json
 3249374bbf86977eed42a73b066710b4282dbbde assets/reagenica/models/item/rice_vinegar_bucket.json
 0c20d6c0bf137b2e59c1cc56e5a2f3a30d60b087 assets/reagenica/models/item/roasted_ginkgo.json

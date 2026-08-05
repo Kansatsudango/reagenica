@@ -59,7 +59,9 @@ public class CookingCategory implements IRecipeCategory<CookingRecipe>{
       int y = i<=2 ? 17 : 35;
       builder.addSlot(RecipeIngredientRole.INPUT, x, y).addIngredients(item);
     }
-    builder.addSlot(RecipeIngredientRole.INPUT, 120, 59).addItemStack(new ItemStack(Items.BOWL, recipe.getOutput().getCount()));
+    if(!recipe.isNotRequireBowl()){
+      builder.addSlot(RecipeIngredientRole.INPUT, 120, 59).addItemStack(new ItemStack(Items.BOWL, recipe.getOutput().getCount()));
+    }
     builder.addSlot(RecipeIngredientRole.OUTPUT, 120, 33).addItemStack(recipe.getOutput());
   } 
 }

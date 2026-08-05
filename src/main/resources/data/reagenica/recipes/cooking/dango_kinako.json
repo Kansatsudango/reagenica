@@ -1,0 +1,14 @@
+{
+  "type": "reagenica:cooking",
+  "inputs": [
+    { "item": "reagenica:rice_dough" },
+    { "item": "reagenica:roasted_soybeans" },
+    { "item": "minecraft:sugar" },
+    { "item": "minecraft:stick" }
+  ],
+  "result": {
+    "item": "reagenica:dango_kinako",
+    "count": 2
+  },
+  "no_bowl": true
+}

@@ -1,0 +1,14 @@
+{
+  "type": "reagenica:cooking",
+  "inputs": [
+    { "item": "reagenica:rice_dough" },
+    { "item": "minecraft:grass" },
+    { "item": "minecraft:cherry_leaves" },
+    { "item": "minecraft:stick" }
+  ],
+  "result": {
+    "item": "reagenica:dango_sanshoku",
+    "count": 2
+  },
+  "no_bowl": true
+}

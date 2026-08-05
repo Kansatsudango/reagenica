@@ -351,6 +351,10 @@ public class ChemiItems {
   public static final RegistryObject<Item> APPLE_DRINK = registerFoodandlist("apple_vinegar_drink", () -> new Item(new Item.Properties().stacksTo(64).food(ChemiFoodProperties.DRINKS)));
   public static final RegistryObject<Item> BERRY_DRINK = registerFoodandlist("berry_vinegar_drink", () -> new Item(new Item.Properties().stacksTo(64).food(ChemiFoodProperties.DRINKS)));
   public static final RegistryObject<Item> FIG_DRINK = registerFoodandlist("fig_vinegar_drink", () -> new Item(new Item.Properties().stacksTo(64).food(ChemiFoodProperties.DRINKS)));
+  public static final RegistryObject<Item> RICE_DOUGH = registerFoodandlist("rice_dough", () -> new Item(new Item.Properties().stacksTo(64)));
+  public static final RegistryObject<Item> DANGO_MITARASHI = registerFoodandlist("dango_mitarashi", () -> new Item(new Item.Properties().stacksTo(64).food(ChemiFoodProperties.DANGO)));
+  public static final RegistryObject<Item> DANGO_SANSHOKU = registerFoodandlist("dango_sanshoku", () -> new Item(new Item.Properties().stacksTo(64).food(ChemiFoodProperties.DANGO)));
+  public static final RegistryObject<Item> DANGO_KINAKO = registerFoodandlist("dango_kinako", () -> new Item(new Item.Properties().stacksTo(64).food(ChemiFoodProperties.DANGO)));
 
   public static final RegistryObject<SwordItem> FILLET_KNIFE = registerFoodandlist("fillet_knife", () -> new FilletKnifeItem(Tiers.IRON, 3, -2.4f, new Item.Properties().durability(1024)));
 

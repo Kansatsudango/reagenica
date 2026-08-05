@@ -1,0 +1,14 @@
+{
+  "type": "reagenica:cooking",
+  "inputs": [
+    { "item": "reagenica:rice_dough" },
+    { "item": "reagenica:soy_sauce" },
+    { "item": "reagenica:mirin" },
+    { "item": "minecraft:stick" }
+  ],
+  "result": {
+    "item": "reagenica:dango_mitarashi",
+    "count": 2
+  },
+  "no_bowl": true
+}
