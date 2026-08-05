@@ -1,0 +1,46 @@
+{
+  "parent": "reagenica:koji",
+  "display": {
+    "icon": { "item": "reagenica:dango_sanshoku" },
+    "title": {
+      "translate": "advancements.reagenica.dango_stall.title"
+    },
+    "description": {
+      "translate": "advancements.reagenica.dango_stall.desc"
+    },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": true
+  },
+  "criteria": {
+    "reagenica:mitarashi": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          { "items": ["reagenica:dango_mitarashi"] }
+        ]
+      }
+    },
+    "reagenica:sanshoku": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          { "items": ["reagenica:dango_sanshoku"] }
+        ]
+      }
+    },
+    "reagenica:kinako": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          { "items": ["reagenica:dango_kinako"] }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    ["reagenica:mitarashi"],
+    ["reagenica:sanshoku"],
+    ["reagenica:kinako"]
+  ]
+}

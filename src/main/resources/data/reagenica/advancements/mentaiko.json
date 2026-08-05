@@ -1,0 +1,25 @@
+{
+  "parent": "reagenica:nitric_acid",
+  "display": {
+    "icon": { "item": "reagenica:mentaiko" },
+  "title": {
+    "translate": "advancements.reagenica.mentaiko.title"
+  },
+  "description": {
+    "translate": "advancements.reagenica.mentaiko.desc"
+  },
+  "frame": "task",
+  "show_toast": true,
+  "announce_to_chat": true
+  },
+  "criteria": {
+    "obtain_item": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          { "items": ["reagenica:mentaiko"] }
+        ]
+      }
+    }
+  }
+}
