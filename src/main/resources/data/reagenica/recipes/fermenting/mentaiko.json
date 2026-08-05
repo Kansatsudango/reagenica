@@ -3,9 +3,12 @@
   "inputs": [
     {"item": "reagenica:tarako"},
     {"item": "reagenica:salt"},
-    {"item": "reagenica:soy_sauce"},
     {"item": "reagenica:sodium_nitrite_food_additive"}
   ],
+  "input_fluid": {
+    "fluid": "reagenica:soy_sauce",
+    "amount": 50
+  },
   "result_item": {
     "item": "reagenica:mentaiko"
   }
