@@ -1,5 +1,7 @@
 package kandango.reagenica.generator;
 
+import java.util.Map;
+
 import kandango.reagenica.ChemiBlocks;
 import kandango.reagenica.ChemiItems;
 import kandango.reagenica.ChemistryMod;
@@ -19,8 +21,11 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.SwordItem;
 import net.minecraft.world.item.TieredItem;
 import net.minecraft.world.level.block.Block;
+import net.minecraftforge.client.model.generators.ItemModelBuilder;
 import net.minecraftforge.client.model.generators.ItemModelProvider;
+import net.minecraftforge.client.model.generators.ModelFile;
 import net.minecraftforge.common.data.ExistingFileHelper;
+import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 
 public class ChemiItemModelProvider extends ItemModelProvider{
@@ -31,7 +36,7 @@ public class ChemiItemModelProvider extends ItemModelProvider{
   @Override
   protected void registerModels() {
     ChemiItems.listItems.stream().forEach(this::register);
-    ArmorFamily.Armors.stream().flatMap(ArmorFamily::armorItems).forEach(this::register);
+    ArmorFamily.Armors.stream().forEach(this::registerArmor);
     ToolFamily.Tools.stream().flatMap(ToolFamily::toolItems).forEach(this::registerTools);
     ChemiBlocks.listBlocks.stream().map(b -> b.blockreg()).forEach(this::blockItemSafe);
     CrystalFamily.Crystals.stream().forEach(this::crystalFamily);
@@ -57,6 +62,54 @@ public class ChemiItemModelProvider extends ItemModelProvider{
       simpleItem(item);
     }
   }
+  private static final Map<String, Float> VANILLA_TRIM_MATERIALS = Map.ofEntries(
+    Map.entry("quartz", 0.1F),
+    Map.entry("iron", 0.2F),
+    Map.entry("netherite", 0.3F),
+    Map.entry("redstone", 0.4F),
+    Map.entry("copper", 0.5F),
+    Map.entry("gold", 0.6F),
+    Map.entry("emerald", 0.7F),
+    Map.entry("diamond", 0.8F),
+    Map.entry("lapis", 0.9F),
+    Map.entry("amethyst", 1.0F)
+  );
+  private void registerArmor(ArmorFamily family){
+    registerTrimmedArmorItem(family.HELMET, "helmet");
+    registerTrimmedArmorItem(family.CHESTPLATE, "chestplate");
+    registerTrimmedArmorItem(family.LEGGINGS, "leggings");
+    registerTrimmedArmorItem(family.BOOTS, "boots");
+  }
+  private void registerTrimmedArmorItem(RegistryObject<? extends Item> armorItem, String armorSlot){
+    ResourceLocation itemId = ForgeRegistries.ITEMS.getKey(armorItem.get());
+
+    ModelFile.UncheckedModelFile generated = new ModelFile.UncheckedModelFile("minecraft:item/generated");
+
+    ItemModelBuilder baseModel = getBuilder(itemId.getPath()).parent(generated)
+        .texture("layer0", modLoc("item/" + itemId.getPath()));
+
+    VANILLA_TRIM_MATERIALS.entrySet().stream().sorted(Map.Entry.comparingByValue())
+      .forEach(entry -> { 
+        String material = entry.getKey();
+        float index = entry.getValue();
+        ResourceLocation trimModel = modLoc("item/" + itemId.getPath() + "_" + material + "_trim");
+
+        ResourceLocation trimTexture = mcLoc(
+            "trims/items/" + armorSlot + "_trim_" + material
+        );
+        existingFileHelper.trackGenerated(trimTexture, PackType.CLIENT_RESOURCES, ".png", "textures");
+
+        getBuilder(itemId.getPath() + "_" + material + "_trim")
+            .parent(generated)
+            .texture("layer0", modLoc("item/" + itemId.getPath()))
+            .texture("layer1", trimTexture);
+
+        baseModel.override()
+            .predicate(mcLoc("trim_type"), index)
+            .model(new ModelFile.UncheckedModelFile(trimModel))
+            .end();
+    });
+}
   private void simpleItem(RegistryObject<? extends Item> item) {
     withExistingParent(item.getId().getPath(), mcLoc("item/generated"))
             .texture("layer0", modLoc("item/" + item.getId().getPath()));
