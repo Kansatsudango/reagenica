@@ -6,6 +6,7 @@ import kandango.reagenica.block.entity.IBlockEntityWithSlider;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.world.level.Level;
 import net.minecraftforge.network.NetworkEvent;
 
 // SliderValuePacket.java
@@ -31,7 +32,9 @@ public class SliderValuePacket {
     public static void handle(SliderValuePacket msg, Supplier<NetworkEvent.Context> ctx) {
         ctx.get().enqueueWork(() -> {
             ServerPlayer player = ctx.get().getSender();
-            if (player != null && player.level().getBlockEntity(msg.pos) instanceof IBlockEntityWithSlider be) {
+            Level level = player.level();
+            if(!level.isLoaded(msg.pos))return;
+            if (player != null && level.getBlockEntity(msg.pos) instanceof IBlockEntityWithSlider be) {
                 be.setSliderValue(msg.value);
             }
         });

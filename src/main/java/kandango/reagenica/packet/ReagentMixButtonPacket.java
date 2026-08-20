@@ -34,6 +34,7 @@ public class ReagentMixButtonPacket {
             if (player == null) return;
 
             Level level = player.level();
+            if(!level.isLoaded(pos))return;
             if (level.getBlockEntity(pos) instanceof DraftChamberBlockEntity be) {
                 be.mixButton(shift);
             }

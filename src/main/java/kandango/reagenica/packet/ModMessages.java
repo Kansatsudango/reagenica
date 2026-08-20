@@ -6,11 +6,12 @@ import net.minecraftforge.network.simple.SimpleChannel;
 
 public class ModMessages {
     private static int id = 0;
+    public static final String PROTOCOL_VERSION = "HOKKAIDO";
     public static final SimpleChannel CHANNEL = NetworkRegistry.newSimpleChannel(
         new ResourceLocation("reagenica", "main"),
-        () -> "1.0",
-        s -> true, // client version check
-        s -> true  // server version check
+        () -> PROTOCOL_VERSION,
+        PROTOCOL_VERSION::equals, // client version check
+        PROTOCOL_VERSION::equals  // server version check
     );
 
     public static void register() {

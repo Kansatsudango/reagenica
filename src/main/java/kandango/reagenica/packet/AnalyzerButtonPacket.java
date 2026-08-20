@@ -30,6 +30,8 @@ public class AnalyzerButtonPacket {
             if (player == null) return;
 
             Level level = player.level();
+            if(!level.isLoaded(pos))return;
+            
             if (level.getBlockEntity(pos) instanceof AnalyzerBlockEntity be) {
                 be.analyze(); // 合成処理を行う
             }
