@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "facing=north": { "model": "reagenica:block/auto_recycler", "y": 0 },
+    "facing=south": { "model": "reagenica:block/auto_recycler", "y": 180 },
+    "facing=west":  { "model": "reagenica:block/auto_recycler", "y": 270 },
+    "facing=east":  { "model": "reagenica:block/auto_recycler", "y": 90 }
+  }
+}

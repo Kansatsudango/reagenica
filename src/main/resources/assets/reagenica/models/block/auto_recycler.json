@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/orientable",
+  "textures": {
+    "front": "reagenica:block/auto_recycler_front",
+    "side": "reagenica:block/auto_recycler_side",
+    "top": "reagenica:block/auto_recycler_top"
+  }
+}

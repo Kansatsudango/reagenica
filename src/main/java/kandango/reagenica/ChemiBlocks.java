@@ -187,6 +187,9 @@ public class ChemiBlocks {
   public static final RegistryObject<Block> AUTO_EXPERIMENTER = registerMachineBlockandlist("auto_experimenter",AutoExperimenter::new);
   public static final RegistryObject<Item> AUTO_EXPERIMENTER_ITEM = registerItemandlist("auto_experimenter",
     () -> new BlockItem(AUTO_EXPERIMENTER.get(), new Item.Properties()));
+  public static final RegistryObject<Block> AUTO_RECYCLER = registerMachineBlockandlist("auto_recycler",AutoRecycler::new);
+  public static final RegistryObject<Item> AUTO_RECYCLER_ITEM = registerItemandlist("auto_recycler",
+    () -> new BlockItem(AUTO_RECYCLER.get(), new Item.Properties()));
     
   public static final RegistryObject<Block> LARGE_TANK_CORE = registerMachineBlockandlist("large_tank_core",LargeTankCore::new);
   public static final RegistryObject<Item> LARGE_TANK_CORE_ITEM = registerItemandlist("large_tank_core",

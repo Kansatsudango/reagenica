@@ -1,0 +1,25 @@
+{
+  "type": "reagenica:auto_recycler",
+  "input": {
+    "item": "reagenica:yunohana_white"
+  },
+  "results": [
+    {
+      "item": "minecraft:quartz",
+      "count": 1,
+      "chance": 0.2
+    },{
+      "item": "reagenica:sulfur",
+      "count": 1,
+      "chance": 0.1
+    },{
+      "item": "reagenica:salt",
+      "count": 1,
+      "chance": 0.05
+    },{
+      "item": "minecraft:calcite",
+      "count": 1,
+      "chance": 0.2
+    }
+  ]
+}

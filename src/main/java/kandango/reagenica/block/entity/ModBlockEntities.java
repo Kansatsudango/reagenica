@@ -199,6 +199,9 @@ public class ModBlockEntities {
     public static final RegistryObject<BlockEntityType<AutoExperimenterBlockEntity>> AUTO_EXPERIMENTER = 
         BLOCK_ENTITIES.register("auto_experimenter", 
         () -> BlockEntityType.Builder.of((BlockEntityType.BlockEntitySupplier<AutoExperimenterBlockEntity>)AutoExperimenterBlockEntity::new,ChemiBlocks.AUTO_EXPERIMENTER.get()).build(null));
+    public static final RegistryObject<BlockEntityType<AutoRecyclerBlockEntity>> AUTO_RECYCLER = 
+        BLOCK_ENTITIES.register("auto_recycler", 
+        () -> BlockEntityType.Builder.of((BlockEntityType.BlockEntitySupplier<AutoRecyclerBlockEntity>)AutoRecyclerBlockEntity::new,ChemiBlocks.AUTO_RECYCLER.get()).build(null));
 
 
     public static final RegistryObject<BlockEntityType<LargeTankCoreBlockEntity>> LARGE_TANK_CORE = 

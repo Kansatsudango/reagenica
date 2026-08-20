@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " C ",
+    "AXA",
+    "PRP"
+  ],
+  "key": {
+    "X": { "item": "reagenica:analyzer" },
+    "A": { "item": "reagenica:lead_ingot" },
+    "C": { "item": "reagenica:copper_cable" },
+    "P": { "item": "minecraft:piston" },
+    "R": { "item": "minecraft:redstone" }
+  },
+  "result": {
+    "item": "reagenica:auto_recycler",
+    "count": 1
+  }
+}

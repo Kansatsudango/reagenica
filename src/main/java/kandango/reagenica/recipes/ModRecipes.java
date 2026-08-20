@@ -103,6 +103,15 @@ public class ModRecipes {
         });
     public static final RegistryObject<RecipeSerializer<AnalyzerRecipe>> ANALYZER_SERIALIZER = 
         SERIALIZERS.register("analyze", AnalyzerRecipeSerializer::new);
+    public static final RegistryObject<RecipeType<AutoRecyclerRecipe>> AUTO_RECYCLER_TYPE = 
+        TYPES.register("auto_recycler", () -> new RecipeType<AutoRecyclerRecipe>() {
+            @Override
+            public String toString(){
+                return "reagenica:auto_recycler";
+            }
+        });
+    public static final RegistryObject<RecipeSerializer<AutoRecyclerRecipe>> AUTO_RECYCLER_SERIALIZER = 
+        SERIALIZERS.register("auto_recycler", AutoRecyclerRecipeSerializer::new);
         
     public static final RegistryObject<RecipeType<DissolverRecipe>> DISSSOLVER_TYPE = 
         TYPES.register("dissolving", () -> new RecipeType<DissolverRecipe>() {

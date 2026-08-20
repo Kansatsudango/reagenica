@@ -1,0 +1,25 @@
+{
+  "type": "reagenica:auto_recycler",
+  "input": {
+    "item": "reagenica:anode_slime"
+  },
+  "results": [
+    {
+      "item": "minecraft:gold_nugget",
+      "count": 1,
+      "chance": 0.2
+    },{
+      "item": "reagenica:trace_silver",
+      "count": 1,
+      "chance": 0.15
+    },{
+      "item": "reagenica:uranium_nugget",
+      "count": 1,
+      "chance": 0.07
+    },{
+      "item": "reagenica:trace_platinum",
+      "count": 1,
+      "chance": 0.03
+    }
+  ]
+}

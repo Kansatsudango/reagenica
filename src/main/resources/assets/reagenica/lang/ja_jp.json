@@ -890,6 +890,7 @@
   "gui.reagenica.pem_device": "固体高分子型水電解装置",
   "gui.reagenica.filtration_device": "水ろ過装置",
   "gui.reagenica.auto_experimenter": "自動実験装置",
+  "gui.reagenica.auto_recycler": "自動リサイクル装置",
   "gui.reagenica.advanced_lead_battery": "強化鉛蓄電池",
   "item.reagenica.neutron_irradiated_uranium": "中性子照射したウラン",
   "item.reagenica.carbon_filter": "活性炭フィルター",
@@ -898,6 +899,7 @@
   "block.reagenica.filtration_device": "水ろ過装置",
   "block.reagenica.pem_device": "固体高分子型水電解装置",
   "block.reagenica.auto_experimenter": "自動実験装置",
+  "block.reagenica.auto_recycler": "自動リサイクル装置",
   "block.reagenica.advanced_lead_battery": "強化鉛蓄電池",
   "tooltip.reagenica.water_filter": "水ろ過装置のフィルター",
   "tooltip.reagenica.air_filter": "空気分離機のフィルター",
@@ -1030,6 +1032,7 @@
   "jei.reagenica.pem": "水の電気分解",
   "jei.reagenica.filtration": "ろ過",
   "jei.reagenica.mutation_condition": "変異条件",
+  "jei.reagenica.auto_recycler": "自動リサイクル",
   "jei.reagenica.contamination_top": "未滅菌のプレートは成長途中で",
   "jei.reagenica.contamination_bottom": "コンタミすることがあります"
 }

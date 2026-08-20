@@ -6,6 +6,7 @@ import javax.annotation.Nonnull;
 
 import kandango.reagenica.ChemiBlocks;
 import kandango.reagenica.recipes.AnalyzerRecipe;
+import kandango.reagenica.recipes.AutoRecyclerRecipe;
 import kandango.reagenica.recipes.BlastFurnaceRecipe;
 import kandango.reagenica.recipes.CookingRecipe;
 import kandango.reagenica.recipes.CrusherRecipe;
@@ -83,6 +84,13 @@ public class ChemistryJEIPlugin implements IModPlugin{
       ModRecipes.ANALYZER_TYPE,
       helper -> new AnalyzerCategory(helper),
       () -> new ItemStack(ChemiBlocks.ANALYZER.get())
+    ),
+    new JEIPluginRecipes<>(
+      "auto_recycler",
+      AutoRecyclerRecipe.class,
+      ModRecipes.AUTO_RECYCLER_TYPE,
+      helper -> new AutoRecyclerCategory(helper),
+      () -> new ItemStack(ChemiBlocks.AUTO_RECYCLER.get())
     ),
     new JEIPluginRecipes<>(
       "crusher",

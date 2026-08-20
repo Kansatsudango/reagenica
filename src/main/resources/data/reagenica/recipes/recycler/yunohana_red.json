@@ -1,0 +1,21 @@
+{
+  "type": "reagenica:auto_recycler",
+  "input": {
+    "item": "reagenica:yunohana_red"
+  },
+  "results": [
+    {
+      "item": "minecraft:quartz",
+      "count": 1,
+      "chance": 0.3
+    },{
+      "item": "reagenica:iron_oxide",
+      "count": 1,
+      "chance": 0.05
+    },{
+      "item": "reagenica:salt",
+      "count": 1,
+      "chance": 0.05
+    }
+  ]
+}

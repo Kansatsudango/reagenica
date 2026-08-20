@@ -890,6 +890,7 @@
   "gui.reagenica.pem_device": "PEM Device",
   "gui.reagenica.filtration_device": "Water Filtration",
   "gui.reagenica.auto_experimenter": "Auto Experiment Machine",
+  "gui.reagenica.auto_recycler": "Auto Recycler",
   "gui.reagenica.advanced_lead_battery": "Advanced Lead Battery",
   "item.reagenica.neutron_irradiated_uranium": "Neutron Irradiated Uranium",
   "item.reagenica.carbon_filter": "Activated Carbon Filter",
@@ -898,6 +899,7 @@
   "block.reagenica.filtration_device": "Water Filtration Device",
   "block.reagenica.pem_device": "Polymer Electrolyte Membrane Water Electrolysis Device",
   "block.reagenica.auto_experimenter": "Auto Experiment Machine",
+  "block.reagenica.auto_recycler": "Auto Recycler",
   "block.reagenica.advanced_lead_battery": "Advanced Lead Battery",
   "tooltip.reagenica.water_filter": "a Filter for Water Filtration",
   "tooltip.reagenica.air_filter": "a Filter for Air Separator",
@@ -1030,6 +1032,7 @@
   "jei.reagenica.pem": "Water Electrolysis",
   "jei.reagenica.filtration": "Filtration",
   "jei.reagenica.mutation_condition": "Mutation Condition",
+  "jei.reagenica.auto_recycler": "Auto Recycle",
   "jei.reagenica.contamination_top": "Unsterilized plates may become",
   "jei.reagenica.contamination_bottom": "contaminated during growth."
 }

@@ -1,0 +1,21 @@
+{
+  "type": "reagenica:auto_recycler",
+  "input": {
+    "item": "reagenica:yunohana_dark_yellow"
+  },
+  "results": [
+    {
+      "item": "minecraft:quartz",
+      "count": 1,
+      "chance": 0.3
+    },{
+      "item": "reagenica:sulfur",
+      "count": 1,
+      "chance": 0.1
+    },{
+      "item": "reagenica:uranium_nugget",
+      "count": 1,
+      "chance": 0.01
+    }
+  ]
+}
