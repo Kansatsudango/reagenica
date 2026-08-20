@@ -41,6 +41,7 @@ import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.common.capabilities.ForgeCapabilities;
 import net.minecraftforge.common.util.LazyOptional;
 import net.minecraftforge.fluids.FluidStack;
+import net.minecraftforge.fluids.capability.IFluidHandler;
 import net.minecraftforge.fluids.capability.IFluidHandler.FluidAction;
 import net.minecraftforge.fluids.capability.templates.FluidTank;
 import net.minecraftforge.items.IItemHandler;
@@ -86,6 +87,7 @@ public class AutoRecyclerBlockEntity extends ElectricConsumerAbstract implements
 
   private final LazyOptional<IItemHandler> itemHandlerLazyOptional = LazyOptional.of(() -> CommonChemiItemHandler.Builder.of(itemHandler).outputslot(1,2,3,4,5,6,7,9).specificFluidInputSlot(ChemiFluids.SULFURIC_ACID.getFluid(), 8).build());
   private final LampControllerHelper<AutoRecyclerBlockEntity> lamphelper = new LampControllerHelper<>(this);
+  private final LazyOptional<IFluidHandler> fluidHandlerLazyOptional = LazyOptional.of(() -> fluidTank);
 
   public AutoRecyclerBlockEntity(BlockPos pos, BlockState state){
     super(ModBlockEntities.AUTO_RECYCLER.get(),pos,state);
@@ -122,7 +124,9 @@ public class AutoRecyclerBlockEntity extends ElectricConsumerAbstract implements
   @Override
   public <T> LazyOptional<T> getCapability(Capability<T> cap, @Nullable Direction side) {
     if (cap == ForgeCapabilities.ITEM_HANDLER) {
-        return itemHandlerLazyOptional.cast();
+      return itemHandlerLazyOptional.cast();
+    }else if(cap == ForgeCapabilities.FLUID_HANDLER){
+      return fluidHandlerLazyOptional.cast();
     }
     return super.getCapability(cap, side);
   }
