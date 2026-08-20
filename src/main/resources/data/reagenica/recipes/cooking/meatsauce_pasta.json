@@ -1,7 +1,7 @@
 {
   "type": "reagenica:cooking",
   "inputs": [
-    { "item": "minecraft:wheat" },
+    { "item": "reagenica:noodle" },
     { "item": "reagenica:tomato" },
     { "tag": "reagenica:meats" }
   ],
