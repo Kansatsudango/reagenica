@@ -1,4 +1,4 @@
-// 1.20.1	2026-08-20T15:35:33.0075898	Loot Tables
+// 1.20.1	2026-08-20T17:53:06.083548	Loot Tables
 fd599511177b57b7c4697466e227e89162e2d943 data/reagenica/loot_tables/blocks/advanced_farmland.json
 81f631334b4d88836bcea6b819f2263ac0f2ca50 data/reagenica/loot_tables/blocks/advanced_lead_battery.json
 115802854012234d89e3ba52e3d8b2a271af6530 data/reagenica/loot_tables/blocks/air_separator.json
@@ -56,6 +56,7 @@ e578c4f83b3b2e7b14e145982c6cd45912c8e832 data/reagenica/loot_tables/blocks/cryol
 8ead0e82ace8c2bfdb4230718b50e37f23556d33 data/reagenica/loot_tables/blocks/cryolite_wall.json
 c82906219d59cafd39b392b20fe07eeb9fbd88a8 data/reagenica/loot_tables/blocks/custom_block.json
 24e931f6c589ce892778504a3dd1ee5cbe155ff3 data/reagenica/loot_tables/blocks/cut_lead_glass.json
+24af853fec1f339c66f114ac1fe97f153349b1ba data/reagenica/loot_tables/blocks/cut_lead_glass_pane.json
 95d04da2827d0dcaff49e339db285f1badcf6c3a data/reagenica/loot_tables/blocks/debug_consumer.json
 b89f9d67bd7aa07f093c77a8054fe92e40f49161 data/reagenica/loot_tables/blocks/debug_crop.json
 a589eabfff3b3bd85de9ffb7d86bbeca08a80168 data/reagenica/loot_tables/blocks/debug_generator.json
@@ -146,6 +147,7 @@ a60daeb9f320e2093564c7c17afa089a4b7357ac data/reagenica/loot_tables/blocks/lapis
 1bd36a9279e1c981d087b85c6172ff4fb4df7eb8 data/reagenica/loot_tables/blocks/lead_battery.json
 23559f9c26baa137b78a7f11ff19c2766df84b0a data/reagenica/loot_tables/blocks/lead_block.json
 d139d3bae6e5e9df09d0082d8d28c969342bf1f2 data/reagenica/loot_tables/blocks/lead_glass.json
+ea8f1c5e8867eae7c65f4283133bef3a0e7965d5 data/reagenica/loot_tables/blocks/lead_glass_pane.json
 221a7558271eea13883c018d46e3b92dd8d51baf data/reagenica/loot_tables/blocks/lead_ore.json
 9f4ad24ecfffca79b8921856eb2bf8141b471951 data/reagenica/loot_tables/blocks/magnolia_button.json
 78c0de941d5b0e3db357d5047f70892e83e67408 data/reagenica/loot_tables/blocks/magnolia_door.json
@@ -300,6 +302,7 @@ a277db681ec467a26000ab9d4d1fa6061a977853 data/reagenica/loot_tables/blocks/taxod
 1e057cc5eb515b0da4207f5ec25aa1ffc97eda64 data/reagenica/loot_tables/blocks/trading_stall.json
 7887c754376ab58f0688e36ab31726525ca8e507 data/reagenica/loot_tables/blocks/tricholoma_matsutake.json
 ae8d1e3c6a0ae5319c46ef3e82020139b90ae07e data/reagenica/loot_tables/blocks/uranium_glass.json
+17b82d58205cee508d7bd760f2bbfd8f4e3704bf data/reagenica/loot_tables/blocks/uranium_glass_pane.json
 a41eefbdf27a9b1e131881f576e2b38d1c298f22 data/reagenica/loot_tables/blocks/white_bisporus.json
 96b0dadd280083a463d98b0296e5dc3b25dc3d80 data/reagenica/loot_tables/blocks/wild_corn.json
 a8b53adedd4c6f1c61f7a5adb01081dd7b070440 data/reagenica/loot_tables/blocks/wild_onion.json

@@ -507,16 +507,31 @@ public class ChemiBlocks {
                 .strength(0.3F).sound(SoundType.GLASS).lightLevel(state -> 7).noOcclusion()));
   public static final RegistryObject<Item> URANIUM_GLASS_ITEM = registerItemandlist("uranium_glass",
     () -> new BlockItem(URANIUM_GLASS.get(), new Item.Properties()));
+  public static final RegistryObject<Block> URANIUM_GLASS_PANE = registerSilktouchBlockandlist("uranium_glass_pane",
+    () -> new IronBarsBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_LIGHT_GREEN)
+                .strength(0.3F).sound(SoundType.GLASS).lightLevel(state -> 7).noOcclusion()));
+  public static final RegistryObject<Item> URANIUM_GLASS_PANE_ITEM = registerItemandlist("uranium_glass_pane",
+    () -> new BlockItem(URANIUM_GLASS_PANE.get(), new Item.Properties()));
   public static final RegistryObject<Block> LEAD_GLASS = registerSilktouchBlockandlist("lead_glass",
     () -> new GlassLikeBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_LIGHT_BLUE)
                 .strength(0.3F).sound(SoundType.GLASS).noOcclusion()));
   public static final RegistryObject<Item> LEAD_GLASS_ITEM = registerItemandlist("lead_glass",
     () -> new BlockItem(LEAD_GLASS.get(), new Item.Properties()));
+  public static final RegistryObject<Block> LEAD_GLASS_PANE = registerSilktouchBlockandlist("lead_glass_pane",
+    () -> new IronBarsBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_LIGHT_BLUE)
+                .strength(0.3F).sound(SoundType.GLASS).noOcclusion()));
+  public static final RegistryObject<Item> LEAD_GLASS_PANE_ITEM = registerItemandlist("lead_glass_pane",
+    () -> new BlockItem(LEAD_GLASS_PANE.get(), new Item.Properties()));
   public static final RegistryObject<Block> CUT_LEAD_GLASS = registerSilktouchBlockandlist("cut_lead_glass",
     () -> new GlassLikeBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_LIGHT_BLUE)
                 .strength(0.3F).sound(SoundType.GLASS).noOcclusion()));
   public static final RegistryObject<Item> CUT_LEAD_GLASS_ITEM = registerItemandlist("cut_lead_glass",
     () -> new BlockItem(CUT_LEAD_GLASS.get(), new Item.Properties()));
+  public static final RegistryObject<Block> CUT_LEAD_GLASS_PANE = registerSilktouchBlockandlist("cut_lead_glass_pane",
+    () -> new IronBarsBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_LIGHT_BLUE)
+                .strength(0.3F).sound(SoundType.GLASS).noOcclusion()));
+  public static final RegistryObject<Item> CUT_LEAD_GLASS_PANE_ITEM = registerItemandlist("cut_lead_glass_pane",
+    () -> new BlockItem(CUT_LEAD_GLASS_PANE.get(), new Item.Properties()));
 
   public static final RegistryObject<Block> GAS_LAMP = registerStoneBlockandlist("gas_lamp",GasLamp::new);
   public static final RegistryObject<Item> GAS_LAMP_ITEM = registerItemandlist("gas_lamp",
