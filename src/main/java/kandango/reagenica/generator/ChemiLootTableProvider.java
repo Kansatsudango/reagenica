@@ -49,7 +49,7 @@ public class ChemiLootTableProvider extends LootTableProvider{
         if(block.type()==BlockType.NORMAL){
           dropSelf(block.blockreg().get());
         }else if(block.type()==BlockType.ORES){
-          add(block.blockreg().get(), ore -> createOreDrop(ore, block.item().get()).apply(SetItemCountFunction.setCount(UniformGenerator.between(1, block.count()))).apply(ApplyBonusCount.addOreBonusCount(Enchantments.BLOCK_FORTUNE)));
+          add(block.blockreg().get(), ore -> createSilkTouchDispatchTable(ore, applyExplosionDecay(ore, LootItem.lootTableItem(block.item().get()).apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0F, block.count()))).apply(ApplyBonusCount.addOreBonusCount(Enchantments.BLOCK_FORTUNE)))));
         }else if(block.type()==BlockType.MACHINE){
           add(block.blockreg().get(), machine -> createNameableBlockEntityTable(machine));
         }else if(block.type()==BlockType.MACHINE_SAVEENERGY){
