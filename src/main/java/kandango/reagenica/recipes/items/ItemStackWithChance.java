@@ -19,11 +19,11 @@ public class ItemStackWithChance {
     this.chance = chance;
   }
   public ItemStack get(){
-    return stack;
+    return stack.copy();
   }
   public ItemStack roll(Random rand){
     float random = rand.nextFloat();
-    return random<chance ? stack : ItemStack.EMPTY;
+    return random<chance ? stack.copy() : ItemStack.EMPTY;
   }
   public float getChance(){
     return chance;

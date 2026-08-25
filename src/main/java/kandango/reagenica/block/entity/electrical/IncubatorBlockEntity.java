@@ -126,7 +126,6 @@ public class IncubatorBlockEntity extends ElectricConsumerAbstract implements Me
     }
     if(dirty){}
     if(lv.getGameTime()%20 == 0){
-      this.consumeEnergy(8);
       boolean hassome=false;
       boolean hasgrowing=false;
       for(int i=0;i<26;i++){
@@ -152,6 +151,7 @@ public class IncubatorBlockEntity extends ElectricConsumerAbstract implements Me
           }
         }
       }
+      this.consumeEnergy(8);
       if(this.getEnergy()>=9900){
         if(hasgrowing){
           lamphelper.changeLampState(new LampStates(LampState.OFF, LampState.ON, LampState.ON));

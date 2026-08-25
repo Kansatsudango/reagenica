@@ -11,6 +11,7 @@ import kandango.reagenica.block.entity.ModBlockEntities;
 import kandango.reagenica.block.entity.itemhandler.CommonChemiItemHandler;
 import kandango.reagenica.block.entity.lamp.ILampController;
 import kandango.reagenica.block.entity.lamp.LampControllerHelper;
+import kandango.reagenica.block.entity.lamp.LampState;
 import kandango.reagenica.block.entity.lamp.LampStates;
 import kandango.reagenica.block.entity.util.FluidItemConverter;
 import kandango.reagenica.block.entity.util.FluidStackUtil;
@@ -62,7 +63,8 @@ public class AutoRecyclerBlockEntity extends ElectricConsumerAbstract implements
       @Override
       public boolean isItemValid(int slot, @Nullable ItemStack stack) {
         if(stack==null) return false;
-        else return true;
+        if(slot==0 || slot==8) return true;
+        else return false;
       }
     };
   
@@ -83,6 +85,7 @@ public class AutoRecyclerBlockEntity extends ElectricConsumerAbstract implements
   public int getProgress(){return progress;}
   public void setProgress(int p){this.progress=p;}
   private boolean dirty=true;
+  private boolean dropped=false;
   @Nullable private AutoRecyclerRecipe cachedRecipe = null;
 
   private final LazyOptional<IItemHandler> itemHandlerLazyOptional = LazyOptional.of(() -> CommonChemiItemHandler.Builder.of(itemHandler).outputslot(1,2,3,4,5,6,7,9).specificFluidInputSlot(ChemiFluids.SULFURIC_ACID.getFluid(), 8).build());
@@ -179,36 +182,55 @@ public class AutoRecyclerBlockEntity extends ElectricConsumerAbstract implements
       container.setItem(0, itemHandler.getStackInSlot(0));
       this.cachedRecipe = hasEnoughAcid() ? lv.getRecipeManager().getRecipeFor(ModRecipes.AUTO_RECYCLER_TYPE.get(), container, lv).orElse(null) : null;
     }
+    boolean running=false;
     AutoRecyclerRecipe recipe = this.cachedRecipe;
     if(recipe!=null && this.energyStorage.getEnergyStored() >= 10){
+      running=true;
       this.energyStorage.extractEnergy(10, false);
       this.progress++;
       if(this.progress>100){
         this.progress=0;
-        this.produce(recipe, lv);
+        this.dropped = this.produce(recipe, lv);
       }
     }
+    if(recipe==null){
+      if(hasEnoughAcid() && !itemHandler.getStackInSlot(0).isEmpty())lamphelper.changeLampState(LampStates.RED);
+      else lamphelper.changeLampState(LampStates.YELLOW);
+    }else{
+      if(running){
+        if(this.dropped) lamphelper.changeLampState(new LampStates(LampState.OFF, LampState.BLINK, LampState.ON));
+        else lamphelper.changeLampState(LampStates.GREEN);
+      }
+      else lamphelper.changeLampState(LampStates.WARN);
+    }
+    lamphelper.lampSyncer();
   }
   private boolean hasEnoughAcid(){
     return this.fluidTank.getFluidAmount() >= ACID_UNIT;
   }
-  private void produce(AutoRecyclerRecipe recipe, Level lv){
+  private boolean produce(AutoRecyclerRecipe recipe, Level lv){
+    boolean dropped = false;
     ItemStackUtil.shrinkSlot(itemHandler, 0, 1);
     fluidTank.drain(ACID_UNIT, FluidAction.EXECUTE);
     ItemStack returnitem = recipe.getReturnItem();
     List<ItemStackWithChance> results = recipe.getResults();
     boolean flag = ItemStackUtil.addStackToSlotifPossible(itemHandler, 1, returnitem);
-    if(!flag)ItemStackUtil.drop(lv, worldPosition, returnitem);
-    for(ItemStackWithChance stack : results){
-      this.insert(lv, stack.roll(rand));
+    if(!flag){
+      ItemStackUtil.drop(lv, worldPosition, returnitem);
+      dropped=true;
     }
+    for(ItemStackWithChance stack : results){
+      dropped |= this.insert(lv, stack.roll(rand));
+    }
+    return dropped;
   }
-  private void insert(Level lv,ItemStack stack){
+  private boolean insert(Level lv,ItemStack stack){
     for(int i=2;i<=7;i++){
       boolean insert = ItemStackUtil.addStackToSlotifPossible(itemHandler, i, stack);
-      if(insert)return;
+      if(insert)return false;
     }
     ItemStackUtil.drop(lv, worldPosition, stack);
+    return true;
   }
 
   @Override

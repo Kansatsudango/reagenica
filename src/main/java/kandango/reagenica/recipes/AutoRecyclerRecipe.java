@@ -27,7 +27,7 @@ public class AutoRecyclerRecipe implements Recipe<Container> {
   }
   private final ItemStack return_item;
   public ItemStack getReturnItem() {
-    return return_item;
+    return return_item.copy();
   }
   
   public AutoRecyclerRecipe(ResourceLocation id, Ingredient in, List<ItemStackWithChance> res, ItemStack ret){
