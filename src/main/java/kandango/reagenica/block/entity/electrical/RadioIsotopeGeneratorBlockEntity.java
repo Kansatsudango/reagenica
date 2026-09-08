@@ -124,4 +124,9 @@ public class RadioIsotopeGeneratorBlockEntity extends ElectricGeneratorAbstract 
     super.invalidateCaps();
     itemHandlerLazyOptional.invalidate();
   }
+
+  @Override
+  protected int getOfferUnit(){
+    return 60;
+  }
 }
