@@ -507,7 +507,7 @@ public class ChemiBlocks {
                 .strength(0.3F).sound(SoundType.GLASS).lightLevel(state -> 7).noOcclusion()));
   public static final RegistryObject<Item> URANIUM_GLASS_ITEM = registerItemandlist("uranium_glass",
     () -> new BlockItem(URANIUM_GLASS.get(), new Item.Properties()));
-  public static final RegistryObject<Block> URANIUM_GLASS_PANE = registerSilktouchBlockandlist("uranium_glass_pane",
+  public static final RegistryObject<IronBarsBlock> URANIUM_GLASS_PANE = registerSilktouchBlockandlist("uranium_glass_pane",
     () -> new IronBarsBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_LIGHT_GREEN)
                 .strength(0.3F).sound(SoundType.GLASS).lightLevel(state -> 7).noOcclusion()));
   public static final RegistryObject<Item> URANIUM_GLASS_PANE_ITEM = registerItemandlist("uranium_glass_pane",
@@ -517,7 +517,7 @@ public class ChemiBlocks {
                 .strength(0.3F).sound(SoundType.GLASS).noOcclusion()));
   public static final RegistryObject<Item> LEAD_GLASS_ITEM = registerItemandlist("lead_glass",
     () -> new BlockItem(LEAD_GLASS.get(), new Item.Properties()));
-  public static final RegistryObject<Block> LEAD_GLASS_PANE = registerSilktouchBlockandlist("lead_glass_pane",
+  public static final RegistryObject<IronBarsBlock> LEAD_GLASS_PANE = registerSilktouchBlockandlist("lead_glass_pane",
     () -> new IronBarsBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_LIGHT_BLUE)
                 .strength(0.3F).sound(SoundType.GLASS).noOcclusion()));
   public static final RegistryObject<Item> LEAD_GLASS_PANE_ITEM = registerItemandlist("lead_glass_pane",
@@ -527,7 +527,7 @@ public class ChemiBlocks {
                 .strength(0.3F).sound(SoundType.GLASS).noOcclusion()));
   public static final RegistryObject<Item> CUT_LEAD_GLASS_ITEM = registerItemandlist("cut_lead_glass",
     () -> new BlockItem(CUT_LEAD_GLASS.get(), new Item.Properties()));
-  public static final RegistryObject<Block> CUT_LEAD_GLASS_PANE = registerSilktouchBlockandlist("cut_lead_glass_pane",
+  public static final RegistryObject<IronBarsBlock> CUT_LEAD_GLASS_PANE = registerSilktouchBlockandlist("cut_lead_glass_pane",
     () -> new IronBarsBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_LIGHT_BLUE)
                 .strength(0.3F).sound(SoundType.GLASS).noOcclusion()));
   public static final RegistryObject<Item> CUT_LEAD_GLASS_PANE_ITEM = registerItemandlist("cut_lead_glass_pane",
@@ -597,7 +597,7 @@ public class ChemiBlocks {
                 .strength(0.3F).sound(SoundType.CHERRY_WOOD).noOcclusion()));
   public static final RegistryObject<Item> POLYETHYLENE_BLOCK_ITEM = registerItemandlist("polyethylene_block",
     () -> new BlockItem(POLYETHYLENE_BLOCK.get(), new Item.Properties()));
-  public static final RegistryObject<Block> POLYETHYLENE_PANE = registerBlockandlist("polyethylene_pane",
+  public static final RegistryObject<IronBarsBlock> POLYETHYLENE_PANE = registerBlockandlist("polyethylene_pane",
     () -> new IronBarsBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BROWN)
                 .strength(0.3F).sound(SoundType.CHERRY_WOOD).noOcclusion()));
   public static final RegistryObject<Item> POLYETHYLENE_PANE_ITEM = registerItemandlist("polyethylene_pane",
@@ -609,7 +609,7 @@ public class ChemiBlocks {
   public static final RegistryObject<Item> PVC_BLOCK_ITEM = registerItemandlist("pvc_block",
     () -> new BlockItem(PVC_BLOCK.get(), new Item.Properties()));
 
-  public static final RegistryObject<Block> PVC_PANE = registerBlockandlist("pvc_pane",
+  public static final RegistryObject<IronBarsBlock> PVC_PANE = registerBlockandlist("pvc_pane",
     () -> new IronBarsBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_GRAY)
                 .strength(0.3F).sound(SoundType.CHERRY_WOOD).noOcclusion()));
   public static final RegistryObject<Item> PVC_PANE_ITEM = registerItemandlist("pvc_pane",
@@ -677,63 +677,63 @@ public class ChemiBlocks {
   public static final RegistryObject<Item> PURPLE_PLASTIC_TILE_ITEM = registerItemandlist("purple_plastic_tile",
     () -> new BlockItem(PURPLE_PLASTIC_TILE.get(), new Item.Properties()));
 
-  public static final RegistryObject<Block> RED_PLASTIC_PANE = registerBlockandlist("red_plastic_pane",
+  public static final RegistryObject<IronBarsBlock> RED_PLASTIC_PANE = registerBlockandlist("red_plastic_pane",
     () -> new IronBarsBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_RED)
                 .strength(0.3F).sound(SoundType.CHERRY_WOOD).noOcclusion()));
   public static final RegistryObject<Item> RED_PLASTIC_PANE_ITEM = registerItemandlist("red_plastic_pane",
     () -> new BlockItem(RED_PLASTIC_PANE.get(), new Item.Properties()));
-  public static final RegistryObject<Block> ORANGE_PLASTIC_PANE = registerBlockandlist("orange_plastic_pane",
+  public static final RegistryObject<IronBarsBlock> ORANGE_PLASTIC_PANE = registerBlockandlist("orange_plastic_pane",
     () -> new IronBarsBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_ORANGE)
                 .strength(0.3F).sound(SoundType.CHERRY_WOOD).noOcclusion()));
   public static final RegistryObject<Item> ORANGE_PLASTIC_PANE_ITEM = registerItemandlist("orange_plastic_pane",
     () -> new BlockItem(ORANGE_PLASTIC_PANE.get(), new Item.Properties()));
-  public static final RegistryObject<Block> YELLOW_PLASTIC_PANE = registerBlockandlist("yellow_plastic_pane",
+  public static final RegistryObject<IronBarsBlock> YELLOW_PLASTIC_PANE = registerBlockandlist("yellow_plastic_pane",
     () -> new IronBarsBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_YELLOW)
                 .strength(0.3F).sound(SoundType.CHERRY_WOOD).noOcclusion()));
   public static final RegistryObject<Item> YELLOW_PLASTIC_PANE_ITEM = registerItemandlist("yellow_plastic_pane",
     () -> new BlockItem(YELLOW_PLASTIC_PANE.get(), new Item.Properties()));
-  public static final RegistryObject<Block> GREEN_PLASTIC_PANE = registerBlockandlist("green_plastic_pane",
+  public static final RegistryObject<IronBarsBlock> GREEN_PLASTIC_PANE = registerBlockandlist("green_plastic_pane",
     () -> new IronBarsBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_GREEN)
                 .strength(0.3F).sound(SoundType.CHERRY_WOOD).noOcclusion()));
   public static final RegistryObject<Item> GREEN_PLASTIC_PANE_ITEM = registerItemandlist("green_plastic_pane",
     () -> new BlockItem(GREEN_PLASTIC_PANE.get(), new Item.Properties()));
-  public static final RegistryObject<Block> BLUE_PLASTIC_PANE = registerBlockandlist("blue_plastic_pane",
+  public static final RegistryObject<IronBarsBlock> BLUE_PLASTIC_PANE = registerBlockandlist("blue_plastic_pane",
     () -> new IronBarsBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_CYAN)
                 .strength(0.3F).sound(SoundType.CHERRY_WOOD).noOcclusion()));
   public static final RegistryObject<Item> BLUE_PLASTIC_PANE_ITEM = registerItemandlist("blue_plastic_pane",
     () -> new BlockItem(BLUE_PLASTIC_PANE.get(), new Item.Properties()));
-  public static final RegistryObject<Block> PURPLE_PLASTIC_PANE = registerBlockandlist("purple_plastic_pane",
+  public static final RegistryObject<IronBarsBlock> PURPLE_PLASTIC_PANE = registerBlockandlist("purple_plastic_pane",
     () -> new IronBarsBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_PURPLE)
                 .strength(0.3F).sound(SoundType.CHERRY_WOOD).noOcclusion()));
   public static final RegistryObject<Item> PURPLE_PLASTIC_PANE_ITEM = registerItemandlist("purple_plastic_pane",
     () -> new BlockItem(PURPLE_PLASTIC_PANE.get(), new Item.Properties()));
 
-  public static final RegistryObject<Block> RED_PLASTIC_TILE_PANE = registerBlockandlist("red_plastic_tile_pane",
+  public static final RegistryObject<IronBarsBlock> RED_PLASTIC_TILE_PANE = registerBlockandlist("red_plastic_tile_pane",
     () -> new IronBarsBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_RED)
                 .strength(0.3F).sound(SoundType.CHERRY_WOOD).noOcclusion()));
   public static final RegistryObject<Item> RED_PLASTIC_TILE_PANE_ITEM = registerItemandlist("red_plastic_tile_pane",
     () -> new BlockItem(RED_PLASTIC_TILE_PANE.get(), new Item.Properties()));
-  public static final RegistryObject<Block> ORANGE_PLASTIC_TILE_PANE = registerBlockandlist("orange_plastic_tile_pane",
+  public static final RegistryObject<IronBarsBlock> ORANGE_PLASTIC_TILE_PANE = registerBlockandlist("orange_plastic_tile_pane",
     () -> new IronBarsBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_ORANGE)
                 .strength(0.3F).sound(SoundType.CHERRY_WOOD).noOcclusion()));
   public static final RegistryObject<Item> ORANGE_PLASTIC_TILE_PANE_ITEM = registerItemandlist("orange_plastic_tile_pane",
     () -> new BlockItem(ORANGE_PLASTIC_TILE_PANE.get(), new Item.Properties()));
-  public static final RegistryObject<Block> YELLOW_PLASTIC_TILE_PANE = registerBlockandlist("yellow_plastic_tile_pane",
+  public static final RegistryObject<IronBarsBlock> YELLOW_PLASTIC_TILE_PANE = registerBlockandlist("yellow_plastic_tile_pane",
     () -> new IronBarsBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_YELLOW)
                 .strength(0.3F).sound(SoundType.CHERRY_WOOD).noOcclusion()));
   public static final RegistryObject<Item> YELLOW_PLASTIC_TILE_PANE_ITEM = registerItemandlist("yellow_plastic_tile_pane",
     () -> new BlockItem(YELLOW_PLASTIC_TILE_PANE.get(), new Item.Properties()));
-  public static final RegistryObject<Block> GREEN_PLASTIC_TILE_PANE = registerBlockandlist("green_plastic_tile_pane",
+  public static final RegistryObject<IronBarsBlock> GREEN_PLASTIC_TILE_PANE = registerBlockandlist("green_plastic_tile_pane",
     () -> new IronBarsBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_GREEN)
                 .strength(0.3F).sound(SoundType.CHERRY_WOOD).noOcclusion()));
   public static final RegistryObject<Item> GREEN_PLASTIC_TILE_PANE_ITEM = registerItemandlist("green_plastic_tile_pane",
     () -> new BlockItem(GREEN_PLASTIC_TILE_PANE.get(), new Item.Properties()));
-  public static final RegistryObject<Block> BLUE_PLASTIC_TILE_PANE = registerBlockandlist("blue_plastic_tile_pane",
+  public static final RegistryObject<IronBarsBlock> BLUE_PLASTIC_TILE_PANE = registerBlockandlist("blue_plastic_tile_pane",
     () -> new IronBarsBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_CYAN)
                 .strength(0.3F).sound(SoundType.CHERRY_WOOD).noOcclusion()));
   public static final RegistryObject<Item> BLUE_PLASTIC_TILE_PANE_ITEM = registerItemandlist("blue_plastic_tile_pane",
     () -> new BlockItem(BLUE_PLASTIC_TILE_PANE.get(), new Item.Properties()));
-  public static final RegistryObject<Block> PURPLE_PLASTIC_TILE_PANE = registerBlockandlist("purple_plastic_tile_pane",
+  public static final RegistryObject<IronBarsBlock> PURPLE_PLASTIC_TILE_PANE = registerBlockandlist("purple_plastic_tile_pane",
     () -> new IronBarsBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_PURPLE)
                 .strength(0.3F).sound(SoundType.CHERRY_WOOD).noOcclusion()));
   public static final RegistryObject<Item> PURPLE_PLASTIC_TILE_PANE_ITEM = registerItemandlist("purple_plastic_tile_pane",

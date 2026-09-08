@@ -13,6 +13,7 @@ import net.minecraft.world.level.block.DoorBlock;
 import net.minecraft.world.level.block.FenceBlock;
 import net.minecraft.world.level.block.FenceGateBlock;
 import net.minecraft.world.level.block.FlowerPotBlock;
+import net.minecraft.world.level.block.IronBarsBlock;
 import net.minecraft.world.level.block.PressurePlateBlock;
 import net.minecraft.world.level.block.RotatedPillarBlock;
 import net.minecraft.world.level.block.SlabBlock;
@@ -41,6 +42,7 @@ public class ChemiBlockStateProvider extends BlockStateProvider{
     StoneFamily.Stones.forEach(this::processStone);
     processCrosses();
     processSimples();
+    processPanes();
     ChemiBlocks.listFlowerPots.forEach(rg -> pottedPlant(rg, rg.getId().getPath()));
   }
 
@@ -147,6 +149,37 @@ public class ChemiBlockStateProvider extends BlockStateProvider{
             modLoc("block/" + name + "_wall_inventory")
     );
   }
+  private void registerPaneBlockWithItem(RegistryObject<? extends IronBarsBlock> pane, String renderType){
+    ResourceLocation loc = pane.getId();
+    ResourceLocation edgeLoc = modLoc(loc.getPath()+"_top");
+    registerPaneBlockWithItem(pane, trimPane(loc), edgeLoc, renderType);
+  }
+  private void registerPaneBlockWithItem(RegistryObject<? extends IronBarsBlock> pane, ResourceLocation edge, String renderType){
+    ResourceLocation loc = pane.getId();
+    registerPaneBlockWithItem(pane, trimPane(loc), edge, renderType);
+  }
+  private void registerPaneBlockWithItem(RegistryObject<? extends IronBarsBlock> pane, ResourceLocation name, ResourceLocation edge, String renderType){
+    paneBlockWithRenderType(pane.get(), concatBlock(name), concatBlock(edge), renderType);
+    if(renderType.equals("translucent")){
+      itemModels().withExistingParent(name.getPath()+"_pane", mcLoc("item/generated")).texture("layer0", concatBlock(name)).renderType(mcLoc("translucent"));
+    }else{
+      itemModels().withExistingParent(name.getPath()+"_pane", mcLoc("item/generated")).texture("layer0", concatBlock(name));
+    }
+  }
+  private ResourceLocation concatBlock(ResourceLocation base){
+    String path = base.getPath();
+    String nameSpace = base.getNamespace();
+    return new ResourceLocation(nameSpace, "block/"+path);
+  }
+  private String trimPane(String base){
+    if(!base.endsWith("_pane"))throw new IllegalArgumentException("Suffix must be _pane: "+base);
+    return base.replace("_pane", "");
+  }
+  private ResourceLocation trimPane(ResourceLocation loc){
+    String path = loc.getPath();
+    String nameSpace = loc.getNamespace();
+    return new ResourceLocation(nameSpace, trimPane(path));
+  }
 
   private void processWood(WoodFamily woodFamily){
     registerLogBlockWithItem(woodFamily.LOG);
@@ -194,5 +227,24 @@ public class ChemiBlockStateProvider extends BlockStateProvider{
     registerSimpleBlockWithItem(ChemiBlocks.BAUXITE_BLOCK);
     registerSimpleBlockWithItem(ChemiBlocks.APATITE_BLOCK);
     registerSimpleBlockWithItem(ChemiBlocks.OILSAND_BLOCK);
+  }
+  private void processPanes(){
+    registerPaneBlockWithItem(ChemiBlocks.RED_PLASTIC_PANE, "translucent");
+    registerPaneBlockWithItem(ChemiBlocks.ORANGE_PLASTIC_PANE, "translucent");
+    registerPaneBlockWithItem(ChemiBlocks.YELLOW_PLASTIC_PANE, "translucent");
+    registerPaneBlockWithItem(ChemiBlocks.GREEN_PLASTIC_PANE, "translucent");
+    registerPaneBlockWithItem(ChemiBlocks.BLUE_PLASTIC_PANE, "translucent");
+    registerPaneBlockWithItem(ChemiBlocks.PURPLE_PLASTIC_PANE, "translucent");
+    registerPaneBlockWithItem(ChemiBlocks.RED_PLASTIC_TILE_PANE, modLoc("plastic_tiles_pane_top"), "translucent");
+    registerPaneBlockWithItem(ChemiBlocks.ORANGE_PLASTIC_TILE_PANE, modLoc("plastic_tiles_pane_top"), "translucent");
+    registerPaneBlockWithItem(ChemiBlocks.YELLOW_PLASTIC_TILE_PANE, modLoc("plastic_tiles_pane_top"), "translucent");
+    registerPaneBlockWithItem(ChemiBlocks.GREEN_PLASTIC_TILE_PANE, modLoc("plastic_tiles_pane_top"), "translucent");
+    registerPaneBlockWithItem(ChemiBlocks.BLUE_PLASTIC_TILE_PANE, modLoc("plastic_tiles_pane_top"), "translucent");
+    registerPaneBlockWithItem(ChemiBlocks.PURPLE_PLASTIC_TILE_PANE, modLoc("plastic_tiles_pane_top"), "translucent");
+    registerPaneBlockWithItem(ChemiBlocks.URANIUM_GLASS_PANE, "translucent");
+    registerPaneBlockWithItem(ChemiBlocks.LEAD_GLASS_PANE, modLoc("lead_glass"), mcLoc("glass_pane_top"), "cutout");
+    registerPaneBlockWithItem(ChemiBlocks.CUT_LEAD_GLASS_PANE, modLoc("cut_lead_glass"), mcLoc("glass_pane_top"), "cutout");
+    registerPaneBlockWithItem(ChemiBlocks.POLYETHYLENE_PANE, "cutout");
+    registerPaneBlockWithItem(ChemiBlocks.PVC_PANE, "cutout");
   }
 }
