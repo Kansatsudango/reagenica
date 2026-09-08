@@ -162,6 +162,13 @@ public class ChemiFoodProperties {
             .alwaysEat()
             .fast()
             .build();
+  public static final FoodProperties ONIGIRI_TUNAMAYO = new FoodProperties.Builder()
+            .nutrition(8)
+            .saturationMod(1.1f)
+            .effect(() -> new MobEffectInstance(MobEffects.REGENERATION, 100, 2), 1.0f)
+            .alwaysEat()
+            .fast()
+            .build();
   public static final FoodProperties FUGUSASHI = new FoodProperties.Builder()
             .nutrition(6)
             .saturationMod(1.0f)

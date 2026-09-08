@@ -1,4 +1,4 @@
-// 1.20.1	2026-08-20T15:35:33.0141131	Item Models: reagenica
+// 1.20.1	2026-09-08T13:19:15.7065835	Item Models: reagenica
 6f0d9872c5f176206015dd5f6420e71fe71f2cb9 assets/reagenica/models/item/acetobacter.json
 54ef03ed6b05d449bef3092145440fb8c97020f5 assets/reagenica/models/item/adipamide.json
 54ef03ed6b05d449bef3092145440fb8c97020f5 assets/reagenica/models/item/adipic_acid.json
@@ -350,6 +350,7 @@ c4acc84b5030432b78f62eb9d03efb9a7f893653 assets/reagenica/models/item/onigiri_me
 4ae454aa7741ee5deaa7e96005b8f43de28385e8 assets/reagenica/models/item/onigiri_salmon.json
 a91981cd69cb92fc0eabe6ec2df672326c5631e8 assets/reagenica/models/item/onigiri_salt.json
 91d382e84c1699d87a62a683b97892156c2d759c assets/reagenica/models/item/onigiri_soysauce.json
+bd19685f07a0a40e4614dd6aeb4f24ece9156f91 assets/reagenica/models/item/onigiri_tunamayo.json
 351fc7632a91cbafaeeef920c2e9c9d35c047527 assets/reagenica/models/item/onion_soup.json
 29b034ae04d4fe54ca89125db2d8cf1088c84a7d assets/reagenica/models/item/orange_gypsum.json
 9a50b7afcb0a0d4c1baa29595d21f419e409a268 assets/reagenica/models/item/orange_plastic.json

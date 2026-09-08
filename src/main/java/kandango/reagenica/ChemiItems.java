@@ -343,6 +343,7 @@ public class ChemiItems {
   public static final RegistryObject<Item> ONIGIRI_SALT = registerFoodandlist("onigiri_salt", () -> new Item(new Item.Properties().stacksTo(64).food(ChemiFoodProperties.ONIGIRI_SALT)));
   public static final RegistryObject<Item> ONIGIRI_SALMON = registerFoodandlist("onigiri_salmon", () -> new Item(new Item.Properties().stacksTo(64).food(ChemiFoodProperties.ONIGIRI_SALMON)));
   public static final RegistryObject<Item> ONIGIRI_MENTAI = registerFoodandlist("onigiri_mentai", () -> new Item(new Item.Properties().stacksTo(64).food(ChemiFoodProperties.ONIGIRI_MENTAI)));
+  public static final RegistryObject<Item> ONIGIRI_TUNAMAYO = registerFoodandlist("onigiri_tunamayo", () -> new Item(new Item.Properties().stacksTo(64).food(ChemiFoodProperties.ONIGIRI_TUNAMAYO)));
   public static final RegistryObject<Item> ONIGIRI_SOYSAUCE = registerFoodandlist("onigiri_soysauce", () -> new Item(new Item.Properties().stacksTo(64).food(ChemiFoodProperties.ONIGIRI_SOYSAUCE)));
   public static final RegistryObject<Item> ONIGIRI_MISO = registerFoodandlist("onigiri_miso", () -> new Item(new Item.Properties().stacksTo(64).food(ChemiFoodProperties.ONIGIRI_MISO)));
   public static final RegistryObject<Item> FUGUSASHI = registerFoodandlist("fugusashi", () -> new SushiFoodItem(new Item.Properties().stacksTo(64).food(ChemiFoodProperties.FUGUSASHI)));

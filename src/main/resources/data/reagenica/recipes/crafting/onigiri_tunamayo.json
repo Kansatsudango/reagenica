@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    { "item": "reagenica:gohan" },
+    { "item": "minecraft:cooked_cod" },
+    { "item": "reagenica:mayonnaise" },
+    { "item": "reagenica:nori" }
+  ],
+  "result": {
+    "item": "reagenica:onigiri_tunamayo",
+    "count": 2
+  }
+}
