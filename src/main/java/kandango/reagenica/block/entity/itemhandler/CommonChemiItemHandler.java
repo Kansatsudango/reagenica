@@ -27,14 +27,20 @@ public class CommonChemiItemHandler implements IItemHandler{
   }
 
   @Override
-  public int getSlots() {// I'm frontdesk. Here, put your inserting item or take my output if it's there.
-    return 2;
+  public int getSlots() {
+    //Slot 0 : slot to insert
+    //Slot 1+: slots to extract
+    return 1+outputs.size();
   }
 
   @Override
   public @NotNull ItemStack getStackInSlot(int slot) {
-    if(slot==0)return extractItem(0, 64, true);
-    else return ItemStack.EMPTY;
+    if(slot==0){
+      return ItemStack.EMPTY;// Slot to Insert
+    }else{
+      int index = slot-1;
+      return handler.getStackInSlot(outputs.get(index));
+    }
   }
 
   @Override
@@ -65,12 +71,12 @@ public class CommonChemiItemHandler implements IItemHandler{
 
   @Override
   public @NotNull ItemStack extractItem(int slot, int amount, boolean simulate) {
-    for(int outslot : outputs){
-      if(!handler.getStackInSlot(outslot).isEmpty()){
-        return handler.extractItem(outslot, amount, simulate);
-      }
+    if(slot==0){
+      return ItemStack.EMPTY;
+    }else{
+      int index = slot-1;
+      return handler.extractItem(outputs.get(index), amount, simulate);
     }
-    return ItemStack.EMPTY;
   }
 
   @Override
