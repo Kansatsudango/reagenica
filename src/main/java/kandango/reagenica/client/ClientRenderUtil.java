@@ -1,5 +1,7 @@
 package kandango.reagenica.client;
 
+import java.util.List;
+
 import org.joml.Matrix4f;
 
 import com.mojang.blaze3d.systems.RenderSystem;
@@ -10,11 +12,14 @@ import com.mojang.blaze3d.vertex.Tesselator;
 import com.mojang.blaze3d.vertex.VertexFormat;
 
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.gui.Font;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.renderer.GameRenderer;
 import net.minecraft.client.renderer.texture.TextureAtlasSprite;
 import net.minecraft.core.BlockPos;
+import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.util.FormattedCharSequence;
 import net.minecraft.util.Mth;
 import net.minecraft.world.inventory.InventoryMenu;
 import net.minecraft.world.level.BlockAndTintGetter;
@@ -138,5 +143,17 @@ public class ClientRenderUtil {
   }
   public static void renderArrowAtDefaultposInGui(ResourceLocation texture, GuiGraphics graphics, int leftPos, int topPos, int progress, int maxprogress, int x, int y){
     renderArrowInGui(texture, graphics, leftPos, topPos, progress, maxprogress, x, y, 176, 14);
+  }
+
+  public static void drawLongString(GuiGraphics graphics, Font font, Component longText, int x, int y, int width, int color, boolean textShade){
+    List<FormattedCharSequence> lines = font.split(longText, width);
+    int yOffset = 0;
+    for(FormattedCharSequence line : lines){
+      graphics.drawString(font, line, x, y+yOffset, color, textShade);
+      yOffset += font.lineHeight;
+    }
+  }
+  public static void drawLongString(GuiGraphics graphics, Font font, Component longText, int x, int y, int width, int color){
+    drawLongString(graphics, font, longText, x, y, width, color, false);
   }
 }

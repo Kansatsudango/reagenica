@@ -15,6 +15,7 @@ import kandango.reagenica.family.WoodFamily;
 import kandango.reagenica.generator.BlockLootType;
 import kandango.reagenica.item.CableItem;
 import kandango.reagenica.item.ChemiFoodProperties;
+import kandango.reagenica.item.RoleBlockItem;
 import kandango.reagenica.item.bioreagent.BioGrowingPlate;
 import kandango.reagenica.worldgen.ChemiFeatures;
 import kandango.reagenica.worldgen.forestry.*;
@@ -190,6 +191,9 @@ public class ChemiBlocks {
   public static final RegistryObject<Block> AUTO_RECYCLER = registerMachineBlockandlist("auto_recycler",AutoRecycler::new);
   public static final RegistryObject<Item> AUTO_RECYCLER_ITEM = registerItemandlist("auto_recycler",
     () -> new BlockItem(AUTO_RECYCLER.get(), new Item.Properties()));
+  public static final RegistryObject<Block> FLATMAPPER = registerMachineBlockandlist("flatmapper",FlatMapper::new);
+  public static final RegistryObject<Item> FLATMAPPER_ITEM = registerItemandlist("flatmapper",
+    () -> new RoleBlockItem(FLATMAPPER.get(), new Item.Properties(), ChemiItemRoles.singleRole("flatmapper")));
     
   public static final RegistryObject<Block> LARGE_TANK_CORE = registerMachineBlockandlist("large_tank_core",LargeTankCore::new);
   public static final RegistryObject<Item> LARGE_TANK_CORE_ITEM = registerItemandlist("large_tank_core",

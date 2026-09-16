@@ -129,6 +129,9 @@ public class ModMenus {
   public static final RegistryObject<MenuType<OnsenMinerMenu>> ONSEN_MINER_MENU =
     MENU_TYPES.register("hotspring_miner",
       () -> IForgeMenuType.create(OnsenMinerMenu::new));
+  public static final RegistryObject<MenuType<FlatMapperMenu>> FLATMAPPER_MENU =
+    MENU_TYPES.register("flatmapper",
+      () -> IForgeMenuType.create(FlatMapperMenu::new));
 
   public static void register(IEventBus eventBus) {
     MENU_TYPES.register(eventBus);

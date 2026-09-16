@@ -1,4 +1,4 @@
-// 1.20.1	2026-09-08T13:19:15.7065835	Item Models: reagenica
+// 1.20.1	2026-09-16T16:52:56.04132	Item Models: reagenica
 6f0d9872c5f176206015dd5f6420e71fe71f2cb9 assets/reagenica/models/item/acetobacter.json
 54ef03ed6b05d449bef3092145440fb8c97020f5 assets/reagenica/models/item/adipamide.json
 54ef03ed6b05d449bef3092145440fb8c97020f5 assets/reagenica/models/item/adipic_acid.json
@@ -165,6 +165,7 @@ d29f6c8e7c3da8e544e99df0ea9e3762615bd3ee assets/reagenica/models/item/fig_and_me
 f5e18932a14b41081038d3f29a6eb3d640d98b49 assets/reagenica/models/item/fig_vinegar_drink.json
 3990ee19646f6acdcd7b66a64a4677e73fe61c96 assets/reagenica/models/item/fillet_knife.json
 3dcacbe8e4394b4b712689ccaf69415c5056c922 assets/reagenica/models/item/filtration_device.json
+2ce020628e30c1fa45076731d46d6a8245ae07f1 assets/reagenica/models/item/flatmapper.json
 f197844f34eea34bfd9b68585279c7bba4fa90e6 assets/reagenica/models/item/fluid_fuel_generator.json
 b2ad708cc4f4e72d79fecd5b9caa4c8e67a7536f assets/reagenica/models/item/fluid_jar.json
 1807d4d58388a4e2b1d703a4dc4d9b308b590829 assets/reagenica/models/item/fractional_distiller_bottom.json

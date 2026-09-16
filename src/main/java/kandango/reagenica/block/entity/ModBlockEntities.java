@@ -232,6 +232,10 @@ public class ModBlockEntities {
     public static final RegistryObject<BlockEntityType<OfferingAltarBlockEntity>> OFFERING_ALTAR = 
         BLOCK_ENTITIES.register("offering_altar", 
         () -> BlockEntityType.Builder.of((BlockEntityType.BlockEntitySupplier<OfferingAltarBlockEntity>)OfferingAltarBlockEntity::new,ChemiBlocks.OFFERING_ALTAR.get()).build(null));
+        
+    public static final RegistryObject<BlockEntityType<FlatMapperBlockEntity>> FLATMAPPER = 
+        BLOCK_ENTITIES.register("flatmapper", 
+        () -> BlockEntityType.Builder.of((BlockEntityType.BlockEntitySupplier<FlatMapperBlockEntity>)FlatMapperBlockEntity::new,ChemiBlocks.FLATMAPPER.get()).build(null));
 
 
     public static final RegistryObject<BlockEntityType<ChemiSignBlockEntity>> SIGN = 

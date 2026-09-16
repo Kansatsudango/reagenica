@@ -6,7 +6,7 @@ import net.minecraftforge.network.simple.SimpleChannel;
 
 public class ModMessages {
     private static int id = 0;
-    public static final String PROTOCOL_VERSION = "HOKKAIDO";
+    public static final String PROTOCOL_VERSION = "AOMORI";
     public static final SimpleChannel CHANNEL = NetworkRegistry.newSimpleChannel(
         new ResourceLocation("reagenica", "main"),
         () -> PROTOCOL_VERSION,
@@ -60,5 +60,10 @@ public class ModMessages {
             LargeTankPropPacket::encode, 
             LargeTankPropPacket::decode, 
             LargeTankPropPacket::handle);
+        CHANNEL.registerMessage(id++,
+            FlatMapperTogglePacket.class,
+            FlatMapperTogglePacket::toBytes, 
+            FlatMapperTogglePacket::new, 
+            FlatMapperTogglePacket::handle);
     }
 }

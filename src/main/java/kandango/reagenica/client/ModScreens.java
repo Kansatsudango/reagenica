@@ -55,6 +55,7 @@ public class ModScreens {
       MenuScreens.register(ModMenus.AUTO_RECYCLER_MENU.get(), AutoRecyclerScreen::new);
       MenuScreens.register(ModMenus.ONSEN_DETECTER_MENU.get(), OnsenDetecterScreen::new);
       MenuScreens.register(ModMenus.ONSEN_MINER_MENU.get(), OnsenMinerScreen::new);
+      MenuScreens.register(ModMenus.FLATMAPPER_MENU.get(), FlatMapperScreen::new);
     });
   }
 }

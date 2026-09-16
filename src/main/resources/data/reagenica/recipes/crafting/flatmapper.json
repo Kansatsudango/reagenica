@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "A A",
+    "ACA",
+    "A A"
+  ],
+  "key": {
+    "C": { "item": "minecraft:chest" },
+    "A": { "item": "reagenica:aluminium_ingot" }
+  },
+  "result": {
+    "item": "reagenica:flatmapper",
+    "count": 1
+  }
+}
