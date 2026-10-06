@@ -12,6 +12,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.ShapedRecipe;
 
 public class ItemStackWithChance {
+  public static final ItemStackWithChance EMPTY = new ItemStackWithChance(ItemStack.EMPTY, 0);
   private final ItemStack stack;
   private final float chance;
   public ItemStackWithChance(ItemStack stack, float chance){

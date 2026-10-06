@@ -44,6 +44,7 @@ public class ModScreens {
       MenuScreens.register(ModMenus.REACTOR_MENU.get(), ReactorScreen::new);
       MenuScreens.register(ModMenus.HEAT_GENERATOR_MENU.get(), HeatGeneratorScreen::new);
       MenuScreens.register(ModMenus.COOKING_POT_MENU.get(), CookingPotScreen::new);
+      MenuScreens.register(ModMenus.FRIER_MENU.get(), FrierScreen::new);
       MenuScreens.register(ModMenus.INCUBATOR_MENU.get(), IncubatorScreen::new);
       MenuScreens.register(ModMenus.COMPUTER_MENU.get(), ComputerScreen::new);
       MenuScreens.register(ModMenus.AIR_SEPARATOR_MENU.get(), AirSeparatorScreen::new);

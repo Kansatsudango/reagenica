@@ -96,6 +96,9 @@ public class ModMenus {
   public static final RegistryObject<MenuType<CookingPotMenu>> COOKING_POT_MENU =
     MENU_TYPES.register("cooking_pot",
       () -> IForgeMenuType.create(CookingPotMenu::new));
+  public static final RegistryObject<MenuType<FrierMenu>> FRIER_MENU =
+    MENU_TYPES.register("frier",
+      () -> IForgeMenuType.create(FrierMenu::new));
   public static final RegistryObject<MenuType<IncubatorMenu>> INCUBATOR_MENU =
     MENU_TYPES.register("incubator",
       () -> IForgeMenuType.create(IncubatorMenu::new));

@@ -165,6 +165,9 @@ public class ChemiBlocks {
   public static final RegistryObject<Block> COOKING_POT = registerMachineBlockandlist("cooking_pot",CookingPot::new);
   public static final RegistryObject<Item> COOKING_POT_ITEM = registerItemandlist("cooking_pot",
     () -> new BlockItem(COOKING_POT.get(), new Item.Properties()));
+  public static final RegistryObject<Block> FRIER = registerMachineBlockandlist("frier",Frier::new);
+  public static final RegistryObject<Item> FRIER_ITEM = registerItemandlist("frier",
+    () -> new BlockItem(FRIER.get(), new Item.Properties()));
       
   public static final RegistryObject<Block> INCUBATOR = registerMachineBlockandlist("incubator",Incubator::new);
   public static final RegistryObject<Item> INCUBATOR_ITEM = registerItemandlist("incubator",

@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "facing=north": { "model": "reagenica:block/frier", "y": 90 },
+    "facing=south": { "model": "reagenica:block/frier", "y": 270 },
+    "facing=west":  { "model": "reagenica:block/frier", "y": 0 },
+    "facing=east":  { "model": "reagenica:block/frier", "y": 180 }
+  }
+}

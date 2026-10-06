@@ -171,6 +171,10 @@ public class ModBlockEntities {
         BLOCK_ENTITIES.register("cooking_pot", 
         () -> BlockEntityType.Builder.of((BlockEntityType.BlockEntitySupplier<CookingPotBlockEntity>)CookingPotBlockEntity::new,ChemiBlocks.COOKING_POT.get()).build(null));
 
+    public static final RegistryObject<BlockEntityType<FrierBlockEntity>> FRIER = 
+        BLOCK_ENTITIES.register("frier", 
+        () -> BlockEntityType.Builder.of((BlockEntityType.BlockEntitySupplier<FrierBlockEntity>)FrierBlockEntity::new,ChemiBlocks.FRIER.get()).build(null));
+
     
     public static final RegistryObject<BlockEntityType<IncubatorBlockEntity>> INCUBATOR = 
         BLOCK_ENTITIES.register("incubator", 

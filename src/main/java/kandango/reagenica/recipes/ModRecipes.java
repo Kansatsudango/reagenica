@@ -152,6 +152,15 @@ public class ModRecipes {
         });
     public static final RegistryObject<RecipeSerializer<CookingRecipe>> COOKING_SERIALIZER = 
         SERIALIZERS.register("cooking", CookingRecipeSerializer::new);
+    public static final RegistryObject<RecipeType<FrierRecipe>> FRYER_RECIPE = 
+        TYPES.register("frier", () -> new RecipeType<FrierRecipe>() {
+            @Override
+            public String toString(){
+                return "reagenica:frier";
+            }
+        });
+    public static final RegistryObject<RecipeSerializer<FrierRecipe>> FRIER_SERIALIZER = 
+        SERIALIZERS.register("frier", FrierRecipeSerializer::new);
         
     public static final RegistryObject<RecipeType<ReagenimartRecipe>> REAGENIMART_TYPE = 
         TYPES.register("reagenimart", () -> new RecipeType<ReagenimartRecipe>() {
