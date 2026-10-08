@@ -366,6 +366,7 @@ public class ChemiItems {
   public static final RegistryObject<Item> DANGO_MITARASHI = registerFoodandlist("dango_mitarashi", () -> new Item(new Item.Properties().stacksTo(64).food(ChemiFoodProperties.DANGO)));
   public static final RegistryObject<Item> DANGO_SANSHOKU = registerFoodandlist("dango_sanshoku", () -> new Item(new Item.Properties().stacksTo(64).food(ChemiFoodProperties.DANGO)));
   public static final RegistryObject<Item> DANGO_KINAKO = registerFoodandlist("dango_kinako", () -> new Item(new Item.Properties().stacksTo(64).food(ChemiFoodProperties.DANGO)));
+  public static final RegistryObject<Item> TONKATSU = registerFoodandlist("tonkatsu", () -> new Item(new Item.Properties().stacksTo(64).food(ChemiFoodProperties.TONKATSU)));
 
   public static final RegistryObject<Item> FLUIDJAR = registerandlist("fluid_jar", () -> new FluidJar());
   public static final RegistryObject<Item> DEBUG_ROD = registerandlist("debug_rod", () -> new MagicalRod());

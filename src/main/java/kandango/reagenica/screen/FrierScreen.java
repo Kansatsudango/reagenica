@@ -25,7 +25,7 @@ public class FrierScreen extends AbstractContainerScreen<FrierMenu> {
 
   public FrierScreen(FrierMenu menu, Inventory inv, Component title) {
     super(menu, inv, title);
-    this.imageHeight = 165;
+    this.imageHeight = 192;
     this.inventoryLabelY = this.imageHeight - 94;
     components.add(new TankBackComponent(menu.getOilStack(), 39, 43, 58, 36, menu.getBlockEntity().getBlockPos(), List.of(TankBackComponent.ConcealedArea.of(41,46,54,18))));
     components.add(new ArrowComponent(() -> menu.getProgress(), () -> 200, 99, 40, TEXTURE));

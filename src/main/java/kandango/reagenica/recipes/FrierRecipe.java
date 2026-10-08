@@ -15,7 +15,6 @@ import net.minecraft.world.item.crafting.Recipe;
 import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraft.world.level.Level;
-import net.minecraftforge.fluids.FluidStack;
 
 public class FrierRecipe implements Recipe<Container> {
   private final ResourceLocation id;
@@ -43,15 +42,15 @@ public class FrierRecipe implements Recipe<Container> {
   public boolean matches(@Nonnull Container container, @Nonnull Level level){
     return input.test(container.getItem(0));
   }
-  public static Optional<FrierRecipe> getRecipe(FluidStack fluid, ItemStack item, @Nonnull Level lv){
+  public static Optional<FrierRecipe> getRecipe(ItemStack item, @Nonnull Level lv){
     return lv.getRecipeManager().getRecipeFor(ModRecipes.FRYER_RECIPE.get(), new SimpleContainer(item), lv);
   }
 
   @Override public boolean canCraftInDimensions(int width, int height) { return true; }
   @Override public ItemStack getResultItem(@Nonnull RegistryAccess access) { return output; }
   @Override public ResourceLocation getId() { return id; }
-  @Override public RecipeSerializer<?> getSerializer() { return ModRecipes.HEAT_FURNACE_SERIALIZER.get(); }
-  @Override public RecipeType<?> getType() { return ModRecipes.HEAT_FURNACE_TYPE.get(); }
+  @Override public RecipeSerializer<?> getSerializer() { return ModRecipes.FRIER_SERIALIZER.get(); }
+  @Override public RecipeType<?> getType() { return ModRecipes.FRYER_RECIPE.get(); }
 
   @Override
   public ItemStack assemble(@Nonnull Container p_44001_, @Nonnull RegistryAccess p_267165_) {

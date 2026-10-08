@@ -51,6 +51,12 @@ public class FrierMenu extends ChemistryMenu<FrierBlockEntity> {
       @Override
       public void set(int value) {be.setEnergy(value);}
     });
+    this.addDataSlot(new DataSlot() {
+      @Override
+      public int get() {return be.getTemperature();}
+      @Override
+      public void set(int value) {be.setTemperature(value);}
+    });
   }
 
   @Override

@@ -1,18 +1,23 @@
 package kandango.reagenica.block.entity.electrical;
 
+import java.util.OptionalInt;
+import java.util.Random;
+
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
+import kandango.reagenica.block.Frier;
 import kandango.reagenica.block.entity.ModBlockEntities;
-import kandango.reagenica.block.entity.fluidsyncer.FluidSyncHelper;
-import kandango.reagenica.block.entity.fluidsyncer.FluidSyncHelper.SyncType;
 import kandango.reagenica.block.entity.itemhandler.CommonChemiItemHandler;
 import kandango.reagenica.block.entity.lamp.ILampController;
 import kandango.reagenica.block.entity.lamp.LampControllerHelper;
 import kandango.reagenica.block.entity.lamp.LampStates;
+import kandango.reagenica.block.entity.util.FluidItemConverter;
 import kandango.reagenica.block.entity.util.FluidStackUtil;
+import kandango.reagenica.block.entity.util.ItemStackUtil;
 import kandango.reagenica.packet.ISingleTankBlock;
 import kandango.reagenica.recipes.FrierRecipe;
+import kandango.reagenica.recipes.items.ItemStackWithChance;
 import kandango.reagenica.screen.FrierMenu;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -39,6 +44,7 @@ import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.ItemStackHandler;
 
 public class FrierBlockEntity extends ElectricConsumerAbstract implements MenuProvider,ISingleTankBlock,ILampController{
+  private final Random rand = new Random();
   private final ItemStackHandler itemHandler = new ItemStackHandler(13) {
       @Override
       protected void onContentsChanged(int slot) {
@@ -63,8 +69,14 @@ public class FrierBlockEntity extends ElectricConsumerAbstract implements MenuPr
       setChanged();
       dirty=true;
     }
+
+    @Override 
+    public int fill(FluidStack resource, FluidAction action){
+      int filled = super.fill(resource, action);
+      if(action.execute())dropTempByFillingOil(filled);
+      return filled;
+    }
   };
-  private final FluidSyncHelper fluidSyncHelper = new FluidSyncHelper(worldPosition, SyncType.ALWAYS, oilTank);
   private int progress = 0;
   public int getProgress(){return progress;}
   public void setProgress(int p){this.progress=p;}
@@ -74,7 +86,7 @@ public class FrierBlockEntity extends ElectricConsumerAbstract implements MenuPr
   private int fuelmax = 1600;
   public int getFuelMax(){return fuelmax;}
   public void setFuelMax(int p){this.fuelmax=p;}
-  private int temperature = 0;
+  private int temperature = 20;
   public int getTemperature(){return temperature;}
   public void setTemperature(int p){this.temperature=p;}
   private boolean dirty=true;//Always dirty when loaded newly
@@ -98,6 +110,7 @@ public class FrierBlockEntity extends ElectricConsumerAbstract implements MenuPr
     oilTank.readFromNBT(tag.getCompound("OilTank"));
     this.progress = tag.getInt("Progress");
     this.fuel = tag.getInt("Fuel");
+    this.temperature = tag.getInt("Temperature");
     this.fuelmax = tag.getInt("FuelMax");
   }
 
@@ -108,6 +121,7 @@ public class FrierBlockEntity extends ElectricConsumerAbstract implements MenuPr
     FluidStackUtil.saveFluid(tag, "OilTank", oilTank);
     tag.putInt("Progress", progress);
     tag.putInt("Fuel", fuel);
+    tag.putInt("Temperature", temperature);
     tag.putInt("FuelMax", fuelmax);
   }
 
@@ -164,12 +178,76 @@ public class FrierBlockEntity extends ElectricConsumerAbstract implements MenuPr
   @Override
   public void serverTick(){
     Level lv = this.level;
-    boolean dirtyflag=false;
     if(lv==null){
       return;
     }
     if(dirty){
+      dirty=false;
+      this.cachedRecipe = FrierRecipe.getRecipe(itemHandler.getStackInSlot(0), lv)
+                                      .filter(r -> findInsertSlot(r.getOutput()).isPresent()).orElse(null);
+      if(!this.itemHandler.getStackInSlot(11).isEmpty()){
+        boolean out = FluidItemConverter.draintoItem(itemHandler, 11, oilTank);
+        boolean in  = FluidItemConverter.drainfromItem(itemHandler, 11, oilTank);
+        dirty |= in || out;
+      }
     }
+    if(this.cachedRecipe!=null || getBlockState().getOptionalValue(Frier.POWERED).orElse(false)){
+      if(this.fuel==0 && this.temperature<=170){
+        int fuelInSlot = ItemStackUtil.burnAsFuel(itemHandler, 4);
+        if(fuelInSlot>0){
+          this.fuel=fuelInSlot;
+          this.fuelmax=fuelInSlot;
+        }
+      }
+      if(lv.getGameTime()%10==0){
+        if(this.fuel>0){
+          if(this.temperature<180)this.temperature++;
+        }else if(this.energyStorage.getEnergyStored()>=70){
+          if(this.temperature<180)this.temperature++;
+          // keeping hot also consumes energy!
+          this.energyStorage.extractEnergy(70, false);
+        }else{
+          if(this.temperature>20)this.temperature--;
+        }
+      }
+    }
+    if(this.fuel>0){
+      this.fuel--;
+    }
+    if(this.cachedRecipe!=null && this.temperature>=170){
+      FrierRecipe recipe = this.cachedRecipe;
+      ItemStack result = recipe.getOutput();
+      ItemStackWithChance byproduct = recipe.getByproduct();
+      this.progress++;
+      if(this.progress>200){
+        this.progress=0;
+        findInsertSlot(result).ifPresent(slot -> ItemStackUtil.addStackToSlotifPossible(itemHandler, slot, result));
+        if(!byproduct.isEmpty()){
+          findInsertSlot(byproduct.get()).ifPresentOrElse(
+            slot -> ItemStackUtil.addStackToSlotifPossible(itemHandler, slot, byproduct.roll(rand)),
+            () -> ItemStackUtil.drop(lv, worldPosition, byproduct.roll(rand)));
+        }
+      }
+    }
+  }
+  private OptionalInt findInsertSlot(ItemStack stack){
+    int emptyslot = -1;
+    for(int i=5;i<11;i++){
+      ItemStack current = this.itemHandler.getStackInSlot(i);
+      if(ItemStackUtil.canAddStack(stack, current)){
+        if(current.isEmpty() && emptyslot == -1){
+          emptyslot=i;
+        }else{
+          return OptionalInt.of(i);
+        }
+      }
+    }
+    if(emptyslot != -1)return OptionalInt.of(emptyslot);
+    else return OptionalInt.empty();
+  }
+
+  private void dropTempByFillingOil(int amount){
+
   }
   @Override
   protected ElectricStorage energyStorageProvider() {

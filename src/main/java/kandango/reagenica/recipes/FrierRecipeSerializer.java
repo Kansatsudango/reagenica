@@ -18,7 +18,7 @@ public class FrierRecipeSerializer implements RecipeSerializer<FrierRecipe> {
     public FrierRecipe fromJson(@Nonnull ResourceLocation id, @Nonnull JsonObject json) {
         Ingredient input = RecipeJsonHelper.ingredientFromJsonRequired(json, "input");
         ItemStack result = RecipeJsonHelper.itemStackFromJsonifPresent(json, "result");
-        ItemStackWithChance result2 = ItemStackWithChance.fromJson(GsonHelper.getAsJsonObject(json, "byproduct"));
+        ItemStackWithChance result2 = json.has("byproduct") ? ItemStackWithChance.fromJson(GsonHelper.getAsJsonObject(json, "byproduct")) : ItemStackWithChance.EMPTY;
         return new FrierRecipe(id, input, result, result2);
     }
 

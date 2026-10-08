@@ -292,4 +292,10 @@ public class ChemiFoodProperties {
             .effect(() -> new MobEffectInstance(MobEffects.REGENERATION, 160, 2), 1.0f)
             .alwaysEat()
             .build();
+  public static final FoodProperties TONKATSU = new FoodProperties.Builder()
+            .nutrition(12)
+            .saturationMod(1.3f)
+            .effect(() -> new MobEffectInstance(MobEffects.DAMAGE_BOOST, 200, 1), 1.0f)
+            .alwaysEat()
+            .build();
 }

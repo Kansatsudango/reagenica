@@ -1,4 +1,4 @@
-// 1.20.1	2026-09-16T16:52:56.0362945	Loot Tables
+// 1.20.1	2026-10-08T15:14:33.8778994	Loot Tables
 fd599511177b57b7c4697466e227e89162e2d943 data/reagenica/loot_tables/blocks/advanced_farmland.json
 81f631334b4d88836bcea6b819f2263ac0f2ca50 data/reagenica/loot_tables/blocks/advanced_lead_battery.json
 115802854012234d89e3ba52e3d8b2a271af6530 data/reagenica/loot_tables/blocks/air_separator.json
@@ -94,6 +94,7 @@ cd2e639d9ecbd83fde4d581cbf42f44bcd5e96b1 data/reagenica/loot_tables/blocks/filtr
 627bafbc07b38e6f00999abdecbe199980e59db8 data/reagenica/loot_tables/blocks/fluid_fuel_generator.json
 0b83216d895ef7bd1c8f058e23e908caabe4360b data/reagenica/loot_tables/blocks/fractional_distiller_bottom.json
 321c1fece4930e096c219c599dc8b02c561e9a5c data/reagenica/loot_tables/blocks/fractional_distiller_top.json
+bdf056ea8191c4f31b285fa7bde9186671d4d875 data/reagenica/loot_tables/blocks/frier.json
 18bf05ffe222e22235352048ad4ee3709b19e39d data/reagenica/loot_tables/blocks/fuel_generator.json
 97a1a77d79397e24ff801cf29b9d3381eaf9f923 data/reagenica/loot_tables/blocks/gas_lamp.json
 8d0b6929dae37fa8fb1ea56ae04093450ff3a1d4 data/reagenica/loot_tables/blocks/ginkgo_button.json

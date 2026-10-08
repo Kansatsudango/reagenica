@@ -19,6 +19,8 @@ import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
+import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.block.state.properties.DirectionProperty;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
@@ -36,6 +38,7 @@ import kandango.reagenica.block.entity.util.DestroyHelper;
 
 public class Frier extends Block implements EntityBlock {
   public static final DirectionProperty FACING = HorizontalDirectionalBlock.FACING;
+  public static final BooleanProperty POWERED = BlockStateProperties.POWERED;
   private static final Map<Direction,VoxelShape> SHAPES = ShapeStream.create(0, 0, 0, 2, 4, 2)
                                                                       .add(0, 0, 14, 2, 4, 16)
                                                                       .add(14, 0, 0, 16, 4, 2)
@@ -69,13 +72,21 @@ public class Frier extends Block implements EntityBlock {
 
   @Override
   public BlockState getStateForPlacement(@Nonnull BlockPlaceContext context) {
-    return this.defaultBlockState().setValue(FACING, context.getHorizontalDirection().getOpposite());
+    return this.defaultBlockState().setValue(FACING, context.getHorizontalDirection().getOpposite()).setValue(POWERED, false);
   }
 
   @Override
   protected void createBlockStateDefinition(@Nonnull StateDefinition.Builder<Block, BlockState> builder) {
     builder.add(FACING);
+    builder.add(POWERED);
   }
+
+  @Override
+  public void neighborChanged(@Nonnull BlockState state, @Nonnull Level level, @Nonnull BlockPos pos, @Nonnull Block block, @Nonnull BlockPos fromPos, boolean moving) {
+    boolean powered = level.hasNeighborSignal(pos) || level.hasNeighborSignal(pos.above());
+    level.setBlock(pos, state.setValue(POWERED, powered), UPDATE_NONE);
+  }
+
   @Override
   public boolean propagatesSkylightDown(@Nonnull BlockState state, @Nonnull BlockGetter world, @Nonnull BlockPos pos) {
     return true;

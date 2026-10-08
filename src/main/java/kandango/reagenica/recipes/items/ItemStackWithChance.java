@@ -29,6 +29,9 @@ public class ItemStackWithChance {
   public float getChance(){
     return chance;
   }
+  public boolean isEmpty(){
+    return this.stack.isEmpty();
+  }
 
   public static ItemStackWithChance fromJson(@Nonnull JsonObject json){
     ItemStack stack = ShapedRecipe.itemStackFromJson(json);

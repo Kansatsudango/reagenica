@@ -1,4 +1,4 @@
-// 1.20.1	2026-09-16T16:52:56.04132	Item Models: reagenica
+// 1.20.1	2026-10-08T15:14:33.8828995	Item Models: reagenica
 6f0d9872c5f176206015dd5f6420e71fe71f2cb9 assets/reagenica/models/item/acetobacter.json
 54ef03ed6b05d449bef3092145440fb8c97020f5 assets/reagenica/models/item/adipamide.json
 54ef03ed6b05d449bef3092145440fb8c97020f5 assets/reagenica/models/item/adipic_acid.json
@@ -170,6 +170,7 @@ f197844f34eea34bfd9b68585279c7bba4fa90e6 assets/reagenica/models/item/fluid_fuel
 b2ad708cc4f4e72d79fecd5b9caa4c8e67a7536f assets/reagenica/models/item/fluid_jar.json
 1807d4d58388a4e2b1d703a4dc4d9b308b590829 assets/reagenica/models/item/fractional_distiller_bottom.json
 e64d8498612dbeb6ae986a5d5897929354b74f5a assets/reagenica/models/item/fractional_distiller_top.json
+beb1da5c023c3453e5a633cc4483f76849144550 assets/reagenica/models/item/frier.json
 54ef03ed6b05d449bef3092145440fb8c97020f5 assets/reagenica/models/item/fruit_vinegar.json
 05d550f74ca01c62e549bcf5c531c56e5d462065 assets/reagenica/models/item/fruit_vinegar_bucket.json
 47c71633bac31f761d9d6833f578f9b0eaeaf526 assets/reagenica/models/item/fuel_generator.json
@@ -596,6 +597,7 @@ d99c8d82a28a87bc8c7a456b7681d1cba6eafc27 assets/reagenica/models/item/taxodium_r
 6674b7ad2965c9d01201ec4fbdbc9a1beb618fee assets/reagenica/models/item/testtube.json
 ac0524626ffc476e69bd7cd77ee64c839d34f0e6 assets/reagenica/models/item/thin_platinum_electrode.json
 5258aac77f9addeb324b0a859b6fcf56d913dc2d assets/reagenica/models/item/tomato_soup.json
+bb7109df41f2d570a7038279220d7a6de4ca32cf assets/reagenica/models/item/tonkatsu.json
 50faef833bff8bd2e08a9b83b3a0fab4492b4810 assets/reagenica/models/item/trace_platinum.json
 3500c0b46597fbfb0e4f8dc4261831c291d89eed assets/reagenica/models/item/trace_silver.json
 33b365768afa07009d3219d4abdd9a33db3c0b52 assets/reagenica/models/item/trading_stall.json

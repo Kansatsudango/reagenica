@@ -11,6 +11,7 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraft.world.level.Level;
 import net.minecraftforge.common.ForgeHooks;
+import net.minecraftforge.items.IItemHandlerModifiable;
 import net.minecraftforge.items.ItemStackHandler;
 
 public class ItemStackUtil {
@@ -132,5 +133,24 @@ public class ItemStackUtil {
     ItemStack damaged = getDamagedItem(stack, damage, itemOnbrake);
     handler.setStackInSlot(slot, damaged);
     return ItemStack.isSameItem(stack, damaged);
+  }
+
+  public static int burnAsFuel(IItemHandlerModifiable handler, int slot){
+    ItemStack fuel = handler.getStackInSlot(slot);
+    if(fuel.isEmpty())return 0;
+    int burn = ForgeHooks.getBurnTime(fuel, RecipeType.SMELTING);
+    if(burn>0){
+      ItemStack rem = fuel.getCraftingRemainingItem();
+      if(rem.isEmpty()){
+        handler.extractItem(slot, 1, false);
+      }else{
+        if(fuel.getCount()==1){
+          handler.setStackInSlot(slot, rem);
+        }else{
+          handler.extractItem(slot, 1, false);
+        }
+      }
+    }
+    return burn;
   }
 }
