@@ -298,4 +298,42 @@ public class ChemiFoodProperties {
             .effect(() -> new MobEffectInstance(MobEffects.DAMAGE_BOOST, 200, 1), 1.0f)
             .alwaysEat()
             .build();
+  public static final FoodProperties PUMPKIN_TEMPURA = new FoodProperties.Builder()
+            .nutrition(7)
+            .saturationMod(1.0f)
+            .fast()
+            .build();
+  public static final FoodProperties MAITAKE_TEMPURA = new FoodProperties.Builder()
+            .nutrition(8)
+            .saturationMod(0.9f)
+            .fast()
+            .build();
+  public static final FoodProperties RAW_STRONGLY_UNRECOMMENDED = new FoodProperties.Builder()
+            .nutrition(4)
+            .saturationMod(0.5f)
+            .effect(() -> new MobEffectInstance(MobEffects.HUNGER, 1200, 2), 0.95f)
+            .effect(() -> new MobEffectInstance(MobEffects.POISON, 1200, 2), 0.95f)
+            .effect(() -> new MobEffectInstance(MobEffects.WEAKNESS, 1200, 3), 0.95f)
+            .effect(() -> new MobEffectInstance(MobEffects.DIG_SLOWDOWN, 1200, 1), 0.95f)
+            .alwaysEat()
+            .build();
+  public static final FoodProperties RAW_UNRECOMMENDED = new FoodProperties.Builder()
+            .nutrition(4)
+            .saturationMod(0.5f)
+            .effect(() -> new MobEffectInstance(MobEffects.HUNGER, 600, 1), 0.7f)
+            .effect(() -> new MobEffectInstance(MobEffects.POISON, 200, 1), 0.2f)
+            .alwaysEat()
+            .build();
+  public static final FoodProperties RAW_LESSER_OF_TWO_EVILS = new FoodProperties.Builder()
+            .nutrition(4)
+            .saturationMod(0.5f)
+            .effect(() -> new MobEffectInstance(MobEffects.HUNGER, 300, 0), 0.6f)
+            .alwaysEat()
+            .build();
+  public static final FoodProperties RAW_SLIGHTLY_UNSAFE = new FoodProperties.Builder()
+            .nutrition(4)
+            .saturationMod(0.5f)
+            .effect(() -> new MobEffectInstance(MobEffects.HUNGER, 200, 0), 0.1f)
+            .alwaysEat()
+            .build();
 }

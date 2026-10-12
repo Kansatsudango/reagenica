@@ -1,4 +1,4 @@
-// 1.20.1	2026-10-08T15:14:33.8828995	Item Models: reagenica
+// 1.20.1	2026-10-12T16:16:25.1061019	Item Models: reagenica
 6f0d9872c5f176206015dd5f6420e71fe71f2cb9 assets/reagenica/models/item/acetobacter.json
 54ef03ed6b05d449bef3092145440fb8c97020f5 assets/reagenica/models/item/adipamide.json
 54ef03ed6b05d449bef3092145440fb8c97020f5 assets/reagenica/models/item/adipic_acid.json
@@ -285,6 +285,7 @@ b092f46905ade059ca09dcaebe9c065f668783e7 assets/reagenica/models/item/lead_ingot
 20484fbc7bce3602a90f49ff9a52c29849bebc4b assets/reagenica/models/item/lead_ore.json
 27cdc16cbad77cc6ed6e2339d9a571325bcca271 assets/reagenica/models/item/lead_oxide.json
 cb007f03b75d10c7d1658dbff99a74a8dc62e049 assets/reagenica/models/item/maitake_salmon_gohan.json
+1f0729bb5560d1f5ca836fc89d2f3819c2b722b4 assets/reagenica/models/item/maitake_tempura.json
 827df929c2055e895e02eb604cde23ec84df0c44 assets/reagenica/models/item/matsutake_gohan.json
 3699efad23faa46053304ce5fbf4e7d9637d5a44 assets/reagenica/models/item/mayocorn_gunkan.json
 6eee90b47b1164ee593a9392410227ce1c937b37 assets/reagenica/models/item/mayonnaise.json
@@ -505,6 +506,7 @@ a90d80567036324eef507470be43a7eee645c182 assets/reagenica/models/item/powder_iri
 a73c596c5d6987520f2aec1d60879990ab3207b6 assets/reagenica/models/item/powder_lead.json
 54ef03ed6b05d449bef3092145440fb8c97020f5 assets/reagenica/models/item/protein_extract_acid.json
 54ef03ed6b05d449bef3092145440fb8c97020f5 assets/reagenica/models/item/protein_extract_neu.json
+7a393f789ac4a1f6411294b333cd84762884954a assets/reagenica/models/item/pumpkin_tempura.json
 abbb4b75631ff7e344819fbfb513df5f06d0709c assets/reagenica/models/item/pure_iridium_powder.json
 54ef03ed6b05d449bef3092145440fb8c97020f5 assets/reagenica/models/item/purple_azo_dye.json
 018af7d801651f87ab75cc2635b858994ac0c70c assets/reagenica/models/item/purple_gypsum.json
@@ -521,6 +523,9 @@ c8bdab273859debaa6f7da39cbf436ebb8c74e8d assets/reagenica/models/item/radioisoto
 d6f9ce9d9ed2fea5ec5d46ea14310f2f0c5e023a assets/reagenica/models/item/raw_chalcopyrite.json
 9c0f87628d48c0db2a8b28926deef1ec98eee29e assets/reagenica/models/item/raw_iridium.json
 1e2930bb03a25d3c9011e710e61294e91e54b0b9 assets/reagenica/models/item/raw_lead.json
+42f51a0ed67dc15b4ad1b85aaaa7ba731c6aba45 assets/reagenica/models/item/raw_maitake_tempura.json
+627461ebbb8cd7ace90a3d86113984239d5ef530 assets/reagenica/models/item/raw_pumpkin_tempura.json
+63e5e13943858dc18189e074cead55b7ea3fe0e0 assets/reagenica/models/item/raw_tonkatsu.json
 a19cdc50443a9a5d8d33ecbfa9e928671b389e97 assets/reagenica/models/item/reactor.json
 54ef03ed6b05d449bef3092145440fb8c97020f5 assets/reagenica/models/item/red_azo_dye.json
 a88f668d92a9d507436dc1ef8b3b0e9d2c2a028a assets/reagenica/models/item/red_beryl_amulet.json

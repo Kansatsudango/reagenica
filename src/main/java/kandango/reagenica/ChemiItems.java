@@ -367,6 +367,11 @@ public class ChemiItems {
   public static final RegistryObject<Item> DANGO_SANSHOKU = registerFoodandlist("dango_sanshoku", () -> new Item(new Item.Properties().stacksTo(64).food(ChemiFoodProperties.DANGO)));
   public static final RegistryObject<Item> DANGO_KINAKO = registerFoodandlist("dango_kinako", () -> new Item(new Item.Properties().stacksTo(64).food(ChemiFoodProperties.DANGO)));
   public static final RegistryObject<Item> TONKATSU = registerFoodandlist("tonkatsu", () -> new Item(new Item.Properties().stacksTo(64).food(ChemiFoodProperties.TONKATSU)));
+  public static final RegistryObject<Item> RAW_TONKATSU = registerFoodandlist("raw_tonkatsu", () -> new Item(new Item.Properties().stacksTo(64).food(ChemiFoodProperties.RAW_UNRECOMMENDED)));
+  public static final RegistryObject<Item> PUMPKIN_TEMPURA = registerFoodandlist("pumpkin_tempura", () -> new Item(new Item.Properties().stacksTo(64).food(ChemiFoodProperties.PUMPKIN_TEMPURA)));
+  public static final RegistryObject<Item> RAW_PUMPKIN_TEMPURA = registerFoodandlist("raw_pumpkin_tempura", () -> new Item(new Item.Properties().stacksTo(64).food(ChemiFoodProperties.RAW_SLIGHTLY_UNSAFE)));
+  public static final RegistryObject<Item> MAITAKE_TEMPURA = registerFoodandlist("maitake_tempura", () -> new Item(new Item.Properties().stacksTo(64).food(ChemiFoodProperties.MAITAKE_TEMPURA)));
+  public static final RegistryObject<Item> RAW_MAITAKE_TEMPURA = registerFoodandlist("raw_maitake_tempura", () -> new Item(new Item.Properties().stacksTo(64).food(ChemiFoodProperties.RAW_SLIGHTLY_UNSAFE)));
 
   public static final RegistryObject<Item> FLUIDJAR = registerandlist("fluid_jar", () -> new FluidJar());
   public static final RegistryObject<Item> DEBUG_ROD = registerandlist("debug_rod", () -> new MagicalRod());

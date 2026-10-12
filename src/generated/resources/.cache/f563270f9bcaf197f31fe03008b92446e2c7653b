@@ -1,4 +1,4 @@
-// 1.20.1	2026-09-08T13:00:08.7370846	Block States: reagenica
+// 1.20.1	2026-10-12T16:16:25.0985916	Block States: reagenica
 287b0081ce143af0d04fb0b6e08b888f249b27d9 assets/reagenica/blockstates/apatite_block.json
 8d0f0d2a2b490ab28c25e7257ad57e5fc78305e2 assets/reagenica/blockstates/bauxite_block.json
 9ce6c9f9960a37f57be8026fff2eabce7a14e9b5 assets/reagenica/blockstates/bioluminescence_blue_mushroom.json
@@ -91,6 +91,7 @@ a0fd9bf92311efabdb13b846b98f231d56c69ce8 assets/reagenica/blockstates/metasequoi
 59930d0cc6fe33c182123002be6845f940474cbe assets/reagenica/blockstates/metasequoia_wall_hanging_sign.json
 482debe81c0e2380e9729417b1f59a7d44f3b141 assets/reagenica/blockstates/metasequoia_wall_sign.json
 f55ce360830b691419fde7ab70fe0e4d2a1c9a94 assets/reagenica/blockstates/metasequoia_wood.json
+9aaffe797a0677443ac00dea5bdd666b6c09c9e1 assets/reagenica/blockstates/mizuna_crop.json
 661a27a500e459d292b67a4b055ab10bcb73708f assets/reagenica/blockstates/oilsand_block.json
 7dffc1932655a23076d559f858d59c693fb73441 assets/reagenica/blockstates/orange_plastic_pane.json
 e6f060979f34d68ba99ff745ddabe12c671f0582 assets/reagenica/blockstates/orange_plastic_tile_pane.json
@@ -503,6 +504,10 @@ acfb8b67935cadb956fbc92f35ba5d6940d1521d assets/reagenica/models/block/yellow_pl
 80887d7db85ea7b9c199711dcb4569c01e58ca85 assets/reagenica/models/block/yellow_plastic_tile_pane_post.json
 264154707e519220a4f6a00c7583ccace8e58318 assets/reagenica/models/block/yellow_plastic_tile_pane_side.json
 73ff35754f00be9730718f34a279f79c0347b621 assets/reagenica/models/block/yellow_plastic_tile_pane_side_alt.json
+cb0b0d2e9e241f56cbdaabe291b4d2bcc55f4c1d assets/reagenica/models/crops/mizuna_stage0.json
+5a4a826e8ca37f6cf5f1e4a868340293f8243032 assets/reagenica/models/crops/mizuna_stage1.json
+aa84064d2830915dee86162e327e4b6699c47f8b assets/reagenica/models/crops/mizuna_stage2.json
+3572904268d0dcfa86db0e9e907b1202acc015aa assets/reagenica/models/crops/mizuna_stage3.json
 ab098a589b1e7385a0df087ad7558c5cc20bc86a assets/reagenica/models/item/apatite_block.json
 214e003813f0b16174a69a07147eca910eec9a81 assets/reagenica/models/item/bauxite_block.json
 236331b51241609dc8fa6c766ce40f4a180c6820 assets/reagenica/models/item/bioluminescence_blue_mushroom.json
@@ -587,6 +592,7 @@ d5badf011ba7b636af8164f142e12727e4aac174 assets/reagenica/models/item/metasequoi
 76ad7bbed7d7273045a267275d42c41e6157a6e6 assets/reagenica/models/item/metasequoia_stairs.json
 411016387d1ddbc116da61ad99ab1b16fc9aa49e assets/reagenica/models/item/metasequoia_trapdoor.json
 7eed11848c016c002145313db50770837e1b23b8 assets/reagenica/models/item/metasequoia_wood.json
+6aff8a5620c0370e1c4638266e28f59a8b1f5c12 assets/reagenica/models/item/mizuna.json
 cff744ba9c344cd3fa8ba89f27048deba198bf0f assets/reagenica/models/item/oilsand_block.json
 9fc0e830c6697cb0c8e33c82baf996cc4f4f295a assets/reagenica/models/item/orange_plastic_pane.json
 2ffddd4c4d1b333eceb6bda26fe7aec18db10829 assets/reagenica/models/item/orange_plastic_tile_pane.json
