@@ -1,5 +1,8 @@
 package kandango.reagenica.generator;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import kandango.reagenica.ChemiBlocks;
 import kandango.reagenica.ChemistryMod;
 import kandango.reagenica.family.StoneFamily;
@@ -9,6 +12,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.ButtonBlock;
 import net.minecraft.world.level.block.CeilingHangingSignBlock;
+import net.minecraft.world.level.block.CropBlock;
 import net.minecraft.world.level.block.DoorBlock;
 import net.minecraft.world.level.block.FenceBlock;
 import net.minecraft.world.level.block.FenceGateBlock;
@@ -43,6 +47,7 @@ public class ChemiBlockStateProvider extends BlockStateProvider{
     processCrosses();
     processSimples();
     processPanes();
+    processCrops();
     ChemiBlocks.listFlowerPots.forEach(rg -> pottedPlant(rg, rg.getId().getPath()));
   }
 
@@ -166,6 +171,24 @@ public class ChemiBlockStateProvider extends BlockStateProvider{
       itemModels().withExistingParent(name.getPath()+"_pane", mcLoc("item/generated")).texture("layer0", concatBlock(name));
     }
   }
+  private void registerCropBlock(RegistryObject<? extends CropBlock> block, String baseName){
+    final Map<Integer, ModelFile> stageModelMap = new HashMap<>();
+    for(int stage=0; stage<4; stage++){
+      String name = "crops/"+baseName+"_stage"+stage;
+      ModelFile model = models().withExistingParent(name, mcLoc("block/crop"))
+        .texture("crop", modLoc("block/"+name))
+        .renderType("cutout");
+      stageModelMap.put(stage, model);
+    }
+    getVariantBuilder(block.get()).forAllStates(state -> {
+      int age = state.getValue(CropBlock.AGE);
+      int stage = (age==7 ? 3 : (age>=4 ? 2 : (age>=2 ? 1 : 0)));
+      return ConfiguredModel.builder()
+              .modelFile(stageModelMap.get(stage))
+              .build();
+    });
+    itemModels().withExistingParent(baseName, mcLoc("item/generated")).texture("layer0", modLoc("item/"+baseName));
+  }
   private ResourceLocation concatBlock(ResourceLocation base){
     String path = base.getPath();
     String nameSpace = base.getNamespace();
@@ -246,5 +269,8 @@ public class ChemiBlockStateProvider extends BlockStateProvider{
     registerPaneBlockWithItem(ChemiBlocks.CUT_LEAD_GLASS_PANE, modLoc("cut_lead_glass"), mcLoc("glass_pane_top"), "cutout");
     registerPaneBlockWithItem(ChemiBlocks.POLYETHYLENE_PANE, "cutout");
     registerPaneBlockWithItem(ChemiBlocks.PVC_PANE, "cutout");
+  }
+  private void processCrops(){
+    registerCropBlock(ChemiBlocks.MIZUNA_CROP, "mizuna");
   }
 }
