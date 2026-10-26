@@ -14,6 +14,7 @@ import kandango.reagenica.recipes.DissolverRecipe;
 import kandango.reagenica.recipes.ElectroLysisRecipe;
 import kandango.reagenica.recipes.FermentationRecipe;
 import kandango.reagenica.recipes.FractionalDistillerRecipe;
+import kandango.reagenica.recipes.FrierRecipe;
 import kandango.reagenica.recipes.HeatFurnaceRecipe;
 import kandango.reagenica.recipes.HydrogenReductorRecipe;
 import kandango.reagenica.recipes.ModRecipes;
@@ -133,6 +134,13 @@ public class ChemistryJEIPlugin implements IModPlugin{
       ModRecipes.HYDROGEN_REDUCTOR_TYPE,
       helper -> new HydrogenReductorCategory(helper),
       () -> new ItemStack(ChemiBlocks.HYDROGEN_REDUCTOR.get())
+    ),
+    new JEIPluginRecipes<>(
+      "frier",
+      FrierRecipe.class,
+      ModRecipes.FRIER_TYPE,
+      helper -> new FrierCategory(helper),
+      () -> new ItemStack(ChemiBlocks.FRIER.get())
     )
   );
 

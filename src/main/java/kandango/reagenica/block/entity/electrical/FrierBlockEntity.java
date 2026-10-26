@@ -1,11 +1,16 @@
 package kandango.reagenica.block.entity.electrical;
 
+import java.util.Arrays;
+import java.util.Objects;
+import java.util.Optional;
 import java.util.OptionalInt;
 import java.util.Random;
+import java.util.stream.Stream;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
+import kandango.reagenica.ChemiFluids;
 import kandango.reagenica.block.Frier;
 import kandango.reagenica.block.entity.ModBlockEntities;
 import kandango.reagenica.block.entity.itemhandler.CommonChemiItemHandler;
@@ -16,8 +21,9 @@ import kandango.reagenica.block.entity.util.FluidItemConverter;
 import kandango.reagenica.block.entity.util.FluidStackUtil;
 import kandango.reagenica.block.entity.util.ItemStackUtil;
 import kandango.reagenica.packet.ISingleTankBlock;
+import kandango.reagenica.packet.ModMessages;
+import kandango.reagenica.packet.SyncFluidPacket;
 import kandango.reagenica.recipes.FrierRecipe;
-import kandango.reagenica.recipes.items.ItemStackWithChance;
 import kandango.reagenica.screen.FrierMenu;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -39,17 +45,27 @@ import net.minecraftforge.common.capabilities.ForgeCapabilities;
 import net.minecraftforge.common.util.LazyOptional;
 import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.fluids.capability.IFluidHandler;
+import net.minecraftforge.fluids.capability.IFluidHandler.FluidAction;
 import net.minecraftforge.fluids.capability.templates.FluidTank;
 import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.ItemStackHandler;
+import net.minecraftforge.network.PacketDistributor;
 
 public class FrierBlockEntity extends ElectricConsumerAbstract implements MenuProvider,ISingleTankBlock,ILampController{
   private final Random rand = new Random();
+  public static final float MAX_TEMPERATURE = 180;
+  public static final float COOKABLE_THRESHOLD = 170;
   private final ItemStackHandler itemHandler = new ItemStackHandler(13) {
       @Override
       protected void onContentsChanged(int slot) {
         setChanged();
         dirty=true;
+      }
+
+      @Override 
+      public int getSlotLimit(int slot){
+        if(1<=slot && slot<=3)return 1;
+        else return 64;
       }
 
       @Override
@@ -67,14 +83,21 @@ public class FrierBlockEntity extends ElectricConsumerAbstract implements MenuPr
     @Override
     protected void onContentsChanged(){
       setChanged();
+      syncFluidToClient();
       dirty=true;
     }
 
     @Override 
     public int fill(FluidStack resource, FluidAction action){
+      int prev = this.getFluidAmount();
       int filled = super.fill(resource, action);
-      if(action.execute())dropTempByFillingOil(filled);
+      if(action.execute())dropTempByFillingOil(prev, filled);
       return filled;
+    }
+    
+    @Override
+    public boolean isFluidValid(FluidStack stack) {
+      return stack.getFluid().isSame(ChemiFluids.COOKING_OIL.getFluid());
     }
   };
   private int progress = 0;
@@ -86,11 +109,11 @@ public class FrierBlockEntity extends ElectricConsumerAbstract implements MenuPr
   private int fuelmax = 1600;
   public int getFuelMax(){return fuelmax;}
   public void setFuelMax(int p){this.fuelmax=p;}
-  private int temperature = 20;
-  public int getTemperature(){return temperature;}
-  public void setTemperature(int p){this.temperature=p;}
+  private float temperature = 20;
+  public float getTemperature(){return temperature;}
+  public void setTemperature(float p){this.temperature=p;}
   private boolean dirty=true;//Always dirty when loaded newly
-  private FrierRecipe cachedRecipe = null;
+  private final FrierRecipes cachedRecipes = new FrierRecipes();
   private boolean isUsingEnergy = false;
   public boolean isUsingEnergy(){return this.isUsingEnergy;}
   public void setUsingEnergy(boolean p){this.isUsingEnergy=p;}
@@ -110,7 +133,7 @@ public class FrierBlockEntity extends ElectricConsumerAbstract implements MenuPr
     oilTank.readFromNBT(tag.getCompound("OilTank"));
     this.progress = tag.getInt("Progress");
     this.fuel = tag.getInt("Fuel");
-    this.temperature = tag.getInt("Temperature");
+    this.temperature = tag.getFloat("Temperature");
     this.fuelmax = tag.getInt("FuelMax");
   }
 
@@ -121,7 +144,7 @@ public class FrierBlockEntity extends ElectricConsumerAbstract implements MenuPr
     FluidStackUtil.saveFluid(tag, "OilTank", oilTank);
     tag.putInt("Progress", progress);
     tag.putInt("Fuel", fuel);
-    tag.putInt("Temperature", temperature);
+    tag.putFloat("Temperature", temperature);
     tag.putInt("FuelMax", fuelmax);
   }
 
@@ -175,6 +198,18 @@ public class FrierBlockEntity extends ElectricConsumerAbstract implements MenuPr
       this.load(tag);
   }
 
+  private void syncFluidToClient(){
+    Level lv = this.level;
+    if(lv != null && !lv.isClientSide){
+      ModMessages.CHANNEL.send(
+        PacketDistributor.TRACKING_CHUNK.with(
+          () -> lv.getChunkAt(worldPosition)
+          ),
+          new SyncFluidPacket(worldPosition, oilTank.getFluid().copy())
+      );
+    }
+  }
+
   @Override
   public void serverTick(){
     Level lv = this.level;
@@ -183,15 +218,25 @@ public class FrierBlockEntity extends ElectricConsumerAbstract implements MenuPr
     }
     if(dirty){
       dirty=false;
-      this.cachedRecipe = FrierRecipe.getRecipe(itemHandler.getStackInSlot(0), lv)
-                                      .filter(r -> findInsertSlot(r.getOutput()).isPresent()).orElse(null);
+      for(int i=1;i<=3;i++){
+        this.cachedRecipes.setRecipe(FrierRecipe.getRecipe(itemHandler.getStackInSlot(0), lv), i);
+      }
       if(!this.itemHandler.getStackInSlot(11).isEmpty()){
         boolean out = FluidItemConverter.draintoItem(itemHandler, 11, oilTank);
         boolean in  = FluidItemConverter.drainfromItem(itemHandler, 11, oilTank);
         dirty |= in || out;
       }
     }
-    if(this.cachedRecipe!=null || getBlockState().getOptionalValue(Frier.POWERED).orElse(false)){
+    for(int i=1;i<=3;i++){
+      if(this.itemHandler.getStackInSlot(i).isEmpty()){
+        ItemStack input = this.itemHandler.getStackInSlot(0);
+        if(!input.isEmpty()){
+          ItemStack stack = this.itemHandler.extractItem(0, 1, false);
+          this.itemHandler.setStackInSlot(i, stack);
+        }
+      }
+    }
+    if(this.cachedRecipes.hasAny() || getBlockState().getOptionalValue(Frier.POWERED).orElse(false)){
       if(this.fuel==0 && this.temperature<=170){
         int fuelInSlot = ItemStackUtil.burnAsFuel(itemHandler, 4);
         if(fuelInSlot>0){
@@ -201,34 +246,44 @@ public class FrierBlockEntity extends ElectricConsumerAbstract implements MenuPr
       }
       if(lv.getGameTime()%10==0){
         if(this.fuel>0){
-          if(this.temperature<180)this.temperature++;
+          if(this.temperature<180)heatup(1.5f);
         }else if(this.energyStorage.getEnergyStored()>=70){
-          if(this.temperature<180)this.temperature++;
+          if(this.temperature<180)heatup(1.0f);
           // keeping hot also consumes energy!
           this.energyStorage.extractEnergy(70, false);
         }else{
-          if(this.temperature>20)this.temperature--;
+          if(this.temperature>20)naturalCooldown();
         }
       }
     }
     if(this.fuel>0){
       this.fuel--;
     }
-    if(this.cachedRecipe!=null && this.temperature>=170){
-      FrierRecipe recipe = this.cachedRecipe;
-      ItemStack result = recipe.getOutput();
-      ItemStackWithChance byproduct = recipe.getByproduct();
-      this.progress++;
+    if(this.cachedRecipes.hasAny() && this.temperature>=170 && this.oilTank.getFluidAmount() >= 4000){
+      if(this.cachedRecipes.getResultStacks().anyMatch(stack -> findInsertSlot(stack).isPresent())){
+        this.progress++;
+      }
       if(this.progress>200){
         this.progress=0;
-        findInsertSlot(result).ifPresent(slot -> ItemStackUtil.addStackToSlotifPossible(itemHandler, slot, result));
-        if(!byproduct.isEmpty()){
-          findInsertSlot(byproduct.get()).ifPresentOrElse(
-            slot -> ItemStackUtil.addStackToSlotifPossible(itemHandler, slot, byproduct.roll(rand)),
-            () -> ItemStackUtil.drop(lv, worldPosition, byproduct.roll(rand)));
+        for(int i=1;i<=3;i++){
+          final int index = i;
+          this.cachedRecipes.getRecipe(index).ifPresent(r -> completeRecipe(r, index, lv));
         }
+        this.oilTank.drain(25, FluidAction.EXECUTE);
       }
     }
+  }
+  private void completeRecipe(FrierRecipe recipe, int slotId, Level lv){
+    ItemStack result = recipe.getOutput();
+    findInsertSlot(result).ifPresent(slot -> {
+      ItemStackUtil.addStackToSlotifPossible(itemHandler, slot, result);
+      ItemStack byproduct = recipe.getByproduct().roll(rand);
+      if(!byproduct.isEmpty()){
+        findInsertSlot(byproduct).ifPresentOrElse(
+          slot2 -> ItemStackUtil.addStackToSlotifPossible(itemHandler, slot2, byproduct),
+          () -> ItemStackUtil.drop(lv, worldPosition, byproduct));
+      }
+    });
   }
   private OptionalInt findInsertSlot(ItemStack stack){
     int emptyslot = -1;
@@ -246,8 +301,25 @@ public class FrierBlockEntity extends ElectricConsumerAbstract implements MenuPr
     else return OptionalInt.empty();
   }
 
-  private void dropTempByFillingOil(int amount){
-
+  private void dropTempByFillingOil(int prev, int amount){
+    if(amount<=0)return;
+    float newTemp = (this.temperature*prev + 20*amount)/(prev+amount);
+    this.temperature = newTemp;
+  }
+  private void naturalCooldown(){
+    int oilAmount = this.oilTank.getFluidAmount();
+    float hc = oilAmount*0.05f;
+    float cooldown = 100.0f / hc;
+    this.temperature -= cooldown;
+    if(this.temperature < 20) this.temperature = 20;
+  }
+  private void heatup(float energy){
+    float maxTank = this.oilTank.getCapacity();
+    float oilAmount = this.oilTank.getFluidAmount();
+    if(oilAmount<=0)return;
+    float dt = maxTank*energy/oilAmount;
+    this.temperature += dt;
+    if(this.temperature > MAX_TEMPERATURE) this.temperature = MAX_TEMPERATURE;
   }
   @Override
   protected ElectricStorage energyStorageProvider() {
@@ -270,5 +342,26 @@ public class FrierBlockEntity extends ElectricConsumerAbstract implements MenuPr
     super.invalidateCaps();
     itemHandlerLazyOptional.invalidate();
     fluidTanksLazyOptional.invalidate();
+  }
+
+  private class FrierRecipes {
+    private final FrierRecipe[] recipes = new FrierRecipe[3];
+    public Optional<FrierRecipe> getRecipe(int slot){
+      return Optional.ofNullable(recipes[toArrayIndex(slot)]);
+    }
+    public void setRecipe(Optional<FrierRecipe> recipe, int slot){
+      recipes[toArrayIndex(slot)] = recipe.orElse(null);
+    }
+    public Stream<ItemStack> getResultStacks(){
+      return Arrays.stream(recipes).filter(Objects::nonNull).map(r -> r.getOutput());
+    }
+    public boolean hasAny(){
+      return Arrays.stream(recipes).anyMatch(Objects::nonNull);
+    }
+
+    private int toArrayIndex(int slot){
+      if(1<=slot && slot<=3)return slot-1;
+      else throw new IndexOutOfBoundsException();
+    }
   }
 }

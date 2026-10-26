@@ -10,6 +10,7 @@ import kandango.reagenica.client.renderer.DissolverFluidRenderer;
 import kandango.reagenica.client.renderer.ElectrolysisFluidRenderer;
 import kandango.reagenica.client.renderer.FiltrationDeviceRenderer;
 import kandango.reagenica.client.renderer.FluidPipeRenderer;
+import kandango.reagenica.client.renderer.FrierFluidRenderer;
 import kandango.reagenica.client.renderer.HeatFurnaceFluidRenderer;
 import kandango.reagenica.client.renderer.LargeTankRenderer;
 import kandango.reagenica.client.renderer.LeadBatteryFluidRenderer;
@@ -53,6 +54,7 @@ public class ClientSetupEvent {
             fluidTranslucent(ChemiFluids.PLATINUM_SOLUTION);
             fluidTranslucent(ChemiFluids.COOKING_SAKE);
             fluidTranslucent(ChemiFluids.MIRIN);
+            fluidTranslucent(ChemiFluids.COOKING_OIL);
             //CRUDE OIL
             fluidTranslucent(ChemiFluids.DIESEL_FUEL);
             fluidTranslucent(ChemiFluids.NAPHTHA);
@@ -83,6 +85,7 @@ public class ClientSetupEvent {
             BlockEntityRenderers.register(ModBlockEntities.SIGN.get(), SignRenderer::new);
             BlockEntityRenderers.register(ModBlockEntities.HANGING_SIGN.get(), HangingSignRenderer::new);
             BlockEntityRenderers.register(ModBlockEntities.FILTRATION_DEVICE.get(), FiltrationDeviceRenderer::new);
+            BlockEntityRenderers.register(ModBlockEntities.FRIER.get(), FrierFluidRenderer::new);
 
             ItemProperties.register(ChemiItems.ALCHOHOL_LAMP.get(), new ResourceLocation("empty"), (stack, level, entity, seed) -> stack.getDamageValue() >= stack.getMaxDamage() ? 1.0F : 0.0F);
         });

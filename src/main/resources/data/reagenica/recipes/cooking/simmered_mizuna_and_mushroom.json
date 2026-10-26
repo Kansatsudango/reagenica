@@ -1,0 +1,10 @@
+{
+  "type": "reagenica:cooking",
+  "inputs": [
+    { "tag": "reagenica:edible_mushrooms" },
+    { "item": "reagenica:mizuna" },
+    { "item": "reagenica:soy_sauce" },
+    { "item": "reagenica:mirin" }
+  ],
+  "result": { "item": "reagenica:simmered_mizuna_and_mushroom", "count": 2 }
+}

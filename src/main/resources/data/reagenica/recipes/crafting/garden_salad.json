@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    { "item": "reagenica:mizuna" },
+    { "item": "reagenica:mizuna" },
+    { "item": "reagenica:tomato" },
+    { "item": "minecraft:carrot" },
+    { "item": "minecraft:bowl" },
+    { "item": "minecraft:bowl" }
+  ],
+  "result": {
+    "item": "reagenica:garden_salad",
+    "count": 2
+  }
+}

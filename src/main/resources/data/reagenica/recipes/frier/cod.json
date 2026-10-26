@@ -1,0 +1,5 @@
+{
+  "type": "reagenica:frier",
+  "input": { "item": "reagenica:raw_fried_cod" },
+  "result": { "item": "reagenica:fried_cod", "count": 1 }
+}

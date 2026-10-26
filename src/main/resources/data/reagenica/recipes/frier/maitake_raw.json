@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    { "item": "reagenica:tempura_koromo" },
+    { "item": "reagenica:grifola_frondosa" }
+  ],
+  "result": {
+    "item": "reagenica:raw_maitake",
+    "count": 4
+  }
+}

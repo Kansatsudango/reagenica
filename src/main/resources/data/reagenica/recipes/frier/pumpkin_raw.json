@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    { "item": "reagenica:tempura_koromo" },
+    { "item": "minecraft:pumpkin" }
+  ],
+  "result": {
+    "item": "reagenica:raw_pumpkin_tempura",
+    "count": 4
+  }
+}

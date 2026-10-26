@@ -15,6 +15,7 @@ import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.SlotItemHandler;
 
 public class FrierMenu extends ChemistryMenu<FrierBlockEntity> {
+  private int temperature;
   public FrierMenu(int id, Inventory inv, FriendlyByteBuf extradata){
     this(id,inv,(FrierBlockEntity)inv.player.level().getBlockEntity(extradata.readBlockPos()));
   }
@@ -53,9 +54,11 @@ public class FrierMenu extends ChemistryMenu<FrierBlockEntity> {
     });
     this.addDataSlot(new DataSlot() {
       @Override
-      public int get() {return be.getTemperature();}
+      public int get() {return (int)be.getTemperature();}
       @Override
-      public void set(int value) {be.setTemperature(value);}
+      public void set(int value) {
+        temperature=value;
+      }
     });
   }
 
@@ -83,7 +86,7 @@ public class FrierMenu extends ChemistryMenu<FrierBlockEntity> {
     return ChemiUtils.nonNullOrLog(this.blockEntity).map(x -> x.getProgress()).orElse(0);
   }
   public int getTemperature(){
-    return ChemiUtils.nonNullOrLog(this.blockEntity).map(x -> x.getTemperature()).orElse(0);
+    return temperature;
   }
   public EnergyStorage getEnergyStorage(){
     return ChemiUtils.nonNullOrLog(this.blockEntity).map(x -> (EnergyStorage)x.getElectricStorage(0)).orElseGet(() -> new EnergyStorage(1000));

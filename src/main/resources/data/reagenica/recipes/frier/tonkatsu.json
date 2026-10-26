@@ -1,5 +1,5 @@
 {
   "type": "reagenica:frier",
-  "input": { "item": "minecraft:porkchop" },
+  "input": { "item": "reagenica:raw_tonkatsu" },
   "result": { "item": "reagenica:tonkatsu", "count": 1 }
 }

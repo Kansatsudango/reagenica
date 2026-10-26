@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    { "item": "reagenica:tempura_koromo" },
+    { "tag": "reagenica:onions" },
+    { "item": "reagenica:mizuna" },
+    { "item": "minecraft:carrot" }
+  ],
+  "result": {
+    "item": "reagenica:raw_kakiage",
+    "count": 4
+  }
+}

@@ -1,0 +1,5 @@
+{
+  "type": "reagenica:frier",
+  "input": { "item": "reagenica:raw_kakiage" },
+  "result": { "item": "reagenica:kakiage", "count": 1 }
+}

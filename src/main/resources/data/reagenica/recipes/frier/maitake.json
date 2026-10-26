@@ -1,0 +1,5 @@
+{
+  "type": "reagenica:frier",
+  "input": { "item": "reagenica:raw_maitake_tempura" },
+  "result": { "item": "reagenica:maitake_tempura", "count": 1 }
+}

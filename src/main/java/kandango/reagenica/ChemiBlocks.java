@@ -443,7 +443,7 @@ public class ChemiBlocks {
     () -> new ItemNameBlockItem(CORN_CROP.get(), new Item.Properties()));
   public static final RegistryObject<AdvancedCropBlock> MIZUNA_CROP = registerPlantBlockandlist("mizuna_crop", () -> new AdvancedCropBlock(ChemiBlocks.MIZUNA_SEEDS::get, AdvancedCropBlock.ClimateModifications.Temperate),2,() -> ChemiBlocks.MIZUNA_SEEDS);
   public static final RegistryObject<Item> MIZUNA_SEEDS = registerItemandlist("mizuna", 
-    () -> new ItemNameBlockItem(MIZUNA_CROP.get(), new Item.Properties()));
+    () -> new ItemNameBlockItem(MIZUNA_CROP.get(), new Item.Properties().food(ChemiFoodProperties.RAW_VEGETABLES)));
 
   public static final RegistryObject<Block> GRAPE_STEM = registerSilktouchBlockandlist("grape_stem", GrapeStem::new);
   public static final RegistryObject<Item> GRAPE_STEM_ITEM = registerItemandlist("grape_stem",

@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "reagenica:item/simmered_mizuna_and_mushroom"
+  }
+}

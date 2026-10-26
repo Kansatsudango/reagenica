@@ -152,7 +152,7 @@ public class ModRecipes {
         });
     public static final RegistryObject<RecipeSerializer<CookingRecipe>> COOKING_SERIALIZER = 
         SERIALIZERS.register("cooking", CookingRecipeSerializer::new);
-    public static final RegistryObject<RecipeType<FrierRecipe>> FRYER_RECIPE = 
+    public static final RegistryObject<RecipeType<FrierRecipe>> FRIER_TYPE = 
         TYPES.register("frier", () -> new RecipeType<FrierRecipe>() {
             @Override
             public String toString(){

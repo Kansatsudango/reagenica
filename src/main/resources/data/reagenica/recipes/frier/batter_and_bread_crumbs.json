@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    { "item": "reagenica:water" },
+    { "item": "minecraft:wheat" },
+    { "item": "minecraft:bread" },
+    { "item": "minecraft:bowl" }
+  ],
+  "result": {
+    "item": "reagenica:batter_and_bread_crumbs"
+  }
+}

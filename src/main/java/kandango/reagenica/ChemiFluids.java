@@ -41,6 +41,7 @@ public class ChemiFluids {
   public static final ChemiFluidObject RICE_VINEGAR = register(new ChemiFluidObject("rice_vinegar", 0xFFe0bc67));
   public static final ChemiFluidObject FRUIT_VINEGAR = register(new ChemiFluidObject("fruit_vinegar", 0xFFc93264));
   public static final ChemiFluidObject WINE = register(new ChemiFluidObject("wine", 0xFF59006b));
+  public static final ChemiFluidObject COOKING_OIL = register(new ChemiFluidObject("cooking_oil", 0xfff8cb60));
   public static final ChemiFluidObject CRUDE_OIL = register(new ChemiFluidObject("crude_oil", 0xFF333333));
   public static final ChemiFluidObject DIESEL_FUEL = register(new ChemiFluidObject("diesel_fuel", 0xCC00ff7f));
   public static final ChemiFluidObject NAPHTHA = register(new ChemiFluidObject("naphtha", 0xCCFFFF00));

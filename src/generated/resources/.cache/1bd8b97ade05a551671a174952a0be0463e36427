@@ -1,4 +1,4 @@
-// 1.20.1	2026-10-12T16:16:25.1061019	Item Models: reagenica
+// 1.20.1	2026-10-26T22:47:54.6912809	Item Models: reagenica
 6f0d9872c5f176206015dd5f6420e71fe71f2cb9 assets/reagenica/models/item/acetobacter.json
 54ef03ed6b05d449bef3092145440fb8c97020f5 assets/reagenica/models/item/adipamide.json
 54ef03ed6b05d449bef3092145440fb8c97020f5 assets/reagenica/models/item/adipic_acid.json
@@ -38,6 +38,7 @@ a5a11bf5045367eba24f44d31757e1e73c5edca2 assets/reagenica/models/item/aquamarine
 6f0d9872c5f176206015dd5f6420e71fe71f2cb9 assets/reagenica/models/item/aspergillus_oryzae.json
 a61409d10044e5b42c33f611492edd4a42d69d1b assets/reagenica/models/item/auto_experimenter.json
 b68145ed376ecb0c6d0fda1a5760eed39c2a99d7 assets/reagenica/models/item/auto_recycler.json
+ec925b4278f87fe6edf65fd29e8f2b83d7232ead assets/reagenica/models/item/batter_and_bread_crumbs.json
 8026e7d63d844dc8b6dc6785bcc5b6ccbed330e0 assets/reagenica/models/item/bauxite_ore.json
 053b1afd4932c23f028ed44930b493e52c42ca1b assets/reagenica/models/item/beans_soup.json
 478eee2b4fb7e412cf0a3e6b01301401538acb4e assets/reagenica/models/item/beef_stew.json
@@ -90,6 +91,8 @@ bdcf16887f55bfe1a7ad16f6f9cbca15db9ebdfe assets/reagenica/models/item/citrine_cr
 6f0d9872c5f176206015dd5f6420e71fe71f2cb9 assets/reagenica/models/item/contaminated_sample.json
 0d7fa69cc9cf923fe8e9ab93c09beaa60661bf70 assets/reagenica/models/item/cooked_matsutake.json
 367b0122921a0b531e6ff028c3e27959194f35a1 assets/reagenica/models/item/cooked_onion.json
+54ef03ed6b05d449bef3092145440fb8c97020f5 assets/reagenica/models/item/cooking_oil.json
+acc1c620095725c69dc34b8fc88652c30ec557e7 assets/reagenica/models/item/cooking_oil_bucket.json
 394bfb3bd73d50188aa973a14b1bfe3e956b5655 assets/reagenica/models/item/cooking_pot.json
 54ef03ed6b05d449bef3092145440fb8c97020f5 assets/reagenica/models/item/cooking_sake.json
 9407bb3bb581b6167431ee2c911cb125eb9aaa19 assets/reagenica/models/item/copperoxide_reagent.json
@@ -170,11 +173,15 @@ f197844f34eea34bfd9b68585279c7bba4fa90e6 assets/reagenica/models/item/fluid_fuel
 b2ad708cc4f4e72d79fecd5b9caa4c8e67a7536f assets/reagenica/models/item/fluid_jar.json
 1807d4d58388a4e2b1d703a4dc4d9b308b590829 assets/reagenica/models/item/fractional_distiller_bottom.json
 e64d8498612dbeb6ae986a5d5897929354b74f5a assets/reagenica/models/item/fractional_distiller_top.json
+39a616fa823b139741c559a7e9bfd7fbdbf1c665 assets/reagenica/models/item/fried_cod.json
+482aa8fff661441329c095c37cd03e85fb19d5be assets/reagenica/models/item/fried_salmon.json
 beb1da5c023c3453e5a633cc4483f76849144550 assets/reagenica/models/item/frier.json
+bcad41fd53d2a0056dd82ee92d61e95d7086fea8 assets/reagenica/models/item/fruit_salad.json
 54ef03ed6b05d449bef3092145440fb8c97020f5 assets/reagenica/models/item/fruit_vinegar.json
 05d550f74ca01c62e549bcf5c531c56e5d462065 assets/reagenica/models/item/fruit_vinegar_bucket.json
 47c71633bac31f761d9d6833f578f9b0eaeaf526 assets/reagenica/models/item/fuel_generator.json
 3202b49483209dd068ccc32c337f206af408bd1c assets/reagenica/models/item/fugusashi.json
+861c73a3a37b63e4efdcbe4b5d101289ec03c012 assets/reagenica/models/item/garden_salad.json
 127e7ef934a5a941d014287434d8ba78c084b377 assets/reagenica/models/item/gas_lamp.json
 87beabb52e1644a5ae708ec2f4ec8c8d345228cb assets/reagenica/models/item/geological_surveyor.json
 05589fc1440835616a9f6eeb2cdc13c799b2b1b4 assets/reagenica/models/item/ginkgo_gohan.json
@@ -269,6 +276,7 @@ caa8cbf5da5c74c800ee090b080157befef1ca63 assets/reagenica/models/item/iridium_le
 7b4b9ebb90b2ff0fc0ad6eadb21033ef7998458d assets/reagenica/models/item/iridium_upgrade_smithing_template.json
 9bf35878edbd67203118cb4eb8d05ddf55dd2f1b assets/reagenica/models/item/iron_hotspring_bucket.json
 27cdc16cbad77cc6ed6e2339d9a571325bcca271 assets/reagenica/models/item/iron_oxide.json
+ff998af334144e839b7e6b81c66c4e24d6cee96f assets/reagenica/models/item/kakiage.json
 935ce8b91a52ce6a33ee47b9df4b71f66257041d assets/reagenica/models/item/koji.json
 368efbdf15f9e557ba5f0c60fd5d5e8bc67c9207 assets/reagenica/models/item/lamp_linker.json
 32e76022fdc84cc9d94705d3f1571c3f4d7ab55c assets/reagenica/models/item/lapisquartz_amulet.json
@@ -521,7 +529,10 @@ c8bdab273859debaa6f7da39cbf436ebb8c74e8d assets/reagenica/models/item/radioisoto
 50066ce905714c052328ac89d6ae82164104bc67 assets/reagenica/models/item/raw_apatite.json
 3f48db268081048e336bad35d8d3bb75cea92093 assets/reagenica/models/item/raw_bauxite.json
 d6f9ce9d9ed2fea5ec5d46ea14310f2f0c5e023a assets/reagenica/models/item/raw_chalcopyrite.json
+447b3eba571330730e09be09b96f27f90d2797f8 assets/reagenica/models/item/raw_fried_cod.json
+7ef037be99c204f08540368a4fe81efc7877d6fc assets/reagenica/models/item/raw_fried_salmon.json
 9c0f87628d48c0db2a8b28926deef1ec98eee29e assets/reagenica/models/item/raw_iridium.json
+59e7693ecac0c121dc3d6e64d9b907aa1cc908b1 assets/reagenica/models/item/raw_kakiage.json
 1e2930bb03a25d3c9011e710e61294e91e54b0b9 assets/reagenica/models/item/raw_lead.json
 42f51a0ed67dc15b4ad1b85aaaa7ba731c6aba45 assets/reagenica/models/item/raw_maitake_tempura.json
 627461ebbb8cd7ace90a3d86113984239d5ef530 assets/reagenica/models/item/raw_pumpkin_tempura.json
@@ -567,6 +578,7 @@ e2b9188eb379eb3b5f02db325d6826768199bc21 assets/reagenica/models/item/silver_ing
 3a2b897808f7d54b53bdd36824d432ba341488ad assets/reagenica/models/item/silver_nugget.json
 54ef03ed6b05d449bef3092145440fb8c97020f5 assets/reagenica/models/item/silver_solution.json
 2175dccd261ad351fb208235a00662ad536b48e6 assets/reagenica/models/item/silver_solution_bucket.json
+0e01dbb6d0c1cc44c66b730a055dcb6d0315a3f0 assets/reagenica/models/item/simmered_mizuna_and_mushroom.json
 41eb603961605b4f2e18c6b7d0a221a25f22e1bc assets/reagenica/models/item/simple_hotspring_bucket.json
 b79d723517e9e0ff75179c34935bae175f94ffa0 assets/reagenica/models/item/slag.json
 54ef03ed6b05d449bef3092145440fb8c97020f5 assets/reagenica/models/item/slag_solution.json
@@ -599,6 +611,7 @@ b3b889bb9160a10195040be89a8d73c40ea7b31b assets/reagenica/models/item/sushi_fugu
 ff5ede70fce04eca8533028c11b5aed81f1e5db6 assets/reagenica/models/item/sushi_seabream.json
 31ef1953c6131630be010cc10c073ef444e08b12 assets/reagenica/models/item/tarako.json
 d99c8d82a28a87bc8c7a456b7681d1cba6eafc27 assets/reagenica/models/item/taxodium_root.json
+b1398a5280ec302281d8adeda02ae04c0ac5f9f9 assets/reagenica/models/item/tempura_koromo.json
 6674b7ad2965c9d01201ec4fbdbc9a1beb618fee assets/reagenica/models/item/testtube.json
 ac0524626ffc476e69bd7cd77ee64c839d34f0e6 assets/reagenica/models/item/thin_platinum_electrode.json
 5258aac77f9addeb324b0a859b6fcf56d913dc2d assets/reagenica/models/item/tomato_soup.json

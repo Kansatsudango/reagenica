@@ -1,0 +1,5 @@
+{
+  "type": "reagenica:frier",
+  "input": { "item": "reagenica:raw_pumpkin_tempura" },
+  "result": { "item": "reagenica:pumpkin_tempura", "count": 1 }
+}

@@ -43,6 +43,12 @@ public class ChemiFoodProperties {
             .effect(() -> new MobEffectInstance(MobEffects.DAMAGE_BOOST, 1200, 0), 1.0f)
             .alwaysEat()
             .build();
+  public static final FoodProperties SIMMERED_MIZUNA = new FoodProperties.Builder()
+            .nutrition(9)
+            .saturationMod(1.4f)
+            .effect(() -> new MobEffectInstance(MobEffects.REGENERATION, 200, 0), 1.0f)
+            .alwaysEat()
+            .build();
   public static final FoodProperties POT_AU_FEU = new FoodProperties.Builder()
             .nutrition(12)
             .saturationMod(1.5f)
@@ -232,6 +238,10 @@ public class ChemiFoodProperties {
             .effect(() -> new MobEffectInstance(MobEffects.DIG_SPEED, 1200, 0), 1.0f)
             .alwaysEat()
             .build();
+  public static final FoodProperties SALAD = new FoodProperties.Builder()
+            .nutrition(12)
+            .saturationMod(1.0f)
+            .build();
   public static final FoodProperties CANDIED_FIG = new FoodProperties.Builder()
             .nutrition(8)
             .saturationMod(1.0f)
@@ -296,6 +306,18 @@ public class ChemiFoodProperties {
             .nutrition(12)
             .saturationMod(1.3f)
             .effect(() -> new MobEffectInstance(MobEffects.DAMAGE_BOOST, 200, 1), 1.0f)
+            .alwaysEat()
+            .build();
+  public static final FoodProperties FRIED_COD = new FoodProperties.Builder()
+            .nutrition(12)
+            .saturationMod(1.3f)
+            .effect(() -> new MobEffectInstance(MobEffects.DAMAGE_BOOST, 200, 1), 1.0f)
+            .alwaysEat()
+            .build();
+  public static final FoodProperties FRIED_SALMON = new FoodProperties.Builder()
+            .nutrition(12)
+            .saturationMod(1.3f)
+            .effect(() -> new MobEffectInstance(MobEffects.DAMAGE_BOOST, 240, 1), 1.0f)
             .alwaysEat()
             .build();
   public static final FoodProperties PUMPKIN_TEMPURA = new FoodProperties.Builder()

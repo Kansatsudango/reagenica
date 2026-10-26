@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    { "item": "reagenica:batter_and_bread_crumbs" },
+    { "item": "minecraft:salmon" }
+  ],
+  "result": {
+    "item": "reagenica:raw_fried_salmon",
+    "count": 1
+  }
+}
