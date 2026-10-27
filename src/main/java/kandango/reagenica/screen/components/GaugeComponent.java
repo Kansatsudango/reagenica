@@ -42,7 +42,7 @@ public class GaugeComponent implements IScreenComponent{
   public void render(@Nonnull GuiGraphics graphics, float partialTicks, int mouseX, int mouseY, int topPos, int leftPos) {
     int gaugeHeight = this.height * value.getAsInt() / this.maxValue;
     int dy = height-gaugeHeight;
-    graphics.blit(texture, leftPos+x, topPos+y+dy, refx, refy+dy, width, height);
+    graphics.blit(texture, leftPos+x, topPos+y+dy, refx, refy+dy, width, gaugeHeight);
   }
 
   @Override

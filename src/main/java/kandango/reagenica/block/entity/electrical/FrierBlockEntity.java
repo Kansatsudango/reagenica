@@ -55,6 +55,7 @@ public class FrierBlockEntity extends ElectricConsumerAbstract implements MenuPr
   private final Random rand = new Random();
   public static final float MAX_TEMPERATURE = 180;
   public static final float COOKABLE_THRESHOLD = 170;
+  public static final int MIN_REQUIRED_OIL = 4000;
   private final ItemStackHandler itemHandler = new ItemStackHandler(13) {
       @Override
       protected void onContentsChanged(int slot) {
@@ -219,7 +220,7 @@ public class FrierBlockEntity extends ElectricConsumerAbstract implements MenuPr
     if(dirty){
       dirty=false;
       for(int i=1;i<=3;i++){
-        this.cachedRecipes.setRecipe(FrierRecipe.getRecipe(itemHandler.getStackInSlot(0), lv), i);
+        this.cachedRecipes.setRecipe(FrierRecipe.getRecipe(itemHandler.getStackInSlot(i), lv), i);
       }
       if(!this.itemHandler.getStackInSlot(11).isEmpty()){
         boolean out = FluidItemConverter.draintoItem(itemHandler, 11, oilTank);
@@ -283,6 +284,7 @@ public class FrierBlockEntity extends ElectricConsumerAbstract implements MenuPr
           slot2 -> ItemStackUtil.addStackToSlotifPossible(itemHandler, slot2, byproduct),
           () -> ItemStackUtil.drop(lv, worldPosition, byproduct));
       }
+      ItemStackUtil.shrinkSlot(itemHandler, slotId, 1);
     });
   }
   private OptionalInt findInsertSlot(ItemStack stack){

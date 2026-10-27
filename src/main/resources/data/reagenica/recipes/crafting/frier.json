@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " C ",
+    "EFE"
+  ],
+  "key": {
+    "C": { "item": "minecraft:cauldron" },
+    "F": { "item": "minecraft:furnace" },
+    "E": { "tag": "reagenica:cables" }
+  },
+  "result": {
+    "item": "reagenica:frier",
+    "count": 1
+  }
+}

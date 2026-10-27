@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "reagenica:copper_cable",
+    "reagenica:refined_copper_cable",
+    "reagenica:gold_cable",
+    "reagenica:hv_cable"
+  ]
+}

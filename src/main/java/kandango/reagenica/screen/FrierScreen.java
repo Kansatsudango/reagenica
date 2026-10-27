@@ -32,7 +32,7 @@ public class FrierScreen extends AbstractContainerScreen<FrierMenu> {
     components.add(new TankBackComponent(menu.getOilStack(), 39, 43, 58, 36, menu.getBlockEntity().getBlockPos(), List.of(TankBackComponent.ConcealedArea.of(41,46,54,18))));
     components.add(new ArrowComponent(() -> menu.getProgress(), () -> 200, 99, 40, TEXTURE));
     components.add(new EnergyComponent(menu.getEnergyStorage(), 88, 90, TEXTURE));
-    components.add(new InformationComponent(() -> menu.getOilStack().getFluidAmount()<FrierBlockEntity.COOKABLE_THRESHOLD, 115, 91, 14, 14, 176, 97, () -> List.of(Component.translatable("gui.reagenica.frier.oil_not_enough")), TEXTURE));
+    components.add(new InformationComponent(() -> menu.getOilStack().getFluidAmount()<FrierBlockEntity.MIN_REQUIRED_OIL, 115, 91, 14, 14, 176, 97, () -> List.of(Component.translatable("gui.reagenica.frier.oil_not_enough")), TEXTURE));
     components.add(new FireComponent(() -> menu.getBurnTime(), ()->menu.getMaxBurnTime(), 61, 83, TEXTURE));
     components.add(new GaugeComponent(() -> menu.getTemperature()-20, 160, 101, 58, 4, 48, 176, 49, t -> Component.literal((t+20)+" ℃"), TEXTURE));
   }
