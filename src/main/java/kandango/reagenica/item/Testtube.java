@@ -25,7 +25,7 @@ public class Testtube extends Item{
   @Override
   public InteractionResultHolder<ItemStack> use(Level lv, Player player, InteractionHand hand){
     ItemStack stack = player.getItemInHand(hand);
-    HitResult hitResult = player.pick(5.0D, 0.0F, false);
+    HitResult hitResult = player.pick(5.0D, 0.0F, true);
     if(hitResult.getType() == HitResult.Type.BLOCK){
       BlockHitResult blockHit = (BlockHitResult) hitResult;
       BlockPos pos = blockHit.getBlockPos();
