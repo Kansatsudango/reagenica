@@ -1,0 +1,31 @@
+{
+  "type": "forge:conditional",
+  "recipes": [
+    {
+      "conditions": [
+        {
+          "type": "forge:mod_loaded",
+          "modid": "create"
+        }
+      ],
+      "recipe": {
+        "type": "create:filling",
+        "ingredients": [
+          {
+            "item": "reagenica:testtube"
+          },
+          {
+            "amount": 100,
+            "fluidTag": "forge:sodium_chloride_melt",
+            "nbt": {}
+          }
+        ],
+        "results": [
+          {
+            "item": "reagenica:sodium_chloride_melt"
+          }
+        ]
+      }
+    }
+  ]
+}

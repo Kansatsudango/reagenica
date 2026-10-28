@@ -3,6 +3,7 @@ package kandango.reagenica.generator;
 import java.util.function.Consumer;
 
 import javax.annotation.Nonnull;
+
 import kandango.reagenica.ChemiBlocks;
 import kandango.reagenica.ChemiItems;
 import kandango.reagenica.ChemistryMod;

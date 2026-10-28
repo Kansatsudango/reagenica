@@ -23,5 +23,6 @@ public class DataGenerators {
     generator.addProvider(event.includeClient(), new ChemiItemModelProvider(packOutput, existingFileHelper));
     generator.addProvider(event.includeClient(), new ChemiBlockStateProvider(packOutput, existingFileHelper));
     generator.addProvider(event.includeServer(), new ChemiRecipeProvider(packOutput));
+    generator.addProvider(event.includeServer(), new RawJsonProvider(packOutput));
   }
 }
