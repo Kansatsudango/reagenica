@@ -46,7 +46,7 @@ public class ChemiItems {
   public static final RegistryObject<Item> ALCHOHOL_LAMP = registerandlist("alchohol_lamp", () -> new AlcoholLamp());
   public static final RegistryObject<Item> EASY_TORCH = registerandlist("easy_torch", () -> new EasyTorch());
 
-  public static final RegistryObject<Item> TESTTUBE = registerandlist("testtube", () -> new Item(new Item.Properties()));
+  public static final RegistryObject<Testtube> TESTTUBE = registerandlist("testtube", () -> new Testtube(new Item.Properties()));
   public static final RegistryObject<LiquidReagent> WATER_TUBE = registerReagentandlist("water", () -> new LiquidReagent(new ReagentProperties("H2O",0xFF1212A0,0,0,0), () -> Fluids.WATER, new ResourceLocation("minecraft", "water")));
   public static final RegistryObject<LiquidReagent> DISTILLED_WATER_TUBE = registerReagentandlist("distilled_water", () -> new LiquidReagent(new ReagentProperties("H2O",0xFF4848C0,0,0,0), () -> ChemiFluids.DISTILLED_WATER.getFluid()));
   public static final RegistryObject<LiquidReagent> HYDROCHLORIC_ACID = registerReagentandlist("hydrochloric_acid", () -> new LiquidReagent(new ReagentProperties("HCl",0xFF4CAF50,3,0,1), () -> ChemiFluids.HYDROCHLORIC_ACID.getFluid()));
