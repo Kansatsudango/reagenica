@@ -65,9 +65,8 @@ public class FrierMenu extends ChemistryMenu<FrierBlockEntity> {
   @Override
   public List<SlotPriorityRule> quickMoveRules() {
     List<SlotPriorityRule> rules = List.of(
-      SlotPriorityRule.single(SlotPriorityPredicates.IsFuel, 1),
-      SlotPriorityRule.single(SlotPriorityPredicates.IsFluidcase, 6),
-      SlotPriorityRule.single(SlotPriorityPredicates.IsFluidContainer, 4)
+      SlotPriorityRule.single(SlotPriorityPredicates.IsFuel, 4),
+      SlotPriorityRule.single(SlotPriorityPredicates.IsFluidContainer, 11)
     );
     return rules;
   }

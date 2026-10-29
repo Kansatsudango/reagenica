@@ -16,6 +16,7 @@ import kandango.reagenica.block.entity.ModBlockEntities;
 import kandango.reagenica.block.entity.itemhandler.CommonChemiItemHandler;
 import kandango.reagenica.block.entity.lamp.ILampController;
 import kandango.reagenica.block.entity.lamp.LampControllerHelper;
+import kandango.reagenica.block.entity.lamp.LampState;
 import kandango.reagenica.block.entity.lamp.LampStates;
 import kandango.reagenica.block.entity.util.FluidItemConverter;
 import kandango.reagenica.block.entity.util.FluidStackUtil;
@@ -72,8 +73,9 @@ public class FrierBlockEntity extends ElectricConsumerAbstract implements MenuPr
       @Override
       public boolean isItemValid(int slot, @Nullable ItemStack stack) {
         if(stack==null) return false;
-        if(slot<=3) return true;
-        if(slot==4) return ForgeHooks.getBurnTime(stack, RecipeType.SMELTING)>0;
+        if(slot==0) return true;
+        else if(slot<=3) return false;
+        else if(slot==4) return ForgeHooks.getBurnTime(stack, RecipeType.SMELTING)>0;
         else if(slot<=10) return false;
         else if(slot==11) return true;
         else return false;
@@ -120,7 +122,11 @@ public class FrierBlockEntity extends ElectricConsumerAbstract implements MenuPr
   public void setUsingEnergy(boolean p){this.isUsingEnergy=p;}
   private final LampControllerHelper<FrierBlockEntity> lamphelper = new LampControllerHelper<FrierBlockEntity>(this);
 
-  private final LazyOptional<IItemHandler> itemHandlerLazyOptional = LazyOptional.of(() -> CommonChemiItemHandler.Builder.of(itemHandler).deniedSlots(1,2,3).fuelslot(4).outputslot(5,6,7,8,9,10).anyfluidInputslot(11).build());
+  private final LazyOptional<IItemHandler> itemHandlerLazyOptional = LazyOptional.of(() -> CommonChemiItemHandler.Builder.of(itemHandler)
+                                                                              .deniedSlots(1,2,3)
+                                                                              .fuelslot(4)
+                                                                              .outputslot(5,6,7,8,9,10)
+                                                                              .specificFluidInputSlot(ChemiFluids.COOKING_OIL.getFluid(), 11).build());
   private final LazyOptional<IFluidHandler> fluidTanksLazyOptional = LazyOptional.of(() -> oilTank);
 
   public FrierBlockEntity(BlockPos pos, BlockState state){
@@ -217,28 +223,43 @@ public class FrierBlockEntity extends ElectricConsumerAbstract implements MenuPr
     if(lv==null){
       return;
     }
+    if(this.cachedRecipes.isMaiden()){
+      for(int i=1;i<=3;i++){
+        this.cachedRecipes.setRecipe(FrierRecipe.getRecipe(this.itemHandler.getStackInSlot(i), lv), i);
+      }
+    }
     if(dirty){
       dirty=false;
-      for(int i=1;i<=3;i++){
-        this.cachedRecipes.setRecipe(FrierRecipe.getRecipe(itemHandler.getStackInSlot(i), lv), i);
-      }
       if(!this.itemHandler.getStackInSlot(11).isEmpty()){
         boolean out = FluidItemConverter.draintoItem(itemHandler, 11, oilTank);
         boolean in  = FluidItemConverter.drainfromItem(itemHandler, 11, oilTank);
         dirty |= in || out;
       }
-    }
-    for(int i=1;i<=3;i++){
-      if(this.itemHandler.getStackInSlot(i).isEmpty()){
-        ItemStack input = this.itemHandler.getStackInSlot(0);
-        if(!input.isEmpty()){
-          ItemStack stack = this.itemHandler.extractItem(0, 1, false);
-          this.itemHandler.setStackInSlot(i, stack);
-        }
+      for(int i=1;i<=3;i++){
+        if(this.itemHandler.getStackInSlot(i).isEmpty())this.cachedRecipes.cancelRecipe(i);
       }
     }
-    if(this.cachedRecipes.hasAny() || getBlockState().getOptionalValue(Frier.POWERED).orElse(false)){
-      if(this.fuel==0 && this.temperature<=170){
+    for(int i=1;i<=3;i++){
+      final int index = i;
+      if(this.itemHandler.getStackInSlot(index).isEmpty()){
+        final ItemStack input = this.itemHandler.getStackInSlot(0).copy();
+        if(input.isEmpty()){
+          this.cachedRecipes.setRecipe(Optional.empty(), index);
+          continue;//
+        }
+        Optional<FrierRecipe> mayRecipe = FrierRecipe.getRecipe(input, lv);
+        this.cachedRecipes.setRecipe(mayRecipe, index);
+        mayRecipe.ifPresent(recipe -> {
+          ItemStack stack = this.itemHandler.extractItem(0, 1, false);
+          this.itemHandler.setStackInSlot(index, stack);
+        });
+      }
+    }
+    boolean isHeating = false;
+    boolean isProcessing = false;
+    boolean isForceHeating = getBlockState().getOptionalValue(Frier.POWERED).orElse(false);
+    if(this.oilTank.getFluidAmount() >= MIN_REQUIRED_OIL && (this.cachedRecipes.hasAny() || isForceHeating)){
+      if(this.fuel==0 && this.temperature<=COOKABLE_THRESHOLD){
         int fuelInSlot = ItemStackUtil.burnAsFuel(itemHandler, 4);
         if(fuelInSlot>0){
           this.fuel=fuelInSlot;
@@ -247,30 +268,54 @@ public class FrierBlockEntity extends ElectricConsumerAbstract implements MenuPr
       }
       if(lv.getGameTime()%10==0){
         if(this.fuel>0){
-          if(this.temperature<180)heatup(1.5f);
+          if(this.temperature<180){
+            heatup(1.5f);
+            isHeating=true;
+          }
         }else if(this.energyStorage.getEnergyStored()>=70){
-          if(this.temperature<180)heatup(1.0f);
+          if(this.temperature<180){
+            heatup(1.0f);
+          }
           // keeping hot also consumes energy!
           this.energyStorage.extractEnergy(70, false);
-        }else{
-          if(this.temperature>20)naturalCooldown();
+          isHeating=true;
         }
       }
     }
+    if(lv.getGameTime()%10==0 && !isHeating && this.temperature>20)naturalCooldown();
     if(this.fuel>0){
       this.fuel--;
     }
-    if(this.cachedRecipes.hasAny() && this.temperature>=170 && this.oilTank.getFluidAmount() >= 4000){
+    if(this.cachedRecipes.hasAny() && this.temperature>=COOKABLE_THRESHOLD && this.oilTank.getFluidAmount() >= MIN_REQUIRED_OIL){
       if(this.cachedRecipes.getResultStacks().anyMatch(stack -> findInsertSlot(stack).isPresent())){
         this.progress++;
+        isProcessing=true;
       }
-      if(this.progress>200){
+      if(this.progress>=200){
         this.progress=0;
         for(int i=1;i<=3;i++){
           final int index = i;
           this.cachedRecipes.getRecipe(index).ifPresent(r -> completeRecipe(r, index, lv));
         }
         this.oilTank.drain(25, FluidAction.EXECUTE);
+      }
+    }
+    if(isForceHeating){
+      if(isHeating){
+        if(isProcessing)this.lamphelper.changeLampState(new LampStates(LampState.OFF, LampState.BLINK, LampState.ON));
+        else this.lamphelper.changeLampState(new LampStates(LampState.OFF, LampState.BLINK, LampState.BLINK));
+      }else{
+        if(isProcessing)this.lamphelper.changeLampState(new LampStates(LampState.OFF, LampState.BLINK, LampState.ON));
+        this.lamphelper.changeLampState(new LampStates(LampState.ON, LampState.BLINK, LampState.OFF));
+      }
+    }else{
+      if(isHeating){
+        if(isProcessing)this.lamphelper.changeLampState(LampStates.GREEN);
+        else this.lamphelper.changeLampState(LampStates.BOOTING);
+      }else{
+        if(isProcessing)this.lamphelper.changeLampState(LampStates.GREEN); 
+        else if(this.cachedRecipes.hasAny())this.lamphelper.changeLampState(LampStates.RED);
+        else this.lamphelper.changeLampState(LampStates.YELLOW);
       }
     }
   }
@@ -347,12 +392,20 @@ public class FrierBlockEntity extends ElectricConsumerAbstract implements MenuPr
   }
 
   private class FrierRecipes {
+    private boolean isInitialized = false;
     private final FrierRecipe[] recipes = new FrierRecipe[3];
     public Optional<FrierRecipe> getRecipe(int slot){
       return Optional.ofNullable(recipes[toArrayIndex(slot)]);
     }
     public void setRecipe(Optional<FrierRecipe> recipe, int slot){
+      this.isInitialized = true;
       recipes[toArrayIndex(slot)] = recipe.orElse(null);
+    }
+    public void cancelRecipe(int slot){
+      recipes[toArrayIndex(slot)] = null;
+    }
+    public boolean isMaiden(){
+      return !isInitialized;
     }
     public Stream<ItemStack> getResultStacks(){
       return Arrays.stream(recipes).filter(Objects::nonNull).map(r -> r.getOutput());

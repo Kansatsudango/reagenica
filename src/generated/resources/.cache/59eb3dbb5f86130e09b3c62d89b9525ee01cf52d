@@ -1,4 +1,4 @@
-// 1.20.1	2026-10-12T16:16:25.1041018	Loot Tables
+// 1.20.1	2026-10-29T22:15:29.4605252	Loot Tables
 fd599511177b57b7c4697466e227e89162e2d943 data/reagenica/loot_tables/blocks/advanced_farmland.json
 81f631334b4d88836bcea6b819f2263ac0f2ca50 data/reagenica/loot_tables/blocks/advanced_lead_battery.json
 115802854012234d89e3ba52e3d8b2a271af6530 data/reagenica/loot_tables/blocks/air_separator.json
@@ -308,6 +308,7 @@ ae8d1e3c6a0ae5319c46ef3e82020139b90ae07e data/reagenica/loot_tables/blocks/urani
 17b82d58205cee508d7bd760f2bbfd8f4e3704bf data/reagenica/loot_tables/blocks/uranium_glass_pane.json
 a41eefbdf27a9b1e131881f576e2b38d1c298f22 data/reagenica/loot_tables/blocks/white_bisporus.json
 96b0dadd280083a463d98b0296e5dc3b25dc3d80 data/reagenica/loot_tables/blocks/wild_corn.json
+91d36cb58a1c89d57076ebc8594175d40791e18e data/reagenica/loot_tables/blocks/wild_mizuna.json
 a8b53adedd4c6f1c61f7a5adb01081dd7b070440 data/reagenica/loot_tables/blocks/wild_onion.json
 4a302168ee78a5d718c624c90aa39963d47586cf data/reagenica/loot_tables/blocks/wild_rice.json
 c5d9d99adbc632434a2fd0e3e7970af076485bab data/reagenica/loot_tables/blocks/wild_soybeans.json

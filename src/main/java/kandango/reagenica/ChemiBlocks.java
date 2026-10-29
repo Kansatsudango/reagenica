@@ -489,6 +489,9 @@ public class ChemiBlocks {
   public static final RegistryObject<Block> WILD_CORN = registerExternalConfigBlockandlist("wild_corn", () -> new BushBlock(BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).noCollission().instabreak().sound(SoundType.CROP).offsetType(OffsetType.XZ)));
   public static final RegistryObject<Item> WILD_CORN_ITEM = registerItemandlist("wild_corn", 
     () -> new ItemNameBlockItem(WILD_CORN.get(), new Item.Properties()));
+  public static final RegistryObject<Block> WILD_MIZUNA = registerExternalConfigBlockandlist("wild_mizuna", () -> new BushBlock(BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).noCollission().instabreak().sound(SoundType.CROP).offsetType(OffsetType.XZ)));
+  public static final RegistryObject<Item> WILD_MIZUNA_ITEM = registerItemandlist("wild_mizuna", 
+    () -> new ItemNameBlockItem(WILD_MIZUNA.get(), new Item.Properties()));
 
   public static final RegistryObject<Yunohana> YUNOHANA_WHITE = registerBlockandlist("yunohana_white", Yunohana::new); 
   public static final RegistryObject<Item> YUNOHANA_WHITE_ITEM = registerItemandlist("yunohana_white",
