@@ -44,7 +44,7 @@ public class InformationComponent implements IScreenComponent{
 
   @Override
   public void tooltip(@Nonnull GuiGraphics graphics, int mouseX, int mouseY, int topPos, int leftPos, Font font) {
-    if (isMouseOver(leftPos+x, topPos+y, width, height, mouseX, mouseY)) {
+    if (isMouseOver(leftPos+x, topPos+y, width, height, mouseX, mouseY) && this.shouldShow.getAsBoolean()) {
       graphics.renderTooltip(font, this.tooltip.get(), Optional.empty(), mouseX, mouseY);
     }
   }
