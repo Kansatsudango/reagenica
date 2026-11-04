@@ -240,6 +240,10 @@ public class ModBlockEntities {
     public static final RegistryObject<BlockEntityType<FlatMapperBlockEntity>> FLATMAPPER = 
         BLOCK_ENTITIES.register("flatmapper", 
         () -> BlockEntityType.Builder.of((BlockEntityType.BlockEntitySupplier<FlatMapperBlockEntity>)FlatMapperBlockEntity::new,ChemiBlocks.FLATMAPPER.get()).build(null));
+  
+    public static final RegistryObject<BlockEntityType<StoreManagerComputerBlockEntity>> STOREMANAGER_COMPUTER = 
+        BLOCK_ENTITIES.register("storemanager_computer", 
+        () -> BlockEntityType.Builder.of((BlockEntityType.BlockEntitySupplier<StoreManagerComputerBlockEntity>)StoreManagerComputerBlockEntity::new,ChemiBlocks.STOREMANAGER_COMPUTER.get()).build(null));
 
 
     public static final RegistryObject<BlockEntityType<ChemiSignBlockEntity>> SIGN = 

@@ -208,6 +208,9 @@ public class ChemiBlocks {
   public static final RegistryObject<Block> COMPUTER = registerMachineBlockandlist("computer",Computer::new);
   public static final RegistryObject<Item> COMPUTER_ITEM = registerItemandlist("computer",
     () -> new BlockItem(COMPUTER.get(), new Item.Properties()));
+  public static final RegistryObject<Block> STOREMANAGER_COMPUTER = registerMachineBlockandlist("storemanager_computer",StoreManagerComputer::new);
+  public static final RegistryObject<Item> STOREMANAGER_COMPUTER_ITEM = registerItemandlist("storemanager_computer",
+    () -> new BlockItem(STOREMANAGER_COMPUTER.get(), new Item.Properties()));
 
   public static final RegistryObject<Block> ONSEN_MINER = registerMachineBlockandlist("hotspring_miner",OnsenMiner::new);
   public static final RegistryObject<Item> ONSEN_MINER_ITEM = registerItemandlist("hotspring_miner",

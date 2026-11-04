@@ -1,10 +1,12 @@
 package kandango.reagenica;
 
 import com.mojang.brigadier.CommandDispatcher;
+import com.mojang.brigadier.arguments.StringArgumentType;
 import com.mojang.brigadier.context.CommandContext;
 import com.mojang.brigadier.exceptions.CommandSyntaxException;
 
 import kandango.reagenica.block.entity.electrical.ElectricGeneratorAbstract;
+import kandango.reagenica.world.retail.SavedShopData;
 import net.minecraft.commands.CommandSourceStack;
 import net.minecraft.commands.Commands;
 import net.minecraft.commands.arguments.coordinates.BlockPosArgument;
@@ -27,6 +29,11 @@ public class ChemiCommands {
       .then(Commands.argument("pos", BlockPosArgument.blockPos())
         .executes(ChemiCommands::reageniEngineer))
     );
+    dispatcher.register(Commands.literal("reageniretail")
+      .requires(source -> true)
+      .then(Commands.argument("shop_name", StringArgumentType.greedyString())
+        .executes(ChemiCommands::reageniRetail))
+    );
   }
   public static int reageniEngineer(CommandContext<CommandSourceStack> context){
     CommandSourceStack source = context.getSource();
@@ -44,5 +51,12 @@ public class ChemiCommands {
       source.sendFailure(Component.literal("Invalid Blockpos."));
       return 0;
     }
+  }
+  public static int reageniRetail(CommandContext<CommandSourceStack> context){
+    CommandSourceStack source = context.getSource();
+    String shopName = StringArgumentType.getString(context, "shop_name");
+    String output = SavedShopData.get(context.getSource().getServer()).getCompany(shopName).map(c -> c.head(10)).orElse("No Shop Found");
+    source.sendSuccess(() -> Component.literal(output), false);
+    return 1;
   }
 }

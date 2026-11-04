@@ -22,6 +22,7 @@ import kandango.reagenica.world.ChainMiningProvider;
 import kandango.reagenica.world.ChemiCapabilities;
 import kandango.reagenica.world.DelayedSoundProvider;
 import kandango.reagenica.world.SeedPlacingProvider;
+import kandango.reagenica.world.retail.SKU;
 import kandango.reagenica.worldgen.ChemiBiomes;
 import net.minecraft.core.RegistryAccess;
 import net.minecraft.resources.ResourceLocation;
@@ -246,7 +247,7 @@ public class ForgeEventHandler {
   public static void onLevelLoad(LevelEvent.Load event) {
     LevelAccessor accessor = event.getLevel();
     if(accessor instanceof Level lv){
-      ReagentFluidMap.registerAll(ChemiItems.listItems, lv.registryAccess());
+      refleshRecipeCache(lv.registryAccess());
     }
   }
 
@@ -254,6 +255,11 @@ public class ForgeEventHandler {
   @SubscribeEvent(priority = EventPriority.HIGHEST)
   public static void onTagLoad(TagsUpdatedEvent event) {
     RegistryAccess accessor = event.getRegistryAccess();
-    ReagentFluidMap.registerAll(ChemiItems.listItems, accessor);
+    refleshRecipeCache(accessor);
+  }
+
+  public static void refleshRecipeCache(RegistryAccess rg){
+    ReagentFluidMap.registerAll(ChemiItems.listItems, rg);
+    SKU.refleshSKULookupCache();
   }
 }

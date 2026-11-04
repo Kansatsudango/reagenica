@@ -1,5 +1,7 @@
 package kandango.reagenica.recipes;
 
+import kandango.reagenica.world.retail.SKU;
+import kandango.reagenica.world.retail.SKUSerializer;
 import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -171,6 +173,16 @@ public class ModRecipes {
         });
     public static final RegistryObject<RecipeSerializer<ReagenimartRecipe>> REAGENIMART_SERIALIZER = 
         SERIALIZERS.register("reagenimart", ReagenimartRecipeSerializer::new);
+
+    public static final RegistryObject<RecipeType<SKU>> SKU_TYPE = 
+        TYPES.register("sku", () -> new RecipeType<SKU>() {
+            @Override
+            public String toString(){
+                return "reagenica:sku";
+            }
+        });
+    public static final RegistryObject<RecipeSerializer<SKU>> SKU_SERIALIZER = 
+        SERIALIZERS.register("sku", SKUSerializer::new);
 
     public static final RegistryObject<RecipeType<BatteryUpgradeRecipe>> BATTERY_UPGRADE_TYPE = 
         TYPES.register("battery_upgrade", () -> new RecipeType<BatteryUpgradeRecipe>() {
