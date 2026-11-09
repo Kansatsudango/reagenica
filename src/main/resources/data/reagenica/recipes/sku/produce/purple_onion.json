@@ -1,0 +1,10 @@
+{
+  "type": "reagenica:sku",
+  "item": {
+    "item": "reagenica:purple_onion"
+  },
+  "cost": 400,
+  "price": 600,
+  "category": "produce",
+  "weight": 1
+}

@@ -1,0 +1,10 @@
+{
+  "type": "reagenica:sku",
+  "item": {
+    "item": "reagenica:minewipe"
+  },
+  "cost": 120,
+  "price": 140,
+  "category": "nonfoods",
+  "weight": 10
+}

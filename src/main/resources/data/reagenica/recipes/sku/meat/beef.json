@@ -1,0 +1,10 @@
+{
+  "type": "reagenica:sku",
+  "item": {
+    "item": "minecraft:beef"
+  },
+  "cost": 700,
+  "price": 740,
+  "category": "meat",
+  "weight": 10
+}

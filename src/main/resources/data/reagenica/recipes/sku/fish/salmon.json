@@ -1,0 +1,10 @@
+{
+  "type": "reagenica:sku",
+  "item": {
+    "item": "minecraft:salmon"
+  },
+  "cost": 300,
+  "price": 350,
+  "category": "fish",
+  "weight": 10
+}

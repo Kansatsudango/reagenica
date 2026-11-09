@@ -1,0 +1,10 @@
+{
+  "type": "reagenica:sku",
+  "item": {
+    "item": "reagenica:milk"
+  },
+  "cost": 190,
+  "price": 200,
+  "category": "daily",
+  "weight": 10
+}

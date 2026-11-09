@@ -19,7 +19,8 @@ public class SKUSerializer implements RecipeSerializer<SKU> {
     int cost = RecipeJsonHelper.intFromJson(json, "cost");
     int price = RecipeJsonHelper.intFromJson(json, "price");
     MerchandiseCategory category = RecipeJsonHelper.stringFromJson(json, "category").flatMap(MerchandiseCategory::fromString).orElseThrow(() -> new JsonSyntaxException("Key category is missing or invalid"));
-    return new SKU(id, item, cost, price, category);
+    int weight = RecipeJsonHelper.intFromJson(json, "weight");
+    return new SKU(id, item, cost, price, category, weight);
   }
 
   @Override
@@ -28,7 +29,8 @@ public class SKUSerializer implements RecipeSerializer<SKU> {
     int cost = buf.readVarInt();
     int price = buf.readVarInt();
     MerchandiseCategory category = MerchandiseCategory.values()[buf.readByte()];
-    return new SKU(id, item, cost, price, category);
+    int weight = buf.readVarInt();
+    return new SKU(id, item, cost, price, category, weight);
   }
 
   @Override
@@ -37,5 +39,6 @@ public class SKUSerializer implements RecipeSerializer<SKU> {
     buf.writeVarInt(sku.getBaseCost());
     buf.writeVarInt(sku.getBasePrice());
     buf.writeByte(sku.getCategory().ordinal());
+    buf.writeVarInt(sku.getWeight());
   }
 }

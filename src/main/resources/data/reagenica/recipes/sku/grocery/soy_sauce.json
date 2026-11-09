@@ -1,0 +1,10 @@
+{
+  "type": "reagenica:sku",
+  "item": {
+    "item": "reagenica:soy_sauce"
+  },
+  "cost": 300,
+  "price": 360,
+  "category": "grocery",
+  "weight": 10
+}

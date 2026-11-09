@@ -2,7 +2,7 @@ package kandango.reagenica.block.entity;
 
 import java.util.HashSet;
 import java.util.List;
-import java.util.Optional;
+import java.util.Objects;
 import java.util.Random;
 import java.util.Set;
 
@@ -12,8 +12,12 @@ import javax.annotation.Nullable;
 import kandango.reagenica.screen.ComputerMenu;
 import kandango.reagenica.world.ChemiPOIs;
 import kandango.reagenica.world.retail.RetailCompanyData;
+import kandango.reagenica.world.retail.SKU;
 import kandango.reagenica.world.retail.SavedShopData;
+import kandango.reagenica.world.retail.SingleItem;
 import kandango.reagenica.world.retail.Transaction;
+import kandango.reagenica.world.retail.customer.Customer;
+import kandango.reagenica.world.retail.customer.MerchandiseProperty;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
@@ -34,6 +38,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.common.capabilities.ForgeCapabilities;
 import net.minecraftforge.common.util.LazyOptional;
+import net.minecraftforge.items.IItemHandler;
 
 public class StoreManagerComputerBlockEntity extends BlockEntity implements MenuProvider,ITickableBlockEntity{
   private final Set<BlockPos> shelfs = new HashSet<>();
@@ -115,28 +120,93 @@ public class StoreManagerComputerBlockEntity extends BlockEntity implements Menu
         ).forEach(pos -> this.shelfs.add(pos));
     }
 
-    if(rand.nextInt(20)==0){
-      System.out.println(this.shelfs.size());
-      getRandomShelf().ifPresent(pos -> {
-        BlockEntity be = slv.getBlockEntity(pos);
-        be.getCapability(ForgeCapabilities.ITEM_HANDLER).ifPresent(handler -> {
-          int size = handler.getSlots();
-          ItemStack stack = handler.extractItem(rand.nextInt(size), 1, false);
-          if(!stack.isEmpty()){
-            Transaction transaction = new Transaction(shop_name, lv.getGameTime(), List.of(new Transaction.SingleItem(stack, 100, 80)));
-            company.putTransaction(transaction);
-          }
-        });
-      });
+    if(rand.nextInt(2)==0){
+      List<IItemHandler> handlers = this.shelfs.stream().map(pos -> slv.getBlockEntity(pos)).filter(Objects::nonNull)
+                  .map(be -> be.getCapability(ForgeCapabilities.ITEM_HANDLER).orElse(null)).filter(Objects::nonNull)
+                  .toList();
+      MergedItemHandler handler = new MergedItemHandler(handlers);
+      Customer customer = Customer.Builder.of().createWith(SKU.getAllKnownSKU(slv));
+      List<MerchandiseProperty> bought = customer.buyFrom(handler, sku -> sku.getBasePrice(), slv);
+      List<SingleItem> items = bought.stream().map(mp -> SingleItem.of(mp, this::baseCost)).toList();
+      if(!items.isEmpty()){
+        Transaction transaction = new Transaction(shop_name, slv.getGameTime(), items);
+        company.putTransaction(transaction);
+      }
     }
   }
-  private Optional<BlockPos> getRandomShelf(){
-    int size = this.shelfs.size();
-    if(size==0)return Optional.empty();
-    else return Optional.of(this.shelfs.stream().toList().get(rand.nextInt(size)));
+  private int baseCost(SKU sku){
+    return sku.getBaseCost();
   }
   @Override
   public void invalidateCaps(){
     super.invalidateCaps();
+  }
+
+  public static class MergedItemHandler implements IItemHandler {
+    private final List<? extends IItemHandler> handlers;
+
+    public MergedItemHandler(List<? extends IItemHandler> handlers){
+      this.handlers = List.copyOf(handlers);
+    }
+
+    @Override
+    public int getSlots() {
+      return this.handlers.stream().mapToInt(IItemHandler::getSlots).sum();
+    }
+
+    @Override
+    public ItemStack getStackInSlot(int slot) {
+      long x = find(slot);
+      return handlers.get(decodeHandlerIndex(x)).getStackInSlot(decodeSlotIndex(x));
+    }
+
+    @Override
+    public ItemStack insertItem(int slot, ItemStack stack, boolean simulate) {
+      long x = find(slot);
+      return handlers.get(decodeHandlerIndex(x)).insertItem(decodeSlotIndex(x), stack, simulate);
+    }
+
+    @Override
+    public ItemStack extractItem(int slot, int amount, boolean simulate) {
+      long x = find(slot);
+      return handlers.get(decodeHandlerIndex(x)).extractItem(decodeSlotIndex(x), amount, simulate);
+    }
+
+    @Override
+    public int getSlotLimit(int slot) {
+      long x = find(slot);
+      return handlers.get(decodeHandlerIndex(x)).getSlotLimit(decodeSlotIndex(x));
+    }
+
+    @Override
+    public boolean isItemValid(int slot, ItemStack stack) {
+      long x = find(slot);
+      return handlers.get(decodeHandlerIndex(x)).isItemValid(decodeSlotIndex(x), stack);
+    }
+
+    private long find(int index){
+      if(index < 0)throw new IndexOutOfBoundsException();
+      int offset = index;
+      for(int i=0; i<handlers.size(); i++){
+        IItemHandler handler = handlers.get(i);
+        int slots = handler.getSlots();
+        if(offset < slots){
+          return encode(i, offset);
+        }else{
+          offset -= slots;
+        }
+      }
+      throw new IndexOutOfBoundsException();
+    }
+
+    private int decodeHandlerIndex(long x){
+      return (int)(x>>32 & 0xffffffff);
+    }
+    private int decodeSlotIndex(long x){
+      return (int)(x & 0xffffffff);
+    }
+    private long encode(int handlerIndex, int slotIndex){
+      return (long)handlerIndex<<32 | slotIndex;
+    }
   }
 }

@@ -1,7 +1,7 @@
 package kandango.reagenica.world.retail;
 
 import java.util.ArrayDeque;
-import java.util.Queue;
+import java.util.Iterator;
 import java.util.UUID;
 
 import net.minecraft.nbt.CompoundTag;
@@ -13,7 +13,7 @@ public class RetailCompanyData {
   private final Runnable update_callback;
   private long asset;
   private final UUID owner;
-  private final Queue<Transaction> recentTransactions = new ArrayDeque<>();
+  private final ArrayDeque<Transaction> recentTransactions = new ArrayDeque<>();
 
   public RetailCompanyData(UUID owner, Runnable callback){
     this.update_callback = callback;
@@ -37,10 +37,9 @@ public class RetailCompanyData {
 
   public String head(int count){
     StringBuilder sb = new StringBuilder("Transactions:");
-    int i=0;
-    for(Transaction transaction : recentTransactions){
-      i++;
-      if(i>count)break;
+    Iterator<Transaction> it = recentTransactions.descendingIterator();
+    for(int i=0; i<count && it.hasNext(); i++){
+      Transaction transaction = it.next();
       sb.append(transaction.toString());
     }
     return sb.toString();

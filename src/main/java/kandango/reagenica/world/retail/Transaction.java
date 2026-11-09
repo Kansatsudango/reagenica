@@ -6,7 +6,6 @@ import java.util.List;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.ListTag;
 import net.minecraft.nbt.Tag;
-import net.minecraft.world.item.ItemStack;
 
 public class Transaction {
   private final long time;
@@ -56,32 +55,14 @@ public class Transaction {
     StringBuilder builder = new StringBuilder("[Shop:"+this.shopName+", Time:"+this.time+", Items:");
     for(SingleItem item : this.items){
       builder.append("{Item:{");
-      builder.append(item.stack.toString());
+      builder.append(item.stack().toString());
       builder.append("}, Price:");
-      builder.append(item.price);
+      builder.append(item.price());
       builder.append(", Cost:");
-      builder.append(item.cost);
+      builder.append(item.cost());
       builder.append("},");
     }
     builder.append("]");
     return builder.toString();
-  }
-
-  public record SingleItem(ItemStack stack, int price, int cost) {
-    public CompoundTag toCompoundTag(){
-      CompoundTag tag = new CompoundTag();
-      CompoundTag itemTag = new CompoundTag();
-      stack.save(itemTag);
-      tag.put("Item", itemTag);
-      tag.putInt("Price", price);
-      tag.putInt("Cost", cost);
-      return tag;
-    }
-    public static SingleItem fromCompoundTag(CompoundTag tag){
-      ItemStack stack = ItemStack.of(tag.getCompound("Item"));
-      int price = tag.getInt("Price");
-      int cost = tag.getInt("Cost");
-      return new SingleItem(stack, price, cost);
-    }
   }
 }
