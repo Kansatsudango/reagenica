@@ -1,7 +1,9 @@
 package kandango.reagenica.world.retail;
 
 import java.util.ArrayDeque;
+import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.List;
 import java.util.UUID;
 
 import net.minecraft.nbt.CompoundTag;
@@ -43,6 +45,15 @@ public class RetailCompanyData {
       sb.append(transaction.toString());
     }
     return sb.toString();
+  }
+
+  public List<Transaction> getTransactions(){
+    List<Transaction> list = new ArrayList<>(recentTransactions.size());
+    Iterator<Transaction> iterator = recentTransactions.descendingIterator();
+    while (iterator.hasNext()) {
+      list.add(iterator.next());
+    }
+    return list;
   }
 
   CompoundTag encodeAsCompoundTag(){

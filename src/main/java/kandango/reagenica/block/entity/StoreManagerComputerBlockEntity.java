@@ -9,7 +9,7 @@ import java.util.Set;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
-import kandango.reagenica.screen.ComputerMenu;
+import kandango.reagenica.screen.StoreManagerComputerMenu;
 import kandango.reagenica.world.ChemiPOIs;
 import kandango.reagenica.world.retail.RetailCompanyData;
 import kandango.reagenica.world.retail.SKU;
@@ -43,7 +43,18 @@ import net.minecraftforge.items.IItemHandler;
 public class StoreManagerComputerBlockEntity extends BlockEntity implements MenuProvider,ITickableBlockEntity{
   private final Set<BlockPos> shelfs = new HashSet<>();
   private String company_name = "Sample";
+  public String getCompanyName(){
+    return company_name;
+  }
   private String shop_name = "Sample";
+  public String getShopName(){
+    return shop_name;
+  }
+  public void setNames(String shopName, String companyName){
+    this.shop_name = shopName;
+    this.company_name = companyName;
+    this.setChanged();
+  }
   private final Random rand = new Random();
 
   public StoreManagerComputerBlockEntity(BlockPos pos, BlockState state){
@@ -72,7 +83,7 @@ public class StoreManagerComputerBlockEntity extends BlockEntity implements Menu
   @Override
   @Nullable
   public AbstractContainerMenu createMenu(int id, @Nonnull Inventory inv, @Nonnull Player player) {
-    return new ComputerMenu(id, inv);
+    return new StoreManagerComputerMenu(id, inv, this);
   }
 
   @Override

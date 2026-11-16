@@ -6,7 +6,7 @@ import net.minecraftforge.network.simple.SimpleChannel;
 
 public class ModMessages {
     private static int id = 0;
-    public static final String PROTOCOL_VERSION = "AOMORI";
+    public static final String PROTOCOL_VERSION = "IWATE";
     public static final SimpleChannel CHANNEL = NetworkRegistry.newSimpleChannel(
         new ResourceLocation("reagenica", "main"),
         () -> PROTOCOL_VERSION,
@@ -65,5 +65,25 @@ public class ModMessages {
             FlatMapperTogglePacket::toBytes, 
             FlatMapperTogglePacket::new, 
             FlatMapperTogglePacket::handle);
+        CHANNEL.registerMessage(id++,
+            TransactionHistoryPacket.class,
+            TransactionHistoryPacket::encode, 
+            TransactionHistoryPacket::decode, 
+            TransactionHistoryPacket::handle);
+        CHANNEL.registerMessage(id++,
+            TransactionListRequestPacket.class,
+            TransactionListRequestPacket::encode, 
+            TransactionListRequestPacket::decode, 
+            TransactionListRequestPacket::handle);
+        CHANNEL.registerMessage(id++,
+            ShopNameChangePacket.class,
+            ShopNameChangePacket::encode, 
+            ShopNameChangePacket::decode, 
+            ShopNameChangePacket::handle);
+        CHANNEL.registerMessage(id++,
+            ShopNameSyncPacket.class,
+            ShopNameSyncPacket::encode, 
+            ShopNameSyncPacket::decode, 
+            ShopNameSyncPacket::handle);
     }
 }

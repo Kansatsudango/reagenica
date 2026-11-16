@@ -105,6 +105,9 @@ public class ModMenus {
   public static final RegistryObject<MenuType<ComputerMenu>> COMPUTER_MENU =
     MENU_TYPES.register("computer",
       () -> IForgeMenuType.create((id, inv, buf) -> new ComputerMenu(id, inv)));
+  public static final RegistryObject<MenuType<StoreManagerComputerMenu>> STOREMANAGER_COMPUTER_MENU =
+    MENU_TYPES.register("storemanager_computer",
+      () -> IForgeMenuType.create(StoreManagerComputerMenu::new));
   public static final RegistryObject<MenuType<AirSeparatorMenu>> AIR_SEPARATOR_MENU =
     MENU_TYPES.register("air_separator",
       () -> IForgeMenuType.create(AirSeparatorMenu::new));

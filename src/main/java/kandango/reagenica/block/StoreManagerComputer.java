@@ -5,7 +5,6 @@ import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
-import net.minecraft.world.MenuProvider;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
@@ -24,6 +23,7 @@ import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import net.minecraftforge.network.NetworkHooks;
+import net.minecraftforge.network.PacketDistributor;
 
 import java.util.Map;
 
@@ -31,6 +31,8 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
 import kandango.reagenica.block.entity.StoreManagerComputerBlockEntity;
+import kandango.reagenica.packet.ModMessages;
+import kandango.reagenica.packet.ShopNameSyncPacket;
 
 public class StoreManagerComputer extends Block implements EntityBlock {
   public static final DirectionProperty FACING = HorizontalDirectionalBlock.FACING;
@@ -50,8 +52,12 @@ public class StoreManagerComputer extends Block implements EntityBlock {
                  @Nonnull Player player, @Nonnull InteractionHand hand, @Nonnull BlockHitResult hit) {
     if (!level.isClientSide) {
       var blockEntity = level.getBlockEntity(pos);
-      if (blockEntity instanceof MenuProvider provider) {
-        NetworkHooks.openScreen((ServerPlayer) player, provider, pos);
+      if (blockEntity instanceof StoreManagerComputerBlockEntity smc) {
+        ModMessages.CHANNEL.send(
+          PacketDistributor.TRACKING_CHUNK.with(
+            () -> level.getChunkAt(pos)
+            ),new ShopNameSyncPacket(pos, smc.getShopName(), smc.getCompanyName()));
+        NetworkHooks.openScreen((ServerPlayer) player, smc, pos);
       }
     }
     return InteractionResult.SUCCESS;
