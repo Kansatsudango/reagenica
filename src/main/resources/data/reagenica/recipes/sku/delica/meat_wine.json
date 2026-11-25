@@ -1,0 +1,10 @@
+{
+  "type": "reagenica:sku",
+  "item": {
+    "item": "reagenica:meat_wine"
+  },
+  "cost": 140,
+  "price": 270,
+  "category": "delica",
+  "weight": 7
+}

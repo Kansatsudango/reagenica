@@ -1,0 +1,10 @@
+{
+  "type": "reagenica:sku",
+  "item": {
+    "item": "reagenica:pork_onion"
+  },
+  "cost": 160,
+  "price": 320,
+  "category": "delica",
+  "weight": 7
+}

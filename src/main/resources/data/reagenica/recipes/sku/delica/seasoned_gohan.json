@@ -1,0 +1,10 @@
+{
+  "type": "reagenica:sku",
+  "item": {
+    "item": "reagenica:seasoned_gohan"
+  },
+  "cost": 170,
+  "price": 330,
+  "category": "delica",
+  "weight": 7
+}

@@ -1,0 +1,10 @@
+{
+  "type": "reagenica:sku",
+  "item": {
+    "item": "reagenica:meatsauce_spaghetti"
+  },
+  "cost": 120,
+  "price": 210,
+  "category": "delica",
+  "weight": 7
+}

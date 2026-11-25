@@ -1,0 +1,10 @@
+{
+  "type": "reagenica:sku",
+  "item": {
+    "item": "reagenica:cream_stew"
+  },
+  "cost": 130,
+  "price": 240,
+  "category": "delica",
+  "weight": 7
+}

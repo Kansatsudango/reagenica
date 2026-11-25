@@ -1,0 +1,10 @@
+{
+  "type": "reagenica:sku",
+  "item": {
+    "item": "reagenica:beef_stew"
+  },
+  "cost": 320,
+  "price": 480,
+  "category": "delica",
+  "weight": 7
+}

@@ -1,0 +1,10 @@
+{
+  "type": "reagenica:sku",
+  "item": {
+    "item": "reagenica:matsutake_gohan"
+  },
+  "cost": 320,
+  "price": 550,
+  "category": "delica",
+  "weight": 7
+}

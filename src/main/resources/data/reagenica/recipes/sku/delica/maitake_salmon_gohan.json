@@ -1,0 +1,10 @@
+{
+  "type": "reagenica:sku",
+  "item": {
+    "item": "reagenica:maitake_salmon_gohan"
+  },
+  "cost": 210,
+  "price": 450,
+  "category": "delica",
+  "weight": 7
+}

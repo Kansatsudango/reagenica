@@ -1,0 +1,10 @@
+{
+  "type": "reagenica:sku",
+  "item": {
+    "item": "reagenica:corn_soup"
+  },
+  "cost": 130,
+  "price": 210,
+  "category": "delica",
+  "weight": 7
+}

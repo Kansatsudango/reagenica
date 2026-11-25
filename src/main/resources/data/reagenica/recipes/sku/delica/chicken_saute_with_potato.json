@@ -1,0 +1,10 @@
+{
+  "type": "reagenica:sku",
+  "item": {
+    "item": "reagenica:chicken_saute_with_potato"
+  },
+  "cost": 170,
+  "price": 330,
+  "category": "delica",
+  "weight": 7
+}

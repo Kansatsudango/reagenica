@@ -1,0 +1,10 @@
+{
+  "type": "reagenica:sku",
+  "item": {
+    "item": "reagenica:pork_miso_grill"
+  },
+  "cost": 160,
+  "price": 310,
+  "category": "delica",
+  "weight": 7
+}

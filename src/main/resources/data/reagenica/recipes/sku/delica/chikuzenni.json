@@ -1,0 +1,10 @@
+{
+  "type": "reagenica:sku",
+  "item": {
+    "item": "reagenica:chikuzenni"
+  },
+  "cost": 180,
+  "price": 350,
+  "category": "delica",
+  "weight": 7
+}

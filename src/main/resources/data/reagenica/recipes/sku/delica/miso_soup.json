@@ -1,0 +1,10 @@
+{
+  "type": "reagenica:sku",
+  "item": {
+    "item": "reagenica:miso_soup"
+  },
+  "cost": 100,
+  "price": 180,
+  "category": "delica",
+  "weight": 7
+}

@@ -1,0 +1,10 @@
+{
+  "type": "reagenica:sku",
+  "item": {
+    "item": "reagenica:simmered_mizuna_and_mushroom"
+  },
+  "cost": 180,
+  "price": 350,
+  "category": "delica",
+  "weight": 7
+}

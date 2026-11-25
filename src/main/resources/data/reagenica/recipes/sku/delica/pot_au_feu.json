@@ -1,0 +1,10 @@
+{
+  "type": "reagenica:sku",
+  "item": {
+    "item": "reagenica:pot_au_feu"
+  },
+  "cost": 130,
+  "price": 250,
+  "category": "delica",
+  "weight": 7
+}

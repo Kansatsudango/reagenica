@@ -81,8 +81,10 @@ public class StoreManagerComputerScreen extends AbstractContainerScreen<StoreMan
   }
 
   private Supplier<WrappedWidget<Button>> pageSwitchButton(String name, ScreenType nextScreen, int x, int y, int width, int height){
-    return () -> new WrappedWidget<Button>(Button.builder(Component.translatable("gui.reagenica.smc.button."+name), b -> this.currentScreen = nextScreen)
-                  .pos(leftPos+x, topPos+y).size(width, height).build());
+    return () -> new WrappedWidget<Button>(Button.builder(Component.translatable("gui.reagenica.smc.button."+name), b -> {
+                    this.currentScreen = nextScreen;
+                    hookOnPageSwitch(nextScreen);
+                  }).pos(leftPos+x, topPos+y).size(width, height).build());
   }
   private Supplier<WrappedWidget<Button>> packetButton(String name, Button.OnPress action, int x, int y, int width, int height){
     return () -> new WrappedWidget<Button>(Button.builder(Component.translatable("gui.reagenica.smc.button."+name), 
@@ -118,8 +120,6 @@ public class StoreManagerComputerScreen extends AbstractContainerScreen<StoreMan
     addRenderableWidget(shopNameBox);
     screenWidgets.get(ScreenType.CONFIG).add(new WrappedWidget<EditBox>(companyNameBox));
     screenWidgets.get(ScreenType.CONFIG).add(new WrappedWidget<EditBox>(shopNameBox));
-    companyNameBox.setValue(menu.getBlockEntity().getCompanyName());
-    shopNameBox.setValue(menu.getBlockEntity().getShopName());
     updateWidgetsVisibility();
   }
 
@@ -138,6 +138,22 @@ public class StoreManagerComputerScreen extends AbstractContainerScreen<StoreMan
         list.forEach(widget -> widget.setVisibility(false));
       }}
     );
+  }
+
+  private void setDefaultaTextbox(){
+    companyNameBox.setValue(menu.getBlockEntity().getCompanyName());
+    shopNameBox.setValue(menu.getBlockEntity().getShopName());
+  }
+
+  private void hookOnPageSwitch(ScreenType nextScreen){
+    switch (nextScreen) {
+      case CONFIG:
+        setDefaultaTextbox();
+        break;
+    
+      default:
+        break;
+    }
   }
 
   @Override 
